@@ -268,6 +268,40 @@ def fetch_feed(url, max_items=30):
     except Exception as e:
         return []
 
+# ── STOCKS via yfinance ───────────────────────────────
+def fetch_stocks():
+    symbols_map = {
+        "^DJI":    "Dow Jones",
+        "^GSPC":   "S&P 500",
+        "^IXIC":   "NASDAQ",
+        "CL=F":    "Oil (WTI)",
+        "BTC-USD": "Bitcoin",
+    }
+    try:
+        import yfinance as yf
+        result = []
+        for symbol, name in symbols_map.items():
+            try:
+                info = yf.Ticker(symbol).fast_info
+                price = info.last_price
+                prev  = info.previous_close
+                change = round(price - prev, 2) if price and prev else None
+                pct    = round((price - prev) / prev * 100, 2) if price and prev else None
+                result.append({"name":name,"symbol":symbol,
+                    "price":round(price,2) if price else None,
+                    "change":change,"changePct":pct})
+            except Exception as e:
+                result.append({"name":name,"symbol":symbol,"price":None,"change":None,"changePct":None})
+        return result
+    except ImportError:
+        # Fallback: direct Yahoo Finance query2 endpoint
+        url = f"https://query2.finance.yahoo.com/v7/finance/quote?symbols={','.join(symbols_map.keys())}"
+        r = requests.get(url, timeout=10, headers={"User-Agent":"Mozilla/5.0","Accept":"application/json"})
+        quotes = r.json()["quoteResponse"]["result"]
+        return [{"name":symbols_map.get(q["symbol"],q["symbol"]),"symbol":q["symbol"],
+            "price":q.get("regularMarketPrice"),"change":q.get("regularMarketChange"),
+            "changePct":q.get("regularMarketChangePercent")} for q in quotes]
+
 # ── MAIN ─────────────────────────────────────────────
 def main():
     print("🔄 Revere Monitor v6 — fetching...")
@@ -286,6 +320,9 @@ def main():
     data["tides"]          = safe(fetch_tides,          "NOAA tides")     or []
     data["logan"]          = safe(fetch_logan,          "Logan/KBOS")     or {}
     data["mbta_alerts"]    = safe(fetch_mbta,           "MBTA all lines") or []
+
+    print("\n📈 Stocks")
+    data["stocks"] = safe(fetch_stocks, "Yahoo Finance/yfinance") or []
 
     print("\n🏛️  City")
     data["revere_calendar"] = safe(fetch_revere_calendar, "Revere calendar") or []
@@ -329,50 +366,58 @@ def main():
         for i in items: i["source"] = name
         data["news_communities"].extend(items)
 
-    # Boston — comprehensive source list with multiple URL attempts per source
+    # Boston — try multiple URLs per source, use Google News as fallback for Globe
     boston_sources = [
-        # Boston Globe
-        ("https://www.bostonglobe.com/rss/homepage",          "Boston Globe"),
+        # Boston Globe — try direct RSS first, then Google News search as fallback
+        ("https://www.bostonglobe.com/rss/homepage",           "Boston Globe"),
+        ("https://news.google.com/rss/search?q=site:bostonglobe.com&hl=en-US&gl=US&ceid=US:en", "Boston Globe"),
         # Boston Herald
         ("https://bostonherald.com/feed/",                     "Boston Herald"),
-        # WBZ-TV (CBS Boston) — try multiple URL formats
-        ("https://www.cbsnews.com/boston/rss/",                "WBZ CBS Boston"),
-        ("https://www.wbz.com/rss/",                           "WBZ News"),
-        # WBUR — try multiple
+        # WBUR
         ("https://feeds.wbur.org/wburnews",                    "WBUR"),
-        ("https://www.wbur.org/rss",                           "WBUR"),
+        ("https://www.wbur.org/rss/news",                      "WBUR"),
         # WGBH / GBH
         ("https://www.wgbh.org/news/rss",                      "GBH News"),
-        ("https://www.wgbh.org/rss/news",                      "GBH News"),
+        # WBZ CBS Boston
+        ("https://www.cbsnews.com/boston/rss/",                "WBZ/CBS Boston"),
         # Other Boston TV
         ("https://www.wcvb.com/rss",                           "WCVB"),
         ("https://www.nbcboston.com/feed/",                    "NBC Boston"),
         ("https://whdh.com/feed/",                             "WHDH 7News"),
-        # Print/digital
-        ("https://www.masslive.com/arc/outboundfeeds/rss/?outputType=xml","MassLive"),
+        # Digital/print
+        ("https://www.masslive.com/arc/outboundfeeds/rss/?outputType=xml", "MassLive"),
         ("https://www.bostonmagazine.com/feed/",               "Boston Magazine"),
     ]
 
     data["news_boston"] = []
     seen_urls = set()
+    # Track how many items per source to avoid one source flooding
+    source_counts = {}
     for url, label in boston_sources:
-        items = safe(lambda u=url: fetch_feed(u, 6), label) or []
+        if source_counts.get(label, 0) >= 6:
+            continue  # already got enough from this source via another URL
+        items = safe(lambda u=url: fetch_feed(u, 8), label) or []
         for item in items:
-            if item["link"] not in seen_urls:  # deduplicate by URL
-                seen_urls.add(item["link"])
+            link = item.get("link","")
+            if link and link not in seen_urls:
+                seen_urls.add(link)
                 item["source"] = label
                 data["news_boston"].append(item)
+                source_counts[label] = source_counts.get(label, 0) + 1
 
-    # Universal Hub
+    # Universal Hub — try all known URL formats
     uhub = []
     for uh_url in [
+        "https://universalhub.com/node/feed",
         "https://www.universalhub.com/node/feed",
+        "https://universalhub.com/atom.xml",
         "https://www.universalhub.com/atom.xml",
-        "https://www.universalhub.com/feed",
+        "https://universalhub.com/feed",
     ]:
         uhub = safe(lambda u=uh_url: fetch_feed(u, 30), f"UHub {uh_url}") or []
         if uhub:
             for i in uhub: i["source"] = "Universal Hub"
+            print(f"    Universal Hub loaded from {uh_url}")
             break
     data["news_universalhub"] = uhub
 
@@ -395,41 +440,50 @@ def main():
                 item["source"] = label
                 data["news_sports"].append(item)
 
-    # Boston College
+    # Boston College — correct RSS URLs
     bc_sources = [
-        ("https://bcheights.com/feed/",                        "The Heights"),
-        ("https://bceagles.com/rss.aspx?path=mhockey",         "BC Hockey"),
-        ("https://bceagles.com/rss.aspx",                      "BC Athletics"),
-        ("https://247sports.com/college/boston-college/rss/",  "247Sports BC"),
-        ("https://www.bcinterruption.com/rss/current.xml",     "BC Interruption"),
-        ("https://www.si.com/college/boston-college/rss",      "SI Boston College"),
+        ("https://bcheights.com/feed/",                                         "The Heights"),
+        ("https://www.bcinterruption.com/rss/current.xml",                      "BC Interruption"),
+        ("https://bceagles.com/rss.aspx?path=mhockey",                          "BC Hockey"),
+        ("https://bceagles.com/rss.aspx",                                       "BC Athletics"),
+        # 247Sports — correct feed URL format
+        ("https://247sports.com/college/boston-college/Season/2025-Football/Article.rss/", "247Sports BC"),
+        ("https://247sports.com/college/boston-college/rss/",                   "247Sports BC"),
+        # SI — try multiple URL patterns
+        ("https://www.si.com/college/boston-college/rss",                       "SI Boston College"),
+        ("https://www.si.com/rss/si_boston_college.rss",                        "SI Boston College"),
+        # Google News BC as reliable fallback
+        ("https://news.google.com/rss/search?q=boston+college+eagles&hl=en-US&gl=US&ceid=US:en", "Google News BC"),
     ]
     data["news_bc"] = []
     seen_bc = set()
     for url, label in bc_sources:
         items = safe(lambda u=url: fetch_feed(u, 8), label) or []
         for item in items:
-            if item["link"] not in seen_bc:
-                seen_bc.add(item["link"])
+            link = item.get("link","")
+            if link and link not in seen_bc:
+                seen_bc.add(link)
                 item["source"] = label
                 data["news_bc"].append(item)
 
-    # National
+    # National — added CNN
     national_sources = [
-        ("https://feeds.npr.org/1001/rss.xml",                 "NPR"),
-        ("https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml","NY Times"),
-        ("https://feeds.bbci.co.uk/news/rss.xml",              "BBC"),
-        ("https://apnews.com/hub/ap-top-news?format=feed&type=rss","AP"),
-        ("https://thehill.com/feed/",                          "The Hill"),
-        ("https://feeds.washingtonpost.com/rss/national",      "Washington Post"),
+        ("https://feeds.npr.org/1001/rss.xml",                                  "NPR"),
+        ("https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",           "NY Times"),
+        ("https://feeds.bbci.co.uk/news/rss.xml",                               "BBC"),
+        ("https://apnews.com/hub/ap-top-news?format=feed&type=rss",             "AP"),
+        ("https://rss.cnn.com/rss/edition.rss",                                 "CNN"),
+        ("https://thehill.com/feed/",                                            "The Hill"),
+        ("https://feeds.washingtonpost.com/rss/national",                       "Washington Post"),
     ]
     data["news_national"] = []
     seen_nat = set()
     for url, label in national_sources:
         items = safe(lambda u=url: fetch_feed(u, 10), label) or []
         for item in items:
-            if item["link"] not in seen_nat:
-                seen_nat.add(item["link"])
+            link = item.get("link","")
+            if link and link not in seen_nat:
+                seen_nat.add(link)
                 item["source"] = label
                 data["news_national"].append(item)
 
