@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REVERE MONITOR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="config.js"></script>
+<style>
+:root {
+  --bg:        #080d0c;
+  --bg2:       #0d1614;
+  --bg3:       #121f1c;
+  --bg4:       #172824;
+  --border:    #1c2e2a;
+  --border2:   #25403a;
+  --teal:      #00ddb8;
+  --teal2:     #00a889;
+  --teal-dim:  #005a4a;
+  --teal-glow: rgba(0,221,184,0.1);
+  --orange:    #ff8040;
+  --orange-dim:#7a3510;
+  --gold:      #f0c060;
+  --red:       #ff5050;
+  --green:     #40dd88;
+  --blue:      #50b8ff;
+  --purple:    #a080ff;
+  --text:      #a8c4be;
+  --text-dim:  #4a7068;
+  --text-mute: #2a4840;
+  --white:     #e0f0ec;
+  --cond:      'Barlow Condensed', sans-serif;
+  --sans:      'Barlow', sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Subtle scanline */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 4px);
+  pointer-events: none;
+  z-index: 9000;
+}
+
+/* ── HEADER ──────────────────────────────────────── */
+#header {
+  background: var(--bg2);
+  border-bottom: 2px solid var(--teal-dim);
+  box-shadow: 0 0 30px rgba(0,221,184,0.08), 0 2px 20px rgba(0,0,0,0.6);
+  padding: 0 16px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#wordmark {
+  font-family: var(--cond);
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: 5px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+#wordmark em { color: var(--teal); font-style: normal; }
+
+#hd { width: 1px; height: 28px; background: var(--border2); margin: 0 16px; flex-shrink: 0; }
+
+#clock {
+  font-family: var(--cond);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+#datestamp { font-size: 10px; color: var(--text-dim); letter-spacing: 1.5px; margin-left: 12px; flex-shrink: 0; }
+#hs { flex: 1; }
+
+#sun-header {
+  display: flex; gap: 16px;
+  font-size: 10px; color: var(--text-dim);
+  letter-spacing: 1px; flex-shrink: 0; margin-right: 16px;
+}
+#sun-header .v { color: var(--gold); font-weight: 600; }
+
+#updated-hdr {
+  font-size: 9px; color: var(--text-mute);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border-left: 1px solid var(--border2);
+  padding-left: 14px; flex-shrink: 0;
+}
+
+/* ── QUICK LINKS ─────────────────────────────────── */
+#links-bar {
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  min-height: 38px;
+}
+
+a.qlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  background: var(--bg2);
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 11px;
+  font-family: var(--cond);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+a.qlink:hover {
+  background: var(--bg4);
+  border-color: var(--teal-dim);
+  color: var(--teal);
+}
+a.qlink .qi { font-size: 12px; }
+
+/* ── MBTA TICKER ─────────────────────────────────── */
+#ticker {
+  background: #040a08;
+  border-bottom: 1px solid var(--border);
+  padding: 4px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 26px;
+}
+.t-label {
+  font-family: var(--cond);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+  padding-right: 10px;
+  border-right: 1px solid;
+}
+.t-label.mbta { color: var(--blue); border-color: #1e3a60; }
+.t-label.ok   { color: var(--green); border-color: #1a4030; }
+#ticker-text { font-size: 11px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#ticker-text.alert { color: var(--orange); }
+#ticker-text.ok    { color: var(--green); }
+
+/* ── MAIN GRID ───────────────────────────────────── */
+#main {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 14px 14px 32px;
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  grid-template-areas:
+    "left  center right"
+    "media media  media"
+    "news  news   news";
+  gap: 14px;
+  align-items: start;
+}
+
+#col-left   { grid-area: left;   display: flex; flex-direction: column; gap: 14px; }
+#col-center { grid-area: center; display: flex; flex-direction: column; gap: 14px; }
+#col-right  { grid-area: right;  display: flex; flex-direction: column; gap: 14px; }
+#row-media  { grid-area: media; }
+#row-news   { grid-area: news; }
+
+/* ── CARDS ───────────────────────────────────────── */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  animation: fadeUp 0.3s ease both;
+}
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(8px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.ch {
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ct {
+  font-family: var(--cond);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+.cb { font-size: 8px; color: var(--text-mute); letter-spacing: 1.5px; text-transform: uppercase; }
+.cbody { padding: 10px 12px; }
+.cbody.np { padding: 0; }
+.cbody.npx { padding: 0 12px; }
+
+/* ── PRIORITIES ──────────────────────────────────── */
+#priorities { display: flex; flex-direction: column; gap: 8px; }
+
+.pri-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.pri-num {
+  font-family: var(--cond);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  width: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.pri-num.n1 { color: var(--teal); }
+.pri-num.n2 { color: var(--teal2); }
+.pri-num.n3 { color: var(--teal-dim); }
+
+textarea.pri-input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 8px;
+  resize: none;
+  height: 54px;
+  outline: none;
+  line-height: 1.4;
+  transition: border-color 0.15s;
+}
+textarea.pri-input:focus { border-color: var(--teal-dim); }
+textarea.pri-input::placeholder { color: var(--text-mute); font-weight: 400; font-size: 12px; }
+
+#pri-hint { font-size: 9px; color: var(--text-mute); letter-spacing: 1px; text-align: right; margin-top: 2px; }
+
+/* ── CITY CALENDAR ───────────────────────────────── */
+.cal-event {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cal-event:last-child { border-bottom: none; }
+.cal-date { font-size: 9px; color: var(--teal-dim); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 2px; }
+a.cal-title {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+  line-height: 1.35;
+  transition: color 0.12s;
+}
+a.cal-title:hover { color: var(--white); }
+
+.cal-empty {
+  text-align: center;
+  padding: 14px 0;
+  font-size: 11px;
+  color: var(--text-mute);
+  line-height: 1.6;
+}
+a.cal-link-btn {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  padding: 6px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  color: var(--teal);
+  text-decoration: none;
+  font-family: var(--cond);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: background 0.15s;
+}
+a.cal-link-btn:hover { background: var(--bg4); }
+
+/* Google Calendar iframe embed (if configured) */
+.gcal-frame { width: 100%; height: 400px; border: none; display: block; }
+
+/* ── WEATHER CURRENT ─────────────────────────────── */
+#wx-now {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+#wx-temp { font-family: var(--cond); font-size: 72px; font-weight: 900; color: var(--teal); line-height: 1; }
+#wx-temp sup { font-size: 30px; vertical-align: super; color: var(--teal2); }
+#wx-desc { font-family: var(--sans); font-size: 16px; color: var(--text); margin-top: 4px; }
+.wx-kv { display: flex; gap: 10px; margin-top: 4px; }
+.wx-k { font-size: 9px; color: var(--text-mute); letter-spacing: 1.5px; text-transform: uppercase; min-width: 52px; }
+.wx-v { font-size: 12px; color: var(--text); font-weight: 600; }
+
+/* ── HOURLY ──────────────────────────────────────── */
+#hourly-scroll { overflow-x: auto; padding-bottom: 2px; }
+#hourly-scroll::-webkit-scrollbar { height: 3px; }
+#hourly-scroll::-webkit-scrollbar-thumb { background: var(--teal-dim); border-radius: 2px; }
+#hourly-inner { display: flex; gap: 5px; min-width: max-content; padding: 2px 0 4px; }
+
+.hb {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  width: 50px; padding: 6px 4px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--bg3);
+  flex-shrink: 0;
+  transition: border-color 0.15s;
+}
+.hb:hover { border-color: var(--teal-dim); }
+.hb.now   { border-color: var(--teal2); background: var(--bg4); }
+.hb-time  { font-size: 8px; color: var(--text-mute); letter-spacing: 1px; }
+.hb-time.now { color: var(--teal); }
+.hb-temp  { font-family: var(--cond); font-size: 18px; font-weight: 700; color: var(--white); line-height: 1; }
+.hb-icon  { font-size: 14px; }
+.hb-pct   { font-size: 8px; color: var(--blue); }
+.hb-pct.none { color: var(--text-mute); }
+
+/* ── 7-DAY ───────────────────────────────────────── */
+#daily-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.dc {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 8px 4px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 3px;
+  text-align: center;
+}
+.dc-name { font-family: var(--cond); font-size: 12px; font-weight: 700; color: var(--text-dim); letter-spacing: 2px; }
+.dc-icon { font-size: 18px; }
+.dc-hi   { font-family: var(--cond); font-size: 20px; font-weight: 700; color: var(--white); line-height: 1; }
+.dc-lo   { font-size: 10px; color: var(--text-dim); }
+.dc-desc { font-size: 8px; color: var(--text-mute); line-height: 1.3; }
+.dc-pct  { font-size: 9px; color: var(--blue); }
+.dc-pct.none { color: var(--text-mute); }
+
+/* ── SUN / TIDES ROW ─────────────────────────────── */
+#env-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+.sun-row  { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); }
+.sun-row:last-child { border-bottom: none; }
+.sun-k { font-size: 10px; color: var(--text-mute); letter-spacing: 1px; text-transform: uppercase; }
+.sun-v { font-family: var(--cond); font-size: 18px; font-weight: 700; color: var(--gold); }
+.sun-v.t { color: var(--teal); }
+
+.tide-item { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+.tide-item:last-child { border-bottom: none; }
+.tide-arrow { font-family: var(--cond); font-size: 18px; font-weight: 900; width: 20px; text-align: center; flex-shrink: 0; }
+.tide-arrow.H { color: var(--teal); }
+.tide-arrow.L { color: var(--text-mute); }
+.tide-body { flex: 1; }
+.tide-time { font-family: var(--cond); font-size: 16px; font-weight: 700; color: var(--white); }
+.tide-lbl  { font-size: 8px; color: var(--text-mute); letter-spacing: 1px; text-transform: uppercase; }
+.tide-ft   { font-family: var(--cond); font-size: 18px; font-weight: 700; color: var(--orange); }
+.tide-next { font-size: 8px; background: var(--teal-glow); color: var(--teal); border: 1px solid var(--teal-dim); border-radius: 2px; padding: 1px 5px; letter-spacing: 1px; flex-shrink: 0; }
+.tide-past { opacity: 0.35; }
+
+/* ── LOGAN ───────────────────────────────────────── */
+.logan-ind { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid; border-radius: 2px; margin-bottom: 8px; }
+.logan-ind.ok     { border-color: var(--green);  background: rgba(64,221,136,0.06); }
+.logan-ind.delay  { border-color: var(--orange); background: rgba(255,128,64,0.06); }
+.logan-ind.ground { border-color: var(--red);    background: rgba(255,80,80,0.06);  }
+.l-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+.l-dot.ok { background: var(--green); } .l-dot.delay { background: var(--orange); } .l-dot.ground { background: var(--red); }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+.l-status { font-family: var(--cond); font-size: 15px; font-weight: 700; letter-spacing: 1px; }
+.l-status.ok { color: var(--green); } .l-status.delay { color: var(--orange); } .l-status.ground { color: var(--red); }
+.l-detail { font-size: 10px; color: var(--text-dim); padding: 3px 0; border-bottom: 1px solid var(--border); line-height: 1.4; }
+.l-detail:last-child { border-bottom: none; }
+.l-detail strong { color: var(--orange); }
+
+/* ── MEDIA ROW ───────────────────────────────────── */
+#row-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 260px;
+  gap: 14px;
+}
+
+.tv-wrap { background: #000; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+.tv-head { background: var(--bg3); border-bottom: 1px solid var(--border); padding: 5px 12px; display: flex; align-items: center; gap: 7px; }
+.tv-dot  { width: 7px; height: 7px; border-radius: 50%; background: var(--red); animation: pulse 1.5s ease-in-out infinite; }
+.tv-name { font-family: var(--cond); font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--white); }
+.tv-live { margin-left: auto; font-size: 8px; color: var(--red); letter-spacing: 2px; }
+.tv-wrap iframe { width: 100%; height: 165px; border: none; display: block; }
+
+.radio-item { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+.radio-item:last-child { border-bottom: none; }
+.radio-name { font-family: var(--cond); font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--white); }
+.radio-freq { font-size: 8px; color: var(--teal-dim); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.radio-item audio { width: 100%; height: 22px; display: block; }
+
+/* ── NEWS ROW ────────────────────────────────────── */
+#row-news {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+a.ni {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 6px 0; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  transition: background 0.1s;
+}
+a.ni:last-child { border-bottom: none; }
+a.ni:hover { background: rgba(0,221,184,0.04); margin: 0 -12px; padding-left: 12px; padding-right: 12px; }
+.ni-src   { font-size: 8px; color: var(--teal-dim); letter-spacing: 2px; text-transform: uppercase; }
+.ni-title { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.35; }
+a.ni:hover .ni-title { color: var(--white); }
+.ni-date  { font-size: 9px; color: var(--text-mute); }
+.comm-tag { display: inline-block; background: rgba(0,221,184,0.08); color: var(--teal2); border: 1px solid rgba(0,221,184,0.15); border-radius: 2px; font-size: 7px; padding: 1px 4px; letter-spacing: 1px; text-transform: uppercase; margin-right: 3px; }
+
+/* ── REDDIT ──────────────────────────────────────── */
+.reddit-feed { display: flex; flex-direction: column; }
+a.rp {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 6px 0; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  transition: background 0.1s;
+}
+a.rp:last-child { border-bottom: none; }
+a.rp:hover { background: rgba(0,221,184,0.04); margin: 0 -12px; padding-left: 12px; padding-right: 12px; }
+.rp-meta  { display: flex; align-items: center; gap: 6px; }
+.rp-score { font-family: var(--cond); font-size: 12px; font-weight: 700; color: var(--orange); }
+.rp-flair { font-size: 8px; color: var(--text-mute); letter-spacing: 1px; }
+.rp-title { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--text); line-height: 1.3; }
+a.rp:hover .rp-title { color: var(--white); }
+.rp-author { font-size: 8px; color: var(--text-mute); }
+
+.reddit-error { color: var(--text-mute); font-size: 11px; padding: 10px 0; text-align: center; }
+
+/* ── REVERE TV ───────────────────────────────────── */
+.yt-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+a.yt-item { text-decoration: none; color: inherit; display: block; }
+.yt-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--bg3); border: 1px solid var(--border); border-radius: 2px; display: block; transition: border-color 0.15s; }
+a.yt-item:hover .yt-thumb { border-color: var(--teal-dim); }
+.yt-title { font-family: var(--sans); font-size: 11px; color: var(--text); margin-top: 4px; line-height: 1.3; }
+.yt-date  { font-size: 9px; color: var(--text-mute); }
+
+/* ── UTILS ───────────────────────────────────────── */
+.empty { color: var(--text-mute); font-size: 11px; padding: 16px; text-align: center; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* ── SECTION LABELS ──────────────────────────────── */
+.sl {
+  grid-column: 1 / -1;
+  font-family: var(--cond);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 4px; color: var(--text-mute);
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 12px;
+}
+.sl::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 1400px) {
+  #main { grid-template-columns: 280px 1fr; grid-template-areas: "left center" "right right" "media media" "news news"; }
+  #col-right { grid-area: right; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  #row-news { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  #main { grid-template-columns: 1fr; grid-template-areas: "left" "center" "right" "media" "news"; }
+  #col-right { grid-template-columns: 1fr; }
+  #env-row, #daily-grid, #row-news { grid-template-columns: 1fr 1fr; }
+  #row-media { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div id="wordmark">REVERE<em>.</em>MONITOR</div>
+  <div id="hd"></div>
+  <div id="clock">--:--:--</div>
+  <div id="datestamp"></div>
+  <div id="hs"></div>
+  <div id="sun-header">
+    <span>🌅 <span class="v" id="h-rise">--</span></span>
+    <span>☀️ <span class="v" id="h-noon">--</span></span>
+    <span>🌇 <span class="v" id="h-set">--</span></span>
+  </div>
+  <div id="updated-hdr">DATA: <span id="updated-ts">--</span></div>
+</header>
+
+<!-- QUICK LINKS -->
+<div id="links-bar"><!-- populated by JS --></div>
+
+<!-- MBTA TICKER -->
+<div id="ticker">
+  <div class="t-label mbta" id="t-label">MBTA</div>
+  <div id="ticker-text">Loading…</div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+  <!-- LEFT COLUMN -->
+  <div id="col-left">
+
+    <!-- Top 3 Priorities -->
+    <div class="card">
+      <div class="ch"><div class="ct">TOP PRIORITIES</div><div class="cb">SAVED LOCALLY</div></div>
+      <div class="cbody">
+        <div id="priorities">
+          <div class="pri-item">
+            <div class="pri-num n1">1</div>
+            <textarea class="pri-input" id="p1" placeholder="Priority #1…"></textarea>
+          </div>
+          <div class="pri-item">
+            <div class="pri-num n2">2</div>
+            <textarea class="pri-input" id="p2" placeholder="Priority #2…"></textarea>
+          </div>
+          <div class="pri-item">
+            <div class="pri-num n3">3</div>
+            <textarea class="pri-input" id="p3" placeholder="Priority #3…"></textarea>
+          </div>
+        </div>
+        <div id="pri-hint">auto-saved</div>
+      </div>
+    </div>
+
+    <!-- City of Revere Calendar -->
+    <div class="card" id="cal-card">
+      <div class="ch">
+        <div class="ct">CITY CALENDAR</div>
+        <div class="cb">REVERE.ORG</div>
+      </div>
+      <div class="cbody npx" id="cal-body">
+        <div class="empty">Loading…</div>
+      </div>
+      <div style="padding: 8px 12px; border-top: 1px solid var(--border); background: var(--bg3);">
+        <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-link-btn">
+          VIEW FULL CALENDAR →
+        </a>
+        <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-link-btn" style="margin-top:4px;">
+          MEETING AGENDAS (IQM2) →
+        </a>
+      </div>
+    </div>
+
+    <!-- Google Calendar embed (if configured) -->
+    <div class="card" id="gcal-card" style="display:none;">
+      <div class="ch"><div class="ct">MY CALENDAR</div><div class="cb">GOOGLE CALENDAR</div></div>
+      <div class="cbody np" id="gcal-body"></div>
+    </div>
+
+    <!-- Revere News -->
+    <div class="card">
+      <div class="ch"><div class="ct">REVERE</div><div class="cb">REVERE JOURNAL</div></div>
+      <div class="cbody npx"><div class="reddit-feed" id="news-revere"><div class="empty">Loading…</div></div></div>
+    </div>
+
+    <!-- Communities -->
+    <div class="card">
+      <div class="ch"><div class="ct">COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · MORE</div></div>
+      <div class="cbody npx"><div class="reddit-feed" id="news-comm"><div class="empty">Loading…</div></div></div>
+    </div>
+
+  </div><!-- /col-left -->
+
+  <!-- CENTER COLUMN -->
+  <div id="col-center">
+
+    <!-- Current Conditions -->
+    <div class="card">
+      <div class="ch"><div class="ct">NOW</div><div class="cb">NWS · REVERE MA</div></div>
+      <div class="cbody">
+        <div id="wx-now">
+          <div>
+            <div id="wx-temp">--<sup>°F</sup></div>
+            <div id="wx-desc">Loading…</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;margin-left:16px;">
+            <div class="wx-kv"><span class="wx-k">WIND</span><span class="wx-v" id="wx-wind">--</span></div>
+            <div class="wx-kv"><span class="wx-k">HUMIDITY</span><span class="wx-v" id="wx-hum">--</span></div>
+            <div class="wx-kv"><span class="wx-k">PRECIP</span><span class="wx-v" id="wx-pct">--</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hourly -->
+    <div class="card">
+      <div class="ch"><div class="ct">HOURLY FORECAST</div><div class="cb">NEXT 24H · SCROLL →</div></div>
+      <div class="cbody">
+        <div id="hourly-scroll"><div id="hourly-inner"><div class="empty">Loading…</div></div></div>
+      </div>
+    </div>
+
+    <!-- 7-Day -->
+    <div class="card">
+      <div class="ch"><div class="ct">7-DAY FORECAST</div><div class="cb">NWS · REVERE MA</div></div>
+      <div class="cbody">
+        <div id="daily-grid"><div class="empty">Loading…</div></div>
+      </div>
+    </div>
+
+    <!-- Sun / Tides / Logan -->
+    <div id="env-row">
+
+      <div class="card">
+        <div class="ch"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
+        <div class="cbody npx" id="sun-panel">
+          <div class="sun-row"><span class="sun-k">☀ SUNRISE</span><span class="sun-v" id="s-rise">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌅 CIVIL DAWN</span><span class="sun-v" id="s-dawn">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌇 SUNSET</span><span class="sun-v" id="s-set">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌆 CIVIL DUSK</span><span class="sun-v" id="s-dusk">--</span></div>
+          <div class="sun-row"><span class="sun-k">⏱ DAY LENGTH</span><span class="sun-v t" id="s-len">--</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="ch"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
+        <div class="cbody npx"><div id="tide-list"><div class="empty">Loading…</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="ch"><div class="ct">LOGAN · BOS</div><div class="cb">FAA AIRPORT STATUS</div></div>
+        <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
+      </div>
+
+    </div><!-- /env-row -->
+
+    <!-- Revere TV -->
+    <div class="card">
+      <div class="ch"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS</div></div>
+      <div class="cbody">
+        <div class="yt-grid" id="revere-tv"><div class="empty">Loading…</div></div>
+      </div>
+    </div>
+
+  </div><!-- /col-center -->
+
+  <!-- RIGHT COLUMN -->
+  <div id="col-right">
+
+    <!-- Reddit: r/boston -->
+    <div class="card">
+      <div class="ch">
+        <div class="ct" style="color:var(--orange);">r/boston</div>
+        <div class="cb">HOT POSTS</div>
+      </div>
+      <div class="cbody npx"><div class="reddit-feed" id="r-boston"><div class="empty">Loading…</div></div></div>
+    </div>
+
+    <!-- Reddit: r/massachusetts -->
+    <div class="card">
+      <div class="ch">
+        <div class="ct" style="color:var(--orange);">r/massachusetts</div>
+        <div class="cb">HOT POSTS</div>
+      </div>
+      <div class="cbody npx"><div class="reddit-feed" id="r-mass"><div class="empty">Loading…</div></div></div>
+    </div>
+
+    <!-- Reddit: r/nascar -->
+    <div class="card">
+      <div class="ch">
+        <div class="ct" style="color:var(--orange);">r/nascar</div>
+        <div class="cb">HOT POSTS</div>
+      </div>
+      <div class="cbody npx"><div class="reddit-feed" id="r-nascar"><div class="empty">Loading…</div></div></div>
+    </div>
+
+    <!-- Reddit: r/neoliberal -->
+    <div class="card">
+      <div class="ch">
+        <div class="ct" style="color:var(--orange);">r/neoliberal</div>
+        <div class="cb">HOT POSTS</div>
+      </div>
+      <div class="cbody npx"><div class="reddit-feed" id="r-neo"><div class="empty">Loading…</div></div></div>
+    </div>
+
+  </div><!-- /col-right -->
+
+  <!-- MEDIA ROW -->
+  <div id="row-media">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 260px;gap:14px;">
+
+      <div class="tv-wrap">
+        <div class="tv-head"><div class="tv-dot"></div><div class="tv-name">NBC BOSTON</div><div class="tv-live">● LIVE</div></div>
+        <iframe src="https://www.youtube.com/embed/live_stream?channel=UCgg0OVOzBFNUEV_hy_QgPpA&autoplay=0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;picture-in-picture" allowfullscreen title="NBC Boston Live"></iframe>
+      </div>
+
+      <div class="tv-wrap">
+        <div class="tv-head"><div class="tv-dot"></div><div class="tv-name">CBS BOSTON</div><div class="tv-live">● LIVE</div></div>
+        <iframe src="https://www.youtube.com/embed/live_stream?channel=UCRJe2GKGwlAFM_p21YexQNA&autoplay=0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;picture-in-picture" allowfullscreen title="CBS Boston Live"></iframe>
+      </div>
+
+      <div class="tv-wrap">
+        <div class="tv-head"><div class="tv-dot"></div><div class="tv-name">WCVB BOSTON</div><div class="tv-live">● LIVE</div></div>
+        <iframe src="https://www.youtube.com/embed/live_stream?channel=UCbmNph6atAoGfqLoCL_duAg&autoplay=0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;picture-in-picture" allowfullscreen title="WCVB Live"></iframe>
+      </div>
+
+      <div class="card">
+        <div class="ch"><div class="ct">RADIO</div><div class="cb">LIVE STREAMS</div></div>
+        <div class="cbody np">
+          <div class="radio-item">
+            <div class="radio-name">WBZ NEWS RADIO</div>
+            <div class="radio-freq">1030 AM · ALL NEWS</div>
+            <audio controls preload="none"><source src="https://playerservices.streamtheworld.com/api/livestream-redirect/WBZ_AM.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="radio-item">
+            <div class="radio-name">98.5 THE SPORTS HUB</div>
+            <div class="radio-freq">98.5 FM · SPORTS</div>
+            <audio controls preload="none"><source src="https://playerservices.streamtheworld.com/api/livestream-redirect/WBZFMAAC.aac" type="audio/aac"></audio>
+          </div>
+          <div class="radio-item">
+            <div class="radio-name">WEEI SPORTS RADIO</div>
+            <div class="radio-freq">93.7 FM · SPORTS</div>
+            <audio controls preload="none"><source src="https://playerservices.streamtheworld.com/api/livestream-redirect/WEEI_FM.mp3" type="audio/mpeg"></audio>
+          </div>
+          <div class="radio-item">
+            <div class="radio-name">GBH 89.7</div>
+            <div class="radio-freq">89.7 FM · PUBLIC RADIO</div>
+            <audio controls preload="none"><source src="https://streams.wgbh.org/wgbh" type="audio/mpeg"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS ROW -->
+  <div id="row-news">
+    <div class="card">
+      <div class="ch"><div class="ct">NATIONAL</div><div class="cb">NPR · NYT · BBC · AP</div></div>
+      <div class="cbody npx"><div class="reddit-feed" id="news-national"><div class="empty">Loading…</div></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ct">BOSTON</div><div class="cb">GLOBE · HERALD · GBH</div></div>
+      <div class="cbody npx"><div class="reddit-feed" id="news-boston"><div class="empty">Loading…</div></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ct">SPORTS</div><div class="cb">GLOBE · ESPN · NESN</div></div>
+      <div class="cbody npx"><div class="reddit-feed" id="news-sports"><div class="empty">Loading…</div></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ct">BOSTON COLLEGE</div><div class="cb">THE HEIGHTS · BC ATHLETICS</div></div>
+      <div class="cbody npx"><div class="reddit-feed" id="news-bc"><div class="empty">Loading…</div></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ct">HOUSING &amp; POLICY</div><div class="cb">EOHLC · DHCD · HUD</div></div>
+      <div class="cbody npx"><div class="reddit-feed" id="news-housing"><div class="empty">Loading…</div></div></div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+// ── CLOCK ──────────────────────────────────────────────────────
+const DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+function updateClock() {
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    [n.getHours(), n.getMinutes(), n.getSeconds()].map(x => String(x).padStart(2,'0')).join(':');
+  document.getElementById('datestamp').textContent =
+    `${DAYS[n.getDay()]}, ${MONTHS[n.getMonth()]} ${n.getDate()}, ${n.getFullYear()}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ── HELPERS ────────────────────────────────────────────────────
+function fmtTime(iso) {
+  if (!iso) return '--';
+  try { return new Date(iso).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}); }
+  catch { return '--'; }
+}
+function fmtDate(s) {
+  if (!s) return '';
+  try { return new Date(s).toLocaleDateString('en-US',{month:'short',day:'numeric'}); }
+  catch { return ''; }
+}
+function fmtDayLen(secs) {
+  if (!secs) return '--';
+  return `${Math.floor(secs/3600)}h ${Math.floor((secs%3600)/60)}m`;
+}
+function wxEmoji(icon='', fc='') {
+  const s = (fc+icon).toLowerCase();
+  if (s.includes('blizzard')||s.includes('snow')) return '❄️';
+  if (s.includes('sleet')||s.includes('ice'))  return '🌨️';
+  if (s.includes('thunder')||s.includes('storm')) return '⛈️';
+  if (s.includes('rain')||s.includes('shower'))   return '🌧️';
+  if (s.includes('fog')||s.includes('mist'))       return '🌫️';
+  if (s.includes('mostly cloudy')||s.includes('overcast')) return '☁️';
+  if (s.includes('partly'))   return '⛅';
+  if (s.includes('mostly sunny')||s.includes('sunny')) return '🌤️';
+  if (s.includes('clear'))    return '🌙';
+  if (s.includes('wind'))     return '💨';
+  return '🌡️';
+}
+function fmtScore(n) {
+  return n >= 1000 ? (n/1000).toFixed(1)+'k' : String(n);
+}
+
+// ── QUICK LINKS ────────────────────────────────────────────────
+function renderLinks() {
+  const bar = document.getElementById('links-bar');
+  const cfg = (typeof MONITOR_CONFIG !== 'undefined') ? MONITOR_CONFIG : {};
+  const links = cfg.QUICK_LINKS || [];
+  bar.innerHTML = '';
+  links.forEach(l => {
+    const a = document.createElement('a');
+    a.className = 'qlink';
+    a.href = l.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.innerHTML = `<span class="qi">${l.icon||''}</span>${l.label}`;
+    bar.appendChild(a);
+  });
+}
+renderLinks();
+
+// ── PRIORITIES (localStorage) ──────────────────────────────────
+function loadPriorities() {
+  ['p1','p2','p3'].forEach(id => {
+    const el = document.getElementById(id);
+    el.value = localStorage.getItem('monitor_'+id) || '';
+    el.addEventListener('input', () => {
+      localStorage.setItem('monitor_'+id, el.value);
+    });
+  });
+}
+loadPriorities();
+
+// ── GOOGLE CALENDAR ────────────────────────────────────────────
+function renderGcal() {
+  const cfg = (typeof MONITOR_CONFIG !== 'undefined') ? MONITOR_CONFIG : {};
+  const url = cfg.GOOGLE_CALENDAR_EMBED_URL || '';
+  if (!url) return;
+  document.getElementById('gcal-card').style.display = 'block';
+  document.getElementById('gcal-body').innerHTML =
+    `<iframe class="gcal-frame" src="${url}&bgcolor=%230d1614&color=%2300ddb8&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&mode=AGENDA"></iframe>`;
+}
+renderGcal();
+
+// ── RENDER: NEWS LISTS ─────────────────────────────────────────
+function renderNews(id, items, communityTags=false) {
+  const c = document.getElementById(id);
+  if (!items?.length) { c.innerHTML = '<div class="empty">No items</div>'; return; }
+  c.innerHTML = '';
+  items.forEach(item => {
+    const a = document.createElement('a');
+    a.className = 'ni';
+    a.href = item.link||'#';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    let inner = '';
+    if (communityTags && item.source) inner += `<span class="comm-tag">${item.source}</span>`;
+    else if (item.source) inner += `<span class="ni-src">${item.source}</span>`;
+    inner += `<span class="ni-title">${item.title}</span>`;
+    if (item.published) inner += `<span class="ni-date">${fmtDate(item.published)}</span>`;
+    a.innerHTML = inner;
+    c.appendChild(a);
+  });
+}
+
+// ── RENDER: REDDIT ─────────────────────────────────────────────
+async function fetchReddit(sub, containerId) {
+  const c = document.getElementById(containerId);
+  try {
+    const r = await fetch(`https://www.reddit.com/r/${sub}/hot.json?limit=6&raw_json=1`, {
+      headers: { 'Accept': 'application/json' }
+    });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    const posts = data?.data?.children || [];
+    if (!posts.length) { c.innerHTML = '<div class="reddit-error">No posts</div>'; return; }
+    c.innerHTML = '';
+    posts.forEach(p => {
+      const d = p.data;
+      if (d.stickied) return; // skip pinned mod posts
+      const a = document.createElement('a');
+      a.className = 'rp';
+      a.href = `https://www.reddit.com${d.permalink}`;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.innerHTML = `
+        <div class="rp-meta">
+          <span class="rp-score">${fmtScore(d.score||0)} ↑</span>
+          ${d.link_flair_text ? `<span class="rp-flair">${d.link_flair_text}</span>` : ''}
+        </div>
+        <div class="rp-title">${d.title}</div>
+        <div class="rp-author">u/${d.author} · ${d.num_comments} comments</div>
+      `;
+      c.appendChild(a);
+    });
+  } catch(e) {
+    c.innerHTML = `<div class="reddit-error">
+      Could not load r/${sub}.<br>
+      <a href="https://www.reddit.com/r/${sub}/hot" target="_blank" rel="noopener" style="color:var(--teal2);">Open on Reddit →</a>
+    </div>`;
+  }
+}
+
+// ── RENDER: WEATHER ────────────────────────────────────────────
+function renderCurrentWx(w) {
+  if (!w) return;
+  document.getElementById('wx-temp').innerHTML = `${w.temp}<sup>°${w.unit}</sup>`;
+  document.getElementById('wx-desc').textContent = w.shortForecast;
+  document.getElementById('wx-wind').textContent = `${w.wind} ${w.windDir||''}`.trim();
+  document.getElementById('wx-hum').textContent  = w.humidity != null ? `${w.humidity}%` : 'N/A';
+  document.getElementById('wx-pct').textContent  = `${w.precip||0}%`;
+}
+
+function renderHourly(periods) {
+  const inner = document.getElementById('hourly-inner');
+  if (!periods?.length) { inner.innerHTML = '<div class="empty">No data</div>'; return; }
+  inner.innerHTML = '';
+  periods.forEach((p, i) => {
+    const d  = new Date(p.time);
+    const hr = d.getHours();
+    const lbl = i===0 ? 'NOW' : hr===0 ? '12A' : hr===12 ? '12P' : hr<12 ? `${hr}A` : `${hr-12}P`;
+    const pct = p.precip||0;
+    const div = document.createElement('div');
+    div.className = 'hb' + (i===0 ? ' now' : '');
+    div.innerHTML = `
+      <div class="hb-time ${i===0?'now':''}">${lbl}</div>
+      <div class="hb-temp">${p.temp}°</div>
+      <div class="hb-icon">${wxEmoji(p.icon, p.shortForecast)}</div>
+      <div class="hb-pct ${pct===0?'none':''}">${pct>0?pct+'%':'—'}</div>
+    `;
+    inner.appendChild(div);
+  });
+}
+
+function renderDaily(days) {
+  const grid = document.getElementById('daily-grid');
+  if (!days?.length) { grid.innerHTML = '<div class="empty">No data</div>'; return; }
+  grid.innerHTML = '';
+  days.forEach(d => {
+    const name = d.name.split(' ')[0].substring(0,3).toUpperCase();
+    const pct  = d.precip||0;
+    const dc   = document.createElement('div');
+    dc.className = 'dc';
+    dc.innerHTML = `
+      <div class="dc-name">${name}</div>
+      <div class="dc-icon">${wxEmoji(d.icon, d.shortForecast)}</div>
+      ${d.high != null ? `<div class="dc-hi">${d.high}°</div>` : ''}
+      ${d.low  != null ? `<div class="dc-lo">Lo ${d.low}°</div>` : ''}
+      <div class="dc-pct ${pct===0?'none':''}">${pct>0?pct+'%':'—'}</div>
+      <div class="dc-desc">${d.shortForecast}</div>
+    `;
+    grid.appendChild(dc);
+  });
+}
+
+// ── RENDER: SUN ────────────────────────────────────────────────
+function renderSun(s) {
+  if (!s?.sunrise) return;
+  document.getElementById('h-rise').textContent = fmtTime(s.sunrise);
+  document.getElementById('h-noon').textContent = fmtTime(s.solar_noon);
+  document.getElementById('h-set').textContent  = fmtTime(s.sunset);
+  document.getElementById('s-rise').textContent = fmtTime(s.sunrise);
+  document.getElementById('s-dawn').textContent = fmtTime(s.dawn);
+  document.getElementById('s-set').textContent  = fmtTime(s.sunset);
+  document.getElementById('s-dusk').textContent = fmtTime(s.dusk);
+  document.getElementById('s-len').textContent  = fmtDayLen(s.day_length);
+}
+
+// ── RENDER: TIDES ──────────────────────────────────────────────
+function renderTides(tides) {
+  const list = document.getElementById('tide-list');
+  if (!tides?.length) { list.innerHTML = '<div class="empty">No data</div>'; return; }
+  list.innerHTML = '';
+  const now = new Date();
+  const nextIdx = tides.findIndex(t => new Date(t.t) > now);
+  tides.slice(0, 8).forEach((t, i) => {
+    const dt  = new Date(t.t);
+    const isPast = dt < now;
+    const isNext = i === nextIdx;
+    const timeStr = dt.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+    const dateStr = dt.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+    const div = document.createElement('div');
+    div.className = 'tide-item' + (isPast ? ' tide-past' : '');
+    div.innerHTML = `
+      <div class="tide-arrow ${t.type}">${t.type==='H'?'▲':'▽'}</div>
+      <div class="tide-body">
+        <div class="tide-time">${timeStr}</div>
+        <div class="tide-lbl">${t.type==='H'?'HIGH':'LOW'} · ${dateStr}</div>
+      </div>
+      <div class="tide-ft">${t.v.toFixed(1)}<span style="font-size:9px;color:var(--orange-dim)"> ft</span></div>
+      ${isNext ? '<div class="tide-next">NEXT</div>' : ''}
+    `;
+    list.appendChild(div);
+  });
+}
+
+// ── RENDER: LOGAN ──────────────────────────────────────────────
+function renderLogan(logan) {
+  const b = document.getElementById('logan-body');
+  if (!logan?.name && !logan?.delay) { b.innerHTML = '<div class="empty">No data</div>'; return; }
+  const hasDelay  = logan.delay || logan.arriveDeparDelay?.length;
+  const hasGround = logan.groundDelay?.length || logan.groundStop?.length;
+  const cls   = hasGround ? 'ground' : hasDelay ? 'delay' : 'ok';
+  const label = hasGround ? 'GROUND STOP / DELAY' : hasDelay ? 'DELAYS IN EFFECT' : 'NORMAL OPERATIONS';
+  let html = `<div class="logan-ind ${cls}"><div class="l-dot ${cls}"></div><div class="l-status ${cls}">${label}</div></div>`;
+  const details = [
+    ...(logan.arriveDeparDelay||[]).map(d=>`<div class="l-detail"><strong>${d.type}</strong> — ${d.reason} · Avg: ${d.avg} (${d.trend})</div>`),
+    ...(logan.groundDelay||[]).map(d=>`<div class="l-detail"><strong>GROUND DELAY</strong> — ${d.reason} · Avg: ${d.avg}</div>`),
+    ...(logan.groundStop||[]).map(d=>`<div class="l-detail"><strong>GROUND STOP</strong> — ${d.reason} · Until: ${d.endTime}</div>`),
+  ];
+  if (!details.length) details.push('<div class="l-detail" style="color:var(--text-mute)">No active advisories.</div>');
+  b.innerHTML = html + details.join('');
+}
+
+// ── RENDER: MBTA TICKER ────────────────────────────────────────
+function renderTicker(alerts) {
+  const lbl = document.getElementById('t-label');
+  const txt = document.getElementById('ticker-text');
+  if (!alerts?.length) {
+    lbl.className='t-label ok'; txt.className='ok';
+    txt.textContent='✓  NO ACTIVE BLUE LINE ALERTS — SERVICE NORMAL';
+  } else {
+    lbl.className='t-label mbta'; txt.className='alert';
+    txt.textContent=alerts.map(a=>`⚠  ${a.header}`).join('   ·   ');
+  }
+}
+
+// ── RENDER: CITY CALENDAR ──────────────────────────────────────
+function renderCityCalendar(events) {
+  const b = document.getElementById('cal-body');
+  if (!events?.length) {
+    b.innerHTML = `<div class="cal-empty">Calendar events could not be parsed automatically.<br>Use the links below to view the full city calendar.</div>`;
+    return;
+  }
+  b.innerHTML = '';
+  events.forEach(ev => {
+    const div = document.createElement('div');
+    div.className = 'cal-event';
+    div.innerHTML = `
+      ${ev.date ? `<div class="cal-date">${ev.date}</div>` : ''}
+      <a class="cal-title" href="${ev.link||'https://www.revere.org/calendar'}" target="_blank" rel="noopener">${ev.title}</a>
+    `;
+    b.appendChild(div);
+  });
+}
+
+// ── RENDER: REVERE TV ──────────────────────────────────────────
+function renderRevereTv(videos) {
+  const g = document.getElementById('revere-tv');
+  if (!videos?.length) { g.innerHTML = '<div class="empty">No videos</div>'; return; }
+  g.innerHTML = '';
+  videos.slice(0,6).forEach(v => {
+    const a = document.createElement('a');
+    a.className = 'yt-item';
+    a.href = v.link || `https://youtube.com/watch?v=${v.video_id}`;
+    a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.innerHTML = `
+      <img class="yt-thumb" src="${v.thumbnail}" alt="" loading="lazy" onerror="this.style.background='#172824'">
+      <div class="yt-title">${v.title}</div>
+      <div class="yt-date">${fmtDate(v.published)}</div>
+    `;
+    g.appendChild(a);
+  });
+}
+
+// ── HOUSING NEWS (static sources, can be added to fetch.py later)
+// Placeholder — populated from news_boston for now
+
+// ── MAIN DATA LOAD ─────────────────────────────────────────────
+async function loadData() {
+  try {
+    const r = await fetch('./data.json?t=' + Date.now());
+    const d = await r.json();
+
+    document.getElementById('updated-ts').textContent = d.updated_local || '--';
+
+    renderCurrentWx(d.weather_current);
+    renderHourly(d.weather_hourly);
+    renderDaily(d.weather_daily);
+    renderSun(d.sunrise_sunset);
+    renderTides(d.tides);
+    renderLogan(d.logan);
+    renderTicker(d.mbta_alerts);
+    renderCityCalendar(d.revere_calendar);
+    renderRevereTv(d.revere_tv);
+    renderNews('news-national', d.news_national);
+    renderNews('news-boston',   d.news_boston);
+    renderNews('news-sports',   d.news_sports);
+    renderNews('news-bc',       d.news_bc);
+    renderNews('news-revere',   d.news_revere);
+    renderNews('news-comm',     d.news_communities, true);
+    // Housing: reuse boston/national for now
+    renderNews('news-housing',  [...(d.news_national||[]).filter(x=>
+      ['housing','rent','zoning','hud','dhcd','mbta'].some(k=>x.title?.toLowerCase().includes(k))
+    ), ...(d.news_boston||[]).filter(x=>
+      ['housing','rent','zoning','affordable','development'].some(k=>x.title?.toLowerCase().includes(k))
+    )].slice(0,8));
+
+  } catch(e) {
+    console.error('data.json load failed:', e);
+    document.getElementById('updated-ts').textContent = 'ERROR';
+  }
+}
+
+// ── REDDIT LOADS ───────────────────────────────────────────────
+fetchReddit('boston',        'r-boston');
+fetchReddit('massachusetts', 'r-mass');
+fetchReddit('NASCAR',        'r-nascar');
+fetchReddit('neoliberal',    'r-neo');
+
+loadData();
+setTimeout(() => location.reload(), 30 * 60 * 1000);
+</script>
+</body>
+</html>
