@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Revere Monitor v5 — fetch.py"""
+"""Revere Monitor v6 — fetch.py"""
 
-import json, re, requests, feedparser
+import json, re, requests, feedparser, calendar
 from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 
@@ -21,7 +21,7 @@ def safe(fn, label):
 # ── WEATHER ─────────────────────────────────────────
 def fetch_weather_current():
     r = requests.get("https://api.weather.gov/gridpoints/BOX/68,89/forecast/hourly",
-                     timeout=10, headers={"User-Agent": "RevereMonitor/5.0"})
+                     timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
     p = r.json()["properties"]["periods"][0]
     return {
         "temp": p["temperature"], "unit": p["temperatureUnit"],
@@ -29,12 +29,11 @@ def fetch_weather_current():
         "shortForecast": p["shortForecast"],
         "humidity": p.get("relativeHumidity",{}).get("value"),
         "precip": p.get("probabilityOfPrecipitation",{}).get("value",0) or 0,
-        "detailForecastUrl": "https://forecast.weather.gov/MapClick.php?CityName=Revere&state=MA&site=BOX&textField1=42.4082&textField2=-71.0120",
     }
 
 def fetch_weather_hourly():
     r = requests.get("https://api.weather.gov/gridpoints/BOX/68,89/forecast/hourly",
-                     timeout=10, headers={"User-Agent": "RevereMonitor/5.0"})
+                     timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
     return [{
         "time": p["startTime"], "temp": p["temperature"],
         "unit": p["temperatureUnit"], "shortForecast": p["shortForecast"],
@@ -44,7 +43,7 @@ def fetch_weather_hourly():
 
 def fetch_weather_daily():
     r = requests.get("https://api.weather.gov/gridpoints/BOX/68,89/forecast",
-                     timeout=10, headers={"User-Agent": "RevereMonitor/5.0"})
+                     timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
     periods = r.json()["properties"]["periods"]
     days, i = [], 0
     while i < len(periods) and len(days) < 7:
@@ -85,40 +84,81 @@ def fetch_tides():
     return [{"t": p["t"], "v": float(p["v"]), "type": p["type"]}
             for p in r.json().get("predictions",[])]
 
-# ── LOGAN ─────────────────────────────────────────────
+# ── LOGAN — use Aviation Weather as primary ───────────
 def fetch_logan():
+    result = {
+        "name": "Boston Logan (KBOS)",
+        "delay": False,
+        "status": "ok",
+        "metar": None,
+        "taf": None,
+        "faa_delays": [],
+    }
+
+    # 1. FAA status (delays/ground stops) — try but don't fail if down
     try:
         r = requests.get(
             "https://soa.smext.faa.gov/asws/api/airport/status/BOS",
-            timeout=10, headers={"Accept":"application/json","User-Agent":"RevereMonitor/5.0"})
-        d = r.json()
-        return {
-            "name": d.get("Name","Boston Logan"),
-            "delay": d.get("Delay",False),
-            "arriveDeparDelay": [
-                {"type":x.get("Type",""),"reason":x.get("Reason",""),"avg":x.get("Avg",""),"trend":x.get("Trend","")}
-                for x in d.get("ArriveDepartDelay",[])],
-            "groundDelay": [
-                {"reason":x.get("Reason",""),"avg":x.get("Avg","")}
-                for x in d.get("GroundDelay",[])],
-            "groundStop": [
-                {"reason":x.get("Reason",""),"endTime":x.get("EndTime","")}
-                for x in d.get("GroundStop",[])],
-        }
+            timeout=8, headers={"Accept":"application/json","User-Agent":"RevereMonitor/6.0"}
+        )
+        if r.status_code == 200:
+            d = r.json()
+            result["delay"] = d.get("Delay", False)
+            for x in d.get("ArriveDepartDelay",[]):
+                result["faa_delays"].append({"type":x.get("Type",""),"reason":x.get("Reason",""),"avg":x.get("Avg",""),"trend":x.get("Trend","")})
+            for x in d.get("GroundDelay",[]):
+                result["faa_delays"].append({"type":"Ground Delay","reason":x.get("Reason",""),"avg":x.get("Avg","")})
+            for x in d.get("GroundStop",[]):
+                result["faa_delays"].append({"type":"Ground Stop","reason":x.get("Reason",""),"avg":x.get("EndTime","")})
     except Exception as e:
-        print(f"    FAA primary failed: {e}, trying METAR...")
-        r2 = requests.get("https://aviationweather.gov/api/data/metar?ids=KBOS&format=json", timeout=10)
-        metar = r2.json()
-        if metar:
-            m = metar[0]
-            return {
-                "name":"Boston Logan (KBOS)","delay":False,"metar":True,
-                "raw_metar":m.get("rawOb",""), "wind_dir":m.get("wdir",""),
-                "wind_speed":m.get("wspd",""), "visibility":m.get("visib",""),
-                "sky":m.get("skyCondition",""), "temp_c":m.get("temp",""),
-                "altimeter":m.get("altim",""),
-            }
-        raise
+        print(f"    FAA API skipped: {e}")
+
+    # 2. METAR — current conditions (always fetch this)
+    try:
+        r2 = requests.get(
+            "https://aviationweather.gov/api/data/metar?ids=KBOS&format=json&hours=1",
+            timeout=10, headers={"User-Agent": "RevereMonitor/6.0"}
+        )
+        if r2.status_code == 200:
+            metar_data = r2.json()
+            if metar_data:
+                m = metar_data[0]
+                # Format wind
+                wdir = m.get("wdir","")
+                wspd = m.get("wspd","")
+                wgst = m.get("wgst","")
+                wind_str = f"{wdir}° @ {wspd} kts"
+                if wgst:
+                    wind_str += f" gusting {wgst} kts"
+                result["metar"] = {
+                    "raw":        m.get("rawOb",""),
+                    "wind":       wind_str,
+                    "visibility": f"{m.get('visib','')} SM",
+                    "sky":        m.get("skyCondition",""),
+                    "temp_c":     m.get("temp",""),
+                    "dewpoint":   m.get("dewp",""),
+                    "altimeter":  m.get("altim",""),
+                    "wx":         m.get("wxString",""),
+                    "obs_time":   m.get("obsTime",""),
+                    "flight_cat": m.get("flightCategory",""),  # VFR/MVFR/IFR/LIFR
+                }
+    except Exception as e:
+        print(f"    METAR fetch failed: {e}")
+
+    # 3. TAF — forecast
+    try:
+        r3 = requests.get(
+            "https://aviationweather.gov/api/data/taf?ids=KBOS&format=json",
+            timeout=10, headers={"User-Agent": "RevereMonitor/6.0"}
+        )
+        if r3.status_code == 200:
+            taf_data = r3.json()
+            if taf_data:
+                result["taf"] = taf_data[0].get("rawTAF","")
+    except Exception as e:
+        print(f"    TAF fetch failed: {e}")
+
+    return result
 
 # ── MBTA ALL LINES ────────────────────────────────────
 def fetch_mbta():
@@ -137,7 +177,6 @@ def fetch_mbta():
             "header": attrs["header"],
             "effect": attrs["effect"],
             "routes": routes[:3],
-            "severity": attrs.get("severity",3),
         })
     return alerts
 
@@ -175,7 +214,6 @@ def fetch_revere_calendar():
 
 # ── REVERE TV CHANNEL ID ──────────────────────────────
 def fetch_revere_tv_channel_id():
-    """Try to get channel ID from YouTube page"""
     for url in ["https://www.youtube.com/@reveretv","https://www.youtube.com/user/reveretv"]:
         try:
             r = requests.get(url, timeout=10, headers=HEADERS)
@@ -184,7 +222,7 @@ def fetch_revere_tv_channel_id():
                 return match.group(1)
         except:
             continue
-    return "UCq-Ej7V3_v7NuGUVRnqv8Aw"  # fallback
+    return "UCq-Ej7V3_v7NuGUVRnqv8Aw"
 
 # ── YOUTUBE FEED ──────────────────────────────────────
 def fetch_youtube(channel_id, max_items=9):
@@ -194,52 +232,45 @@ def fetch_youtube(channel_id, max_items=9):
         vid = getattr(e,"yt_videoid","") or ""
         if not vid and "v=" in getattr(e,"link",""):
             vid = e.link.split("v=")[-1].split("&")[0]
+        ts = 0
+        if hasattr(e,"published_parsed") and e.published_parsed:
+            try: ts = calendar.timegm(e.published_parsed)
+            except: pass
         items.append({
             "title":getattr(e,"title",""), "video_id":vid,
             "link":getattr(e,"link",""), "published":getattr(e,"published",""),
+            "ts": ts,
             "thumbnail":f"https://img.youtube.com/vi/{vid}/mqdefault.jpg" if vid else "",
         })
     return items
 
-# ── RSS FEED ──────────────────────────────────────────
+# ── RSS FEED — stores unix timestamp for reliable sort ─
 def fetch_feed(url, max_items=30):
     try:
         feed = feedparser.parse(url)
-        return [{
-            "title":     getattr(e,"title",""),
-            "link":      getattr(e,"link",""),
-            "published": getattr(e,"published",""),
-            "published_parsed": str(getattr(e,"published_parsed","")) if hasattr(e,"published_parsed") else "",
-        } for e in feed.entries[:max_items]]
-    except:
+        items = []
+        for e in feed.entries[:max_items]:
+            # Convert parsed time to unix timestamp for reliable JS sorting
+            ts = 0
+            if hasattr(e,"published_parsed") and e.published_parsed:
+                try: ts = calendar.timegm(e.published_parsed)
+                except: pass
+            elif hasattr(e,"updated_parsed") and e.updated_parsed:
+                try: ts = calendar.timegm(e.updated_parsed)
+                except: pass
+            items.append({
+                "title":     getattr(e,"title",""),
+                "link":      getattr(e,"link",""),
+                "published": getattr(e,"published",""),
+                "ts":        ts,   # Unix timestamp — use this for sorting in JS
+            })
+        return items
+    except Exception as e:
         return []
-
-# ── STOCKS ────────────────────────────────────────────
-def fetch_stocks():
-    symbols = {
-        "^DJI":    "Dow Jones",
-        "^GSPC":   "S&P 500",
-        "^IXIC":   "NASDAQ",
-        "CL=F":    "Oil (WTI)",
-        "BTC-USD": "Bitcoin",
-    }
-    url = f"https://query1.finance.yahoo.com/v7/finance/quote?symbols={','.join(symbols.keys())}&fields=regularMarketPrice,regularMarketChange,regularMarketChangePercent,regularMarketPreviousClose"
-    r = requests.get(url, timeout=10, headers={"User-Agent":"Mozilla/5.0","Accept":"application/json"})
-    quotes = r.json()["quoteResponse"]["result"]
-    result = []
-    for q in quotes:
-        result.append({
-            "name":      symbols.get(q["symbol"], q["symbol"]),
-            "symbol":    q["symbol"],
-            "price":     q.get("regularMarketPrice"),
-            "change":    q.get("regularMarketChange"),
-            "changePct": q.get("regularMarketChangePercent"),
-        })
-    return result
 
 # ── MAIN ─────────────────────────────────────────────
 def main():
-    print("🔄 Revere Monitor v5 — fetching...")
+    print("🔄 Revere Monitor v6 — fetching...")
     data = {
         "updated":       datetime.now(timezone.utc).isoformat(),
         "updated_local": datetime.now().strftime("%B %-d, %Y at %-I:%M %p"),
@@ -253,11 +284,8 @@ def main():
     print("\n☀️  Sky / Tides / Logan / MBTA")
     data["sunrise_sunset"] = safe(fetch_sunrise_sunset, "Sunrise/Sunset") or {}
     data["tides"]          = safe(fetch_tides,          "NOAA tides")     or []
-    data["logan"]          = safe(fetch_logan,          "FAA/KBOS")       or {}
+    data["logan"]          = safe(fetch_logan,          "Logan/KBOS")     or {}
     data["mbta_alerts"]    = safe(fetch_mbta,           "MBTA all lines") or []
-
-    print("\n📈 Stocks")
-    data["stocks"] = safe(fetch_stocks, "Yahoo Finance") or []
 
     print("\n🏛️  City")
     data["revere_calendar"] = safe(fetch_revere_calendar, "Revere calendar") or []
@@ -269,24 +297,17 @@ def main():
 
     print("\n📰 News")
 
-    # Revere.org RSS
+    # Revere sources
     revere_official = safe(lambda: fetch_feed("https://www.revere.org/news/feed/rss", 20), "Revere.org RSS") or []
     for i in revere_official: i["source"] = "Revere.org"
-
-    # Revere Journal
     revere_journal = safe(lambda: fetch_feed("https://www.reverejournal.com/feed/", 20), "Revere Journal") or []
     for i in revere_journal: i["source"] = "Revere Journal"
-
-    # Google News: Revere MA
     revere_gnews = safe(lambda: fetch_feed(
         "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US%3Aen&q=revere+ma", 15), "Google News Revere") or []
     for i in revere_gnews: i["source"] = "Google News"
-
-    # FetchRSS custom feed
     revere_fetchrss = safe(lambda: fetch_feed(
         "https://fetchrss.com/feed/1w57f09FJGjS1w57ef59e6GT.rss", 10), "FetchRSS Revere") or []
     for i in revere_fetchrss: i["source"] = "Revere Feed"
-
     data["news_revere"] = revere_official + revere_journal + revere_gnews + revere_fetchrss
 
     # Communities
@@ -300,7 +321,7 @@ def main():
         "Swampscott":   "https://swampscottreporter.com/feed/",
         "Marblehead":   "https://marbleheadreporter.com/feed/",
         "Peabody":      "https://peabodytimes.com/feed/",
-        "Salem":        "https://www.salemnews.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=%22salem%22",
+        "Salem":        "https://www.salemnews.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc",
     }
     data["news_communities"] = []
     for name, url in comm_sources.items():
@@ -308,32 +329,48 @@ def main():
         for i in items: i["source"] = name
         data["news_communities"].extend(items)
 
-    # Boston — many sources
+    # Boston — comprehensive source list with multiple URL attempts per source
     boston_sources = [
-        ("https://www.bostonglobe.com/rss/homepage",       "Boston Globe"),
-        ("https://bostonherald.com/feed/",                  "Boston Herald"),
-        ("https://www.wgbh.org/news/rss",                   "GBH News"),
-        ("https://feeds.wbur.org/wburnews",                 "WBUR"),
-        ("https://www.wcvb.com/rss",                        "WCVB"),
-        ("https://www.nbcboston.com/feed/",                 "NBC Boston"),
-        ("https://www.cbsnews.com/boston/rss/",             "CBS Boston"),
-        ("https://whdh.com/feed/",                          "WHDH 7News"),
+        # Boston Globe
+        ("https://www.bostonglobe.com/rss/homepage",          "Boston Globe"),
+        # Boston Herald
+        ("https://bostonherald.com/feed/",                     "Boston Herald"),
+        # WBZ-TV (CBS Boston) — try multiple URL formats
+        ("https://www.cbsnews.com/boston/rss/",                "WBZ CBS Boston"),
+        ("https://www.wbz.com/rss/",                           "WBZ News"),
+        # WBUR — try multiple
+        ("https://feeds.wbur.org/wburnews",                    "WBUR"),
+        ("https://www.wbur.org/rss",                           "WBUR"),
+        # WGBH / GBH
+        ("https://www.wgbh.org/news/rss",                      "GBH News"),
+        ("https://www.wgbh.org/rss/news",                      "GBH News"),
+        # Other Boston TV
+        ("https://www.wcvb.com/rss",                           "WCVB"),
+        ("https://www.nbcboston.com/feed/",                    "NBC Boston"),
+        ("https://whdh.com/feed/",                             "WHDH 7News"),
+        # Print/digital
         ("https://www.masslive.com/arc/outboundfeeds/rss/?outputType=xml","MassLive"),
-        ("https://www.bostonmagazine.com/feed/",            "Boston Magazine"),
+        ("https://www.bostonmagazine.com/feed/",               "Boston Magazine"),
     ]
+
     data["news_boston"] = []
+    seen_urls = set()
     for url, label in boston_sources:
         items = safe(lambda u=url: fetch_feed(u, 6), label) or []
-        for i in items: i["source"] = label
-        data["news_boston"].extend(items)
+        for item in items:
+            if item["link"] not in seen_urls:  # deduplicate by URL
+                seen_urls.add(item["link"])
+                item["source"] = label
+                data["news_boston"].append(item)
 
     # Universal Hub
+    uhub = []
     for uh_url in [
         "https://www.universalhub.com/node/feed",
         "https://www.universalhub.com/atom.xml",
         "https://www.universalhub.com/feed",
     ]:
-        uhub = safe(lambda u=uh_url: fetch_feed(u, 30), f"Universal Hub ({uh_url})") or []
+        uhub = safe(lambda u=uh_url: fetch_feed(u, 30), f"UHub {uh_url}") or []
         if uhub:
             for i in uhub: i["source"] = "Universal Hub"
             break
@@ -341,49 +378,60 @@ def main():
 
     # Sports
     sports_sources = [
-        ("https://www.bostonglobe.com/rss/sports",          "Globe Sports"),
-        ("https://www.espn.com/espn/rss/boston/news",       "ESPN Boston"),
-        ("https://nesn.com/feed/",                          "NESN"),
-        ("https://feeds.wbur.org/wburnews",                 "WBUR Sports"),
+        ("https://www.bostonglobe.com/rss/sports",             "Globe Sports"),
+        ("https://www.espn.com/espn/rss/boston/news",          "ESPN Boston"),
+        ("https://nesn.com/feed/",                             "NESN"),
+        ("https://feeds.wbur.org/wburnews",                    "WBUR Sports"),
         ("https://www.masslive.com/sports/arc/outboundfeeds/rss/?outputType=xml","MassLive Sports"),
-        ("https://bostonherald.com/sports/feed/",           "Herald Sports"),
+        ("https://bostonherald.com/sports/feed/",              "Herald Sports"),
     ]
     data["news_sports"] = []
+    seen_sports = set()
     for url, label in sports_sources:
         items = safe(lambda u=url: fetch_feed(u, 8), label) or []
-        for i in items: i["source"] = label
-        data["news_sports"].extend(items)
+        for item in items:
+            if item["link"] not in seen_sports:
+                seen_sports.add(item["link"])
+                item["source"] = label
+                data["news_sports"].append(item)
 
     # Boston College
     bc_sources = [
-        ("https://bcheights.com/feed/",                      "The Heights"),
-        ("https://bceagles.com/rss.aspx?path=mhockey",       "BC Hockey"),
-        ("https://bceagles.com/rss.aspx",                    "BC Athletics"),
-        ("https://247sports.com/college/boston-college/rss/","247Sports BC"),
-        ("https://www.bcinterruption.com/rss/current.xml",   "BC Interruption"),
-        ("https://www.si.com/college/boston-college/rss",    "SI Boston College"),
+        ("https://bcheights.com/feed/",                        "The Heights"),
+        ("https://bceagles.com/rss.aspx?path=mhockey",         "BC Hockey"),
+        ("https://bceagles.com/rss.aspx",                      "BC Athletics"),
+        ("https://247sports.com/college/boston-college/rss/",  "247Sports BC"),
+        ("https://www.bcinterruption.com/rss/current.xml",     "BC Interruption"),
+        ("https://www.si.com/college/boston-college/rss",      "SI Boston College"),
     ]
     data["news_bc"] = []
+    seen_bc = set()
     for url, label in bc_sources:
         items = safe(lambda u=url: fetch_feed(u, 8), label) or []
-        for i in items: i["source"] = label
-        data["news_bc"].extend(items)
+        for item in items:
+            if item["link"] not in seen_bc:
+                seen_bc.add(item["link"])
+                item["source"] = label
+                data["news_bc"].append(item)
 
     # National
     national_sources = [
-        ("https://feeds.npr.org/1001/rss.xml",               "NPR"),
+        ("https://feeds.npr.org/1001/rss.xml",                 "NPR"),
         ("https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml","NY Times"),
-        ("https://feeds.bbci.co.uk/news/rss.xml",            "BBC"),
+        ("https://feeds.bbci.co.uk/news/rss.xml",              "BBC"),
         ("https://apnews.com/hub/ap-top-news?format=feed&type=rss","AP"),
-        ("https://thehill.com/feed/",                        "The Hill"),
-        ("https://feeds.washingtonpost.com/rss/national",    "Washington Post"),
-        ("https://slate.com/feeds/all.rss",                  "Slate"),
+        ("https://thehill.com/feed/",                          "The Hill"),
+        ("https://feeds.washingtonpost.com/rss/national",      "Washington Post"),
     ]
     data["news_national"] = []
+    seen_nat = set()
     for url, label in national_sources:
         items = safe(lambda u=url: fetch_feed(u, 10), label) or []
-        for i in items: i["source"] = label
-        data["news_national"].extend(items)
+        for item in items:
+            if item["link"] not in seen_nat:
+                seen_nat.add(item["link"])
+                item["source"] = label
+                data["news_national"].append(item)
 
     with open("data.json","w") as f:
         json.dump(data, f, indent=2, default=str)
