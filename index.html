@@ -123,13 +123,44 @@ button#edit-links-btn:hover{color:var(--accent);border-color:var(--accent);}
   flex-direction: column;
   overflow: hidden;
 }
-/* Scrollable bodies grow to fill card height */
-.grid-stack-item-content > .card .scroll-box,
-.grid-stack-item-content > .card .cal-scroll,
-.grid-stack-item-content > .card .cbody.npx {
+/* Any card inside a sub-grid (g2, g3, g4) also needs this */
+.g2 > .card, .g3 > .card, .g4 > .card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Sub-grids inside grid items must also fill height */
+.grid-stack-item-content > .g2,
+.grid-stack-item-content > .g3,
+.grid-stack-item-content > .g4 {
+  height: 100%;
+}
+/* ALL scrollable/content bodies grow to fill remaining card height */
+.card .cbody.npx,
+.card .cbody.np,
+.card .cbody,
+.card .cal-scroll {
   flex: 1;
-  overflow-y: auto;
   min-height: 0;
+}
+/* News feeds and reddit feeds: always scrollable */
+.card .news-feed,
+.card .scroll-box,
+.card [id^="r-"],
+.card [id^="news-"] {
+  overflow-y: auto;
+  height: 100%;
+  min-height: 0;
+}
+/* Scrollable bodies inside grid items */
+.grid-stack-item .scroll-box,
+.grid-stack-item .h-news,
+.grid-stack-item .h-reddit,
+.grid-stack-item .h-bc,
+.grid-stack-item .h-nat {
+  max-height: none !important;  /* remove fixed pixel heights — let grid control height */
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* Reset button in links bar */
@@ -732,33 +763,29 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
     </div>
   </div>
 
-  <!-- Markets (full width) -->
+  <!-- Markets — Finlogix -->
   <div class="grid-stack-item" gs-x="0" gs-y="34" gs-w="3" gs-h="3" gs-min-h="2">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc">
           <div class="ct">MARKETS</div>
-          <div class="cb">S&amp;P · DOW · NASDAQ · OIL · BTC</div>
-          <a href="https://finance.yahoo.com" target="_blank" rel="noopener" style="font-size:10px;color:var(--accent);text-decoration:none;margin-left:8px;">Yahoo →</a>
+          <div class="cb">LIVE PRICES</div>
         </div>
-        <div class="cbody" style="padding:0;overflow:hidden;flex:1;">
-          <div class="tradingview-widget-container" style="height:100%;">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-            {
-              "colorTheme":"dark","dateRange":"1D","showChart":false,"locale":"en",
-              "isTransparent":true,"showSymbolLogo":false,"width":"100%","height":"180",
-              "tabs":[{"title":"Markets","symbols":[
-                {"s":"FOREXCOM:SPXUSD","d":"S&P 500"},
-                {"s":"BLACKBULL:US30","d":"Dow Jones"},
-                {"s":"FOREXCOM:NSXUSD","d":"Nasdaq"},
-                {"s":"NYMEX:CL1!","d":"Oil WTI"},
-                {"s":"BITSTAMP:BTCUSD","d":"Bitcoin"},
-                {"s":"COMEX:GC1!","d":"Gold"}
-              ],"originalTitle":"Markets"}]
-            }
-            </script>
-          </div>
+        <div class="cbody np" style="flex:1;min-height:0;overflow:hidden;">
+          <!-- Finlogix Widget BEGIN -->
+          <div class="finlogix-container"></div>
+          <script type="text/javascript" src="https://widget.finlogix.com/Widget.js"></script>
+          <script type="text/javascript">
+            Widget.init({
+              widgetId: "5f7acc9a-bf3c-43bc-a6e6-791599137928",
+              type: "SymbolChartList",
+              language: "en",
+              symbolIds: [19,44,129,157,635,66,898,580,122],
+              isAdaptive: true,
+              withBorderBox: true
+            });
+          </script>
+          <!-- Finlogix Widget END -->
         </div>
       </div>
     </div>
