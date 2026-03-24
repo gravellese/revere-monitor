@@ -1,0 +1,26 @@
+name: Fetch Monitor Data
+
+on:
+  schedule:
+    - cron: '5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests feedparser beautifulsoup4
+      - run: python fetch.py
+      - name: Commit updated data
+        run: |
+          git config user.name "Revere Monitor Bot"
+          git config user.email "action@github.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "chore: update data [skip ci]"
+          git push
