@@ -451,47 +451,79 @@ def main():
                 data["news_boston"].append(item)
                 source_counts[label] = source_counts.get(label, 0) + 1
 
-    # Universal Hub — scraping their site directly since RSS feeds are unreliable
+    # Universal Hub — try multiple feed approaches with proper headers
     uhub = []
-    # Try RSS feeds first
-    for uh_url in [
-        "https://universalhub.com/node/feed",
-        "https://www.universalhub.com/node/feed",
-        "https://universalhub.com/atom.xml",
-        "https://www.universalhub.com/atom.xml",
-    ]:
-        uhub = safe(lambda u=uh_url: fetch_feed(u, 30), f"UHub RSS {uh_url}") or []
-        if uhub:
-            for i in uhub: i["source"] = "Universal Hub"
-            print(f"    ✓ Universal Hub loaded via RSS: {uh_url}")
-            break
 
-    # Fallback: scrape their homepage directly
+    # feedparser with explicit Accept header sometimes fixes stale Drupal RSS
+    for uh_url in [
+        "https://www.universalhub.com/recent/feed",
+        "https://universalhub.com/recent/feed",
+        "https://www.universalhub.com/node/feed",
+        "https://universalhub.com/node/feed",
+        "https://www.universalhub.com/atom.xml",
+        "https://universalhub.com/atom.xml",
+    ]:
+        try:
+            # Use requests to fetch with proper headers, then parse content
+            resp = requests.get(uh_url, timeout=12, headers={
+                "User-Agent": "Mozilla/5.0 (compatible; FeedFetcher/1.0)",
+                "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
+            })
+            if resp.status_code == 200 and len(resp.content) > 500:
+                feed = feedparser.parse(resp.content)
+                if feed.entries:
+                    now_ts = __import__('time').time()
+                    week_ago = now_ts - (7 * 24 * 3600)
+                    for e in feed.entries[:30]:
+                        ts = 0
+                        if hasattr(e, "published_parsed") and e.published_parsed:
+                            try: ts = calendar.timegm(e.published_parsed)
+                            except: pass
+                        # Only include items from the last 7 days if we have timestamps
+                        if ts > 0 and ts < week_ago:
+                            continue
+                        uhub.append({
+                            "title":     getattr(e, "title", ""),
+                            "link":      getattr(e, "link", ""),
+                            "published": getattr(e, "published", ""),
+                            "ts":        ts,
+                            "source":    "Universal Hub",
+                        })
+                    if uhub:
+                        print(f"    ✓ Universal Hub: {len(uhub)} items from {uh_url}")
+                        break
+        except Exception as ex:
+            print(f"    ✗ UHub {uh_url}: {ex}")
+            continue
+
+    # Fallback: scrape homepage, grab only links from main content area
     if not uhub:
         try:
-            r = requests.get("https://www.universalhub.com", timeout=15, headers=HEADERS)
-            soup = BeautifulSoup(r.text, "html.parser")
-            for a in soup.select("h2 a, h3 a, .node-title a, .story-title a, article a")[:25]:
+            resp = requests.get("https://www.universalhub.com", timeout=15, headers=HEADERS)
+            soup = BeautifulSoup(resp.text, "html.parser")
+            # Target only main content — avoid sidebar, nav, footer
+            main = soup.select_one("main, #main, .main-container, #content, .content, .region-content")
+            search_area = main if main else soup
+            seen_h = set()
+            for a in search_area.select("h2 a, h3 a, h4 a, .node-title a")[:20]:
                 text = a.get_text(strip=True)
-                href = a.get("href","")
-                if len(text) > 15 and href:
+                href = a.get("href", "")
+                if len(text) > 10 and href and text not in seen_h:
+                    seen_h.add(text)
                     full = href if href.startswith("http") else "https://www.universalhub.com" + href
-                    uhub.append({
-                        "title": text,
-                        "link":  full,
-                        "published": "",
-                        "ts": 0,
-                        "source": "Universal Hub",
-                    })
-            print(f"    {'✓' if uhub else '✗'} Universal Hub scraped homepage: {len(uhub)} items")
+                    # Only include universalhub.com links, not external
+                    if "universalhub.com" in full or full.startswith("/"):
+                        uhub.append({"title": text, "link": full,
+                                     "published": "", "ts": 0, "source": "Universal Hub"})
+            print(f"    {'✓' if uhub else '✗'} UHub homepage scrape: {len(uhub)} items")
         except Exception as e:
-            print(f"    ✗ Universal Hub homepage scrape failed: {e}")
+            print(f"    ✗ UHub homepage failed: {e}")
 
-    # Last resort: Google News search for universalhub.com
+    # Final fallback: Google News
     if not uhub:
         uhub = safe(lambda: fetch_feed(
             "https://news.google.com/rss/search?q=site:universalhub.com&hl=en-US&gl=US&ceid=US:en", 20
-        ), "UHub Google News") or []
+        ), "UHub via Google News") or []
         for i in uhub: i["source"] = "Universal Hub"
 
     data["news_universalhub"] = uhub
