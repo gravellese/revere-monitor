@@ -282,7 +282,7 @@ def main():
         for i in items: i["source"] = label
         data["news_national"].extend(items)
 
-    with open("public/data.json", "w") as f:
+    with open("data.json", "w") as f:
         json.dump(data, f, indent=2, default=str)
     print(f"\n✅ Done — {data['updated_local']}")
 
