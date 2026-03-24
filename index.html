@@ -1359,28 +1359,38 @@ const grid = GridStack.init({
   cellHeight: 65,
   minRow: 1,
   column: 12,
-  handle: '.ch',        // drag by card header
+  handle: '.ch',
   resizable: { handles: 'se,s,e' },
-  animate: true,
+  animate: false,  // disable animation during restore to prevent flicker
   margin: 8,
 });
 
-// Save layout whenever items change
-grid.on('change', () => {
-  const layout = grid.save(false); // false = don't save content, just positions
-  localStorage.setItem(GRID_STORAGE_KEY, JSON.stringify(layout));
-});
-
-// Restore saved layout on load
+// Restore saved layout — deferred so GridStack finishes its initial render first
 const savedLayout = localStorage.getItem(GRID_STORAGE_KEY);
 if (savedLayout) {
-  try {
-    grid.load(JSON.parse(savedLayout));
-  } catch(e) {
-    console.warn('Could not restore grid layout:', e);
-    localStorage.removeItem(GRID_STORAGE_KEY);
-  }
+  setTimeout(() => {
+    try {
+      const layout = JSON.parse(savedLayout);
+      grid.load(layout);
+      grid.setAnimation(true); // re-enable animation after restore
+    } catch(e) {
+      console.warn('Could not restore grid layout, clearing:', e);
+      localStorage.removeItem(GRID_STORAGE_KEY);
+    }
+  }, 100);
+} else {
+  grid.setAnimation(true);
 }
+
+// Save layout whenever items are moved or resized
+grid.on('change', () => {
+  try {
+    const layout = grid.save(false);
+    localStorage.setItem(GRID_STORAGE_KEY, JSON.stringify(layout));
+  } catch(e) {
+    console.warn('Could not save grid layout:', e);
+  }
+});
 
 // Reset layout button
 document.getElementById('reset-layout-btn').addEventListener('click', () => {
