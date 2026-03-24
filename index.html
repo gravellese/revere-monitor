@@ -468,7 +468,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
 <div class="grid-stack" id="gs-grid">
 
   <!-- Top 3 Priorities -->
-  <div class="grid-stack-item" gs-x="0" gs-y="0" gs-w="3" gs-h="6" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="priorities" gs-x="0" gs-y="0" gs-w="3" gs-h="6" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch grn"><div class="ct">TOP 3 PRIORITIES</div><div class="cb">SAVED IN BROWSER</div></div>
@@ -485,7 +485,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Calendar Planner -->
-  <div class="grid-stack-item" gs-x="0" gs-y="6" gs-w="3" gs-h="6" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="planner" gs-x="0" gs-y="6" gs-w="3" gs-h="6" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">CALENDAR PLANNER</div><div class="cb">3-DAY · SAVED IN BROWSER</div></div>
@@ -500,7 +500,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Current Weather -->
-  <div class="grid-stack-item" gs-x="0" gs-y="12" gs-w="3" gs-h="5" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="weather-now" gs-x="0" gs-y="12" gs-w="3" gs-h="5" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">NOW — REVERE, MA</div><div class="cb">NWS WEATHER</div></div>
@@ -521,7 +521,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Hourly Forecast -->
-  <div class="grid-stack-item" gs-x="0" gs-y="17" gs-w="3" gs-h="4" gs-min-h="3">
+  <div class="grid-stack-item" gs-id="hourly" gs-x="0" gs-y="17" gs-w="3" gs-h="4" gs-min-h="3">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">HOURLY FORECAST</div><div class="cb">NEXT 24H → SCROLL</div></div>
@@ -533,7 +533,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- 7-Day Forecast -->
-  <div class="grid-stack-item" gs-x="0" gs-y="21" gs-w="3" gs-h="5" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="sevenday" gs-x="0" gs-y="21" gs-w="3" gs-h="5" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">7-DAY FORECAST</div><div class="cb">NWS</div></div>
@@ -545,7 +545,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- City Calendar -->
-  <div class="grid-stack-item" gs-x="0" gs-y="26" gs-w="3" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="city-cal" gs-x="0" gs-y="26" gs-w="3" gs-h="8" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">CITY CALENDAR</div><div class="cb">REVERE.ORG</div></div>
@@ -559,7 +559,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Sun / Sky / Tides / Logan (3-up group) -->
-  <div class="grid-stack-item" gs-x="3" gs-y="0" gs-w="9" gs-h="6" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="sun-tides-logan" gs-x="3" gs-y="0" gs-w="9" gs-h="6" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="g3" style="height:100%;gap:10px;">
         <div class="card" style="height:100%;">
@@ -585,7 +585,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Boston Sports -->
-  <div class="grid-stack-item" gs-x="3" gs-y="6" gs-w="9" gs-h="5" gs-min-h="3">
+  <div class="grid-stack-item" gs-id="sports" gs-x="3" gs-y="6" gs-w="9" gs-h="5" gs-min-h="3">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch ora"><div class="ct">BOSTON SPORTS</div><div class="cb">SCORES · SCHEDULES · LIVE TV</div></div>
@@ -609,7 +609,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Boston News -->
-  <div class="grid-stack-item" gs-x="3" gs-y="11" gs-w="4" gs-h="9" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="boston-news" gs-x="3" gs-y="11" gs-w="4" gs-h="9" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">BOSTON NEWS</div><div class="cb">GLOBE · HERALD · GBH · WBUR · MORE</div></div>
@@ -621,7 +621,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Universal Hub Bluesky Feed -->
-  <div class="grid-stack-item" gs-x="7" gs-y="11" gs-w="5" gs-h="9" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="uhub" gs-x="7" gs-y="11" gs-w="5" gs-h="9" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">BLUESKY · @universalhub.com</div></div>
@@ -634,7 +634,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- NYT Iran War Liveblog — link only -->
-  <div class="grid-stack-item" gs-x="3" gs-y="20" gs-w="5" gs-h="4" gs-min-h="2">
+  <div class="grid-stack-item" gs-id="nyt-link" gs-x="3" gs-y="20" gs-w="5" gs-h="4" gs-min-h="2">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch red"><div class="ct">NYT · IRAN WAR LIVEBLOG</div><div class="cb">OPENS IN NEW TAB</div></div>
@@ -653,7 +653,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Revere + Communities -->
-  <div class="grid-stack-item" gs-x="8" gs-y="20" gs-w="4" gs-h="9" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="revere-comm" gs-x="8" gs-y="20" gs-w="4" gs-h="9" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="g2" style="height:100%;gap:10px;">
         <div class="card" style="height:100%;">
@@ -673,7 +673,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Reddit: boston / mass / mbta -->
-  <div class="grid-stack-item" gs-x="3" gs-y="29" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="reddit-row1" gs-x="3" gs-y="29" gs-w="9" gs-h="7" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="g3" style="height:100%;gap:10px;">
         <div class="card" style="height:100%;">
@@ -693,7 +693,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Reddit: nascar / neoliberal / bruins / urban -->
-  <div class="grid-stack-item" gs-x="3" gs-y="36" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="reddit-row2" gs-x="3" gs-y="36" gs-w="9" gs-h="7" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="g4" style="height:100%;gap:10px;">
         <div class="card" style="height:100%;">
@@ -717,7 +717,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Sports News + BC News -->
-  <div class="grid-stack-item" gs-x="3" gs-y="43" gs-w="9" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="sports-bc" gs-x="3" gs-y="43" gs-w="9" gs-h="8" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="g2" style="height:100%;gap:10px;">
         <div class="card" style="height:100%;">
@@ -737,7 +737,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- National News -->
-  <div class="grid-stack-item" gs-x="3" gs-y="51" gs-w="9" gs-h="9" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="national" gs-x="3" gs-y="51" gs-w="9" gs-h="9" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">NATIONAL HEADLINES</div><div class="cb">NPR · NYT · CNN · BBC · AP · HILL · WAPO</div></div>
@@ -749,7 +749,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Revere TV -->
-  <div class="grid-stack-item" gs-x="3" gs-y="60" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="reveretv" gs-x="3" gs-y="60" gs-w="9" gs-h="7" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch grn"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS · CLICK TO WATCH</div></div>
@@ -764,7 +764,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Markets — Finlogix -->
-  <div class="grid-stack-item" gs-x="0" gs-y="34" gs-w="3" gs-h="3" gs-min-h="2">
+  <div class="grid-stack-item" gs-id="markets" gs-x="0" gs-y="34" gs-w="3" gs-h="3" gs-min-h="2">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc">
@@ -792,7 +792,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Live News & Radio (left column bottom) -->
-  <div class="grid-stack-item" gs-x="0" gs-y="37" gs-w="3" gs-h="10" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="radio" gs-x="0" gs-y="37" gs-w="3" gs-h="10" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">LIVE NEWS &amp; RADIO</div><div class="cb">OPENS IN NEW WINDOW</div></div>
@@ -1352,7 +1352,7 @@ async function loadData(){
 }
 
 // ── GRIDSTACK INIT ────────────────────────────────────────────────
-const GRID_STORAGE_KEY = 'revere_monitor_grid_layout';
+const GRID_STORAGE_KEY = 'revere_monitor_grid_v2';
 
 const grid = GridStack.init({
   float: true,
@@ -1361,38 +1361,57 @@ const grid = GridStack.init({
   column: 12,
   handle: '.ch',
   resizable: { handles: 'se,s,e' },
-  animate: false,  // disable animation during restore to prevent flicker
+  animate: false,
   margin: 8,
 });
 
-// Restore saved layout — deferred so GridStack finishes its initial render first
-const savedLayout = localStorage.getItem(GRID_STORAGE_KEY);
-if (savedLayout) {
-  setTimeout(() => {
-    try {
-      const layout = JSON.parse(savedLayout);
-      grid.load(layout);
-      grid.setAnimation(true); // re-enable animation after restore
-    } catch(e) {
-      console.warn('Could not restore grid layout, clearing:', e);
-      localStorage.removeItem(GRID_STORAGE_KEY);
-    }
-  }, 100);
-} else {
-  grid.setAnimation(true);
+// ── SAVE: record x,y,w,h keyed by gs-id ──────────────────────────
+function saveLayout() {
+  const layout = {};
+  document.querySelectorAll('.grid-stack-item').forEach(el => {
+    const id = el.getAttribute('gs-id');
+    if (!id) return;
+    layout[id] = {
+      x: parseInt(el.getAttribute('gs-x') || 0),
+      y: parseInt(el.getAttribute('gs-y') || 0),
+      w: parseInt(el.getAttribute('gs-w') || 3),
+      h: parseInt(el.getAttribute('gs-h') || 4),
+    };
+  });
+  localStorage.setItem(GRID_STORAGE_KEY, JSON.stringify(layout));
 }
 
-// Save layout whenever items are moved or resized
-grid.on('change', () => {
+// ── RESTORE: apply saved positions by gs-id ───────────────────────
+function restoreLayout() {
+  const saved = localStorage.getItem(GRID_STORAGE_KEY);
+  if (!saved) return;
   try {
-    const layout = grid.save(false);
-    localStorage.setItem(GRID_STORAGE_KEY, JSON.stringify(layout));
+    const layout = JSON.parse(saved);
+    grid.batchUpdate();
+    document.querySelectorAll('.grid-stack-item').forEach(el => {
+      const id = el.getAttribute('gs-id');
+      if (!id || !layout[id]) return;
+      const {x, y, w, h} = layout[id];
+      grid.update(el, {x, y, w, h});
+    });
+    grid.commit();
   } catch(e) {
-    console.warn('Could not save grid layout:', e);
+    console.warn('Layout restore failed, clearing:', e);
+    localStorage.removeItem(GRID_STORAGE_KEY);
   }
-});
+}
 
-// Reset layout button
+// Restore after a short delay so GridStack finishes initial layout
+setTimeout(() => {
+  restoreLayout();
+  grid.setAnimation(true);
+}, 150);
+
+// Save on every move/resize
+grid.on('change', saveLayout);
+grid.on('resizestop', saveLayout);
+
+// Reset button
 document.getElementById('reset-layout-btn').addEventListener('click', () => {
   if (confirm('Reset all panels to default layout?')) {
     localStorage.removeItem(GRID_STORAGE_KEY);
