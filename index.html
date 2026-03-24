@@ -437,21 +437,45 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   <!-- RIGHT COLUMN -->
   <div id="col-right">
 
-    <!-- Scores -->
-    <div class="card">
-      <div class="ch ora"><div class="ct">BOSTON SCORES &amp; SCHEDULE</div><div class="cb">ESPN · LIVE DATA</div></div>
-      <div class="cbody">
-        <div class="score-grid" id="scores-grid"><div class="empty">Loading scores…</div></div>
+    <!-- Sun / Tides / Logan — at top of right column -->
+    <div class="g3">
+      <div class="card">
+        <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
+        <div class="cbody np">
+          <div class="sun-row"><span class="sun-k">☀ Sunrise</span>   <span class="sun-v" id="s-rise">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌅 Civil Dawn</span><span class="sun-v" id="s-dawn">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌇 Sunset</span>   <span class="sun-v" id="s-set">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌆 Civil Dusk</span><span class="sun-v" id="s-dusk">--</span></div>
+          <div class="sun-row"><span class="sun-k">⏱ Day Length</span><span class="sun-v b" id="s-len">--</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ch acc"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
+        <div class="cbody np"><div id="tide-list"><div class="empty">Loading…</div></div></div>
+      </div>
+      <div class="card">
+        <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA + METAR CONDITIONS</div></div>
+        <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
       </div>
     </div>
 
-    <!-- Sports TV / Radio listings link -->
+    <!-- Sports Quick Links -->
     <div class="card">
-      <div class="ch ora"><div class="ct">SPORTS ON TV &amp; RADIO</div><div class="cb">TODAY'S LISTINGS</div></div>
-      <div class="cbody" style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="https://www.bostonglobe.com/sports/on-television/" target="_blank" rel="noopener" style="flex:1;" class="cal-btn" style="margin:0;">BOSTON GLOBE SPORTS ON TV →</a>
-        <a href="https://nesn.com/schedule/" target="_blank" rel="noopener" style="flex:1;" class="cal-btn" style="margin:0;">NESN SCHEDULE →</a>
-        <a href="https://www.espn.com/watch/" target="_blank" rel="noopener" style="flex:1;" class="cal-btn" style="margin:0;">ESPN WATCH →</a>
+      <div class="ch ora"><div class="ct">BOSTON SPORTS</div><div class="cb">SCORES · SCHEDULES · LIVE TV</div></div>
+      <div class="cbody">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px;">
+          <a href="https://www.espn.com/nhl/team/_/name/bos/boston-bruins" target="_blank" rel="noopener" class="cal-btn" style="margin:0;padding:8px 6px;font-size:12px;">🏒 BRUINS</a>
+          <a href="https://www.espn.com/nba/team/_/name/bos/boston-celtics" target="_blank" rel="noopener" class="cal-btn" style="margin:0;padding:8px 6px;font-size:12px;">🏀 CELTICS</a>
+          <a href="https://www.espn.com/mlb/team/_/name/bos/boston-red-sox" target="_blank" rel="noopener" class="cal-btn" style="margin:0;padding:8px 6px;font-size:12px;">⚾ RED SOX</a>
+          <a href="https://www.espn.com/nfl/team/_/name/ne/new-england-patriots" target="_blank" rel="noopener" class="cal-btn" style="margin:0;padding:8px 6px;font-size:12px;">🏈 PATRIOTS</a>
+          <a href="https://www.espn.com/soccer/team/_/id/202/new-england-revolution" target="_blank" rel="noopener" class="cal-btn" style="margin:0;padding:8px 6px;font-size:12px;">⚽ REVOLUTION</a>
+          <a href="https://www.pwhl.com/teams/boston-fleet" target="_blank" rel="noopener" class="cal-btn" style="margin:0;padding:8px 6px;font-size:12px;">🏒 FLEET (PWHL)</a>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="https://www.bostonglobe.com/sports/on-television/" target="_blank" rel="noopener" class="cal-btn" style="margin:0;flex:1;">GLOBE SPORTS ON TV →</a>
+          <a href="https://nesn.com/schedule/" target="_blank" rel="noopener" class="cal-btn" style="margin:0;flex:1;">NESN SCHEDULE →</a>
+          <a href="https://www.espn.com/watch/" target="_blank" rel="noopener" class="cal-btn" style="margin:0;flex:1;">ESPN WATCH →</a>
+        </div>
       </div>
     </div>
 
@@ -561,29 +585,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div><!-- /col-right -->
 </div><!-- /main -->
 
-<!-- FULL WIDTH: SUN / TIDES / LOGAN -->
-<div class="full-row full-3col">
-  <div class="card">
-    <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
-    <div class="cbody np">
-      <div class="sun-row"><span class="sun-k">☀ Sunrise</span>   <span class="sun-v" id="s-rise">--</span></div>
-      <div class="sun-row"><span class="sun-k">🌅 Civil Dawn</span><span class="sun-v" id="s-dawn">--</span></div>
-      <div class="sun-row"><span class="sun-k">🌇 Sunset</span>   <span class="sun-v" id="s-set">--</span></div>
-      <div class="sun-row"><span class="sun-k">🌆 Civil Dusk</span><span class="sun-v" id="s-dusk">--</span></div>
-      <div class="sun-row"><span class="sun-k">⏱ Day Length</span><span class="sun-v b" id="s-len">--</span></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="ch acc"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
-    <div class="cbody np"><div id="tide-list"><div class="empty">Loading…</div></div></div>
-  </div>
-  <div class="card">
-    <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA AIRPORT STATUS</div></div>
-    <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
-  </div>
-</div>
-
-<!-- FULL WIDTH: STOCKS -->
+<!-- FULL WIDTH: MARKETS — TradingView widget -->
 <div class="full-row" style="grid-template-columns:1fr;">
   <div class="card">
     <div class="ch acc">
@@ -591,8 +593,29 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
       <div class="cb">DOW · S&amp;P · NASDAQ · OIL · BITCOIN</div>
       <a href="https://finance.yahoo.com" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;margin-left:12px;">Yahoo Finance →</a>
     </div>
-    <div class="cbody">
-      <div class="stock-grid" id="stock-grid"><div class="empty">Loading…</div></div>
+    <div class="cbody" style="padding:0;overflow:hidden;">
+      <!-- TradingView Ticker Tape Widget — free, no API key, works in browser -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+          "symbols": [
+            {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+            {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},
+            {"description":"Dow Jones","proName":"BLACKBULL:US30"},
+            {"description":"Oil WTI","proName":"NYMEX:CL1!"},
+            {"description":"Bitcoin","proName":"BITSTAMP:BTCUSD"},
+            {"description":"Gold","proName":"COMEX:GC1!"},
+            {"description":"10Y Treasury","proName":"TVC:US10Y"}
+          ],
+          "showSymbolLogo": true,
+          "isTransparent": true,
+          "displayMode": "adaptive",
+          "colorTheme": "dark",
+          "locale": "en"
+        }
+        </script>
+      </div>
     </div>
   </div>
 </div>
@@ -678,12 +701,13 @@ function wxEmoji(fc=''){
 }
 function fmtScore(n){return n>=1000?(n/1000).toFixed(1)+'k':String(n);}
 
-// Sort items by published date descending
+// Sort items by unix timestamp (ts field set by fetch.py) — most recent first
 function sortByDate(items){
   return [...items].sort((a,b)=>{
-    const da=a.published?new Date(a.published):new Date(0);
-    const db=b.published?new Date(b.published):new Date(0);
-    return db-da;
+    // Use ts (unix timestamp from fetch.py) if available, fall back to Date parse
+    const ta = a.ts ? a.ts : (a.published ? Date.parse(a.published)/1000 : 0);
+    const tb = b.ts ? b.ts : (b.published ? Date.parse(b.published)/1000 : 0);
+    return tb - ta;
   });
 }
 
@@ -877,23 +901,51 @@ function renderTides(tides){
 // ── LOGAN ─────────────────────────────────────────────────────────
 function renderLogan(logan){
   const b=document.getElementById('logan-body');
-  if(!logan||(!logan.name&&!logan.metar)){b.innerHTML='<div class="empty">No data</div>';return;}
-  if(logan.metar){
-    b.innerHTML=`<div class="l-ind ok"><div class="l-dot ok"></div><div class="l-st ok">METAR DATA (KBOS)</div></div><div class="l-metar"><div><span class="mk">WIND</span>${logan.wind_dir||'--'}° @ ${logan.wind_speed||'--'} kts</div><div><span class="mk">VIS</span>${logan.visibility||'--'} SM</div><div><span class="mk">SKY</span>${logan.sky||'--'}</div><div><span class="mk">TEMP</span>${logan.temp_c||'--'}°C</div><div style="margin-top:6px;font-size:10px;word-break:break-all;">${logan.raw_metar||''}</div></div>`;
-    return;
+  if(!logan||(!logan.name&&!logan.metar&&!logan.faa_delays)){b.innerHTML='<div class="empty">No data</div>';return;}
+
+  let html='';
+
+  // FAA delay status indicator
+  const hasDelay=logan.delay||logan.faa_delays?.length>0;
+  const cls=hasDelay?'delay':'ok';
+  const label=hasDelay?'DELAYS IN EFFECT':'NORMAL OPERATIONS';
+  html+=`<div class="l-ind ${cls}"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${label}</div></div>`;
+
+  // FAA delay details
+  if(logan.faa_delays?.length){
+    logan.faa_delays.forEach(d=>{
+      html+=`<div class="l-det"><strong>${d.type}</strong> — ${d.reason}${d.avg?' · '+d.avg:''}${d.trend?' ('+d.trend+')':''}</div>`;
+    });
+  } else {
+    html+='<div class="l-det" style="color:var(--text-mute)">No FAA delays or advisories.</div>';
   }
-  const hasDelay=logan.delay||logan.arriveDeparDelay?.length;
-  const hasGround=logan.groundDelay?.length||logan.groundStop?.length;
-  const cls=hasGround?'ground':hasDelay?'delay':'ok';
-  const label=hasGround?'GROUND STOP / DELAY':hasDelay?'DELAYS IN EFFECT':'NORMAL OPERATIONS';
-  let html=`<div class="l-ind ${cls}"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${label}</div></div>`;
-  const dets=[
-    ...(logan.arriveDeparDelay||[]).map(d=>`<div class="l-det"><strong>${d.type}</strong> — ${d.reason} · Avg: ${d.avg} (${d.trend})</div>`),
-    ...(logan.groundDelay||[]).map(d=>`<div class="l-det"><strong>GROUND DELAY</strong> — ${d.reason} · Avg: ${d.avg}</div>`),
-    ...(logan.groundStop||[]).map(d=>`<div class="l-det"><strong>GROUND STOP</strong> — ${d.reason} · Until: ${d.endTime}</div>`),
-  ];
-  if(!dets.length)dets.push('<div class="l-det" style="color:var(--text-mute)">No active advisories.</div>');
-  b.innerHTML=html+dets.join('');
+
+  // METAR current conditions
+  if(logan.metar){
+    const m=logan.metar;
+    const catColor={'VFR':'var(--green)','MVFR':'var(--blue)','IFR':'var(--red)','LIFR':'var(--red)'}[m.flight_cat]||'var(--text-dim)';
+    html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">CURRENT CONDITIONS (METAR)</div>
+      ${m.flight_cat?`<div class="l-det"><strong>FLIGHT CATEGORY</strong> <span style="color:${catColor};font-weight:700;">${m.flight_cat}</span></div>`:''}
+      ${m.wind?`<div class="l-det"><strong>WIND</strong> ${m.wind}</div>`:''}
+      ${m.visibility?`<div class="l-det"><strong>VISIBILITY</strong> ${m.visibility}</div>`:''}
+      ${m.sky?`<div class="l-det"><strong>SKY</strong> ${m.sky}</div>`:''}
+      ${m.wx?`<div class="l-det"><strong>WEATHER</strong> ${m.wx}</div>`:''}
+      ${m.temp_c!=null?`<div class="l-det"><strong>TEMP</strong> ${m.temp_c}°C${m.dewpoint!=null?' · Dewpoint '+m.dewpoint+'°C':''}</div>`:''}
+      ${m.altimeter?`<div class="l-det"><strong>ALTIMETER</strong> ${m.altimeter} inHg</div>`:''}
+      ${m.raw?`<div style="margin-top:6px;font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;padding:4px;background:var(--bg);border-radius:3px;">${m.raw}</div>`:''}
+    </div>`;
+  }
+
+  // TAF
+  if(logan.taf){
+    html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">FORECAST (TAF)</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;line-height:1.5;padding:4px;background:var(--bg);border-radius:3px;">${logan.taf}</div>
+    </div>`;
+  }
+
+  b.innerHTML=html;
 }
 
 // ── NEWS LIST ──────────────────────────────────────────────────────
@@ -1108,7 +1160,6 @@ async function loadData(){
 
 // ── INIT ──────────────────────────────────────────────────────────
 loadData();
-fetchScores();
 ['boston','massachusetts','mbta','NASCAR','neoliberal','bostonbruins','urbanplanning'].forEach(sub=>{
   fetchReddit(sub,'r-'+sub.toLowerCase().replace('/',''));
 });
