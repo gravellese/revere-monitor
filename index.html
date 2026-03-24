@@ -213,13 +213,25 @@ textarea.dp-ta:focus{border-color:var(--accent);}
 textarea.dp-ta::placeholder{color:var(--text-mute);}
 .gcal-frame{width:100%;height:380px;border:none;display:block;}
 
+/* ── STOCKS ─────────────────────────────── */
+.stock-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.stk{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:12px 14px;}
+.stk-name{font-size:11px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.stk-price{font-family:var(--cond);font-size:28px;font-weight:700;color:var(--white);line-height:1;}
+.stk-change{font-size:13px;font-weight:600;margin-top:4px;font-family:var(--mono);}
+.stk-change.up{color:var(--green);}
+.stk-change.dn{color:var(--red);}
+.stk-sym{font-size:10px;color:var(--text-mute);margin-top:2px;}
+
 /* ── CITY CALENDAR ──────────────────────── */
 .cal-ev{padding:8px 0;border-bottom:1px solid var(--border);}
 .cal-ev:last-child{border-bottom:none;}
-.cal-dt{font-size:11px;color:var(--accent);font-weight:600;margin-bottom:2px;font-family:var(--mono);}
+.cal-dt{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:2px;font-family:var(--mono);}
+.cal-dt-time{font-size:11px;color:var(--text-mute);margin-left:6px;}
 a.cal-title{font-size:14px;font-weight:500;color:var(--text);text-decoration:none;display:block;line-height:1.35;transition:color .1s;}
 a.cal-title:hover{color:var(--white);}
 .cal-empty{text-align:center;padding:14px;font-size:13px;color:var(--text-mute);line-height:1.6;}
+.cal-scroll{max-height:400px;overflow-y:auto;padding:0 14px;}
 a.cal-btn{display:block;text-align:center;margin:8px 14px 0;padding:7px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;color:var(--accent);text-decoration:none;font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:2px;transition:background .15s;}
 a.cal-btn:hover{background:var(--bg4);}
 
@@ -236,16 +248,6 @@ a.cal-btn:hover{background:var(--bg4);}
 .sc-upcoming{font-size:13px;color:var(--text-dim);padding:3px 0;}
 .sc-empty{color:var(--text-mute);font-size:12px;padding:4px 0;}
 .sc-err{font-size:12px;color:var(--text-mute);text-align:center;padding:4px 0;}
-
-/* ── STOCKS ─────────────────────────────── */
-.stock-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-.stk{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:10px 12px;}
-.stk-name{font-size:11px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
-.stk-price{font-family:var(--cond);font-size:24px;font-weight:700;color:var(--white);line-height:1;}
-.stk-change{font-size:12px;font-weight:600;margin-top:3px;font-family:var(--mono);}
-.stk-change.up{color:var(--green);}
-.stk-change.dn{color:var(--red);}
-.stk-sym{font-size:10px;color:var(--text-mute);margin-top:2px;}
 
 /* ── MEDIA LINKS ────────────────────────── */
 .media-links-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
@@ -425,7 +427,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
     <!-- City of Revere Calendar -->
     <div class="card">
       <div class="ch acc"><div class="ct">CITY CALENDAR</div><div class="cb">REVERE.ORG</div></div>
-      <div class="cbody npx" id="cal-body"><div class="empty">Loading…</div></div>
+      <div class="cal-scroll" id="cal-body"><div class="empty">Loading…</div></div>
       <div style="padding:8px 14px;border-top:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap;">
         <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-btn" style="flex:1;margin:0;">FULL CALENDAR →</a>
         <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-btn" style="flex:1;margin:0;">MEETING AGENDAS →</a>
@@ -585,36 +587,18 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div><!-- /col-right -->
 </div><!-- /main -->
 
-<!-- FULL WIDTH: MARKETS — TradingView widget -->
+<!-- FULL WIDTH: MARKETS -->
 <div class="full-row" style="grid-template-columns:1fr;">
   <div class="card">
     <div class="ch acc">
       <div class="ct">MARKETS</div>
       <div class="cb">DOW · S&amp;P · NASDAQ · OIL · BITCOIN</div>
       <a href="https://finance.yahoo.com" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;margin-left:12px;">Yahoo Finance →</a>
+      <a href="https://www.marketwatch.com" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;margin-left:10px;">MarketWatch →</a>
     </div>
-    <div class="cbody" style="padding:0;overflow:hidden;">
-      <!-- TradingView Ticker Tape Widget — free, no API key, works in browser -->
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-          "symbols": [
-            {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
-            {"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},
-            {"description":"Dow Jones","proName":"BLACKBULL:US30"},
-            {"description":"Oil WTI","proName":"NYMEX:CL1!"},
-            {"description":"Bitcoin","proName":"BITSTAMP:BTCUSD"},
-            {"description":"Gold","proName":"COMEX:GC1!"},
-            {"description":"10Y Treasury","proName":"TVC:US10Y"}
-          ],
-          "showSymbolLogo": true,
-          "isTransparent": true,
-          "displayMode": "adaptive",
-          "colorTheme": "dark",
-          "locale": "en"
-        }
-        </script>
+    <div class="cbody">
+      <div class="stock-grid" id="stock-grid">
+        <div class="empty" style="grid-column:1/-1;">Loading market data…</div>
       </div>
     </div>
   </div>
@@ -683,6 +667,16 @@ function fmtDate(s){
   if(!s)return'';
   try{return new Date(s).toLocaleDateString('en-US',{month:'short',day:'numeric'});}
   catch{return'';}
+}
+// Shows "Mar 24, 2:30 PM" — used for news items
+function fmtDateTime(ts, pubStr){
+  // ts is unix timestamp (seconds), pubStr is fallback
+  const d = ts ? new Date(ts*1000) : (pubStr ? new Date(pubStr) : null);
+  if(!d || isNaN(d)) return '';
+  try{
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ', ' +
+           d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+  }catch{return'';}
 }
 function fmtDayLen(sec){if(!sec)return'--';return`${Math.floor(sec/3600)}h ${Math.floor((sec%3600)/60)}m`;}
 function wxEmoji(fc=''){
@@ -781,11 +775,33 @@ function renderTicker(alerts){
   sum.textContent=`⚠ ${alerts.length} active alert${alerts.length>1?'s':''} — click to expand`;
   document.getElementById('mbta-toggle').style.display='';
   list.innerHTML='';
+
+  // Line color map
+  const lineColors = {
+    'Red':'#e03030','Orange':'#f08020','Blue':'#3060e0','Green':'#30a030',
+    'Green-B':'#30a030','Green-C':'#30a030','Green-D':'#30a030','Green-E':'#30a030',
+    'Silver':'#909090','Mattapan':'#e03030',
+    // Commuter Rail lines — purple
+    'CR-Fairmount':'#8040c0','CR-Framingham':'#8040c0','CR-Franklin':'#8040c0',
+    'CR-Greenbush':'#8040c0','CR-Haverhill':'#8040c0','CR-Kingston':'#8040c0',
+    'CR-Lowell':'#8040c0','CR-Middleborough':'#8040c0','CR-Needham':'#8040c0',
+    'CR-Newburyport':'#8040c0','CR-Providence':'#8040c0','CR-Fitchburg':'#8040c0',
+    'CR-Worcester':'#8040c0','CR-Foxboro':'#8040c0',
+  };
+
+  function getLineBadge(routes){
+    if(!routes?.length) return '';
+    return routes.map(r=>{
+      const color = lineColors[r] || (r.startsWith('CR-') ? '#8040c0' : '#606060');
+      const label = r.startsWith('CR-') ? '🚆 '+r.replace('CR-','') : r+' Line';
+      return `<span class="mbta-route-badge" style="background:${color}20;border-color:${color};color:${color};">${label}</span>`;
+    }).join('');
+  }
+
   alerts.forEach(a=>{
     const div=document.createElement('div');
     div.className='mbta-alert-row';
-    const badge=a.routes?.length?`<span class="mbta-route-badge">${a.routes.join('/')}</span>`:'';
-    div.innerHTML=`${badge}<span>${a.header}</span>`;
+    div.innerHTML=`${getLineBadge(a.routes)}<span>${a.header}</span>`;
     list.appendChild(div);
   });
 }
@@ -983,7 +999,7 @@ function renderNews(id, items, communityTags=false){
       ?`<span class="comm-tag">${item.source}</span>`
       :item.source?`<div class="ni-src">${item.source}</div>`:'';
     inner+=`<div class="ni-title">${item.title}</div>`;
-    if(item.published)inner+=`<div class="ni-date">${fmtDate(item.published)}</div>`;
+    if(item.ts||item.published) inner+=`<div class="ni-date">${fmtDateTime(item.ts, item.published)}</div>`;
     a.innerHTML=inner;
     c.appendChild(a);
   });
@@ -1010,14 +1026,15 @@ function renderRevereTv(videos){
 // ── REDDIT ──────────────────────────────────────────────────────
 async function fetchReddit(sub, id){
   const c=document.getElementById(id);
+  if(!c) return;
   try{
-    const r=await fetch(`https://www.reddit.com/r/${sub}/hot.json?limit=20&raw_json=1`,{headers:{Accept:'application/json'}});
+    const r=await fetch(`https://www.reddit.com/r/${sub}/hot.json?limit=10&raw_json=1`,{headers:{Accept:'application/json'}});
     if(!r.ok)throw new Error(`HTTP ${r.status}`);
     const data=await r.json();
     const posts=(data?.data?.children||[]).filter(p=>!p.data.stickied);
     if(!posts.length){c.innerHTML='<div class="rp-err">No posts found</div>';return;}
     c.innerHTML='';
-    posts.slice(0,20).forEach(p=>{
+    posts.slice(0,10).forEach(p=>{
       const d=p.data;
       const a=document.createElement('a');
       a.className='rp';
@@ -1030,102 +1047,26 @@ async function fetchReddit(sub, id){
   }
 }
 
-// ── SCORES ─────────────────────────────────────────────────────────
-async function fetchScores(){
-  const grid=document.getElementById('scores-grid');
-  grid.innerHTML='';
-
-  const teams=[
-    {name:'BRUINS',     sport:'hockey/nhl',         abbr:'BOS'},
-    {name:'CELTICS',    sport:'basketball/nba',      abbr:'BOS'},
-    {name:'RED SOX',    sport:'baseball/mlb',        abbr:'BOS'},
-    {name:'PATRIOTS',   sport:'football/nfl',        abbr:'NE'},
-    {name:'REVOLUTION', sport:'soccer/usa.1',        abbr:'NE'},
-    {name:'BC EAGLES',  sport:'football/college-football', abbr:'BC'},
-    {name:'BOSTON FLEET',sport:'hockey/nhl',         abbr:'BOS', notes:'PWHL — check pwhl.com'},
-    {name:'LEGACY FC',  sport:'soccer/usa.nwsl',     abbr:'BOS', notes:'NWSL — check legacy-fc.com'},
-  ];
-
-  for(const team of teams){
-    // Skip teams where ESPN data is unlikely
-    if(team.notes){
-      const card=document.createElement('div');
-      card.className='sc-card';
-      card.innerHTML=`<div class="sc-sport">${team.name}</div><div class="sc-err" style="font-size:11px;">${team.notes}</div>`;
-      grid.appendChild(card);
-      continue;
-    }
-
-    const card=document.createElement('div');
-    card.className='sc-card';
-    card.innerHTML=`<div class="sc-sport">${team.name}</div><div class="sc-err">Loading…</div>`;
-    grid.appendChild(card);
-
-    try{
-      const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/${team.sport}/scoreboard`,{headers:{Accept:'application/json'}});
-      const data=await r.json();
-      const bos_keywords=team.abbr==='NE'?['New England']:team.abbr==='BC'?['Boston College']:['Boston'];
-      const events=(data.events||[]).filter(ev=>{
-        return ev.competitions?.[0]?.competitors?.some(c=>
-          c.team?.abbreviation===team.abbr ||
-          bos_keywords.some(k=>c.team?.displayName?.includes(k)||c.team?.location?.includes(k))
-        );
-      });
-
-      if(!events.length){
-        // Try yesterday/recent
-        card.innerHTML=`<div class="sc-sport">${team.name}</div><div class="sc-empty">No games today</div>`;
-        continue;
-      }
-
-      const ev=events[0];
-      const comp=ev.competitions[0];
-      const status=comp.status?.type;
-      const isLive=status?.state==='in';
-      const isFinal=status?.completed;
-      const homeTeam=comp.competitors.find(c=>c.homeAway==='home');
-      const awayTeam=comp.competitors.find(c=>c.homeAway==='away');
-      const homeName=homeTeam?.team?.abbreviation||'??';
-      const awayName=awayTeam?.team?.abbreviation||'??';
-      const homeScore=homeTeam?.score||'0';
-      const awayScore=awayTeam?.score||'0';
-      const homeWin=isFinal&&parseInt(homeScore)>parseInt(awayScore);
-      const awayWin=isFinal&&parseInt(awayScore)>parseInt(homeScore);
-
-      let statusBadge='';
-      if(isLive)statusBadge=`<span style="color:var(--red);font-weight:700;">● LIVE</span> ${status?.description||''}`;
-      else if(isFinal)statusBadge='FINAL';
-      else{
-        const d=new Date(ev.date||comp.date);
-        statusBadge=d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+' '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
-      }
-
-      card.innerHTML=`<div class="sc-sport">${team.name}</div><div class="sc-status">${statusBadge}</div><div class="sc-team"><span class="sc-tname ${awayWin?'w':''}">${awayName}</span><span class="sc-tscore">${awayScore}</span></div><div class="sc-team"><span class="sc-tname ${homeWin?'w':''}">${homeName}</span><span class="sc-tscore">${homeScore}</span></div>`;
-    }catch(e){
-      card.innerHTML=`<div class="sc-sport">${team.name}</div><div class="sc-err">Could not load</div>`;
-    }
-  }
-}
-
 // ── STOCKS ──────────────────────────────────────────────────────
 function renderStocks(stocks){
   const grid=document.getElementById('stock-grid');
+  if(!grid) return;
   if(!stocks?.length){
-    grid.innerHTML='<div class="empty" style="grid-column:1/-1;">Stock data not yet loaded — run the GitHub Action to refresh. <a href="https://finance.yahoo.com" target="_blank" rel="noopener" style="color:var(--accent);">Yahoo Finance →</a></div>';
+    grid.innerHTML='<div class="empty" style="grid-column:1/-1;">Market data not loaded — run the GitHub Action. <a href="https://finance.yahoo.com" target="_blank" style="color:var(--accent);">Yahoo Finance →</a></div>';
     return;
   }
   grid.innerHTML='';
   stocks.forEach(s=>{
     const up=(s.change||0)>=0;
-    const changeStr=s.change!=null?`${up?'+':''}${s.change.toFixed(2)} (${up?'+':''}${s.changePct?.toFixed(2)}%)`:'';
     let priceStr='--';
     if(s.price!=null){
-      priceStr=s.symbol==='BTC-USD'
-        ?`$${Math.round(s.price).toLocaleString()}`
-        :s.symbol==='CL=F'
-          ?`$${s.price.toFixed(2)}`
-          :s.price>=1000?s.price.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}):s.price.toFixed(2);
+      if(s.symbol==='BTC-USD') priceStr='$'+Math.round(s.price).toLocaleString();
+      else if(s.symbol==='CL=F') priceStr='$'+s.price.toFixed(2);
+      else if(s.price>=1000) priceStr=s.price.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+      else priceStr=s.price.toFixed(2);
     }
+    const changeStr=s.change!=null
+      ?`${up?'+':''}${s.change.toFixed(2)} (${up?'+':''}${s.changePct?.toFixed(2)}%)`:'--';
     const div=document.createElement('div');
     div.className='stk';
     div.innerHTML=`<div class="stk-name">${s.name}</div><div class="stk-price">${priceStr}</div><div class="stk-change ${up?'up':'dn'}">${changeStr}</div><div class="stk-sym">${s.symbol}</div>`;
@@ -1170,6 +1111,7 @@ async function loadData(){
   safeRender(()=>renderTicker(d.mbta_alerts),               'mbta');
   safeRender(()=>renderRevereTv(d.revere_tv),               'reveretv');
 
+  safeRender(()=>renderStocks(d.stocks),                    'stocks');
   safeRender(()=>renderNews('news-revere',   (d.news_revere||[]).slice(0,30)),          'news-revere');
   safeRender(()=>renderNews('news-comm',     (d.news_communities||[]).slice(0,30),true),'news-comm');
   safeRender(()=>renderNews('news-boston',   (d.news_boston||[]).slice(0,30)),          'news-boston');
@@ -1182,14 +1124,19 @@ async function loadData(){
   safeRender(()=>{
     const calBody=document.getElementById('cal-body');
     if(!d.revere_calendar?.length){
-      calBody.innerHTML='<div class="cal-empty">Events could not be loaded. Use the links below.</div>';
+      calBody.innerHTML='<div class="cal-empty">Events could not be loaded automatically. Use the links below.</div>';
     } else {
       calBody.innerHTML='';
       d.revere_calendar.forEach(ev=>{
         const div=document.createElement('div');
         div.className='cal-ev';
-        const dt=[ev.date,ev.time].filter(Boolean).join(' · ');
-        div.innerHTML=`${dt?`<div class="cal-dt">${dt}</div>`:''}<a class="cal-title" href="${ev.link||'https://www.revere.org/calendar'}" target="_blank" rel="noopener">${ev.title}</a>`;
+        // Show date and time prominently
+        const dtParts = [];
+        if(ev.date) dtParts.push(ev.date);
+        const dtHtml = dtParts.length
+          ? `<div class="cal-dt">${ev.date||''}${ev.time?`<span class="cal-dt-time">· ${ev.time}</span>`:''}</div>`
+          : '';
+        div.innerHTML=`${dtHtml}<a class="cal-title" href="${ev.link||'https://www.revere.org/calendar'}" target="_blank" rel="noopener">${ev.title}</a>`;
         calBody.appendChild(div);
       });
     }
