@@ -901,51 +901,72 @@ function renderTides(tides){
 // ── LOGAN ─────────────────────────────────────────────────────────
 function renderLogan(logan){
   const b=document.getElementById('logan-body');
-  if(!logan||(!logan.name&&!logan.metar&&!logan.faa_delays)){b.innerHTML='<div class="empty">No data</div>';return;}
+  if(!logan||typeof logan!=='object'){b.innerHTML='<div class="empty">No data</div>';return;}
 
   let html='';
 
-  // FAA delay status indicator
-  const hasDelay=logan.delay||logan.faa_delays?.length>0;
-  const cls=hasDelay?'delay':'ok';
-  const label=hasDelay?'DELAYS IN EFFECT':'NORMAL OPERATIONS';
-  html+=`<div class="l-ind ${cls}"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${label}</div></div>`;
+  // Support both old structure (arriveDeparDelay/groundDelay/groundStop)
+  // and new structure (faa_delays array)
+  let faaDelays = logan.faa_delays || [];
+  if(!faaDelays.length){
+    // Convert old structure if present
+    (logan.arriveDeparDelay||[]).forEach(d=>faaDelays.push({type:d.type,reason:d.reason,avg:d.avg,trend:d.trend}));
+    (logan.groundDelay||[]).forEach(d=>faaDelays.push({type:'Ground Delay',reason:d.reason,avg:d.avg}));
+    (logan.groundStop||[]).forEach(d=>faaDelays.push({type:'Ground Stop',reason:d.reason,avg:d.endTime}));
+  }
 
-  // FAA delay details
-  if(logan.faa_delays?.length){
-    logan.faa_delays.forEach(d=>{
-      html+=`<div class="l-det"><strong>${d.type}</strong> — ${d.reason}${d.avg?' · '+d.avg:''}${d.trend?' ('+d.trend+')':''}</div>`;
+  const hasDelay = logan.delay || faaDelays.length > 0;
+  const cls   = hasDelay ? 'delay' : 'ok';
+  const label = hasDelay ? 'DELAYS IN EFFECT' : 'NORMAL OPERATIONS';
+  html += `<div class="l-ind ${cls}"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${label}</div></div>`;
+
+  if(faaDelays.length){
+    faaDelays.forEach(d=>{
+      html+=`<div class="l-det"><strong>${d.type||'Advisory'}</strong> — ${d.reason||''}${d.avg?' · '+d.avg:''}${d.trend?' ('+d.trend+')':''}</div>`;
     });
   } else {
     html+='<div class="l-det" style="color:var(--text-mute)">No FAA delays or advisories.</div>';
   }
 
-  // METAR current conditions
-  if(logan.metar){
-    const m=logan.metar;
-    const catColor={'VFR':'var(--green)','MVFR':'var(--blue)','IFR':'var(--red)','LIFR':'var(--red)'}[m.flight_cat]||'var(--text-dim)';
+  // METAR — support both old flat structure and new nested object
+  const metar = typeof logan.metar === 'object' && logan.metar !== null ? logan.metar : null;
+  const hasOldMetar = logan.raw_metar || logan.wind_dir;
+
+  if(metar){
+    const m = metar;
+    const catColors = {'VFR':'var(--green)','MVFR':'var(--blue)','IFR':'var(--red)','LIFR':'var(--red)'};
+    const catColor = catColors[m.flight_cat] || 'var(--text-dim)';
     html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
       <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">CURRENT CONDITIONS (METAR)</div>
-      ${m.flight_cat?`<div class="l-det"><strong>FLIGHT CATEGORY</strong> <span style="color:${catColor};font-weight:700;">${m.flight_cat}</span></div>`:''}
+      ${m.flight_cat?`<div class="l-det"><strong>FLIGHT CAT</strong> <span style="color:${catColor};font-weight:700;">${m.flight_cat}</span></div>`:''}
       ${m.wind?`<div class="l-det"><strong>WIND</strong> ${m.wind}</div>`:''}
       ${m.visibility?`<div class="l-det"><strong>VISIBILITY</strong> ${m.visibility}</div>`:''}
       ${m.sky?`<div class="l-det"><strong>SKY</strong> ${m.sky}</div>`:''}
       ${m.wx?`<div class="l-det"><strong>WEATHER</strong> ${m.wx}</div>`:''}
-      ${m.temp_c!=null?`<div class="l-det"><strong>TEMP</strong> ${m.temp_c}°C${m.dewpoint!=null?' · Dewpoint '+m.dewpoint+'°C':''}</div>`:''}
+      ${m.temp_c!=null?`<div class="l-det"><strong>TEMP</strong> ${m.temp_c}°C${m.dewpoint!=null?' · Dew '+m.dewpoint+'°C':''}</div>`:''}
       ${m.altimeter?`<div class="l-det"><strong>ALTIMETER</strong> ${m.altimeter} inHg</div>`:''}
-      ${m.raw?`<div style="margin-top:6px;font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;padding:4px;background:var(--bg);border-radius:3px;">${m.raw}</div>`:''}
+      ${m.raw?`<div style="margin-top:5px;font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;padding:4px;background:var(--bg);border-radius:3px;">${m.raw}</div>`:''}
+    </div>`;
+  } else if(hasOldMetar){
+    // Old flat METAR structure
+    html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:6px;">CURRENT CONDITIONS (METAR)</div>
+      ${logan.wind_dir?`<div class="l-det"><strong>WIND</strong> ${logan.wind_dir}° @ ${logan.wind_speed||'?'} kts</div>`:''}
+      ${logan.visibility?`<div class="l-det"><strong>VISIBILITY</strong> ${logan.visibility} SM</div>`:''}
+      ${logan.sky?`<div class="l-det"><strong>SKY</strong> ${logan.sky}</div>`:''}
+      ${logan.temp_c!=null?`<div class="l-det"><strong>TEMP</strong> ${logan.temp_c}°C</div>`:''}
+      ${logan.raw_metar?`<div style="margin-top:5px;font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;">${logan.raw_metar}</div>`:''}
     </div>`;
   }
 
-  // TAF
   if(logan.taf){
     html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
-      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">FORECAST (TAF)</div>
+      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:4px;">FORECAST (TAF)</div>
       <div style="font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;line-height:1.5;padding:4px;background:var(--bg);border-radius:3px;">${logan.taf}</div>
     </div>`;
   }
 
-  b.innerHTML=html;
+  b.innerHTML = html;
 }
 
 // ── NEWS LIST ──────────────────────────────────────────────────────
@@ -1112,32 +1133,53 @@ function renderStocks(stocks){
   });
 }
 
+// ── SAFE RENDER HELPER ────────────────────────────────────────────
+// Wraps each render call so one crash can't stop all the others
+function safeRender(fn, label){
+  try{ fn(); }
+  catch(e){ console.error(`render error [${label}]:`, e); }
+}
+
 // ── MAIN DATA LOAD ────────────────────────────────────────────────
 async function loadData(){
+  let d;
   try{
     const r=await fetch('./data.json?t='+Date.now());
-    const d=await r.json();
-    document.getElementById('upd-ts').textContent=d.updated_local||'--';
-    renderCurrentWx(d.weather_current);
-    renderHourly(d.weather_hourly);
-    renderDaily(d.weather_daily);
-    renderSun(d.sunrise_sunset);
-    renderTides(d.tides);
-    renderLogan(d.logan);
-    renderTicker(d.mbta_alerts);
-    renderRevereTv(d.revere_tv);
-    const revCombined=[
-      ...(d.news_revere||[])
-    ].slice(0,30);
-    renderNews('news-revere',  revCombined);
-    renderNews('news-comm',    d.news_communities, true);
-    renderNews('news-boston',  (d.news_boston||[]).slice(0,30));
-    renderNews('news-uhub',    (d.news_universalhub||[]).slice(0,30));
-    renderNews('news-sports',  (d.news_sports||[]).slice(0,30));
-    renderNews('news-bc',      (d.news_bc||[]).slice(0,30));
-    renderNews('news-national',(d.news_national||[]).slice(0,50));
+    d=await r.json();
+  }catch(e){
+    console.error('Could not load data.json:',e);
+    document.getElementById('upd-ts').textContent='ERROR — run GitHub Action';
+    // Show error in all news boxes
+    ['news-boston','news-uhub','news-revere','news-comm','news-sports','news-bc','news-national'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el) el.innerHTML='<div class="empty">data.json not loaded — run the GitHub Action</div>';
+    });
+    return;
+  }
 
-    // City calendar
+  // Update timestamp
+  document.getElementById('upd-ts').textContent=d.updated_local||'--';
+
+  // Each render is independent — one failure won't block the rest
+  safeRender(()=>renderCurrentWx(d.weather_current),        'weather');
+  safeRender(()=>renderHourly(d.weather_hourly),            'hourly');
+  safeRender(()=>renderDaily(d.weather_daily),              'daily');
+  safeRender(()=>renderSun(d.sunrise_sunset),               'sun');
+  safeRender(()=>renderTides(d.tides),                      'tides');
+  safeRender(()=>renderLogan(d.logan),                      'logan');
+  safeRender(()=>renderTicker(d.mbta_alerts),               'mbta');
+  safeRender(()=>renderRevereTv(d.revere_tv),               'reveretv');
+
+  safeRender(()=>renderNews('news-revere',   (d.news_revere||[]).slice(0,30)),          'news-revere');
+  safeRender(()=>renderNews('news-comm',     (d.news_communities||[]).slice(0,30),true),'news-comm');
+  safeRender(()=>renderNews('news-boston',   (d.news_boston||[]).slice(0,30)),          'news-boston');
+  safeRender(()=>renderNews('news-uhub',     (d.news_universalhub||[]).slice(0,30)),    'news-uhub');
+  safeRender(()=>renderNews('news-sports',   (d.news_sports||[]).slice(0,30)),          'news-sports');
+  safeRender(()=>renderNews('news-bc',       (d.news_bc||[]).slice(0,30)),              'news-bc');
+  safeRender(()=>renderNews('news-national', (d.news_national||[]).slice(0,50)),        'news-national');
+
+  // City calendar
+  safeRender(()=>{
     const calBody=document.getElementById('cal-body');
     if(!d.revere_calendar?.length){
       calBody.innerHTML='<div class="cal-empty">Events could not be loaded. Use the links below.</div>';
@@ -1151,10 +1193,7 @@ async function loadData(){
         calBody.appendChild(div);
       });
     }
-  }catch(e){
-    console.error('data.json failed:',e);
-    document.getElementById('upd-ts').textContent='ERROR — run GitHub Action';
-  }
+  },'calendar');
 }
 
 // ── INIT ──────────────────────────────────────────────────────────
