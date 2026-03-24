@@ -596,9 +596,45 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
       <a href="https://finance.yahoo.com" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;margin-left:12px;">Yahoo Finance →</a>
       <a href="https://www.marketwatch.com" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;margin-left:10px;">MarketWatch →</a>
     </div>
-    <div class="cbody">
-      <div class="stock-grid" id="stock-grid">
-        <div class="empty" style="grid-column:1/-1;">Loading market data…</div>
+    <div class="cbody" style="padding:0;overflow:hidden;min-height:120px;">
+      <!-- TradingView Market Overview — static price boxes, dark theme, no ticker -->
+      <div class="tradingview-widget-container" style="height:130px;">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {
+          "colorTheme": "dark",
+          "dateRange": "1D",
+          "showChart": false,
+          "locale": "en",
+          "largeChartUrl": "",
+          "isTransparent": true,
+          "showSymbolLogo": false,
+          "showFloatingTooltip": false,
+          "width": "100%",
+          "height": "130",
+          "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+          "plotLineColorFalling": "rgba(255, 80, 80, 1)",
+          "gridLineColor": "rgba(240, 243, 250, 0)",
+          "scaleFontColor": "rgba(120, 123, 134, 1)",
+          "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+          "belowLineFillColorFalling": "rgba(255, 80, 80, 0.12)",
+          "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+          "tabs": [
+            {
+              "title": "Markets",
+              "symbols": [
+                {"s": "FOREXCOM:SPXUSD", "d": "S&P 500"},
+                {"s": "BLACKBULL:US30",  "d": "Dow Jones"},
+                {"s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100"},
+                {"s": "NYMEX:CL1!",      "d": "Oil WTI"},
+                {"s": "BITSTAMP:BTCUSD", "d": "Bitcoin"},
+                {"s": "COMEX:GC1!",      "d": "Gold"}
+              ],
+              "originalTitle": "Markets"
+            }
+          ]
+        }
+        </script>
       </div>
     </div>
   </div>
@@ -776,32 +812,53 @@ function renderTicker(alerts){
   document.getElementById('mbta-toggle').style.display='';
   list.innerHTML='';
 
-  // Line color map
+  // Line colors keyed by route ID
   const lineColors = {
-    'Red':'#e03030','Orange':'#f08020','Blue':'#3060e0','Green':'#30a030',
+    'Red':'#e03030','Orange':'#f08020','Blue':'#4070e0','Green':'#30a030',
     'Green-B':'#30a030','Green-C':'#30a030','Green-D':'#30a030','Green-E':'#30a030',
     'Silver':'#909090','Mattapan':'#e03030',
-    // Commuter Rail lines — purple
-    'CR-Fairmount':'#8040c0','CR-Framingham':'#8040c0','CR-Franklin':'#8040c0',
-    'CR-Greenbush':'#8040c0','CR-Haverhill':'#8040c0','CR-Kingston':'#8040c0',
-    'CR-Lowell':'#8040c0','CR-Middleborough':'#8040c0','CR-Needham':'#8040c0',
-    'CR-Newburyport':'#8040c0','CR-Providence':'#8040c0','CR-Fitchburg':'#8040c0',
-    'CR-Worcester':'#8040c0','CR-Foxboro':'#8040c0',
   };
+  const crColor = '#9050d0';
 
-  function getLineBadge(routes){
-    if(!routes?.length) return '';
-    return routes.map(r=>{
-      const color = lineColors[r] || (r.startsWith('CR-') ? '#8040c0' : '#606060');
-      const label = r.startsWith('CR-') ? '🚆 '+r.replace('CR-','') : r+' Line';
-      return `<span class="mbta-route-badge" style="background:${color}20;border-color:${color};color:${color};">${label}</span>`;
+  // Also detect line names from alert text as fallback
+  function detectLinesFromText(text){
+    const found = [];
+    const t = text.toLowerCase();
+    if(t.includes('red line'))    found.push('Red');
+    if(t.includes('orange line')) found.push('Orange');
+    if(t.includes('blue line'))   found.push('Blue');
+    if(t.includes('green line'))  found.push('Green');
+    if(t.includes('silver line')) found.push('Silver');
+    if(t.includes('mattapan'))    found.push('Mattapan');
+    if(t.includes('commuter rail')||t.includes('providence')||t.includes('worcester')||
+       t.includes('framingham')||t.includes('lowell')||t.includes('haverhill')||
+       t.includes('newburyport')||t.includes('gloucester')||t.includes('kingston')||
+       t.includes('fairmount')||t.includes('franklin')||t.includes('fitchburg')||
+       t.includes('greenbush')||t.includes('needham')||t.includes('stoughton')||
+       t.includes('foxboro')) found.push('CR');
+    return found;
+  }
+
+  function getLineBadges(a){
+    // Use routes array if populated, else fall back to text detection
+    let lines = (a.routes||[]).filter(Boolean);
+    if(!lines.length) lines = detectLinesFromText(a.header||'');
+    if(!lines.length) return '';
+
+    return lines.map(r=>{
+      const isCR = r==='CR'||r.startsWith('CR-');
+      const color = lineColors[r] || (isCR ? crColor : '#606060');
+      const emoji = r==='Red'?'🔴':r==='Orange'?'🟠':r==='Blue'?'🔵':r==='Green'||r.startsWith('Green-')?'🟢':
+                    r==='Silver'?'⚪':r==='Mattapan'?'🔴':isCR?'🟣':'⚫';
+      const label = isCR ? (r.startsWith('CR-')?r.replace('CR-',''):r.replace('CR',''))+' Line' : r+' Line';
+      return `<span class="mbta-route-badge" style="background:${color}22;border-color:${color};color:${color};">${emoji} ${label}</span>`;
     }).join('');
   }
 
   alerts.forEach(a=>{
     const div=document.createElement('div');
     div.className='mbta-alert-row';
-    div.innerHTML=`${getLineBadge(a.routes)}<span>${a.header}</span>`;
+    div.innerHTML=`${getLineBadges(a)}<span>${a.header}</span>`;
     list.appendChild(div);
   });
 }
@@ -1111,7 +1168,6 @@ async function loadData(){
   safeRender(()=>renderTicker(d.mbta_alerts),               'mbta');
   safeRender(()=>renderRevereTv(d.revere_tv),               'reveretv');
 
-  safeRender(()=>renderStocks(d.stocks),                    'stocks');
   safeRender(()=>renderNews('news-revere',   (d.news_revere||[]).slice(0,30)),          'news-revere');
   safeRender(()=>renderNews('news-comm',     (d.news_communities||[]).slice(0,30),true),'news-comm');
   safeRender(()=>renderNews('news-boston',   (d.news_boston||[]).slice(0,30)),          'news-boston');
@@ -1124,19 +1180,30 @@ async function loadData(){
   safeRender(()=>{
     const calBody=document.getElementById('cal-body');
     if(!d.revere_calendar?.length){
-      calBody.innerHTML='<div class="cal-empty">Events could not be loaded automatically. Use the links below.</div>';
+      calBody.innerHTML='<div class="cal-empty">Calendar events could not be loaded automatically — revere.org uses JavaScript rendering that blocks scrapers.<br><br>Use the links below to view the full calendar.</div>';
     } else {
       calBody.innerHTML='';
       d.revere_calendar.forEach(ev=>{
         const div=document.createElement('div');
         div.className='cal-ev';
-        // Show date and time prominently
-        const dtParts = [];
-        if(ev.date) dtParts.push(ev.date);
-        const dtHtml = dtParts.length
-          ? `<div class="cal-dt">${ev.date||''}${ev.time?`<span class="cal-dt-time">· ${ev.time}</span>`:''}</div>`
+        // revere.org scraper rarely gets structured dates — show what we have
+        const dtHtml = (ev.date||ev.time)
+          ? `<div class="cal-dt">${ev.date||''}${ev.time?` <span class="cal-dt-time">· ${ev.time}</span>`:''}</div>`
           : '';
         div.innerHTML=`${dtHtml}<a class="cal-title" href="${ev.link||'https://www.revere.org/calendar'}" target="_blank" rel="noopener">${ev.title}</a>`;
+        calBody.appendChild(div);
+      });
+    }
+    // Always append IQM2 meetings if available
+    if(d.iqm2_meetings?.length){
+      const hdr=document.createElement('div');
+      hdr.style.cssText='font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;padding:10px 0 4px;border-top:1px solid var(--border);margin-top:6px;';
+      hdr.textContent='UPCOMING MEETINGS (IQM2)';
+      calBody.appendChild(hdr);
+      d.iqm2_meetings.forEach(ev=>{
+        const div=document.createElement('div');
+        div.className='cal-ev';
+        div.innerHTML=`${ev.date?`<div class="cal-dt">${ev.date}${ev.time?` <span class="cal-dt-time">· ${ev.time}</span>`:''}</div>`:''}<a class="cal-title" href="${ev.link||'https://reverema.iqm2.com/Citizens/Calendar.aspx'}" target="_blank" rel="noopener">${ev.title}</a>`;
         calBody.appendChild(div);
       });
     }
@@ -1145,9 +1212,19 @@ async function loadData(){
 
 // ── INIT ──────────────────────────────────────────────────────────
 loadData();
-['boston','massachusetts','mbta','NASCAR','neoliberal','bostonbruins','urbanplanning'].forEach(sub=>{
-  fetchReddit(sub,'r-'+sub.toLowerCase().replace('/',''));
-});
+
+// Reddit — map subreddit name to element ID explicitly so there's no mismatch
+const redditFeeds = [
+  {sub:'boston',        id:'r-boston'},
+  {sub:'massachusetts', id:'r-mass'},
+  {sub:'mbta',          id:'r-mbta'},
+  {sub:'NASCAR',        id:'r-nascar'},
+  {sub:'neoliberal',    id:'r-neo'},
+  {sub:'bostonbruins',  id:'r-bruins'},
+  {sub:'urbanplanning', id:'r-urban'},
+];
+redditFeeds.forEach(({sub,id})=>fetchReddit(sub,id));
+
 setTimeout(()=>location.reload(),30*60*1000);
 </script>
 </body>
