@@ -268,39 +268,54 @@ def fetch_feed(url, max_items=30):
     except Exception as e:
         return []
 
-# ── STOCKS via yfinance ───────────────────────────────
-def fetch_stocks():
-    symbols_map = {
-        "^DJI":    "Dow Jones",
-        "^GSPC":   "S&P 500",
-        "^IXIC":   "NASDAQ",
-        "CL=F":    "Oil (WTI)",
-        "BTC-USD": "Bitcoin",
-    }
-    try:
-        import yfinance as yf
-        result = []
-        for symbol, name in symbols_map.items():
-            try:
-                info = yf.Ticker(symbol).fast_info
-                price = info.last_price
-                prev  = info.previous_close
-                change = round(price - prev, 2) if price and prev else None
-                pct    = round((price - prev) / prev * 100, 2) if price and prev else None
-                result.append({"name":name,"symbol":symbol,
-                    "price":round(price,2) if price else None,
-                    "change":change,"changePct":pct})
-            except Exception as e:
-                result.append({"name":name,"symbol":symbol,"price":None,"change":None,"changePct":None})
-        return result
-    except ImportError:
-        # Fallback: direct Yahoo Finance query2 endpoint
-        url = f"https://query2.finance.yahoo.com/v7/finance/quote?symbols={','.join(symbols_map.keys())}"
-        r = requests.get(url, timeout=10, headers={"User-Agent":"Mozilla/5.0","Accept":"application/json"})
-        quotes = r.json()["quoteResponse"]["result"]
-        return [{"name":symbols_map.get(q["symbol"],q["symbol"]),"symbol":q["symbol"],
-            "price":q.get("regularMarketPrice"),"change":q.get("regularMarketChange"),
-            "changePct":q.get("regularMarketChangePercent")} for q in quotes]
+# ── IQM2 MEETINGS (Revere's official meeting system) ─
+def fetch_iqm2_meetings():
+    """Scrape upcoming meetings from Revere's IQM2 system which has real dates."""
+    r = requests.get(
+        "https://reverema.iqm2.com/Citizens/Calendar.aspx",
+        timeout=15, headers=HEADERS
+    )
+    soup = BeautifulSoup(r.text, "html.parser")
+    meetings = []
+
+    # IQM2 uses a table-based layout
+    for row in soup.select("tr.MeetingRow, tr[class*='Meeting'], .calendarRow, table tr")[:20]:
+        cols = row.find_all("td")
+        if len(cols) < 2:
+            continue
+        text = row.get_text(separator=" ", strip=True)
+        if len(text) < 5:
+            continue
+        link_el = row.find("a", href=True)
+        link = ""
+        if link_el:
+            href = link_el["href"]
+            link = href if href.startswith("http") else "https://reverema.iqm2.com" + href
+
+        # Try to extract date from first column
+        date_text = cols[0].get_text(strip=True) if cols else ""
+        title_text = cols[1].get_text(strip=True) if len(cols) > 1 else text
+
+        if title_text and len(title_text) > 3:
+            meetings.append({
+                "title": title_text,
+                "date":  date_text,
+                "time":  "",
+                "link":  link or "https://reverema.iqm2.com/Citizens/Calendar.aspx",
+            })
+
+    # Fallback: look for any date-like text near links
+    if not meetings:
+        for a in soup.find_all("a", href=True)[:20]:
+            text = a.get_text(strip=True)
+            if len(text) > 8 and ("meeting" in text.lower() or "committee" in text.lower() or
+                                   "board" in text.lower() or "council" in text.lower()):
+                href = a["href"]
+                full = href if href.startswith("http") else "https://reverema.iqm2.com" + href
+                meetings.append({"title": text, "date": "", "time": "", "link": full})
+
+    print(f"  {'✓' if meetings else '⚠'} IQM2: {len(meetings)} meetings")
+    return meetings[:12]
 
 # ── MAIN ─────────────────────────────────────────────
 def main():
@@ -321,11 +336,11 @@ def main():
     data["logan"]          = safe(fetch_logan,          "Logan/KBOS")     or {}
     data["mbta_alerts"]    = safe(fetch_mbta,           "MBTA all lines") or []
 
-    print("\n📈 Stocks")
-    data["stocks"] = safe(fetch_stocks, "Yahoo Finance/yfinance") or []
-
     print("\n🏛️  City")
     data["revere_calendar"] = safe(fetch_revere_calendar, "Revere calendar") or []
+
+    # IQM2 — Revere's official meeting/agenda system, has structured RSS with dates
+    data["iqm2_meetings"] = safe(fetch_iqm2_meetings, "IQM2 meetings") or []
 
     print("\n📺 Revere TV")
     channel_id = safe(fetch_revere_tv_channel_id, "Revere TV channel ID") or "UCq-Ej7V3_v7NuGUVRnqv8Aw"
@@ -347,8 +362,9 @@ def main():
     for i in revere_fetchrss: i["source"] = "Revere Feed"
     data["news_revere"] = revere_official + revere_journal + revere_gnews + revere_fetchrss
 
-    # Communities
-    comm_sources = {
+    # Communities — local RSS feeds + Google News for each town as fallback
+    # Each town gets its local paper (if one exists) plus a Google News search
+    comm_rss = {
         "Chelsea":      "https://chelsearecord.com/feed/",
         "East Boston":  "https://eastietimes.com/feed/",
         "Lynn":         "https://www.itemlive.com/feed/",
@@ -358,19 +374,50 @@ def main():
         "Swampscott":   "https://swampscottreporter.com/feed/",
         "Marblehead":   "https://marbleheadreporter.com/feed/",
         "Peabody":      "https://peabodytimes.com/feed/",
-        "Salem":        "https://www.salemnews.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc",
+        "Salem":        "https://www.salemnews.com/rss/",
+        "Malden":       "https://maldenobserver.com/feed/",
+        "Melrose":      "https://melrosefreepress.com/feed/",
     }
+    # Google News search per town — reliable fallback when local paper RSS is down
+    comm_gnews_towns = [
+        "Chelsea MA", "East Boston MA", "Lynn MA", "Winthrop MA",
+        "Saugus MA", "Everett MA", "Swampscott MA", "Marblehead MA",
+        "Peabody MA", "Salem MA", "Malden MA", "Melrose MA",
+    ]
+
     data["news_communities"] = []
-    for name, url in comm_sources.items():
-        items = safe(lambda u=url: fetch_feed(u, 5), name) or []
-        for i in items: i["source"] = name
-        data["news_communities"].extend(items)
+    seen_comm = set()
+
+    # First pass: local RSS feeds
+    for name, url in comm_rss.items():
+        items = safe(lambda u=url: fetch_feed(u, 4), name) or []
+        for item in items:
+            link = item.get("link","")
+            if link and link not in seen_comm:
+                seen_comm.add(link)
+                item["source"] = name
+                data["news_communities"].append(item)
+
+    # Second pass: Google News per town (catches anything the local RSS missed)
+    for town in comm_gnews_towns:
+        q = town.replace(" ", "+")
+        gnews_url = f"https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
+        items = safe(lambda u=gnews_url: fetch_feed(u, 3), f"GNews {town}") or []
+        town_label = town.replace(" MA", "")
+        for item in items:
+            link = item.get("link","")
+            if link and link not in seen_comm:
+                seen_comm.add(link)
+                item["source"] = town_label
+                data["news_communities"].append(item)
 
     # Boston — try multiple URLs per source, use Google News as fallback for Globe
     boston_sources = [
         # Boston Globe — try direct RSS first, then Google News search as fallback
         ("https://www.bostonglobe.com/rss/homepage",           "Boston Globe"),
         ("https://news.google.com/rss/search?q=site:bostonglobe.com&hl=en-US&gl=US&ceid=US:en", "Boston Globe"),
+        # Google News Boston topic page — broad Boston news aggregation
+        ("https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREZqZUY4U0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US%3Aen&output=rss", "Google News Boston"),
         # Boston Herald
         ("https://bostonherald.com/feed/",                     "Boston Herald"),
         # WBUR
@@ -391,11 +438,10 @@ def main():
 
     data["news_boston"] = []
     seen_urls = set()
-    # Track how many items per source to avoid one source flooding
     source_counts = {}
     for url, label in boston_sources:
         if source_counts.get(label, 0) >= 6:
-            continue  # already got enough from this source via another URL
+            continue
         items = safe(lambda u=url: fetch_feed(u, 8), label) or []
         for item in items:
             link = item.get("link","")
@@ -405,20 +451,49 @@ def main():
                 data["news_boston"].append(item)
                 source_counts[label] = source_counts.get(label, 0) + 1
 
-    # Universal Hub — try all known URL formats
+    # Universal Hub — scraping their site directly since RSS feeds are unreliable
     uhub = []
+    # Try RSS feeds first
     for uh_url in [
         "https://universalhub.com/node/feed",
         "https://www.universalhub.com/node/feed",
         "https://universalhub.com/atom.xml",
         "https://www.universalhub.com/atom.xml",
-        "https://universalhub.com/feed",
     ]:
-        uhub = safe(lambda u=uh_url: fetch_feed(u, 30), f"UHub {uh_url}") or []
+        uhub = safe(lambda u=uh_url: fetch_feed(u, 30), f"UHub RSS {uh_url}") or []
         if uhub:
             for i in uhub: i["source"] = "Universal Hub"
-            print(f"    Universal Hub loaded from {uh_url}")
+            print(f"    ✓ Universal Hub loaded via RSS: {uh_url}")
             break
+
+    # Fallback: scrape their homepage directly
+    if not uhub:
+        try:
+            r = requests.get("https://www.universalhub.com", timeout=15, headers=HEADERS)
+            soup = BeautifulSoup(r.text, "html.parser")
+            for a in soup.select("h2 a, h3 a, .node-title a, .story-title a, article a")[:25]:
+                text = a.get_text(strip=True)
+                href = a.get("href","")
+                if len(text) > 15 and href:
+                    full = href if href.startswith("http") else "https://www.universalhub.com" + href
+                    uhub.append({
+                        "title": text,
+                        "link":  full,
+                        "published": "",
+                        "ts": 0,
+                        "source": "Universal Hub",
+                    })
+            print(f"    {'✓' if uhub else '✗'} Universal Hub scraped homepage: {len(uhub)} items")
+        except Exception as e:
+            print(f"    ✗ Universal Hub homepage scrape failed: {e}")
+
+    # Last resort: Google News search for universalhub.com
+    if not uhub:
+        uhub = safe(lambda: fetch_feed(
+            "https://news.google.com/rss/search?q=site:universalhub.com&hl=en-US&gl=US&ceid=US:en", 20
+        ), "UHub Google News") or []
+        for i in uhub: i["source"] = "Universal Hub"
+
     data["news_universalhub"] = uhub
 
     # Sports
@@ -440,20 +515,16 @@ def main():
                 item["source"] = label
                 data["news_sports"].append(item)
 
-    # Boston College — correct RSS URLs
+    # Boston College — 247Sports and SI block RSS scrapers, use Google News instead
     bc_sources = [
-        ("https://bcheights.com/feed/",                                         "The Heights"),
-        ("https://www.bcinterruption.com/rss/current.xml",                      "BC Interruption"),
-        ("https://bceagles.com/rss.aspx?path=mhockey",                          "BC Hockey"),
-        ("https://bceagles.com/rss.aspx",                                       "BC Athletics"),
-        # 247Sports — correct feed URL format
-        ("https://247sports.com/college/boston-college/Season/2025-Football/Article.rss/", "247Sports BC"),
-        ("https://247sports.com/college/boston-college/rss/",                   "247Sports BC"),
-        # SI — try multiple URL patterns
-        ("https://www.si.com/college/boston-college/rss",                       "SI Boston College"),
-        ("https://www.si.com/rss/si_boston_college.rss",                        "SI Boston College"),
-        # Google News BC as reliable fallback
-        ("https://news.google.com/rss/search?q=boston+college+eagles&hl=en-US&gl=US&ceid=US:en", "Google News BC"),
+        ("https://bcheights.com/feed/",                                                                      "The Heights"),
+        ("https://www.bcinterruption.com/rss/current.xml",                                                   "BC Interruption"),
+        ("https://bceagles.com/rss.aspx?path=mhockey",                                                      "BC Hockey"),
+        ("https://bceagles.com/rss.aspx",                                                                    "BC Athletics"),
+        # Google News searches for 247Sports and SI BC coverage (reliable workaround)
+        ("https://news.google.com/rss/search?q=247sports+boston+college&hl=en-US&gl=US&ceid=US:en",         "247Sports BC"),
+        ("https://news.google.com/rss/search?q=%22sports+illustrated%22+%22boston+college%22&hl=en-US&gl=US&ceid=US:en", "SI Boston College"),
+        ("https://news.google.com/rss/search?q=boston+college+eagles+football+basketball&hl=en-US&gl=US&ceid=US:en",     "Google News BC"),
     ]
     data["news_bc"] = []
     seen_bc = set()
