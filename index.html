@@ -394,6 +394,7 @@ a.big-btn:hover{opacity:.85;}
 .bos-dot{width:5px;height:5px;border-radius:50%;background:#1c2e2a;cursor:pointer;transition:background .2s;}
 .bos-dot.active{background:#00ddb8;}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 </head>
 <body>
 
@@ -844,8 +845,10 @@ a.big-btn:hover{opacity:.85;}
       <div class="ct">BC EAGLES SCHEDULE</div><div class="cb">BCEAGLES.COM · ALL SPORTS</div>
       <a href="https://bceagles.com/calendar" target="_blank" rel="noopener" style="font-size:11px;text-decoration:none;">Open full site →</a>
     </div>
-    <div class="cbody np">
-      <iframe src="https://bceagles.com/calendar" style="width:100%;height:100%;min-height:400px;border:none;display:block;" title="BC Eagles Composite Calendar" loading="lazy"></iframe>
+    <div class="cbody np" style="overflow:hidden;position:relative;">
+      <div style="width:154%;height:154%;transform:scale(0.65);transform-origin:top left;position:absolute;top:0;left:0;">
+        <iframe src="https://bceagles.com/calendar" style="width:100%;height:100%;border:none;display:block;" title="BC Eagles Composite Calendar" loading="lazy"></iframe>
+      </div>
     </div>
   </div></div></div>
 
@@ -1029,255 +1032,19 @@ a.big-btn:hover{opacity:.85;}
   </div></div>
 
 
-  <!-- BRUINS CARD -->
-  <div class="grid-stack-item" gs-id="bruins-card" gs-x="9" gs-y="75" gs-w="3" gs-h="10" gs-min-h="4">
-  <div class="grid-stack-item-content" style="overflow:visible;">
-    <div style="background:#0d1614;border:1px solid #1c2e2a;border-radius:5px;overflow:hidden;height:100%;display:flex;flex-direction:column;" id="bruins-card-inner">
-      <div style="background:#FFB81C;padding:7px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;cursor:grab;" class="ch">
-        <div style="display:flex;align-items:center;gap:7px;">
-          <div style="width:24px;height:24px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#FFB81C;flex-shrink:0;">B</div>
-          <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#000;">Boston Bruins</span>
-        </div>
-        <span id="bru-record" style="font-size:10px;font-weight:700;color:#1a1200;">— — —</span>
-      </div>
-      <div style="padding:8px 10px;border-bottom:1px solid #1c2e2a;flex-shrink:0;">
-        <div style="font-size:9px;color:#5a7a72;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Last game</div>
-        <div id="bru-last" style="font-size:11px;color:#5a7a72;">Loading…</div>
-      </div>
-      <div style="padding:8px 10px;border-bottom:1px solid #1c2e2a;flex-shrink:0;">
-        <div style="font-size:9px;color:#5a7a72;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Next game</div>
-        <div id="bru-next" style="font-size:11px;color:#5a7a72;">Loading…</div>
-      </div>
-      <button onclick="toggleTeamStandings('bru',this)" style="width:100%;background:none;border:none;border-top:1px solid #1c2e2a;cursor:pointer;padding:7px 10px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
-        <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:9px;color:#5a7a72;letter-spacing:2px;text-transform:uppercase;">Standings</span><span style="font-size:9px;color:#3a5a52;">Atlantic · Wild Card</span></div>
-        <span id="bru-chev" style="font-size:10px;color:#5a7a72;transition:transform .2s;">▶</span>
-      </button>
-      <div id="bru-standings" style="display:none;flex:1;overflow:hidden;flex-direction:column;">
-        <div style="display:flex;border-bottom:1px solid #1c2e2a;">
-          <button id="bru-atl-tab" onclick="switchTeamTab('bru','atl',this)" style="flex:1;background:none;border:none;border-bottom:2px solid #FFB81C;padding:5px 4px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;color:#FFB81C;">Atlantic</button>
-          <button id="bru-wc-tab" onclick="switchTeamTab('bru','wc',this)" style="flex:1;background:none;border:none;border-bottom:2px solid transparent;padding:5px 4px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;color:#5a7a72;">Wild Card</button>
-        </div>
-        <div id="bru-atl-pane" style="overflow-y:auto;"></div>
-        <div id="bru-wc-pane" style="overflow-y:auto;display:none;"></div>
-      </div>
+
+
+  <!-- REVERE TRANSIT MAP -->
+  <div class="grid-stack-item" gs-id="revere-map" gs-x="7" gs-y="75" gs-w="5" gs-h="14" gs-min-h="6">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch grn" style="cursor:grab;">
+      <div class="ct">Revere · Transit Map</div>
+      <div class="cb">MBTA stops · click for departures</div>
     </div>
-  </div></div>
-
-  <!-- RED SOX CARD -->
-  <div class="grid-stack-item" gs-id="redsox-card" gs-x="9" gs-y="89" gs-w="3" gs-h="10" gs-min-h="4">
-  <div class="grid-stack-item-content" style="overflow:visible;">
-    <div style="background:#0d1614;border:1px solid #1c2e2a;border-radius:5px;overflow:hidden;height:100%;display:flex;flex-direction:column;" id="redsox-card-inner">
-      <div style="background:#BD3039;padding:7px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;cursor:grab;" class="ch">
-        <div style="display:flex;align-items:center;gap:7px;">
-          <div style="width:24px;height:24px;border-radius:50%;background:#0D2B56;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#BD3039;flex-shrink:0;">SOX</div>
-          <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;">Boston Red Sox</span>
-        </div>
-        <span id="sox-record" style="font-size:10px;font-weight:700;color:#f0b0b5;">— — —</span>
-      </div>
-      <div style="padding:8px 10px;border-bottom:1px solid #1c2e2a;flex-shrink:0;">
-        <div style="font-size:9px;color:#5a7a72;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Last game</div>
-        <div id="sox-last" style="font-size:11px;color:#5a7a72;">Loading…</div>
-      </div>
-      <div style="padding:8px 10px;border-bottom:1px solid #1c2e2a;flex-shrink:0;">
-        <div style="font-size:9px;color:#5a7a72;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Next game</div>
-        <div id="sox-next" style="font-size:11px;color:#5a7a72;">Loading…</div>
-      </div>
-      <button onclick="toggleTeamStandings('sox',this)" style="width:100%;background:none;border:none;border-top:1px solid #1c2e2a;cursor:pointer;padding:7px 10px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
-        <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:9px;color:#5a7a72;letter-spacing:2px;text-transform:uppercase;">Standings</span><span style="font-size:9px;color:#3a5a52;">AL East · Wild Card</span></div>
-        <span id="sox-chev" style="font-size:10px;color:#5a7a72;transition:transform .2s;">▶</span>
-      </button>
-      <div id="sox-standings" style="display:none;flex:1;overflow:hidden;flex-direction:column;">
-        <div style="display:flex;border-bottom:1px solid #1c2e2a;">
-          <button id="sox-ale-tab" onclick="switchTeamTab('sox','ale',this)" style="flex:1;background:none;border:none;border-bottom:2px solid #BD3039;padding:5px 4px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;color:#BD3039;">AL East</button>
-          <button id="sox-wc-tab" onclick="switchTeamTab('sox','wc',this)" style="flex:1;background:none;border:none;border-bottom:2px solid transparent;padding:5px 4px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;color:#5a7a72;">Wild Card</button>
-        </div>
-        <div id="sox-ale-pane" style="overflow-y:auto;"></div>
-        <div id="sox-wc-pane" style="overflow-y:auto;display:none;"></div>
-      </div>
+    <div class="cbody np" style="overflow:hidden;position:relative;flex:1;">
+      <div id="revere-map-el" style="width:100%;height:100%;min-height:300px;"></div>
     </div>
-  </div></div>
-
-
-  <!-- NHL SCORE TICKER PANEL -->
-  <div class="grid-stack-item" gs-id="nhl-ticker" gs-x="0" gs-y="50" gs-w="12" gs-h="3" gs-min-h="2">
-  <div class="grid-stack-item-content" style="overflow:visible;">
-    <div style="background:#111;border:1px solid #1c2e2a;border-radius:5px;display:flex;align-items:stretch;overflow:hidden;">
-  <div style="background:#c2410c;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 14px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #9a340a;">NHL</div>
-  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 10px;flex-shrink:0;border-right:1px solid #2a2a2a;min-width:68px;background:#0d0d0d;">
-    <div id="nhlSectionLabel" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c2410c;border:1px solid #c2410c;padding:2px 6px;border-radius:2px;">––</div>
-    <div id="nhlGameCount" style="font-size:9px;color:#444;margin-top:3px;letter-spacing:1px;"></div>
-  </div>
-  <div id="nhlViewport" style="overflow:hidden;padding:6px 10px;flex:1;position:relative;">
-    <div id="nhlTrack" style="display:inline-flex;gap:8px;will-change:transform;align-items:center;">
-      <span style="color:#555;font-size:12px;padding:0 20px;">Loading NHL scores…</span>
-    </div>
-  </div>
-  <div style="display:flex;align-items:center;gap:5px;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
-    <button id="nhlPrev" style="width:24px;height:24px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='#1a1a1a'">&#8249;</button>
-    <button id="nhlPause" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
-    <button id="nhlNext" style="width:24px;height:24px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='#2a2a2a'" onmouseout="this.style.background='#1a1a1a'">&#8250;</button>
-  </div>
-</div>
-  </div></div>
-
-<script>
-(function(){
-  const track=document.getElementById('nhlTrack');
-  const sectionLabel=document.getElementById('nhlSectionLabel');
-  const gameCount=document.getElementById('nhlGameCount');
-  const pauseBtn=document.getElementById('nhlPause');
-
-  const CARD_W=190+8;
-  let autoPaused=false,btnPaused=false,offset=0,halfW=0,lastT=null,raf=null,resumeTimer=null;
-  const PPS=45;
-  function isPaused(){return autoPaused||btnPaused;}
-
-  let sectionBreaks=[];
-
-  async function fetchScores(){
-    const fmt=d=>d.toISOString().slice(0,10).replace(/-/g,'');
-    const today=new Date();
-    const yesterday=new Date(today);yesterday.setDate(today.getDate()-1);
-    async function get(date){
-      try{
-        const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=${fmt(date)}`);
-        if(!r.ok)return[];
-        const d=await r.json();
-        return(d.events||[]).map(ev=>{
-          const comp=ev.competitions?.[0];
-          const home=comp?.competitors?.find(c=>c.homeAway==='home');
-          const away=comp?.competitors?.find(c=>c.homeAway==='away');
-          const status=comp?.status?.type;
-          return{
-            away:away?.team?.abbreviation||'?',
-            home:home?.team?.abbreviation||'?',
-            awayScore:away?.score||'',
-            homeScore:home?.score||'',
-            awayC:'#'+(away?.team?.color||'555'),
-            homeC:'#'+(home?.team?.color||'555'),
-            state:status?.state||'pre',
-            detail:status?.shortDetail||'',
-          };
-        });
-      }catch(e){return[];}
-    }
-    const[yest,tod]=await Promise.all([get(yesterday),get(today)]);
-    return{yesterday:yest,today:tod};
-  }
-
-  function makeCard(g){
-    const isPost=g.state==='post',isLive=g.state==='in';
-    const statusC=isLive?'#ff8040':isPost?'#00ddb8':'#555';
-    const scoreC=isPost||isLive?'#e0e0e0':'#444';
-    const isBruins=g.away==='BOS'||g.home==='BOS';
-    const card=document.createElement('div');
-    card.style.cssText=`flex-shrink:0;width:190px;background:#0d0d0d;border:1px solid ${isBruins?'#FFB81C':'#222'};border-radius:5px;padding:7px 10px;display:flex;flex-direction:column;gap:3px;`;
-    card.innerHTML=`
-      <div style="display:flex;justify-content:flex-end;margin-bottom:1px;">
-        <span style="font-size:9px;font-weight:700;letter-spacing:1px;color:${statusC};text-transform:uppercase;">${g.detail}</span>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;">
-        <div style="display:flex;align-items:center;gap:5px;">
-          <div style="width:7px;height:7px;border-radius:50%;background:${g.awayC};flex-shrink:0;"></div>
-          <span style="font-size:13px;font-weight:700;color:#e0e0e0;">${g.away}</span>
-          <span style="font-size:10px;color:#444;">Away</span>
-        </div>
-        <span style="font-size:17px;font-weight:800;color:${scoreC};min-width:22px;text-align:right;">${isPost||isLive?g.awayScore:'–'}</span>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;">
-        <div style="display:flex;align-items:center;gap:5px;">
-          <div style="width:7px;height:7px;border-radius:50%;background:${g.homeC};flex-shrink:0;"></div>
-          <span style="font-size:13px;font-weight:700;color:#e0e0e0;">${g.home}</span>
-          <span style="font-size:10px;color:#444;">Home</span>
-        </div>
-        <span style="font-size:17px;font-weight:800;color:${scoreC};min-width:22px;text-align:right;">${isPost||isLive?g.homeScore:'–'}</span>
-      </div>`;
-    return card;
-  }
-
-  function makeDots(){
-    const sep=document.createElement('div');
-    sep.style.cssText='flex-shrink:0;display:flex;align-items:center;padding:0 12px;color:#2a2a2a;font-size:14px;letter-spacing:3px;';
-    sep.textContent='···';
-    return sep;
-  }
-
-  function build(data){
-    track.innerHTML='';sectionBreaks=[];
-    let x=0;
-    function addSection(label,games){
-      if(!games.length)return;
-      sectionBreaks.push({label,start:x,count:games.length});
-      games.forEach(g=>{track.appendChild(makeCard(g));x+=CARD_W;});
-      track.appendChild(makeDots());x+=50;
-    }
-    for(let i=0;i<3;i++){
-      addSection('Yesterday',data.yesterday);
-      addSection('Today',data.today);
-    }
-    if(!sectionBreaks.length){
-      track.innerHTML='<span style="color:#555;font-size:12px;padding:0 20px;">No games today</span>';
-      return;
-    }
-    requestAnimationFrame(()=>{halfW=track.scrollWidth/3;offset=0;updateLabel();startScroll();});
-  }
-
-  function updateLabel(){
-    const pos=offset%(halfW||1);
-    // only look at first repeat sections
-    const first=sectionBreaks.slice(0,
-      sectionBreaks.findIndex((s,i)=>i>0&&s.label===sectionBreaks[0].label)||sectionBreaks.length
-    );
-    let cur=first[0];
-    for(const s of first){if(pos>=s.start)cur=s;}
-    if(cur){sectionLabel.textContent=cur.label;gameCount.textContent=cur.count+' games';}
-  }
-
-  function startScroll(){
-    if(raf)cancelAnimationFrame(raf);lastT=null;
-    function tick(ts){
-      if(!lastT)lastT=ts;
-      if(!isPaused()){
-        offset+=PPS*((ts-lastT)/1000);
-        if(offset>=halfW)offset-=halfW;
-        if(offset<0)offset+=halfW;
-        track.style.transform=`translateX(-${offset}px)`;
-        updateLabel();
-      }
-      lastT=ts;raf=requestAnimationFrame(tick);
-    }
-    raf=requestAnimationFrame(tick);
-  }
-
-  function nudge(dir){
-    btnPaused=true;
-    if(resumeTimer)clearTimeout(resumeTimer);
-    offset+=dir*CARD_W;
-    if(offset>=halfW)offset-=halfW;
-    if(offset<0)offset+=halfW;
-    track.style.transition='transform .3s ease';
-    track.style.transform=`translateX(-${offset}px)`;
-    updateLabel();
-    setTimeout(()=>{track.style.transition='';},320);
-    resumeTimer=setTimeout(()=>{btnPaused=false;lastT=null;},1500);
-  }
-
-  pauseBtn.addEventListener('click',()=>{autoPaused=!autoPaused;pauseBtn.textContent=autoPaused?'▶ resume':'⏸ pause';});
-  document.getElementById('nhlPrev').addEventListener('click',()=>nudge(-1));
-  document.getElementById('nhlNext').addEventListener('click',()=>nudge(+1));
-
-  // If ESPN API fails, show fallback message
-  fetchScores().then(data=>{
-    if(!data.yesterday.length&&!data.today.length){
-      track.innerHTML='<span style="color:#555;font-size:12px;padding:0 20px;">NHL scores unavailable — try refreshing</span>';
-      sectionLabel.textContent='NHL';gameCount.textContent='';
-      return;
-    }
-    build(data);
-  });
-  setInterval(()=>fetchScores().then(data=>{if(data.yesterday.length||data.today.length)build(data);}),60000);
-})();
-</script>
+  </div></div></div>
 
 </div><!-- /gs-grid -->
 
@@ -1695,231 +1462,7 @@ function renderMaTransitNews(items){
   });
 }
 
-// ── BRUINS & RED SOX CARDS ──
-function toggleTeamStandings(team, btn){
-  const body=document.getElementById(team+'-standings');
-  const chev=document.getElementById(team+'-chev');
-  const open=body.style.display==='flex'||body.style.display==='block';
-  body.style.display=open?'none':'flex';
-  body.style.flexDirection='column';
-  if(chev)chev.style.transform=open?'':'rotate(90deg)';
-}
-function switchTeamTab(team,pane,btn){
-  ['atl','wc','ale'].forEach(t=>{
-    const p=document.getElementById(team+'-'+t+'-pane');
-    if(p)p.style.display='none';
-  });
-  const target=document.getElementById(team+'-'+pane+'-pane');
-  if(target)target.style.display='block';
-  const accent=team==='bru'?'#FFB81C':'#BD3039';
-  ['atl','wc','ale'].forEach(t=>{
-    const b=document.getElementById(team+'-'+t+'-tab');
-    if(b){b.style.color='#5a7a72';b.style.borderBottomColor='transparent';}
-  });
-  btn.style.color=accent;btn.style.borderBottomColor=accent;
-}
 
-function stRow(pos,name,pts,rec,gb,hiAccent){
-  const hi=hiAccent?`background:#0f1a0e;`:'';
-  const teamC=hiAccent?`color:${hiAccent};font-weight:700;`:'color:#e0e0e0;';
-  const ptsC=hiAccent?`color:${hiAccent};`:'color:#e0e0e0;';
-  const gb2=gb!==undefined?`<span style="width:26px;text-align:right;font-size:10px;color:#5a7a72;">${gb}</span>`:'';
-  return`<div style="display:flex;align-items:center;padding:4px 10px;border-bottom:1px solid #0a1510;font-size:11px;${hi}">
-    <span style="color:#5a7a72;width:28px;font-size:10px;flex-shrink:0;">${pos}</span>
-    <span style="flex:1;${teamC}">${name}</span>
-    <span style="width:26px;text-align:right;font-weight:700;${ptsC}">${pts}</span>
-    <span style="width:56px;text-align:right;font-size:10px;color:#5a7a72;">${rec}</span>
-    ${gb2}
-  </div>`;
-}
-
-function stHdr(ptslbl,reclbl,showGb){
-  return`<div style="display:flex;padding:3px 10px;background:#0a1510;"><span style="width:28px;"></span><span style="flex:1;font-size:9px;color:#3a5a52;letter-spacing:1px;text-transform:uppercase;">Team</span><span style="width:26px;text-align:right;font-size:9px;color:#3a5a52;letter-spacing:1px;text-transform:uppercase;">${ptslbl}</span><span style="width:56px;text-align:right;font-size:9px;color:#3a5a52;letter-spacing:1px;text-transform:uppercase;">${reclbl}</span>${showGb?'<span style="width:26px;text-align:right;font-size:9px;color:#3a5a52;letter-spacing:1px;text-transform:uppercase;">GB</span>':''}</div>`;
-}
-
-function noteRow(txt){
-  return`<div style="font-size:9px;color:#3a5a52;padding:3px 10px;letter-spacing:1px;border-bottom:1px solid #0a1510;">${txt}</div>`;
-}
-
-function wcDivider(){
-  return`<div style="border-top:1px dashed #2a3a30;"></div>`;
-}
-
-async function loadTeamCards(){
-  const ESPN='https://site.api.espn.com/apis/site/v2/sports';
-  async function get(path){try{const r=await fetch(`${ESPN}/${path}`);return r.ok?r.json():null;}catch(e){return null;}}
-
-  // ── BRUINS ──
-  const [bruScores, bruStandings] = await Promise.all([
-    get('hockey/nhl/scoreboard?limit=3'),
-    get('hockey/nhl/standings?season=2025'),
-  ]);
-
-  // Find last BOS game and next BOS game
-  if(bruScores?.events){
-    const bosGames=bruScores.events.filter(ev=>ev.competitions?.[0]?.competitors?.some(c=>c.team?.abbreviation==='BOS'));
-    const last=bosGames.filter(ev=>ev.competitions?.[0]?.status?.type?.state==='post')[0];
-    const next=bosGames.filter(ev=>ev.competitions?.[0]?.status?.type?.state==='pre')[0]
-               ||bosGames.filter(ev=>ev.competitions?.[0]?.status?.type?.state==='in')[0];
-
-    if(last){
-      const comp=last.competitions[0];
-      const bos=comp.competitors.find(c=>c.team.abbreviation==='BOS');
-      const opp=comp.competitors.find(c=>c.team.abbreviation!=='BOS');
-      const won=parseInt(bos?.score)>parseInt(opp?.score);
-      const detail=comp.status?.type?.shortDetail||'FINAL';
-      const date=new Date(last.date).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-      const lastEl=document.getElementById('bru-last');
-      if(lastEl) lastEl.innerHTML=
-        `<div style="display:flex;justify-content:space-between;align-items:center;">
-          <span><span style="color:#e0e0e0;font-weight:700;">BOS ${bos?.score}</span> <span style="color:#5a7a72;">vs ${opp?.team?.abbreviation} ${opp?.score}</span></span>
-          <span style="font-size:9px;font-weight:700;color:${won?'#00ddb8':'#ff8040'};letter-spacing:1px;">${won?'WIN':'LOSS'}</span>
-        </div>
-        <div style="font-size:9px;color:#3a5a52;margin-top:2px;">${date} · ${detail}</div>`;
-    }
-
-    if(next){
-      const comp=next.competitions[0];
-      const opp=comp.competitors.find(c=>c.team.abbreviation!=='BOS');
-      const isHome=comp.competitors.find(c=>c.team.abbreviation==='BOS')?.homeAway==='home';
-      const date=new Date(next.date).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-      const time=new Date(next.date).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-      const nextEl=document.getElementById('bru-next');
-      if(nextEl) nextEl.innerHTML=
-        `<div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="color:#e0e0e0;font-weight:600;">${isHome?'vs':'@'} ${opp?.team?.displayName||opp?.team?.abbreviation}</span>
-          <span style="color:#FFB81C;font-size:10px;font-weight:700;">${date}</span>
-        </div>
-        <div style="font-size:9px;color:#5a7a72;margin-top:1px;">${time} ET · ${isHome?'Home':'Away'}</div>`;
-    }
-  }
-
-  // Bruins record + standings
-  if(bruStandings){
-    // ESPN standings: groups[] each has standings.entries[]
-    const groups=bruStandings.standings?.entries||bruStandings.children||[];
-    let allEntries=[];
-    // Try flat entries first, then nested groups
-    if(groups.length&&groups[0]?.standings?.entries){
-      groups.forEach(g=>allEntries.push(...(g.standings.entries||[])));
-    } else {
-      allEntries=groups;
-    }
-    const bos=allEntries.find(e=>e.team?.abbreviation==='BOS');
-    if(bos){
-      const w=bos.stats?.find(s=>s.name==='wins')?.value||bos.stats?.find(s=>s.abbreviation==='W')?.value||0;
-      const l=bos.stats?.find(s=>s.name==='losses')?.value||bos.stats?.find(s=>s.abbreviation==='L')?.value||0;
-      const ot=bos.stats?.find(s=>s.name==='otLosses')?.value||bos.stats?.find(s=>s.abbreviation==='OTL')?.value||0;
-      const pts=bos.stats?.find(s=>s.name==='points')?.value||bos.stats?.find(s=>s.abbreviation==='PTS')?.value||0;
-      const recEl=document.getElementById('bru-record');
-      if(recEl)recEl.textContent=`${w}–${l}–${ot} · ${pts} pts`;
-    }
-    // Try to get Atlantic division specifically
-    let atlEntries=allEntries;
-    const atlGroup=bruStandings.children?.find(g=>g.name?.includes('Atlantic'));
-    if(atlGroup?.standings?.entries) atlEntries=atlGroup.standings.entries;
-    atlEntries=atlEntries.slice(0,8);
-    const atlPane=document.getElementById('bru-atl-pane');
-    if(atlPane&&atlEntries.length){
-      let html=stHdr('Pts','W-L-OT',false);
-      atlEntries.forEach((e,i)=>{
-        const isBos=e.team?.abbreviation==='BOS';
-        const pts=e.stats?.find(s=>s.name==='points'||s.abbreviation==='PTS')?.value||0;
-        const w=e.stats?.find(s=>s.name==='wins'||s.abbreviation==='W')?.value||0;
-        const l=e.stats?.find(s=>s.name==='losses'||s.abbreviation==='L')?.value||0;
-        const ot=e.stats?.find(s=>s.name==='otLosses'||s.abbreviation==='OTL')?.value||0;
-        html+=stRow(i+1,e.team?.shortDisplayName||e.team?.abbreviation||'?',pts,`${w}-${l}-${ot}`,undefined,isBos?'#FFB81C':null);
-      });
-      atlPane.innerHTML=html;
-    } else if(atlPane){
-      atlPane.innerHTML=noteRow('Standings unavailable');
-    }
-  }
-
-  // ── RED SOX ──
-  const [soxScores, soxStandings] = await Promise.all([
-    get('baseball/mlb/scoreboard?limit=3'),
-    get('baseball/mlb/standings'),
-  ]);
-
-  if(soxScores?.events){
-    const bosGames=soxScores.events.filter(ev=>ev.competitions?.[0]?.competitors?.some(c=>c.team?.abbreviation==='BOS'));
-    const last=bosGames.filter(ev=>ev.competitions?.[0]?.status?.type?.state==='post')[0];
-    const next=bosGames.filter(ev=>ev.competitions?.[0]?.status?.type?.state==='pre')[0]
-               ||bosGames.filter(ev=>ev.competitions?.[0]?.status?.type?.state==='in')[0];
-
-    if(last){
-      const comp=last.competitions[0];
-      const bos=comp.competitors.find(c=>c.team.abbreviation==='BOS');
-      const opp=comp.competitors.find(c=>c.team.abbreviation!=='BOS');
-      const won=parseInt(bos?.score)>parseInt(opp?.score);
-      const date=new Date(last.date).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-      const lastEl=document.getElementById('sox-last');
-      if(lastEl) lastEl.innerHTML=
-        `<div style="display:flex;justify-content:space-between;align-items:center;">
-          <span><span style="color:#e0e0e0;font-weight:700;">BOS ${bos?.score}</span> <span style="color:#5a7a72;">vs ${opp?.team?.abbreviation} ${opp?.score}</span></span>
-          <span style="font-size:9px;font-weight:700;color:${won?'#00ddb8':'#ff8040'};letter-spacing:1px;">${won?'WIN':'LOSS'}</span>
-        </div>
-        <div style="font-size:9px;color:#3a5a52;margin-top:2px;">${date}</div>`;
-    }
-
-    if(next){
-      const comp=next.competitions[0];
-      const opp=comp.competitors.find(c=>c.team.abbreviation!=='BOS');
-      const isHome=comp.competitors.find(c=>c.team.abbreviation==='BOS')?.homeAway==='home';
-      const date=new Date(next.date).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-      const time=new Date(next.date).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-      const nextEl=document.getElementById('sox-next');
-      if(nextEl) nextEl.innerHTML=
-        `<div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="color:#e0e0e0;font-weight:600;">${isHome?'vs':'@'} ${opp?.team?.displayName||opp?.team?.abbreviation}</span>
-          <span style="color:#BD3039;font-size:10px;font-weight:700;">${date}</span>
-        </div>
-        <div style="font-size:9px;color:#5a7a72;margin-top:1px;">${time} ET · ${isHome?'Home':'Away'}</div>`;
-    }
-  }
-
-  if(soxStandings){
-    let allEntries=[];
-    const groups=soxStandings.standings?.entries||soxStandings.children||[];
-    if(groups.length&&groups[0]?.standings?.entries){
-      groups.forEach(g=>allEntries.push(...(g.standings.entries||[])));
-    } else { allEntries=groups; }
-    const bos=allEntries.find(e=>e.team?.abbreviation==='BOS');
-    if(bos){
-      const w=bos.stats?.find(s=>s.name==='wins'||s.abbreviation==='W')?.value||0;
-      const l=bos.stats?.find(s=>s.name==='losses'||s.abbreviation==='L')?.value||0;
-      const recEl=document.getElementById('sox-record');
-      if(recEl)recEl.textContent=`${w}–${l}`;
-    }
-    let aleEntries=allEntries;
-    const aleGroup=soxStandings.children?.find(g=>g.name?.includes('East')&&g.name?.includes('American'));
-    if(aleGroup?.standings?.entries) aleEntries=aleGroup.standings.entries;
-    aleEntries=aleEntries.slice(0,5);
-    const alePane=document.getElementById('sox-ale-pane');
-    if(alePane&&aleEntries.length){
-      let html=stHdr('W','W-L',false);
-      aleEntries.forEach((e,i)=>{
-        const isBos=e.team?.abbreviation==='BOS';
-        const w=e.stats?.find(s=>s.name==='wins'||s.abbreviation==='W')?.value||0;
-        const l=e.stats?.find(s=>s.name==='losses'||s.abbreviation==='L')?.value||0;
-        html+=stRow(i+1,e.team?.shortDisplayName||e.team?.abbreviation||'?',w,`${w}-${l}`,undefined,isBos?'#BD3039':null);
-      });
-      alePane.innerHTML=html;
-    } else if(alePane){
-      alePane.innerHTML=noteRow('Season not yet started');
-    }
-  }
-
-  // Fallback: show spring training / preseason message if no data
-  ['bru-last','bru-next','sox-last','sox-next'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el&&el.textContent==='Loading…')el.textContent='No data available';
-  });
-}
-
-loadTeamCards();
-setInterval(loadTeamCards,300000);
 
 // ── PRIORITIES + PLANNER ──
 ['p1','p2','p3'].forEach(id=>{
@@ -2331,6 +1874,104 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
 });
 
 setTimeout(()=>location.reload(),30*60*1000);
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+  const MBTA='https://api-v3.mbta.com';
+  const BUS_COLOR='#FFC72C';
+  const RAIL_COLORS={Blue:'#003DA5',Orange:'#ED8B00',Red:'#DA291C','Green-B':'#00843D','Green-C':'#00843D','Green-D':'#00843D','Green-E':'#00843D'};
+
+  function minsAway(iso){if(!iso)return null;return Math.round((new Date(iso)-Date.now())/60000);}
+  function fmtMins(m){if(m===null)return'–';if(m<=0)return'BRD';return m+' min';}
+  function timeColor(m){if(m===null)return'#5a7a72';if(m<=0)return'#ff8040';if(m<=3)return'#f5c518';return'#00ddb8';}
+
+  function makeIcon(color,size){
+    return L.divIcon({
+      className:'',
+      html:`<div style="width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2px solid rgba(255,255,255,0.75);"></div>`,
+      iconSize:[size,size],iconAnchor:[size/2,size/2],popupAnchor:[0,-(size/2+4)],
+    });
+  }
+
+  async function fetchPreds(stopId){
+    try{
+      const r=await fetch(`${MBTA}/predictions?filter[stop]=${stopId}&sort=departure_time&include=trip,route&page[limit]=6`);
+      if(!r.ok)return[];
+      const d=await r.json();
+      const hs={},rn={};
+      (d.included||[]).forEach(i=>{if(i.type==='trip')hs[i.id]=i.attributes.headsign;if(i.type==='route')rn[i.id]=i.attributes.short_name||i.id;});
+      return(d.data||[]).map(p=>({
+        arrival:p.attributes.arrival_time||p.attributes.departure_time,
+        headsign:hs[p.relationships?.trip?.data?.id]||'–',
+        route:rn[p.relationships?.route?.data?.id]||'',
+      })).filter(p=>p.arrival).slice(0,4);
+    }catch(e){return[];}
+  }
+
+  function popupHTML(name,color,label,preds){
+    const rows=preds.length?preds.map(p=>{
+      const m=minsAway(p.arrival);
+      const badge=p.route?`<span style="font-size:9px;background:#1c2e2a;padding:1px 4px;border-radius:2px;margin-left:3px;">${p.route}</span>`:'';
+      return`<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #1c2e2a;font-size:11px;">
+        <span style="color:#c8d8d4;">${p.headsign}${badge}</span>
+        <span style="font-weight:700;color:${timeColor(m)};margin-left:8px;">${fmtMins(m)}</span>
+      </div>`;
+    }).join(''):'<div style="color:#5a7a72;font-size:11px;padding:4px 0;">No predictions</div>';
+    return`<div style="font-family:system-ui;min-width:190px;max-width:220px;">
+      <div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">${name}</div>
+      <div style="font-size:9px;color:${color};letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;">${label}</div>
+      <div>${rows}</div>
+    </div>`;
+  }
+
+  function addStop(map,stop,color,size,label){
+    const lat=stop.attributes?.latitude,lng=stop.attributes?.longitude;
+    if(!lat||!lng)return;
+    const name=stop.attributes.name;
+    const m=L.marker([lat,lng],{icon:makeIcon(color,size)}).addTo(map);
+    m.bindPopup(`<div style="color:#5a7a72;font-size:11px;padding:4px 0;">Loading departures…</div>`,{maxWidth:240});
+    m.on('click',async()=>{
+      m.getPopup().setContent(`<div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:6px;">${name}</div><div style="color:#5a7a72;font-size:11px;">Loading…</div>`);
+      const preds=await fetchPreds(stop.id);
+      m.getPopup().setContent(popupHTML(name,color,label,preds));
+    });
+  }
+
+  // Style the popups dark
+  const style=document.createElement('style');
+  style.textContent='.leaflet-popup-content-wrapper{background:#0d1614!important;border:1px solid #1c2e2a!important;border-radius:5px!important;color:#e0e0e0!important;box-shadow:none!important;}.leaflet-popup-tip{background:#0d1614!important;}.leaflet-popup-close-button{color:#5a7a72!important;top:6px!important;right:8px!important;}.leaflet-popup-content{margin:10px 12px!important;}';
+  document.head.appendChild(style);
+
+  function initMap(){
+    const el=document.getElementById('revere-map-el');
+    if(!el||!window.L)return;
+    const map=L.map(el,{center:[42.4084,-71.0120],zoom:13,zoomControl:true});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+      attribution:'© OpenStreetMap',maxZoom:19
+    }).addTo(map);
+
+    // Fetch Blue Line stops + bus stops near Revere in parallel
+    Promise.all([
+      fetch(`${MBTA}/stops?filter[route]=Blue&include=route`).then(r=>r.ok?r.json():null),
+      fetch(`${MBTA}/stops?filter[route_type]=3&filter[latitude]=42.408&filter[longitude]=-71.012&filter[radius]=0.04&page[limit]=80`).then(r=>r.ok?r.json():null),
+    ]).then(([blueData,busData])=>{
+      (blueData?.data||[]).forEach(s=>addStop(map,s,'#003DA5',14,'Blue Line'));
+      (busData?.data||[]).forEach(s=>addStop(map,s,BUS_COLOR,9,'Bus Stop'));
+    }).catch(()=>{});
+
+    // Invalidate size after GridStack settles
+    setTimeout(()=>map.invalidateSize(),500);
+  }
+
+  // Wait for Leaflet + DOM to be ready
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initMap);
+  } else {
+    setTimeout(initMap,300);
+  }
+})();
 </script>
 </body>
 </html>
