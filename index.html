@@ -6,58 +6,37 @@
 <title>REVERE MONITOR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<!-- GridStack: drag, drop, resize panels -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/10.3.1/gridstack.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/10.3.1/gridstack-all.min.js"></script>
 <style>
 :root {
-  --bg:       #2a2a2a;
-  --bg2:      #333;
-  --bg3:      #3d3d3d;
-  --bg4:      #474747;
-  --border:   #505050;
-  --border2:  #626262;
-  --text:     #f2f2f2;
-  --text-dim: #c8c8c8;
-  --text-mute:#909090;
-  --white:    #ffffff;
-  --accent:   #6ab0ff;
-  --accent2:  #4a94e8;
-  --adim:     #1e4a80;
-  --orange:   #f08050;
-  --odim:     #7a3820;
-  --gold:     #f0c060;
-  --red:      #f06060;
-  --green:    #58d888;
-  --blue:     #6ab0ff;
-  --reddit:   #ff5528;
-  --cond:     'Barlow Condensed',sans-serif;
-  --sans:     'Barlow',sans-serif;
-  --mono:     'JetBrains Mono',monospace;
+  --bg:#2a2a2a; --bg2:#333; --bg3:#3d3d3d; --bg4:#474747;
+  --border:#505050; --border2:#626262;
+  --text:#f2f2f2; --text-dim:#c8c8c8; --text-mute:#909090; --white:#ffffff;
+  --accent:#6ab0ff; --orange:#f08050; --odim:#7a3820;
+  --gold:#f0c060; --red:#f06060; --green:#58d888; --blue:#6ab0ff; --reddit:#ff5528;
+  --cond:'Barlow Condensed',sans-serif; --sans:'Barlow',sans-serif; --mono:'JetBrains Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;}
 
-/* ── HEADER ─────────────────────────────── */
-#header{background:#1e1e1e;border-bottom:3px solid var(--accent);padding:0 16px;height:56px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.5);}
-#wordmark{font-family:var(--cond);font-weight:900;font-size:24px;letter-spacing:5px;color:var(--white);flex-shrink:0;}
+/* ── HEADER ── */
+#header{background:#1e1e1e;border-bottom:3px solid var(--accent);padding:0 16px;height:56px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.5);}
+#wordmark{font-family:var(--cond);font-weight:900;font-size:24px;letter-spacing:5px;color:var(--white);}
 #wordmark em{color:var(--accent);font-style:normal;}
-.hd{width:1px;height:28px;background:#555;margin:0 14px;flex-shrink:0;}
-#clock{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--accent);flex-shrink:0;letter-spacing:1px;}
-#datestamp{font-size:13px;color:var(--text-dim);margin-left:12px;flex-shrink:0;}
+.hd{width:1px;height:28px;background:#555;margin:0 14px;}
+#clock{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--accent);letter-spacing:1px;}
+#datestamp{font-size:13px;color:var(--text-dim);margin-left:12px;}
 #hs{flex:1;}
-#sun-hdr{display:flex;gap:12px;font-size:12px;color:var(--text-dim);margin-right:14px;flex-shrink:0;}
+#sun-hdr{display:flex;gap:12px;font-size:12px;color:var(--text-dim);margin-right:14px;}
 #sun-hdr .sv{color:var(--gold);font-weight:600;}
-#upd-hdr{font-size:11px;color:var(--text-mute);border-left:1px solid #555;padding-left:14px;flex-shrink:0;}
+#upd-hdr{font-size:11px;color:var(--text-mute);border-left:1px solid #555;padding-left:14px;}
 
-/* ── LINKS BAR ──────────────────────────── */
+/* ── LINKS BAR ── */
 #links-bar-wrap{background:#242424;border-bottom:1px solid #444;padding:5px 16px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
 #links-bar{display:flex;gap:5px;flex-wrap:wrap;flex:1;}
-a.qlink{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border:1px solid #505050;border-radius:4px;background:var(--bg2);color:var(--text-dim);text-decoration:none;font-size:12px;font-family:var(--cond);font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all .15s;white-space:nowrap;}
+a.qlink{display:inline-flex;align-items:center;padding:3px 10px;border:1px solid #505050;border-radius:4px;background:var(--bg2);color:var(--text-dim);text-decoration:none;font-size:12px;font-family:var(--cond);font-weight:600;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
 a.qlink:hover{background:var(--bg3);border-color:var(--accent);color:var(--accent);}
-button#edit-links-btn{padding:3px 10px;background:var(--bg3);border:1px solid #555;border-radius:4px;color:var(--text-mute);font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0;}
-button#edit-links-btn:hover{color:var(--accent);border-color:var(--accent);}
+button.hdr-btn{padding:3px 10px;background:var(--bg3);border:1px solid #555;border-radius:4px;color:var(--text-mute);font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:1px;cursor:pointer;}
+button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 
 /* Links modal */
 #links-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;}
@@ -66,135 +45,33 @@ button#edit-links-btn:hover{color:var(--accent);border-color:var(--accent);}
 #lm-box h3{font-family:var(--cond);font-size:17px;letter-spacing:2px;color:var(--white);margin-bottom:6px;}
 #lm-box p{font-size:12px;color:var(--text-mute);margin-bottom:12px;}
 #links-ta{width:100%;height:260px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:var(--mono);font-size:12px;padding:8px;resize:vertical;outline:none;}
-#links-ta:focus{border-color:var(--accent);}
 .mbtn-row{display:flex;gap:8px;margin-top:10px;justify-content:flex-end;}
-.mbtn-row button{padding:6px 16px;border:none;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;}
+.mbtn-row button{padding:6px 16px;border:none;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;}
 .btn-save{background:var(--accent);color:#fff;}
-.btn-cancel{background:var(--bg3);color:var(--text-dim);border:1px solid #555!important;}
+.btn-cancel{background:var(--bg3);color:var(--text-dim);border:1px solid #555 !important;}
 
-/* ── MBTA ALERTS (multi-line) ───────────── */
+/* ── MBTA ── */
 #mbta-panel{background:#1a1a1a;border-bottom:1px solid #444;}
 #mbta-header{display:flex;align-items:center;gap:10px;padding:5px 16px;cursor:pointer;user-select:none;}
-.mbta-lbl{font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:2px;flex-shrink:0;padding-right:10px;border-right:1px solid;}
+.mbta-lbl{font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:2px;padding-right:10px;border-right:1px solid;}
 .mbta-lbl.ok{color:var(--green);border-color:#1a4030;}
 .mbta-lbl.alert{color:var(--orange);border-color:var(--odim);}
 #mbta-summary{font-size:13px;flex:1;}
 #mbta-summary.ok{color:var(--green);}
 #mbta-summary.alert{color:var(--orange);}
-#mbta-toggle{font-size:11px;color:var(--text-mute);flex-shrink:0;}
+#mbta-toggle{font-size:11px;color:var(--text-mute);}
 #mbta-alerts-list{display:none;padding:0 16px 8px;border-top:1px solid #333;}
 #mbta-alerts-list.open{display:block;}
-.mbta-alert-row{display:flex;align-items:flex-start;gap:10px;padding:6px 0;border-bottom:1px solid #2a2a2a;font-size:13px;color:var(--text-dim);}
+.mbta-alert-row{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #2a2a2a;font-size:13px;color:var(--text-dim);}
 .mbta-alert-row:last-child{border-bottom:none;}
-.mbta-route-badge{background:#333;border:1px solid #555;border-radius:3px;font-size:10px;font-family:var(--mono);color:var(--accent);padding:1px 5px;white-space:nowrap;flex-shrink:0;}
+.mbta-route-badge{border:1px solid;border-radius:3px;font-size:10px;padding:1px 5px;white-space:nowrap;flex-shrink:0;}
 
-/* ── GRIDSTACK OVERRIDES ──────────────────── */
-/* Make the grid fill the page width */
-.grid-stack {
-  max-width: 1900px;
-  margin: 0 auto;
-  padding: 10px 14px;
-  background: transparent !important;
-}
-/* Each item's content wrapper must fill its cell */
-.grid-stack-item-content {
-  overflow: hidden;
-  border-radius: 5px;
-  background: transparent;
-}
-/* Drag handle: the card header */
-.ch { cursor: grab; user-select: none; }
-.ch:active { cursor: grabbing; }
-/* Resize handle styling */
-.grid-stack-item > .ui-resizable-se {
-  background: var(--teal-dim, #1e4a80);
-  width: 14px; height: 14px;
-  right: 2px; bottom: 2px;
-  border-radius: 2px;
-  opacity: 0.5;
-  transition: opacity 0.2s;
-}
-.grid-stack-item:hover > .ui-resizable-se { opacity: 1; }
+/* ── MAIN LAYOUT ── */
+#page{max-width:1900px;margin:0 auto;padding:14px;display:grid;grid-template-columns:340px 1fr;gap:14px;align-items:start;}
+#col-left{display:flex;flex-direction:column;gap:14px;}
+#col-right{display:flex;flex-direction:column;gap:14px;}
 
-/* Cards fill their GridStack cell */
-.grid-stack-item-content > .card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-/* Any card inside a sub-grid (g2, g3, g4) also needs this */
-.g2 > .card, .g3 > .card, .g4 > .card {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-/* Sub-grids inside grid items must also fill height */
-.grid-stack-item-content > .g2,
-.grid-stack-item-content > .g3,
-.grid-stack-item-content > .g4 {
-  height: 100%;
-}
-/* ALL scrollable/content bodies grow to fill remaining card height */
-.card .cbody.npx,
-.card .cbody.np,
-.card .cbody,
-.card .cal-scroll {
-  flex: 1;
-  min-height: 0;
-}
-/* News feeds and reddit feeds: always scrollable */
-.card .news-feed,
-.card .scroll-box,
-.card [id^="r-"],
-.card [id^="news-"] {
-  overflow-y: auto;
-  height: 100%;
-  min-height: 0;
-}
-/* Scrollable bodies inside grid items */
-.grid-stack-item .scroll-box,
-.grid-stack-item .h-news,
-.grid-stack-item .h-reddit,
-.grid-stack-item .h-bc,
-.grid-stack-item .h-nat {
-  max-height: none !important;  /* remove fixed pixel heights — let grid control height */
-  height: 100%;
-  overflow-y: auto;
-}
-
-/* Reset button in links bar */
-#reset-layout-btn {
-  padding: 3px 10px;
-  background: var(--bg3);
-  border: 1px solid #555;
-  border-radius: 4px;
-  color: var(--text-mute);
-  font-family: var(--cond);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all .15s;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-#reset-layout-btn:hover { color: var(--red, #f06060); border-color: var(--red, #f06060); }
-
-/* ── MAIN LAYOUT ──────────────────────────── */
-/* Old column/grid — replaced by GridStack, kept for reference only */
-#main { display: none; }
-#col-left, #col-right { display: contents; }
-
-/* Internal sub-grids (used inside grid items) */
-
-/* Full-width rows */
-.full-row{max-width:1900px;margin:0 auto;padding:0 14px 14px;display:grid;gap:14px;}
-.full-3col{grid-template-columns:1fr 1fr 1fr;}
-.full-4col{grid-template-columns:repeat(4,1fr);}
-.full-5col{grid-template-columns:repeat(5,1fr);}
-
-/* ── CARDS ──────────────────────────────── */
+/* ── CARDS ── */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;}
 .ch{background:var(--bg3);border-bottom:1px solid var(--border);padding:7px 14px;display:flex;align-items:center;justify-content:space-between;}
 .ch.acc{border-left:3px solid var(--accent);}
@@ -208,32 +85,25 @@ button#edit-links-btn:hover{color:var(--accent);border-color:var(--accent);}
 .cbody.np{padding:0;}
 .cbody.npx{padding:0 14px;}
 
-/* ── SCROLLABLE BOXES ───────────────────── */
+/* ── SCROLL BOXES ── */
 .scroll-box{overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
-.scroll-box::-webkit-scrollbar{width:5px;}
-.scroll-box::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
-.h-news{max-height:380px;}   /* ~6 stories visible */
-.h-reddit{max-height:340px;} /* ~5 posts visible */
-.h-bc{max-height:380px;}
-.h-nat{max-height:400px;}
+.h-news{max-height:400px;}
+.h-reddit{max-height:360px;}
+.h-nat{max-height:440px;}
 
-/* ── WEATHER ────────────────────────────── */
+/* ── WEATHER ── */
 #wx-now{display:flex;align-items:center;gap:14px;}
 #wx-temp{font-family:var(--cond);font-size:76px;font-weight:900;color:var(--white);line-height:1;flex-shrink:0;}
 #wx-temp sup{font-size:30px;color:var(--text-dim);vertical-align:super;}
-.wx-r{display:flex;gap:8px;margin-top:5px;font-size:14px;}
+.wx-r{display:flex;gap:8px;margin-top:5px;}
 .wx-k{color:var(--text-mute);min-width:72px;}
 .wx-v{color:var(--text);font-weight:600;}
-a#wx-forecast-link{display:block;margin-top:10px;font-size:12px;color:var(--accent);text-decoration:none;letter-spacing:0.5px;}
-a#wx-forecast-link:hover{text-decoration:underline;}
+a#wx-forecast-link{display:block;margin-top:10px;font-size:12px;color:var(--accent);text-decoration:none;}
 
-/* ── HOURLY ─────────────────────────────── */
+/* ── HOURLY ── */
 #hourly-scroll{overflow-x:auto;padding-bottom:4px;}
-#hourly-scroll::-webkit-scrollbar{height:4px;}
-#hourly-scroll::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
-#hourly-inner{display:flex;gap:6px;min-width:max-content;padding:2px 0 4px;}
-.hb{display:flex;flex-direction:column;align-items:center;gap:3px;width:54px;padding:7px 4px;border:1px solid var(--border);border-radius:4px;background:var(--bg3);flex-shrink:0;transition:background .15s;}
-.hb:hover{background:var(--bg4);}
+#hourly-inner{display:flex;gap:6px;min-width:max-content;padding:2px 0;}
+.hb{display:flex;flex-direction:column;align-items:center;gap:3px;width:54px;padding:7px 4px;border:1px solid var(--border);border-radius:4px;background:var(--bg3);flex-shrink:0;}
 .hb.now{border-color:var(--accent);background:var(--bg4);}
 .hb-time{font-size:10px;color:var(--text-mute);font-family:var(--mono);}
 .hb-time.now{color:var(--accent);font-weight:600;}
@@ -242,7 +112,7 @@ a#wx-forecast-link:hover{text-decoration:underline;}
 .hb-pct{font-size:10px;color:var(--blue);font-family:var(--mono);}
 .hb-pct.none{color:var(--text-mute);}
 
-/* ── 7-DAY ──────────────────────────────── */
+/* ── 7-DAY ── */
 #daily-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;}
 .dc{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:9px 5px;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;}
 .dc-name{font-family:var(--cond);font-size:12px;font-weight:700;color:var(--text-dim);letter-spacing:1px;}
@@ -253,217 +123,114 @@ a#wx-forecast-link:hover{text-decoration:underline;}
 .dc-pct.none{color:var(--text-mute);}
 .dc-desc{font-size:9px;color:var(--text-mute);line-height:1.3;}
 
-/* ── SUN / TIDES / LOGAN (full-width) ───── */
+/* ── SUN / TIDES / LOGAN ── */
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
 .sun-row{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-bottom:1px solid var(--border);}
 .sun-row:last-child{border-bottom:none;}
 .sun-k{font-size:14px;color:var(--text-dim);}
 .sun-v{font-family:var(--cond);font-size:22px;font-weight:700;color:var(--gold);}
 .sun-v.b{color:var(--accent);}
-
 .tide-item{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border);}
 .tide-item:last-child{border-bottom:none;}
 .tide-item.past{opacity:.38;}
-.tide-arr{font-family:var(--cond);font-size:20px;font-weight:900;width:22px;text-align:center;flex-shrink:0;}
+.tide-arr{font-family:var(--cond);font-size:20px;font-weight:900;width:22px;text-align:center;}
 .tide-arr.H{color:var(--accent);}
 .tide-arr.L{color:var(--text-mute);}
 .tide-info{flex:1;}
 .tide-time{font-family:var(--cond);font-size:18px;font-weight:700;color:var(--white);}
 .tide-lbl{font-size:11px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
-.tide-ft{font-family:var(--cond);font-size:20px;font-weight:700;color:var(--orange);flex-shrink:0;}
-.tide-next{font-size:10px;background:rgba(106,176,255,.15);color:var(--accent);border:1px solid var(--adim);border-radius:3px;padding:2px 6px;letter-spacing:1px;flex-shrink:0;}
-
+.tide-ft{font-family:var(--cond);font-size:20px;font-weight:700;color:var(--orange);}
+.tide-next{font-size:10px;background:rgba(106,176,255,.15);color:var(--accent);border:1px solid rgba(106,176,255,.3);border-radius:3px;padding:2px 6px;}
 .l-ind{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid;border-radius:4px;margin-bottom:8px;}
 .l-ind.ok{border-color:var(--green);background:rgba(88,216,136,.07);}
 .l-ind.delay{border-color:var(--orange);background:rgba(240,128,80,.07);}
-.l-ind.ground{border-color:var(--red);background:rgba(240,96,96,.07);}
-.l-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;animation:pulse 2s ease-in-out infinite;}
+.l-dot{width:10px;height:10px;border-radius:50%;animation:pulse 2s ease-in-out infinite;}
 .l-dot.ok{background:var(--green);}
 .l-dot.delay{background:var(--orange);}
-.l-dot.ground{background:var(--red);}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.2;}}
 .l-st{font-family:var(--cond);font-size:16px;font-weight:700;letter-spacing:1px;}
 .l-st.ok{color:var(--green);}
 .l-st.delay{color:var(--orange);}
-.l-st.ground{color:var(--red);}
 .l-det{font-size:13px;color:var(--text-dim);padding:4px 0;border-bottom:1px solid var(--border);line-height:1.4;}
 .l-det:last-child{border-bottom:none;}
 .l-det strong{color:var(--orange);font-weight:600;}
-.l-metar{font-family:var(--mono);font-size:11px;color:var(--text-dim);line-height:1.6;}
-.l-metar .mk{color:var(--text-mute);font-size:10px;margin-right:6px;}
 
-/* ── PRIORITIES ─────────────────────────── */
+/* ── PRIORITIES ── */
 .pri-wrap{display:flex;flex-direction:column;gap:9px;}
 .pri-item{display:flex;align-items:flex-start;gap:9px;}
 .pri-num{font-family:var(--cond);font-size:26px;font-weight:900;line-height:1;width:20px;flex-shrink:0;margin-top:5px;}
 .pri-num.n1{color:var(--accent);}
 .pri-num.n2{color:var(--text-dim);}
 .pri-num.n3{color:var(--text-mute);}
-textarea.pri-ta{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:14px;font-weight:500;padding:7px 10px;resize:none;height:56px;outline:none;transition:border-color .15s;}
+textarea.pri-ta{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:14px;padding:7px 10px;resize:none;height:56px;outline:none;}
 textarea.pri-ta:focus{border-color:var(--accent);}
-textarea.pri-ta::placeholder{color:var(--text-mute);font-size:13px;}
 #pri-saved{font-size:11px;color:var(--text-mute);text-align:right;margin-top:2px;}
 
-/* ── 3-DAY PLANNER ──────────────────────── */
-.dp-row{display:flex;gap:10px;align-items:flex-start;}
-.dp-lbl{font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:1px;color:var(--accent);width:82px;flex-shrink:0;padding-top:8px;text-transform:uppercase;}
-textarea.dp-ta{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:13px;padding:7px 10px;resize:none;height:60px;outline:none;transition:border-color .15s;}
-textarea.dp-ta:focus{border-color:var(--accent);}
-textarea.dp-ta::placeholder{color:var(--text-mute);}
-.gcal-frame{width:100%;height:380px;border:none;display:block;}
-
-/* ── STOCKS ─────────────────────────────── */
-.stock-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-.stk{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:12px 14px;}
-.stk-name{font-size:11px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
-.stk-price{font-family:var(--cond);font-size:28px;font-weight:700;color:var(--white);line-height:1;}
-.stk-change{font-size:13px;font-weight:600;margin-top:4px;font-family:var(--mono);}
-.stk-change.up{color:var(--green);}
-.stk-change.dn{color:var(--red);}
-.stk-sym{font-size:10px;color:var(--text-mute);margin-top:2px;}
-
-/* ── CITY CALENDAR ──────────────────────── */
-.cal-ev{padding:8px 0;border-bottom:1px solid var(--border);}
-.cal-ev:last-child{border-bottom:none;}
-.cal-dt{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:2px;font-family:var(--mono);}
-.cal-dt-time{font-size:11px;color:var(--text-mute);margin-left:6px;}
-a.cal-title{font-size:14px;font-weight:500;color:var(--text);text-decoration:none;display:block;line-height:1.35;transition:color .1s;}
-a.cal-title:hover{color:var(--white);}
-.cal-empty{text-align:center;padding:14px;font-size:13px;color:var(--text-mute);line-height:1.6;}
-.cal-scroll{max-height:400px;overflow-y:auto;padding:0 14px;}
-a.cal-btn{display:block;text-align:center;margin:8px 14px 0;padding:7px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;color:var(--accent);text-decoration:none;font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:2px;transition:background .15s;}
+/* ── PLANNER ── */
+textarea#planner-notes{width:100%;height:130px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:14px;padding:8px 10px;resize:vertical;outline:none;display:block;margin-bottom:10px;}
+textarea#planner-notes:focus{border-color:var(--accent);}
+.planner-links{display:flex;flex-direction:column;gap:6px;}
+.planner-links-lbl{font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;}
+a.cal-btn{display:block;text-align:center;padding:7px 10px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;color:var(--accent);text-decoration:none;font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:2px;transition:background .15s;}
 a.cal-btn:hover{background:var(--bg4);}
 
-/* ── SCORES ─────────────────────────────── */
-.score-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.sc-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:10px 12px;}
-.sc-sport{font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
-.sc-status{font-family:var(--cond);font-size:12px;font-weight:700;color:var(--text-dim);letter-spacing:.5px;margin-bottom:6px;}
-.sc-team{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid var(--border);}
-.sc-team:last-child{border-bottom:none;}
-.sc-tname{font-size:15px;font-weight:600;color:var(--text);}
-.sc-tname.w{color:var(--white);}
-.sc-tscore{font-family:var(--cond);font-size:22px;font-weight:700;color:var(--white);}
-.sc-upcoming{font-size:13px;color:var(--text-dim);padding:3px 0;}
-.sc-empty{color:var(--text-mute);font-size:12px;padding:4px 0;}
-.sc-err{font-size:12px;color:var(--text-mute);text-align:center;padding:4px 0;}
-
-/* ── MEDIA LINKS ────────────────────────── */
-.media-links-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
-a.ml{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;color:var(--text);text-decoration:none;font-size:13px;font-weight:500;transition:all .15s;}
-a.ml:hover{background:var(--bg4);border-color:var(--accent);color:var(--white);}
-.ml-ico{font-size:16px;flex-shrink:0;}
-.ml-info{display:flex;flex-direction:column;gap:0;}
-.ml-name{font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:1px;color:var(--white);}
-.ml-type{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
-.ml-ext{margin-left:auto;font-size:12px;color:var(--text-mute);flex-shrink:0;}
-
-/* ── NEWS ───────────────────────────────── */
+/* ── NEWS ── */
 .news-feed{display:flex;flex-direction:column;}
-a.ni{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .1s;}
+a.ni{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
 a.ni:last-child{border-bottom:none;}
 a.ni:hover{background:rgba(255,255,255,.04);margin:0 -14px;padding-left:14px;padding-right:14px;}
 .ni-src{font-size:10px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);}
 .ni-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.35;}
 a.ni:hover .ni-title{color:var(--white);}
 .ni-date{font-size:11px;color:var(--text-mute);}
-.comm-tag{display:inline-block;background:rgba(106,176,255,.1);color:var(--accent);border:1px solid rgba(106,176,255,.2);border-radius:3px;font-size:10px;padding:1px 5px;margin-right:4px;text-transform:uppercase;letter-spacing:.5px;}
+.comm-tag{display:inline-block;background:rgba(106,176,255,.1);color:var(--accent);border:1px solid rgba(106,176,255,.2);border-radius:3px;font-size:10px;padding:1px 5px;margin-right:4px;text-transform:uppercase;}
 
-/* ── REDDIT ─────────────────────────────── */
-a.rp{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .1s;}
+/* ── REDDIT ── */
+a.rp{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
 a.rp:last-child{border-bottom:none;}
 a.rp:hover{background:rgba(255,255,255,.04);margin:0 -14px;padding-left:14px;padding-right:14px;}
 .rp-meta{display:flex;align-items:center;gap:7px;}
 .rp-score{font-family:var(--cond);font-size:14px;font-weight:700;color:var(--reddit);}
 .rp-flair{font-size:10px;color:var(--text-mute);background:var(--bg3);border-radius:3px;padding:1px 5px;}
 .rp-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.35;}
-a.rp:hover .rp-title{color:var(--white);}
 .rp-auth{font-size:11px;color:var(--text-mute);}
 .rp-err{font-size:13px;color:var(--text-mute);padding:10px 0;text-align:center;}
 .rp-err a{color:var(--accent);}
 
-/* ── REVERE TV ──────────────────────────── */
+/* ── 2/4-COL GRIDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;}
+
+/* ── REVERE TV ── */
 .yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 a.yt-item{text-decoration:none;color:inherit;display:block;}
-.yt-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--bg3);border:1px solid var(--border);border-radius:4px;display:block;transition:border-color .15s;}
+.yt-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--bg3);border:1px solid var(--border);border-radius:4px;display:block;}
 a.yt-item:hover .yt-thumb{border-color:var(--accent);}
 .yt-title{font-size:13px;color:var(--text);margin-top:5px;line-height:1.3;}
 .yt-date{font-size:11px;color:var(--text-mute);}
 
-/* ── NEWS GRIDS ─────────────────────────── */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
-.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;}
+/* ── MEDIA LINKS ── */
+a.ml{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;color:var(--text);text-decoration:none;font-size:13px;font-weight:500;transition:all .15s;margin-bottom:6px;}
+a.ml:last-child{margin-bottom:0;}
+a.ml:hover{background:var(--bg4);border-color:var(--accent);color:var(--white);}
+.ml-ico{font-size:16px;flex-shrink:0;}
+.ml-info{display:flex;flex-direction:column;flex:1;}
+.ml-name{font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:1px;color:var(--white);}
+.ml-type{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
+.ml-ext{font-size:12px;color:var(--text-mute);}
 
-/* ── BC SCHEDULE ────────────────────────── */
-.bc-game {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  border-bottom: 1px solid var(--border);
-  font-size: 13px;
-}
-.bc-game:last-child { border-bottom: none; }
-.bc-game:hover { background: rgba(255,255,255,.03); }
-.bc-sport-badge {
-  font-size: 16px;
-  flex-shrink: 0;
-  width: 24px;
-  text-align: center;
-}
-.bc-game-info { flex: 1; min-width: 0; }
-.bc-matchup {
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.bc-meta {
-  font-size: 11px;
-  color: var(--text-mute);
-  margin-top: 2px;
-}
-.bc-result {
-  font-family: var(--cond);
-  font-size: 18px;
-  font-weight: 700;
-  flex-shrink: 0;
-  min-width: 48px;
-  text-align: right;
-}
-.bc-result.win  { color: var(--green); }
-.bc-result.loss { color: var(--red); }
-.bc-result.upcoming { color: var(--accent); font-size: 13px; font-family: var(--mono); }
-.bc-date {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
-  flex-shrink: 0;
-  min-width: 70px;
-  text-align: right;
-}
+/* ── NYT LINK PANEL ── */
+.nyt-link-body{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px;text-align:center;}
+.nyt-link-body p{font-size:13px;color:var(--text-dim);line-height:1.5;}
+a.big-btn{padding:10px 24px;background:var(--accent);color:#fff;text-decoration:none;border-radius:4px;font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:2px;display:inline-block;}
+a.big-btn:hover{opacity:.85;}
 
-/* ── MISC ───────────────────────────────── */
+/* ── MISC ── */
 .empty{color:var(--text-mute);font-size:13px;padding:20px;text-align:center;}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
-
-/* ── RESPONSIVE ─────────────────────────── */
-@media(max-width:1200px){
-  #main{grid-template-columns:1fr;}
-  .full-3col,.full-4col,.full-5col{grid-template-columns:1fr 1fr;}
-  .g4{grid-template-columns:1fr 1fr;}
-  .stock-grid{grid-template-columns:repeat(3,1fr);}
-}
-@media(max-width:700px){
-  .g2,.g3,.g4,.full-3col,.full-4col,.full-5col,.score-grid,.stock-grid,.yt-grid{grid-template-columns:1fr;}
-  .media-links-grid{grid-template-columns:1fr 1fr;}
-  #daily-grid{grid-template-columns:repeat(4,1fr);}
-}
+.section-divider{font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;padding:8px 0 4px;border-top:1px solid var(--border);margin-top:6px;}
 </style>
 </head>
 <body>
@@ -485,8 +252,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
 <!-- LINKS BAR -->
 <div id="links-bar-wrap">
   <div id="links-bar"></div>
-  <button id="reset-layout-btn" title="Reset panel layout to default">↺ RESET LAYOUT</button>
-  <button id="edit-links-btn">✏ EDIT LINKS</button>
+  <button class="hdr-btn" id="edit-links-btn">✏ EDIT LINKS</button>
 </div>
 
 <!-- LINKS MODAL -->
@@ -497,12 +263,12 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
     <textarea id="links-ta"></textarea>
     <div class="mbtn-row">
       <button class="btn-cancel" id="links-cancel">CANCEL</button>
-      <button class="btn-save"   id="links-save">SAVE</button>
+      <button class="btn-save" id="links-save">SAVE</button>
     </div>
   </div>
 </div>
 
-<!-- MBTA ALERTS (multi-line collapsible) -->
+<!-- MBTA -->
 <div id="mbta-panel">
   <div id="mbta-header" onclick="toggleMbta()">
     <div class="mbta-lbl ok" id="mbta-lbl">MBTA</div>
@@ -512,367 +278,264 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   <div id="mbta-alerts-list"></div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     GRIDSTACK PANEL GRID
-     Drag panels by their header. Resize from bottom-right corner.
-     Layout auto-saves to browser. Click ↺ RESET LAYOUT to restore defaults.
-════════════════════════════════════════════════════════ -->
-<div class="grid-stack" id="gs-grid">
+<!-- MAIN -->
+<div id="page">
 
-  <!-- Top 3 Priorities -->
-  <div class="grid-stack-item" gs-id="priorities" gs-x="0" gs-y="0" gs-w="3" gs-h="6" gs-min-h="4">
-    <div class="grid-stack-item-content">
-      <div class="card">
-        <div class="ch grn"><div class="ct">TOP 3 PRIORITIES</div><div class="cb">SAVED IN BROWSER</div></div>
-        <div class="cbody">
-          <div class="pri-wrap">
-            <div class="pri-item"><div class="pri-num n1">1</div><textarea class="pri-ta" id="p1" placeholder="Most important thing right now…"></textarea></div>
-            <div class="pri-item"><div class="pri-num n2">2</div><textarea class="pri-ta" id="p2" placeholder="Second priority…"></textarea></div>
-            <div class="pri-item"><div class="pri-num n3">3</div><textarea class="pri-ta" id="p3" placeholder="Third priority…"></textarea></div>
-          </div>
-          <div id="pri-saved">auto-saved to this browser</div>
+  <!-- LEFT COLUMN -->
+  <div id="col-left">
+
+    <!-- Priorities -->
+    <div class="card">
+      <div class="ch grn"><div class="ct">TOP 3 PRIORITIES</div><div class="cb">SAVED IN BROWSER</div></div>
+      <div class="cbody">
+        <div class="pri-wrap">
+          <div class="pri-item"><div class="pri-num n1">1</div><textarea class="pri-ta" id="p1" placeholder="Most important thing right now…"></textarea></div>
+          <div class="pri-item"><div class="pri-num n2">2</div><textarea class="pri-ta" id="p2" placeholder="Second priority…"></textarea></div>
+          <div class="pri-item"><div class="pri-num n3">3</div><textarea class="pri-ta" id="p3" placeholder="Third priority…"></textarea></div>
+        </div>
+        <div id="pri-saved">auto-saved to this browser</div>
+      </div>
+    </div>
+
+    <!-- Planner -->
+    <div class="card">
+      <div class="ch acc"><div class="ct">PLANNER</div><div class="cb">NOTES + QUICK LINKS</div></div>
+      <div class="cbody">
+        <textarea id="planner-notes" placeholder="Today's meetings, priorities, notes…"
+          oninput="localStorage.setItem('planner_notes',this.value)"></textarea>
+        <div class="planner-links">
+          <div class="planner-links-lbl">Quick Links</div>
+          <a href="https://calendar.google.com" target="_blank" rel="noopener" class="cal-btn">📅 Google Calendar</a>
+          <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-btn">🏛 City of Revere Calendar</a>
+          <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-btn">📋 Meeting Agendas (IQM2)</a>
+          <a href="https://www.bostonglobe.com/sports/tvradio/listings/" target="_blank" rel="noopener" class="cal-btn">📺 Globe Sports TV/Radio Listings</a>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Planner -->
-  <div class="grid-stack-item" gs-id="planner" gs-x="0" gs-y="6" gs-w="3" gs-h="8" gs-min-h="5">
-    <div class="grid-stack-item-content">
-      <div class="card">
-        <div class="ch acc"><div class="ct">PLANNER</div><div class="cb">NOTES + QUICK LINKS</div></div>
-        <div class="cbody" style="display:flex;flex-direction:column;gap:10px;height:100%;overflow-y:auto;">
-          <textarea id="planner-notes"
-            placeholder="Today&#39;s meetings, priorities, notes&#8230;"
-            style="flex:1;min-height:100px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:14px;padding:8px 10px;resize:none;outline:none;width:100%;"
-            oninput="localStorage.setItem('planner_notes',this.value)"></textarea>
-          <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0;">
-            <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;">QUICK LINKS</div>
-            <a href="https://calendar.google.com" target="_blank" rel="noopener" class="cal-btn" style="margin:0;">📅 Google Calendar</a>
-            <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-btn" style="margin:0;">🏛 City of Revere Calendar</a>
-            <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-btn" style="margin:0;">📋 Meeting Agendas (IQM2)</a>
-            <a href="https://www.bostonglobe.com/sports/tvradio/listings/" target="_blank" rel="noopener" class="cal-btn" style="margin:0;">📺 Globe Sports TV/Radio Listings</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Current Weather -->
-  <div class="grid-stack-item" gs-id="weather-now" gs-x="0" gs-y="12" gs-w="3" gs-h="5" gs-min-h="4">
-    <div class="grid-stack-item-content">
-      <div class="card">
-        <div class="ch acc"><div class="ct">NOW — REVERE, MA</div><div class="cb">NWS WEATHER</div></div>
-        <div class="cbody">
-          <div id="wx-now">
-            <div><div id="wx-temp">--<sup>°F</sup></div></div>
-            <div style="flex:1;">
-              <div id="wx-desc" style="font-size:17px;font-weight:600;margin-bottom:8px;">Loading…</div>
-              <div class="wx-r"><span class="wx-k">💨 Wind</span><span class="wx-v" id="wx-wind">--</span></div>
-              <div class="wx-r"><span class="wx-k">💧 Humidity</span><span class="wx-v" id="wx-hum">--</span></div>
-              <div class="wx-r"><span class="wx-k">🌧 Precip</span><span class="wx-v" id="wx-pct">--</span></div>
-            </div>
-          </div>
-          <a id="wx-forecast-link" href="https://forecast.weather.gov/MapClick.php?CityName=Revere&state=MA&site=BOX" target="_blank" rel="noopener">📋 View full NWS forecast →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Hourly Forecast -->
-  <div class="grid-stack-item" gs-id="hourly" gs-x="0" gs-y="17" gs-w="3" gs-h="4" gs-min-h="3">
-    <div class="grid-stack-item-content">
-      <div class="card">
-        <div class="ch acc"><div class="ct">HOURLY FORECAST</div><div class="cb">NEXT 24H → SCROLL</div></div>
-        <div class="cbody">
-          <div id="hourly-scroll"><div id="hourly-inner"><div class="empty">Loading…</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 7-Day Forecast -->
-  <div class="grid-stack-item" gs-id="sevenday" gs-x="0" gs-y="21" gs-w="3" gs-h="5" gs-min-h="4">
-    <div class="grid-stack-item-content">
-      <div class="card">
-        <div class="ch acc"><div class="ct">7-DAY FORECAST</div><div class="cb">NWS</div></div>
-        <div class="cbody">
-          <div id="daily-grid"><div class="empty">Loading…</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Sun / Sky / Tides / Logan (3-up group) -->
-  <div class="grid-stack-item" gs-id="sun-tides-logan" gs-x="3" gs-y="0" gs-w="9" gs-h="6" gs-min-h="4">
-    <div class="grid-stack-item-content">
-      <div class="g3" style="height:100%;gap:10px;">
-        <div class="card" style="height:100%;">
-          <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
-          <div class="cbody np" style="flex:1;overflow-y:auto;">
-            <div class="sun-row"><span class="sun-k">☀ Sunrise</span>   <span class="sun-v" id="s-rise">--</span></div>
-            <div class="sun-row"><span class="sun-k">🌅 Civil Dawn</span><span class="sun-v" id="s-dawn">--</span></div>
-            <div class="sun-row"><span class="sun-k">🌇 Sunset</span>   <span class="sun-v" id="s-set">--</span></div>
-            <div class="sun-row"><span class="sun-k">🌆 Civil Dusk</span><span class="sun-v" id="s-dusk">--</span></div>
-            <div class="sun-row"><span class="sun-k">⏱ Day Length</span><span class="sun-v b" id="s-len">--</span></div>
+    <!-- Current Weather -->
+    <div class="card">
+      <div class="ch acc"><div class="ct">NOW — REVERE, MA</div><div class="cb">NWS WEATHER</div></div>
+      <div class="cbody">
+        <div id="wx-now">
+          <div><div id="wx-temp">--<sup>°F</sup></div></div>
+          <div style="flex:1;">
+            <div id="wx-desc" style="font-size:17px;font-weight:600;margin-bottom:8px;">Loading…</div>
+            <div class="wx-r"><span class="wx-k">💨 Wind</span><span class="wx-v" id="wx-wind">--</span></div>
+            <div class="wx-r"><span class="wx-k">💧 Humidity</span><span class="wx-v" id="wx-hum">--</span></div>
+            <div class="wx-r"><span class="wx-k">🌧 Precip</span><span class="wx-v" id="wx-pct">--</span></div>
           </div>
         </div>
-        <div class="card" style="height:100%;">
-          <div class="ch acc"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
-          <div class="cbody np" style="flex:1;overflow-y:auto;"><div id="tide-list"><div class="empty">Loading…</div></div></div>
-        </div>
-        <div class="card" style="height:100%;">
-          <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA + METAR</div></div>
-          <div class="cbody" style="flex:1;overflow-y:auto;"><div id="logan-body"><div class="empty">Loading…</div></div></div>
-        </div>
+        <a id="wx-forecast-link" href="https://forecast.weather.gov/MapClick.php?CityName=Revere&state=MA&site=BOX" target="_blank" rel="noopener">📋 View full NWS forecast →</a>
       </div>
     </div>
-  </div>
 
-  <!-- Boston Sports -->
+    <!-- Hourly -->
+    <div class="card">
+      <div class="ch acc"><div class="ct">HOURLY FORECAST</div><div class="cb">NEXT 24H</div></div>
+      <div class="cbody">
+        <div id="hourly-scroll"><div id="hourly-inner"><div class="empty">Loading…</div></div></div>
+      </div>
+    </div>
 
-  <!-- BC Eagles Schedule — full composite calendar iframe -->
-  <div class="grid-stack-item" gs-id="bc-cal" gs-x="3" gs-y="11" gs-w="9" gs-h="10" gs-min-h="5">
-    <div class="grid-stack-item-content">
+    <!-- 7-Day -->
+    <div class="card">
+      <div class="ch acc"><div class="ct">7-DAY FORECAST</div><div class="cb">NWS</div></div>
+      <div class="cbody">
+        <div id="daily-grid"><div class="empty">Loading…</div></div>
+      </div>
+    </div>
+
+    <!-- Markets -->
+    <div class="card">
+      <div class="ch acc"><div class="ct">MARKETS</div><div class="cb">LIVE PRICES</div></div>
+      <div class="cbody np">
+        <div class="finlogix-container"></div>
+        <script type="text/javascript" src="https://widget.finlogix.com/Widget.js"></script>
+        <script type="text/javascript">
+          Widget.init({widgetId:"5f7acc9a-bf3c-43bc-a6e6-791599137928",type:"SymbolChartList",language:"en",symbolIds:[19,44,129,157,635,66,898,580,122],isAdaptive:true,withBorderBox:true});
+        </script>
+      </div>
+    </div>
+
+    <!-- Live News & Radio -->
+    <div class="card">
+      <div class="ch acc"><div class="ct">LIVE NEWS &amp; RADIO</div><div class="cb">OPENS IN NEW TAB</div></div>
+      <div class="cbody">
+        <a href="https://www.nbcboston.com/watch-live/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">NBC BOSTON</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
+        <a href="https://www.cbsnews.com/boston/live/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">CBS BOSTON / WBZ</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
+        <a href="https://www.wcvb.com/watch-live-news" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">WCVB 5</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
+        <a href="https://whdh.com/livestream/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">7NEWS WHDH</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
+        <a href="https://www.audacy.com/wbz" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WBZ 1030 AM</div><div class="ml-type">RADIO · ALL NEWS</div></div><span class="ml-ext">↗</span></a>
+        <a href="https://www.audacy.com/985thesportshub" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">98.5 SPORTS HUB</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
+        <a href="https://www.audacy.com/weei" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WEEI 93.7 FM</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
+        <a href="https://www.wgbh.org/listen-live" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">GBH 89.7 FM</div><div class="ml-type">RADIO · PUBLIC</div></div><span class="ml-ext">↗</span></a>
+      </div>
+    </div>
+
+  </div><!-- /col-left -->
+
+  <!-- RIGHT COLUMN -->
+  <div id="col-right">
+
+    <!-- Sun / Tides / Logan -->
+    <div class="g3">
       <div class="card">
-        <div class="ch acc">
-          <div class="ct">BC EAGLES SCHEDULE</div>
-          <div class="cb">BCEAGLES.COM · ALL SPORTS</div>
-          <a href="https://bceagles.com/calendar" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;margin-left:10px;">Open full site →</a>
-        </div>
-        <div class="cbody np" style="flex:1;min-height:0;display:flex;flex-direction:column;">
-          <iframe
-            src="https://bceagles.com/calendar"
-            style="width:100%;flex:1;border:none;display:block;min-height:0;"
-            title="BC Eagles Composite Calendar"
-            loading="lazy">
-          </iframe>
+        <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
+        <div class="cbody np">
+          <div class="sun-row"><span class="sun-k">☀ Sunrise</span><span class="sun-v" id="s-rise">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌅 Civil Dawn</span><span class="sun-v" id="s-dawn">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌇 Sunset</span><span class="sun-v" id="s-set">--</span></div>
+          <div class="sun-row"><span class="sun-k">🌆 Civil Dusk</span><span class="sun-v" id="s-dusk">--</span></div>
+          <div class="sun-row"><span class="sun-k">⏱ Day Length</span><span class="sun-v b" id="s-len">--</span></div>
         </div>
       </div>
+      <div class="card">
+        <div class="ch acc"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
+        <div class="cbody np"><div id="tide-list"><div class="empty">Loading…</div></div></div>
+      </div>
+      <div class="card">
+        <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA + METAR</div></div>
+        <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Boston News -->
-  <div class="grid-stack-item" gs-id="boston-news" gs-x="3" gs-y="19" gs-w="4" gs-h="9" gs-min-h="4">
-    <div class="grid-stack-item-content">
+    <!-- Boston News + Universal Hub -->
+    <div class="g2">
       <div class="card">
         <div class="ch acc"><div class="ct">BOSTON NEWS</div><div class="cb">GLOBE · HERALD · GBH · WBUR · MORE</div></div>
-        <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;">
-          <div class="news-feed" id="news-boston"><div class="empty">Loading…</div></div>
+        <div class="cbody npx">
+          <div class="news-feed scroll-box h-news" id="news-boston"><div class="empty">Loading…</div></div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Universal Hub Bluesky Feed -->
-  <div class="grid-stack-item" gs-id="uhub" gs-x="7" gs-y="11" gs-w="5" gs-h="9" gs-min-h="4">
-    <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">BLUESKY · @universalhub.com</div></div>
-        <div class="cbody np" style="flex:1;min-height:0;overflow-y:auto;padding:8px;">
+        <div class="cbody np" style="padding:8px;">
           <script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
           <bsky-embed username="universalhub.com" limit="15" mode="dark"></bsky-embed>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- NYT Iran War Liveblog — link only -->
-  <div class="grid-stack-item" gs-id="nyt-link" gs-x="3" gs-y="20" gs-w="5" gs-h="4" gs-min-h="2">
-    <div class="grid-stack-item-content">
+    <!-- BC Eagles Calendar -->
+    <div class="card">
+      <div class="ch acc">
+        <div class="ct">BC EAGLES SCHEDULE</div>
+        <div class="cb">BCEAGLES.COM · ALL SPORTS</div>
+        <a href="https://bceagles.com/calendar" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;">Open full site →</a>
+      </div>
+      <div class="cbody np">
+        <iframe src="https://bceagles.com/calendar" style="width:100%;height:500px;border:none;display:block;" title="BC Eagles Composite Calendar" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- NYT Liveblog -->
+    <div class="card">
+      <div class="ch red"><div class="ct">NYT · IRAN WAR LIVEBLOG</div><div class="cb">OPENS IN NEW TAB</div></div>
+      <div class="nyt-link-body">
+        <p>Trump, Iran &amp; Oil — live coverage from The New York Times</p>
+        <a href="https://www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil" target="_blank" rel="noopener" class="big-btn">OPEN NYT LIVEBLOG →</a>
+        <span style="font-size:11px;color:var(--text-mute);">May require subscription</span>
+      </div>
+    </div>
+
+    <!-- Revere + Communities -->
+    <div class="g2">
       <div class="card">
-        <div class="ch red"><div class="ct">NYT · IRAN WAR LIVEBLOG</div><div class="cb">OPENS IN NEW TAB</div></div>
-        <div class="cbody" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;">
-          <div style="font-size:13px;color:var(--text-dim);line-height:1.5;">Trump, Iran &amp; Oil — live coverage from The New York Times</div>
-          <a href="https://www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil"
-             target="_blank" rel="noopener"
-             style="padding:10px 24px;background:var(--accent);color:#fff;text-decoration:none;border-radius:4px;font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:2px;transition:opacity .15s;"
-             onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
-            OPEN NYT LIVEBLOG →
-          </a>
-          <div style="font-size:11px;color:var(--text-mute);">NYT may require a subscription</div>
+        <div class="ch grn"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG · GOOGLE NEWS</div></div>
+        <div class="cbody npx">
+          <div class="news-feed scroll-box h-news" id="news-revere"><div class="empty">Loading…</div></div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Revere + Communities -->
-  <div class="grid-stack-item" gs-id="revere-comm" gs-x="8" gs-y="20" gs-w="4" gs-h="9" gs-min-h="4">
-    <div class="grid-stack-item-content">
-      <div class="g2" style="height:100%;gap:10px;">
-        <div class="card" style="height:100%;">
-          <div class="ch grn"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;">
-            <div class="news-feed" id="news-revere"><div class="empty">Loading…</div></div>
-          </div>
-        </div>
-        <div class="card" style="height:100%;">
-          <div class="ch acc"><div class="ct">COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · MORE</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;">
-            <div class="news-feed" id="news-comm"><div class="empty">Loading…</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Reddit: boston / mass / mbta -->
-  <div class="grid-stack-item" gs-id="reddit-row1" gs-x="3" gs-y="29" gs-w="9" gs-h="7" gs-min-h="4">
-    <div class="grid-stack-item-content">
-      <div class="g3" style="height:100%;gap:10px;">
-        <div class="card" style="height:100%;">
-          <div class="ch red"><div class="ct">r/boston</div><div class="cb">HOT</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;"><div id="r-boston"><div class="empty">Loading…</div></div></div>
-        </div>
-        <div class="card" style="height:100%;">
-          <div class="ch red"><div class="ct">r/massachusetts</div><div class="cb">HOT</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;"><div id="r-mass"><div class="empty">Loading…</div></div></div>
-        </div>
-        <div class="card" style="height:100%;">
-          <div class="ch red"><div class="ct">r/mbta</div><div class="cb">HOT</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;"><div id="r-mbta"><div class="empty">Loading…</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Reddit: nascar / neoliberal / bruins / urban -->
-  <div class="grid-stack-item" gs-id="reddit-row2" gs-x="3" gs-y="36" gs-w="9" gs-h="7" gs-min-h="4">
-    <div class="grid-stack-item-content">
-      <div class="g4" style="height:100%;gap:10px;">
-        <div class="card" style="height:100%;">
-          <div class="ch red"><div class="ct">r/nascar</div><div class="cb">HOT</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;"><div id="r-nascar"><div class="empty">Loading…</div></div></div>
-        </div>
-        <div class="card" style="height:100%;">
-          <div class="ch red"><div class="ct">r/neoliberal</div><div class="cb">HOT</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;"><div id="r-neo"><div class="empty">Loading…</div></div></div>
-        </div>
-        <div class="card" style="height:100%;">
-          <div class="ch red"><div class="ct">r/bostonbruins</div><div class="cb">HOT</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;"><div id="r-bruins"><div class="empty">Loading…</div></div></div>
-        </div>
-        <div class="card" style="height:100%;">
-          <div class="ch red"><div class="ct">r/urbanplanning</div><div class="cb">HOT</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;"><div id="r-urban"><div class="empty">Loading…</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sports News + BC News -->
-  <div class="grid-stack-item" gs-id="sports-bc" gs-x="3" gs-y="43" gs-w="9" gs-h="8" gs-min-h="4">
-    <div class="grid-stack-item-content">
-      <div class="g2" style="height:100%;gap:10px;">
-        <div class="card" style="height:100%;">
-          <div class="ch ora"><div class="ct">SPORTS NEWS</div><div class="cb">GLOBE · ESPN · NESN · WBUR</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;">
-            <div class="news-feed" id="news-sports"><div class="empty">Loading…</div></div>
-          </div>
-        </div>
-        <div class="card" style="height:100%;">
-          <div class="ch acc"><div class="ct">BOSTON COLLEGE</div><div class="cb">HEIGHTS · 247 · BC INTERRUPTION · SI</div></div>
-          <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;">
-            <div class="news-feed" id="news-bc"><div class="empty">Loading…</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- National News -->
-  <div class="grid-stack-item" gs-id="national" gs-x="3" gs-y="51" gs-w="9" gs-h="9" gs-min-h="4">
-    <div class="grid-stack-item-content">
       <div class="card">
-        <div class="ch acc"><div class="ct">NATIONAL HEADLINES</div><div class="cb">NPR · NYT · CNN · BBC · AP · HILL · WAPO</div></div>
-        <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;">
-          <div class="news-feed" id="news-national"><div class="empty">Loading…</div></div>
+        <div class="ch acc"><div class="ct">SURROUNDING COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · SALEM · MORE</div></div>
+        <div class="cbody npx">
+          <div class="news-feed scroll-box h-news" id="news-comm"><div class="empty">Loading…</div></div>
         </div>
       </div>
     </div>
-  </div>
 
-
-  <!-- Revere TV -->
-  <div class="grid-stack-item" gs-id="reveretv" gs-x="3" gs-y="60" gs-w="9" gs-h="7" gs-min-h="4">
-    <div class="grid-stack-item-content">
+    <!-- Reddit row 1 -->
+    <div class="g3">
       <div class="card">
-        <div class="ch grn"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS · CLICK TO WATCH</div></div>
-        <div class="cbody" style="flex:1;overflow-y:auto;min-height:0;">
-          <div class="yt-grid" id="revere-tv"><div class="empty" style="grid-column:1/-1;">Loading…</div></div>
-          <div style="margin-top:8px;text-align:center;">
-            <a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="font-size:12px;color:var(--accent);">Visit Revere TV YouTube Channel →</a>
-          </div>
-        </div>
+        <div class="ch red"><div class="ct">r/boston</div><div class="cb">HOT</div></div>
+        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-boston"><div class="empty">Loading…</div></div></div>
       </div>
-    </div>
-  </div>
-
-  <!-- Markets — Finlogix -->
-  <div class="grid-stack-item" gs-id="markets" gs-x="0" gs-y="34" gs-w="3" gs-h="3" gs-min-h="2">
-    <div class="grid-stack-item-content">
       <div class="card">
-        <div class="ch acc">
-          <div class="ct">MARKETS</div>
-          <div class="cb">LIVE PRICES</div>
-        </div>
-        <div class="cbody np" style="flex:1;min-height:0;overflow:hidden;">
-          <!-- Finlogix Widget BEGIN -->
-          <div class="finlogix-container"></div>
-          <script type="text/javascript" src="https://widget.finlogix.com/Widget.js"></script>
-          <script type="text/javascript">
-            Widget.init({
-              widgetId: "5f7acc9a-bf3c-43bc-a6e6-791599137928",
-              type: "SymbolChartList",
-              language: "en",
-              symbolIds: [19,44,129,157,635,66,898,580,122],
-              isAdaptive: true,
-              withBorderBox: true
-            });
-          </script>
-          <!-- Finlogix Widget END -->
-        </div>
+        <div class="ch red"><div class="ct">r/massachusetts</div><div class="cb">HOT</div></div>
+        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mass"><div class="empty">Loading…</div></div></div>
       </div>
-    </div>
-  </div>
-
-  <!-- Live News & Radio (left column bottom) -->
-  <div class="grid-stack-item" gs-id="radio" gs-x="0" gs-y="37" gs-w="3" gs-h="10" gs-min-h="4">
-    <div class="grid-stack-item-content">
       <div class="card">
-        <div class="ch acc"><div class="ct">LIVE NEWS &amp; RADIO</div><div class="cb">OPENS IN NEW WINDOW</div></div>
-        <div class="cbody np" style="flex:1;overflow-y:auto;min-height:0;">
-          <a href="https://www.nbcboston.com/watch-live/" target="_blank" rel="noopener" class="ml" style="margin:6px 10px;"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">NBC BOSTON</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-          <a href="https://www.cbsnews.com/boston/live/" target="_blank" rel="noopener" class="ml" style="margin:6px 10px;"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">CBS BOSTON</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-          <a href="https://www.wcvb.com/watch-live-news" target="_blank" rel="noopener" class="ml" style="margin:6px 10px;"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">WCVB 5</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-          <a href="https://whdh.com/livestream/" target="_blank" rel="noopener" class="ml" style="margin:6px 10px;"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">7NEWS WHDH</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-          <a href="https://www.audacy.com/wbz" target="_blank" rel="noopener" class="ml" style="margin:6px 10px;"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WBZ 1030 AM</div><div class="ml-type">RADIO · ALL NEWS</div></div><span class="ml-ext">↗</span></a>
-          <a href="https://www.audacy.com/985thesportshub" target="_blank" rel="noopener" class="ml" style="margin:6px 10px;"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">98.5 SPORTS HUB</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
-          <a href="https://www.audacy.com/weei" target="_blank" rel="noopener" class="ml" style="margin:6px 10px;"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WEEI 93.7 FM</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
-          <a href="https://www.wgbh.org/listen-live" target="_blank" rel="noopener" class="ml" style="margin:6px 10px;"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">GBH 89.7 FM</div><div class="ml-type">RADIO · PUBLIC</div></div><span class="ml-ext">↗</span></a>
+        <div class="ch red"><div class="ct">r/mbta</div><div class="cb">HOT</div></div>
+        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mbta"><div class="empty">Loading…</div></div></div>
+      </div>
+    </div>
+
+    <!-- Reddit row 2 -->
+    <div class="g4">
+      <div class="card">
+        <div class="ch red"><div class="ct">r/nascar</div><div class="cb">HOT</div></div>
+        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-nascar"><div class="empty">Loading…</div></div></div>
+      </div>
+      <div class="card">
+        <div class="ch red"><div class="ct">r/neoliberal</div><div class="cb">HOT</div></div>
+        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-neo"><div class="empty">Loading…</div></div></div>
+      </div>
+      <div class="card">
+        <div class="ch red"><div class="ct">r/bostonbruins</div><div class="cb">HOT</div></div>
+        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-bruins"><div class="empty">Loading…</div></div></div>
+      </div>
+      <div class="card">
+        <div class="ch red"><div class="ct">r/urbanplanning</div><div class="cb">HOT</div></div>
+        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-urban"><div class="empty">Loading…</div></div></div>
+      </div>
+    </div>
+
+    <!-- Sports News + BC News -->
+    <div class="g2">
+      <div class="card">
+        <div class="ch ora"><div class="ct">SPORTS NEWS</div><div class="cb">GLOBE · ESPN · NESN · ATHLETIC · MORE</div></div>
+        <div class="cbody npx">
+          <div class="news-feed scroll-box h-news" id="news-sports"><div class="empty">Loading…</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ch acc"><div class="ct">BOSTON COLLEGE</div><div class="cb">HEIGHTS · BC INTERRUPTION · MORE</div></div>
+        <div class="cbody npx">
+          <div class="news-feed scroll-box h-news" id="news-bc"><div class="empty">Loading…</div></div>
         </div>
       </div>
     </div>
-  </div>
 
-</div><!-- /grid-stack -->
+    <!-- National News -->
+    <div class="card">
+      <div class="ch acc"><div class="ct">NATIONAL HEADLINES</div><div class="cb">NPR · NYT · CNN · BBC · AP · HILL · WAPO</div></div>
+      <div class="cbody npx">
+        <div class="news-feed scroll-box h-nat" id="news-national"><div class="empty">Loading…</div></div>
+      </div>
+    </div>
 
-<!-- Hidden old main (keeps JS references valid) -->
-<div id="main" style="display:none;">
-  <div id="col-left"></div>
-  <div id="col-right"></div>
-</div>
+    <!-- Revere TV -->
+    <div class="card">
+      <div class="ch grn"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS</div></div>
+      <div class="cbody">
+        <div class="yt-grid" id="revere-tv"><div class="empty" style="grid-column:1/-1;">Loading…</div></div>
+        <div style="margin-top:8px;text-align:center;">
+          <a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="font-size:12px;color:var(--accent);">Visit Revere TV YouTube Channel →</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /col-right -->
+</div><!-- /page -->
 
 <script>
-// ── CLOCK (12-hour) ──────────────────────────────────────────────
+// ── CLOCK ──
 const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 function updateClock(){
   const n=new Date();
-  let h=n.getHours();
-  const ampm=h>=12?'PM':'AM';
-  h=h%12||12;
+  let h=n.getHours(); const ampm=h>=12?'PM':'AM'; h=h%12||12;
   const m=String(n.getMinutes()).padStart(2,'0');
   const s=String(n.getSeconds()).padStart(2,'0');
   document.getElementById('clock').textContent=`${h}:${m}:${s} ${ampm}`;
@@ -880,33 +543,20 @@ function updateClock(){
 }
 setInterval(updateClock,1000); updateClock();
 
-// ── HELPERS ──────────────────────────────────────────────────────
-function fmtTime(iso){
-  if(!iso)return'--';
-  try{return new Date(iso).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}
-  catch{return'--';}
-}
-function fmtDate(s){
-  if(!s)return'';
-  try{return new Date(s).toLocaleDateString('en-US',{month:'short',day:'numeric'});}
-  catch{return'';}
-}
-// Shows "Mar 24, 2:30 PM" — used for news items
-function fmtDateTime(ts, pubStr){
-  // ts is unix timestamp (seconds), pubStr is fallback
-  const d = ts ? new Date(ts*1000) : (pubStr ? new Date(pubStr) : null);
-  if(!d || isNaN(d)) return '';
-  try{
-    return d.toLocaleDateString('en-US',{month:'short',day:'numeric'}) + ', ' +
-           d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
-  }catch{return'';}
+// ── HELPERS ──
+function fmtTime(iso){if(!iso)return'--';try{return new Date(iso).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}catch{return'--';}}
+function fmtDate(s){if(!s)return'';try{return new Date(s).toLocaleDateString('en-US',{month:'short',day:'numeric'});}catch{return'';}}
+function fmtDateTime(ts,pub){
+  const d=ts?new Date(ts*1000):(pub?new Date(pub):null);
+  if(!d||isNaN(d))return'';
+  try{return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+', '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}catch{return'';}
 }
 function fmtDayLen(sec){if(!sec)return'--';return`${Math.floor(sec/3600)}h ${Math.floor((sec%3600)/60)}m`;}
 function wxEmoji(fc=''){
   const s=fc.toLowerCase();
-  if(s.includes('snow')||s.includes('blizzard')||s.includes('flurr'))return'❄️';
-  if(s.includes('sleet')||s.includes('ice pellet'))return'🌨️';
-  if(s.includes('thunder')||s.includes('storm'))return'⛈️';
+  if(s.includes('snow')||s.includes('blizzard'))return'❄️';
+  if(s.includes('sleet')||s.includes('ice'))return'🌨️';
+  if(s.includes('thunder'))return'⛈️';
   if(s.includes('rain')||s.includes('shower'))return'🌧️';
   if(s.includes('drizzle'))return'🌦️';
   if(s.includes('fog')||s.includes('mist'))return'🌫️';
@@ -917,185 +567,70 @@ function wxEmoji(fc=''){
   return'🌡️';
 }
 function fmtScore(n){return n>=1000?(n/1000).toFixed(1)+'k':String(n);}
-
-// Sort items by unix timestamp (ts field set by fetch.py) — most recent first
 function sortByDate(items){
   return [...items].sort((a,b)=>{
-    // Use ts (unix timestamp from fetch.py) if available, fall back to Date parse
-    const ta = a.ts ? a.ts : (a.published ? Date.parse(a.published)/1000 : 0);
-    const tb = b.ts ? b.ts : (b.published ? Date.parse(b.published)/1000 : 0);
-    return tb - ta;
+    const ta=a.ts?a.ts:(a.published?Date.parse(a.published)/1000:0);
+    const tb=b.ts?b.ts:(b.published?Date.parse(b.published)/1000:0);
+    return tb-ta;
   });
 }
+function safeRender(fn,label){try{fn();}catch(e){console.error('render error ['+label+']:',e);}}
 
-// ── LINKS BAR ────────────────────────────────────────────────────
+// ── LINKS BAR ──
 const DEFAULT_LINKS=[
   "✓ Todoist | https://todoist.com/app",
   "✉ Gmail | https://mail.google.com",
   "📅 Calendar | https://calendar.google.com",
   "📁 Drive | https://drive.google.com",
   "🏛 Revere.org | https://www.revere.org",
-  "📋 IQM2 Agendas | https://reverema.iqm2.com/Citizens/Calendar.aspx",
+  "📋 IQM2 | https://reverema.iqm2.com/Citizens/Calendar.aspx",
   "🏠 EOHLC | https://www.mass.gov/orgs/executive-office-of-housing-and-livable-communities",
   "🏘 MassHousing | https://www.masshousing.com",
   "📊 DHCD | https://www.mass.gov/dhcd",
   "🚇 MBTA | https://www.mbta.com",
   "✈ Logan | https://www.massport.com/logan-airport",
 ].join('\n');
-
 function getLinks(){return localStorage.getItem('monitor_links')||DEFAULT_LINKS;}
 function renderLinks(){
-  const bar=document.getElementById('links-bar');
-  bar.innerHTML='';
+  const bar=document.getElementById('links-bar'); bar.innerHTML='';
   getLinks().split('\n').forEach(line=>{
     line=line.trim(); if(!line)return;
     const pipe=line.lastIndexOf(' | '); if(pipe===-1)return;
-    const label=line.substring(0,pipe).trim();
-    const url=line.substring(pipe+3).trim();
+    const label=line.substring(0,pipe).trim(), url=line.substring(pipe+3).trim();
     if(!url)return;
-    const a=document.createElement('a');
-    a.className='qlink'; a.href=url; a.target='_blank'; a.rel='noopener noreferrer';
-    a.textContent=label;
+    const a=document.createElement('a'); a.className='qlink'; a.href=url; a.target='_blank'; a.rel='noopener'; a.textContent=label;
     bar.appendChild(a);
   });
 }
 renderLinks();
-
-document.getElementById('edit-links-btn').addEventListener('click',()=>{
-  document.getElementById('links-ta').value=getLinks();
-  document.getElementById('links-modal').classList.add('open');
-});
+document.getElementById('edit-links-btn').addEventListener('click',()=>{document.getElementById('links-ta').value=getLinks();document.getElementById('links-modal').classList.add('open');});
 document.getElementById('links-cancel').addEventListener('click',()=>document.getElementById('links-modal').classList.remove('open'));
-document.getElementById('links-save').addEventListener('click',()=>{
-  localStorage.setItem('monitor_links',document.getElementById('links-ta').value);
-  document.getElementById('links-modal').classList.remove('open');
-  renderLinks();
-});
-document.getElementById('links-modal').addEventListener('click',e=>{
-  if(e.target===document.getElementById('links-modal'))document.getElementById('links-modal').classList.remove('open');
-});
+document.getElementById('links-save').addEventListener('click',()=>{localStorage.setItem('monitor_links',document.getElementById('links-ta').value);document.getElementById('links-modal').classList.remove('open');renderLinks();});
+document.getElementById('links-modal').addEventListener('click',e=>{if(e.target===document.getElementById('links-modal'))document.getElementById('links-modal').classList.remove('open');});
 
-// ── MBTA TOGGLE ──────────────────────────────────────────────────
+// ── MBTA ──
 let mbtaOpen=false;
-function toggleMbta(){
-  mbtaOpen=!mbtaOpen;
-  document.getElementById('mbta-alerts-list').classList.toggle('open',mbtaOpen);
-  document.getElementById('mbta-toggle').textContent=mbtaOpen?'▲ COLLAPSE':'▼ EXPAND';
-}
-
+function toggleMbta(){mbtaOpen=!mbtaOpen;document.getElementById('mbta-alerts-list').classList.toggle('open',mbtaOpen);document.getElementById('mbta-toggle').textContent=mbtaOpen?'▲ COLLAPSE':'▼ EXPAND';}
 function renderTicker(alerts){
-  const lbl=document.getElementById('mbta-lbl');
-  const sum=document.getElementById('mbta-summary');
-  const list=document.getElementById('mbta-alerts-list');
-  if(!alerts?.length){
-    lbl.className='mbta-lbl ok'; sum.className='ok';
-    sum.textContent='✓  ALL MBTA LINES NORMAL — NO ACTIVE ALERTS';
-    list.innerHTML='';
-    document.getElementById('mbta-toggle').style.display='none';
-    return;
-  }
-  lbl.className='mbta-lbl alert'; sum.className='alert';
-  sum.textContent=`⚠ ${alerts.length} active alert${alerts.length>1?'s':''} — click to expand`;
-  document.getElementById('mbta-toggle').style.display='';
-  list.innerHTML='';
-
-  // Line colors keyed by route ID
-  const lineColors = {
-    'Red':'#e03030','Orange':'#f08020','Blue':'#4070e0','Green':'#30a030',
-    'Green-B':'#30a030','Green-C':'#30a030','Green-D':'#30a030','Green-E':'#30a030',
-    'Silver':'#909090','Mattapan':'#e03030',
-  };
-  const crColor = '#9050d0';
-
-  // Also detect line names from alert text as fallback
-  function detectLinesFromText(text){
-    const found = [];
-    const t = text.toLowerCase();
-    if(t.includes('red line'))    found.push('Red');
-    if(t.includes('orange line')) found.push('Orange');
-    if(t.includes('blue line'))   found.push('Blue');
-    if(t.includes('green line'))  found.push('Green');
-    if(t.includes('silver line')) found.push('Silver');
-    if(t.includes('mattapan'))    found.push('Mattapan');
-    if(t.includes('commuter rail')||t.includes('providence')||t.includes('worcester')||
-       t.includes('framingham')||t.includes('lowell')||t.includes('haverhill')||
-       t.includes('newburyport')||t.includes('gloucester')||t.includes('kingston')||
-       t.includes('fairmount')||t.includes('franklin')||t.includes('fitchburg')||
-       t.includes('greenbush')||t.includes('needham')||t.includes('stoughton')||
-       t.includes('foxboro')) found.push('CR');
-    return found;
-  }
-
-  function getLineBadges(a){
-    // Use routes array if populated, else fall back to text detection
-    let lines = (a.routes||[]).filter(Boolean);
-    if(!lines.length) lines = detectLinesFromText(a.header||'');
-    if(!lines.length) return '';
-
-    return lines.map(r=>{
-      const isCR = r==='CR'||r.startsWith('CR-');
-      const color = lineColors[r] || (isCR ? crColor : '#606060');
-      const emoji = r==='Red'?'🔴':r==='Orange'?'🟠':r==='Blue'?'🔵':r==='Green'||r.startsWith('Green-')?'🟢':
-                    r==='Silver'?'⚪':r==='Mattapan'?'🔴':isCR?'🟣':'⚫';
-      const label = isCR ? (r.startsWith('CR-')?r.replace('CR-',''):r.replace('CR',''))+' Line' : r+' Line';
-      return `<span class="mbta-route-badge" style="background:${color}22;border-color:${color};color:${color};">${emoji} ${label}</span>`;
-    }).join('');
-  }
-
-  alerts.forEach(a=>{
-    const div=document.createElement('div');
-    div.className='mbta-alert-row';
-    div.innerHTML=`${getLineBadges(a)}<span>${a.header}</span>`;
-    list.appendChild(div);
-  });
+  const lbl=document.getElementById('mbta-lbl'),sum=document.getElementById('mbta-summary'),list=document.getElementById('mbta-alerts-list');
+  if(!alerts?.length){lbl.className='mbta-lbl ok';sum.className='ok';sum.textContent='✓  ALL MBTA LINES NORMAL';list.innerHTML='';document.getElementById('mbta-toggle').style.display='none';return;}
+  lbl.className='mbta-lbl alert';sum.className='alert';sum.textContent=`⚠ ${alerts.length} active alert${alerts.length>1?'s':''} — click to expand`;document.getElementById('mbta-toggle').style.display='';list.innerHTML='';
+  const lineColors={'Red':'#e03030','Orange':'#f08020','Blue':'#4070e0','Green':'#30a030','Green-B':'#30a030','Green-C':'#30a030','Green-D':'#30a030','Green-E':'#30a030','Silver':'#909090','Mattapan':'#e03030'};
+  function detectLines(text){const found=[],t=text.toLowerCase();if(t.includes('red line'))found.push('Red');if(t.includes('orange line'))found.push('Orange');if(t.includes('blue line'))found.push('Blue');if(t.includes('green line'))found.push('Green');if(t.includes('silver line'))found.push('Silver');if(t.includes('commuter rail')||t.includes('providence')||t.includes('worcester')||t.includes('lowell')||t.includes('haverhill'))found.push('CR');return found;}
+  function badges(a){let lines=(a.routes||[]).filter(Boolean);if(!lines.length)lines=detectLines(a.header||'');return lines.map(r=>{const isCR=r==='CR'||r.startsWith('CR-');const color=lineColors[r]||(isCR?'#9050d0':'#606060');const emoji=r==='Red'?'🔴':r==='Orange'?'🟠':r==='Blue'?'🔵':r.startsWith('Green')?'🟢':isCR?'🟣':'⚫';return`<span class="mbta-route-badge" style="background:${color}22;border-color:${color};color:${color};">${emoji} ${isCR?'Commuter Rail':r+' Line'}</span>`;}).join('');}
+  alerts.forEach(a=>{const div=document.createElement('div');div.className='mbta-alert-row';div.innerHTML=`${badges(a)}<span>${a.header}</span>`;list.appendChild(div);});
 }
 
-// ── PRIORITIES ───────────────────────────────────────────────────
+// ── PRIORITIES + PLANNER ──
 ['p1','p2','p3'].forEach(id=>{
   const el=document.getElementById(id);
+  if(!el)return;
   el.value=localStorage.getItem('monitor_'+id)||'';
-  el.addEventListener('input',()=>{
-    localStorage.setItem('monitor_'+id,el.value);
-    document.getElementById('pri-saved').textContent='saved ✓';
-    setTimeout(()=>{document.getElementById('pri-saved').textContent='auto-saved to this browser';},1500);
-  });
+  el.addEventListener('input',()=>{localStorage.setItem('monitor_'+id,el.value);const s=document.getElementById('pri-saved');if(s){s.textContent='saved ✓';setTimeout(()=>s.textContent='auto-saved to this browser',1500);}});
 });
+(function(){const ta=document.getElementById('planner-notes');if(ta)ta.value=localStorage.getItem('planner_notes')||'';})();
 
-// ── PLANNER NOTES RESTORE ──
-(function(){
-  const ta=document.getElementById('planner-notes');
-  if(ta) ta.value=localStorage.getItem('planner_notes')||'';
-})();
-
-// ── 3-DAY PLANNER ─────────────────────────────────────────────────
-function buildDayPlan(){
-  const c=document.getElementById('day-plan');
-  c.innerHTML='';
-  const today=new Date();
-  for(let i=0;i<3;i++){
-    const d=new Date(today);
-    d.setDate(today.getDate()+i);
-    const lbl=i===0?'TODAY':i===1?'TOMORROW':DAYS[d.getDay()].substring(0,3).toUpperCase();
-    const key='monitor_plan_'+d.toISOString().slice(0,10);
-    const row=document.createElement('div');
-    row.className='dp-row';
-    const l=document.createElement('div');
-    l.className='dp-lbl'; l.textContent=lbl;
-    const ta=document.createElement('textarea');
-    ta.className='dp-ta';
-    ta.placeholder=`${MONTHS[d.getMonth()]} ${d.getDate()} — notes, meetings…`;
-    ta.value=localStorage.getItem(key)||'';
-    ta.addEventListener('input',()=>localStorage.setItem(key,ta.value));
-    row.appendChild(l); row.appendChild(ta);
-    c.appendChild(row);
-  }
-}
-buildDayPlan();
-function showGcalHelp(){
-  alert('To embed Google Calendar:\n1. Go to calendar.google.com\n2. Click ⋮ next to your calendar → Settings and sharing\n3. Scroll to "Integrate calendar" → copy the Embed URL\n4. Open index.html in your GitHub repo\n5. Find id="planner-body" and replace the div#day-plan with:\n\n<iframe class="gcal-frame" src="YOUR_URL_HERE&bgcolor=%23333"></iframe>');
-}
-
-// ── WEATHER ──────────────────────────────────────────────────────
+// ── WEATHER ──
 function renderCurrentWx(w){
   if(!w)return;
   document.getElementById('wx-temp').innerHTML=`${w.temp}<sup>°${w.unit}</sup>`;
@@ -1109,13 +644,11 @@ function renderHourly(periods){
   if(!periods?.length){inner.innerHTML='<div class="empty">No data</div>';return;}
   inner.innerHTML='';
   periods.forEach((p,i)=>{
-    const d=new Date(p.time);
-    const hr=d.getHours();
+    const d=new Date(p.time),hr=d.getHours();
     const lbl=i===0?'NOW':hr===0?'12A':hr===12?'12P':hr<12?`${hr}A`:`${hr-12}P`;
     const pct=p.precip||0;
-    const div=document.createElement('div');
-    div.className='hb'+(i===0?' now':'');
-    div.innerHTML=`<div class="hb-time ${i===0?'now':''}">${lbl}</div><div class="hb-temp">${p.temp}°</div><div class="hb-icon">${wxEmoji(p.shortForecast)}</div><div class="hb-pct ${pct===0?'none':''}">${pct>0?pct+'%':'—'}</div>`;
+    const div=document.createElement('div');div.className='hb'+(i===0?' now':'');
+    div.innerHTML=`<div class="hb-time${i===0?' now':''}">${lbl}</div><div class="hb-temp">${p.temp}°</div><div class="hb-icon">${wxEmoji(p.shortForecast)}</div><div class="hb-pct${pct===0?' none':''}">${pct>0?pct+'%':'—'}</div>`;
     inner.appendChild(div);
   });
 }
@@ -1124,16 +657,14 @@ function renderDaily(days){
   if(!days?.length){grid.innerHTML='<div class="empty">No data</div>';return;}
   grid.innerHTML='';
   days.forEach(d=>{
-    const name=d.name.split(' ')[0].substring(0,3).toUpperCase();
-    const pct=d.precip||0;
-    const dc=document.createElement('div');
-    dc.className='dc';
-    dc.innerHTML=`<div class="dc-name">${name}</div><div class="dc-icon">${wxEmoji(d.shortForecast)}</div>${d.high!=null?`<div class="dc-hi">${d.high}°</div>`:''} ${d.low!=null?`<div class="dc-lo">Lo ${d.low}°</div>`:''}<div class="dc-pct ${pct===0?'none':''}">${pct>0?pct+'%':'—'}</div><div class="dc-desc">${d.shortForecast}</div>`;
+    const name=d.name.split(' ')[0].substring(0,3).toUpperCase(),pct=d.precip||0;
+    const dc=document.createElement('div');dc.className='dc';
+    dc.innerHTML=`<div class="dc-name">${name}</div><div class="dc-icon">${wxEmoji(d.shortForecast)}</div>${d.high!=null?`<div class="dc-hi">${d.high}°</div>`:''} ${d.low!=null?`<div class="dc-lo">Lo ${d.low}°</div>`:''}<div class="dc-pct${pct===0?' none':''}">${pct>0?pct+'%':'—'}</div><div class="dc-desc">${d.shortForecast}</div>`;
     grid.appendChild(dc);
   });
 }
 
-// ── SUN ───────────────────────────────────────────────────────────
+// ── SUN ──
 function renderSun(s){
   if(!s?.sunrise)return;
   document.getElementById('h-rise').textContent=fmtTime(s.sunrise);
@@ -1145,416 +676,135 @@ function renderSun(s){
   document.getElementById('s-len').textContent=fmtDayLen(s.day_length);
 }
 
-// ── TIDES ─────────────────────────────────────────────────────────
+// ── TIDES ──
 function renderTides(tides){
   const list=document.getElementById('tide-list');
   if(!tides?.length){list.innerHTML='<div class="empty">No data</div>';return;}
   list.innerHTML='';
-  const now=new Date();
-  const nextIdx=tides.findIndex(t=>new Date(t.t)>now);
+  const now=new Date(),nextIdx=tides.findIndex(t=>new Date(t.t)>now);
   tides.slice(0,8).forEach((t,i)=>{
-    const dt=new Date(t.t);
-    const isPast=dt<now, isNext=i===nextIdx;
-    const timeStr=dt.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
-    const dateStr=dt.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-    const div=document.createElement('div');
-    div.className='tide-item'+(isPast?' past':'');
-    div.innerHTML=`<div class="tide-arr ${t.type}">${t.type==='H'?'▲':'▽'}</div><div class="tide-info"><div class="tide-time">${timeStr}</div><div class="tide-lbl">${t.type==='H'?'HIGH':'LOW'} · ${dateStr}</div></div><div class="tide-ft">${t.v.toFixed(1)}<span style="font-size:11px;color:var(--text-mute)"> ft</span></div>${isNext?'<div class="tide-next">NEXT</div>':''}`;
+    const dt=new Date(t.t),isPast=dt<now,isNext=i===nextIdx;
+    const div=document.createElement('div');div.className='tide-item'+(isPast?' past':'');
+    div.innerHTML=`<div class="tide-arr ${t.type}">${t.type==='H'?'▲':'▽'}</div><div class="tide-info"><div class="tide-time">${dt.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true})}</div><div class="tide-lbl">${t.type==='H'?'HIGH':'LOW'} · ${dt.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}</div></div><div class="tide-ft">${t.v.toFixed(1)}<span style="font-size:11px;color:var(--text-mute)"> ft</span></div>${isNext?'<div class="tide-next">NEXT</div>':''}`;
     list.appendChild(div);
   });
 }
 
-// ── LOGAN ─────────────────────────────────────────────────────────
+// ── LOGAN ──
 function renderLogan(logan){
   const b=document.getElementById('logan-body');
   if(!logan||typeof logan!=='object'){b.innerHTML='<div class="empty">No data</div>';return;}
-
-  let html='';
-
-  // Support both old structure (arriveDeparDelay/groundDelay/groundStop)
-  // and new structure (faa_delays array)
-  let faaDelays = logan.faa_delays || [];
-  if(!faaDelays.length){
-    // Convert old structure if present
-    (logan.arriveDeparDelay||[]).forEach(d=>faaDelays.push({type:d.type,reason:d.reason,avg:d.avg,trend:d.trend}));
-    (logan.groundDelay||[]).forEach(d=>faaDelays.push({type:'Ground Delay',reason:d.reason,avg:d.avg}));
-    (logan.groundStop||[]).forEach(d=>faaDelays.push({type:'Ground Stop',reason:d.reason,avg:d.endTime}));
-  }
-
-  const hasDelay = logan.delay || faaDelays.length > 0;
-  const cls   = hasDelay ? 'delay' : 'ok';
-  const label = hasDelay ? 'DELAYS IN EFFECT' : 'NORMAL OPERATIONS';
-  html += `<div class="l-ind ${cls}"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${label}</div></div>`;
-
-  if(faaDelays.length){
-    faaDelays.forEach(d=>{
-      html+=`<div class="l-det"><strong>${d.type||'Advisory'}</strong> — ${d.reason||''}${d.avg?' · '+d.avg:''}${d.trend?' ('+d.trend+')':''}</div>`;
-    });
-  } else {
-    html+='<div class="l-det" style="color:var(--text-mute)">No FAA delays or advisories.</div>';
-  }
-
-  // METAR — support both old flat structure and new nested object
-  const metar = typeof logan.metar === 'object' && logan.metar !== null ? logan.metar : null;
-  const hasOldMetar = logan.raw_metar || logan.wind_dir;
-
+  let faaDelays=logan.faa_delays||[];
+  if(!faaDelays.length){(logan.arriveDeparDelay||[]).forEach(d=>faaDelays.push({type:d.type,reason:d.reason,avg:d.avg}));(logan.groundDelay||[]).forEach(d=>faaDelays.push({type:'Ground Delay',reason:d.reason,avg:d.avg}));}
+  const hasDelay=logan.delay||faaDelays.length>0;
+  const cls=hasDelay?'delay':'ok';
+  let html=`<div class="l-ind ${cls}"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${hasDelay?'DELAYS IN EFFECT':'NORMAL OPERATIONS'}</div></div>`;
+  if(faaDelays.length){faaDelays.forEach(d=>{html+=`<div class="l-det"><strong>${d.type||'Advisory'}</strong> — ${d.reason||''}${d.avg?' · '+d.avg:''}</div>`;});}
+  else{html+='<div class="l-det" style="color:var(--text-mute)">No FAA delays or advisories.</div>';}
+  const metar=typeof logan.metar==='object'&&logan.metar!==null?logan.metar:null;
   if(metar){
-    const m = metar;
-    const catColors = {'VFR':'var(--green)','MVFR':'var(--blue)','IFR':'var(--red)','LIFR':'var(--red)'};
-    const catColor = catColors[m.flight_cat] || 'var(--text-dim)';
+    const m=metar,catColors={'VFR':'var(--green)','MVFR':'var(--blue)','IFR':'var(--red)','LIFR':'var(--red)'},catColor=catColors[m.flight_cat]||'var(--text-dim)';
     html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
-      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">CURRENT CONDITIONS (METAR)</div>
+      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:6px;">CURRENT CONDITIONS (METAR)</div>
       ${m.flight_cat?`<div class="l-det"><strong>FLIGHT CAT</strong> <span style="color:${catColor};font-weight:700;">${m.flight_cat}</span></div>`:''}
       ${m.wind?`<div class="l-det"><strong>WIND</strong> ${m.wind}</div>`:''}
       ${m.visibility?`<div class="l-det"><strong>VISIBILITY</strong> ${m.visibility}</div>`:''}
-      ${m.sky?`<div class="l-det"><strong>SKY</strong> ${m.sky}</div>`:''}
-      ${m.wx?`<div class="l-det"><strong>WEATHER</strong> ${m.wx}</div>`:''}
-      ${m.temp_c!=null?`<div class="l-det"><strong>TEMP</strong> ${m.temp_c}°C${m.dewpoint!=null?' · Dew '+m.dewpoint+'°C':''}</div>`:''}
-      ${m.altimeter?`<div class="l-det"><strong>ALTIMETER</strong> ${m.altimeter} inHg</div>`:''}
+      ${m.temp_c!=null?`<div class="l-det"><strong>TEMP</strong> ${m.temp_c}°C</div>`:''}
       ${m.raw?`<div style="margin-top:5px;font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;padding:4px;background:var(--bg);border-radius:3px;">${m.raw}</div>`:''}
     </div>`;
-  } else if(hasOldMetar){
-    // Old flat METAR structure
-    html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
-      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:6px;">CURRENT CONDITIONS (METAR)</div>
-      ${logan.wind_dir?`<div class="l-det"><strong>WIND</strong> ${logan.wind_dir}° @ ${logan.wind_speed||'?'} kts</div>`:''}
-      ${logan.visibility?`<div class="l-det"><strong>VISIBILITY</strong> ${logan.visibility} SM</div>`:''}
-      ${logan.sky?`<div class="l-det"><strong>SKY</strong> ${logan.sky}</div>`:''}
-      ${logan.temp_c!=null?`<div class="l-det"><strong>TEMP</strong> ${logan.temp_c}°C</div>`:''}
-      ${logan.raw_metar?`<div style="margin-top:5px;font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;">${logan.raw_metar}</div>`:''}
-    </div>`;
   }
-
-  if(logan.taf){
-    html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
-      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:4px;">FORECAST (TAF)</div>
-      <div style="font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;line-height:1.5;padding:4px;background:var(--bg);border-radius:3px;">${logan.taf}</div>
-    </div>`;
-  }
-
-  b.innerHTML = html;
+  if(logan.taf){html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);"><div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:4px;">FORECAST (TAF)</div><div style="font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;line-height:1.5;padding:4px;background:var(--bg);border-radius:3px;">${logan.taf}</div></div>`;}
+  b.innerHTML=html;
 }
 
-// ── NEWS LIST ──────────────────────────────────────────────────────
-function renderNews(id, items, communityTags=false){
+// ── NEWS ──
+function renderNews(id,items,communityTags=false){
   const c=document.getElementById(id);
   if(!items?.length){c.innerHTML='<div class="empty">No items loaded</div>';return;}
-  const sorted=sortByDate(items);
   c.innerHTML='';
-  sorted.forEach(item=>{
-    const a=document.createElement('a');
-    a.className='ni';
-    a.href=item.link||'#'; a.target='_blank'; a.rel='noopener noreferrer';
-    let inner=communityTags&&item.source
-      ?`<span class="comm-tag">${item.source}</span>`
-      :item.source?`<div class="ni-src">${item.source}</div>`:'';
+  sortByDate(items).forEach(item=>{
+    const a=document.createElement('a');a.className='ni';a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
+    let inner=communityTags&&item.source?`<span class="comm-tag">${item.source}</span>`:item.source?`<div class="ni-src">${item.source}</div>`:'';
     inner+=`<div class="ni-title">${item.title}</div>`;
-    if(item.ts||item.published) inner+=`<div class="ni-date">${fmtDateTime(item.ts, item.published)}</div>`;
-    a.innerHTML=inner;
-    c.appendChild(a);
+    if(item.ts||item.published)inner+=`<div class="ni-date">${fmtDateTime(item.ts,item.published)}</div>`;
+    a.innerHTML=inner;c.appendChild(a);
   });
 }
 
-// ── REVERE TV ─────────────────────────────────────────────────────
+// ── REVERE TV ──
 function renderRevereTv(videos){
   const g=document.getElementById('revere-tv');
-  if(!videos?.length){
-    g.innerHTML=`<div class="empty" style="grid-column:1/-1;">No videos loaded — the channel ID may need updating.<br><a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="color:var(--accent);">Open Revere TV on YouTube →</a></div>`;
-    return;
-  }
+  if(!videos?.length){g.innerHTML=`<div class="empty" style="grid-column:1/-1;"><a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="color:var(--accent);">Open Revere TV on YouTube →</a></div>`;return;}
   g.innerHTML='';
   videos.slice(0,9).forEach(v=>{
-    const a=document.createElement('a');
-    a.className='yt-item';
-    a.href=v.link||`https://youtube.com/watch?v=${v.video_id}`;
-    a.target='_blank'; a.rel='noopener noreferrer';
+    const a=document.createElement('a');a.className='yt-item';a.href=v.link||`https://youtube.com/watch?v=${v.video_id}`;a.target='_blank';a.rel='noopener noreferrer';
     a.innerHTML=`<img class="yt-thumb" src="${v.thumbnail}" alt="" loading="lazy" onerror="this.style.background='#3d3d3d'"><div class="yt-title">${v.title}</div><div class="yt-date">${fmtDate(v.published)}</div>`;
     g.appendChild(a);
   });
 }
 
-// ── REDDIT ──────────────────────────────────────────────────────
-async function fetchReddit(sub, id){
-  const c=document.getElementById(id);
-  if(!c) return;
+// ── REDDIT ──
+async function fetchReddit(sub,id,attempt=1){
+  const c=document.getElementById(id);if(!c)return;
   try{
-    const r=await fetch(`https://www.reddit.com/r/${sub}/hot.json?limit=10&raw_json=1`,{headers:{Accept:'application/json'}});
+    const r=await fetch(`https://www.reddit.com/r/${sub}/hot.json?limit=10&raw_json=1`,{headers:{Accept:'application/json'},cache:'no-cache'});
+    if(r.status===429&&attempt<=3){setTimeout(()=>fetchReddit(sub,id,attempt+1),attempt*3000);c.innerHTML=`<div class="rp-err">Rate limited, retrying…</div>`;return;}
     if(!r.ok)throw new Error(`HTTP ${r.status}`);
     const data=await r.json();
     const posts=(data?.data?.children||[]).filter(p=>!p.data.stickied);
     if(!posts.length){c.innerHTML='<div class="rp-err">No posts found</div>';return;}
     c.innerHTML='';
     posts.slice(0,10).forEach(p=>{
-      const d=p.data;
-      const a=document.createElement('a');
-      a.className='rp';
-      a.href=`https://www.reddit.com${d.permalink}`; a.target='_blank'; a.rel='noopener noreferrer';
+      const d=p.data,a=document.createElement('a');a.className='rp';
+      a.href=`https://www.reddit.com${d.permalink}`;a.target='_blank';a.rel='noopener noreferrer';
       a.innerHTML=`<div class="rp-meta"><span class="rp-score">${fmtScore(d.score||0)} ↑</span>${d.link_flair_text?`<span class="rp-flair">${d.link_flair_text}</span>`:''}</div><div class="rp-title">${d.title}</div><div class="rp-auth">u/${d.author} · ${d.num_comments} comments</div>`;
       c.appendChild(a);
     });
-  }catch(e){
-    c.innerHTML=`<div class="rp-err">Could not load r/${sub}.<br><a href="https://www.reddit.com/r/${sub}/hot" target="_blank" rel="noopener">Open on Reddit →</a></div>`;
-  }
+  }catch(e){c.innerHTML=`<div class="rp-err">Could not load r/${sub}. <a href="https://www.reddit.com/r/${sub}/hot" target="_blank" rel="noopener">Open on Reddit →</a></div>`;}
 }
 
-// ── BC EAGLES SCHEDULE ────────────────────────────────────────────
-function switchBcTab(tab) {
-  document.getElementById('bc-upcoming').style.display = tab === 'upcoming' ? 'block' : 'none';
-  document.getElementById('bc-results').style.display  = tab === 'results'  ? 'block' : 'none';
-  document.querySelectorAll('.bc-tab').forEach(btn => {
-    const isActive = btn.dataset.tab === tab;
-    btn.style.borderBottomColor = isActive ? 'var(--accent)' : 'transparent';
-    btn.style.color = isActive ? 'var(--white)' : 'var(--text-dim)';
-  });
-}
-
-function renderBcSchedule(data) {
-  if (!data) return;
-  renderBcGames('bc-upcoming', data.upcoming || [], false);
-  renderBcGames('bc-results',  data.recent   || [], true);
-}
-
-function renderBcGames(containerId, games, isResults) {
-  const c = document.getElementById(containerId);
-  if (!c) return;
-  if (!games.length) {
-    c.innerHTML = `<div class="empty">${isResults ? 'No recent results' : 'No upcoming games found'}</div>`;
-    return;
-  }
-  c.innerHTML = '';
-  games.forEach(g => {
-    const div = document.createElement('div');
-    div.className = 'bc-game';
-
-    // Parse result for W/L
-    let resultHtml = '';
-    if (isResults && g.result) {
-      const r = g.result.trim();
-      const isWin  = /^W\b/i.test(r);
-      const isLoss = /^L\b/i.test(r);
-      const cls = isWin ? 'win' : isLoss ? 'loss' : '';
-      resultHtml = `<div class="bc-result ${cls}">${r}</div>`;
-    } else if (!isResults) {
-      resultHtml = `<div class="bc-result upcoming">${g.date_display || ''}</div>`;
-    }
-
-    // Format date for meta line
-    let dateDisplay = '';
-    if (g.ts) {
-      const d = new Date(g.ts * 1000);
-      dateDisplay = d.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric'});
-      if (!isResults) {
-        // Add time if we have it
-        const t = d.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit', hour12:true});
-        if (t !== '12:00 AM') dateDisplay += ' · ' + t;
-      }
-    }
-
-    div.innerHTML = `
-      <div class="bc-sport-badge">${g.emoji || '🦅'}</div>
-      <div class="bc-game-info">
-        <div class="bc-matchup">${g.home_away || 'vs'} ${g.opponent || 'TBD'}</div>
-        <div class="bc-meta">${g.sport}${g.location ? ' · ' + g.location : ''}${isResults && dateDisplay ? ' · ' + dateDisplay : ''}</div>
-      </div>
-      ${resultHtml}
-      ${!isResults ? `<div class="bc-date">${dateDisplay}</div>` : ''}
-    `;
-    c.appendChild(div);
-  });
-}
-
-// ── STOCKS ──────────────────────────────────────────────────────
-function renderStocks(stocks){
-  const grid=document.getElementById('stock-grid');
-  if(!grid) return;
-  if(!stocks?.length){
-    grid.innerHTML='<div class="empty" style="grid-column:1/-1;">Market data not loaded — run the GitHub Action. <a href="https://finance.yahoo.com" target="_blank" style="color:var(--accent);">Yahoo Finance →</a></div>';
-    return;
-  }
-  grid.innerHTML='';
-  stocks.forEach(s=>{
-    const up=(s.change||0)>=0;
-    let priceStr='--';
-    if(s.price!=null){
-      if(s.symbol==='BTC-USD') priceStr='$'+Math.round(s.price).toLocaleString();
-      else if(s.symbol==='CL=F') priceStr='$'+s.price.toFixed(2);
-      else if(s.price>=1000) priceStr=s.price.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
-      else priceStr=s.price.toFixed(2);
-    }
-    const changeStr=s.change!=null
-      ?`${up?'+':''}${s.change.toFixed(2)} (${up?'+':''}${s.changePct?.toFixed(2)}%)`:'--';
-    const div=document.createElement('div');
-    div.className='stk';
-    div.innerHTML=`<div class="stk-name">${s.name}</div><div class="stk-price">${priceStr}</div><div class="stk-change ${up?'up':'dn'}">${changeStr}</div><div class="stk-sym">${s.symbol}</div>`;
-    grid.appendChild(div);
-  });
-}
-
-// ── SAFE RENDER HELPER ────────────────────────────────────────────
-// Wraps each render call so one crash can't stop all the others
-function safeRender(fn, label){
-  try{ fn(); }
-  catch(e){ console.error(`render error [${label}]:`, e); }
-}
-
-// ── MAIN DATA LOAD ────────────────────────────────────────────────
+// ── LOAD DATA ──
 async function loadData(){
   let d;
   try{
     const r=await fetch('./data.json?t='+Date.now());
     d=await r.json();
   }catch(e){
-    console.error('Could not load data.json:',e);
     document.getElementById('upd-ts').textContent='ERROR — run GitHub Action';
-    // Show error in all news boxes
-    ['news-boston','news-uhub','news-revere','news-comm','news-sports','news-bc','news-national'].forEach(id=>{
-      const el=document.getElementById(id);
-      if(el) el.innerHTML='<div class="empty">data.json not loaded — run the GitHub Action</div>';
+    ['news-boston','news-revere','news-comm','news-sports','news-bc','news-national'].forEach(id=>{
+      const el=document.getElementById(id);if(el)el.innerHTML='<div class="empty">data.json not loaded — run the GitHub Action</div>';
     });
     return;
   }
-
-  // Update timestamp
   document.getElementById('upd-ts').textContent=d.updated_local||'--';
-
-  // Each render is independent — one failure won't block the rest
-  safeRender(()=>renderCurrentWx(d.weather_current),        'weather');
-  safeRender(()=>renderHourly(d.weather_hourly),            'hourly');
-  safeRender(()=>renderDaily(d.weather_daily),              'daily');
-  safeRender(()=>renderSun(d.sunrise_sunset),               'sun');
-  safeRender(()=>renderTides(d.tides),                      'tides');
-  safeRender(()=>renderLogan(d.logan),                      'logan');
-  safeRender(()=>renderTicker(d.mbta_alerts),               'mbta');
-  safeRender(()=>renderRevereTv(d.revere_tv),               'reveretv');
-
-  safeRender(()=>renderBcSchedule(d.bc_schedule),           'bc-schedule');
-  safeRender(()=>renderNews('news-revere',   (d.news_revere||[]).slice(0,30)),          'news-revere');
-  safeRender(()=>renderNews('news-comm',     (d.news_communities||[]).slice(0,30),true),'news-comm');
-  safeRender(()=>renderNews('news-boston',   (d.news_boston||[]).slice(0,30)),          'news-boston');
-  safeRender(()=>renderNews('news-uhub',     (d.news_universalhub||[]).slice(0,30)),    'news-uhub');
-  safeRender(()=>renderNews('news-sports',   (d.news_sports||[]).slice(0,30)),          'news-sports');
-  safeRender(()=>renderNews('news-bc',       (d.news_bc||[]).slice(0,30)),              'news-bc');
-  safeRender(()=>renderNews('news-national', (d.news_national||[]).slice(0,50)),        'news-national');
-
-  // City calendar
-  safeRender(()=>{
-    const calBody=document.getElementById('cal-body');
-    if(!d.revere_calendar?.length){
-      calBody.innerHTML='<div class="cal-empty">Calendar events could not be loaded automatically — revere.org uses JavaScript rendering that blocks scrapers.<br><br>Use the links below to view the full calendar.</div>';
-    } else {
-      calBody.innerHTML='';
-      d.revere_calendar.forEach(ev=>{
-        const div=document.createElement('div');
-        div.className='cal-ev';
-        // revere.org scraper rarely gets structured dates — show what we have
-        const dtHtml = (ev.date||ev.time)
-          ? `<div class="cal-dt">${ev.date||''}${ev.time?` <span class="cal-dt-time">· ${ev.time}</span>`:''}</div>`
-          : '';
-        div.innerHTML=`${dtHtml}<a class="cal-title" href="${ev.link||'https://www.revere.org/calendar'}" target="_blank" rel="noopener">${ev.title}</a>`;
-        calBody.appendChild(div);
-      });
-    }
-    // Always append IQM2 meetings if available
-    if(d.iqm2_meetings?.length){
-      const hdr=document.createElement('div');
-      hdr.style.cssText='font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;padding:10px 0 4px;border-top:1px solid var(--border);margin-top:6px;';
-      hdr.textContent='UPCOMING MEETINGS (IQM2)';
-      calBody.appendChild(hdr);
-      d.iqm2_meetings.forEach(ev=>{
-        const div=document.createElement('div');
-        div.className='cal-ev';
-        div.innerHTML=`${ev.date?`<div class="cal-dt">${ev.date}${ev.time?` <span class="cal-dt-time">· ${ev.time}</span>`:''}</div>`:''}<a class="cal-title" href="${ev.link||'https://reverema.iqm2.com/Citizens/Calendar.aspx'}" target="_blank" rel="noopener">${ev.title}</a>`;
-        calBody.appendChild(div);
-      });
-    }
-  },'calendar');
+  safeRender(()=>renderCurrentWx(d.weather_current),'weather');
+  safeRender(()=>renderHourly(d.weather_hourly),'hourly');
+  safeRender(()=>renderDaily(d.weather_daily),'daily');
+  safeRender(()=>renderSun(d.sunrise_sunset),'sun');
+  safeRender(()=>renderTides(d.tides),'tides');
+  safeRender(()=>renderLogan(d.logan),'logan');
+  safeRender(()=>renderTicker(d.mbta_alerts),'mbta');
+  safeRender(()=>renderRevereTv(d.revere_tv),'reveretv');
+  safeRender(()=>renderNews('news-revere',(d.news_revere||[]).slice(0,30)),'news-revere');
+  safeRender(()=>renderNews('news-comm',(d.news_communities||[]).slice(0,30),true),'news-comm');
+  safeRender(()=>renderNews('news-boston',(d.news_boston||[]).slice(0,30)),'news-boston');
+  safeRender(()=>renderNews('news-sports',(d.news_sports||[]).slice(0,30)),'news-sports');
+  safeRender(()=>renderNews('news-bc',(d.news_bc||[]).slice(0,30)),'news-bc');
+  safeRender(()=>renderNews('news-national',(d.news_national||[]).slice(0,50)),'news-national');
 }
 
-// ── GRIDSTACK INIT ────────────────────────────────────────────────
-const GRID_STORAGE_KEY = 'revere_monitor_grid_v2';
-
-const grid = GridStack.init({
-  float: true,
-  cellHeight: 65,
-  minRow: 1,
-  column: 12,
-  handle: '.ch',
-  resizable: { handles: 'se,s,e' },
-  animate: false,
-  margin: 8,
-});
-
-// ── SAVE: record x,y,w,h keyed by gs-id ──────────────────────────
-function saveLayout() {
-  const layout = {};
-  document.querySelectorAll('.grid-stack-item').forEach(el => {
-    const id = el.getAttribute('gs-id');
-    if (!id) return;
-    layout[id] = {
-      x: parseInt(el.getAttribute('gs-x') || 0),
-      y: parseInt(el.getAttribute('gs-y') || 0),
-      w: parseInt(el.getAttribute('gs-w') || 3),
-      h: parseInt(el.getAttribute('gs-h') || 4),
-    };
-  });
-  localStorage.setItem(GRID_STORAGE_KEY, JSON.stringify(layout));
-}
-
-// ── RESTORE: apply saved positions by gs-id ───────────────────────
-function restoreLayout() {
-  const saved = localStorage.getItem(GRID_STORAGE_KEY);
-  if (!saved) return;
-  try {
-    const layout = JSON.parse(saved);
-    grid.batchUpdate();
-    document.querySelectorAll('.grid-stack-item').forEach(el => {
-      const id = el.getAttribute('gs-id');
-      if (!id || !layout[id]) return;
-      const {x, y, w, h} = layout[id];
-      grid.update(el, {x, y, w, h});
-    });
-    grid.commit();
-  } catch(e) {
-    console.warn('Layout restore failed, clearing:', e);
-    localStorage.removeItem(GRID_STORAGE_KEY);
-  }
-}
-
-// Restore after a short delay so GridStack finishes initial layout
-setTimeout(() => {
-  restoreLayout();
-  grid.setAnimation(true);
-}, 150);
-
-// Save on every move/resize
-grid.on('change', saveLayout);
-grid.on('resizestop', saveLayout);
-
-// Reset button
-document.getElementById('reset-layout-btn').addEventListener('click', () => {
-  if (confirm('Reset all panels to default layout?')) {
-    localStorage.removeItem(GRID_STORAGE_KEY);
-    location.reload();
-  }
-});
-
-// ── INIT ──────────────────────────────────────────────────────────
+// ── INIT ──
 loadData();
-
-// Reddit — stagger requests to avoid rate limiting
-const redditFeeds = [
-  {sub:'boston',        id:'r-boston'},
-  {sub:'massachusetts', id:'r-massachusetts'},
-  {sub:'mbta',          id:'r-mbta'},
-  {sub:'NASCAR',        id:'r-nascar'},
-  {sub:'neoliberal',    id:'r-neoliberal'},
-  {sub:'bostonbruins',  id:'r-bostonbruins'},
-  {sub:'urbanplanning', id:'r-urbanplanning'},
+const redditFeeds=[
+  {sub:'boston',id:'r-boston'},
+  {sub:'massachusetts',id:'r-mass'},
+  {sub:'mbta',id:'r-mbta'},
+  {sub:'NASCAR',id:'r-nascar'},
+  {sub:'neoliberal',id:'r-neo'},
+  {sub:'bostonbruins',id:'r-bruins'},
+  {sub:'urbanplanning',id:'r-urban'},
 ];
-redditFeeds.forEach(({sub, id}, i) => {
-  setTimeout(() => fetchReddit(sub, id), i * 800);
-});
-
+redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
 setTimeout(()=>location.reload(),30*60*1000);
 </script>
 </body>
