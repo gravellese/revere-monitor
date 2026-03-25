@@ -146,6 +146,10 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 .ch.bc .ct{color:#f0c84a;}
 .ch.bc .cb{color:#c8a465;opacity:.85;}
 .ch.bc a{color:#f0c84a !important;}
+/* Local news — steel blue background, white text */
+.ch.local{background:#1a3a52;border-left:3px solid #5ba3d0;}
+.ch.local .ct{color:#a8d4f0;}
+.ch.local .cb{color:#6ba8c8;opacity:.9;}
 .ct{font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:3px;color:var(--white);text-transform:uppercase;}
 .cb{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
 .cbody{padding:12px 14px;}
@@ -340,7 +344,19 @@ a.big-btn:hover{opacity:.85;}
   </div>
 </div>
 
-<!-- MBTA -->
+<!-- MEDIA LINKS MODAL -->
+<div id="media-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:20px;width:520px;max-width:95vw;max-height:80vh;overflow-y:auto;">
+    <h3 style="font-family:var(--cond);font-size:17px;letter-spacing:2px;color:var(--white);margin-bottom:6px;">EDIT LIVE TV &amp; RADIO</h3>
+    <p style="font-size:12px;color:var(--text-mute);margin-bottom:12px;">One entry per line: <strong>emoji Name | type | https://url</strong><br>
+    e.g. <code style="font-size:11px;color:var(--accent);">📺 NBC Boston | TV · LIVE | https://www.nbcboston.com/watch-live/</code></p>
+    <textarea id="media-ta" style="width:100%;height:280px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:var(--mono);font-size:11px;padding:8px;resize:vertical;outline:none;"></textarea>
+    <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end;">
+      <button onclick="closeMediaModal()" style="padding:6px 16px;background:var(--bg3);color:var(--text-dim);border:1px solid #555;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">CANCEL</button>
+      <button onclick="saveMediaLinks()" style="padding:6px 16px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">SAVE</button>
+    </div>
+  </div>
+</div>
 <div id="mbta-panel">
   <div id="mbta-header" onclick="toggleMbta()">
     <div class="mbta-lbl ok" id="mbta-lbl">MBTA</div>
@@ -441,17 +457,11 @@ a.big-btn:hover{opacity:.85;}
 
   <div class="grid-stack-item" gs-id="radio" gs-x="0" gs-y="33" gs-w="3" gs-h="10" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch acc"><div class="ct">LIVE NEWS &amp; RADIO</div><div class="cb">OPENS IN NEW TAB</div></div>
-    <div class="cbody">
-      <a href="https://www.nbcboston.com/watch-live/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">NBC BOSTON</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-      <a href="https://www.cbsnews.com/boston/live/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">CBS BOSTON / WBZ</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-      <a href="https://www.wcvb.com/watch-live-news" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">WCVB 5</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-      <a href="https://whdh.com/livestream/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">7NEWS WHDH</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-      <a href="https://www.audacy.com/wbz" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WBZ 1030 AM</div><div class="ml-type">RADIO · ALL NEWS</div></div><span class="ml-ext">↗</span></a>
-      <a href="https://www.audacy.com/985thesportshub" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">98.5 SPORTS HUB</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
-      <a href="https://www.audacy.com/weei" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WEEI 93.7 FM</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
-      <a href="https://www.wgbh.org/listen-live" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">GBH 89.7 FM</div><div class="ml-type">RADIO · PUBLIC</div></div><span class="ml-ext">↗</span></a>
+    <div class="ch acc" style="justify-content:space-between;">
+      <div><div class="ct">LIVE NEWS &amp; RADIO</div><div class="cb">OPENS IN NEW TAB</div></div>
+      <button onclick="openMediaModal()" style="background:transparent;border:1px solid var(--border2);border-radius:3px;color:var(--text-mute);font-size:10px;font-family:var(--cond);letter-spacing:1px;padding:2px 7px;cursor:pointer;" title="Edit feeds">✏</button>
     </div>
+    <div class="cbody" id="media-links-body"></div>
   </div></div></div>
 
   <!-- RIGHT COLUMN — each card is its own separate grid item -->
@@ -537,7 +547,7 @@ a.big-btn:hover{opacity:.85;}
 
   <div class="grid-stack-item" gs-id="news-revere" gs-x="3" gs-y="26" gs-w="4" gs-h="7" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch grn"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG · GOOGLE NEWS</div></div>
+    <div class="ch local"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG · ADVOCATE · NBC · GOOGLE NEWS</div></div>
     <div class="cbody npx">
       <div class="news-feed scroll-box h-news" id="news-revere"><div class="empty">Loading…</div></div>
     </div>
@@ -545,7 +555,7 @@ a.big-btn:hover{opacity:.85;}
 
   <div class="grid-stack-item" gs-id="news-comm" gs-x="7" gs-y="26" gs-w="5" gs-h="7" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch acc"><div class="ct">SURROUNDING COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · SALEM · MORE</div></div>
+    <div class="ch local"><div class="ct">SURROUNDING COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · SALEM · MORE</div></div>
     <div class="cbody npx">
       <div class="news-feed scroll-box h-news" id="news-comm"><div class="empty">Loading…</div></div>
     </div>
@@ -704,6 +714,60 @@ function sortByDate(items){
   });
 }
 function safeRender(fn,label){try{fn();}catch(e){console.error('render error ['+label+']:',e);}}
+
+// ── MEDIA LINKS ──
+const MEDIA_KEY = 'monitor_media_links';
+const DEFAULT_MEDIA = [
+  "📺 NBC Boston | TV · LIVE | https://www.nbcboston.com/watch-live/",
+  "📺 CBS Boston / WBZ | TV · LIVE | https://www.cbsnews.com/boston/live/",
+  "📺 WCVB 5 | TV · LIVE | https://www.wcvb.com/watch-live-news",
+  "📺 7News WHDH | TV · LIVE | https://whdh.com/livestream/",
+  "📻 WBZ 1030 AM | RADIO · ALL NEWS | https://www.audacy.com/wbz",
+  "📻 98.5 The Sports Hub | RADIO · SPORTS | https://www.audacy.com/985thesportshub",
+  "📻 WEEI 93.7 FM | RADIO · SPORTS | https://www.audacy.com/weei",
+  "📻 GBH 89.7 FM | RADIO · PUBLIC | https://www.wgbh.org/listen-live",
+].join('\n');
+
+function getMediaLinks(){return localStorage.getItem(MEDIA_KEY)||DEFAULT_MEDIA;}
+
+function renderMediaLinks(){
+  const body=document.getElementById('media-links-body');
+  if(!body)return;
+  body.innerHTML='';
+  getMediaLinks().split('\n').forEach(line=>{
+    line=line.trim(); if(!line)return;
+    const parts=line.split('|').map(s=>s.trim());
+    if(parts.length<3)return;
+    // parts: "emoji Name", "type", "url"
+    // split emoji from name — emoji is first char(s) before a space
+    const raw=parts[0];
+    const spaceIdx=raw.indexOf(' ');
+    const ico=spaceIdx>-1?raw.substring(0,spaceIdx):'📺';
+    const name=spaceIdx>-1?raw.substring(spaceIdx+1).trim():raw;
+    const type=parts[1];
+    const url=parts[2];
+    if(!url)return;
+    const a=document.createElement('a');
+    a.className='ml';a.href=url;a.target='_blank';a.rel='noopener';
+    a.innerHTML=`<span class="ml-ico">${ico}</span><div class="ml-info"><div class="ml-name">${name}</div><div class="ml-type">${type}</div></div><span class="ml-ext">↗</span>`;
+    body.appendChild(a);
+  });
+}
+
+function openMediaModal(){
+  document.getElementById('media-ta').value=getMediaLinks();
+  document.getElementById('media-modal').style.display='flex';
+}
+function closeMediaModal(){document.getElementById('media-modal').style.display='none';}
+function saveMediaLinks(){
+  localStorage.setItem(MEDIA_KEY,document.getElementById('media-ta').value);
+  closeMediaModal();
+  renderMediaLinks();
+}
+document.getElementById('media-modal').addEventListener('click',e=>{
+  if(e.target===document.getElementById('media-modal'))closeMediaModal();
+});
+renderMediaLinks();
 
 // ── LINKS BAR ──
 const DEFAULT_LINKS=[

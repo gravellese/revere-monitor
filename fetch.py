@@ -396,7 +396,9 @@ def main():
     revere_journal = safe(lambda: fetch_feed("https://www.reverejournal.com/feed/", 20), "Revere Journal") or []
     for i in revere_journal: i["source"] = "Revere Journal"
 
-    revere_advocate = safe(lambda: fetch_feed("https://advocatenews.net/category/cityrevere/feed/", 10), "Advocate/Revere") or []
+    # AdvocateNews main feed covers Revere — filter by fetching more items
+    revere_advocate = safe(lambda: fetch_feed("https://advocatenews.net/feed/", 20), "Advocate/Revere") or []
+    revere_advocate = [i for i in revere_advocate if "revere" in (i.get("title","") + i.get("link","")).lower()]
     for i in revere_advocate: i["source"] = "Advocate News"
 
     revere_nbc = safe(lambda: fetch_feed("https://www.nbcboston.com/tag/revere/feed/", 10), "NBC Boston/Revere") or []
@@ -425,91 +427,79 @@ def main():
     data["news_revere"] = revere_all
     print(f"  → Revere total: {len(revere_all)} items (official:{len(revere_official)} journal:{len(revere_journal)} advocate:{len(revere_advocate)} nbc:{len(revere_nbc)} gnews:{len(revere_gnews)+len(revere_gnews2)} fetchrss:{len(revere_fetchrss)})")
 
-    # Communities — comprehensive local coverage
+    # Communities — confirmed working sources only (dead feeds removed based on Action log)
     # Format: (label, url, items_to_fetch)
     comm_rss = [
-        # ── CHELSEA ──
+        # ── CHELSEA — chelsearecord.com ✓, NBC ✓, GNews ✓ ──
         ("Chelsea",      "https://chelsearecord.com/feed/",                                                                          8),
-        ("Chelsea",      "https://www.nbcboston.com/tag/chelsea/feed/",                                                              6),
-        ("Chelsea",      "https://news.google.com/rss/search?q=%22Chelsea+MA%22+city+news&hl=en-US&gl=US&ceid=US:en",               6),
-        ("Chelsea City", "https://news.google.com/rss/search?q=%22City+of+Chelsea%22+Massachusetts+announcement+OR+news&hl=en-US&gl=US&ceid=US:en", 5),
+        ("Chelsea",      "https://www.nbcboston.com/tag/chelsea/feed/",                                                              8),
+        ("Chelsea",      "https://news.google.com/rss/search?q=%22Chelsea+MA%22+city+news&hl=en-US&gl=US&ceid=US:en",               8),
+        ("Chelsea City", "https://news.google.com/rss/search?q=%22City+of+Chelsea%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",      6),
 
-        # ── EAST BOSTON ──
+        # ── EAST BOSTON — eastietimes ✓, NBC ✓, GNews ✓ ──
         ("East Boston",  "https://eastietimes.com/feed/",                                                                            8),
-        ("East Boston",  "https://www.nbcboston.com/tag/east-boston/feed/",                                                          6),
-        ("East Boston",  "https://news.google.com/rss/search?q=%22East+Boston%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",          6),
+        ("East Boston",  "https://www.nbcboston.com/tag/east-boston/feed/",                                                          8),
+        ("East Boston",  "https://news.google.com/rss/search?q=%22East+Boston%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",          8),
 
-        # ── EVERETT ──
+        # ── EVERETT — everettindependent ✓, NBC ✓, GNews ✓ (advocate category 404) ──
         ("Everett",      "https://everettindependent.com/feed/",                                                                     8),
-        ("Everett",      "https://advocatenews.net/feed/?cat=everett",                                                               6),
-        ("Everett",      "https://advocatenews.net/category/cityeverett/feed/",                                                      6),
-        ("Everett",      "https://www.nbcboston.com/tag/everett/feed/",                                                              6),
-        ("Everett",      "https://news.google.com/rss/search?q=%22Everett+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           6),
+        ("Everett",      "https://www.nbcboston.com/tag/everett/feed/",                                                              8),
+        ("Everett",      "https://news.google.com/rss/search?q=%22Everett+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
+        ("Everett",      "https://news.google.com/rss/search?q=%22City+of+Everett%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",      6),
 
-        # ── MALDEN ──
-        ("Malden",       "https://maldenobserver.com/feed/",                                                                         8),
-        ("Malden",       "https://advocatenews.net/category/citymalden/feed/",                                                       6),
-        ("Malden",       "https://www.nbcboston.com/tag/malden/feed/",                                                               6),
-        # CivicPlus standard RSS endpoint for cityofmalden.org
-        ("Malden City",  "https://www.cityofmalden.org/RSSFeed.aspx?ModID=55&CID=All-0",                                            8),
-        ("Malden City",  "https://www.cityofmalden.org/RSSFeed.aspx?ModID=55&CID=1",                                                8),
-        ("Malden",       "https://news.google.com/rss/search?q=%22Malden+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",            6),
-        ("Malden City",  "https://news.google.com/rss/search?q=%22City+of+Malden%22+Massachusetts+press+release+OR+news&hl=en-US&gl=US&ceid=US:en", 5),
+        # ── MALDEN — maldenobserver DEAD, NBC ✓, GNews ✓, cityofmalden blocked ──
+        ("Malden",       "https://www.nbcboston.com/tag/malden/feed/",                                                               8),
+        ("Malden",       "https://news.google.com/rss/search?q=%22Malden+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",            8),
+        ("Malden City",  "https://news.google.com/rss/search?q=%22City+of+Malden%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",       8),
+        ("Malden",       "https://news.google.com/rss/search?q=Malden+Massachusetts+news+2026&hl=en-US&gl=US&ceid=US:en",           6),
 
-        # ── MEDFORD ──
-        ("Medford",      "https://www.nbcboston.com/tag/medford/feed/",                                                              5),
-        ("Medford",      "https://news.google.com/rss/search?q=%22Medford+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           5),
+        # ── MEDFORD — NBC ✓, GNews ✓ ──
+        ("Medford",      "https://www.nbcboston.com/tag/medford/feed/",                                                              6),
+        ("Medford",      "https://news.google.com/rss/search?q=%22Medford+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           6),
 
-        # ── LYNN ──
-        ("Lynn",         "https://www.itemlive.com/feed/",                                                                           8),
-        ("Lynn",         "https://www.nbcboston.com/tag/lynn/feed/",                                                                 6),
-        ("Lynn City",    "https://news.google.com/rss/search?q=%22City+of+Lynn%22+Massachusetts+announcement+OR+news&hl=en-US&gl=US&ceid=US:en", 5),
-        ("Lynn",         "https://news.google.com/rss/search?q=%22Lynn+MA%22+OR+%22city+of+Lynn%22+Massachusetts&hl=en-US&gl=US&ceid=US:en", 6),
+        # ── LYNN — itemlive ✓, NBC ✓, GNews ✓ ──
+        ("Lynn",         "https://www.itemlive.com/feed/",                                                                           10),
+        ("Lynn",         "https://www.nbcboston.com/tag/lynn/feed/",                                                                 8),
+        ("Lynn City",    "https://news.google.com/rss/search?q=%22City+of+Lynn%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",         6),
+        ("Lynn",         "https://news.google.com/rss/search?q=%22Lynn+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",              8),
 
-        # ── WINTHROP ──
-        ("Winthrop",     "https://winthroptranscript.com/feed/",                                                                     8),
-        ("Winthrop",     "https://news.google.com/rss/search?q=%22Winthrop+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",          5),
+        # ── WINTHROP — winthroptranscript ✓, GNews ✓ ──
+        ("Winthrop",     "https://winthroptranscript.com/feed/",                                                                     10),
+        ("Winthrop",     "https://news.google.com/rss/search?q=%22Winthrop+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",          6),
 
-        # ── SAUGUS ──
-        ("Saugus",       "https://saugusadvocate.com/feed/",                                                                         8),
-        ("Saugus",       "https://advocatenews.net/category/citysaugus/feed/",                                                       6),
-        ("Saugus",       "https://www.nbcboston.com/tag/saugus/feed/",                                                               5),
-        ("Saugus",       "https://news.google.com/rss/search?q=%22Saugus+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",            5),
+        # ── SAUGUS — saugusadvocate DEAD, advocate category 404, NBC ✓, GNews ✓ ──
+        ("Saugus",       "https://www.nbcboston.com/tag/saugus/feed/",                                                               8),
+        ("Saugus",       "https://news.google.com/rss/search?q=%22Saugus+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",            8),
+        ("Saugus",       "https://news.google.com/rss/search?q=Saugus+Massachusetts+news+2026&hl=en-US&gl=US&ceid=US:en",           6),
 
-        # ── SWAMPSCOTT ──
-        ("Swampscott",   "https://swampscottreporter.com/feed/",                                                                     6),
-        ("Swampscott",   "https://www.nbcboston.com/tag/swampscott/feed/",                                                           5),
-        ("Swampscott",   "https://news.google.com/rss/search?q=%22Swampscott%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           5),
+        # ── SWAMPSCOTT — swampscottreporter DEAD, NBC ✓, GNews ✓ ──
+        ("Swampscott",   "https://www.nbcboston.com/tag/swampscott/feed/",                                                           6),
+        ("Swampscott",   "https://news.google.com/rss/search?q=%22Swampscott%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
 
-        # ── MARBLEHEAD ──
-        ("Marblehead",   "https://marbleheadreporter.com/feed/",                                                                     6),
-        ("Marblehead",   "https://www.nbcboston.com/tag/marblehead/feed/",                                                           5),
-        ("Marblehead",   "https://news.google.com/rss/search?q=%22Marblehead%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           5),
+        # ── MARBLEHEAD — marbleheadreporter DEAD, NBC ✓, GNews ✓ ──
+        ("Marblehead",   "https://www.nbcboston.com/tag/marblehead/feed/",                                                           6),
+        ("Marblehead",   "https://news.google.com/rss/search?q=%22Marblehead%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
 
-        # ── PEABODY ──
-        ("Peabody",      "https://peabodytimes.com/feed/",                                                                           6),
-        ("Peabody",      "https://www.salemnews.com/search/?f=rss&t=article&l=20&s=start_time&sd=desc&k%5B%5D=Peabody",             6),
-        ("Peabody",      "https://www.nbcboston.com/tag/peabody/feed/",                                                              5),
-        ("Peabody",      "https://news.google.com/rss/search?q=%22Peabody+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           6),
+        # ── PEABODY — peabodytimes DEAD, salemnews DEAD, NBC ✓, GNews ✓ ──
+        ("Peabody",      "https://www.nbcboston.com/tag/peabody/feed/",                                                              8),
+        ("Peabody",      "https://news.google.com/rss/search?q=%22Peabody+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
+        ("Peabody",      "https://news.google.com/rss/search?q=Peabody+Massachusetts+news+2026&hl=en-US&gl=US&ceid=US:en",          6),
 
-        # ── SALEM ──
-        ("Salem",        "https://www.salemnews.com/rss/",                                                                           8),
-        ("Salem",        "https://www.salemnews.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc",                             8),
-        ("Salem",        "https://www.nbcboston.com/tag/salem/feed/",                                                                5),
-        ("Salem",        "https://news.google.com/rss/search?q=%22Salem+MA%22+Massachusetts+city&hl=en-US&gl=US&ceid=US:en",        6),
+        # ── SALEM — salemnews RSS DEAD, NBC ✓, GNews ✓ ──
+        ("Salem",        "https://www.nbcboston.com/tag/salem/feed/",                                                                8),
+        ("Salem",        "https://news.google.com/rss/search?q=%22Salem+MA%22+Massachusetts+city&hl=en-US&gl=US&ceid=US:en",        8),
+        ("Salem",        "https://news.google.com/rss/search?q=Salem+Massachusetts+news+2026&hl=en-US&gl=US&ceid=US:en",            6),
 
-        # ── MELROSE ──
-        ("Melrose",      "https://melrosefreepress.com/feed/",                                                                       6),
-        ("Melrose",      "https://www.nbcboston.com/tag/melrose/feed/",                                                              5),
-        ("Melrose",      "https://news.google.com/rss/search?q=%22Melrose+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           5),
+        # ── MELROSE — melrosefreepress DEAD, NBC ✓, GNews ✓ ──
+        ("Melrose",      "https://www.nbcboston.com/tag/melrose/feed/",                                                              6),
+        ("Melrose",      "https://news.google.com/rss/search?q=%22Melrose+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
 
-        # ── ADVOCATE NEWS main feed (covers Everett, Malden, Revere, Saugus) ──
-        ("Advocate",     "https://advocatenews.net/feed/",                                                                           10),
+        # ── ADVOCATE NEWS main feed (Everett, Malden, Revere, Saugus) ✓ ──
+        ("Advocate",     "https://advocatenews.net/feed/",                                                                           15),
 
         # ── REGIONAL / NORTH SHORE ──
         ("North Shore",  "https://www.boston.com/tag/north-shore/feed/",                                                             6),
-        ("North Shore",  "https://news.google.com/rss/search?q=%22North+Shore%22+Massachusetts+news&hl=en-US&gl=US&ceid=US:en",     6),
-        ("NBC Boston",   "https://www.nbcboston.com/tag/revere/feed/",                                                               5),
+        ("North Shore",  "https://news.google.com/rss/search?q=%22North+Shore%22+Massachusetts+news&hl=en-US&gl=US&ceid=US:en",     8),
     ]
 
     data["news_communities"] = []
