@@ -1954,17 +1954,12 @@ window.MONITOR_CONFIG = window.MONITOR_CONFIG || {};
     if(!el||!window.L)return;
     const map=L.map(el,{center:[42.4084,-71.0120],zoom:13,zoomControl:true});
 
-    // Base layer
-    const baseTiles=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-      attribution:'© OpenStreetMap',maxZoom:19
+    // Base tiles — use CartoDB Positron which is more permissive on CORS/CSP
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+      attribution:'© OpenStreetMap © CARTO',
+      subdomains:'abcd',maxZoom:19
     }).addTo(map);
 
-    // Traffic flow overlay — Stadia Maps (no key needed, free tier)
-    // Uses TomTom flow tiles via a proxy that doesn't need auth
-    const trafficLayer=L.tileLayer(
-      'https://tile.openstreetmap.org/{z}/{x}/{y}.png',{opacity:0}
-    );
-    // Try Stadia traffic tiles
     // Traffic toggle
     let trafficLayer=null;
     let trafficOn=false;
