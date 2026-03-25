@@ -52,21 +52,60 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 .btn-save{background:var(--accent);color:#fff;}
 .btn-cancel{background:var(--bg3);color:var(--text-dim);border:1px solid #555 !important;}
 
-/* ── MBTA ── */
-#mbta-panel{background:#1a1a1a;border-bottom:1px solid #444;}
-#mbta-header{display:flex;align-items:center;gap:10px;padding:5px 16px;cursor:pointer;user-select:none;}
-.mbta-lbl{font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:2px;padding-right:10px;border-right:1px solid;}
-.mbta-lbl.ok{color:var(--green);border-color:#1a4030;}
-.mbta-lbl.alert{color:var(--orange);border-color:var(--odim);}
-#mbta-summary{font-size:13px;flex:1;}
-#mbta-summary.ok{color:var(--green);}
-#mbta-summary.alert{color:var(--orange);}
-#mbta-toggle{font-size:11px;color:var(--text-mute);}
-#mbta-alerts-list{display:none;padding:0 16px 8px;border-top:1px solid #333;}
-#mbta-alerts-list.open{display:block;}
-.mbta-alert-row{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid #2a2a2a;font-size:13px;color:var(--text-dim);}
-.mbta-alert-row:last-child{border-bottom:none;}
-.mbta-route-badge{border:1px solid;border-radius:3px;font-size:10px;padding:1px 5px;white-space:nowrap;flex-shrink:0;}
+/* ── MBTA ARRIVALS + ALERTS ── */
+.mbta-wrap{background:#0d1614;border:2px solid #f5c518;border-radius:5px;overflow:hidden;}
+.mbta-hdr{background:#0a1210;border-bottom:1px solid #2a2010;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;}
+.mbta-hdr-title{font-size:12px;font-weight:700;letter-spacing:3px;color:#f5c518;text-transform:uppercase;font-family:var(--cond);}
+.mbta-hdr-meta{font-size:10px;color:#3a5a52;letter-spacing:1px;}
+.mbta-ctrl-btn{font-size:10px;color:#5a7a72;background:none;border:1px solid #2a2010;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;}
+.mbta-ctrl-btn:hover{border-color:#f5c518;color:#f5c518;}
+.mbta-stops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+.mbta-stop-card{border-right:1px solid #1c2e2a;}
+.mbta-stop-card:last-child{border-right:none;}
+.mbta-stop-hdr{padding:6px 10px;display:flex;align-items:center;gap:5px;border-bottom:1px solid #1c2e2a;background:#0a1510;}
+.mbta-stop-name{font-size:11px;font-weight:700;color:#c8d8d4;letter-spacing:0.5px;flex:1;}
+.mbta-pill{font-size:9px;letter-spacing:1px;font-weight:700;padding:2px 5px;border-radius:2px;text-transform:uppercase;flex-shrink:0;}
+.mbta-pill-blue{background:#003DA5;color:#fff;}
+.mbta-pill-orange{background:#ED8B00;color:#fff;}
+.mbta-pill-bus{background:#FFC72C;color:#000;}
+.mbta-arr-row{display:flex;align-items:center;justify-content:space-between;padding:4px 10px;border-bottom:1px solid #0a1510;}
+.mbta-arr-row:last-child{border-bottom:none;}
+.mbta-arr-left{display:flex;align-items:center;gap:6px;overflow:hidden;}
+.mbta-mode-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.mdot-blue{background:#003DA5;} .mdot-orange{background:#ED8B00;} .mdot-red{background:#DA291C;}
+.mdot-green{background:#00843D;} .mdot-bus{background:#FFC72C;} .mdot-other{background:#7C878E;}
+.mbta-arr-dest{font-size:11px;color:#7a9a92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:115px;}
+.mbta-arr-dir{font-size:9px;color:#3a5a52;letter-spacing:1px;flex-shrink:0;}
+.mbta-arr-route{font-size:9px;background:#1c2e2a;color:#5a8a7a;padding:1px 4px;border-radius:2px;margin-left:3px;flex-shrink:0;}
+.mbta-arr-time{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;flex-shrink:0;min-width:46px;}
+.mat-brd{color:#ff8040;} .mat-soon{color:#f5c518;}
+.mat-blue{color:#5a9aff;} .mat-orange{color:#ED8B00;} .mat-red{color:#ff6b6b;}
+.mat-green{color:#4caf50;} .mat-bus{color:#FFC72C;} .mat-other{color:#5a7a72;}
+.mbta-no-pred{padding:10px;font-size:11px;color:#2a4a42;text-align:center;}
+.alrt-mode-section{border-bottom:1px solid #1c2e2a;}
+.alrt-mode-section:last-child{border-bottom:none;}
+.alrt-mode-toggle{width:100%;background:none;border:none;cursor:pointer;padding:8px 12px;display:flex;align-items:center;gap:8px;text-align:left;}
+.alrt-mode-toggle:hover{background:#0f1e1b;}
+.alrt-mode-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.alrt-mode-name{font-size:12px;font-weight:600;color:#c8d8d4;letter-spacing:0.5px;flex:1;}
+.alrt-count{font-size:11px;font-weight:700;padding:1px 7px;border-radius:10px;flex-shrink:0;}
+.alrt-count-high{background:#3a1a1a;color:#ff8040;} .alrt-count-med{background:#2a2010;color:#f5c518;}
+.alrt-count-low{background:#0f1e1b;color:#5a8a7a;} .alrt-count-zero{background:#0a1510;color:#3a5a52;}
+.alrt-chevron{font-size:11px;color:#3a5a52;transition:transform .2s;flex-shrink:0;}
+.alrt-chevron.open{transform:rotate(90deg);}
+.alrt-list{display:none;border-top:1px solid #0f1e1b;}
+.alrt-list.open{display:block;}
+.alrt-item{padding:7px 12px 7px 30px;border-bottom:1px solid #0a1510;}
+.alrt-item:last-child{border-bottom:none;}
+.alrt-effect{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;}
+.aeff-suspension{color:#ff8040;} .aeff-delay{color:#f5c518;} .aeff-detour{color:#f5c518;}
+.aeff-service-change{color:#5a9aff;} .aeff-other{color:#5a7a72;}
+.alrt-header-txt{font-size:12px;color:#a0b8b0;line-height:1.4;margin-bottom:3px;}
+.alrt-routes{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px;}
+.alrt-rbadge{font-size:9px;font-weight:700;padding:1px 5px;border-radius:2px;text-transform:uppercase;}
+.arb-blue{background:#003DA5;color:#fff;} .arb-orange{background:#ED8B00;color:#fff;}
+.arb-red{background:#DA291C;color:#fff;} .arb-cr{background:#80276C;color:#fff;}
+.arb-bus{background:#FFC72C;color:#000;} .arb-other{background:#444;color:#ccc;}
 
 /* ── GRIDSTACK ── */
 .grid-stack{max-width:1900px;margin:0 auto;padding:10px 14px;background:transparent !important;}
@@ -418,15 +457,6 @@ a.big-btn:hover{opacity:.85;}
       <button onclick="saveDailyReads()" style="padding:6px 16px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">SAVE</button>
     </div>
   </div>
-</div>
-
-<div id="mbta-panel">
-  <div id="mbta-header" onclick="toggleMbta()">
-    <div class="mbta-lbl ok" id="mbta-lbl">MBTA</div>
-    <div id="mbta-summary" class="ok">Loading alerts…</div>
-    <div id="mbta-toggle">▼ EXPAND</div>
-  </div>
-  <div id="mbta-alerts-list"></div>
 </div>
 
 <!-- NYT NEWS TICKER -->
@@ -835,9 +865,9 @@ a.big-btn:hover{opacity:.85;}
     <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mass"><div class="empty">Loading…</div></div></div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="r-mbta-panel" gs-x="5" gs-y="40" gs-w="3" gs-h="7" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch red"><div class="ct">r/mbta</div><div class="cb">HOT</div></div>
+  <div class="grid-stack-item" gs-id="r-mbta-panel" gs-x="0" gs-y="123" gs-w="12" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card" style="border:2px solid #f5c518;background:#0d1614;">
+    <div class="ch" style="background:#0a1210;border-bottom:1px solid #2a2010;border-left:none;"><div class="ct" style="color:#f5c518;font-family:var(--cond);letter-spacing:3px;">r/mbta</div><div class="cb" style="color:#3a5a52;">HOT POSTS</div></div>
     <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mbta"><div class="empty">Loading…</div></div></div>
   </div></div></div>
 
@@ -933,6 +963,36 @@ a.big-btn:hover{opacity:.85;}
       <div class="news-feed scroll-box h-news" id="news-substack"><div class="empty">Loading…</div></div>
     </div>
   </div></div></div>
+
+  <!-- MBTA ARRIVALS PANEL -->
+  <div class="grid-stack-item" gs-id="mbta-arrivals" gs-x="0" gs-y="106" gs-w="12" gs-h="9" gs-min-h="6">
+  <div class="grid-stack-item-content">
+    <div class="mbta-wrap">
+      <div class="mbta-hdr">
+        <span class="mbta-hdr-title">MBTA · Next Arrivals</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="mbta-hdr-meta" id="mbtaArrMeta">Loading…</span>
+          <button class="mbta-ctrl-btn" id="mbtaArrRefresh">↺ Refresh</button>
+        </div>
+      </div>
+      <div class="mbta-stops-grid" id="mbtaArrGrid"></div>
+    </div>
+  </div></div>
+
+  <!-- MBTA ALERTS PANEL -->
+  <div class="grid-stack-item" gs-id="mbta-alerts" gs-x="0" gs-y="115" gs-w="12" gs-h="8" gs-min-h="5">
+  <div class="grid-stack-item-content">
+    <div class="mbta-wrap">
+      <div class="mbta-hdr">
+        <span class="mbta-hdr-title">MBTA · Service Alerts</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="mbta-hdr-meta" id="mbtaAlertMeta">Loading…</span>
+          <button class="mbta-ctrl-btn" id="mbtaAlertRefresh">↺ Refresh</button>
+        </div>
+      </div>
+      <div id="mbtaAlertsBody"></div>
+    </div>
+  </div></div>
 
 </div><!-- /gs-grid -->
 
@@ -1117,18 +1177,150 @@ document.getElementById('links-cancel').addEventListener('click',()=>document.ge
 document.getElementById('links-save').addEventListener('click',()=>{localStorage.setItem('monitor_links',document.getElementById('links-ta').value);document.getElementById('links-modal').classList.remove('open');renderLinks();});
 document.getElementById('links-modal').addEventListener('click',e=>{if(e.target===document.getElementById('links-modal'))document.getElementById('links-modal').classList.remove('open');});
 
-// ── MBTA ──
-let mbtaOpen=false;
-function toggleMbta(){mbtaOpen=!mbtaOpen;document.getElementById('mbta-alerts-list').classList.toggle('open',mbtaOpen);document.getElementById('mbta-toggle').textContent=mbtaOpen?'▲ COLLAPSE':'▼ EXPAND';}
-function renderTicker(alerts){
-  const lbl=document.getElementById('mbta-lbl'),sum=document.getElementById('mbta-summary'),list=document.getElementById('mbta-alerts-list');
-  if(!alerts?.length){lbl.className='mbta-lbl ok';sum.className='ok';sum.textContent='✓  ALL MBTA LINES NORMAL';list.innerHTML='';document.getElementById('mbta-toggle').style.display='none';return;}
-  lbl.className='mbta-lbl alert';sum.className='alert';sum.textContent=`⚠ ${alerts.length} active alert${alerts.length>1?'s':''} — click to expand`;document.getElementById('mbta-toggle').style.display='';list.innerHTML='';
-  const lineColors={'Red':'#e03030','Orange':'#f08020','Blue':'#4070e0','Green':'#30a030','Green-B':'#30a030','Green-C':'#30a030','Green-D':'#30a030','Green-E':'#30a030','Silver':'#909090','Mattapan':'#e03030'};
-  function detectLines(text){const found=[],t=text.toLowerCase();if(t.includes('red line'))found.push('Red');if(t.includes('orange line'))found.push('Orange');if(t.includes('blue line'))found.push('Blue');if(t.includes('green line'))found.push('Green');if(t.includes('silver line'))found.push('Silver');if(t.includes('commuter rail')||t.includes('providence')||t.includes('worcester')||t.includes('lowell')||t.includes('haverhill'))found.push('CR');return found;}
-  function badges(a){let lines=(a.routes||[]).filter(Boolean);if(!lines.length)lines=detectLines(a.header||'');return lines.map(r=>{const isCR=r==='CR'||r.startsWith('CR-');const color=lineColors[r]||(isCR?'#9050d0':'#606060');const emoji=r==='Red'?'🔴':r==='Orange'?'🟠':r==='Blue'?'🔵':r.startsWith('Green')?'🟢':isCR?'🟣':'⚫';return`<span class="mbta-route-badge" style="background:${color}22;border-color:${color};color:${color};">${emoji} ${isCR?'Commuter Rail':r+' Line'}</span>`;}).join('');}
-  alerts.forEach(a=>{const div=document.createElement('div');div.className='mbta-alert-row';div.innerHTML=`${badges(a)}<span>${a.header}</span>`;list.appendChild(div);});
-}
+// ── MBTA ARRIVALS ──
+(function(){
+  const MBTA_API='https://api-v3.mbta.com';
+  const CARDS=[
+    {name:'Beachmont',         stopId:'place-bmnt', pills:[{l:'Blue',c:'mbta-pill-blue'}],                          routeFilter:null},
+    {name:'State St',          stopId:'place-state', pills:[{l:'Blue',c:'mbta-pill-blue'},{l:'Orange',c:'mbta-pill-orange'}], routeFilter:null},
+    {name:'Broadway @ Pleasant',stopId:'5761',       pills:[{l:'Bus',c:'mbta-pill-bus'}],                           routeFilter:null},
+    {name:'Broadway @ Yeamans', stopId:'5614',       pills:[{l:'Bus',c:'mbta-pill-bus'}],                           routeFilter:null},
+    {name:'110 → Wonderland',   stopId:'5790',       pills:[{l:'110',c:'mbta-pill-bus'}],                           routeFilter:'110'},
+    {name:'110 → Wellington',   stopId:'5538',       pills:[{l:'110',c:'mbta-pill-bus'}],                           routeFilter:'110'},
+  ];
+  const ROUTE_MODE={Blue:'blue',Orange:'orange',Red:'red','Green-B':'green','Green-C':'green','Green-D':'green','Green-E':'green',Green:'green'};
+  function routeMode(rid){return ROUTE_MODE[rid]||(rid?'bus':'other');}
+  function minsAway(iso){if(!iso)return null;return Math.round((new Date(iso)-Date.now())/60000);}
+  function timeLbl(m,status,mode){
+    if(status==='Boarding')return{l:'BRD',c:'mat-brd'};
+    if(m===null)return{l:'–',c:'mat-other'};
+    if(m<=0)return{l:'BRD',c:'mat-brd'};
+    if(m<=3)return{l:`${m} min`,c:'mat-soon'};
+    return{l:`${m} min`,c:`mat-${mode}`};
+  }
+  async function fetchPreds(stopId){
+    try{
+      const r=await fetch(`${MBTA_API}/predictions?filter[stop]=${stopId}&sort=arrival_time&include=trip,route&page[limit]=25`);
+      if(!r.ok)return null;
+      const data=await r.json();
+      const hs={},rn={};
+      (data.included||[]).forEach(i=>{if(i.type==='trip')hs[i.id]=i.attributes.headsign;if(i.type==='route')rn[i.id]=i.attributes.short_name||i.id;});
+      return(data.data||[]).map(p=>({
+        arrival:p.attributes.arrival_time||p.attributes.departure_time,
+        status:p.attributes.status,dir:p.attributes.direction_id,
+        headsign:hs[p.relationships?.trip?.data?.id]||'–',
+        routeId:p.relationships?.route?.data?.id||'',
+        routeName:rn[p.relationships?.route?.data?.id]||'',
+      })).filter(p=>p.arrival);
+    }catch(e){return null;}
+  }
+  function buildCard(card,preds){
+    const div=document.createElement('div');div.className='mbta-stop-card';
+    const pills=card.pills.map(p=>`<span class="mbta-pill ${p.c}">${p.l}</span>`).join(' ');
+    div.innerHTML=`<div class="mbta-stop-hdr"><span class="mbta-stop-name">${card.name}</span>${pills}</div><div class="mbta-arrivals"></div>`;
+    const arr=div.querySelector('.mbta-arrivals');
+    let items=(preds||[]);
+    if(card.routeFilter)items=items.filter(p=>p.routeId===card.routeFilter);
+    items=items.slice(0,6);
+    if(!items.length){arr.innerHTML='<div class="mbta-no-pred">No predictions</div>';return div;}
+    items.forEach(p=>{
+      const mode=routeMode(p.routeId);
+      const m=minsAway(p.arrival);
+      const {l,c}=timeLbl(m,p.status,mode);
+      const dir=p.dir===1?'IB':p.dir===0?'OB':'';
+      const badge=(!card.routeFilter&&p.routeName)?`<span class="mbta-arr-route">${p.routeName}</span>`:'';
+      const row=document.createElement('div');row.className='mbta-arr-row';
+      row.innerHTML=`<div class="mbta-arr-left"><div class="mbta-mode-dot mdot-${mode}"></div><span class="mbta-arr-dest">${p.headsign}${badge}</span><span class="mbta-arr-dir">${dir}</span></div><span class="mbta-arr-time ${c}">${l}</span>`;
+      arr.appendChild(row);
+    });
+    return div;
+  }
+  async function loadArrivals(){
+    const grid=document.getElementById('mbtaArrGrid');
+    const meta=document.getElementById('mbtaArrMeta');
+    if(!grid)return;
+    grid.innerHTML='';meta.textContent='Fetching…';
+    const uniqueIds=[...new Set(CARDS.map(c=>c.stopId))];
+    const pm={};
+    await Promise.all(uniqueIds.map(async id=>{pm[id]=await fetchPreds(id);}));
+    CARDS.forEach(card=>grid.appendChild(buildCard(card,pm[card.stopId])));
+    const t=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit'});
+    meta.textContent=`Updated ${t} · 60s`;
+  }
+  const rb=document.getElementById('mbtaArrRefresh');if(rb)rb.addEventListener('click',loadArrivals);
+  loadArrivals();
+  setInterval(loadArrivals,60000);
+})();
+
+// ── MBTA ALERTS ──
+(function(){
+  const MBTA_API='https://api-v3.mbta.com';
+  const MODE_ORDER=[
+    {key:'subway',    name:'Subway',        dotCls:'mdot-blue',   routeTypes:[0,1]},
+    {key:'bus',       name:'Bus',           dotCls:'mdot-bus',    routeTypes:[3]},
+    {key:'cr',        name:'Commuter Rail', dotCls:'dot-cr',      routeTypes:[2]},
+    {key:'ferry',     name:'Ferry',         dotCls:'dot-ferry',   routeTypes:[4]},
+  ];
+  const EFFECT_MAP={
+    'SUSPENSION':'SUSPENSION','aeff-suspension':'aeff-suspension',
+    'DELAY':'DELAY','SIGNIFICANT_DELAYS':'DELAY',
+    'DETOUR':'DETOUR','SERVICE_CHANGE':'SERVICE CHANGE',
+    'SHUTTLE':'SHUTTLE','STOP_CLOSURE':'STOP CLOSURE',
+  };
+  const EFFECT_CLS={'SUSPENSION':'aeff-suspension','DELAY':'aeff-delay','DETOUR':'aeff-detour','SERVICE CHANGE':'aeff-service-change','SHUTTLE':'aeff-detour','STOP CLOSURE':'aeff-suspension'};
+  function routeBadgeCls(r){if(r==='Blue')return'arb-blue';if(r==='Orange')return'arb-orange';if(r==='Red')return'arb-red';if(r.startsWith('CR-'))return'arb-cr';if(r)return'arb-bus';return'arb-other';}
+  function countCls(n){if(n===0)return'alrt-count-zero';if(n>=4)return'alrt-count-high';if(n>=2)return'alrt-count-med';return'alrt-count-low';}
+  async function loadAlerts(){
+    const body=document.getElementById('mbtaAlertsBody');
+    const meta=document.getElementById('mbtaAlertMeta');
+    if(!body)return;
+    body.innerHTML='';meta.textContent='Fetching…';
+    let alerts=[];
+    try{
+      const r=await fetch(`${MBTA_API}/alerts?filter[activity]=BOARD,EXIT,RIDE&filter[lifecycle]=NEW,ONGOING,ONGOING_UPCOMING`);
+      if(r.ok){const d=await r.json();alerts=d.data||[];}
+    }catch(e){}
+    // Group by route type
+    const byMode={subway:[],bus:[],cr:[],ferry:[]};
+    alerts.forEach(a=>{
+      const types=new Set((a.attributes?.informed_entity||[]).map(e=>e.route_type));
+      if(types.has(0)||types.has(1))byMode.subway.push(a);
+      else if(types.has(3))byMode.bus.push(a);
+      else if(types.has(2))byMode.cr.push(a);
+      else if(types.has(4))byMode.ferry.push(a);
+    });
+    let total=0;
+    MODE_ORDER.forEach((mode,idx)=>{
+      const modeAlerts=byMode[mode.key]||[];
+      total+=modeAlerts.length;
+      const isOpen=idx===0&&modeAlerts.length>0;
+      const sec=document.createElement('div');sec.className='alrt-mode-section';
+      const n=modeAlerts.length;
+      sec.innerHTML=`<button class="alrt-mode-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.alrt-chevron').classList.toggle('open');">
+        <div class="alrt-mode-dot ${mode.dotCls}"></div>
+        <span class="alrt-mode-name">${mode.name}</span>
+        <span class="alrt-count ${countCls(n)}">${n} alert${n!==1?'s':''}</span>
+        <span class="alrt-chevron${isOpen?' open':''}">▶</span>
+      </button>
+      <div class="alrt-list${isOpen?' open':''}">
+        ${!n?'<div style="padding:7px 12px 7px 30px;font-size:11px;color:#3a5a52;">No active alerts</div>':
+          modeAlerts.map(a=>{
+            const eff=EFFECT_MAP[a.attributes?.effect]||'ALERT';
+            const effCls=EFFECT_CLS[eff]||'aeff-other';
+            const hdr=a.attributes?.header||'';
+            const routes=[...new Set((a.attributes?.informed_entity||[]).map(e=>e.route).filter(Boolean))].slice(0,5);
+            const badges=routes.map(r=>`<span class="alrt-rbadge ${routeBadgeCls(r)}">${r}</span>`).join('');
+            return`<div class="alrt-item"><div class="alrt-effect ${effCls}">${eff}</div><div class="alrt-header-txt">${hdr}</div>${routes.length?`<div class="alrt-routes">${badges}</div>`:''}</div>`;
+          }).join('')}
+      </div>`;
+      body.appendChild(sec);
+    });
+    meta.textContent=`${total} active alert${total!==1?'s':''} · ${new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}`;
+  }
+  const rb=document.getElementById('mbtaAlertRefresh');if(rb)rb.addEventListener('click',loadAlerts);
+  loadAlerts();
+  setInterval(loadAlerts,300000); // refresh alerts every 5 min
+})();
 
 // ── PRIORITIES + PLANNER ──
 ['p1','p2','p3'].forEach(id=>{
@@ -1329,7 +1521,6 @@ async function loadData(){
   safeRender(()=>renderSun(d.sunrise_sunset),'sun');
   safeRender(()=>renderTides(d.tides),'tides');
   safeRender(()=>renderLogan(d.logan),'logan');
-  safeRender(()=>renderTicker(d.mbta_alerts),'mbta');
   safeRender(()=>renderRevereTv(d.revere_tv),'reveretv');
   safeRender(()=>renderNews('news-revere',(d.news_revere||[]).slice(0,30)),'news-revere');
   safeRender(()=>renderNews('news-comm',(d.news_communities||[]).slice(0,150),true),'news-comm');
