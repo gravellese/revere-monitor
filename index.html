@@ -541,27 +541,17 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">PLANNER</div><div class="cb">NOTES + QUICK LINKS</div></div>
-        <div class="cbody" style="display:flex;flex-direction:column;gap:10px;flex:1;overflow-y:auto;min-height:0;">
-          <!-- Notes area -->
+        <div class="cbody" style="display:flex;flex-direction:column;gap:10px;height:100%;overflow-y:auto;">
           <textarea id="planner-notes"
-            placeholder="Today's meetings, priorities, notes…"
-            style="flex:1;min-height:120px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:14px;padding:8px 10px;resize:none;outline:none;transition:border-color .15s;width:100%;"
+            placeholder="Today&#39;s meetings, priorities, notes&#8230;"
+            style="flex:1;min-height:100px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:14px;padding:8px 10px;resize:none;outline:none;width:100%;"
             oninput="localStorage.setItem('planner_notes',this.value)"></textarea>
-          <!-- Quick links -->
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;">QUICK LINKS</div>
-            <a href="https://calendar.google.com" target="_blank" rel="noopener" class="cal-btn" style="margin:0;display:flex;align-items:center;gap:8px;">
-              📅 <span>Google Calendar</span>
-            </a>
-            <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-btn" style="margin:0;display:flex;align-items:center;gap:8px;">
-              🏛 <span>City of Revere Calendar</span>
-            </a>
-            <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-btn" style="margin:0;display:flex;align-items:center;gap:8px;">
-              📋 <span>Meeting Agendas (IQM2)</span>
-            </a>
-            <a href="https://www.bostonglobe.com/sports/tvradio/listings/" target="_blank" rel="noopener" class="cal-btn" style="margin:0;display:flex;align-items:center;gap:8px;">
-              📺 <span>Globe Sports TV/Radio Listings</span>
-            </a>
+          <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0;">
+            <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;">QUICK LINKS</div>
+            <a href="https://calendar.google.com" target="_blank" rel="noopener" class="cal-btn" style="margin:0;">📅 Google Calendar</a>
+            <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-btn" style="margin:0;">🏛 City of Revere Calendar</a>
+            <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-btn" style="margin:0;">📋 Meeting Agendas (IQM2)</a>
+            <a href="https://www.bostonglobe.com/sports/tvradio/listings/" target="_blank" rel="noopener" class="cal-btn" style="margin:0;">📺 Globe Sports TV/Radio Listings</a>
           </div>
         </div>
       </div>
@@ -613,6 +603,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
     </div>
   </div>
 
+
   <!-- Sun / Sky / Tides / Logan (3-up group) -->
   <div class="grid-stack-item" gs-id="sun-tides-logan" gs-x="3" gs-y="0" gs-w="9" gs-h="6" gs-min-h="4">
     <div class="grid-stack-item-content">
@@ -640,6 +631,7 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
   </div>
 
   <!-- Boston Sports -->
+
   <!-- BC Eagles Schedule — full composite calendar iframe -->
   <div class="grid-stack-item" gs-id="bc-schedule" gs-x="3" gs-y="11" gs-w="9" gs-h="10" gs-min-h="5">
     <div class="grid-stack-item-content">
@@ -1082,16 +1074,15 @@ function renderTicker(alerts){
 // ── PRIORITIES ───────────────────────────────────────────────────
 ['p1','p2','p3'].forEach(id=>{
   const el=document.getElementById(id);
-  if(!el) return;
   el.value=localStorage.getItem('monitor_'+id)||'';
   el.addEventListener('input',()=>{
     localStorage.setItem('monitor_'+id,el.value);
-    const saved=document.getElementById('pri-saved');
-    if(saved){ saved.textContent='saved ✓'; setTimeout(()=>{saved.textContent='auto-saved to this browser';},1500); }
+    document.getElementById('pri-saved').textContent='saved ✓';
+    setTimeout(()=>{document.getElementById('pri-saved').textContent='auto-saved to this browser';},1500);
   });
 });
 
-// ── PLANNER NOTES ─────────────────────────────────────────────────
+// ── PLANNER NOTES RESTORE ──
 (function(){
   const ta=document.getElementById('planner-notes');
   if(ta) ta.value=localStorage.getItem('planner_notes')||'';
