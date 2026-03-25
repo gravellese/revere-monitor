@@ -1983,7 +1983,7 @@ function initRevereMap(){
   if(!el||!window.L)return;
   addLeafletPopupStyles();
   map=L.map(el,{center:[42.4084,-71.0120],zoom:14});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
   Promise.all([
     fetch(`${MBTA}/stops?filter[route]=Blue`).then(r=>r.ok?r.json():null),
     fetch(`${MBTA}/stops?filter[route_type]=3&filter[latitude]=42.408&filter[longitude]=-71.012&filter[radius]=0.04&page[limit]=80`).then(r=>r.ok?r.json():null),
