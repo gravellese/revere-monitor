@@ -1977,7 +1977,7 @@ window.MONITOR_CONFIG = window.MONITOR_CONFIG || {};
             const key='91235817-0be7-4b45-bf1e-f3726319a124';
             if(!trafficLayer){
               trafficLayer=L.tileLayer(
-                'https://api.tomtom.com/traffic/map/4/tile/flow/relative0/{z}/{x}/{y}.png?key='+key+'&tileSize=256',
+                'https://api.tomtom.com/maps/orbis/traffic/tile/flow/{z}/{x}/{y}.png?apiVersion=1&key='+key+'&style=relative0&tileSize=256',
                 {opacity:0.9,attribution:'© TomTom',maxZoom:19,pane:'overlayPane'}
               );
             }
