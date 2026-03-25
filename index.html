@@ -617,21 +617,21 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
-  <!-- CHN Widget: BC Eagles (chnteam=9) -->
+  <!-- CHN · BC Hockey — Google News -->
   <div class="grid-stack-item" gs-id="chn-bc" gs-x="7" gs-y="62" gs-w="2" gs-h="9" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch bc"><div class="ct">CHN · BC EAGLES</div><div class="cb">LATEST NEWS</div></div>
-    <div class="cbody np">
-      <iframe src="chn-bc.html" style="width:100%;height:100%;border:none;display:block;"></iframe>
+    <div class="ch bc"><div class="ct">BC HOCKEY NEWS</div><div class="cb">GOOGLE NEWS</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-bc-hockey"><div class="empty">Loading…</div></div>
     </div>
   </div></div></div>
 
-  <!-- CHN Widget: All teams (chnteam=0) -->
+  <!-- CHN · All College Hockey -->
   <div class="grid-stack-item" gs-id="chn-all" gs-x="9" gs-y="62" gs-w="3" gs-h="9" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch bc"><div class="ct">CHN · ALL TEAMS</div><div class="cb">LATEST NEWS</div></div>
-    <div class="cbody np">
-      <iframe src="chn-all.html" style="width:100%;height:100%;border:none;display:block;"></iframe>
+    <div class="ch bc"><div class="ct">HOCKEY EAST</div><div class="cb">GOOGLE NEWS</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-hockey-east"><div class="empty">Loading…</div></div>
     </div>
   </div></div></div>
 
@@ -936,6 +936,8 @@ async function loadData(){
   safeRender(()=>renderNews('news-sports',(d.news_sports||[]).slice(0,30)),'news-sports');
   safeRender(()=>renderNews('news-bc',(d.news_bc||[]).slice(0,30)),'news-bc');
   safeRender(()=>renderNews('news-college-hockey',(d.news_college_hockey||[]).slice(0,40)),'college-hockey');
+  safeRender(()=>renderNews('news-bc-hockey',(d.news_bc_hockey||[]).slice(0,20)),'bc-hockey');
+  safeRender(()=>renderNews('news-hockey-east',(d.news_hockey_east||[]).slice(0,20)),'hockey-east');
   safeRender(()=>renderNews('news-national',(d.news_national||[]).slice(0,50)),'news-national');
   // Logan Airport news from data.json
   safeRender(()=>renderNews('news-logan',(d.news_logan||[]).slice(0,15)),'news-logan');

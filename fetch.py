@@ -646,6 +646,20 @@ def main():
                 item["source"] = label
                 data["news_college_hockey"].append(item)
 
+    # BC Hockey specific news
+    bc_hockey = safe(lambda: fetch_feed(
+        'https://news.google.com/rss/search?q=%22Boston+College+hockey%22+OR+%22BC+Eagles+hockey%22&hl=en-US&gl=US&ceid=US:en', 15
+    ), "BC Hockey news") or []
+    for i in bc_hockey: i["source"] = "Google News · BC Hockey"
+    data["news_bc_hockey"] = bc_hockey
+
+    # Hockey East news
+    hockey_east = safe(lambda: fetch_feed(
+        'https://news.google.com/rss/search?q=%22Hockey+East%22&hl=en-US&gl=US&ceid=US:en', 15
+    ), "Hockey East news") or []
+    for i in hockey_east: i["source"] = "Google News · Hockey East"
+    data["news_hockey_east"] = hockey_east
+
     # National — added CNN
     national_sources = [
         ("https://feeds.npr.org/1001/rss.xml",                                  "NPR"),
