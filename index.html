@@ -1976,8 +1976,8 @@ setTimeout(()=>location.reload(),30*60*1000);
         return L.tileLayer('',{opacity:0});
       }
       return L.tileLayer(
-        `https://api.tomtom.com/traffic/map/4/tile/flow/absolute/{z}/{x}/{y}.png?key=${key}&tileSize=256`,
-        {opacity:0.75,attribution:'© TomTom',maxZoom:19}
+        `https://api.tomtom.com/traffic/map/4/tile/flow/absolute/{z}/{x}/{y}.png?key=${key}&tileSize=256&thickness=10`,
+        {opacity:0.8,attribution:'© TomTom Traffic',maxZoom:19,tileSize:256,zoomOffset:0}
       );
     }
 
