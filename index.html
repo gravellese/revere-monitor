@@ -433,28 +433,25 @@ a.big-btn:hover{opacity:.85;}
       <span style="font-size:10px;color:#555;letter-spacing:2px;text-transform:uppercase;">Top Stories</span>
     </div>
     <div style="display:flex;align-items:center;gap:6px;">
-      <button id="nytCarPrev" style="width:24px;height:24px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&#8249;</button>
-      <button id="nytCarPause" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
-      <button id="nytCarNext" style="width:24px;height:24px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&#8250;</button>
+      <button id="nytTickPause" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
       <span id="nytCarStatus" style="font-size:10px;color:#444;margin-left:6px;letter-spacing:1px;"></span>
     </div>
   </div>
-  <div style="overflow:hidden;padding:10px 12px;" id="nytCarViewport">
-    <div id="nytCarTrack" style="display:flex;gap:10px;transition:transform .35s cubic-bezier(.4,0,.2,1);">
+  <div style="overflow:hidden;padding:10px 12px;position:relative;" id="nytCarViewport">
+    <div id="nytCarTrack" style="display:inline-flex;gap:10px;will-change:transform;">
       <div style="color:#555;font-size:13px;padding:20px;">Loading NYT headlines…</div>
     </div>
   </div>
-  <div id="nytCarDots" style="display:flex;gap:4px;align-items:center;justify-content:center;padding:5px 0 7px;"></div>
 </div>
 <script>
 (function(){
   const RSS='https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
   const track=document.getElementById('nytCarTrack');
   const viewport=document.getElementById('nytCarViewport');
-  const dotsEl=document.getElementById('nytCarDots');
   const statusEl=document.getElementById('nytCarStatus');
-  const CARD_W=260+10;
-  let cur=0,paused=false,timer=null;
+  const pauseBtn=document.getElementById('nytTickPause');
+  let paused=false,offset=0,halfW=0,lastT=null,raf=null;
+  const PPS=80;
 
   async function load(){
     let xml=null;
@@ -467,57 +464,57 @@ a.big-btn:hover{opacity:.85;}
     if(!xml){try{const r=await fetch(RSS);xml=await r.text();}catch(e){}}
     if(!xml||!xml.includes('<item>')){track.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">NYT feed unavailable</div>';return;}
     const doc=new DOMParser().parseFromString(xml,'text/xml');
-    const all=[...doc.querySelectorAll('item')].map(n=>({
+    const items=[...doc.querySelectorAll('item')].map(n=>({
       title:n.querySelector('title')?.textContent||'',
       link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
-      desc:n.querySelector('description')?.textContent||''
+      pub:n.querySelector('pubDate')?.textContent||''
     })).filter(i=>i.title).slice(0,20);
-    statusEl.textContent=all.length+' stories';
-    build(all);
+    statusEl.textContent=items.length+' stories';
+    build(items);
   }
 
   function build(items){
-    track.innerHTML='';dotsEl.innerHTML='';
-    items.forEach((item,i)=>{
+    track.innerHTML='';
+    // Triple for seamless infinite scroll
+    [...items,...items,...items].forEach((item,i,arr)=>{
       const a=document.createElement('a');
       a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-      a.style.cssText='flex-shrink:0;width:260px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:3px;transition:border-color .15s;';
-      a.onmouseover=()=>a.style.borderColor='#555';
-      a.onmouseout=()=>a.style.borderColor='#222';
-      const tmp=document.createElement('div');tmp.innerHTML=item.desc;
-      const plain=(tmp.textContent||'').replace(/\s+/g,' ').trim();
-      a.innerHTML=`<div style="font-size:10px;color:#666;letter-spacing:1.5px;text-transform:uppercase;font-family:monospace;">New York Times</div>`
-        +`<div style="font-size:13px;color:#d0d0d0;line-height:1.35;font-weight:500;">${item.title}</div>`
-        +(plain.length>20?`<div style="font-size:11px;color:#4a4a4a;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${plain}</div>`:'');
+      a.style.cssText='flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:12px 16px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;';
+      a.onmouseover=()=>{a.style.borderColor='#666';paused=true;};
+      a.onmouseout=()=>{a.style.borderColor='#222';paused=false;};
+      const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
+      a.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;"><span style="font-size:10px;color:#555;letter-spacing:2px;text-transform:uppercase;font-family:monospace;">New York Times</span>${t?`<span style="font-size:10px;color:#444;font-family:monospace;white-space:nowrap;">${t}</span>`:''}</div>`
+        +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
       track.appendChild(a);
-      const dot=document.createElement('div');
-      dot.style.cssText='width:5px;height:5px;border-radius:50%;background:'+(i===0?'#888':'#2a2a2a')+';cursor:pointer;transition:background .2s;';
-      dot.addEventListener('click',()=>goTo(i,true));
-      dotsEl.appendChild(dot);
     });
-    resume();
+    requestAnimationFrame(()=>{
+      // halfW = one full set width
+      halfW=track.scrollWidth/3;
+      offset=0;
+      startScroll();
+    });
   }
 
-  function visN(){return Math.floor(viewport.offsetWidth/CARD_W)||1;}
-  function goTo(idx,userAction){
-    if(userAction)pause();
-    cur=Math.max(0,Math.min(idx,track.children.length-visN()));
-    track.style.transform=`translateX(-${cur*CARD_W}px)`;
-    [...dotsEl.children].forEach((d,i)=>d.style.background=i===cur?'#888':'#2a2a2a');
+  function startScroll(){
+    if(raf)cancelAnimationFrame(raf);
+    lastT=null;
+    function tick(ts){
+      if(!lastT)lastT=ts;
+      if(!paused){
+        offset+=PPS*((ts-lastT)/1000);
+        if(offset>=halfW)offset-=halfW;
+        track.style.transform=`translateX(-${offset}px)`;
+      }
+      lastT=ts;
+      raf=requestAnimationFrame(tick);
+    }
+    raf=requestAnimationFrame(tick);
   }
-  function next(u){const m=track.children.length-visN();goTo(cur>=m?0:cur+1,u);}
-  function prev(u){const m=track.children.length-visN();goTo(cur<=0?m:cur-1,u);}
-  function pause(){paused=true;clearInterval(timer);const b=document.getElementById('nytCarPause');if(b)b.textContent='▶ resume';}
-  function resume(){paused=false;timer=setInterval(()=>next(false),2400);const b=document.getElementById('nytCarPause');if(b)b.textContent='⏸ pause';}
 
-  document.getElementById('nytCarNext').addEventListener('click',()=>next(true));
-  document.getElementById('nytCarPrev').addEventListener('click',()=>prev(true));
-  document.getElementById('nytCarPause').addEventListener('click',()=>{paused?resume():pause();});
-
-  let dragStart=null;
-  viewport.addEventListener('mousedown',e=>{dragStart=e.clientX;});
-  viewport.addEventListener('mouseup',e=>{if(dragStart===null)return;const diff=dragStart-e.clientX;if(Math.abs(diff)>40){diff>0?next(true):prev(true);}dragStart=null;});
-  viewport.addEventListener('mouseleave',()=>{dragStart=null;});
+  pauseBtn.addEventListener('click',()=>{
+    paused=!paused;
+    pauseBtn.textContent=paused?'▶ resume':'⏸ pause';
+  });
 
   load();
 })();
