@@ -4,7 +4,7 @@
 //  This file is gitignored — your tokens never go to GitHub.
 // ─────────────────────────────────────────────────────────────────
 
-const MONITOR_CONFIG = {
+window.MONITOR_CONFIG = {
 
   // ── QUICK LINKS ───────────────────────────────────────────────
   // Edit labels and URLs as you like. Add or remove items freely.
