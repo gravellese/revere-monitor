@@ -1057,7 +1057,13 @@ a.big-btn:hover{opacity:.85;}
         <button id="rm-add-cat" style="font-size:10px;padding:1px 6px;height:20px;background:#0d1614;border:1px solid #1c2e2a;color:#5a7a72;border-radius:3px;cursor:pointer;">+</button>
       </div>
       <div id="rm-map" style="flex:1;min-height:200px;"></div>
-      <div id="rm-list" style="max-height:100px;overflow-y:auto;border-top:1px solid #1c2e2a;flex-shrink:0;"></div>
+      <div style="border-top:1px solid #1c2e2a;flex-shrink:0;">
+        <button id="rm-list-toggle" onclick="togglePinList()" style="width:100%;background:none;border:none;border-bottom:1px solid transparent;cursor:pointer;padding:5px 8px;display:flex;align-items:center;justify-content:space-between;">
+          <span id="rm-list-label" style="font-size:10px;color:#5a7a72;letter-spacing:1.5px;text-transform:uppercase;">Pins</span>
+          <span id="rm-list-chev" style="font-size:10px;color:#5a7a72;transition:transform .2s;">▶</span>
+        </button>
+        <div id="rm-list" style="display:none;max-height:120px;overflow-y:auto;border-top:1px solid #1c2e2a;"></div>
+      </div>
     </div>
   </div></div></div>
 
@@ -1958,9 +1964,17 @@ function renderCatPills(){
     el.appendChild(pill);
   });
 }
+window.togglePinList=function(){
+  const list=document.getElementById('rm-list');
+  const chev=document.getElementById('rm-list-chev');
+  const open=list.style.display==='block';
+  list.style.display=open?'none':'block';
+  chev.style.transform=open?'':'rotate(90deg)';
+};
 window.rmRemoveCat=function(i){cats.splice(i,1);saveCats();renderCatSelect();renderCatPills();};
 function renderList(){
   const el=document.getElementById('rm-list');if(!el)return;
+  const lbl=document.getElementById('rm-list-label');if(lbl)lbl.textContent=pins.length?`Pins (${pins.length})`:'Pins';
   if(!pins.length){el.innerHTML='<div style="padding:5px 8px;font-size:11px;color:#3a5a52;">No pins yet — add one above.</div>';return;}
   el.innerHTML='';
   pins.forEach((p,i)=>{
@@ -1986,7 +2000,7 @@ function initRevereMap(){
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
   Promise.all([
     fetch(`${MBTA}/stops?filter[route]=Blue`).then(r=>r.ok?r.json():null),
-    fetch(`${MBTA}/stops?filter[route_type]=3&filter[latitude]=42.408&filter[longitude]=-71.012&filter[radius]=0.04&page[limit]=80`).then(r=>r.ok?r.json():null),
+    fetch(`${MBTA}/stops?filter[route_type]=3&filter[latitude]=42.415&filter[longitude]=-71.005&filter[radius]=0.065&page[limit]=200`).then(r=>r.ok?r.json():null),
   ]).then(([blue,bus])=>{
     function addStop(stop,color,label){
       const lat=stop.attributes?.latitude,lng=stop.attributes?.longitude;if(!lat||!lng)return;
