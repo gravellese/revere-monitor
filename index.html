@@ -482,19 +482,28 @@ a.big-btn:hover{opacity:.85;}
   let resumeTimer=null;
   function isPaused(){return autoPaused||btnPaused;}
 
-  function buildCards(items,track,cardStyle,hoverColor){
+  function buildCards(items,track,cardStyle,hoverColor,feedName){
     track.innerHTML='';
-    [...items,...items,...items].forEach(item=>{
-      const a=document.createElement('a');
-      a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-      a.style.cssText=cardStyle+'user-select:none;';
-      a.onmouseover=()=>{a.style.borderColor=hoverColor;};
-      a.onmouseout=()=>{a.style.borderColor=a.dataset.bc;};
-      a.dataset.bc=a.style.borderColor;
-      const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
-      a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
-        +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
-      track.appendChild(a);
+    function addSep(){
+      const sep=document.createElement('div');
+      sep.style.cssText='flex-shrink:0;display:flex;align-items:center;padding:0 16px;color:#444;font-size:11px;letter-spacing:2px;white-space:nowrap;font-family:monospace;';
+      sep.textContent=`····· ${feedName} ·····`;
+      track.appendChild(sep);
+    }
+    [0,1,2].forEach(rep=>{
+      items.forEach(item=>{
+        const a=document.createElement('a');
+        a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
+        a.style.cssText=cardStyle+'user-select:none;';
+        a.onmouseover=()=>{a.style.borderColor=hoverColor;};
+        a.onmouseout=()=>{a.style.borderColor=a.dataset.bc;};
+        a.dataset.bc=a.style.borderColor;
+        const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
+        a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
+          +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
+        track.appendChild(a);
+      });
+      addSep();
     });
     requestAnimationFrame(()=>{halfW=track.scrollWidth/3;offset=0;startScroll(track);});
   }
@@ -517,7 +526,7 @@ a.big-btn:hover{opacity:.85;}
   function nudge(track,dir){
     btnPaused=true;
     if(resumeTimer)clearTimeout(resumeTimer);
-    offset+=dir*(CARD_W*3);
+    offset+=dir*CARD_W;
     if(offset>=halfW)offset-=halfW;
     if(offset<0)offset+=halfW;
     track.style.transition='transform .3s ease';
@@ -553,7 +562,7 @@ a.big-btn:hover{opacity:.85;}
   nytNext.addEventListener('click',()=>nudge(nytTrack,+1));
   fetchRSS('https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml').then(xml=>{
     if(!xml||!xml.includes('<item>')){nytTrack.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">NYT feed unavailable</div>';return;}
-    buildCards(parseItems(xml,20),nytTrack,'flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#888');
+    buildCards(parseItems(xml,20),nytTrack,'flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#888','New York Times');
   });
 })();
 </script>
@@ -581,19 +590,28 @@ a.big-btn:hover{opacity:.85;}
   let resumeTimer=null;
   function isPaused(){return autoPaused||btnPaused;}
 
-  function buildCards(items,track,cardStyle,hoverColor){
+  function buildCards(items,track,cardStyle,hoverColor,feedName){
     track.innerHTML='';
-    [...items,...items,...items].forEach(item=>{
-      const a=document.createElement('a');
-      a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-      a.style.cssText=cardStyle+'user-select:none;';
-      a.onmouseover=()=>{a.style.borderColor=hoverColor;};
-      a.onmouseout=()=>{a.style.borderColor=a.dataset.bc;};
-      a.dataset.bc=a.style.borderColor;
-      const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
-      a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
-        +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
-      track.appendChild(a);
+    function addSep(){
+      const sep=document.createElement('div');
+      sep.style.cssText='flex-shrink:0;display:flex;align-items:center;padding:0 16px;color:#444;font-size:11px;letter-spacing:2px;white-space:nowrap;font-family:monospace;';
+      sep.textContent=`····· ${feedName} ·····`;
+      track.appendChild(sep);
+    }
+    [0,1,2].forEach(rep=>{
+      items.forEach(item=>{
+        const a=document.createElement('a');
+        a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
+        a.style.cssText=cardStyle+'user-select:none;';
+        a.onmouseover=()=>{a.style.borderColor=hoverColor;};
+        a.onmouseout=()=>{a.style.borderColor=a.dataset.bc;};
+        a.dataset.bc=a.style.borderColor;
+        const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
+        a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
+          +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
+        track.appendChild(a);
+      });
+      addSep();
     });
     requestAnimationFrame(()=>{halfW=track.scrollWidth/3;offset=0;startScroll(track);});
   }
@@ -616,7 +634,7 @@ a.big-btn:hover{opacity:.85;}
   function nudge(track,dir){
     btnPaused=true;
     if(resumeTimer)clearTimeout(resumeTimer);
-    offset+=dir*(CARD_W*3);
+    offset+=dir*CARD_W;
     if(offset>=halfW)offset-=halfW;
     if(offset<0)offset+=halfW;
     track.style.transition='transform .3s ease';
@@ -652,7 +670,7 @@ a.big-btn:hover{opacity:.85;}
   globeNext.addEventListener('click',()=>nudge(globeTrack,+1));
   fetchRSS('https://rss.app/feeds/DDMnamv89Q9UnJ0D.xml').then(xml=>{
     if(!xml||!xml.includes('<item>')){globeTrack.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">Globe feed unavailable</div>';return;}
-    buildCards(parseItems(xml,20),globeTrack,'flex-shrink:0;width:280px;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;padding:10px 14px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#f5c518');
+    buildCards(parseItems(xml,20),globeTrack,'flex-shrink:0;width:280px;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;padding:10px 14px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#f5c518','Boston Globe');
   });
 })();
 </script>
@@ -861,7 +879,7 @@ a.big-btn:hover{opacity:.85;}
     <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mass"><div class="empty">Loading…</div></div></div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="r-mbta-panel" gs-x="0" gs-y="123" gs-w="12" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="r-mbta-panel" gs-x="9" gs-y="106" gs-w="3" gs-h="17" gs-min-h="3">
   <div class="grid-stack-item-content"><div class="card" style="border:2px solid #f5c518;background:#0d1614;">
     <div class="ch" style="background:#0a1210;border-bottom:1px solid #2a2010;border-left:none;"><div class="ct" style="color:#f5c518;font-family:var(--cond);letter-spacing:3px;">r/mbta</div><div class="cb" style="color:#3a5a52;">HOT POSTS</div></div>
     <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mbta"><div class="empty">Loading…</div></div></div>
@@ -961,7 +979,7 @@ a.big-btn:hover{opacity:.85;}
   </div></div></div>
 
   <!-- MBTA ARRIVALS PANEL -->
-  <div class="grid-stack-item" gs-id="mbta-arrivals" gs-x="0" gs-y="106" gs-w="12" gs-h="9" gs-min-h="6">
+  <div class="grid-stack-item" gs-id="mbta-arrivals" gs-x="0" gs-y="106" gs-w="9" gs-h="9" gs-min-h="3">
   <div class="grid-stack-item-content">
     <div class="mbta-wrap">
       <div class="mbta-hdr">
@@ -976,7 +994,7 @@ a.big-btn:hover{opacity:.85;}
   </div></div>
 
   <!-- MBTA ALERTS PANEL -->
-  <div class="grid-stack-item" gs-id="mbta-alerts" gs-x="0" gs-y="115" gs-w="12" gs-h="8" gs-min-h="5">
+  <div class="grid-stack-item" gs-id="mbta-alerts" gs-x="0" gs-y="115" gs-w="9" gs-h="8" gs-min-h="3">
   <div class="grid-stack-item-content">
     <div class="mbta-wrap">
       <div class="mbta-hdr">
