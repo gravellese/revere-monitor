@@ -1030,7 +1030,7 @@ a.big-btn:hover{opacity:.85;}
 
 
   <!-- BRUINS CARD -->
-  <div class="grid-stack-item" gs-id="bruins-card" gs-x="9" gs-y="75" gs-w="3" gs-h="14" gs-min-h="8">
+  <div class="grid-stack-item" gs-id="bruins-card" gs-x="9" gs-y="75" gs-w="3" gs-h="10" gs-min-h="4">
   <div class="grid-stack-item-content" style="overflow:visible;">
     <div style="background:#0d1614;border:1px solid #1c2e2a;border-radius:5px;overflow:hidden;height:100%;display:flex;flex-direction:column;" id="bruins-card-inner">
       <div style="background:#FFB81C;padding:7px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;cursor:grab;" class="ch">
@@ -1064,7 +1064,7 @@ a.big-btn:hover{opacity:.85;}
   </div></div>
 
   <!-- RED SOX CARD -->
-  <div class="grid-stack-item" gs-id="redsox-card" gs-x="9" gs-y="89" gs-w="3" gs-h="14" gs-min-h="8">
+  <div class="grid-stack-item" gs-id="redsox-card" gs-x="9" gs-y="89" gs-w="3" gs-h="10" gs-min-h="4">
   <div class="grid-stack-item-content" style="overflow:visible;">
     <div style="background:#0d1614;border:1px solid #1c2e2a;border-radius:5px;overflow:hidden;height:100%;display:flex;flex-direction:column;" id="redsox-card-inner">
       <div style="background:#BD3039;padding:7px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;cursor:grab;" class="ch">
@@ -1099,9 +1099,9 @@ a.big-btn:hover{opacity:.85;}
 
 
   <!-- NHL SCORE TICKER PANEL -->
-  <div class="grid-stack-item" gs-id="nhl-ticker" gs-x="0" gs-y="50" gs-w="12" gs-h="4" gs-min-h="3">
+  <div class="grid-stack-item" gs-id="nhl-ticker" gs-x="0" gs-y="50" gs-w="12" gs-h="3" gs-min-h="2">
   <div class="grid-stack-item-content" style="overflow:visible;">
-    <div style="background:#111;border:1px solid #1c2e2a;border-radius:5px;display:flex;align-items:stretch;height:100%;overflow:hidden;">
+    <div style="background:#111;border:1px solid #1c2e2a;border-radius:5px;display:flex;align-items:stretch;overflow:hidden;">
   <div style="background:#c2410c;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 14px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #9a340a;">NHL</div>
   <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 10px;flex-shrink:0;border-right:1px solid #2a2a2a;min-width:68px;background:#0d0d0d;">
     <div id="nhlSectionLabel" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c2410c;border:1px solid #c2410c;padding:2px 6px;border-radius:2px;">––</div>
@@ -1752,7 +1752,7 @@ async function loadTeamCards(){
   // ── BRUINS ──
   const [bruScores, bruStandings] = await Promise.all([
     get('hockey/nhl/scoreboard?limit=3'),
-    get('hockey/nhl/standings'),
+    get('hockey/nhl/standings?season=2025'),
   ]);
 
   // Find last BOS game and next BOS game
@@ -1794,31 +1794,45 @@ async function loadTeamCards(){
     }
   }
 
-  // Bruins record from standings
+  // Bruins record + standings
   if(bruStandings){
-    const allTeams=bruStandings.standings?.entries||[];
-    const bos=allTeams.find(e=>e.team?.abbreviation==='BOS');
+    // ESPN standings: groups[] each has standings.entries[]
+    const groups=bruStandings.standings?.entries||bruStandings.children||[];
+    let allEntries=[];
+    // Try flat entries first, then nested groups
+    if(groups.length&&groups[0]?.standings?.entries){
+      groups.forEach(g=>allEntries.push(...(g.standings.entries||[])));
+    } else {
+      allEntries=groups;
+    }
+    const bos=allEntries.find(e=>e.team?.abbreviation==='BOS');
     if(bos){
-      const w=bos.stats?.find(s=>s.name==='wins')?.value||0;
-      const l=bos.stats?.find(s=>s.name==='losses')?.value||0;
-      const ot=bos.stats?.find(s=>s.name==='otLosses')?.value||0;
-      const pts=bos.stats?.find(s=>s.name==='points')?.value||0;
+      const w=bos.stats?.find(s=>s.name==='wins')?.value||bos.stats?.find(s=>s.abbreviation==='W')?.value||0;
+      const l=bos.stats?.find(s=>s.name==='losses')?.value||bos.stats?.find(s=>s.abbreviation==='L')?.value||0;
+      const ot=bos.stats?.find(s=>s.name==='otLosses')?.value||bos.stats?.find(s=>s.abbreviation==='OTL')?.value||0;
+      const pts=bos.stats?.find(s=>s.name==='points')?.value||bos.stats?.find(s=>s.abbreviation==='PTS')?.value||0;
       const recEl=document.getElementById('bru-record');
       if(recEl)recEl.textContent=`${w}–${l}–${ot} · ${pts} pts`;
     }
-
-    // Build Atlantic standings
-    const atlEntries=(bruStandings.standings?.entries||[]).filter(e=>e.team?.groups?.some?.(g=>g.name?.includes('Atlantic'))||true).slice(0,8);
+    // Try to get Atlantic division specifically
+    let atlEntries=allEntries;
+    const atlGroup=bruStandings.children?.find(g=>g.name?.includes('Atlantic'));
+    if(atlGroup?.standings?.entries) atlEntries=atlGroup.standings.entries;
+    atlEntries=atlEntries.slice(0,8);
     const atlPane=document.getElementById('bru-atl-pane');
     if(atlPane&&atlEntries.length){
       let html=stHdr('Pts','W-L-OT',false);
       atlEntries.forEach((e,i)=>{
         const isBos=e.team?.abbreviation==='BOS';
-        const pts=e.stats?.find(s=>s.name==='points')?.value||0;
-        const rec=`${e.stats?.find(s=>s.name==='wins')?.value||0}-${e.stats?.find(s=>s.name==='losses')?.value||0}-${e.stats?.find(s=>s.name==='otLosses')?.value||0}`;
-        html+=stRow(i+1,e.team?.shortDisplayName||e.team?.abbreviation,pts,rec,undefined,isBos?'#FFB81C':null);
+        const pts=e.stats?.find(s=>s.name==='points'||s.abbreviation==='PTS')?.value||0;
+        const w=e.stats?.find(s=>s.name==='wins'||s.abbreviation==='W')?.value||0;
+        const l=e.stats?.find(s=>s.name==='losses'||s.abbreviation==='L')?.value||0;
+        const ot=e.stats?.find(s=>s.name==='otLosses'||s.abbreviation==='OTL')?.value||0;
+        html+=stRow(i+1,e.team?.shortDisplayName||e.team?.abbreviation||'?',pts,`${w}-${l}-${ot}`,undefined,isBos?'#FFB81C':null);
       });
       atlPane.innerHTML=html;
+    } else if(atlPane){
+      atlPane.innerHTML=noteRow('Standings unavailable');
     }
   }
 
@@ -1866,26 +1880,34 @@ async function loadTeamCards(){
   }
 
   if(soxStandings){
-    const allTeams=soxStandings.standings?.entries||[];
-    const bos=allTeams.find(e=>e.team?.abbreviation==='BOS');
+    let allEntries=[];
+    const groups=soxStandings.standings?.entries||soxStandings.children||[];
+    if(groups.length&&groups[0]?.standings?.entries){
+      groups.forEach(g=>allEntries.push(...(g.standings.entries||[])));
+    } else { allEntries=groups; }
+    const bos=allEntries.find(e=>e.team?.abbreviation==='BOS');
     if(bos){
-      const w=bos.stats?.find(s=>s.name==='wins')?.value||0;
-      const l=bos.stats?.find(s=>s.name==='losses')?.value||0;
+      const w=bos.stats?.find(s=>s.name==='wins'||s.abbreviation==='W')?.value||0;
+      const l=bos.stats?.find(s=>s.name==='losses'||s.abbreviation==='L')?.value||0;
       const recEl=document.getElementById('sox-record');
       if(recEl)recEl.textContent=`${w}–${l}`;
     }
-
+    let aleEntries=allEntries;
+    const aleGroup=soxStandings.children?.find(g=>g.name?.includes('East')&&g.name?.includes('American'));
+    if(aleGroup?.standings?.entries) aleEntries=aleGroup.standings.entries;
+    aleEntries=aleEntries.slice(0,5);
     const alePane=document.getElementById('sox-ale-pane');
-    const aleTeams=allTeams.slice(0,5);
-    if(alePane&&aleTeams.length){
+    if(alePane&&aleEntries.length){
       let html=stHdr('W','W-L',false);
-      aleTeams.forEach((e,i)=>{
+      aleEntries.forEach((e,i)=>{
         const isBos=e.team?.abbreviation==='BOS';
-        const w=e.stats?.find(s=>s.name==='wins')?.value||0;
-        const l=e.stats?.find(s=>s.name==='losses')?.value||0;
-        html+=stRow(i+1,e.team?.shortDisplayName||e.team?.abbreviation,w,`${w}-${l}`,undefined,isBos?'#BD3039':null);
+        const w=e.stats?.find(s=>s.name==='wins'||s.abbreviation==='W')?.value||0;
+        const l=e.stats?.find(s=>s.name==='losses'||s.abbreviation==='L')?.value||0;
+        html+=stRow(i+1,e.team?.shortDisplayName||e.team?.abbreviation||'?',w,`${w}-${l}`,undefined,isBos?'#BD3039':null);
       });
       alePane.innerHTML=html;
+    } else if(alePane){
+      alePane.innerHTML=noteRow('Season not yet started');
     }
   }
 
@@ -2188,41 +2210,7 @@ async function loadData(){
     viewport.addEventListener('mouseleave',()=>{dragStart=null;});
     bosResume();
   })();
-  // Sports news — live combined RSS feed
-  (function(){
-    const el=document.getElementById('news-sports');
-    if(!el)return;
-    const FEED='https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6AdgTwgSwFsBTWdAYwHsDEBDCMAGyPzMU0cQiJuoCMAnAK55MsRCAA04KHCSoMOfMVKVqdRszysCDXp27V+RACawKAD3FTIMBMjQosuQiXJVa9JizYAzBvp5EaDp+PAoIMUlpWzkHJyVXVQ8Nbx8KcN4aBn8uQKMANwoGQXwKTCto2XsFZ2U3NU9NVkxMgOoyIgYWSOsZO3lHRRcVd3UvLURKbKIAcyIAWjSMrJyDRF4KWAgy+ammOfnuGaZYXaL9haWITOyKmyqB+OH65PHWPdmFzNgAa2Yb1aBDZbHYfA5HE5naYHb5-a4rO59WI1BIjBopCZXAGoCj8BjGXaCaCImLVQa1RKjRreTA0WBkGj8EkPOJDOpJMZNRBYhGYFCwfxRe79VkUtGvLkoKhEUTzMAUMh-bDMkUo54c6mY3EEQQMGjzACMKuRjhI0EwLzN5X4sDEmCI-KFSOQsEE-HyeA9mBmM34NGM2BePiIJidpMQACsKNgKD4zOZ0LwGBQZrBoOEgyHTEFNhFEMYiD4aLqIGGWRgKPkiPx6EQCGUttWXmX+jbSDRoMTgyYxBAAFIAdQASgBZAAK0AAkhAAGwjg1kABei4ArOhzDoQABdIA';
-    async function loadSports(){
-      let xml=null;
-      for(const fn of[
-        u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-        u=>`https://corsproxy.io/?${encodeURIComponent(u)}`
-      ]){
-        try{const r=await fetch(fn(FEED),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
-      }
-      if(!xml||!xml.includes('<item>')){el.innerHTML='<div class="empty">Feed unavailable</div>';return;}
-      const doc=new DOMParser().parseFromString(xml,'text/xml');
-      const items=[...doc.querySelectorAll('item')].slice(0,40).map(n=>({
-        title:n.querySelector('title')?.textContent||'',
-        link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
-        pub:n.querySelector('pubDate')?.textContent||'',
-        ts:new Date(n.querySelector('pubDate')?.textContent||0).getTime(),
-        source:(n.querySelector('source')?.textContent||n.querySelector('feed_title')?.textContent||'').trim(),
-      })).filter(i=>i.title).sort((a,b)=>b.ts-a.ts);
-      el.innerHTML='';
-      items.forEach(item=>{
-        const a=document.createElement('a');a.className='ni';a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
-        const t=item.pub?fmtDateTime(item.ts,item.pub):'';
-        let inner=item.source?`<div class="ni-src">${item.source}</div>`:'';
-        inner+=`<div class="ni-title">${item.title}</div>`;
-        if(t)inner+=`<div class="ni-date">${t}</div>`;
-        a.innerHTML=inner;el.appendChild(a);
-      });
-    }
-    loadSports();
-    setInterval(loadSports,300000);
-  })();
+  safeRender(()=>renderSubstack('news-sports',(d.news_sports||[]).slice(0,40)),'news-sports');
   safeRender(()=>renderNews('news-bc',(d.news_bc||[]).slice(0,30)),'news-bc');
   safeRender(()=>renderNews('news-college-hockey',(d.news_college_hockey||[]).slice(0,40)),'college-hockey');
   safeRender(()=>renderNews('news-bc-hockey',(d.news_bc_hockey||[]).slice(0,20)),'bc-hockey');

@@ -792,6 +792,14 @@ def main():
     data["news_ma_transit"] = ma_transit_all[:20]
     print(f"  → MA Transit & Housing: {len(data['news_ma_transit'])} items")
 
+    # Sports news — combined RSS feed fetched server-side
+    sports_items = safe(lambda: fetch_feed('https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6AdgTwgSwFsBTWdAYwHsDEBDCMAGyPzMU0cQiJuoCMAnAK55MsRCAA04KHCSoMOfMVKVqdRszysCDXp27V+RACawKAD3FTIMBMjQosuQiXJVa9JizYAzBvp5EaDp+PAoIMUlpWzkHJyVXVQ8Nbx8KcN4aBn8uQKMANwoGQXwKTCto2XsFZ2U3NU9NVkxMgOoyIgYWSOsZO3lHRRcVd3UvLURKbKIAcyIAWjSMrJyDRF4KWAgy+ammOfnuGaZYXaL9haWITOyKmyqB+OH65PHWPdmFzNgAa2Yb1aBDZbHYfA5HE5naYHb5-a4rO59WI1BIjBopCZXAGoCj8BjGXaCaCImLVQa1RKjRreTA0WBkGj8EkPOJDOpJMZNRBYhGYFCwfxRe79VkUtGvLkoKhEUTzMAUMh-bDMkUo54c6mY3EEQQMGjzACMKuRjhI0EwLzN5X4sDEmCI-KFSOQsEE-HyeA9mBmM34NGM2BePiIJidpMQACsKNgKD4zOZ0LwGBQZrBoOEgyHTEFNhFEMYiD4aLqIGGWRgKPkiPx6EQCGUttWXmX+jbSDRoMTgyYxBAAFIAdQASgBZAAK0AAkhAAGwjg1kABei4ArOhzDoQABdIA', 50), "Sports combined feed") or []
+    for i in sports_items:
+        i["source"] = i.get("feed_title") or i.get("author") or "Sports"
+    sports_items.sort(key=lambda x: x.get("ts",0), reverse=True)
+    data["news_sports"] = sports_items[:40]
+    print(f"  \u2192 Sports news: {len(data['news_sports'])} items")
+
     with open("data.json","w") as f:
         json.dump(data, f, indent=2, default=str)
     print(f"\n✅ Done — {data['updated_local']}")
