@@ -357,6 +357,20 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div>
 </div>
+
+<!-- DAILY READS MODAL -->
+<div id="daily-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:20px;width:520px;max-width:95vw;max-height:80vh;overflow-y:auto;">
+    <h3 style="font-family:var(--cond);font-size:17px;letter-spacing:2px;color:var(--white);margin-bottom:6px;">EDIT DAILY READS</h3>
+    <p style="font-size:12px;color:var(--text-mute);margin-bottom:12px;">One link per line: <strong>Label | https://url</strong></p>
+    <textarea id="daily-ta" style="width:100%;height:240px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:var(--mono);font-size:12px;padding:8px;resize:vertical;outline:none;"></textarea>
+    <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end;">
+      <button onclick="closeDailyModal()" style="padding:6px 16px;background:var(--bg3);color:var(--text-dim);border:1px solid #555;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">CANCEL</button>
+      <button onclick="saveDailyReads()" style="padding:6px 16px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">SAVE</button>
+    </div>
+  </div>
+</div>
+
 <div id="mbta-panel">
   <div id="mbta-header" onclick="toggleMbta()">
     <div class="mbta-lbl ok" id="mbta-lbl">MBTA</div>
@@ -537,12 +551,11 @@ a.big-btn:hover{opacity:.85;}
 
   <div class="grid-stack-item" gs-id="nyt-link" gs-x="3" gs-y="12" gs-w="3" gs-h="3" gs-min-h="2">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch red"><div class="ct">NYT · IRAN WAR LIVEBLOG</div><div class="cb">OPENS IN NEW TAB</div></div>
-    <div class="nyt-link-body">
-      <p>Trump, Iran &amp; Oil — live coverage from The New York Times</p>
-      <a href="https://www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil" target="_blank" rel="noopener" class="big-btn">OPEN NYT LIVEBLOG →</a>
-      <span style="font-size:11px;color:var(--text-mute);">May require subscription</span>
+    <div class="ch acc" style="justify-content:space-between;">
+      <div><div class="ct">DAILY READS</div><div class="cb">OPENS IN NEW TAB</div></div>
+      <button onclick="openDailyModal()" style="background:transparent;border:1px solid var(--border2);border-radius:3px;color:var(--text-mute);font-size:10px;font-family:var(--cond);letter-spacing:1px;padding:2px 7px;cursor:pointer;" title="Edit links">✏</button>
     </div>
+    <div class="cbody" id="daily-reads-body"></div>
   </div></div></div>
 
   <div class="grid-stack-item" gs-id="news-revere" gs-x="0" gs-y="15" gs-w="6" gs-h="8" gs-min-h="4">
@@ -714,6 +727,52 @@ function sortByDate(items){
   });
 }
 function safeRender(fn,label){try{fn();}catch(e){console.error('render error ['+label+']:',e);}}
+
+// ── DAILY READS ──
+const DAILY_KEY = 'monitor_daily_reads';
+const DEFAULT_DAILY = [
+  "Iran War Liveblog | https://www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil",
+  "Slow Boring | https://www.slowboring.com/",
+  "NYT Morning | https://static.nytimes.com/email-content/NN_sample.html",
+  "The Athletic Pulse | https://www.nytimes.com/athletic/tag/the-pulse/",
+  "Globe Starting Point | https://www.bostonglobe.com/newsletters/starting-point/",
+  "Daily Boston Globe | https://www.bostonglobe.com/todays-paper/",
+].join('\n');
+
+function getDailyReads(){return localStorage.getItem(DAILY_KEY)||DEFAULT_DAILY;}
+
+function renderDailyReads(){
+  const body=document.getElementById('daily-reads-body');
+  if(!body)return;
+  body.innerHTML='';
+  getDailyReads().split('\n').forEach(line=>{
+    line=line.trim(); if(!line)return;
+    const pipe=line.lastIndexOf(' | ');
+    if(pipe===-1)return;
+    const label=line.substring(0,pipe).trim();
+    const url=line.substring(pipe+3).trim();
+    if(!url)return;
+    const a=document.createElement('a');
+    a.className='ml';a.href=url;a.target='_blank';a.rel='noopener';
+    a.innerHTML=`<div class="ml-info"><div class="ml-name">${label}</div></div><span class="ml-ext">↗</span>`;
+    body.appendChild(a);
+  });
+}
+
+function openDailyModal(){
+  document.getElementById('daily-ta').value=getDailyReads();
+  document.getElementById('daily-modal').style.display='flex';
+}
+function closeDailyModal(){document.getElementById('daily-modal').style.display='none';}
+function saveDailyReads(){
+  localStorage.setItem(DAILY_KEY,document.getElementById('daily-ta').value);
+  closeDailyModal();
+  renderDailyReads();
+}
+document.getElementById('daily-modal').addEventListener('click',e=>{
+  if(e.target===document.getElementById('daily-modal'))closeDailyModal();
+});
+renderDailyReads();
 
 // ── MEDIA LINKS ──
 const MEDIA_KEY = 'monitor_media_links';
