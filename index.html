@@ -426,91 +426,98 @@ a.big-btn:hover{opacity:.85;}
 </div>
 
 <!-- NYT NEWS TICKER -->
-<div id="nyt-ticker-strip" style="background:#111;border-bottom:1px solid #222;display:flex;align-items:center;height:38px;overflow:hidden;position:relative;">
-  <div style="background:#000;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;padding:0 14px;height:100%;display:flex;align-items:center;flex-shrink:0;border-right:1px solid #333;white-space:nowrap;text-transform:uppercase;">NYT</div>
-  <div style="flex:1;overflow:hidden;height:100%;position:relative;" id="nytTickerScroll">
-    <div id="nytTickerInner" style="display:inline-flex;align-items:center;height:100%;white-space:nowrap;will-change:transform;">
-      <span style="font-size:12px;color:#555;padding:0 20px;">Loading headlines…</span>
+<div style="background:#111;border-bottom:2px solid #1a1a1a;">
+  <div style="background:#0a0a0a;border-bottom:1px solid #1a1a1a;padding:6px 14px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="background:#000;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;border:1px solid #444;padding:2px 8px;border-radius:2px;">NYT</span>
+      <span style="font-size:10px;color:#555;letter-spacing:2px;text-transform:uppercase;">Top Stories</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <button id="nytCarPrev" style="width:24px;height:24px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&#8249;</button>
+      <button id="nytCarPause" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
+      <button id="nytCarNext" style="width:24px;height:24px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&#8250;</button>
+      <span id="nytCarStatus" style="font-size:10px;color:#444;margin-left:6px;letter-spacing:1px;"></span>
     </div>
   </div>
-  <div style="display:flex;align-items:center;gap:0;flex-shrink:0;border-left:1px solid #222;">
-    <button id="nytTickPause" style="background:none;border:none;border-right:1px solid #222;color:#555;font-size:10px;padding:0 10px;height:38px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;" onmouseover="this.style.color='#ccc'" onmouseout="this.style.color='#555'">⏸</button>
-    <span id="nytTickStatus" style="font-size:10px;color:#333;padding:0 10px;letter-spacing:1px;"></span>
+  <div style="overflow:hidden;padding:10px 12px;" id="nytCarViewport">
+    <div id="nytCarTrack" style="display:flex;gap:10px;transition:transform .35s cubic-bezier(.4,0,.2,1);">
+      <div style="color:#555;font-size:13px;padding:20px;">Loading NYT headlines…</div>
+    </div>
   </div>
+  <div id="nytCarDots" style="display:flex;gap:4px;align-items:center;justify-content:center;padding:5px 0 7px;"></div>
 </div>
 <script>
 (function(){
-  const RSS = 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
-  const inner = document.getElementById('nytTickerInner');
-  const statusEl = document.getElementById('nytTickStatus');
-  const pauseBtn = document.getElementById('nytTickPause');
-  let paused=false, pps=55, raf=null, offset=0, halfW=0, lastT=null;
+  const RSS='https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
+  const track=document.getElementById('nytCarTrack');
+  const viewport=document.getElementById('nytCarViewport');
+  const dotsEl=document.getElementById('nytCarDots');
+  const statusEl=document.getElementById('nytCarStatus');
+  const CARD_W=260+10;
+  let cur=0,paused=false,timer=null;
 
   async function load(){
     let xml=null;
-    const proxies=[
+    for(const fn of[
       u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
       u=>`https://corsproxy.io/?${encodeURIComponent(u)}`
-    ];
-    for(const fn of proxies){
-      try{
-        const r=await fetch(fn(RSS),{cache:'no-cache'});
-        if(!r.ok)continue;
-        const d=await r.json();
-        xml=d.contents||d;
-        if(typeof xml==='string'&&xml.includes('<item>'))break;
-        xml=null;
-      }catch(e){xml=null;}
+    ]){
+      try{const r=await fetch(fn(RSS),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
     }
     if(!xml){try{const r=await fetch(RSS);xml=await r.text();}catch(e){}}
-    if(!xml||!xml.includes('<item>')){
-      inner.innerHTML='<span style="font-size:12px;color:#555;padding:0 20px;">NYT feed unavailable</span>';
-      return;
-    }
+    if(!xml||!xml.includes('<item>')){track.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">NYT feed unavailable</div>';return;}
     const doc=new DOMParser().parseFromString(xml,'text/xml');
-    const items=[...doc.querySelectorAll('item')].map(n=>({
+    const all=[...doc.querySelectorAll('item')].map(n=>({
       title:n.querySelector('title')?.textContent||'',
-      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#'
-    })).filter(i=>i.title);
-    statusEl.textContent=items.length+' stories · '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-    build(items);
+      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
+      desc:n.querySelector('description')?.textContent||''
+    })).filter(i=>i.title).slice(0,20);
+    statusEl.textContent=all.length+' stories';
+    build(all);
   }
 
   function build(items){
-    inner.innerHTML='';
-    [...items,...items].forEach((item,i,arr)=>{
-      const s=document.createElement('span');
-      s.style.cssText='display:inline-flex;align-items:center;padding:0 24px 0 0;cursor:pointer;font-size:12px;color:#b8b8b8;transition:color .15s;';
-      s.textContent=item.title;
-      s.onmouseover=()=>{s.style.color='#fff';paused=true;};
-      s.onmouseout=()=>{s.style.color='#b8b8b8';paused=false;};
-      s.onclick=()=>window.open(item.link,'_blank');
-      inner.appendChild(s);
-      if(i<arr.length-1){
-        const sep=document.createElement('span');
-        sep.style.cssText='color:#333;font-size:14px;padding-right:24px;';
-        sep.textContent='◆';
-        inner.appendChild(sep);
-      }
+    track.innerHTML='';dotsEl.innerHTML='';
+    items.forEach((item,i)=>{
+      const a=document.createElement('a');
+      a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
+      a.style.cssText='flex-shrink:0;width:260px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:3px;transition:border-color .15s;';
+      a.onmouseover=()=>a.style.borderColor='#555';
+      a.onmouseout=()=>a.style.borderColor='#222';
+      const tmp=document.createElement('div');tmp.innerHTML=item.desc;
+      const plain=(tmp.textContent||'').replace(/\s+/g,' ').trim();
+      a.innerHTML=`<div style="font-size:10px;color:#666;letter-spacing:1.5px;text-transform:uppercase;font-family:monospace;">New York Times</div>`
+        +`<div style="font-size:13px;color:#d0d0d0;line-height:1.35;font-weight:500;">${item.title}</div>`
+        +(plain.length>20?`<div style="font-size:11px;color:#4a4a4a;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${plain}</div>`:'');
+      track.appendChild(a);
+      const dot=document.createElement('div');
+      dot.style.cssText='width:5px;height:5px;border-radius:50%;background:'+(i===0?'#888':'#2a2a2a')+';cursor:pointer;transition:background .2s;';
+      dot.addEventListener('click',()=>goTo(i,true));
+      dotsEl.appendChild(dot);
     });
-    requestAnimationFrame(()=>{halfW=inner.scrollWidth/2;offset=0;tick();});
+    resume();
   }
 
-  function tick(ts){
-    if(!lastT)lastT=ts;
-    if(!paused){
-      offset+=pps*((ts-lastT)/1000);
-      if(offset>=halfW)offset-=halfW;
-      inner.style.transform=`translateX(-${offset}px)`;
-    }
-    lastT=ts;
-    raf=requestAnimationFrame(tick);
+  function visN(){return Math.floor(viewport.offsetWidth/CARD_W)||1;}
+  function goTo(idx,userAction){
+    if(userAction)pause();
+    cur=Math.max(0,Math.min(idx,track.children.length-visN()));
+    track.style.transform=`translateX(-${cur*CARD_W}px)`;
+    [...dotsEl.children].forEach((d,i)=>d.style.background=i===cur?'#888':'#2a2a2a');
   }
+  function next(u){const m=track.children.length-visN();goTo(cur>=m?0:cur+1,u);}
+  function prev(u){const m=track.children.length-visN();goTo(cur<=0?m:cur-1,u);}
+  function pause(){paused=true;clearInterval(timer);const b=document.getElementById('nytCarPause');if(b)b.textContent='▶ resume';}
+  function resume(){paused=false;timer=setInterval(()=>next(false),2400);const b=document.getElementById('nytCarPause');if(b)b.textContent='⏸ pause';}
 
-  pauseBtn.addEventListener('click',()=>{
-    paused=!paused;
-    pauseBtn.textContent=paused?'▶':'⏸';
-  });
+  document.getElementById('nytCarNext').addEventListener('click',()=>next(true));
+  document.getElementById('nytCarPrev').addEventListener('click',()=>prev(true));
+  document.getElementById('nytCarPause').addEventListener('click',()=>{paused?resume():pause();});
+
+  let dragStart=null;
+  viewport.addEventListener('mousedown',e=>{dragStart=e.clientX;});
+  viewport.addEventListener('mouseup',e=>{if(dragStart===null)return;const diff=dragStart-e.clientX;if(Math.abs(diff)>40){diff>0?next(true):prev(true);}dragStart=null;});
+  viewport.addEventListener('mouseleave',()=>{dragStart=null;});
 
   load();
 })();
