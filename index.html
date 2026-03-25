@@ -426,10 +426,95 @@ a.big-btn:hover{opacity:.85;}
 </div>
 
 <!-- NYT NEWS TICKER -->
-<div style="background:#1a1a1a;border-bottom:1px solid #444;padding:4px 16px;">
-  <rssapp-ticker id="Ee19beYjWSpTZIcR"></rssapp-ticker>
-  <script src="https://widget.rss.app/v1/ticker.js" type="text/javascript" async></script>
+<div id="nyt-ticker-strip" style="background:#111;border-bottom:1px solid #222;display:flex;align-items:center;height:38px;overflow:hidden;position:relative;">
+  <div style="background:#000;color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;padding:0 14px;height:100%;display:flex;align-items:center;flex-shrink:0;border-right:1px solid #333;white-space:nowrap;text-transform:uppercase;">NYT</div>
+  <div style="flex:1;overflow:hidden;height:100%;position:relative;" id="nytTickerScroll">
+    <div id="nytTickerInner" style="display:inline-flex;align-items:center;height:100%;white-space:nowrap;will-change:transform;">
+      <span style="font-size:12px;color:#555;padding:0 20px;">Loading headlines…</span>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:0;flex-shrink:0;border-left:1px solid #222;">
+    <button id="nytTickPause" style="background:none;border:none;border-right:1px solid #222;color:#555;font-size:10px;padding:0 10px;height:38px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;" onmouseover="this.style.color='#ccc'" onmouseout="this.style.color='#555'">⏸</button>
+    <span id="nytTickStatus" style="font-size:10px;color:#333;padding:0 10px;letter-spacing:1px;"></span>
+  </div>
 </div>
+<script>
+(function(){
+  const RSS = 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
+  const inner = document.getElementById('nytTickerInner');
+  const statusEl = document.getElementById('nytTickStatus');
+  const pauseBtn = document.getElementById('nytTickPause');
+  let paused=false, pps=55, raf=null, offset=0, halfW=0, lastT=null;
+
+  async function load(){
+    let xml=null;
+    const proxies=[
+      u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+      u=>`https://corsproxy.io/?${encodeURIComponent(u)}`
+    ];
+    for(const fn of proxies){
+      try{
+        const r=await fetch(fn(RSS),{cache:'no-cache'});
+        if(!r.ok)continue;
+        const d=await r.json();
+        xml=d.contents||d;
+        if(typeof xml==='string'&&xml.includes('<item>'))break;
+        xml=null;
+      }catch(e){xml=null;}
+    }
+    if(!xml){try{const r=await fetch(RSS);xml=await r.text();}catch(e){}}
+    if(!xml||!xml.includes('<item>')){
+      inner.innerHTML='<span style="font-size:12px;color:#555;padding:0 20px;">NYT feed unavailable</span>';
+      return;
+    }
+    const doc=new DOMParser().parseFromString(xml,'text/xml');
+    const items=[...doc.querySelectorAll('item')].map(n=>({
+      title:n.querySelector('title')?.textContent||'',
+      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#'
+    })).filter(i=>i.title);
+    statusEl.textContent=items.length+' stories · '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+    build(items);
+  }
+
+  function build(items){
+    inner.innerHTML='';
+    [...items,...items].forEach((item,i,arr)=>{
+      const s=document.createElement('span');
+      s.style.cssText='display:inline-flex;align-items:center;padding:0 24px 0 0;cursor:pointer;font-size:12px;color:#b8b8b8;transition:color .15s;';
+      s.textContent=item.title;
+      s.onmouseover=()=>{s.style.color='#fff';paused=true;};
+      s.onmouseout=()=>{s.style.color='#b8b8b8';paused=false;};
+      s.onclick=()=>window.open(item.link,'_blank');
+      inner.appendChild(s);
+      if(i<arr.length-1){
+        const sep=document.createElement('span');
+        sep.style.cssText='color:#333;font-size:14px;padding-right:24px;';
+        sep.textContent='◆';
+        inner.appendChild(sep);
+      }
+    });
+    requestAnimationFrame(()=>{halfW=inner.scrollWidth/2;offset=0;tick();});
+  }
+
+  function tick(ts){
+    if(!lastT)lastT=ts;
+    if(!paused){
+      offset+=pps*((ts-lastT)/1000);
+      if(offset>=halfW)offset-=halfW;
+      inner.style.transform=`translateX(-${offset}px)`;
+    }
+    lastT=ts;
+    raf=requestAnimationFrame(tick);
+  }
+
+  pauseBtn.addEventListener('click',()=>{
+    paused=!paused;
+    pauseBtn.textContent=paused?'▶':'⏸';
+  });
+
+  load();
+})();
+</script>
 
 <!-- BOSTON GLOBE CAROUSEL -->
 <div style="background:#1e1e1e;border-bottom:2px solid var(--border);padding:8px 16px;">
