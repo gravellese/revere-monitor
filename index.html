@@ -426,21 +426,15 @@ a.big-btn:hover{opacity:.85;}
 </div>
 
 <!-- NYT NEWS TICKER -->
-<div style="background:#111;border-bottom:2px solid #1a1a1a;">
-  <div style="background:#0a0a0a;border-bottom:1px solid #1a1a1a;padding:6px 14px;display:flex;align-items:center;justify-content:space-between;">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <span style="background:#000;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;border:1px solid #444;padding:2px 8px;border-radius:2px;">NYT</span>
-      <span style="font-size:10px;color:#555;letter-spacing:2px;text-transform:uppercase;">Top Stories</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:6px;">
-      <button id="nytTickPause" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
-      <span id="nytCarStatus" style="font-size:10px;color:#444;margin-left:6px;letter-spacing:1px;"></span>
+<div style="background:#111;border-bottom:2px solid #1a1a1a;display:flex;align-items:stretch;">
+  <div style="background:#cc0000;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #aa0000;">NYT</div>
+  <div style="overflow:hidden;padding:8px 12px;flex:1;position:relative;" id="nytCarViewport">
+    <div id="nytCarTrack" style="display:inline-flex;gap:10px;will-change:transform;">
+      <div style="color:#555;font-size:13px;padding:10px;">Loading NYT headlines…</div>
     </div>
   </div>
-  <div style="overflow:hidden;padding:10px 12px;position:relative;" id="nytCarViewport">
-    <div id="nytCarTrack" style="display:inline-flex;gap:10px;will-change:transform;">
-      <div style="color:#555;font-size:13px;padding:20px;">Loading NYT headlines…</div>
-    </div>
+  <div style="display:flex;align-items:center;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
+    <button id="nytTickPause" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
   </div>
 </div>
 <script>
@@ -448,10 +442,9 @@ a.big-btn:hover{opacity:.85;}
   const RSS='https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
   const track=document.getElementById('nytCarTrack');
   const viewport=document.getElementById('nytCarViewport');
-  const statusEl=document.getElementById('nytCarStatus');
   const pauseBtn=document.getElementById('nytTickPause');
   let paused=false,offset=0,halfW=0,lastT=null,raf=null;
-  const PPS=80;
+  const PPS=65;
 
   async function load(){
     let xml=null;
@@ -469,26 +462,23 @@ a.big-btn:hover{opacity:.85;}
       link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
       pub:n.querySelector('pubDate')?.textContent||''
     })).filter(i=>i.title).slice(0,20);
-    statusEl.textContent=items.length+' stories';
     build(items);
   }
 
   function build(items){
     track.innerHTML='';
-    // Triple for seamless infinite scroll
-    [...items,...items,...items].forEach((item,i,arr)=>{
+    [...items,...items,...items].forEach((item)=>{
       const a=document.createElement('a');
       a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-      a.style.cssText='flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:12px 16px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;';
+      a.style.cssText='flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;';
       a.onmouseover=()=>{a.style.borderColor='#666';paused=true;};
       a.onmouseout=()=>{a.style.borderColor='#222';paused=false;};
       const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
-      a.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;"><span style="font-size:10px;color:#555;letter-spacing:2px;text-transform:uppercase;font-family:monospace;">New York Times</span>${t?`<span style="font-size:10px;color:#444;font-family:monospace;white-space:nowrap;">${t}</span>`:''}</div>`
+      a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
         +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
       track.appendChild(a);
     });
     requestAnimationFrame(()=>{
-      // halfW = one full set width
       halfW=track.scrollWidth/3;
       offset=0;
       startScroll();
