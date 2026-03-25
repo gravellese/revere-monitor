@@ -1198,7 +1198,7 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
 (function(){
   const MBTA_API='https://api-v3.mbta.com';
   const CARDS=[
-    {name:'Beachmont',             stopId:'place-bmnt',  pills:[{l:'Blue',c:'mbta-pill-blue'}],                                   routeFilter:null},
+    {name:'Beachmont',             stopId:'70039,70040', pills:[{l:'Blue',c:'mbta-pill-blue'}],                                   routeFilter:null},
     {name:'State St',              stopId:'place-state', pills:[{l:'Blue',c:'mbta-pill-blue'},{l:'Orange',c:'mbta-pill-orange'}],  routeFilter:null},
     {name:'Broadway @ Pleasant',   stopId:'5761',        pills:[{l:'Bus',c:'mbta-pill-bus'}],                                     routeFilter:null},
     {name:'Broadway @ Yeamans',    stopId:'5714',        pills:[{l:'116',c:'mbta-pill-bus'},{l:'119',c:'mbta-pill-bus'}],          routeFilter:['116','119']},
@@ -1228,10 +1228,10 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
       const hs={},rn={};
       (data.included||[]).forEach(i=>{if(i.type==='trip')hs[i.id]=i.attributes.headsign;if(i.type==='route')rn[i.id]=i.attributes.short_name||i.id;});
       // Debug Beachmont
-      if(stopId==='place-bmnt'){
+      if(stopId==='70039,70040'){
         const raw=data.data||[];
         const el=document.getElementById('bmnt-debug');
-        if(el)el.textContent=`parent raw:${raw.length}`;
+        if(el)el.textContent=`beachmont raw:${raw.length}`;
       }
       let preds=(data.data||[]).map(p=>({
         // use whichever time exists — arrival preferred, departure as fallback
