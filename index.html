@@ -325,6 +325,29 @@ a.big-btn:hover{opacity:.85;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
 .section-divider{font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;padding:8px 0 4px;border-top:1px solid var(--border);margin-top:6px;}
+
+/* ── BOSTON CAROUSEL ── */
+.bos-carousel-wrap{background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;overflow:hidden;}
+.bos-carousel-header{background:#0d2b5e;border-bottom:1px solid #1a3a6a;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;}
+.bos-carousel-header .ct{font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:3px;color:#f5c518;text-transform:uppercase;}
+.bos-carousel-header .cb{font-size:10px;color:#a8b8d0;letter-spacing:1px;text-transform:uppercase;}
+.bos-carousel-nav{display:flex;align-items:center;gap:6px;}
+.bos-nav-btn{width:24px;height:24px;border-radius:50%;background:#081a3a;border:1px solid #1a3a6a;color:#00ddb8;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;}
+.bos-nav-btn:hover{background:#0f2550;border-color:#00ddb8;}
+.bos-nav-btn:active{transform:scale(.93);}
+.bos-pause-btn{font-size:10px;color:#5a7a9a;background:none;border:1px solid #1a3a6a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
+.bos-pause-btn:hover{color:#00ddb8;border-color:#00ddb8;}
+.bos-carousel-viewport{overflow:hidden;padding:10px 12px;}
+.bos-carousel-track{display:flex;gap:10px;transition:transform .35s cubic-bezier(.4,0,.2,1);}
+.bos-card{flex-shrink:0;width:260px;background:#0d1614;border:1px solid #1c2e2a;border-radius:5px;padding:10px 14px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:3px;}
+.bos-card:hover{border-color:#00ddb8;}
+.bos-card .bc-src{font-size:10px;color:#f5c518;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);}
+.bos-card .bc-title{font-size:13px;color:#c8d8d4;line-height:1.35;font-weight:500;}
+.bos-card .bc-snippet{font-size:11px;color:#5a7a72;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.bos-card .bc-time{font-size:10px;color:#3a5a52;margin-top:2px;}
+.bos-dots{display:flex;gap:4px;align-items:center;justify-content:center;padding:6px 0 8px;}
+.bos-dot{width:5px;height:5px;border-radius:50%;background:#1c2e2a;cursor:pointer;transition:background .2s;}
+.bos-dot.active{background:#00ddb8;}
 </style>
 </head>
 <body>
@@ -534,13 +557,23 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="boston-news" gs-x="0" gs-y="23" gs-w="5" gs-h="9" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card bos-card">
-    <div class="ch bos"><div class="ct">BOSTON NEWS</div><div class="cb">COMBINED FEED</div></div>
-    <div class="cbody npx">
-      <div class="news-feed scroll-box h-news" id="news-boston"><div class="empty">Loading…</div></div>
+  <div class="grid-stack-item" gs-id="boston-news" gs-x="0" gs-y="26" gs-w="12" gs-h="6" gs-min-h="5">
+  <div class="grid-stack-item-content">
+    <div class="bos-carousel-wrap">
+      <div class="bos-carousel-header">
+        <div><div class="ct">BOSTON NEWS</div><div class="cb">25 MOST RECENT STORIES</div></div>
+        <div class="bos-carousel-nav">
+          <button class="bos-nav-btn" id="bosCarPrev">&#8249;</button>
+          <button class="bos-pause-btn" id="bosCarPause">⏸ pause</button>
+          <button class="bos-nav-btn" id="bosCarNext">&#8250;</button>
+        </div>
+      </div>
+      <div class="bos-carousel-viewport" id="bosCarViewport">
+        <div class="bos-carousel-track" id="bosCarTrack"><div style="color:#5a7a9a;font-size:13px;padding:20px;">Loading…</div></div>
+      </div>
+      <div class="bos-dots" id="bosDots"></div>
     </div>
-  </div></div></div>
+  </div></div>
 
   <div class="grid-stack-item" gs-id="uhub-rss" gs-x="0" gs-y="32" gs-w="5" gs-h="10" gs-min-h="3">
   <div class="grid-stack-item-content"><div class="card">
@@ -1090,7 +1123,7 @@ async function loadData(){
     d=await r.json();
   }catch(e){
     document.getElementById('upd-ts').textContent='ERROR — run GitHub Action';
-    ['news-boston','news-revere','news-comm','news-sports','news-bc','news-national'].forEach(id=>{
+    ['news-revere','news-comm','news-sports','news-bc','news-national'].forEach(id=>{
       const el=document.getElementById(id);if(el)el.innerHTML='<div class="empty">data.json not loaded — run the GitHub Action</div>';
     });
     return;
@@ -1106,7 +1139,50 @@ async function loadData(){
   safeRender(()=>renderRevereTv(d.revere_tv),'reveretv');
   safeRender(()=>renderNews('news-revere',(d.news_revere||[]).slice(0,30)),'news-revere');
   safeRender(()=>renderNews('news-comm',(d.news_communities||[]).slice(0,150),true),'news-comm');
-  safeRender(()=>renderSubstack('news-boston',(d.news_boston||[]).slice(0,50)),'news-boston');
+  // ── BOSTON CAROUSEL ──
+  (function(){
+    const raw = (d.news_boston||[]);
+    const items = sortByDate(raw).slice(0,25);
+    const track = document.getElementById('bosCarTrack');
+    const viewport = document.getElementById('bosCarViewport');
+    const dotsEl = document.getElementById('bosDots');
+    if(!items.length){track.innerHTML='<div style="color:#5a7a9a;font-size:13px;padding:20px;">No items loaded</div>';return;}
+    track.innerHTML='';
+    dotsEl.innerHTML='';
+    items.forEach((item,i)=>{
+      const a=document.createElement('a');a.className='bos-card';a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
+      const raw2=item.summary||item.description||item.content||'';
+      const tmp=document.createElement('div');tmp.innerHTML=raw2;
+      const plain=(tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim();
+      a.innerHTML=`<div class="bc-src">${item.source||'Boston News'}</div><div class="bc-title">${item.title||''}</div>`
+        +(plain.length>20?`<div class="bc-snippet">${plain}</div>`:'')+`<div class="bc-time">${fmtDateTime(item.ts,item.published)}</div>`;
+      track.appendChild(a);
+      const dot=document.createElement('div');dot.className='bos-dot'+(i===0?' active':'');
+      dot.addEventListener('click',()=>bosGoTo(i,true));
+      dotsEl.appendChild(dot);
+    });
+    const CARD_W=260+10;
+    let cur=0,paused=false,timer=null;
+    function visN(){return Math.floor(viewport.offsetWidth/CARD_W)||1;}
+    function bosGoTo(idx,userAction){
+      if(userAction)bosPause();
+      cur=Math.max(0,Math.min(idx,items.length-visN()));
+      track.style.transform=`translateX(-${cur*CARD_W}px)`;
+      document.querySelectorAll('.bos-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+    }
+    function bosNext(u){const m=items.length-visN();bosGoTo(cur>=m?0:cur+1,u);}
+    function bosPrev(u){const m=items.length-visN();bosGoTo(cur<=0?m:cur-1,u);}
+    function bosPause(){paused=true;clearInterval(timer);const b=document.getElementById('bosCarPause');if(b)b.textContent='▶ resume';}
+    function bosResume(){paused=false;timer=setInterval(()=>bosNext(false),3800);const b=document.getElementById('bosCarPause');if(b)b.textContent='⏸ pause';}
+    const nb=document.getElementById('bosCarNext');if(nb)nb.addEventListener('click',()=>bosNext(true));
+    const pb=document.getElementById('bosCarPrev');if(pb)pb.addEventListener('click',()=>bosPrev(true));
+    const pauseB=document.getElementById('bosCarPause');if(pauseB)pauseB.addEventListener('click',()=>{paused?bosResume():bosPause();});
+    let dragStart=null;
+    viewport.addEventListener('mousedown',e=>{dragStart=e.clientX;});
+    viewport.addEventListener('mouseup',e=>{if(dragStart===null)return;const diff=dragStart-e.clientX;if(Math.abs(diff)>40){diff>0?bosNext(true):bosPrev(true);}dragStart=null;});
+    viewport.addEventListener('mouseleave',()=>{dragStart=null;});
+    bosResume();
+  })();
   safeRender(()=>renderNews('news-sports',(d.news_sports||[]).slice(0,30)),'news-sports');
   safeRender(()=>renderNews('news-bc',(d.news_bc||[]).slice(0,30)),'news-bc');
   safeRender(()=>renderNews('news-college-hockey',(d.news_college_hockey||[]).slice(0,40)),'college-hockey');
