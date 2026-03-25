@@ -27,6 +27,7 @@ const MONITOR_CONFIG = {
   // Get embed URL: calendar.google.com → ⋮ next to calendar →
   // Settings and sharing → Integrate calendar → Embed code (copy the src URL)
   GOOGLE_CALENDAR_EMBED_URL: "",
+  TOMTOM_KEY: "91235817-0be7-4b45-bf1e-f3726319a124",
 
   // ── REVERE TV YOUTUBE CHANNEL ID ─────────────────────────────
   REVERE_TV_CHANNEL_ID: "UCq-Ej7V3_v7NuGUVRnqv8Aw",
