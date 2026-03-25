@@ -552,45 +552,15 @@ def main():
         if item.get("source") in ("Everett", "Advocate") and item.get("ts", 0) == 0:
             print(f"    ⚠ ts=0: [{item['source']}] {item.get('title','')[:60]} | pub: {item.get('published','(none)')[:40]}")
 
-    # Boston — try multiple URLs per source, use Google News as fallback for Globe
-    boston_sources = [
-        # Boston Globe — try direct RSS first, then Google News search as fallback
-        ("https://www.bostonglobe.com/rss/homepage",           "Boston Globe"),
-        ("https://news.google.com/rss/search?q=site:bostonglobe.com&hl=en-US&gl=US&ceid=US:en", "Boston Globe"),
-        # Google News Boston topic page — broad Boston news aggregation
-        ("https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNREZqZUY4U0FtVnVLQUFQAQ?hl=en-US&gl=US&ceid=US%3Aen&output=rss", "Google News Boston"),
-        # Boston Herald
-        ("https://bostonherald.com/feed/",                     "Boston Herald"),
-        # WBUR
-        ("https://feeds.wbur.org/wburnews",                    "WBUR"),
-        ("https://www.wbur.org/rss/news",                      "WBUR"),
-        # WGBH / GBH
-        ("https://www.wgbh.org/news/rss",                      "GBH News"),
-        # WBZ CBS Boston
-        ("https://www.cbsnews.com/boston/rss/",                "WBZ/CBS Boston"),
-        # Other Boston TV
-        ("https://www.wcvb.com/rss",                           "WCVB"),
-        ("https://www.nbcboston.com/feed/",                    "NBC Boston"),
-        ("https://whdh.com/feed/",                             "WHDH 7News"),
-        # Digital/print
-        ("https://www.masslive.com/arc/outboundfeeds/rss/?outputType=xml", "MassLive"),
-        ("https://www.bostonmagazine.com/feed/",               "Boston Magazine"),
-    ]
-
-    data["news_boston"] = []
-    seen_urls = set()
-    source_counts = {}
-    for url, label in boston_sources:
-        if source_counts.get(label, 0) >= 6:
-            continue
-        items = safe(lambda u=url: fetch_feed(u, 8), label) or []
-        for item in items:
-            link = item.get("link","")
-            if link and link not in seen_urls:
-                seen_urls.add(link)
-                item["source"] = label
-                data["news_boston"].append(item)
-                source_counts[label] = source_counts.get(label, 0) + 1
+    # Boston — combined RSS feed
+    boston_items = safe(lambda: fetch_feed(
+        'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6FBjAbgI3SwHsBbRCIuCgJwEsBTWAWmtlhABpwo4lUwAJmEKlEAM3r0BiTtxgJkaFOgB2eLHiKwKKkWQD8rWAF4AnrMjy+S9Ju1FdxMhKkyul3snoBDbXZ16bnKeqBgoeACu1OhE1ADmiCr0KOzuPAqhyihxeMKxCUkpIAC6QA',
+        50
+    ), "Boston News combined") or []
+    for i in boston_items:
+        i["source"] = i.get("feed_title") or i.get("author") or "Boston News"
+    data["news_boston"] = boston_items
+    print(f"  → Boston News: {len(boston_items)} items")
 
     # Universal Hub — try multiple feed approaches with proper headers
     uhub = []
