@@ -394,6 +394,58 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
 .g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;}
 
+/* ── BC SCHEDULE ────────────────────────── */
+.bc-game {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.bc-game:last-child { border-bottom: none; }
+.bc-game:hover { background: rgba(255,255,255,.03); }
+.bc-sport-badge {
+  font-size: 16px;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+}
+.bc-game-info { flex: 1; min-width: 0; }
+.bc-matchup {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bc-meta {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin-top: 2px;
+}
+.bc-result {
+  font-family: var(--cond);
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+  min-width: 48px;
+  text-align: right;
+}
+.bc-result.win  { color: var(--green); }
+.bc-result.loss { color: var(--red); }
+.bc-result.upcoming { color: var(--accent); font-size: 13px; font-family: var(--mono); }
+.bc-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  flex-shrink: 0;
+  min-width: 70px;
+  text-align: right;
+}
+
 /* ── MISC ───────────────────────────────── */
 .empty{color:var(--text-mute);font-size:13px;padding:20px;text-align:center;}
 ::-webkit-scrollbar{width:5px;}
@@ -608,8 +660,29 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
     </div>
   </div>
 
+  <!-- BC Eagles Schedule — full composite calendar iframe -->
+  <div class="grid-stack-item" gs-id="bc-schedule" gs-x="3" gs-y="11" gs-w="9" gs-h="10" gs-min-h="5">
+    <div class="grid-stack-item-content">
+      <div class="card">
+        <div class="ch acc">
+          <div class="ct">BC EAGLES SCHEDULE</div>
+          <div class="cb">BCEAGLES.COM · ALL SPORTS</div>
+          <a href="https://bceagles.com/calendar" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;margin-left:10px;">Open full site →</a>
+        </div>
+        <div class="cbody np" style="flex:1;min-height:0;display:flex;flex-direction:column;">
+          <iframe
+            src="https://bceagles.com/calendar"
+            style="width:100%;flex:1;border:none;display:block;min-height:0;"
+            title="BC Eagles Composite Calendar"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Boston News -->
-  <div class="grid-stack-item" gs-id="boston-news" gs-x="3" gs-y="11" gs-w="4" gs-h="9" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="boston-news" gs-x="3" gs-y="19" gs-w="4" gs-h="9" gs-min-h="4">
     <div class="grid-stack-item-content">
       <div class="card">
         <div class="ch acc"><div class="ct">BOSTON NEWS</div><div class="cb">GLOBE · HERALD · GBH · WBUR · MORE</div></div>
@@ -743,6 +816,28 @@ a.yt-item:hover .yt-thumb{border-color:var(--accent);}
         <div class="ch acc"><div class="ct">NATIONAL HEADLINES</div><div class="cb">NPR · NYT · CNN · BBC · AP · HILL · WAPO</div></div>
         <div class="cbody npx" style="flex:1;overflow-y:auto;min-height:0;">
           <div class="news-feed" id="news-national"><div class="empty">Loading…</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BC Eagles Schedule -->
+  <div class="grid-stack-item" gs-id="bc-schedule" gs-x="3" gs-y="67" gs-w="9" gs-h="10" gs-min-h="4">
+    <div class="grid-stack-item-content">
+      <div class="card">
+        <div class="ch acc">
+          <div class="ct">🦅 BC EAGLES SCHEDULE</div>
+          <div class="cb">RESULTS &amp; UPCOMING GAMES</div>
+          <a href="https://bceagles.com/calendar" target="_blank" rel="noopener" style="font-size:10px;color:var(--accent);text-decoration:none;margin-left:10px;">Full calendar →</a>
+        </div>
+        <div class="cbody np" style="flex:1;min-height:0;display:flex;flex-direction:column;">
+          <!-- Tabs -->
+          <div style="display:flex;background:var(--bg3);border-bottom:1px solid var(--border);">
+            <button class="bc-tab active" data-tab="upcoming" onclick="switchBcTab('upcoming')" style="flex:1;padding:8px;background:none;border:none;border-bottom:2px solid var(--accent);color:var(--white);font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;">UPCOMING</button>
+            <button class="bc-tab" data-tab="results" onclick="switchBcTab('results')" style="flex:1;padding:8px;background:none;border:none;border-bottom:2px solid transparent;color:var(--text-dim);font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:2px;cursor:pointer;">RESULTS</button>
+          </div>
+          <div id="bc-upcoming" style="flex:1;overflow-y:auto;min-height:0;"><div class="empty">Loading…</div></div>
+          <div id="bc-results" style="flex:1;overflow-y:auto;min-height:0;display:none;"><div class="empty">Loading…</div></div>
         </div>
       </div>
     </div>
@@ -1245,6 +1340,72 @@ async function fetchReddit(sub, id){
   }
 }
 
+// ── BC EAGLES SCHEDULE ────────────────────────────────────────────
+function switchBcTab(tab) {
+  document.getElementById('bc-upcoming').style.display = tab === 'upcoming' ? 'block' : 'none';
+  document.getElementById('bc-results').style.display  = tab === 'results'  ? 'block' : 'none';
+  document.querySelectorAll('.bc-tab').forEach(btn => {
+    const isActive = btn.dataset.tab === tab;
+    btn.style.borderBottomColor = isActive ? 'var(--accent)' : 'transparent';
+    btn.style.color = isActive ? 'var(--white)' : 'var(--text-dim)';
+  });
+}
+
+function renderBcSchedule(data) {
+  if (!data) return;
+  renderBcGames('bc-upcoming', data.upcoming || [], false);
+  renderBcGames('bc-results',  data.recent   || [], true);
+}
+
+function renderBcGames(containerId, games, isResults) {
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  if (!games.length) {
+    c.innerHTML = `<div class="empty">${isResults ? 'No recent results' : 'No upcoming games found'}</div>`;
+    return;
+  }
+  c.innerHTML = '';
+  games.forEach(g => {
+    const div = document.createElement('div');
+    div.className = 'bc-game';
+
+    // Parse result for W/L
+    let resultHtml = '';
+    if (isResults && g.result) {
+      const r = g.result.trim();
+      const isWin  = /^W\b/i.test(r);
+      const isLoss = /^L\b/i.test(r);
+      const cls = isWin ? 'win' : isLoss ? 'loss' : '';
+      resultHtml = `<div class="bc-result ${cls}">${r}</div>`;
+    } else if (!isResults) {
+      resultHtml = `<div class="bc-result upcoming">${g.date_display || ''}</div>`;
+    }
+
+    // Format date for meta line
+    let dateDisplay = '';
+    if (g.ts) {
+      const d = new Date(g.ts * 1000);
+      dateDisplay = d.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric'});
+      if (!isResults) {
+        // Add time if we have it
+        const t = d.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit', hour12:true});
+        if (t !== '12:00 AM') dateDisplay += ' · ' + t;
+      }
+    }
+
+    div.innerHTML = `
+      <div class="bc-sport-badge">${g.emoji || '🦅'}</div>
+      <div class="bc-game-info">
+        <div class="bc-matchup">${g.home_away || 'vs'} ${g.opponent || 'TBD'}</div>
+        <div class="bc-meta">${g.sport}${g.location ? ' · ' + g.location : ''}${isResults && dateDisplay ? ' · ' + dateDisplay : ''}</div>
+      </div>
+      ${resultHtml}
+      ${!isResults ? `<div class="bc-date">${dateDisplay}</div>` : ''}
+    `;
+    c.appendChild(div);
+  });
+}
+
 // ── STOCKS ──────────────────────────────────────────────────────
 function renderStocks(stocks){
   const grid=document.getElementById('stock-grid');
@@ -1309,6 +1470,7 @@ async function loadData(){
   safeRender(()=>renderTicker(d.mbta_alerts),               'mbta');
   safeRender(()=>renderRevereTv(d.revere_tv),               'reveretv');
 
+  safeRender(()=>renderBcSchedule(d.bc_schedule),           'bc-schedule');
   safeRender(()=>renderNews('news-revere',   (d.news_revere||[]).slice(0,30)),          'news-revere');
   safeRender(()=>renderNews('news-comm',     (d.news_communities||[]).slice(0,30),true),'news-comm');
   safeRender(()=>renderNews('news-boston',   (d.news_boston||[]).slice(0,30)),          'news-boston');
@@ -1422,7 +1584,7 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
 // ── INIT ──────────────────────────────────────────────────────────
 loadData();
 
-// Reddit — map subreddit name to element ID explicitly so there's no mismatch
+// Reddit — stagger requests to avoid rate limiting
 const redditFeeds = [
   {sub:'boston',        id:'r-boston'},
   {sub:'massachusetts', id:'r-mass'},
@@ -1432,7 +1594,9 @@ const redditFeeds = [
   {sub:'bostonbruins',  id:'r-bruins'},
   {sub:'urbanplanning', id:'r-urban'},
 ];
-redditFeeds.forEach(({sub,id})=>fetchReddit(sub,id));
+redditFeeds.forEach(({sub, id}, i) => {
+  setTimeout(() => fetchReddit(sub, id), i * 800);
+});
 
 setTimeout(()=>location.reload(),30*60*1000);
 </script>
