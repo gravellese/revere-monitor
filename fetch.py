@@ -506,27 +506,39 @@ def main():
     seen_comm = set()
     comm_counts = {}
 
+    # Collect all items per town first
+    town_buckets = {}
     for name, url, n in comm_rss:
         items = safe(lambda u=url, c=n: fetch_feed(u, c), f"Comm/{name}") or []
-        added = 0
+        comm_counts[f"{name}|{url[:50]}"] = len(items)
         for item in items:
             link = item.get("link", "")
-            if link and link not in seen_comm:
-                seen_comm.add(link)
-                item["source"] = name
-                data["news_communities"].append(item)
-                added += 1
-        comm_counts[f"{name}|{url[:50]}"] = (len(items), added)
+            if not link or link in seen_comm:
+                continue
+            seen_comm.add(link)
+            item["source"] = name
+            town_buckets.setdefault(name, []).append(item)
+
+    # Round-robin interleave — take 1 item per town at a time so no town dominates
+    # Cap each town at 12 items max to keep diversity
+    for bucket in town_buckets.values():
+        bucket[:] = bucket[:12]
+
+    while any(town_buckets.values()):
+        for name in list(town_buckets.keys()):
+            if town_buckets[name]:
+                data["news_communities"].append(town_buckets[name].pop(0))
 
     print(f"  → Communities total: {len(data['news_communities'])} unique items")
-    for key, (fetched, added) in comm_counts.items():
+    town_totals = {}
+    for item in data["news_communities"]:
+        town_totals[item.get("source","?")] = town_totals.get(item.get("source","?"), 0) + 1
+    for town, count in sorted(town_totals.items()):
+        print(f"    {town}: {count}")
+    for key, fetched in comm_counts.items():
         label, url_snip = key.split("|")
         if fetched == 0:
             print(f"    ✗ {label}: 0 fetched — {url_snip}")
-        elif added == 0:
-            print(f"    ~ {label}: {fetched} fetched, 0 added (all dupes) — {url_snip}")
-        else:
-            print(f"    ✓ {label}: {fetched} fetched, {added} added")
 
     # Boston — try multiple URLs per source, use Google News as fallback for Globe
     boston_sources = [
