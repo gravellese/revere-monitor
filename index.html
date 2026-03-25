@@ -992,6 +992,7 @@ a.big-btn:hover{opacity:.85;}
         </div>
       </div>
       <div class="mbta-stops-grid" id="mbtaArrGrid"></div>
+      <div id="bmnt-debug" style="font-size:10px;color:#3a5a52;padding:3px 10px;font-family:monospace;"></div>
     </div>
   </div></div>
 
@@ -1223,6 +1224,13 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
       const data=await r.json();
       const hs={},rn={};
       (data.included||[]).forEach(i=>{if(i.type==='trip')hs[i.id]=i.attributes.headsign;if(i.type==='route')rn[i.id]=i.attributes.short_name||i.id;});
+      // Debug Beachmont
+      if(stopId==='place-bmnt'){
+        const raw=data.data||[];
+        const dbg=raw.slice(0,3).map(p=>`arr=${p.attributes.arrival_time||'null'} dep=${p.attributes.departure_time||'null'} route=${p.relationships?.route?.data?.id||'?'}`);
+        const el=document.getElementById('bmnt-debug');
+        if(el)el.textContent=`raw:${raw.length} | `+dbg.join(' | ');
+      }
       let preds=(data.data||[]).map(p=>({
         // use whichever time exists — arrival preferred, departure as fallback
         arrival:p.attributes.arrival_time||p.attributes.departure_time,
