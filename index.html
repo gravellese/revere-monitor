@@ -1974,11 +1974,14 @@ window.MONITOR_CONFIG = window.MONITOR_CONFIG || {};
           trafficOn=!trafficOn;
           if(trafficOn){
             // Build layer on first click so MONITOR_CONFIG is definitely loaded
-            const key=window.MONITOR_CONFIG&&window.MONITOR_CONFIG.TOMTOM_KEY;
+            // config.js uses const so it may not be on window — try both
+            const cfg=window.MONITOR_CONFIG||(typeof MONITOR_CONFIG!=='undefined'?MONITOR_CONFIG:null);
+            const key=cfg&&cfg.TOMTOM_KEY;
             if(!key){
               btn.innerHTML='🚦 No Key';
               btn.style.color='#888';
               trafficOn=false;
+              console.warn('TOMTOM_KEY not found. MONITOR_CONFIG=',cfg);
               return;
             }
             if(!trafficLayer){
