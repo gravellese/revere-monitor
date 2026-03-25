@@ -51,19 +51,52 @@ def fetch_weather_daily():
     r = requests.get("https://api.weather.gov/gridpoints/BOX/68,89/forecast",
                      timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
     periods = r.json()["properties"]["periods"]
-    days, i = [], 0
-    while i < len(periods) and len(days) < 5:
-        d = periods[i]
-        n = periods[i+1] if i+1 < len(periods) else None
+
+    # Build a dict of date -> {day_period, night_period}
+    from collections import defaultdict
+    by_date = defaultdict(dict)
+    for p in periods:
+        date = p["startTime"][:10]  # YYYY-MM-DD
+        if p["isDaytime"]:
+            by_date[date]["day"] = p
+        else:
+            by_date[date]["night"] = p
+
+    days = []
+    for date in sorted(by_date.keys()):
+        entry = by_date[date]
+        day_p   = entry.get("day")
+        night_p = entry.get("night")
+
+        # Need at least a day or night period
+        if not day_p and not night_p:
+            continue
+
+        # Use daytime period for name/forecast; fall back to night if no daytime
+        primary = day_p or night_p
+        name = primary["name"]
+
+        # High = daytime temp, Low = nighttime temp
+        high = day_p["temperature"] if day_p else None
+        low  = night_p["temperature"] if night_p else None
+
+        # If we only have tonight (no daytime), skip — it's a partial day
+        if not day_p and low is not None:
+            continue
+
         days.append({
-            "name": d["name"], "date": d["startTime"],
-            "high": d["temperature"] if d["isDaytime"] else None,
-            "low": n["temperature"] if n else None,
-            "shortForecast": d["shortForecast"],
-            "detailedForecast": d.get("detailedForecast",""),
-            "precip": d.get("probabilityOfPrecipitation",{}).get("value",0) or 0,
+            "name":             name,
+            "date":             primary["startTime"],
+            "high":             high,
+            "low":              low,
+            "shortForecast":    (day_p or night_p)["shortForecast"],
+            "detailedForecast": (day_p or night_p).get("detailedForecast",""),
+            "precip":           (day_p or night_p).get("probabilityOfPrecipitation",{}).get("value",0) or 0,
         })
-        i += 2
+
+        if len(days) == 5:
+            break
+
     return days
 
 # ── SUNRISE / SUNSET ─────────────────────────────────
