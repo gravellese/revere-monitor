@@ -395,7 +395,6 @@ a.big-btn:hover{opacity:.85;}
 .bos-dot.active{background:#00ddb8;}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
-<script src="config.js"></script>
 </head>
 <body>
 
@@ -1877,6 +1876,11 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
 setTimeout(()=>location.reload(),30*60*1000);
 </script>
 
+<script>
+// Safe config loader — won't break map if config.js fails
+window.MONITOR_CONFIG = window.MONITOR_CONFIG || {};
+</script>
+<script src="config.js" onerror="console.warn('config.js not found')"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 (function(){
