@@ -462,22 +462,25 @@ a.big-btn:hover{opacity:.85;}
 <!-- NYT NEWS TICKER -->
 <div style="background:#111;border-bottom:2px solid #1a1a1a;display:flex;align-items:stretch;">
   <div style="background:#cc0000;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #aa0000;">NYT</div>
-  <div id="nytViewport" style="overflow:hidden;padding:8px 12px;flex:1;position:relative;cursor:grab;">
+  <div id="nytViewport" style="overflow:hidden;padding:8px 12px;flex:1;position:relative;">
     <div id="nytTrack" style="display:inline-flex;gap:10px;will-change:transform;">
       <div style="color:#555;font-size:13px;padding:10px;">Loading NYT headlines…</div>
     </div>
   </div>
-  <div style="display:flex;align-items:center;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
+  <div style="display:flex;align-items:center;gap:5px;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
+    <button id="nytPrev" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8249;</button>
     <button id="nytPauseBtn" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
+    <button id="nytNext" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8250;</button>
   </div>
 </div>
 <script>
 (function(){
-  
+
   const CARD_W = 280 + 10;
-  let autoPaused=false,dragPaused=false,offset=0,halfW=0,lastT=null,raf=null;
+  let autoPaused=false,btnPaused=false,offset=0,halfW=0,lastT=null,raf=null;
   const PPS=65;
-  function isPaused(){return autoPaused||dragPaused;}
+  let resumeTimer=null;
+  function isPaused(){return autoPaused||btnPaused;}
 
   function buildCards(items,track,cardStyle,hoverColor){
     track.innerHTML='';
@@ -485,8 +488,8 @@ a.big-btn:hover{opacity:.85;}
       const a=document.createElement('a');
       a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
       a.style.cssText=cardStyle+'user-select:none;';
-      a.onmouseover=()=>a.style.borderColor=hoverColor;
-      a.onmouseout=()=>a.style.borderColor=a.dataset.bc;
+      a.onmouseover=()=>{a.style.borderColor=hoverColor;};
+      a.onmouseout=()=>{a.style.borderColor=a.dataset.bc;};
       a.dataset.bc=a.style.borderColor;
       const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
       a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
@@ -511,23 +514,16 @@ a.big-btn:hover{opacity:.85;}
     raf=requestAnimationFrame(tick);
   }
 
-  function attachDrag(viewport,track){
-    let dX=null,dO=null;
-    function start(cx){dX=cx;dO=offset;dragPaused=true;viewport.style.cursor='grabbing';}
-    function move(cx){
-      if(dX===null)return;
-      offset=dO+(dX-cx);
-      if(offset>=halfW)offset-=halfW;
-      if(offset<0)offset+=halfW;
-      track.style.transform=`translateX(-${offset}px)`;
-    }
-    function end(){if(dX===null)return;dX=null;viewport.style.cursor='grab';setTimeout(()=>{dragPaused=false;lastT=null;},300);}
-    viewport.addEventListener('mousedown',e=>{e.preventDefault();start(e.clientX);});
-    window.addEventListener('mousemove',e=>move(e.clientX));
-    window.addEventListener('mouseup',end);
-    viewport.addEventListener('touchstart',e=>start(e.touches[0].clientX),{passive:true});
-    viewport.addEventListener('touchmove',e=>move(e.touches[0].clientX),{passive:true});
-    viewport.addEventListener('touchend',end);
+  function nudge(track,dir){
+    btnPaused=true;
+    if(resumeTimer)clearTimeout(resumeTimer);
+    offset+=dir*(CARD_W*3);
+    if(offset>=halfW)offset-=halfW;
+    if(offset<0)offset+=halfW;
+    track.style.transition='transform .3s ease';
+    track.style.transform=`translateX(-${offset}px)`;
+    setTimeout(()=>{track.style.transition='';},320);
+    resumeTimer=setTimeout(()=>{btnPaused=false;lastT=null;},1500);
   }
 
   async function fetchRSS(url){
@@ -549,13 +545,15 @@ a.big-btn:hover{opacity:.85;}
   }
 
   const nytTrack=document.getElementById('nytTrack');
-  const nytVP=document.getElementById('nytViewport');
   const nytBtn=document.getElementById('nytPauseBtn');
-  attachDrag(nytVP,nytTrack);
+  const nytPrev=document.getElementById('nytPrev');
+  const nytNext=document.getElementById('nytNext');
   nytBtn.addEventListener('click',()=>{autoPaused=!autoPaused;nytBtn.textContent=autoPaused?'▶ resume':'⏸ pause';if(!autoPaused)lastT=null;});
+  nytPrev.addEventListener('click',()=>nudge(nytTrack,-1));
+  nytNext.addEventListener('click',()=>nudge(nytTrack,+1));
   fetchRSS('https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml').then(xml=>{
     if(!xml||!xml.includes('<item>')){nytTrack.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">NYT feed unavailable</div>';return;}
-    buildCards(parseItems(xml,20),nytTrack,'flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;cursor:grab;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#888');
+    buildCards(parseItems(xml,20),nytTrack,'flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#888');
   });
 })();
 </script>
@@ -563,22 +561,25 @@ a.big-btn:hover{opacity:.85;}
 <!-- BOSTON GLOBE CAROUSEL -->
 <div style="background:#111;border-bottom:2px solid #1a1a1a;display:flex;align-items:stretch;">
   <div style="background:#0d2b5e;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #0a2050;">GLOBE</div>
-  <div id="globeViewport" style="overflow:hidden;padding:8px 12px;flex:1;position:relative;cursor:grab;">
+  <div id="globeViewport" style="overflow:hidden;padding:8px 12px;flex:1;position:relative;">
     <div id="globeTrack" style="display:inline-flex;gap:10px;will-change:transform;">
       <div style="color:#555;font-size:13px;padding:10px;">Loading Globe headlines…</div>
     </div>
   </div>
-  <div style="display:flex;align-items:center;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
+  <div style="display:flex;align-items:center;gap:5px;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
+    <button id="globePrev" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8249;</button>
     <button id="globePauseBtn" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
+    <button id="globeNext" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8250;</button>
   </div>
 </div>
 <script>
 (function(){
-  
+
   const CARD_W = 280 + 10;
-  let autoPaused=false,dragPaused=false,offset=0,halfW=0,lastT=null,raf=null;
+  let autoPaused=false,btnPaused=false,offset=0,halfW=0,lastT=null,raf=null;
   const PPS=65;
-  function isPaused(){return autoPaused||dragPaused;}
+  let resumeTimer=null;
+  function isPaused(){return autoPaused||btnPaused;}
 
   function buildCards(items,track,cardStyle,hoverColor){
     track.innerHTML='';
@@ -586,8 +587,8 @@ a.big-btn:hover{opacity:.85;}
       const a=document.createElement('a');
       a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
       a.style.cssText=cardStyle+'user-select:none;';
-      a.onmouseover=()=>a.style.borderColor=hoverColor;
-      a.onmouseout=()=>a.style.borderColor=a.dataset.bc;
+      a.onmouseover=()=>{a.style.borderColor=hoverColor;};
+      a.onmouseout=()=>{a.style.borderColor=a.dataset.bc;};
       a.dataset.bc=a.style.borderColor;
       const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
       a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
@@ -612,23 +613,16 @@ a.big-btn:hover{opacity:.85;}
     raf=requestAnimationFrame(tick);
   }
 
-  function attachDrag(viewport,track){
-    let dX=null,dO=null;
-    function start(cx){dX=cx;dO=offset;dragPaused=true;viewport.style.cursor='grabbing';}
-    function move(cx){
-      if(dX===null)return;
-      offset=dO+(dX-cx);
-      if(offset>=halfW)offset-=halfW;
-      if(offset<0)offset+=halfW;
-      track.style.transform=`translateX(-${offset}px)`;
-    }
-    function end(){if(dX===null)return;dX=null;viewport.style.cursor='grab';setTimeout(()=>{dragPaused=false;lastT=null;},300);}
-    viewport.addEventListener('mousedown',e=>{e.preventDefault();start(e.clientX);});
-    window.addEventListener('mousemove',e=>move(e.clientX));
-    window.addEventListener('mouseup',end);
-    viewport.addEventListener('touchstart',e=>start(e.touches[0].clientX),{passive:true});
-    viewport.addEventListener('touchmove',e=>move(e.touches[0].clientX),{passive:true});
-    viewport.addEventListener('touchend',end);
+  function nudge(track,dir){
+    btnPaused=true;
+    if(resumeTimer)clearTimeout(resumeTimer);
+    offset+=dir*(CARD_W*3);
+    if(offset>=halfW)offset-=halfW;
+    if(offset<0)offset+=halfW;
+    track.style.transition='transform .3s ease';
+    track.style.transform=`translateX(-${offset}px)`;
+    setTimeout(()=>{track.style.transition='';},320);
+    resumeTimer=setTimeout(()=>{btnPaused=false;lastT=null;},1500);
   }
 
   async function fetchRSS(url){
@@ -650,13 +644,15 @@ a.big-btn:hover{opacity:.85;}
   }
 
   const globeTrack=document.getElementById('globeTrack');
-  const globeVP=document.getElementById('globeViewport');
   const globeBtn=document.getElementById('globePauseBtn');
-  attachDrag(globeVP,globeTrack);
+  const globePrev=document.getElementById('globePrev');
+  const globeNext=document.getElementById('globeNext');
   globeBtn.addEventListener('click',()=>{autoPaused=!autoPaused;globeBtn.textContent=autoPaused?'▶ resume':'⏸ pause';if(!autoPaused)lastT=null;});
+  globePrev.addEventListener('click',()=>nudge(globeTrack,-1));
+  globeNext.addEventListener('click',()=>nudge(globeTrack,+1));
   fetchRSS('https://rss.app/feeds/DDMnamv89Q9UnJ0D.xml').then(xml=>{
     if(!xml||!xml.includes('<item>')){globeTrack.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">Globe feed unavailable</div>';return;}
-    buildCards(parseItems(xml,20),globeTrack,'flex-shrink:0;width:280px;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;padding:10px 14px;cursor:grab;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#f5c518');
+    buildCards(parseItems(xml,20),globeTrack,'flex-shrink:0;width:280px;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;padding:10px 14px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#f5c518');
   });
 })();
 </script>
