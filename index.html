@@ -1683,15 +1683,25 @@ function renderCommGrid(items){
   const el=document.getElementById('news-comm');
   if(!el)return;
   if(!items||!items.length){el.innerHTML='<div class="empty" style="grid-column:1/-1;">No stories found</div>';return;}
-  const CC={'Chelsea':'#f5c518','East Boston':'#00ddb8','Lynn':'#ff8040','Winthrop':'#a78bfa','Saugus':'#f472b6','Malden':'#34d399','Everett':'#60a5fa','Medford':'#fb923c','Revere':'#00ddb8','North Shore':'#94a3b8','Advocate':'#e2e8f0'};
+  const CC={'Chelsea':'#f5c518','Chelsea City':'#f5c518','East Boston':'#00ddb8','Lynn':'#ff8040','Lynn City':'#ff8040','Winthrop':'#a78bfa','Saugus':'#f472b6','Malden':'#34d399','Malden City':'#34d399','Everett':'#60a5fa','Medford':'#fb923c','Revere':'#00ddb8','North Shore':'#94a3b8','Advocate':'#e2e8f0','Salem':'#c084fc','Somerville':'#4ade80','Cambridge':'#38bdf8'};
   el.innerHTML='';
-  items.slice(0,150).forEach(item=>{
-    const cc=CC[item.source]||'#6888b8';
+  // Sort newest first in case data.json isn't pre-sorted
+  const sorted=[...items].sort((a,b)=>(b.ts||0)-(a.ts||0));
+  sorted.slice(0,150).forEach(item=>{
+    const src=item.source||'';
+    // Normalize community label (strip "City" suffix for display)
+    const comm=src.replace(' City','');
+    const cc=CC[src]||CC[comm]||'#6888b8';
     const t=item.ts?fmtDateTime(item.ts*1000,new Date(item.ts*1000).toString()):'';
     const a=document.createElement('a');
     a.className='comm-card';
     a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
-    a.innerHTML=`<div class="comm-card-top"><span class="comm-card-src">${item.source||''}</span><span class="comm-card-tag" style="color:${cc};">${item.source||''}</span></div><div class="comm-card-title">${item.title||''}</div>${t?`<div class="comm-card-date">${t}</div>`:''}`;
+    a.innerHTML=`
+      <div class="comm-card-top">
+        <span class="comm-card-tag" style="color:${cc};">${comm}</span>
+        <span class="comm-card-date" style="margin-top:0;">${t}</span>
+      </div>
+      <div class="comm-card-title">${item.title||''}</div>`;
     el.appendChild(a);
   });
 }

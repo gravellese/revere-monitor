@@ -542,6 +542,8 @@ def main():
             item["source"] = name
             data["news_communities"].append(item)
 
+    # Sort by timestamp descending so newest stories appear first
+    data["news_communities"].sort(key=lambda x: x.get("ts", 0), reverse=True)
     print(f"  → Communities total: {len(data['news_communities'])} unique items")
     for key, fetched in comm_counts.items():
         label, url_snip = key.split("|")
