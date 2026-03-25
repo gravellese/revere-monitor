@@ -677,6 +677,14 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
+  <div class="grid-stack-item" gs-id="substack-feed" gs-x="0" gs-y="96" gs-w="6" gs-h="10" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">SUBSTACK READING LIST</div><div class="cb">COMBINED SUBSCRIPTIONS</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-substack"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
 </div><!-- /gs-grid -->
 
 <div id="page" style="display:none;"><div id="col-left"></div><div id="col-right"></div></div>
@@ -1062,6 +1070,7 @@ async function loadData(){
   safeRender(()=>renderNews('news-bc-hockey',(d.news_bc_hockey||[]).slice(0,20)),'bc-hockey');
   safeRender(()=>renderNews('news-hockey-east',(d.news_hockey_east||[]).slice(0,20)),'hockey-east');
   safeRender(()=>renderNews('news-national',(d.news_national||[]).slice(0,50)),'news-national');
+  safeRender(()=>renderNews('news-substack',(d.news_substack||[]).slice(0,50)),'news-substack');
   // Logan Airport news from data.json
   safeRender(()=>renderNews('news-logan',(d.news_logan||[]).slice(0,15)),'news-logan');
 }
