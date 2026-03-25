@@ -1584,12 +1584,12 @@ loadData();
 // Reddit — stagger requests to avoid rate limiting
 const redditFeeds = [
   {sub:'boston',        id:'r-boston'},
-  {sub:'massachusetts', id:'r-mass'},
+  {sub:'massachusetts', id:'r-massachusetts'},
   {sub:'mbta',          id:'r-mbta'},
   {sub:'NASCAR',        id:'r-nascar'},
-  {sub:'neoliberal',    id:'r-neo'},
-  {sub:'bostonbruins',  id:'r-bruins'},
-  {sub:'urbanplanning', id:'r-urban'},
+  {sub:'neoliberal',    id:'r-neoliberal'},
+  {sub:'bostonbruins',  id:'r-bostonbruins'},
+  {sub:'urbanplanning', id:'r-urbanplanning'},
 ];
 redditFeeds.forEach(({sub, id}, i) => {
   setTimeout(() => fetchReddit(sub, id), i * 800);
