@@ -625,14 +625,15 @@ def main():
                 item["source"] = label
                 data["news_bc"].append(item)
 
-    # College Hockey News
+    # College Hockey News — confirmed working feed URLs
     college_hockey_sources = [
-        ("https://www.uscho.com/feed/",                    "USCHO"),
-        ("https://www.collegehockeynews.com/feed/",        "CHN"),
-        ("https://www.collegehockeyinsider.com/feed/",     "CHI"),
-        ("https://bchockeyblog.substack.com/feed",         "BC Hockey Blog"),
-        # Google News fallback for any that block direct RSS
-        ("https://news.google.com/rss/search?q=college+hockey&hl=en-US&gl=US&ceid=US:en", "Google News CHockey"),
+        ("https://www.uscho.com/feed",                                   "USCHO"),
+        ("https://www.collegehockeynews.com/news/xml/newsfeed.xml",      "CHN"),
+        ("https://www.collegehockeyinsider.com/feed",                    "CHI"),
+        ("https://bchockeyblog.substack.com/feed",                       "BC Hockey Blog"),
+        # Google News as supplemental coverage
+        ("https://news.google.com/rss/search?q=%22college+hockey%22&hl=en-US&gl=US&ceid=US:en", "Google News · College Hockey"),
+        ("https://news.google.com/rss/search?q=%22BC+hockey%22+OR+%22Boston+College+hockey%22&hl=en-US&gl=US&ceid=US:en", "Google News · BC Hockey"),
     ]
     data["news_college_hockey"] = []
     seen_chockey = set()
