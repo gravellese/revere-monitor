@@ -402,53 +402,62 @@ def main():
     for i in revere_fetchrss: i["source"] = "Revere Feed"
     data["news_revere"] = revere_official + revere_journal + revere_gnews + revere_fetchrss
 
-    # Communities — local RSS feeds + Google News for each town as fallback
-    # Each town gets its local paper (if one exists) plus a Google News search
-    comm_rss = {
-        "Chelsea":      "https://chelsearecord.com/feed/",
-        "East Boston":  "https://eastietimes.com/feed/",
-        "Lynn":         "https://www.itemlive.com/feed/",
-        "Winthrop":     "https://winthroptranscript.com/feed/",
-        "Saugus":       "https://saugusadvocate.com/feed/",
-        "Everett":      "https://everettindependent.com/feed/",
-        "Swampscott":   "https://swampscottreporter.com/feed/",
-        "Marblehead":   "https://marbleheadreporter.com/feed/",
-        "Peabody":      "https://peabodytimes.com/feed/",
-        "Salem":        "https://www.salemnews.com/rss/",
-        "Malden":       "https://maldenobserver.com/feed/",
-        "Melrose":      "https://melrosefreepress.com/feed/",
-    }
-    # Google News search per town — reliable fallback when local paper RSS is down
-    comm_gnews_towns = [
-        "Chelsea MA", "East Boston MA", "Lynn MA", "Winthrop MA",
-        "Saugus MA", "Everett MA", "Swampscott MA", "Marblehead MA",
-        "Peabody MA", "Salem MA", "Malden MA", "Melrose MA",
+    # Communities — local RSS + Google News per town
+    # Each town gets multiple attempts: direct RSS + targeted Google News searches
+    comm_rss = [
+        # Chelsea
+        ("Chelsea",     "https://chelsearecord.com/feed/"),
+        ("Chelsea",     "https://news.google.com/rss/search?q=%22Chelsea%22+MA+city+news&hl=en-US&gl=US&ceid=US:en"),
+        # East Boston
+        ("East Boston", "https://eastietimes.com/feed/"),
+        ("East Boston", "https://news.google.com/rss/search?q=%22East+Boston%22+MA&hl=en-US&gl=US&ceid=US:en"),
+        # Lynn
+        ("Lynn",        "https://www.itemlive.com/feed/"),
+        ("Lynn",        "https://news.google.com/rss/search?q=%22Lynn+MA%22+OR+%22city+of+Lynn%22+Massachusetts&hl=en-US&gl=US&ceid=US:en"),
+        # Winthrop
+        ("Winthrop",    "https://winthroptranscript.com/feed/"),
+        ("Winthrop",    "https://news.google.com/rss/search?q=%22Winthrop+MA%22+OR+%22Winthrop+Massachusetts%22&hl=en-US&gl=US&ceid=US:en"),
+        # Saugus
+        ("Saugus",      "https://saugusadvocate.com/feed/"),
+        ("Saugus",      "https://news.google.com/rss/search?q=%22Saugus+MA%22+OR+%22Saugus+Massachusetts%22&hl=en-US&gl=US&ceid=US:en"),
+        # Everett
+        ("Everett",     "https://everettindependent.com/feed/"),
+        ("Everett",     "https://news.google.com/rss/search?q=%22Everett+MA%22+OR+%22city+of+Everett%22+Massachusetts&hl=en-US&gl=US&ceid=US:en"),
+        # Swampscott
+        ("Swampscott",  "https://swampscottreporter.com/feed/"),
+        ("Swampscott",  "https://news.google.com/rss/search?q=%22Swampscott%22+Massachusetts&hl=en-US&gl=US&ceid=US:en"),
+        # Marblehead
+        ("Marblehead",  "https://marbleheadreporter.com/feed/"),
+        ("Marblehead",  "https://news.google.com/rss/search?q=%22Marblehead%22+Massachusetts&hl=en-US&gl=US&ceid=US:en"),
+        # Peabody — try multiple RSS URLs, site rarely has working feed
+        ("Peabody",     "https://www.salemnews.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k%5B%5D=Peabody"),
+        ("Peabody",     "https://peabodytimes.com/feed/"),
+        ("Peabody",     "https://news.google.com/rss/search?q=%22Peabody+MA%22+OR+%22city+of+Peabody%22+Massachusetts&hl=en-US&gl=US&ceid=US:en"),
+        # Salem — Salem News is the paper of record
+        ("Salem",       "https://www.salemnews.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc"),
+        ("Salem",       "https://www.salemnews.com/rss/"),
+        ("Salem",       "https://news.google.com/rss/search?q=%22Salem+MA%22+OR+%22Salem+Massachusetts%22+city&hl=en-US&gl=US&ceid=US:en"),
+        # Malden
+        ("Malden",      "https://maldenobserver.com/feed/"),
+        ("Malden",      "https://news.google.com/rss/search?q=%22Malden+MA%22+OR+%22city+of+Malden%22+Massachusetts&hl=en-US&gl=US&ceid=US:en"),
+        # Melrose
+        ("Melrose",     "https://melrosefreepress.com/feed/"),
+        ("Melrose",     "https://news.google.com/rss/search?q=%22Melrose+MA%22+OR+%22Melrose+Massachusetts%22&hl=en-US&gl=US&ceid=US:en"),
+        # Broad North Shore / regional
+        ("North Shore", "https://news.google.com/rss/search?q=%22North+Shore%22+Massachusetts+news&hl=en-US&gl=US&ceid=US:en"),
+        ("Revere Area", "https://news.google.com/rss/search?q=Revere+OR+Winthrop+OR+%22East+Boston%22+OR+Chelsea+Massachusetts+news&hl=en-US&gl=US&ceid=US:en"),
     ]
 
     data["news_communities"] = []
     seen_comm = set()
 
-    # First pass: local RSS feeds
-    for name, url in comm_rss.items():
-        items = safe(lambda u=url: fetch_feed(u, 4), name) or []
+    for name, url in comm_rss:
+        items = safe(lambda u=url: fetch_feed(u, 8), f"Comm/{name}") or []
         for item in items:
-            link = item.get("link","")
+            link = item.get("link", "")
             if link and link not in seen_comm:
                 seen_comm.add(link)
                 item["source"] = name
-                data["news_communities"].append(item)
-
-    # Second pass: Google News per town (catches anything the local RSS missed)
-    for town in comm_gnews_towns:
-        q = town.replace(" ", "+")
-        gnews_url = f"https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
-        items = safe(lambda u=gnews_url: fetch_feed(u, 3), f"GNews {town}") or []
-        town_label = town.replace(" MA", "")
-        for item in items:
-            link = item.get("link","")
-            if link and link not in seen_comm:
-                seen_comm.add(link)
-                item["source"] = town_label
                 data["news_communities"].append(item)
 
     # Boston — try multiple URLs per source, use Google News as fallback for Globe
