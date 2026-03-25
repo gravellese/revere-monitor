@@ -71,9 +71,33 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 /* ── GRIDSTACK ── */
 .grid-stack{max-width:1900px;margin:0 auto;padding:10px 14px;background:transparent !important;}
 .grid-stack-item-content{overflow:hidden;border-radius:5px;background:transparent;}
-/* Drag by card header */
-.ch{cursor:grab;user-select:none;}
-.ch:active{cursor:grabbing;}
+/* Drag handle strip — thin bar at top of every grid item */
+.gs-handle {
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: grab;
+  user-select: none;
+  font-size: 10px;
+  color: var(--text-mute);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  border-radius: 5px 5px 0 0;
+}
+.gs-handle:active { cursor: grabbing; }
+.gs-handle-dots { font-size: 14px; color: var(--border2); letter-spacing: -2px; }
+/* Cards inside grid items — no double top border */
+.grid-stack-item-content > .gs-handle + .card { border-top: none; border-radius: 0 0 5px 5px; }
+.grid-stack-item-content > .gs-handle + .g2,
+.grid-stack-item-content > .gs-handle + .g3,
+.grid-stack-item-content > .gs-handle + .g4,
+.grid-stack-item-content > .gs-handle + .uhub-col { height: calc(100% - 24px); }
+/* Single-card items — .ch IS the handle, hide extra strip */
+.grid-stack-item-content > .card > .ch { cursor: grab; }
+.grid-stack-item-content > .card > .ch:active { cursor: grabbing; }
 /* Resize handle */
 .grid-stack-item>.ui-resizable-se{background:#1e4a80;width:14px;height:14px;right:2px;bottom:2px;border-radius:2px;opacity:.4;transition:opacity .2s;}
 .grid-stack-item:hover>.ui-resizable-se{opacity:1;}
@@ -453,7 +477,8 @@ a.big-btn:hover{opacity:.85;}
   <!-- Sun / Tides / Logan -->
   <div class="grid-stack-item" gs-id="sun-tides-logan" gs-x="3" gs-y="0" gs-w="9" gs-h="11" gs-min-h="5">
   <div class="grid-stack-item-content">
-    <div class="g3">
+    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> SUN / TIDES / LOGAN</div>
+  <div class="g3">
       <div class="card">
         <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
         <div class="cbody np">
@@ -487,6 +512,7 @@ a.big-btn:hover{opacity:.85;}
   <!-- Boston News + UHub -->
   <div class="grid-stack-item" gs-id="boston-uhub" gs-x="3" gs-y="11" gs-w="9" gs-h="10" gs-min-h="5">
   <div class="grid-stack-item-content">
+  <div class="gs-handle"><span class="gs-handle-dots">⠿</span> BOSTON NEWS + UNIVERSAL HUB</div>
   <div class="uhub-col" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;height:100%;">
     <div class="g2">
       <div class="card">
@@ -550,7 +576,8 @@ a.big-btn:hover{opacity:.85;}
   <!-- Revere + Communities -->
   <div class="grid-stack-item" gs-id="revere-comm" gs-x="3" gs-y="32" gs-w="9" gs-h="7" gs-min-h="4">
   <div class="grid-stack-item-content">
-    <div class="g2">
+    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> REVERE + COMMUNITIES</div>
+  <div class="g2">
       <div class="card">
         <div class="ch grn"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG · GOOGLE NEWS</div></div>
         <div class="cbody npx">
@@ -570,7 +597,8 @@ a.big-btn:hover{opacity:.85;}
   <!-- Reddit row 1 -->
   <div class="grid-stack-item" gs-id="reddit-row1" gs-x="3" gs-y="39" gs-w="9" gs-h="7" gs-min-h="4">
   <div class="grid-stack-item-content">
-    <div class="g3">
+    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> REDDIT — BOSTON · MASS · MBTA</div>
+  <div class="g3">
       <div class="card">
         <div class="ch red"><div class="ct">r/boston</div><div class="cb">HOT</div></div>
         <div class="cbody npx"><div class="scroll-box h-reddit" id="r-boston"><div class="empty">Loading…</div></div></div>
@@ -590,7 +618,8 @@ a.big-btn:hover{opacity:.85;}
   <!-- Reddit row 2 -->
   <div class="grid-stack-item" gs-id="reddit-row2" gs-x="3" gs-y="46" gs-w="9" gs-h="7" gs-min-h="4">
   <div class="grid-stack-item-content">
-    <div class="g4">
+    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> REDDIT — NASCAR · NEOLIBERAL · BRUINS · URBAN</div>
+  <div class="g4">
       <div class="card">
         <div class="ch red"><div class="ct">r/nascar</div><div class="cb">HOT</div></div>
         <div class="cbody npx"><div class="scroll-box h-reddit" id="r-nascar"><div class="empty">Loading…</div></div></div>
@@ -614,7 +643,8 @@ a.big-btn:hover{opacity:.85;}
   <!-- Sports + BC -->
   <div class="grid-stack-item" gs-id="sports-bc" gs-x="3" gs-y="53" gs-w="9" gs-h="7" gs-min-h="4">
   <div class="grid-stack-item-content">
-    <div class="g2">
+    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> SPORTS NEWS + BOSTON COLLEGE</div>
+  <div class="g2">
       <div class="card">
         <div class="ch ora"><div class="ct">SPORTS NEWS</div><div class="cb">GLOBE · ESPN · NESN · ATHLETIC · MORE</div></div>
         <div class="cbody npx">
@@ -947,7 +977,7 @@ const grid = GridStack.init({
   float: true,
   cellHeight: 60,
   column: 12,
-  handle: '.ch',           // drag by colored card header
+  handle: '.gs-handle, .grid-stack-item-content>.card>.ch', // drag strip OR card header
   resizable: { handles: 'se,s,e' },
   animate: false,
   margin: 7,
