@@ -278,6 +278,18 @@ a.big-btn:hover{opacity:.85;}
   <div id="mbta-alerts-list"></div>
 </div>
 
+<!-- NYT NEWS TICKER -->
+<div style="background:#1a1a1a;border-bottom:1px solid #444;padding:4px 16px;">
+  <rssapp-ticker id="Ee19beYjWSpTZIcR"></rssapp-ticker>
+  <script src="https://widget.rss.app/v1/ticker.js" type="text/javascript" async></script>
+</div>
+
+<!-- BOSTON GLOBE CAROUSEL -->
+<div style="background:#1e1e1e;border-bottom:2px solid var(--border);padding:8px 16px;">
+  <rssapp-carousel id="DDMnamv89Q9UnJ0D"></rssapp-carousel>
+  <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+</div>
+
 <!-- MAIN -->
 <div id="page">
 
@@ -397,10 +409,18 @@ a.big-btn:hover{opacity:.85;}
       <div class="card">
         <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA + METAR</div></div>
         <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
+        <div style="border-top:1px solid var(--border);padding:8px 14px 4px;">
+          <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">LOGAN AIRPORT NEWS</div>
+          <div class="news-feed scroll-box" style="max-height:180px;" id="news-logan"><div class="empty">Loading…</div></div>
+        </div>
+        <div style="border-top:1px solid var(--border);padding:8px 14px 4px;">
+          <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">r/aviation · HOT</div>
+          <div class="scroll-box" style="max-height:180px;" id="r-aviation"><div class="empty">Loading…</div></div>
+        </div>
       </div>
     </div>
 
-    <!-- Boston News + Universal Hub -->
+    <!-- Boston News + RSS Feed + UHub -->
     <div class="g2">
       <div class="card">
         <div class="ch acc"><div class="ct">BOSTON NEWS</div><div class="cb">GLOBE · HERALD · GBH · WBUR · MORE</div></div>
@@ -408,11 +428,22 @@ a.big-btn:hover{opacity:.85;}
           <div class="news-feed scroll-box h-news" id="news-boston"><div class="empty">Loading…</div></div>
         </div>
       </div>
-      <div class="card">
-        <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">BLUESKY · @universalhub.com</div></div>
-        <div class="cbody np" style="padding:8px;">
-          <script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
-          <bsky-embed username="universalhub.com" limit="15" mode="dark"></bsky-embed>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <!-- RSS.app list feed -->
+        <div class="card">
+          <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">LIVE FEED</div></div>
+          <div class="cbody np" style="padding:8px;">
+            <rssapp-list id="JDVfRVH4lICb0p4B"></rssapp-list>
+            <script src="https://widget.rss.app/v1/list.js" type="text/javascript" async></script>
+          </div>
+        </div>
+        <!-- Bluesky UHub feed — compact, scrollable -->
+        <div class="card">
+          <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">BLUESKY · @universalhub.com</div></div>
+          <div class="cbody np" style="padding:8px;max-height:320px;overflow-y:auto;">
+            <script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
+            <bsky-embed username="universalhub.com" limit="20" mode="dark"></bsky-embed>
+          </div>
         </div>
       </div>
     </div>
@@ -791,6 +822,8 @@ async function loadData(){
   safeRender(()=>renderNews('news-sports',(d.news_sports||[]).slice(0,30)),'news-sports');
   safeRender(()=>renderNews('news-bc',(d.news_bc||[]).slice(0,30)),'news-bc');
   safeRender(()=>renderNews('news-national',(d.news_national||[]).slice(0,50)),'news-national');
+  // Logan Airport news from data.json
+  safeRender(()=>renderNews('news-logan',(d.news_logan||[]).slice(0,15)),'news-logan');
 }
 
 // ── INIT ──
@@ -803,6 +836,7 @@ const redditFeeds=[
   {sub:'neoliberal',id:'r-neo'},
   {sub:'bostonbruins',id:'r-bruins'},
   {sub:'urbanplanning',id:'r-urban'},
+  {sub:'aviation',id:'r-aviation'},
 ];
 redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
 setTimeout(()=>location.reload(),30*60*1000);
