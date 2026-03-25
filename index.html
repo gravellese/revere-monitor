@@ -202,7 +202,14 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 .card.bos-card a.ni:hover{background:#0f2550;}
 .card.bos-card .ni-src{color:#f5c518;}
 .card.bos-card .ni-title{color:#d0dcee;}
-.card.bos-card .ni-date{color:#5a7a9a;}
+.comm-card{display:flex;flex-direction:column;gap:3px;padding:8px 9px;border-right:1px solid #0d2b5e;border-bottom:1px solid #0d2b5e;background:#081a3a;min-height:82px;text-decoration:none;transition:background .12s;}
+.comm-card:hover{background:#0f2240;}
+.comm-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1px;}
+.comm-card-src{font-size:9px;font-weight:700;letter-spacing:1px;color:#f5c518;text-transform:uppercase;}
+.comm-card-tag{font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+.comm-card-title{font-size:11px;font-weight:500;color:#c8d8f0;line-height:1.35;flex:1;}
+.comm-card-date{font-size:10px;color:#2a4a7a;margin-top:auto;padding-top:3px;}
+.ni-date{color:#5a7a9a;}
 .card.bos-card .empty{color:#5a7a9a;}
 .card.light-card{background:#f7f4f0;border-color:#ddd8d0;}
 .card.light-card .cbody{background:#f7f4f0;}
@@ -869,11 +876,14 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="news-comm" gs-x="6" gs-y="18" gs-w="6" gs-h="8" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch local"><div class="ct">SURROUNDING COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · SALEM · MORE</div></div>
-    <div class="cbody npx">
-      <div class="news-feed scroll-box h-news" id="news-comm"><div class="empty">Loading…</div></div>
+  <div class="grid-stack-item" gs-id="news-comm" gs-x="0" gs-y="18" gs-w="12" gs-h="10" gs-min-h="6">
+  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
+    <div class="ch local" style="flex-shrink:0;">
+      <div class="ct">SURROUNDING COMMUNITIES</div>
+      <div class="cb">CHELSEA · EASTIE · LYNN · WINTHROP · SAUGUS · MALDEN · EVERETT · MORE</div>
+    </div>
+    <div class="cbody np" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;">
+      <div id="news-comm" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;"><div class="empty" style="grid-column:1/-1;">Loading…</div></div>
     </div>
   </div></div></div>
 
@@ -1669,6 +1679,23 @@ function renderLogan(logan){
 }
 
 // ── NEWS ──
+function renderCommGrid(items){
+  const el=document.getElementById('news-comm');
+  if(!el)return;
+  if(!items||!items.length){el.innerHTML='<div class="empty" style="grid-column:1/-1;">No stories found</div>';return;}
+  const CC={'Chelsea':'#f5c518','East Boston':'#00ddb8','Lynn':'#ff8040','Winthrop':'#a78bfa','Saugus':'#f472b6','Malden':'#34d399','Everett':'#60a5fa','Medford':'#fb923c','Revere':'#00ddb8','North Shore':'#94a3b8','Advocate':'#e2e8f0'};
+  el.innerHTML='';
+  items.slice(0,150).forEach(item=>{
+    const cc=CC[item.source]||'#6888b8';
+    const t=item.ts?fmtDateTime(item.ts*1000,new Date(item.ts*1000).toString()):'';
+    const a=document.createElement('a');
+    a.className='comm-card';
+    a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
+    a.innerHTML=`<div class="comm-card-top"><span class="comm-card-src">${item.source||''}</span><span class="comm-card-tag" style="color:${cc};">${item.source||''}</span></div><div class="comm-card-title">${item.title||''}</div>${t?`<div class="comm-card-date">${t}</div>`:''}`;
+    el.appendChild(a);
+  });
+}
+
 function renderNews(id,items,communityTags=false){
   const c=document.getElementById(id);
   if(!items?.length){c.innerHTML='<div class="empty">No items loaded</div>';return;}
@@ -1784,7 +1811,7 @@ async function loadData(){
     d=await r.json();
   }catch(e){
     document.getElementById('upd-ts').textContent='ERROR — run GitHub Action';
-    ['news-revere','news-comm','news-sports','news-bc','news-national'].forEach(id=>{
+    ['news-revere','news-sports','news-bc','news-national'].forEach(id=>{
       const el=document.getElementById(id);if(el)el.innerHTML='<div class="empty">data.json not loaded — run the GitHub Action</div>';
     });
     return;
@@ -1798,7 +1825,7 @@ async function loadData(){
   safeRender(()=>renderLogan(d.logan),'logan');
   safeRender(()=>renderRevereTv(d.revere_tv),'reveretv');
   safeRender(()=>renderNews('news-revere',(d.news_revere||[]).slice(0,30)),'news-revere');
-  safeRender(()=>renderNews('news-comm',(d.news_communities||[]).slice(0,150),true),'news-comm');
+  safeRender(()=>renderCommGrid(d.news_communities||[]),'news-comm');
   // ── BOSTON CAROUSEL ──
   (function(){
     const raw = (d.news_boston||[]);
