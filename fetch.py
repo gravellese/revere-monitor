@@ -423,6 +423,7 @@ def main():
             seen_rev.add(link)
             revere_all.append(item)
     data["news_revere"] = revere_all
+    print(f"  → Revere total: {len(revere_all)} items (official:{len(revere_official)} journal:{len(revere_journal)} advocate:{len(revere_advocate)} nbc:{len(revere_nbc)} gnews:{len(revere_gnews)+len(revere_gnews2)} fetchrss:{len(revere_fetchrss)})")
 
     # Communities — comprehensive local coverage
     # Format: (label, url, items_to_fetch)
@@ -513,15 +514,29 @@ def main():
 
     data["news_communities"] = []
     seen_comm = set()
+    comm_counts = {}
 
     for name, url, n in comm_rss:
         items = safe(lambda u=url, c=n: fetch_feed(u, c), f"Comm/{name}") or []
+        added = 0
         for item in items:
             link = item.get("link", "")
             if link and link not in seen_comm:
                 seen_comm.add(link)
                 item["source"] = name
                 data["news_communities"].append(item)
+                added += 1
+        comm_counts[f"{name}|{url[:50]}"] = (len(items), added)
+
+    print(f"  → Communities total: {len(data['news_communities'])} unique items")
+    for key, (fetched, added) in comm_counts.items():
+        label, url_snip = key.split("|")
+        if fetched == 0:
+            print(f"    ✗ {label}: 0 fetched — {url_snip}")
+        elif added == 0:
+            print(f"    ~ {label}: {fetched} fetched, 0 added (all dupes) — {url_snip}")
+        else:
+            print(f"    ✓ {label}: {fetched} fetched, {added} added")
 
     # Boston — try multiple URLs per source, use Google News as fallback for Globe
     boston_sources = [
