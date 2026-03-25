@@ -53,8 +53,10 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 .btn-cancel{background:var(--bg3);color:var(--text-dim);border:1px solid #555 !important;}
 
 /* ── MBTA ARRIVALS + ALERTS ── */
-.mbta-wrap{background:#0d1614;border:2px solid #f5c518;border-radius:5px;overflow:hidden;}.grid-stack-item-content>.mbta-wrap{overflow:visible;border-radius:4px;}
-.mbta-hdr{background:#0a1210;border-bottom:1px solid #2a2010;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;}
+.mbta-wrap{background:#0d1614;border:2px solid #f5c518;border-radius:5px;overflow:hidden;display:flex;flex-direction:column;}
+.grid-stack-item-content>.mbta-wrap{height:100%;overflow:hidden;border-radius:4px;}
+.mbta-wrap .mbta-stops-grid,.mbta-wrap #mbtaAlertsBody{overflow-y:auto;flex:1;}
+.mbta-hdr{background:#0a1210;border-bottom:1px solid #2a2010;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;cursor:grab;flex-shrink:0;}
 .mbta-hdr-title{font-size:12px;font-weight:700;letter-spacing:3px;color:#f5c518;text-transform:uppercase;font-family:var(--cond);}
 .mbta-hdr-meta{font-size:10px;color:#3a5a52;letter-spacing:1px;}
 .mbta-ctrl-btn{font-size:10px;color:#5a7a72;background:none;border:1px solid #2a2010;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;}
@@ -879,8 +881,8 @@ a.big-btn:hover{opacity:.85;}
     <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mass"><div class="empty">Loading…</div></div></div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="r-mbta-panel" gs-x="9" gs-y="106" gs-w="3" gs-h="17" gs-min-h="3">
-  <div class="grid-stack-item-content"><div class="card" style="border:2px solid #f5c518;background:#0d1614;">
+  <div class="grid-stack-item" gs-id="r-mbta-panel" gs-x="9" gs-y="106" gs-w="3" gs-h="17" gs-min-h="2">
+  <div class="grid-stack-item-content" style="overflow:visible;"><div class="card" style="border:2px solid #f5c518;background:#0d1614;">
     <div class="ch" style="background:#0a1210;border-bottom:1px solid #2a2010;border-left:none;cursor:grab;"><div class="ct" style="color:#f5c518;font-family:var(--cond);letter-spacing:3px;">r/mbta</div><div class="cb" style="color:#3a5a52;">HOT POSTS</div></div>
     <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mbta"><div class="empty">Loading…</div></div></div>
   </div></div></div>
@@ -979,8 +981,8 @@ a.big-btn:hover{opacity:.85;}
   </div></div></div>
 
   <!-- MBTA ARRIVALS PANEL -->
-  <div class="grid-stack-item" gs-id="mbta-arrivals" gs-x="0" gs-y="106" gs-w="9" gs-h="9" gs-min-h="3">
-  <div class="grid-stack-item-content">
+  <div class="grid-stack-item" gs-id="mbta-arrivals" gs-x="0" gs-y="106" gs-w="9" gs-h="9" gs-min-h="2">
+  <div class="grid-stack-item-content" style="overflow:visible;">
     <div class="mbta-wrap">
       <div class="mbta-hdr ch">
         <span class="mbta-hdr-title">MBTA · Next Arrivals</span>
@@ -994,8 +996,8 @@ a.big-btn:hover{opacity:.85;}
   </div></div>
 
   <!-- MBTA ALERTS PANEL -->
-  <div class="grid-stack-item" gs-id="mbta-alerts" gs-x="0" gs-y="115" gs-w="9" gs-h="8" gs-min-h="3">
-  <div class="grid-stack-item-content">
+  <div class="grid-stack-item" gs-id="mbta-alerts" gs-x="0" gs-y="115" gs-w="9" gs-h="8" gs-min-h="2">
+  <div class="grid-stack-item-content" style="overflow:visible;">
     <div class="mbta-wrap">
       <div class="mbta-hdr ch">
         <span class="mbta-hdr-title">MBTA · Service Alerts</span>
@@ -1607,7 +1609,7 @@ const redditFeeds=[
 ];
 redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
 // ── GRIDSTACK ──────────────────────────────────────────────────────
-const GS_KEY = 'revere_monitor_gs_v1';
+const GS_KEY = 'revere_monitor_gs_v2';
 
 const grid = GridStack.init({
   float: true,
