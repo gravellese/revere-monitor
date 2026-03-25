@@ -315,10 +315,12 @@ def fetch_feed(url, max_items=30):
                                 except: pass
                         except: pass
             items.append({
-                "title":     getattr(e,"title",""),
-                "link":      getattr(e,"link",""),
-                "published": getattr(e,"published",""),
-                "ts":        ts,
+                "title":      getattr(e,"title",""),
+                "link":       getattr(e,"link",""),
+                "published":  getattr(e,"published",""),
+                "ts":         ts,
+                "author":     getattr(e,"author",""),
+                "feed_title": getattr(e.source,"title","") if hasattr(e,"source") and e.source else "",
             })
         return items
     except Exception as e:
@@ -786,7 +788,8 @@ def main():
         'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6WAbA9igRjgE4CWAdgOboDGOAtogGYCmzAJiADThRxKL5qYHNQDWzAJ75cVWAFd8sCAEMxNek1YdukGAmRoU6rFmYVmwsZPKwSbZkXUMW7Ljz38IJLBDAPljBAOsKSUmApKqqJOmq46vPqoGL7szKZBbLDUzGTMsDEu2u58yCm5KHJE+MpkxPaO8ooqarTOWm66JUlGvuSi5BT4JIMSvWT9lLB0yiYF7fEeBmDKECF5OGQrA+FNUXNxxYmG6ClEzPhy3mzo0AqxRZ2J1CQQUpdY9WTU6MQU9x0JfjHIQ1CgDLA1PLlbDMKAOfYPQEGDCbIK2LAAN3huQg-wWXWOACscLAwNUiEQcAiAYtuuhasowNByCQNuhpDg-oUaQSMJVqmQSFNYNBmMpxMpYBJqfjElkcFB5HRcg0Is1oq08YcgRgiBIarcAF4SMQkGXa5DiDF9LB9HL4ByyNV7TXc2U6oz1ZiiXz0OBs37-AC6QA',
         50
     ), "Substack reading list") or []
-    for i in substack_items: i["source"] = i.get("source") or "Substack"
+    for i in substack_items:
+        i["source"] = i.get("feed_title") or i.get("author") or "Substack"
     data["news_substack"] = substack_items
 
     with open("data.json","w") as f:

@@ -150,6 +150,16 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 .ch.local{background:#1a3a52;border-left:3px solid #5ba3d0;}
 .ch.local .ct{color:#a8d4f0;}
 .ch.local .cb{color:#6ba8c8;opacity:.9;}
+.ch.sub{background:#f0ede8;border-left:3px solid #e06c2a;}
+.ch.sub .ct{color:#2a1a0e;letter-spacing:3px;}
+.ch.sub .cb{color:#7a5a40;opacity:.9;}
+.card.light-card{background:#f7f4f0;}
+.card.light-card .news-item{border-bottom:1px solid #ddd8d0;}
+.card.light-card .ni-src{color:#e06c2a;}
+.card.light-card .ni-title a{color:#1a1a1a;}
+.card.light-card .ni-title a:hover{color:#e06c2a;}
+.card.light-card .ni-time{color:#888;}
+.card.light-card .empty{color:#999;}
 .ct{font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:3px;color:var(--white);text-transform:uppercase;}
 .cb{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
 .cbody{padding:12px 14px;}
@@ -678,8 +688,8 @@ a.big-btn:hover{opacity:.85;}
   </div></div></div>
 
   <div class="grid-stack-item" gs-id="substack-feed" gs-x="0" gs-y="96" gs-w="6" gs-h="10" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch acc"><div class="ct">SUBSTACK READING LIST</div><div class="cb">COMBINED SUBSCRIPTIONS</div></div>
+  <div class="grid-stack-item-content"><div class="card light-card">
+    <div class="ch sub"><div class="ct">SUBSTACK READING LIST</div><div class="cb">COMBINED SUBSCRIPTIONS</div></div>
     <div class="cbody npx">
       <div class="news-feed scroll-box h-news" id="news-substack"><div class="empty">Loading…</div></div>
     </div>
