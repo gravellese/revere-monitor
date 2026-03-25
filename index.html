@@ -1067,6 +1067,19 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
+
+  <!-- MASSDOT ROAD EVENTS PANEL -->
+  <div class="grid-stack-item" gs-id="road-events" gs-x="0" gs-y="123" gs-w="9" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch ora">
+      <div class="ct">MassDOT · Road Events</div>
+      <div class="cb">Incidents · Construction · Closures</div>
+    </div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="road-events-feed"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
 </div><!-- /gs-grid -->
 
 <div id="page" style="display:none;"><div id="col-left"></div><div id="col-right"></div></div>
@@ -1485,6 +1498,62 @@ function renderMaTransitNews(items){
 
 
 
+// ── MASSDOT ROAD EVENTS ──
+const EVENT_COLORS = {
+  'Traffic Incidents': '#ff8040',
+  'Construction':      '#f5c518',
+  'Maintenance':       '#00ddb8',
+  'Special Events':    '#a78bfa',
+};
+function eventColor(type){ return EVENT_COLORS[type] || '#888'; }
+
+function renderRoadEvents(events){
+  const el=document.getElementById('road-events-feed');
+  if(!el)return;
+  if(!events.length){el.innerHTML='<div class="empty">No active events</div>';return;}
+  el.innerHTML='';
+  events.forEach(ev=>{
+    const c=eventColor(ev.type);
+    const a=document.createElement('a');
+    a.className='ni';a.href='#';a.target='_self';
+    a.addEventListener('click',e=>{e.preventDefault();});
+    a.innerHTML=`
+      <div class="ni-src" style="color:${c};">${ev.subtype||ev.type}${ev.road?' · '+ev.road:''}</div>
+      <div class="ni-title">${ev.location||ev.title}</div>
+      <div class="ni-date">${ev.start}${ev.end?' → '+ev.end:''}</div>
+    `;
+    el.appendChild(a);
+  });
+}
+
+function plotRoadEvents(events){
+  if(!window.rmMap||!window.L)return;
+  // Remove old road event markers
+  window.rmMap.eachLayer(l=>{if(l._roadEvent)window.rmMap.removeLayer(l);});
+  events.forEach(ev=>{
+    if(!ev.lat||!ev.lng)return;
+    const c=eventColor(ev.type);
+    const icon=L.divIcon({
+      className:'',
+      html:`<div style="display:flex;flex-direction:column;align-items:center;">
+        <div style="background:${c};color:#fff;font-size:8px;font-weight:700;padding:2px 4px;border-radius:3px;white-space:nowrap;max-width:90px;overflow:hidden;text-overflow:ellipsis;border:1px solid rgba(255,255,255,0.3);">${(ev.subtype||ev.type).replace('Traffic (','').replace(')','')}</div>
+        <div style="width:8px;height:8px;border-radius:50%;background:${c};border:2px solid #fff;margin-top:2px;"></div>
+        <div style="width:2px;height:5px;background:${c};opacity:0.7;"></div>
+      </div>`,
+      iconSize:[90,30],iconAnchor:[45,30],popupAnchor:[0,-32],
+    });
+    const m=L.marker([ev.lat,ev.lng],{icon,zIndexOffset:900}).addTo(window.rmMap);
+    m._roadEvent=true;
+    m.bindPopup(`<div style="min-width:180px;">
+      <div style="font-size:12px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">${ev.road||'Unknown Road'} ${ev.direction||''}</div>
+      <div style="font-size:9px;color:${c};letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;">${ev.subtype||ev.type}</div>
+      <div style="font-size:11px;color:#a0b8b0;margin-bottom:4px;">${ev.location||''}</div>
+      ${ev.lanes?`<div style="font-size:10px;color:#5a7a72;margin-bottom:4px;">${ev.lanes}</div>`:''}
+      <div style="font-size:10px;color:#5a7a72;">${ev.start}${ev.end?' → '+ev.end:''}</div>
+    </div>`,{maxWidth:240});
+  });
+}
+
 // ── PRIORITIES + PLANNER ──
 ['p1','p2','p3'].forEach(id=>{
   const el=document.getElementById(id);
@@ -1784,6 +1853,9 @@ async function loadData(){
   // Logan Airport news from data.json
   safeRender(()=>renderNews('news-logan',(d.news_logan||[]).slice(0,15)),'news-logan');
   safeRender(()=>renderMaTransitNews(d.news_ma_transit||[]),'mbta-news-panel');
+  safeRender(()=>renderRoadEvents(d.road_events||[]),'road-events-feed');
+  // Plot road event markers on the Revere map
+  if(window.rmMap && d.road_events) plotRoadEvents(d.road_events);
 }
 
 // ── INIT ──
@@ -1996,7 +2068,7 @@ function initRevereMap(){
   const el=document.getElementById('rm-map');
   if(!el||!window.L)return;
   addLeafletPopupStyles();
-  map=L.map(el,{center:[42.4084,-71.0120],zoom:14});
+  map=L.map(el,{center:[42.4084,-71.0120],zoom:14});window.rmMap=map;
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
   Promise.all([
     fetch(`${MBTA}/stops?filter[route]=Blue`).then(r=>r.ok?r.json():null),

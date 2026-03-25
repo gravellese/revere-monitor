@@ -800,6 +800,38 @@ def main():
     data["news_sports"] = sports_items[:40]
     print(f"  \u2192 Sports news: {len(data['news_sports'])} items")
 
+    # MassDOT Roadway Events — public XML feed, no key needed
+    try:
+        import xml.etree.ElementTree as ET
+        resp = requests.get("http://events.massdot.evbg.net/", headers={"User-Agent":"Mozilla/5.0"}, timeout=15)
+        root = ET.fromstring(resp.content)
+        road_events = []
+        for ev in root.findall(".//Event"):
+            def t(tag): return (ev.findtext(tag) or "").strip()
+            road_events.append({
+                "id":          t("EventId"),
+                "title":       f"{t('EventSubType') or t('EventType')} — {t('RoadwayName')} {t('Direction')}".strip(" —"),
+                "type":        t("EventType"),
+                "subtype":     t("EventSubType"),
+                "road":        t("RoadwayName"),
+                "direction":   t("Direction"),
+                "start":       t("EventStartDate"),
+                "end":         t("EventEndDate"),
+                "status":      t("EventStatus"),
+                "location":    t("LocationDescription"),
+                "lanes":       t("LaneBlockageDescription"),
+                "lat":         float(t("PrimaryLatitude")) if t("PrimaryLatitude") else None,
+                "lng":         float(t("PrimaryLongitude")) if t("PrimaryLongitude") else None,
+                "updated":     t("LastUpdate"),
+            })
+        # Sort by start date descending
+        road_events.sort(key=lambda x: x.get("start",""), reverse=True)
+        data["road_events"] = road_events
+        print(f"  → MassDOT road events: {len(road_events)} events")
+    except Exception as e:
+        print(f"  ✗ MassDOT road events: {e}")
+        data["road_events"] = []
+
     with open("data.json","w") as f:
         json.dump(data, f, indent=2, default=str)
     print(f"\n✅ Done — {data['updated_local']}")
