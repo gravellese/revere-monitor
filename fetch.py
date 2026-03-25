@@ -528,22 +528,38 @@ def main():
 
     data["news_universalhub"] = uhub
 
-    # Sports
+    # Sports — Boston teams + The Athletic + Google News per team
     sports_sources = [
+        # Boston media
         ("https://www.bostonglobe.com/rss/sports",             "Globe Sports"),
         ("https://www.espn.com/espn/rss/boston/news",          "ESPN Boston"),
         ("https://nesn.com/feed/",                             "NESN"),
         ("https://feeds.wbur.org/wburnews",                    "WBUR Sports"),
         ("https://www.masslive.com/sports/arc/outboundfeeds/rss/?outputType=xml","MassLive Sports"),
         ("https://bostonherald.com/sports/feed/",              "Herald Sports"),
+        # The Athletic — Boston teams
+        ("https://theathletic.com/boston-bruins/feed/",        "The Athletic · Bruins"),
+        ("https://theathletic.com/boston-celtics/feed/",       "The Athletic · Celtics"),
+        ("https://theathletic.com/boston-red-sox/feed/",       "The Athletic · Red Sox"),
+        ("https://theathletic.com/new-england-patriots/feed/", "The Athletic · Patriots"),
+        # The Athletic — league-wide
+        ("https://theathletic.com/nhl/feed/",                  "The Athletic · NHL"),
+        ("https://theathletic.com/college-football/feed/",     "The Athletic · CFB"),
+        # Google News per Boston team
+        ("https://news.google.com/rss/search?q=Boston+Bruins&hl=en-US&gl=US&ceid=US:en",        "Google News · Bruins"),
+        ("https://news.google.com/rss/search?q=Boston+Celtics&hl=en-US&gl=US&ceid=US:en",       "Google News · Celtics"),
+        ("https://news.google.com/rss/search?q=Boston+Red+Sox&hl=en-US&gl=US&ceid=US:en",       "Google News · Red Sox"),
+        ("https://news.google.com/rss/search?q=New+England+Patriots&hl=en-US&gl=US&ceid=US:en", "Google News · Patriots"),
+        ("https://news.google.com/rss/search?q=New+England+Revolution+MLS&hl=en-US&gl=US&ceid=US:en", "Google News · Revolution"),
     ]
     data["news_sports"] = []
     seen_sports = set()
     for url, label in sports_sources:
-        items = safe(lambda u=url: fetch_feed(u, 8), label) or []
+        items = safe(lambda u=url: fetch_feed(u, 6), label) or []
         for item in items:
-            if item["link"] not in seen_sports:
-                seen_sports.add(item["link"])
+            link = item.get("link","")
+            if link and link not in seen_sports:
+                seen_sports.add(link)
                 item["source"] = label
                 data["news_sports"].append(item)
 
