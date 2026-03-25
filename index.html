@@ -2000,7 +2000,7 @@ function initRevereMap(){
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
   Promise.all([
     fetch(`${MBTA}/stops?filter[route]=Blue`).then(r=>r.ok?r.json():null),
-    fetch(`${MBTA}/stops?filter[route_type]=3&filter[latitude]=42.415&filter[longitude]=-71.005&filter[radius]=0.065&page[limit]=200`).then(r=>r.ok?r.json():null),
+    fetch(`${MBTA}/stops?filter[route]=110,116,117,119,120,411,424,441,442,448,449,450,455&page[limit]=300`).then(r=>r.ok?r.json():null),
   ]).then(([blue,bus])=>{
     function addStop(stop,color,label){
       const lat=stop.attributes?.latitude,lng=stop.attributes?.longitude;if(!lat||!lng)return;
