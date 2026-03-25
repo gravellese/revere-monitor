@@ -358,337 +358,270 @@ a.big-btn:hover{opacity:.85;}
 <!-- MAIN GRIDSTACK GRID -->
 <div class="grid-stack" id="gs-grid">
 
-  <!-- ── LEFT COLUMN PANELS ── -->
-  <!-- Priorities -->
+  <!-- LEFT COLUMN -->
+
   <div class="grid-stack-item" gs-id="priorities" gs-x="0" gs-y="0" gs-w="3" gs-h="7" gs-min-h="4">
-  <div class="grid-stack-item-content">
-
-    <!-- Priorities -->
-    <div class="card">
-      <div class="ch grn"><div class="ct">TOP 3 PRIORITIES</div><div class="cb">SAVED IN BROWSER</div></div>
-      <div class="cbody">
-        <div class="pri-wrap">
-          <div class="pri-item"><div class="pri-num n1">1</div><textarea class="pri-ta" id="p1" placeholder="Most important thing right now…"></textarea></div>
-          <div class="pri-item"><div class="pri-num n2">2</div><textarea class="pri-ta" id="p2" placeholder="Second priority…"></textarea></div>
-          <div class="pri-item"><div class="pri-num n3">3</div><textarea class="pri-ta" id="p3" placeholder="Third priority…"></textarea></div>
-        </div>
-        <div id="pri-saved">auto-saved to this browser</div>
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch grn"><div class="ct">TOP 3 PRIORITIES</div><div class="cb">SAVED IN BROWSER</div></div>
+    <div class="cbody">
+      <div class="pri-wrap">
+        <div class="pri-item"><div class="pri-num n1">1</div><textarea class="pri-ta" id="p1" placeholder="Most important thing right now…"></textarea></div>
+        <div class="pri-item"><div class="pri-num n2">2</div><textarea class="pri-ta" id="p2" placeholder="Second priority…"></textarea></div>
+        <div class="pri-item"><div class="pri-num n3">3</div><textarea class="pri-ta" id="p3" placeholder="Third priority…"></textarea></div>
       </div>
+      <div id="pri-saved">auto-saved to this browser</div>
     </div>
-  </div></div><!-- /priorities -->
+  </div></div></div>
 
-  <!-- Planner -->
   <div class="grid-stack-item" gs-id="planner" gs-x="0" gs-y="7" gs-w="3" gs-h="8" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch acc"><div class="ct">PLANNER</div><div class="cb">NOTES + QUICK LINKS</div></div>
-      <div class="cbody">
-        <textarea id="planner-notes" placeholder="Today's meetings, priorities, notes…"
-          oninput="localStorage.setItem('planner_notes',this.value)"></textarea>
-        <div class="planner-links">
-          <div class="planner-links-lbl">Quick Links</div>
-          <a href="https://calendar.google.com" target="_blank" rel="noopener" class="cal-btn">📅 Google Calendar</a>
-          <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-btn">🏛 City of Revere Calendar</a>
-          <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-btn">📋 Meeting Agendas (IQM2)</a>
-          <a href="https://www.bostonglobe.com/sports/tvradio/listings/" target="_blank" rel="noopener" class="cal-btn">📺 Globe Sports TV/Radio Listings</a>
-        </div>
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">PLANNER</div><div class="cb">NOTES + QUICK LINKS</div></div>
+    <div class="cbody">
+      <textarea id="planner-notes" placeholder="Today&#39;s meetings, priorities, notes…" oninput="localStorage.setItem(&#39;planner_notes&#39;,this.value)"></textarea>
+      <div class="planner-links">
+        <div class="planner-links-lbl">Quick Links</div>
+        <a href="https://calendar.google.com" target="_blank" rel="noopener" class="cal-btn">📅 Google Calendar</a>
+        <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-btn">🏛 City of Revere Calendar</a>
+        <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-btn">📋 Meeting Agendas (IQM2)</a>
+        <a href="https://www.bostonglobe.com/sports/tvradio/listings/" target="_blank" rel="noopener" class="cal-btn">📺 Globe Sports TV/Radio</a>
       </div>
     </div>
-  </div></div><!-- /planner -->
+  </div></div></div>
 
-  <!-- Weather -->
   <div class="grid-stack-item" gs-id="weather-now" gs-x="0" gs-y="15" gs-w="3" gs-h="5" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch acc"><div class="ct">NOW — REVERE, MA</div><div class="cb">NWS WEATHER</div></div>
-      <div class="cbody">
-        <div id="wx-now">
-          <div><div id="wx-temp">--<sup>°F</sup></div></div>
-          <div style="flex:1;">
-            <div id="wx-desc" style="font-size:17px;font-weight:600;margin-bottom:8px;">Loading…</div>
-            <div class="wx-r"><span class="wx-k">💨 Wind</span><span class="wx-v" id="wx-wind">--</span></div>
-            <div class="wx-r"><span class="wx-k">💧 Humidity</span><span class="wx-v" id="wx-hum">--</span></div>
-            <div class="wx-r"><span class="wx-k">🌧 Precip</span><span class="wx-v" id="wx-pct">--</span></div>
-          </div>
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">NOW — REVERE, MA</div><div class="cb">NWS WEATHER</div></div>
+    <div class="cbody">
+      <div id="wx-now">
+        <div><div id="wx-temp">--<sup>°F</sup></div></div>
+        <div style="flex:1;">
+          <div id="wx-desc" style="font-size:17px;font-weight:600;margin-bottom:8px;">Loading…</div>
+          <div class="wx-r"><span class="wx-k">💨 Wind</span><span class="wx-v" id="wx-wind">--</span></div>
+          <div class="wx-r"><span class="wx-k">💧 Humidity</span><span class="wx-v" id="wx-hum">--</span></div>
+          <div class="wx-r"><span class="wx-k">🌧 Precip</span><span class="wx-v" id="wx-pct">--</span></div>
         </div>
-        <a id="wx-forecast-link" href="https://forecast.weather.gov/MapClick.php?CityName=Revere&state=MA&site=BOX" target="_blank" rel="noopener">📋 View full NWS forecast →</a>
       </div>
+      <a id="wx-forecast-link" href="https://forecast.weather.gov/MapClick.php?CityName=Revere&state=MA&site=BOX" target="_blank" rel="noopener">📋 View full NWS forecast →</a>
     </div>
-  </div></div><!-- /weather-now -->
+  </div></div></div>
 
-  <!-- Hourly -->
   <div class="grid-stack-item" gs-id="hourly" gs-x="0" gs-y="20" gs-w="3" gs-h="4" gs-min-h="3">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch acc"><div class="ct">HOURLY FORECAST</div><div class="cb">NEXT 24H</div></div>
-      <div class="cbody">
-        <div id="hourly-scroll"><div id="hourly-inner"><div class="empty">Loading…</div></div></div>
-      </div>
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">HOURLY FORECAST</div><div class="cb">NEXT 24H</div></div>
+    <div class="cbody">
+      <div id="hourly-scroll"><div id="hourly-inner"><div class="empty">Loading…</div></div></div>
     </div>
-  </div></div><!-- /hourly -->
+  </div></div></div>
 
-  <!-- 7-Day -->
   <div class="grid-stack-item" gs-id="sevenday" gs-x="0" gs-y="24" gs-w="3" gs-h="5" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch acc"><div class="ct">7-DAY FORECAST</div><div class="cb">NWS</div></div>
-      <div class="cbody">
-        <div id="daily-grid"><div class="empty">Loading…</div></div>
-      </div>
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">7-DAY FORECAST</div><div class="cb">NWS</div></div>
+    <div class="cbody">
+      <div id="daily-grid"><div class="empty">Loading…</div></div>
     </div>
-  </div></div><!-- /sevenday -->
+  </div></div></div>
 
-  <!-- Markets -->
   <div class="grid-stack-item" gs-id="markets" gs-x="0" gs-y="29" gs-w="3" gs-h="4" gs-min-h="2">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch acc"><div class="ct">MARKETS</div><div class="cb">LIVE PRICES</div></div>
-      <div class="cbody np">
-        <div class="finlogix-container"></div>
-        <script type="text/javascript" src="https://widget.finlogix.com/Widget.js"></script>
-        <script type="text/javascript">
-          Widget.init({widgetId:"5f7acc9a-bf3c-43bc-a6e6-791599137928",type:"SymbolChartList",language:"en",symbolIds:[19,44,129,157,635,66,898,580,122],isAdaptive:true,withBorderBox:true});
-        </script>
-      </div>
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">MARKETS</div><div class="cb">LIVE PRICES</div></div>
+    <div class="cbody np">
+      <div class="finlogix-container"></div>
+      <script type="text/javascript" src="https://widget.finlogix.com/Widget.js"></script>
+      <script type="text/javascript">Widget.init({widgetId:"5f7acc9a-bf3c-43bc-a6e6-791599137928",type:"SymbolChartList",language:"en",symbolIds:[19,44,129,157,635,66,898,580,122],isAdaptive:true,withBorderBox:true});</script>
     </div>
-  </div></div><!-- /markets -->
+  </div></div></div>
 
-  <!-- Radio -->
   <div class="grid-stack-item" gs-id="radio" gs-x="0" gs-y="33" gs-w="3" gs-h="10" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch acc"><div class="ct">LIVE NEWS &amp; RADIO</div><div class="cb">OPENS IN NEW TAB</div></div>
-      <div class="cbody">
-        <a href="https://www.nbcboston.com/watch-live/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">NBC BOSTON</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-        <a href="https://www.cbsnews.com/boston/live/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">CBS BOSTON / WBZ</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-        <a href="https://www.wcvb.com/watch-live-news" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">WCVB 5</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-        <a href="https://whdh.com/livestream/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">7NEWS WHDH</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
-        <a href="https://www.audacy.com/wbz" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WBZ 1030 AM</div><div class="ml-type">RADIO · ALL NEWS</div></div><span class="ml-ext">↗</span></a>
-        <a href="https://www.audacy.com/985thesportshub" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">98.5 SPORTS HUB</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
-        <a href="https://www.audacy.com/weei" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WEEI 93.7 FM</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
-        <a href="https://www.wgbh.org/listen-live" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">GBH 89.7 FM</div><div class="ml-type">RADIO · PUBLIC</div></div><span class="ml-ext">↗</span></a>
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">LIVE NEWS &amp; RADIO</div><div class="cb">OPENS IN NEW TAB</div></div>
+    <div class="cbody">
+      <a href="https://www.nbcboston.com/watch-live/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">NBC BOSTON</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
+      <a href="https://www.cbsnews.com/boston/live/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">CBS BOSTON / WBZ</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
+      <a href="https://www.wcvb.com/watch-live-news" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">WCVB 5</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
+      <a href="https://whdh.com/livestream/" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📺</span><div class="ml-info"><div class="ml-name">7NEWS WHDH</div><div class="ml-type">TV · LIVE</div></div><span class="ml-ext">↗</span></a>
+      <a href="https://www.audacy.com/wbz" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WBZ 1030 AM</div><div class="ml-type">RADIO · ALL NEWS</div></div><span class="ml-ext">↗</span></a>
+      <a href="https://www.audacy.com/985thesportshub" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">98.5 SPORTS HUB</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
+      <a href="https://www.audacy.com/weei" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">WEEI 93.7 FM</div><div class="ml-type">RADIO · SPORTS</div></div><span class="ml-ext">↗</span></a>
+      <a href="https://www.wgbh.org/listen-live" target="_blank" rel="noopener" class="ml"><span class="ml-ico">📻</span><div class="ml-info"><div class="ml-name">GBH 89.7 FM</div><div class="ml-type">RADIO · PUBLIC</div></div><span class="ml-ext">↗</span></a>
+    </div>
+  </div></div></div>
+
+  <!-- RIGHT COLUMN — each card is its own separate grid item -->
+
+  <div class="grid-stack-item" gs-id="sun-sky" gs-x="3" gs-y="0" gs-w="3" gs-h="6" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
+    <div class="cbody np">
+      <div class="sun-row"><span class="sun-k">☀ Sunrise</span><span class="sun-v" id="s-rise">--</span></div>
+      <div class="sun-row"><span class="sun-k">🌅 Civil Dawn</span><span class="sun-v" id="s-dawn">--</span></div>
+      <div class="sun-row"><span class="sun-k">🌇 Sunset</span><span class="sun-v" id="s-set">--</span></div>
+      <div class="sun-row"><span class="sun-k">🌆 Civil Dusk</span><span class="sun-v" id="s-dusk">--</span></div>
+      <div class="sun-row"><span class="sun-k">⏱ Day Length</span><span class="sun-v b" id="s-len">--</span></div>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="tides" gs-x="6" gs-y="0" gs-w="3" gs-h="6" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
+    <div class="cbody np"><div id="tide-list"><div class="empty">Loading…</div></div></div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="logan" gs-x="9" gs-y="0" gs-w="3" gs-h="12" gs-min-h="5">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA + METAR</div></div>
+    <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
+    <div style="border-top:1px solid var(--border);padding:8px 14px 4px;">
+      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">LOGAN AIRPORT NEWS</div>
+      <div class="news-feed scroll-box" style="max-height:160px;" id="news-logan"><div class="empty">Loading…</div></div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding:8px 14px 4px;">
+      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">r/aviation · HOT</div>
+      <div class="scroll-box" style="max-height:160px;" id="r-aviation"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="boston-news" gs-x="3" gs-y="6" gs-w="4" gs-h="9" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">BOSTON NEWS</div><div class="cb">GLOBE · HERALD · GBH · WBUR · MORE</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-boston"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="uhub-rss" gs-x="7" gs-y="6" gs-w="5" gs-h="5" gs-min-h="3">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">LIVE FEED</div></div>
+    <div class="cbody np" style="padding:8px;">
+      <rssapp-list id="JDVfRVH4lICb0p4B"></rssapp-list>
+      <script src="https://widget.rss.app/v1/list.js" type="text/javascript" async></script>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="uhub-bsky" gs-x="7" gs-y="11" gs-w="5" gs-h="4" gs-min-h="3">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">BLUESKY · @universalhub.com</div></div>
+    <div class="cbody np" style="padding:8px;overflow-y:auto;">
+      <script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
+      <bsky-embed username="universalhub.com" limit="20" mode="dark"></bsky-embed>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="bc-schedule" gs-x="3" gs-y="15" gs-w="9" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc">
+      <div class="ct">BC EAGLES SCHEDULE</div><div class="cb">BCEAGLES.COM · ALL SPORTS</div>
+      <a href="https://bceagles.com/calendar" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;">Open full site →</a>
+    </div>
+    <div class="cbody np">
+      <iframe src="https://bceagles.com/calendar" style="width:100%;height:100%;min-height:400px;border:none;display:block;" title="BC Eagles Composite Calendar" loading="lazy"></iframe>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="nyt-link" gs-x="3" gs-y="23" gs-w="9" gs-h="3" gs-min-h="2">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch red"><div class="ct">NYT · IRAN WAR LIVEBLOG</div><div class="cb">OPENS IN NEW TAB</div></div>
+    <div class="nyt-link-body">
+      <p>Trump, Iran &amp; Oil — live coverage from The New York Times</p>
+      <a href="https://www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil" target="_blank" rel="noopener" class="big-btn">OPEN NYT LIVEBLOG →</a>
+      <span style="font-size:11px;color:var(--text-mute);">May require subscription</span>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="news-revere" gs-x="3" gs-y="26" gs-w="4" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch grn"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG · GOOGLE NEWS</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-revere"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="news-comm" gs-x="7" gs-y="26" gs-w="5" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">SURROUNDING COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · SALEM · MORE</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-comm"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="r-boston-panel" gs-x="3" gs-y="33" gs-w="3" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch red"><div class="ct">r/boston</div><div class="cb">HOT</div></div>
+    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-boston"><div class="empty">Loading…</div></div></div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="r-mass-panel" gs-x="6" gs-y="33" gs-w="3" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch red"><div class="ct">r/massachusetts</div><div class="cb">HOT</div></div>
+    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mass"><div class="empty">Loading…</div></div></div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="r-mbta-panel" gs-x="9" gs-y="33" gs-w="3" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch red"><div class="ct">r/mbta</div><div class="cb">HOT</div></div>
+    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mbta"><div class="empty">Loading…</div></div></div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="r-nascar-panel" gs-x="3" gs-y="40" gs-w="3" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch red"><div class="ct">r/nascar</div><div class="cb">HOT</div></div>
+    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-nascar"><div class="empty">Loading…</div></div></div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="r-neo-panel" gs-x="6" gs-y="40" gs-w="3" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch red"><div class="ct">r/neoliberal</div><div class="cb">HOT</div></div>
+    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-neo"><div class="empty">Loading…</div></div></div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="r-bruins-panel" gs-x="9" gs-y="40" gs-w="3" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch red"><div class="ct">r/bostonbruins</div><div class="cb">HOT</div></div>
+    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-bruins"><div class="empty">Loading…</div></div></div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="r-urban-panel" gs-x="3" gs-y="47" gs-w="4" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch red"><div class="ct">r/urbanplanning</div><div class="cb">HOT</div></div>
+    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-urban"><div class="empty">Loading…</div></div></div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="news-sports" gs-x="3" gs-y="54" gs-w="6" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch ora"><div class="ct">SPORTS NEWS</div><div class="cb">GLOBE · ESPN · NESN · ATHLETIC · MORE</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-sports"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="news-bc" gs-x="7" gs-y="47" gs-w="5" gs-h="15" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">BOSTON COLLEGE</div><div class="cb">HEIGHTS · BC INTERRUPTION · MORE</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-bc"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="national" gs-x="3" gs-y="62" gs-w="6" gs-h="9" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">NATIONAL HEADLINES</div><div class="cb">NPR · NYT · CNN · BBC · AP · HILL · WAPO</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-nat" id="news-national"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
+
+  <div class="grid-stack-item" gs-id="reveretv" gs-x="3" gs-y="71" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch grn"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS</div></div>
+    <div class="cbody">
+      <div class="yt-grid" id="revere-tv"><div class="empty" style="grid-column:1/-1;">Loading…</div></div>
+      <div style="margin-top:8px;text-align:center;">
+        <a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="font-size:12px;color:var(--accent);">Visit Revere TV YouTube Channel →</a>
       </div>
     </div>
-
-    </div>
-  </div></div><!-- /radio -->
-
-  <!-- ── RIGHT COLUMN PANELS ── -->
-  <!-- Sun / Tides / Logan -->
-  <div class="grid-stack-item" gs-id="sun-tides-logan" gs-x="3" gs-y="0" gs-w="9" gs-h="11" gs-min-h="5">
-  <div class="grid-stack-item-content">
-    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> SUN / TIDES / LOGAN</div>
-  <div class="g3">
-      <div class="card">
-        <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
-        <div class="cbody np">
-          <div class="sun-row"><span class="sun-k">☀ Sunrise</span><span class="sun-v" id="s-rise">--</span></div>
-          <div class="sun-row"><span class="sun-k">🌅 Civil Dawn</span><span class="sun-v" id="s-dawn">--</span></div>
-          <div class="sun-row"><span class="sun-k">🌇 Sunset</span><span class="sun-v" id="s-set">--</span></div>
-          <div class="sun-row"><span class="sun-k">🌆 Civil Dusk</span><span class="sun-v" id="s-dusk">--</span></div>
-          <div class="sun-row"><span class="sun-k">⏱ Day Length</span><span class="sun-v b" id="s-len">--</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="ch acc"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
-        <div class="cbody np"><div id="tide-list"><div class="empty">Loading…</div></div></div>
-      </div>
-      <div class="card">
-        <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA + METAR</div></div>
-        <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
-        <div style="border-top:1px solid var(--border);padding:8px 14px 4px;">
-          <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">LOGAN AIRPORT NEWS</div>
-          <div class="news-feed scroll-box" style="max-height:180px;" id="news-logan"><div class="empty">Loading…</div></div>
-        </div>
-        <div style="border-top:1px solid var(--border);padding:8px 14px 4px;">
-          <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">r/aviation · HOT</div>
-          <div class="scroll-box" style="max-height:180px;" id="r-aviation"><div class="empty">Loading…</div></div>
-        </div>
-      </div>
-    </div>
-
-  </div></div><!-- /sun-tides-logan -->
-
-  <!-- Boston News + UHub -->
-  <div class="grid-stack-item" gs-id="boston-uhub" gs-x="3" gs-y="11" gs-w="9" gs-h="10" gs-min-h="5">
-  <div class="grid-stack-item-content">
-  <div class="gs-handle"><span class="gs-handle-dots">⠿</span> BOSTON NEWS + UNIVERSAL HUB</div>
-  <div class="uhub-col" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;height:100%;">
-    <div class="g2">
-      <div class="card">
-        <div class="ch acc"><div class="ct">BOSTON NEWS</div><div class="cb">GLOBE · HERALD · GBH · WBUR · MORE</div></div>
-        <div class="cbody npx">
-          <div class="news-feed scroll-box h-news" id="news-boston"><div class="empty">Loading…</div></div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <!-- RSS.app list feed -->
-        <div class="card">
-          <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">LIVE FEED</div></div>
-          <div class="cbody np" style="padding:8px;">
-            <rssapp-list id="JDVfRVH4lICb0p4B"></rssapp-list>
-            <script src="https://widget.rss.app/v1/list.js" type="text/javascript" async></script>
-          </div>
-        </div>
-        <!-- Bluesky UHub feed — compact, scrollable -->
-        <div class="card">
-          <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">BLUESKY · @universalhub.com</div></div>
-          <div class="cbody np" style="padding:8px;max-height:320px;overflow-y:auto;">
-            <script async src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" type="module"></script>
-            <bsky-embed username="universalhub.com" limit="20" mode="dark"></bsky-embed>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!-- /uhub-col -->
-  </div></div><!-- /boston-uhub -->
-
-  <!-- BC Eagles -->
-  <div class="grid-stack-item" gs-id="bc-schedule" gs-x="3" gs-y="21" gs-w="9" gs-h="8" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch acc">
-        <div class="ct">BC EAGLES SCHEDULE</div>
-        <div class="cb">BCEAGLES.COM · ALL SPORTS</div>
-        <a href="https://bceagles.com/calendar" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);text-decoration:none;">Open full site →</a>
-      </div>
-      <div class="cbody np">
-        <iframe src="https://bceagles.com/calendar" style="width:100%;height:500px;border:none;display:block;" title="BC Eagles Composite Calendar" loading="lazy"></iframe>
-      </div>
-    </div>
-
-  </div></div><!-- /bc-schedule -->
-
-  <!-- NYT -->
-  <div class="grid-stack-item" gs-id="nyt-link" gs-x="3" gs-y="29" gs-w="9" gs-h="3" gs-min-h="2">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch red"><div class="ct">NYT · IRAN WAR LIVEBLOG</div><div class="cb">OPENS IN NEW TAB</div></div>
-      <div class="nyt-link-body">
-        <p>Trump, Iran &amp; Oil — live coverage from The New York Times</p>
-        <a href="https://www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil" target="_blank" rel="noopener" class="big-btn">OPEN NYT LIVEBLOG →</a>
-        <span style="font-size:11px;color:var(--text-mute);">May require subscription</span>
-      </div>
-    </div>
-
-  </div></div><!-- /nyt-link -->
-
-  <!-- Revere + Communities -->
-  <div class="grid-stack-item" gs-id="revere-comm" gs-x="3" gs-y="32" gs-w="9" gs-h="7" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> REVERE + COMMUNITIES</div>
-  <div class="g2">
-      <div class="card">
-        <div class="ch grn"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG · GOOGLE NEWS</div></div>
-        <div class="cbody npx">
-          <div class="news-feed scroll-box h-news" id="news-revere"><div class="empty">Loading…</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="ch acc"><div class="ct">SURROUNDING COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · SALEM · MORE</div></div>
-        <div class="cbody npx">
-          <div class="news-feed scroll-box h-news" id="news-comm"><div class="empty">Loading…</div></div>
-        </div>
-      </div>
-    </div>
-
-  </div></div><!-- /revere-comm -->
-
-  <!-- Reddit row 1 -->
-  <div class="grid-stack-item" gs-id="reddit-row1" gs-x="3" gs-y="39" gs-w="9" gs-h="7" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> REDDIT — BOSTON · MASS · MBTA</div>
-  <div class="g3">
-      <div class="card">
-        <div class="ch red"><div class="ct">r/boston</div><div class="cb">HOT</div></div>
-        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-boston"><div class="empty">Loading…</div></div></div>
-      </div>
-      <div class="card">
-        <div class="ch red"><div class="ct">r/massachusetts</div><div class="cb">HOT</div></div>
-        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mass"><div class="empty">Loading…</div></div></div>
-      </div>
-      <div class="card">
-        <div class="ch red"><div class="ct">r/mbta</div><div class="cb">HOT</div></div>
-        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mbta"><div class="empty">Loading…</div></div></div>
-      </div>
-    </div>
-
-  </div></div><!-- /reddit-row1 -->
-
-  <!-- Reddit row 2 -->
-  <div class="grid-stack-item" gs-id="reddit-row2" gs-x="3" gs-y="46" gs-w="9" gs-h="7" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> REDDIT — NASCAR · NEOLIBERAL · BRUINS · URBAN</div>
-  <div class="g4">
-      <div class="card">
-        <div class="ch red"><div class="ct">r/nascar</div><div class="cb">HOT</div></div>
-        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-nascar"><div class="empty">Loading…</div></div></div>
-      </div>
-      <div class="card">
-        <div class="ch red"><div class="ct">r/neoliberal</div><div class="cb">HOT</div></div>
-        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-neo"><div class="empty">Loading…</div></div></div>
-      </div>
-      <div class="card">
-        <div class="ch red"><div class="ct">r/bostonbruins</div><div class="cb">HOT</div></div>
-        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-bruins"><div class="empty">Loading…</div></div></div>
-      </div>
-      <div class="card">
-        <div class="ch red"><div class="ct">r/urbanplanning</div><div class="cb">HOT</div></div>
-        <div class="cbody npx"><div class="scroll-box h-reddit" id="r-urban"><div class="empty">Loading…</div></div></div>
-      </div>
-    </div>
-
-  </div></div><!-- /reddit-row2 -->
-
-  <!-- Sports + BC -->
-  <div class="grid-stack-item" gs-id="sports-bc" gs-x="3" gs-y="53" gs-w="9" gs-h="7" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="gs-handle"><span class="gs-handle-dots">⠿</span> SPORTS NEWS + BOSTON COLLEGE</div>
-  <div class="g2">
-      <div class="card">
-        <div class="ch ora"><div class="ct">SPORTS NEWS</div><div class="cb">GLOBE · ESPN · NESN · ATHLETIC · MORE</div></div>
-        <div class="cbody npx">
-          <div class="news-feed scroll-box h-news" id="news-sports"><div class="empty">Loading…</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="ch acc"><div class="ct">BOSTON COLLEGE</div><div class="cb">HEIGHTS · BC INTERRUPTION · MORE</div></div>
-        <div class="cbody npx">
-          <div class="news-feed scroll-box h-news" id="news-bc"><div class="empty">Loading…</div></div>
-        </div>
-      </div>
-    </div>
-
-  </div></div><!-- /sports-bc -->
-
-  <!-- National -->
-  <div class="grid-stack-item" gs-id="national" gs-x="3" gs-y="60" gs-w="9" gs-h="8" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch acc"><div class="ct">NATIONAL HEADLINES</div><div class="cb">NPR · NYT · CNN · BBC · AP · HILL · WAPO</div></div>
-      <div class="cbody npx">
-        <div class="news-feed scroll-box h-nat" id="news-national"><div class="empty">Loading…</div></div>
-      </div>
-    </div>
-
-  </div></div><!-- /national -->
-
-  <!-- Revere TV -->
-  <div class="grid-stack-item" gs-id="reveretv" gs-x="3" gs-y="68" gs-w="9" gs-h="7" gs-min-h="4">
-  <div class="grid-stack-item-content">
-    <div class="card">
-      <div class="ch grn"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS</div></div>
-      <div class="cbody">
-        <div class="yt-grid" id="revere-tv"><div class="empty" style="grid-column:1/-1;">Loading…</div></div>
-        <div style="margin-top:8px;text-align:center;">
-          <a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="font-size:12px;color:var(--accent);">Visit Revere TV YouTube Channel →</a>
-        </div>
-      </div>
-    </div>
-
-  </div></div><!-- /reveretv -->
+  </div></div></div>
 
 </div><!-- /gs-grid -->
+
 <div id="page" style="display:none;"><div id="col-left"></div><div id="col-right"></div></div>
 
 <script>
@@ -977,7 +910,7 @@ const grid = GridStack.init({
   float: true,
   cellHeight: 60,
   column: 12,
-  handle: '.gs-handle, .grid-stack-item-content>.card>.ch', // drag strip OR card header
+  handle: '.ch',   // every panel now has exactly one .ch card header
   resizable: { handles: 'se,s,e' },
   animate: false,
   margin: 7,
