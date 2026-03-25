@@ -187,22 +187,22 @@ a#wx-forecast-link{display:block;margin-top:10px;font-size:12px;color:var(--acce
 
 /* ── SUN / TIDES / LOGAN ── */
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
-.sun-row{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-bottom:1px solid var(--border);}
+.sun-row{display:flex;justify-content:space-between;align-items:center;padding:5px 10px;border-bottom:1px solid var(--border);}
 .sun-row:last-child{border-bottom:none;}
-.sun-k{font-size:14px;color:var(--text-dim);}
-.sun-v{font-family:var(--cond);font-size:22px;font-weight:700;color:var(--gold);}
+.sun-k{font-size:11px;color:var(--text-dim);}
+.sun-v{font-family:var(--cond);font-size:16px;font-weight:700;color:var(--gold);}
 .sun-v.b{color:var(--accent);}
-.tide-item{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border);}
+.tide-item{display:flex;align-items:center;gap:7px;padding:5px 10px;border-bottom:1px solid var(--border);}
 .tide-item:last-child{border-bottom:none;}
 .tide-item.past{opacity:.38;}
-.tide-arr{font-family:var(--cond);font-size:20px;font-weight:900;width:22px;text-align:center;}
+.tide-arr{font-family:var(--cond);font-size:15px;font-weight:900;width:16px;text-align:center;}
 .tide-arr.H{color:var(--accent);}
 .tide-arr.L{color:var(--text-mute);}
 .tide-info{flex:1;}
-.tide-time{font-family:var(--cond);font-size:18px;font-weight:700;color:var(--white);}
-.tide-lbl{font-size:11px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
-.tide-ft{font-family:var(--cond);font-size:20px;font-weight:700;color:var(--orange);}
-.tide-next{font-size:10px;background:rgba(106,176,255,.15);color:var(--accent);border:1px solid rgba(106,176,255,.3);border-radius:3px;padding:2px 6px;}
+.tide-time{font-family:var(--cond);font-size:14px;font-weight:700;color:var(--white);}
+.tide-lbl{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
+.tide-ft{font-family:var(--cond);font-size:15px;font-weight:700;color:var(--orange);}
+.tide-next{font-size:9px;background:rgba(106,176,255,.15);color:var(--accent);border:1px solid rgba(106,176,255,.3);border-radius:3px;padding:1px 5px;}
 .l-ind{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid;border-radius:4px;margin-bottom:8px;}
 .l-ind.ok{border-color:var(--green);background:rgba(88,216,136,.07);}
 .l-ind.delay{border-color:var(--orange);background:rgba(240,128,80,.07);}
@@ -448,7 +448,7 @@ a.big-btn:hover{opacity:.85;}
 
   <!-- RIGHT COLUMN — each card is its own separate grid item -->
 
-  <div class="grid-stack-item" gs-id="sun-sky" gs-x="3" gs-y="0" gs-w="3" gs-h="6" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="sun-sky" gs-x="3" gs-y="0" gs-w="3" gs-h="4" gs-min-h="3">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
     <div class="cbody np">
@@ -460,7 +460,7 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="tides" gs-x="6" gs-y="0" gs-w="3" gs-h="6" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="tides" gs-x="6" gs-y="0" gs-w="3" gs-h="4" gs-min-h="3">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch acc"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
     <div class="cbody np"><div id="tide-list"><div class="empty">Loading…</div></div></div>
