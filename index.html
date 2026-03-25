@@ -153,12 +153,14 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 .ch.sub{background:#f0ede8;border-left:3px solid #e06c2a;}
 .ch.sub .ct{color:#2a1a0e;letter-spacing:3px;}
 .ch.sub .cb{color:#7a5a40;opacity:.9;}
-.card.light-card{background:#f7f4f0;}
-.card.light-card .news-item{border-bottom:1px solid #ddd8d0;}
+.card.light-card{background:#f7f4f0;border-color:#ddd8d0;}
+.card.light-card .cbody{background:#f7f4f0;}
+.card.light-card a.ni{border-bottom:1px solid #ddd8d0;}
+.card.light-card a.ni:hover{background:#ebe7e0;}
 .card.light-card .ni-src{color:#e06c2a;}
-.card.light-card .ni-title a{color:#1a1a1a;}
-.card.light-card .ni-title a:hover{color:#e06c2a;}
-.card.light-card .ni-time{color:#888;}
+.card.light-card .ni-title{color:#1a1a1a;}
+.card.light-card .ni-snippet{color:#555;font-size:12px;line-height:1.4;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.card.light-card .ni-date{color:#888;}
 .card.light-card .empty{color:#999;}
 .ct{font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:3px;color:var(--white);text-transform:uppercase;}
 .cb{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
@@ -1018,6 +1020,24 @@ function renderNews(id,items,communityTags=false){
 }
 
 // ── REVERE TV ──
+function renderSubstack(id,items){
+  const c=document.getElementById(id);
+  if(!items?.length){c.innerHTML='<div class="empty">No items loaded</div>';return;}
+  c.innerHTML='';
+  sortByDate(items).forEach(item=>{
+    const a=document.createElement('a');a.className='ni';a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
+    let inner=item.source?`<div class="ni-src">${item.source}</div>`:'';
+    inner+=`<div class="ni-title">${item.title}</div>`;
+    if(item.summary){
+      const plain=item.summary.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+      if(plain.length>10)inner+=`<div class="ni-snippet">${plain}</div>`;
+    }
+    if(item.ts||item.published)inner+=`<div class="ni-date">${fmtDateTime(item.ts,item.published)}</div>`;
+    a.innerHTML=inner;c.appendChild(a);
+  });
+}
+
+// ── REVERE TV ──
 function renderRevereTv(videos){
   const g=document.getElementById('revere-tv');
   if(!videos?.length){g.innerHTML=`<div class="empty" style="grid-column:1/-1;"><a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="color:var(--accent);">Open Revere TV on YouTube →</a></div>`;return;}
@@ -1080,7 +1100,7 @@ async function loadData(){
   safeRender(()=>renderNews('news-bc-hockey',(d.news_bc_hockey||[]).slice(0,20)),'bc-hockey');
   safeRender(()=>renderNews('news-hockey-east',(d.news_hockey_east||[]).slice(0,20)),'hockey-east');
   safeRender(()=>renderNews('news-national',(d.news_national||[]).slice(0,50)),'news-national');
-  safeRender(()=>renderNews('news-substack',(d.news_substack||[]).slice(0,50)),'news-substack');
+  safeRender(()=>renderSubstack('news-substack',(d.news_substack||[]).slice(0,50)),'news-substack');
   // Logan Airport news from data.json
   safeRender(()=>renderNews('news-logan',(d.news_logan||[]).slice(0,15)),'news-logan');
 }

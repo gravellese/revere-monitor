@@ -321,6 +321,7 @@ def fetch_feed(url, max_items=30):
                 "ts":         ts,
                 "author":     getattr(e,"author",""),
                 "feed_title": getattr(e.source,"title","") if hasattr(e,"source") and e.source else "",
+                "summary":    getattr(e,"summary","") or getattr(e,"description",""),
             })
         return items
     except Exception as e:
