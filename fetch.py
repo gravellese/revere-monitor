@@ -506,8 +506,6 @@ def main():
     seen_comm = set()
     comm_counts = {}
 
-    # Collect all items per town first
-    town_buckets = {}
     for name, url, n in comm_rss:
         items = safe(lambda u=url, c=n: fetch_feed(u, c), f"Comm/{name}") or []
         comm_counts[f"{name}|{url[:50]}"] = len(items)
@@ -517,24 +515,9 @@ def main():
                 continue
             seen_comm.add(link)
             item["source"] = name
-            town_buckets.setdefault(name, []).append(item)
-
-    # Round-robin interleave — take 1 item per town at a time so no town dominates
-    # Cap each town at 12 items max to keep diversity
-    for bucket in town_buckets.values():
-        bucket[:] = bucket[:12]
-
-    while any(town_buckets.values()):
-        for name in list(town_buckets.keys()):
-            if town_buckets[name]:
-                data["news_communities"].append(town_buckets[name].pop(0))
+            data["news_communities"].append(item)
 
     print(f"  → Communities total: {len(data['news_communities'])} unique items")
-    town_totals = {}
-    for item in data["news_communities"]:
-        town_totals[item.get("source","?")] = town_totals.get(item.get("source","?"), 0) + 1
-    for town, count in sorted(town_totals.items()):
-        print(f"    {town}: {count}")
     for key, fetched in comm_counts.items():
         label, url_snip = key.split("|")
         if fetched == 0:
