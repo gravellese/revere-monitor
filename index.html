@@ -1201,8 +1201,8 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
     {name:'State St',              stopId:'place-state', pills:[{l:'Blue',c:'mbta-pill-blue'},{l:'Orange',c:'mbta-pill-orange'}],  routeFilter:null},
     {name:'Broadway @ Pleasant',   stopId:'5761',        pills:[{l:'Bus',c:'mbta-pill-bus'}],                                     routeFilter:null},
     {name:'Broadway @ Yeamans',    stopId:'5714',        pills:[{l:'116',c:'mbta-pill-bus'},{l:'119',c:'mbta-pill-bus'}],          routeFilter:['116','119']},
-    {name:'110 · Broadway & Winthrop Ave', stopId:'5790', pills:[{l:'110',c:'mbta-pill-bus'}],                                    routeFilter:'110'},
-    {name:'110 · Broadway & Shirley Ave', stopId:'5538',  pills:[{l:'110',c:'mbta-pill-bus'}],                                    routeFilter:'110'},
+    {name:'110 · Stop 5790', stopId:'5790', pills:[{l:'110',c:'mbta-pill-bus'}], routeFilter:'110', lookupName:true},
+    {name:'110 · Stop 5538', stopId:'5538', pills:[{l:'110',c:'mbta-pill-bus'}], routeFilter:'110', lookupName:true},
   ];
   const ROUTE_MODE={Blue:'blue',Orange:'orange',Red:'red','Green-B':'green','Green-C':'green','Green-D':'green','Green-E':'green',Green:'green'};
   function routeMode(rid){return ROUTE_MODE[rid]||(rid?'bus':'other');}
@@ -1279,6 +1279,15 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
     });
     return div;
   }
+  async function fetchStopName(stopId){
+    try{
+      const r=await fetch(`${MBTA_API}/stops/${stopId}`);
+      if(!r.ok)return null;
+      const d=await r.json();
+      return d.data?.attributes?.name||null;
+    }catch(e){return null;}
+  }
+
   async function loadArrivals(){
     const grid=document.getElementById('mbtaArrGrid');
     const meta=document.getElementById('mbtaArrMeta');
@@ -1286,7 +1295,17 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
     grid.innerHTML='';meta.textContent='Fetching…';
     const uniqueIds=[...new Set(CARDS.map(c=>c.stopId))];
     const pm={};
-    await Promise.all(uniqueIds.map(async id=>{pm[id]=await fetchPreds(id);}));
+    // Fetch predictions and stop names in parallel
+    const nameMap={};
+    await Promise.all([
+      ...uniqueIds.map(async id=>{pm[id]=await fetchPreds(id);}),
+      ...CARDS.filter(c=>c.lookupName).map(async c=>{
+        const n=await fetchStopName(c.stopId);
+        if(n)nameMap[c.stopId]=n;
+      })
+    ]);
+    // Apply looked-up names
+    CARDS.forEach(c=>{if(c.lookupName&&nameMap[c.stopId])c.name=nameMap[c.stopId];});
     CARDS.forEach(card=>grid.appendChild(buildCard(card,pm[card.stopId])));
     const t=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit'});
     meta.textContent=`Updated ${t} · 60s`;
