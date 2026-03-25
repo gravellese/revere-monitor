@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>REVERE MONITOR</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/10.3.1/gridstack.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/10.3.1/gridstack-all.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -66,10 +68,46 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 .mbta-alert-row:last-child{border-bottom:none;}
 .mbta-route-badge{border:1px solid;border-radius:3px;font-size:10px;padding:1px 5px;white-space:nowrap;flex-shrink:0;}
 
-/* ── MAIN LAYOUT ── */
-#page{max-width:1900px;margin:0 auto;padding:14px;display:grid;grid-template-columns:340px 1fr;gap:14px;align-items:start;}
-#col-left{display:flex;flex-direction:column;gap:14px;}
-#col-right{display:flex;flex-direction:column;gap:14px;}
+/* ── GRIDSTACK ── */
+.grid-stack{max-width:1900px;margin:0 auto;padding:10px 14px;background:transparent !important;}
+.grid-stack-item-content{overflow:hidden;border-radius:5px;background:transparent;}
+/* Drag by card header */
+.ch{cursor:grab;user-select:none;}
+.ch:active{cursor:grabbing;}
+/* Resize handle */
+.grid-stack-item>.ui-resizable-se{background:#1e4a80;width:14px;height:14px;right:2px;bottom:2px;border-radius:2px;opacity:.4;transition:opacity .2s;}
+.grid-stack-item:hover>.ui-resizable-se{opacity:1;}
+/* Cards fill cell height and scroll when content overflows */
+.grid-stack-item-content>.card,
+.grid-stack-item-content>.g2,
+.grid-stack-item-content>.g3,
+.grid-stack-item-content>.g4,
+.grid-stack-item-content>div.uhub-col {
+  height:100%;
+  overflow:hidden;
+}
+.grid-stack-item-content .card {
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  overflow:hidden;
+}
+/* g2/g3/g4 inside items - children also need height */
+.grid-stack-item-content .g2>.card,
+.grid-stack-item-content .g3>.card,
+.grid-stack-item-content .g4>.card { height:100%; }
+/* cbody fills remaining space and scrolls */
+.grid-stack-item-content .cbody,
+.grid-stack-item-content .cbody.npx,
+.grid-stack-item-content .cbody.np { flex:1; overflow-y:auto; min-height:0; }
+/* Remove fixed max-heights — cell height controls visible area */
+.grid-stack-item-content .h-news,
+.grid-stack-item-content .h-reddit,
+.grid-stack-item-content .h-nat { max-height:none !important; height:100%; }
+/* Reset/save buttons */
+#gs-buttons{display:flex;gap:6px;}
+/* Hidden placeholder — keeps old CSS ref valid */
+#page,#col-left,#col-right{display:contents;}
 
 /* ── CARDS ── */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;}
@@ -252,7 +290,10 @@ a.big-btn:hover{opacity:.85;}
 <!-- LINKS BAR -->
 <div id="links-bar-wrap">
   <div id="links-bar"></div>
-  <button class="hdr-btn" id="edit-links-btn">✏ EDIT LINKS</button>
+  <div id="gs-buttons">
+    <button class="hdr-btn" id="reset-layout-btn" title="Reset layout to default">↺ RESET</button>
+    <button class="hdr-btn" id="edit-links-btn">✏ EDIT LINKS</button>
+  </div>
 </div>
 
 <!-- LINKS MODAL -->
@@ -290,11 +331,13 @@ a.big-btn:hover{opacity:.85;}
   <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
 </div>
 
-<!-- MAIN -->
-<div id="page">
+<!-- MAIN GRIDSTACK GRID -->
+<div class="grid-stack" id="gs-grid">
 
-  <!-- LEFT COLUMN -->
-  <div id="col-left">
+  <!-- ── LEFT COLUMN PANELS ── -->
+  <!-- Priorities -->
+  <div class="grid-stack-item" gs-id="priorities" gs-x="0" gs-y="0" gs-w="3" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content">
 
     <!-- Priorities -->
     <div class="card">
@@ -308,8 +351,11 @@ a.big-btn:hover{opacity:.85;}
         <div id="pri-saved">auto-saved to this browser</div>
       </div>
     </div>
+  </div></div><!-- /priorities -->
 
-    <!-- Planner -->
+  <!-- Planner -->
+  <div class="grid-stack-item" gs-id="planner" gs-x="0" gs-y="7" gs-w="3" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch acc"><div class="ct">PLANNER</div><div class="cb">NOTES + QUICK LINKS</div></div>
       <div class="cbody">
@@ -324,8 +370,11 @@ a.big-btn:hover{opacity:.85;}
         </div>
       </div>
     </div>
+  </div></div><!-- /planner -->
 
-    <!-- Current Weather -->
+  <!-- Weather -->
+  <div class="grid-stack-item" gs-id="weather-now" gs-x="0" gs-y="15" gs-w="3" gs-h="5" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch acc"><div class="ct">NOW — REVERE, MA</div><div class="cb">NWS WEATHER</div></div>
       <div class="cbody">
@@ -341,24 +390,33 @@ a.big-btn:hover{opacity:.85;}
         <a id="wx-forecast-link" href="https://forecast.weather.gov/MapClick.php?CityName=Revere&state=MA&site=BOX" target="_blank" rel="noopener">📋 View full NWS forecast →</a>
       </div>
     </div>
+  </div></div><!-- /weather-now -->
 
-    <!-- Hourly -->
+  <!-- Hourly -->
+  <div class="grid-stack-item" gs-id="hourly" gs-x="0" gs-y="20" gs-w="3" gs-h="4" gs-min-h="3">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch acc"><div class="ct">HOURLY FORECAST</div><div class="cb">NEXT 24H</div></div>
       <div class="cbody">
         <div id="hourly-scroll"><div id="hourly-inner"><div class="empty">Loading…</div></div></div>
       </div>
     </div>
+  </div></div><!-- /hourly -->
 
-    <!-- 7-Day -->
+  <!-- 7-Day -->
+  <div class="grid-stack-item" gs-id="sevenday" gs-x="0" gs-y="24" gs-w="3" gs-h="5" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch acc"><div class="ct">7-DAY FORECAST</div><div class="cb">NWS</div></div>
       <div class="cbody">
         <div id="daily-grid"><div class="empty">Loading…</div></div>
       </div>
     </div>
+  </div></div><!-- /sevenday -->
 
-    <!-- Markets -->
+  <!-- Markets -->
+  <div class="grid-stack-item" gs-id="markets" gs-x="0" gs-y="29" gs-w="3" gs-h="4" gs-min-h="2">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch acc"><div class="ct">MARKETS</div><div class="cb">LIVE PRICES</div></div>
       <div class="cbody np">
@@ -369,8 +427,11 @@ a.big-btn:hover{opacity:.85;}
         </script>
       </div>
     </div>
+  </div></div><!-- /markets -->
 
-    <!-- Live News & Radio -->
+  <!-- Radio -->
+  <div class="grid-stack-item" gs-id="radio" gs-x="0" gs-y="33" gs-w="3" gs-h="10" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch acc"><div class="ct">LIVE NEWS &amp; RADIO</div><div class="cb">OPENS IN NEW TAB</div></div>
       <div class="cbody">
@@ -385,12 +446,13 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-  </div><!-- /col-left -->
+    </div>
+  </div></div><!-- /radio -->
 
-  <!-- RIGHT COLUMN -->
-  <div id="col-right">
-
-    <!-- Sun / Tides / Logan -->
+  <!-- ── RIGHT COLUMN PANELS ── -->
+  <!-- Sun / Tides / Logan -->
+  <div class="grid-stack-item" gs-id="sun-tides-logan" gs-x="3" gs-y="0" gs-w="9" gs-h="11" gs-min-h="5">
+  <div class="grid-stack-item-content">
     <div class="g3">
       <div class="card">
         <div class="ch gld"><div class="ct">SUN &amp; SKY</div><div class="cb">REVERE BEACH</div></div>
@@ -420,7 +482,12 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-    <!-- Boston News + RSS Feed + UHub -->
+  </div></div><!-- /sun-tides-logan -->
+
+  <!-- Boston News + UHub -->
+  <div class="grid-stack-item" gs-id="boston-uhub" gs-x="3" gs-y="11" gs-w="9" gs-h="10" gs-min-h="5">
+  <div class="grid-stack-item-content">
+  <div class="uhub-col" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;height:100%;">
     <div class="g2">
       <div class="card">
         <div class="ch acc"><div class="ct">BOSTON NEWS</div><div class="cb">GLOBE · HERALD · GBH · WBUR · MORE</div></div>
@@ -447,8 +514,12 @@ a.big-btn:hover{opacity:.85;}
         </div>
       </div>
     </div>
+  </div><!-- /uhub-col -->
+  </div></div><!-- /boston-uhub -->
 
-    <!-- BC Eagles Calendar -->
+  <!-- BC Eagles -->
+  <div class="grid-stack-item" gs-id="bc-schedule" gs-x="3" gs-y="21" gs-w="9" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch acc">
         <div class="ct">BC EAGLES SCHEDULE</div>
@@ -460,7 +531,11 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-    <!-- NYT Liveblog -->
+  </div></div><!-- /bc-schedule -->
+
+  <!-- NYT -->
+  <div class="grid-stack-item" gs-id="nyt-link" gs-x="3" gs-y="29" gs-w="9" gs-h="3" gs-min-h="2">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch red"><div class="ct">NYT · IRAN WAR LIVEBLOG</div><div class="cb">OPENS IN NEW TAB</div></div>
       <div class="nyt-link-body">
@@ -470,7 +545,11 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-    <!-- Revere + Communities -->
+  </div></div><!-- /nyt-link -->
+
+  <!-- Revere + Communities -->
+  <div class="grid-stack-item" gs-id="revere-comm" gs-x="3" gs-y="32" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="g2">
       <div class="card">
         <div class="ch grn"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG · GOOGLE NEWS</div></div>
@@ -486,7 +565,11 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-    <!-- Reddit row 1 -->
+  </div></div><!-- /revere-comm -->
+
+  <!-- Reddit row 1 -->
+  <div class="grid-stack-item" gs-id="reddit-row1" gs-x="3" gs-y="39" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="g3">
       <div class="card">
         <div class="ch red"><div class="ct">r/boston</div><div class="cb">HOT</div></div>
@@ -502,7 +585,11 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-    <!-- Reddit row 2 -->
+  </div></div><!-- /reddit-row1 -->
+
+  <!-- Reddit row 2 -->
+  <div class="grid-stack-item" gs-id="reddit-row2" gs-x="3" gs-y="46" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="g4">
       <div class="card">
         <div class="ch red"><div class="ct">r/nascar</div><div class="cb">HOT</div></div>
@@ -522,7 +609,11 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-    <!-- Sports News + BC News -->
+  </div></div><!-- /reddit-row2 -->
+
+  <!-- Sports + BC -->
+  <div class="grid-stack-item" gs-id="sports-bc" gs-x="3" gs-y="53" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="g2">
       <div class="card">
         <div class="ch ora"><div class="ct">SPORTS NEWS</div><div class="cb">GLOBE · ESPN · NESN · ATHLETIC · MORE</div></div>
@@ -538,7 +629,11 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-    <!-- National News -->
+  </div></div><!-- /sports-bc -->
+
+  <!-- National -->
+  <div class="grid-stack-item" gs-id="national" gs-x="3" gs-y="60" gs-w="9" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch acc"><div class="ct">NATIONAL HEADLINES</div><div class="cb">NPR · NYT · CNN · BBC · AP · HILL · WAPO</div></div>
       <div class="cbody npx">
@@ -546,7 +641,11 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-    <!-- Revere TV -->
+  </div></div><!-- /national -->
+
+  <!-- Revere TV -->
+  <div class="grid-stack-item" gs-id="reveretv" gs-x="3" gs-y="68" gs-w="9" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content">
     <div class="card">
       <div class="ch grn"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS</div></div>
       <div class="cbody">
@@ -557,8 +656,10 @@ a.big-btn:hover{opacity:.85;}
       </div>
     </div>
 
-  </div><!-- /col-right -->
-</div><!-- /page -->
+  </div></div><!-- /reveretv -->
+
+</div><!-- /gs-grid -->
+<div id="page" style="display:none;"><div id="col-left"></div><div id="col-right"></div></div>
 
 <script>
 // ── CLOCK ──
@@ -839,6 +940,68 @@ const redditFeeds=[
   {sub:'aviation',id:'r-aviation'},
 ];
 redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
+// ── GRIDSTACK ──────────────────────────────────────────────────────
+const GS_KEY = 'revere_monitor_gs_v1';
+
+const grid = GridStack.init({
+  float: true,
+  cellHeight: 60,
+  column: 12,
+  handle: '.ch',           // drag by colored card header
+  resizable: { handles: 'se,s,e' },
+  animate: false,
+  margin: 7,
+});
+
+// Save: read actual attributes GridStack sets on each element
+function saveLayout() {
+  const layout = {};
+  document.querySelectorAll('.grid-stack-item').forEach(el => {
+    const id = el.getAttribute('gs-id');
+    if (!id) return;
+    layout[id] = {
+      x: +el.getAttribute('gs-x') || 0,
+      y: +el.getAttribute('gs-y') || 0,
+      w: +el.getAttribute('gs-w') || 3,
+      h: +el.getAttribute('gs-h') || 4,
+    };
+  });
+  try { localStorage.setItem(GS_KEY, JSON.stringify(layout)); } catch(e) {}
+}
+
+// Restore: update each item by gs-id after a tick
+function restoreLayout() {
+  let saved;
+  try { saved = JSON.parse(localStorage.getItem(GS_KEY) || 'null'); } catch(e) { return; }
+  if (!saved) return;
+  grid.batchUpdate(true);
+  document.querySelectorAll('.grid-stack-item').forEach(el => {
+    const id = el.getAttribute('gs-id');
+    if (!id || !saved[id]) return;
+    grid.update(el, saved[id]);
+  });
+  grid.batchUpdate(false);
+}
+
+// Wait 200ms so GridStack finishes its own init before we restore
+setTimeout(() => {
+  restoreLayout();
+  grid.setAnimation(true);
+}, 200);
+
+// Save on every drag/resize
+grid.on('change', saveLayout);
+grid.on('resizestop', saveLayout);
+grid.on('dragstop', saveLayout);
+
+// Reset button
+document.getElementById('reset-layout-btn').addEventListener('click', () => {
+  if (confirm('Reset all panels to default layout?')) {
+    localStorage.removeItem(GS_KEY);
+    location.reload();
+  }
+});
+
 setTimeout(()=>location.reload(),30*60*1000);
 </script>
 </body>
