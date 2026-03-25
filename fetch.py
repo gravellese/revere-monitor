@@ -606,6 +606,13 @@ def main():
                 item["source"] = label
                 data["news_national"].append(item)
 
+    # Logan Airport news — Google News search
+    logan_news = safe(lambda: fetch_feed(
+        'https://news.google.com/rss/search?q=%22logan+airport%22&hl=en-US&gl=US&ceid=US:en', 15
+    ), "Logan Airport news") or []
+    for i in logan_news: i["source"] = "Google News"
+    data["news_logan"] = logan_news
+
     with open("data.json","w") as f:
         json.dump(data, f, indent=2, default=str)
     print(f"\n✅ Done — {data['updated_local']}")
