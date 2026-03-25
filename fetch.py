@@ -23,10 +23,16 @@ def fetch_weather_current():
     r = requests.get("https://api.weather.gov/gridpoints/BOX/68,89/forecast/hourly",
                      timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
     p = r.json()["properties"]["periods"][0]
+    # Also grab the daily forecast for today's detailed text
+    r2 = requests.get("https://api.weather.gov/gridpoints/BOX/68,89/forecast",
+                      timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
+    periods = r2.json()["properties"]["periods"]
+    today = next((x for x in periods if x["isDaytime"]), periods[0])
     return {
         "temp": p["temperature"], "unit": p["temperatureUnit"],
         "wind": p["windSpeed"], "windDir": p.get("windDirection",""),
         "shortForecast": p["shortForecast"],
+        "detailedForecast": today.get("detailedForecast",""),
         "humidity": p.get("relativeHumidity",{}).get("value"),
         "precip": p.get("probabilityOfPrecipitation",{}).get("value",0) or 0,
     }
@@ -46,7 +52,7 @@ def fetch_weather_daily():
                      timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
     periods = r.json()["properties"]["periods"]
     days, i = [], 0
-    while i < len(periods) and len(days) < 7:
+    while i < len(periods) and len(days) < 5:
         d = periods[i]
         n = periods[i+1] if i+1 < len(periods) else None
         days.append({
@@ -54,6 +60,7 @@ def fetch_weather_daily():
             "high": d["temperature"] if d["isDaytime"] else None,
             "low": n["temperature"] if n else None,
             "shortForecast": d["shortForecast"],
+            "detailedForecast": d.get("detailedForecast",""),
             "precip": d.get("probabilityOfPrecipitation",{}).get("value",0) or 0,
         })
         i += 2
