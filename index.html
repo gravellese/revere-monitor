@@ -961,13 +961,13 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="reveretv" gs-x="0" gs-y="89" gs-w="6" gs-h="4" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="reveretv" gs-x="0" gs-y="89" gs-w="6" gs-h="8" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch grn"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS</div></div>
     <div class="cbody">
       <div class="yt-grid" id="revere-tv"><div class="empty" style="grid-column:1/-1;">Loading…</div></div>
-      <div style="margin-top:8px;text-align:center;">
-        <a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="font-size:12px;color:var(--accent);">Visit Revere TV YouTube Channel →</a>
+      <div style="margin-top:10px;text-align:center;">
+        <a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:5px 16px;background:var(--bg3);border:1px solid var(--border2);border-radius:4px;font-size:12px;font-family:var(--cond);font-weight:700;letter-spacing:1px;color:var(--accent);text-decoration:none;text-transform:uppercase;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)'">▶ Open Revere TV on YouTube</a>
       </div>
     </div>
   </div></div></div>
@@ -1197,12 +1197,12 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
 (function(){
   const MBTA_API='https://api-v3.mbta.com';
   const CARDS=[
-    {name:'Beachmont',         stopId:'place-bmnt', pills:[{l:'Blue',c:'mbta-pill-blue'}],                          routeFilter:null},
-    {name:'State St',          stopId:'place-state', pills:[{l:'Blue',c:'mbta-pill-blue'},{l:'Orange',c:'mbta-pill-orange'}], routeFilter:null},
-    {name:'Broadway @ Pleasant',stopId:'5761',       pills:[{l:'Bus',c:'mbta-pill-bus'}],                           routeFilter:null},
-    {name:'Broadway @ Yeamans', stopId:'5614',       pills:[{l:'Bus',c:'mbta-pill-bus'}],                           routeFilter:null},
-    {name:'110 → Wonderland',   stopId:'5790',       pills:[{l:'110',c:'mbta-pill-bus'}],                           routeFilter:'110'},
-    {name:'110 → Wellington',   stopId:'5538',       pills:[{l:'110',c:'mbta-pill-bus'}],                           routeFilter:'110'},
+    {name:'Beachmont',             stopId:'place-bmnt',  pills:[{l:'Blue',c:'mbta-pill-blue'}],                                   routeFilter:null},
+    {name:'State St',              stopId:'place-state', pills:[{l:'Blue',c:'mbta-pill-blue'},{l:'Orange',c:'mbta-pill-orange'}],  routeFilter:null},
+    {name:'Broadway @ Pleasant',   stopId:'5761',        pills:[{l:'Bus',c:'mbta-pill-bus'}],                                     routeFilter:null},
+    {name:'Broadway @ Yeamans',    stopId:'5714',        pills:[{l:'116',c:'mbta-pill-bus'},{l:'119',c:'mbta-pill-bus'}],          routeFilter:['116','119']},
+    {name:'110 · Broadway & Winthrop Ave', stopId:'5790', pills:[{l:'110',c:'mbta-pill-bus'}],                                    routeFilter:'110'},
+    {name:'110 · Broadway & Shirley Ave', stopId:'5538',  pills:[{l:'110',c:'mbta-pill-bus'}],                                    routeFilter:'110'},
   ];
   const ROUTE_MODE={Blue:'blue',Orange:'orange',Red:'red','Green-B':'green','Green-C':'green','Green-D':'green','Green-E':'green',Green:'green'};
   function routeMode(rid){return ROUTE_MODE[rid]||(rid?'bus':'other');}
@@ -1216,18 +1216,46 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
   }
   async function fetchPreds(stopId){
     try{
-      const r=await fetch(`${MBTA_API}/predictions?filter[stop]=${stopId}&sort=arrival_time&include=trip,route&page[limit]=25`);
+      // sort=departure_time catches terminus/originating trains that have no arrival_time
+      const url=`${MBTA_API}/predictions?filter[stop]=${stopId}&sort=departure_time&include=trip,route&page[limit]=25`;
+      const r=await fetch(url);
       if(!r.ok)return null;
       const data=await r.json();
       const hs={},rn={};
       (data.included||[]).forEach(i=>{if(i.type==='trip')hs[i.id]=i.attributes.headsign;if(i.type==='route')rn[i.id]=i.attributes.short_name||i.id;});
-      return(data.data||[]).map(p=>({
+      let preds=(data.data||[]).map(p=>({
+        // use whichever time exists — arrival preferred, departure as fallback
         arrival:p.attributes.arrival_time||p.attributes.departure_time,
         status:p.attributes.status,dir:p.attributes.direction_id,
         headsign:hs[p.relationships?.trip?.data?.id]||'–',
         routeId:p.relationships?.route?.data?.id||'',
         routeName:rn[p.relationships?.route?.data?.id]||'',
       })).filter(p=>p.arrival);
+      // If parent station returns nothing, try fetching with stop_sequence approach
+      // by also pulling the stop's child platforms
+      if(!preds.length && stopId.startsWith('place-')){
+        const r2=await fetch(`${MBTA_API}/stops?filter[parent_station]=${stopId}&include=child_stops`);
+        if(r2.ok){
+          const d2=await r2.json();
+          const childIds=(d2.data||[]).map(s=>s.id).join(',');
+          if(childIds){
+            const r3=await fetch(`${MBTA_API}/predictions?filter[stop]=${childIds}&sort=departure_time&include=trip,route&page[limit]=25`);
+            if(r3.ok){
+              const d3=await r3.json();
+              const hs2={},rn2={};
+              (d3.included||[]).forEach(i=>{if(i.type==='trip')hs2[i.id]=i.attributes.headsign;if(i.type==='route')rn2[i.id]=i.attributes.short_name||i.id;});
+              preds=(d3.data||[]).map(p=>({
+                arrival:p.attributes.arrival_time||p.attributes.departure_time,
+                status:p.attributes.status,dir:p.attributes.direction_id,
+                headsign:hs2[p.relationships?.trip?.data?.id]||'–',
+                routeId:p.relationships?.route?.data?.id||'',
+                routeName:rn2[p.relationships?.route?.data?.id]||'',
+              })).filter(p=>p.arrival);
+            }
+          }
+        }
+      }
+      return preds;
     }catch(e){return null;}
   }
   function buildCard(card,preds){
@@ -1236,7 +1264,7 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
     div.innerHTML=`<div class="mbta-stop-hdr"><span class="mbta-stop-name">${card.name}</span>${pills}</div><div class="mbta-arrivals"></div>`;
     const arr=div.querySelector('.mbta-arrivals');
     let items=(preds||[]);
-    if(card.routeFilter)items=items.filter(p=>p.routeId===card.routeFilter);
+    if(card.routeFilter)items=items.filter(p=>Array.isArray(card.routeFilter)?card.routeFilter.includes(p.routeId):p.routeId===card.routeFilter);
     items=items.slice(0,6);
     if(!items.length){arr.innerHTML='<div class="mbta-no-pred">No predictions</div>';return div;}
     items.forEach(p=>{
@@ -1486,16 +1514,57 @@ function renderSubstack(id,items){
 }
 
 // ── REVERE TV ──
-function renderRevereTv(videos){
+async function loadRevereTv(){
   const g=document.getElementById('revere-tv');
-  if(!videos?.length){g.innerHTML=`<div class="empty" style="grid-column:1/-1;"><a href="https://www.youtube.com/@reveretv" target="_blank" rel="noopener" style="color:var(--accent);">Open Revere TV on YouTube →</a></div>`;return;}
+  if(!g)return;
+  const FEED='https://www.youtube.com/feeds/videos.xml?channel_id=UCGl4hREwgcCQxKA52C7Y_Bg';
+  let xml=null;
+  for(const fn of[
+    u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+    u=>`https://corsproxy.io/?${encodeURIComponent(u)}`
+  ]){
+    try{
+      const r=await fetch(fn(FEED),{cache:'no-cache'});
+      if(!r.ok)continue;
+      const d=await r.json();
+      xml=d.contents||d;
+      if(typeof xml==='string'&&xml.includes('<entry>'))break;
+      xml=null;
+    }catch(e){xml=null;}
+  }
+  if(!xml||!xml.includes('<entry>')){
+    g.innerHTML=`<div class="empty" style="grid-column:1/-1;color:var(--text-mute);">Could not load feed</div>`;
+    return;
+  }
+  const doc=new DOMParser().parseFromString(xml,'text/xml');
+  const entries=[...doc.querySelectorAll('entry')].slice(0,6);
   g.innerHTML='';
-  videos.slice(0,9).forEach(v=>{
+  entries.forEach(e=>{
+    const title=e.querySelector('title')?.textContent||'';
+    const link=e.querySelector('link')?.getAttribute('href')||'#';
+    const pub=e.querySelector('published')?.textContent||'';
+    const videoId=e.querySelector('videoId')?.textContent||link.split('v=')[1]||'';
+    const thumb=videoId?`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`:'';
+    const a=document.createElement('a');
+    a.className='yt-item';a.href=link;a.target='_blank';a.rel='noopener noreferrer';
+    a.innerHTML=`${thumb?`<img class="yt-thumb" src="${thumb}" alt="" loading="lazy" onerror="this.style.background='#3d3d3d'">`:''}<div class="yt-title">${title}</div><div class="yt-date">${fmtDate(pub)}</div>`;
+    g.appendChild(a);
+  });
+}
+function renderRevereTv(videos){
+  // legacy path — if fetch.py data arrives use it, otherwise loadRevereTv handles it
+  const g=document.getElementById('revere-tv');
+  if(!g)return;
+  if(!videos?.length){loadRevereTv();return;}
+  g.innerHTML='';
+  videos.slice(0,6).forEach(v=>{
     const a=document.createElement('a');a.className='yt-item';a.href=v.link||`https://youtube.com/watch?v=${v.video_id}`;a.target='_blank';a.rel='noopener noreferrer';
     a.innerHTML=`<img class="yt-thumb" src="${v.thumbnail}" alt="" loading="lazy" onerror="this.style.background='#3d3d3d'"><div class="yt-title">${v.title}</div><div class="yt-date">${fmtDate(v.published)}</div>`;
     g.appendChild(a);
   });
 }
+// Always try the live RSS feed on page load
+loadRevereTv();
 
 // ── REDDIT ──
 async function fetchReddit(sub,id,attempt=1){
