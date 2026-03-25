@@ -298,11 +298,27 @@ def fetch_feed(url, max_items=30):
             elif hasattr(e,"updated_parsed") and e.updated_parsed:
                 try: ts = calendar.timegm(e.updated_parsed)
                 except: pass
+            # Fallback: try to parse raw published string if ts still 0
+            if ts == 0:
+                raw = getattr(e,"published","") or getattr(e,"updated","")
+                if raw:
+                    try:
+                        from email.utils import parsedate_to_datetime
+                        ts = int(parsedate_to_datetime(raw).timestamp())
+                    except:
+                        try:
+                            from datetime import datetime
+                            for fmt in ("%a, %d %b %Y %H:%M:%S %z","%Y-%m-%dT%H:%M:%S%z","%Y-%m-%dT%H:%M:%SZ","%a, %d %b %Y %H:%M:%S +0000"):
+                                try:
+                                    ts = int(datetime.strptime(raw[:len(fmt)], fmt).timestamp())
+                                    break
+                                except: pass
+                        except: pass
             items.append({
                 "title":     getattr(e,"title",""),
                 "link":      getattr(e,"link",""),
                 "published": getattr(e,"published",""),
-                "ts":        ts,   # Unix timestamp — use this for sorting in JS
+                "ts":        ts,
             })
         return items
     except Exception as e:
