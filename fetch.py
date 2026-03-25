@@ -452,8 +452,9 @@ def main():
         ("Chelsea",      "https://news.google.com/rss/search?q=%22Chelsea+MA%22+city+news&hl=en-US&gl=US&ceid=US:en",               8),
         ("Chelsea City", "https://news.google.com/rss/search?q=%22City+of+Chelsea%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",      6),
 
-        # ── EAST BOSTON — eastietimes ✓, NBC ✓, GNews ✓ ──
+        # ── EAST BOSTON — eastietimes ✓, eastboston.com, NBC ✓, GNews ✓ ──
         ("East Boston",  "https://eastietimes.com/feed/",                                                                            8),
+        ("East Boston",  "https://eastboston.com/feed/",                                                                             8),
         ("East Boston",  "https://www.nbcboston.com/tag/east-boston/feed/",                                                          8),
         ("East Boston",  "https://news.google.com/rss/search?q=%22East+Boston%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",          8),
 
@@ -538,6 +539,10 @@ def main():
         label, url_snip = key.split("|")
         if fetched == 0:
             print(f"    ✗ {label}: 0 fetched — {url_snip}")
+    # Show ts diagnostics for key sources
+    for item in data["news_communities"]:
+        if item.get("source") in ("Everett", "Advocate") and item.get("ts", 0) == 0:
+            print(f"    ⚠ ts=0: [{item['source']}] {item.get('title','')[:60]} | pub: {item.get('published','(none)')[:40]}")
 
     # Boston — try multiple URLs per source, use Google News as fallback for Globe
     boston_sources = [
