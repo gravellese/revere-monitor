@@ -876,14 +876,11 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="news-comm" gs-x="0" gs-y="18" gs-w="12" gs-h="10" gs-min-h="6">
-  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
-    <div class="ch local" style="flex-shrink:0;">
-      <div class="ct">SURROUNDING COMMUNITIES</div>
-      <div class="cb">CHELSEA · EASTIE · LYNN · WINTHROP · SAUGUS · MALDEN · EVERETT · MORE</div>
-    </div>
-    <div class="cbody np" style="flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;">
-      <div id="news-comm" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;"><div class="empty" style="grid-column:1/-1;">Loading…</div></div>
+  <div class="grid-stack-item" gs-id="news-comm" gs-x="6" gs-y="18" gs-w="6" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch local"><div class="ct">SURROUNDING COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · SALEM · MORE</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-comm"><div class="empty">Loading…</div></div>
     </div>
   </div></div></div>
 
@@ -1821,7 +1818,7 @@ async function loadData(){
     d=await r.json();
   }catch(e){
     document.getElementById('upd-ts').textContent='ERROR — run GitHub Action';
-    ['news-revere','news-sports','news-bc','news-national'].forEach(id=>{
+    ['news-revere','news-comm','news-sports','news-bc','news-national'].forEach(id=>{
       const el=document.getElementById(id);if(el)el.innerHTML='<div class="empty">data.json not loaded — run the GitHub Action</div>';
     });
     return;
@@ -1835,7 +1832,7 @@ async function loadData(){
   safeRender(()=>renderLogan(d.logan),'logan');
   safeRender(()=>renderRevereTv(d.revere_tv),'reveretv');
   safeRender(()=>renderNews('news-revere',(d.news_revere||[]).slice(0,30)),'news-revere');
-  safeRender(()=>renderCommGrid(d.news_communities||[]),'news-comm');
+  safeRender(()=>renderNews('news-comm',(d.news_communities||[]).filter(i=>(i.ts||0)>(Date.now()/1000-2592000)).slice(0,150),true),'news-comm');
   // ── BOSTON CAROUSEL ──
   (function(){
     const raw = (d.news_boston||[]);
