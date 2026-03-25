@@ -428,93 +428,204 @@ a.big-btn:hover{opacity:.85;}
 <!-- NYT NEWS TICKER -->
 <div style="background:#111;border-bottom:2px solid #1a1a1a;display:flex;align-items:stretch;">
   <div style="background:#cc0000;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #aa0000;">NYT</div>
-  <div style="overflow:hidden;padding:8px 12px;flex:1;position:relative;" id="nytCarViewport">
-    <div id="nytCarTrack" style="display:inline-flex;gap:10px;will-change:transform;">
+  <div id="nytViewport" style="overflow:hidden;padding:8px 12px;flex:1;position:relative;cursor:grab;">
+    <div id="nytTrack" style="display:inline-flex;gap:10px;will-change:transform;">
       <div style="color:#555;font-size:13px;padding:10px;">Loading NYT headlines…</div>
     </div>
   </div>
   <div style="display:flex;align-items:center;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
-    <button id="nytTickPause" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
+    <button id="nytPauseBtn" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
   </div>
 </div>
 <script>
 (function(){
-  const RSS='https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
-  const track=document.getElementById('nytCarTrack');
-  const viewport=document.getElementById('nytCarViewport');
-  const pauseBtn=document.getElementById('nytTickPause');
-  let paused=false,offset=0,halfW=0,lastT=null,raf=null;
+  
+  const CARD_W = 280 + 10;
+  let autoPaused=false,dragPaused=false,offset=0,halfW=0,lastT=null,raf=null;
   const PPS=65;
+  function isPaused(){return autoPaused||dragPaused;}
 
-  async function load(){
-    let xml=null;
-    for(const fn of[
-      u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-      u=>`https://corsproxy.io/?${encodeURIComponent(u)}`
-    ]){
-      try{const r=await fetch(fn(RSS),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
-    }
-    if(!xml){try{const r=await fetch(RSS);xml=await r.text();}catch(e){}}
-    if(!xml||!xml.includes('<item>')){track.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">NYT feed unavailable</div>';return;}
-    const doc=new DOMParser().parseFromString(xml,'text/xml');
-    const items=[...doc.querySelectorAll('item')].map(n=>({
-      title:n.querySelector('title')?.textContent||'',
-      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
-      pub:n.querySelector('pubDate')?.textContent||''
-    })).filter(i=>i.title).slice(0,20);
-    build(items);
-  }
-
-  function build(items){
+  function buildCards(items,track,cardStyle,hoverColor){
     track.innerHTML='';
-    [...items,...items,...items].forEach((item)=>{
+    [...items,...items,...items].forEach(item=>{
       const a=document.createElement('a');
       a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-      a.style.cssText='flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;';
-      a.onmouseover=()=>{a.style.borderColor='#666';paused=true;};
-      a.onmouseout=()=>{a.style.borderColor='#222';paused=false;};
+      a.style.cssText=cardStyle+'user-select:none;';
+      a.onmouseover=()=>a.style.borderColor=hoverColor;
+      a.onmouseout=()=>a.style.borderColor=a.dataset.bc;
+      a.dataset.bc=a.style.borderColor;
       const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
       a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
         +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
       track.appendChild(a);
     });
-    requestAnimationFrame(()=>{
-      halfW=track.scrollWidth/3;
-      offset=0;
-      startScroll();
-    });
+    requestAnimationFrame(()=>{halfW=track.scrollWidth/3;offset=0;startScroll(track);});
   }
 
-  function startScroll(){
-    if(raf)cancelAnimationFrame(raf);
-    lastT=null;
+  function startScroll(track){
+    if(raf)cancelAnimationFrame(raf);lastT=null;
     function tick(ts){
       if(!lastT)lastT=ts;
-      if(!paused){
+      if(!isPaused()){
         offset+=PPS*((ts-lastT)/1000);
         if(offset>=halfW)offset-=halfW;
+        if(offset<0)offset+=halfW;
         track.style.transform=`translateX(-${offset}px)`;
       }
-      lastT=ts;
-      raf=requestAnimationFrame(tick);
+      lastT=ts;raf=requestAnimationFrame(tick);
     }
     raf=requestAnimationFrame(tick);
   }
 
-  pauseBtn.addEventListener('click',()=>{
-    paused=!paused;
-    pauseBtn.textContent=paused?'▶ resume':'⏸ pause';
-  });
+  function attachDrag(viewport,track){
+    let dX=null,dO=null;
+    function start(cx){dX=cx;dO=offset;dragPaused=true;viewport.style.cursor='grabbing';}
+    function move(cx){
+      if(dX===null)return;
+      offset=dO+(dX-cx);
+      if(offset>=halfW)offset-=halfW;
+      if(offset<0)offset+=halfW;
+      track.style.transform=`translateX(-${offset}px)`;
+    }
+    function end(){if(dX===null)return;dX=null;viewport.style.cursor='grab';setTimeout(()=>{dragPaused=false;lastT=null;},300);}
+    viewport.addEventListener('mousedown',e=>{e.preventDefault();start(e.clientX);});
+    window.addEventListener('mousemove',e=>move(e.clientX));
+    window.addEventListener('mouseup',end);
+    viewport.addEventListener('touchstart',e=>start(e.touches[0].clientX),{passive:true});
+    viewport.addEventListener('touchmove',e=>move(e.touches[0].clientX),{passive:true});
+    viewport.addEventListener('touchend',end);
+  }
 
-  load();
+  async function fetchRSS(url){
+    let xml=null;
+    for(const fn of[u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`]){
+      try{const r=await fetch(fn(url),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
+    }
+    if(!xml){try{const r=await fetch(url);xml=await r.text();}catch(e){}}
+    return xml;
+  }
+
+  function parseItems(xml,max){
+    const doc=new DOMParser().parseFromString(xml,'text/xml');
+    return[...doc.querySelectorAll('item')].map(n=>({
+      title:n.querySelector('title')?.textContent||'',
+      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
+      pub:n.querySelector('pubDate')?.textContent||''
+    })).filter(i=>i.title).slice(0,max);
+  }
+
+  const nytTrack=document.getElementById('nytTrack');
+  const nytVP=document.getElementById('nytViewport');
+  const nytBtn=document.getElementById('nytPauseBtn');
+  attachDrag(nytVP,nytTrack);
+  nytBtn.addEventListener('click',()=>{autoPaused=!autoPaused;nytBtn.textContent=autoPaused?'▶ resume':'⏸ pause';if(!autoPaused)lastT=null;});
+  fetchRSS('https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml').then(xml=>{
+    if(!xml||!xml.includes('<item>')){nytTrack.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">NYT feed unavailable</div>';return;}
+    buildCards(parseItems(xml,20),nytTrack,'flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;cursor:grab;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#888');
+  });
 })();
 </script>
 
 <!-- BOSTON GLOBE CAROUSEL -->
-<div style="background:#1e1e1e;border-bottom:2px solid var(--border);padding:8px 16px;">
-  <rssapp-carousel id="DDMnamv89Q9UnJ0D"></rssapp-carousel>
-  <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+<div style="background:#111;border-bottom:2px solid #1a1a1a;display:flex;align-items:stretch;">
+  <div style="background:#0d2b5e;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #0a2050;">GLOBE</div>
+  <div id="globeViewport" style="overflow:hidden;padding:8px 12px;flex:1;position:relative;cursor:grab;">
+    <div id="globeTrack" style="display:inline-flex;gap:10px;will-change:transform;">
+      <div style="color:#555;font-size:13px;padding:10px;">Loading Globe headlines…</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
+    <button id="globePauseBtn" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
+  </div>
 </div>
+<script>
+(function(){
+  
+  const CARD_W = 280 + 10;
+  let autoPaused=false,dragPaused=false,offset=0,halfW=0,lastT=null,raf=null;
+  const PPS=65;
+  function isPaused(){return autoPaused||dragPaused;}
+
+  function buildCards(items,track,cardStyle,hoverColor){
+    track.innerHTML='';
+    [...items,...items,...items].forEach(item=>{
+      const a=document.createElement('a');
+      a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
+      a.style.cssText=cardStyle+'user-select:none;';
+      a.onmouseover=()=>a.style.borderColor=hoverColor;
+      a.onmouseout=()=>a.style.borderColor=a.dataset.bc;
+      a.dataset.bc=a.style.borderColor;
+      const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
+      a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
+        +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
+      track.appendChild(a);
+    });
+    requestAnimationFrame(()=>{halfW=track.scrollWidth/3;offset=0;startScroll(track);});
+  }
+
+  function startScroll(track){
+    if(raf)cancelAnimationFrame(raf);lastT=null;
+    function tick(ts){
+      if(!lastT)lastT=ts;
+      if(!isPaused()){
+        offset+=PPS*((ts-lastT)/1000);
+        if(offset>=halfW)offset-=halfW;
+        if(offset<0)offset+=halfW;
+        track.style.transform=`translateX(-${offset}px)`;
+      }
+      lastT=ts;raf=requestAnimationFrame(tick);
+    }
+    raf=requestAnimationFrame(tick);
+  }
+
+  function attachDrag(viewport,track){
+    let dX=null,dO=null;
+    function start(cx){dX=cx;dO=offset;dragPaused=true;viewport.style.cursor='grabbing';}
+    function move(cx){
+      if(dX===null)return;
+      offset=dO+(dX-cx);
+      if(offset>=halfW)offset-=halfW;
+      if(offset<0)offset+=halfW;
+      track.style.transform=`translateX(-${offset}px)`;
+    }
+    function end(){if(dX===null)return;dX=null;viewport.style.cursor='grab';setTimeout(()=>{dragPaused=false;lastT=null;},300);}
+    viewport.addEventListener('mousedown',e=>{e.preventDefault();start(e.clientX);});
+    window.addEventListener('mousemove',e=>move(e.clientX));
+    window.addEventListener('mouseup',end);
+    viewport.addEventListener('touchstart',e=>start(e.touches[0].clientX),{passive:true});
+    viewport.addEventListener('touchmove',e=>move(e.touches[0].clientX),{passive:true});
+    viewport.addEventListener('touchend',end);
+  }
+
+  async function fetchRSS(url){
+    let xml=null;
+    for(const fn of[u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`]){
+      try{const r=await fetch(fn(url),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
+    }
+    if(!xml){try{const r=await fetch(url);xml=await r.text();}catch(e){}}
+    return xml;
+  }
+
+  function parseItems(xml,max){
+    const doc=new DOMParser().parseFromString(xml,'text/xml');
+    return[...doc.querySelectorAll('item')].map(n=>({
+      title:n.querySelector('title')?.textContent||'',
+      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
+      pub:n.querySelector('pubDate')?.textContent||''
+    })).filter(i=>i.title).slice(0,max);
+  }
+
+  const globeTrack=document.getElementById('globeTrack');
+  const globeVP=document.getElementById('globeViewport');
+  const globeBtn=document.getElementById('globePauseBtn');
+  attachDrag(globeVP,globeTrack);
+  globeBtn.addEventListener('click',()=>{autoPaused=!autoPaused;globeBtn.textContent=autoPaused?'▶ resume':'⏸ pause';if(!autoPaused)lastT=null;});
+  fetchRSS('https://rss.app/feeds/DDMnamv89Q9UnJ0D.xml').then(xml=>{
+    if(!xml||!xml.includes('<item>')){globeTrack.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">Globe feed unavailable</div>';return;}
+    buildCards(parseItems(xml,20),globeTrack,'flex-shrink:0;width:280px;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;padding:10px 14px;cursor:grab;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#f5c518');
+  });
+})();
+</script>
 
 <!-- MAIN GRIDSTACK GRID -->
 <div class="grid-stack" id="gs-grid">
