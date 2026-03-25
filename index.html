@@ -1210,6 +1210,9 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
   function minsAway(iso){if(!iso)return null;return Math.round((new Date(iso)-Date.now())/60000);}
   function timeLbl(m,status,mode){
     if(status==='Boarding')return{l:'BRD',c:'mat-brd'};
+    if(status==='Approaching')return{l:'ARR',c:'mat-brd'};
+    if(status==='Stopped')return{l:'HERE',c:'mat-brd'};
+    if(m===null&&status)return{l:status.replace(/_/g,' '),c:'mat-brd'};
     if(m===null)return{l:'–',c:'mat-other'};
     if(m<=0)return{l:'BRD',c:'mat-brd'};
     if(m<=3)return{l:`${m} min`,c:'mat-soon'};
@@ -1227,9 +1230,8 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
       // Debug Beachmont
       if(stopId==='place-bmnt'){
         const raw=data.data||[];
-        const dbg=raw.slice(0,3).map(p=>`arr=${p.attributes.arrival_time||'null'} dep=${p.attributes.departure_time||'null'} route=${p.relationships?.route?.data?.id||'?'}`);
         const el=document.getElementById('bmnt-debug');
-        if(el)el.textContent=`raw:${raw.length} | `+dbg.join(' | ');
+        if(el)el.textContent=`parent raw:${raw.length}`;
       }
       let preds=(data.data||[]).map(p=>({
         // use whichever time exists — arrival preferred, departure as fallback
@@ -1246,6 +1248,10 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
         if(r2.ok){
           const d2=await r2.json();
           const childIds=(d2.data||[]).map(s=>s.id).join(',');
+          if(stopId==='place-bmnt'){
+            const el=document.getElementById('bmnt-debug');
+            if(el)el.textContent+=` | children:[${childIds||'NONE'}]`;
+          }
           if(childIds){
             const r3=await fetch(`${MBTA_API}/predictions?filter[stop]=${childIds}&sort=departure_time&include=trip,route&page[limit]=25`);
             if(r3.ok){
@@ -1258,7 +1264,11 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
                 headsign:hs2[p.relationships?.trip?.data?.id]||'–',
                 routeId:p.relationships?.route?.data?.id||'',
                 routeName:rn2[p.relationships?.route?.data?.id]||'',
-              })).filter(p=>p.arrival);
+              })).filter(p=>p.arrival||p.status);
+              if(stopId==='place-bmnt'){
+                const el=document.getElementById('bmnt-debug');
+                if(el)el.textContent+=` | child preds:${preds.length}`;
+              }
             }
           }
         }
