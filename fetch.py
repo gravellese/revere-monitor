@@ -770,6 +770,28 @@ def main():
     has_summary = sum(1 for i in substack_items if i.get("summary","").strip())
     print(f"  → Substack: {len(substack_items)} items, {has_summary} with summaries")
 
+    # MA Transit & Housing news — merged from multiple Google News searches
+    ma_transit_queries = [
+        ("MBTA",        "https://news.google.com/rss/search?q=MBTA&hl=en-US&gl=US&ceid=US:en"),
+        ("MassDOT",     "https://news.google.com/rss/search?q=MassDOT&hl=en-US&gl=US&ceid=US:en"),
+        ("DCR",         "https://news.google.com/rss/search?q=DCR+Massachusetts&hl=en-US&gl=US&ceid=US:en"),
+        ("EOHLC",       "https://news.google.com/rss/search?q=EOHLC&hl=en-US&gl=US&ceid=US:en"),
+        ("MassHousing", "https://news.google.com/rss/search?q=MassHousing&hl=en-US&gl=US&ceid=US:en"),
+    ]
+    ma_transit_seen = set()
+    ma_transit_all = []
+    for label, url in ma_transit_queries:
+        items = safe(lambda u=url: fetch_feed(u, 10), f"MA Transit/{label}") or []
+        for i in items:
+            link = i.get("link","")
+            if link and link not in ma_transit_seen:
+                ma_transit_seen.add(link)
+                i["source"] = label
+                ma_transit_all.append(i)
+    ma_transit_all.sort(key=lambda x: x.get("ts",0), reverse=True)
+    data["news_ma_transit"] = ma_transit_all[:20]
+    print(f"  → MA Transit & Housing: {len(data['news_ma_transit'])} items")
+
     with open("data.json","w") as f:
         json.dump(data, f, indent=2, default=str)
     print(f"\n✅ Done — {data['updated_local']}")

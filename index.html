@@ -1598,77 +1598,27 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
   setInterval(loadAlerts,300000); // refresh alerts every 5 min
 })();
 
-// ── MA TRANSIT & HOUSING GOOGLE NEWS ──
-(function(){
-  const QUERIES=['MBTA','MassDOT','DCR Massachusetts','EOHLC','MassHousing'];
-  const BASE='https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=';
+// ── MA TRANSIT & HOUSING NEWS — rendered from data.json ──
+function renderMaTransitNews(items){
   const container=document.getElementById('mbta-news-feed');
   const meta=document.getElementById('mbtaNewsMeta');
   if(!container)return;
-
-  async function fetchFeed(query){
-    const url=BASE+encodeURIComponent(query);
-    for(const fn of[
-      u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-      u=>`https://corsproxy.io/?${encodeURIComponent(u)}`
-    ]){
-      try{
-        const r=await fetch(fn(url),{cache:'no-cache'});
-        if(!r.ok)continue;
-        const d=await r.json();
-        const xml=d.contents||d;
-        if(typeof xml==='string'&&xml.includes('<item>')){
-          const doc=new DOMParser().parseFromString(xml,'text/xml');
-          return[...doc.querySelectorAll('item')].map(n=>({
-            title:n.querySelector('title')?.textContent||'',
-            link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
-            pub:n.querySelector('pubDate')?.textContent||'',
-            ts:new Date(n.querySelector('pubDate')?.textContent||0).getTime(),
-            source:n.querySelector('source')?.textContent||'',
-            query,
-          })).filter(i=>i.title);
-        }
-      }catch(e){}
-    }
-    return[];
-  }
-
-  async function load(){
-    container.innerHTML='<div style="padding:12px;font-size:11px;color:#3a5a52;">Loading…</div>';
-    const results=await Promise.all(QUERIES.map(q=>fetchFeed(q)));
-    // Merge, deduplicate by title, sort newest first, take top 20
-    const seen=new Set();
-    const all=results.flat().filter(i=>{
-      const key=i.title.trim().toLowerCase();
-      if(seen.has(key))return false;
-      seen.add(key);
-      return true;
-    }).sort((a,b)=>b.ts-a.ts).slice(0,20);
-
-    if(!all.length){
-      container.innerHTML='<div style="padding:12px;font-size:11px;color:#3a5a52;">No stories found</div>';
-      return;
-    }
-    if(meta)meta.textContent=all.length+' stories';
-    container.innerHTML='';
-    all.forEach(item=>{
-      const d=new Date(item.pub);
-      const t=isNaN(d)?'':d.toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
-      const a=document.createElement('a');
-      a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-      a.style.cssText='display:block;padding:7px 10px;border-bottom:1px solid #1a2810;text-decoration:none;transition:background .12s;';
-      a.onmouseover=()=>a.style.background='#0f1e0a';
-      a.onmouseout=()=>a.style.background='';
-      a.innerHTML=(item.source?`<div style="font-size:9px;color:#f5c518;letter-spacing:1.5px;text-transform:uppercase;font-family:monospace;margin-bottom:2px;">${item.source}</div>`:'')
-        +`<div style="font-size:12px;color:#e0e0e0;line-height:1.35;font-weight:500;">${item.title}</div>`
-        +(t?`<div style="font-size:10px;color:#3a5a52;margin-top:2px;">${t}</div>`:'');
-      container.appendChild(a);
-    });
-  }
-
-  load();
-  setInterval(load,300000);
-})();
+  if(!items||!items.length){container.innerHTML='<div style="padding:12px;font-size:11px;color:#3a5a52;">No stories found</div>';return;}
+  if(meta)meta.textContent=items.length+' stories';
+  container.innerHTML='';
+  items.forEach(item=>{
+    const t=item.ts?new Date(item.ts*1000).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'';
+    const a=document.createElement('a');
+    a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
+    a.style.cssText='display:block;padding:7px 10px;border-bottom:1px solid #1a2810;text-decoration:none;transition:background .12s;';
+    a.onmouseover=()=>a.style.background='#0f1e0a';
+    a.onmouseout=()=>a.style.background='';
+    a.innerHTML=(item.source?`<div style="font-size:9px;color:#f5c518;letter-spacing:1.5px;text-transform:uppercase;font-family:monospace;margin-bottom:2px;">${item.source}</div>`:'')
+      +`<div style="font-size:12px;color:#e0e0e0;line-height:1.35;font-weight:500;">${item.title}</div>`
+      +(t?`<div style="font-size:10px;color:#3a5a52;margin-top:2px;">${t}</div>`:'');
+    container.appendChild(a);
+  });
+}
 
 // ── PRIORITIES + PLANNER ──
 ['p1','p2','p3'].forEach(id=>{
@@ -2002,6 +1952,7 @@ async function loadData(){
   safeRender(()=>renderSubstack('news-substack',(d.news_substack||[]).slice(0,50)),'news-substack');
   // Logan Airport news from data.json
   safeRender(()=>renderNews('news-logan',(d.news_logan||[]).slice(0,15)),'news-logan');
+  safeRender(()=>renderMaTransitNews(d.news_ma_transit||[]),'mbta-news-panel');
 }
 
 // ── INIT ──
