@@ -1042,7 +1042,7 @@ a.big-btn:hover{opacity:.85;}
       <div class="cb">MBTA stops · click for departures</div>
     </div>
     <div class="cbody np" style="overflow:hidden;position:relative;flex:1;">
-      <div id="revere-map-el" style="width:100%;height:100%;min-height:300px;"></div>
+      <div id="revere-map-el" style="width:100%;height:500px;"></div>
     </div>
   </div></div></div>
 
@@ -2015,7 +2015,8 @@ window.MONITOR_CONFIG = window.MONITOR_CONFIG || {};
       (busData?.data||[]).forEach(s=>addStop(map,s,BUS_COLOR,9,'Bus Stop'));
     }).catch(()=>{});
 
-    setTimeout(()=>map.invalidateSize(),500);
+    // Call invalidateSize multiple times to catch GridStack settling
+    [200,500,1000,2000].forEach(d=>setTimeout(()=>map.invalidateSize(),d));
   }
 
   // Wait for Leaflet + DOM to be ready
