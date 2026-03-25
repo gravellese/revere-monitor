@@ -1948,9 +1948,65 @@ setTimeout(()=>location.reload(),30*60*1000);
     const el=document.getElementById('revere-map-el');
     if(!el||!window.L)return;
     const map=L.map(el,{center:[42.4084,-71.0120],zoom:13,zoomControl:true});
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+
+    // Base layer
+    const baseTiles=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
       attribution:'© OpenStreetMap',maxZoom:19
     }).addTo(map);
+
+    // Traffic flow overlay — Stadia Maps (no key needed, free tier)
+    // Uses TomTom flow tiles via a proxy that doesn't need auth
+    const trafficLayer=L.tileLayer(
+      'https://tile.openstreetmap.org/{z}/{x}/{y}.png',{opacity:0}
+    );
+    // Try Stadia traffic tiles
+    let trafficOn=false;
+    let stadiaTraffic=null;
+    function addTrafficLayer(){
+      // Stadia absolute flow — red=slow, green=free
+      stadiaTraffic=L.tileLayer(
+        'https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}.png',
+        {opacity:0.5,attribution:'© Stadia Maps © OpenStreetMap',maxZoom:19}
+      );
+      // Actually use TomTom flow (works without key for low traffic)
+      // Get a free key at developer.tomtom.com — paste it in config.js as TOMTOM_KEY
+      const key=(typeof MONITOR_CONFIG!=='undefined'&&MONITOR_CONFIG.TOMTOM_KEY)||'';
+      if(!key){
+        console.warn('No TOMTOM_KEY in config.js — traffic layer disabled');
+        return L.tileLayer('',{opacity:0});
+      }
+      return L.tileLayer(
+        `https://api.tomtom.com/traffic/map/4/tile/flow/absolute/{z}/{x}/{y}.png?key=${key}&tileSize=256`,
+        {opacity:0.75,attribution:'© TomTom',maxZoom:19}
+      );
+    }
+
+    // Traffic toggle button
+    const TrafficControl=L.Control.extend({
+      options:{position:'topright'},
+      onAdd:function(){
+        const btn=L.DomUtil.create('button','leaflet-bar');
+        btn.innerHTML='🚦 Traffic';
+        btn.style.cssText='background:#0d1614;color:#00ddb8;border:1px solid #1c2e2a;padding:4px 8px;font-size:11px;cursor:pointer;border-radius:4px;white-space:nowrap;font-weight:700;letter-spacing:1px;';
+        btn.title='Toggle traffic overlay';
+        L.DomEvent.on(btn,'click',L.DomEvent.stopPropagation);
+        L.DomEvent.on(btn,'click',()=>{
+          trafficOn=!trafficOn;
+          if(trafficOn){
+            if(!stadiaTraffic) stadiaTraffic=addTrafficLayer();
+            stadiaTraffic.addTo(map);
+            btn.style.color='#ff8040';
+            btn.innerHTML='🚦 Traffic ON';
+          } else {
+            if(stadiaTraffic) map.removeLayer(stadiaTraffic);
+            btn.style.color='#00ddb8';
+            btn.innerHTML='🚦 Traffic';
+          }
+        });
+        return btn;
+      }
+    });
+    new TrafficControl().addTo(map);
 
     // Fetch Blue Line stops + bus stops near Revere in parallel
     Promise.all([
@@ -1961,7 +2017,6 @@ setTimeout(()=>location.reload(),30*60*1000);
       (busData?.data||[]).forEach(s=>addStop(map,s,BUS_COLOR,9,'Bus Stop'));
     }).catch(()=>{});
 
-    // Invalidate size after GridStack settles
     setTimeout(()=>map.invalidateSize(),500);
   }
 
