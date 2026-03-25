@@ -394,7 +394,6 @@ a.big-btn:hover{opacity:.85;}
 .bos-dot{width:5px;height:5px;border-radius:50%;background:#1c2e2a;cursor:pointer;transition:background .2s;}
 .bos-dot.active{background:#00ddb8;}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 </head>
 <body>
 
@@ -1038,11 +1037,18 @@ a.big-btn:hover{opacity:.85;}
   <div class="grid-stack-item" gs-id="revere-map" gs-x="7" gs-y="75" gs-w="5" gs-h="14" gs-min-h="6">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch grn" style="cursor:grab;">
-      <div class="ct">Revere · Transit Map</div>
-      <div class="cb">MBTA stops · click for departures</div>
+      <div class="ct">Revere · Map</div>
+      <div class="cb">Traffic &amp; Transit · Google Maps</div>
     </div>
-    <div class="cbody np" style="overflow:hidden;position:relative;flex:1;">
-      <div id="revere-map-el" style="width:100%;height:500px;"></div>
+    <div class="cbody np" style="overflow:hidden;flex:1;position:relative;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d8000!2d-71.0120!3d42.4084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1&layer=transit"
+        style="width:100%;height:100%;min-height:400px;border:none;display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Revere Transit & Traffic Map">
+      </iframe>
     </div>
   </div></div></div>
 
@@ -1876,145 +1882,5 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
 setTimeout(()=>location.reload(),30*60*1000);
 </script>
 
-<script>
-// Safe config loader — won't break map if config.js fails
-window.MONITOR_CONFIG = window.MONITOR_CONFIG || {};
-</script>
-<script src="config.js" onerror="console.warn('config.js not found')"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script>
-(function(){
-  const MBTA='https://api-v3.mbta.com';
-  const BUS_COLOR='#FFC72C';
-  const RAIL_COLORS={Blue:'#003DA5',Orange:'#ED8B00',Red:'#DA291C','Green-B':'#00843D','Green-C':'#00843D','Green-D':'#00843D','Green-E':'#00843D'};
-
-  function minsAway(iso){if(!iso)return null;return Math.round((new Date(iso)-Date.now())/60000);}
-  function fmtMins(m){if(m===null)return'–';if(m<=0)return'BRD';return m+' min';}
-  function timeColor(m){if(m===null)return'#5a7a72';if(m<=0)return'#ff8040';if(m<=3)return'#f5c518';return'#00ddb8';}
-
-  function makeIcon(color,size){
-    return L.divIcon({
-      className:'',
-      html:`<div style="width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2px solid rgba(255,255,255,0.75);"></div>`,
-      iconSize:[size,size],iconAnchor:[size/2,size/2],popupAnchor:[0,-(size/2+4)],
-    });
-  }
-
-  async function fetchPreds(stopId){
-    try{
-      const r=await fetch(`${MBTA}/predictions?filter[stop]=${stopId}&sort=departure_time&include=trip,route&page[limit]=6`);
-      if(!r.ok)return[];
-      const d=await r.json();
-      const hs={},rn={};
-      (d.included||[]).forEach(i=>{if(i.type==='trip')hs[i.id]=i.attributes.headsign;if(i.type==='route')rn[i.id]=i.attributes.short_name||i.id;});
-      return(d.data||[]).map(p=>({
-        arrival:p.attributes.arrival_time||p.attributes.departure_time,
-        headsign:hs[p.relationships?.trip?.data?.id]||'–',
-        route:rn[p.relationships?.route?.data?.id]||'',
-      })).filter(p=>p.arrival).slice(0,4);
-    }catch(e){return[];}
-  }
-
-  function popupHTML(name,color,label,preds){
-    const rows=preds.length?preds.map(p=>{
-      const m=minsAway(p.arrival);
-      const badge=p.route?`<span style="font-size:9px;background:#1c2e2a;padding:1px 4px;border-radius:2px;margin-left:3px;">${p.route}</span>`:'';
-      return`<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #1c2e2a;font-size:11px;">
-        <span style="color:#c8d8d4;">${p.headsign}${badge}</span>
-        <span style="font-weight:700;color:${timeColor(m)};margin-left:8px;">${fmtMins(m)}</span>
-      </div>`;
-    }).join(''):'<div style="color:#5a7a72;font-size:11px;padding:4px 0;">No predictions</div>';
-    return`<div style="font-family:system-ui;min-width:190px;max-width:220px;">
-      <div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">${name}</div>
-      <div style="font-size:9px;color:${color};letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;">${label}</div>
-      <div>${rows}</div>
-    </div>`;
-  }
-
-  function addStop(map,stop,color,size,label){
-    const lat=stop.attributes?.latitude,lng=stop.attributes?.longitude;
-    if(!lat||!lng)return;
-    const name=stop.attributes.name;
-    const m=L.marker([lat,lng],{icon:makeIcon(color,size)}).addTo(map);
-    m.bindPopup(`<div style="color:#5a7a72;font-size:11px;padding:4px 0;">Loading departures…</div>`,{maxWidth:240});
-    m.on('click',async()=>{
-      m.getPopup().setContent(`<div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:6px;">${name}</div><div style="color:#5a7a72;font-size:11px;">Loading…</div>`);
-      const preds=await fetchPreds(stop.id);
-      m.getPopup().setContent(popupHTML(name,color,label,preds));
-    });
-  }
-
-  // Style the popups dark
-  const style=document.createElement('style');
-  style.textContent='.leaflet-popup-content-wrapper{background:#0d1614!important;border:1px solid #1c2e2a!important;border-radius:5px!important;color:#e0e0e0!important;box-shadow:none!important;}.leaflet-popup-tip{background:#0d1614!important;}.leaflet-popup-close-button{color:#5a7a72!important;top:6px!important;right:8px!important;}.leaflet-popup-content{margin:10px 12px!important;}';
-  document.head.appendChild(style);
-
-  function initMap(){
-    const el=document.getElementById('revere-map-el');
-    if(!el||!window.L)return;
-    const map=L.map(el,{center:[42.4084,-71.0120],zoom:13,zoomControl:true});
-
-    // Base tiles — use CartoDB Positron which is more permissive on CORS/CSP
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
-      attribution:'© OpenStreetMap © CARTO',
-      subdomains:'abcd',maxZoom:19
-    }).addTo(map);
-
-    // Traffic toggle
-    let trafficLayer=null;
-    let trafficOn=false;
-    const TrafficControl=L.Control.extend({
-      options:{position:'topright'},
-      onAdd:function(){
-        const btn=L.DomUtil.create('button','');
-        btn.innerHTML='🚦 Traffic';
-        btn.style.cssText='background:#0d1614;color:#00ddb8;border:1px solid #1c2e2a;padding:4px 8px;font-size:11px;cursor:pointer;border-radius:4px;white-space:nowrap;font-weight:700;letter-spacing:1px;display:block;';
-        L.DomEvent.disableClickPropagation(btn);
-        L.DomEvent.on(btn,'click',()=>{
-          trafficOn=!trafficOn;
-          if(trafficOn){
-            // Build layer on first click so MONITOR_CONFIG is definitely loaded
-            const key='91235817-0be7-4b45-bf1e-f3726319a124';
-            if(!trafficLayer){
-              trafficLayer=L.tileLayer(
-                'https://api.tomtom.com/maps/orbis/traffic/tile/flow/{z}/{x}/{y}.png?apiVersion=1&key='+key+'&style=relative0&tileSize=256',
-                {opacity:0.9,attribution:'© TomTom',maxZoom:19,pane:'overlayPane'}
-              );
-            }
-            trafficLayer.addTo(map);
-            btn.style.color='#ff8040';
-            btn.innerHTML='🚦 Traffic ON';
-          } else {
-            if(trafficLayer) map.removeLayer(trafficLayer);
-            btn.style.color='#00ddb8';
-            btn.innerHTML='🚦 Traffic';
-          }
-        });
-        return btn;
-      }
-    });
-    new TrafficControl().addTo(map);
-
-    // Fetch Blue Line stops + bus stops near Revere in parallel
-    Promise.all([
-      fetch(`${MBTA}/stops?filter[route]=Blue&include=route`).then(r=>r.ok?r.json():null),
-      fetch(`${MBTA}/stops?filter[route_type]=3&filter[latitude]=42.408&filter[longitude]=-71.012&filter[radius]=0.04&page[limit]=80`).then(r=>r.ok?r.json():null),
-    ]).then(([blueData,busData])=>{
-      (blueData?.data||[]).forEach(s=>addStop(map,s,'#003DA5',14,'Blue Line'));
-      (busData?.data||[]).forEach(s=>addStop(map,s,BUS_COLOR,9,'Bus Stop'));
-    }).catch(()=>{});
-
-    // Call invalidateSize multiple times to catch GridStack settling
-    [200,500,1000,2000].forEach(d=>setTimeout(()=>map.invalidateSize(),d));
-  }
-
-  // Wait for Leaflet + DOM to be ready
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',initMap);
-  } else {
-    setTimeout(initMap,300);
-  }
-})();
-</script>
 </body>
 </html>
