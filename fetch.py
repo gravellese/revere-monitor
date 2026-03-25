@@ -625,6 +625,26 @@ def main():
                 item["source"] = label
                 data["news_bc"].append(item)
 
+    # College Hockey News
+    college_hockey_sources = [
+        ("https://www.uscho.com/feed/",                    "USCHO"),
+        ("https://www.collegehockeynews.com/feed/",        "CHN"),
+        ("https://www.collegehockeyinsider.com/feed/",     "CHI"),
+        ("https://bchockeyblog.substack.com/feed",         "BC Hockey Blog"),
+        # Google News fallback for any that block direct RSS
+        ("https://news.google.com/rss/search?q=college+hockey&hl=en-US&gl=US&ceid=US:en", "Google News CHockey"),
+    ]
+    data["news_college_hockey"] = []
+    seen_chockey = set()
+    for url, label in college_hockey_sources:
+        items = safe(lambda u=url: fetch_feed(u, 10), label) or []
+        for item in items:
+            link = item.get("link", "")
+            if link and link not in seen_chockey:
+                seen_chockey.add(link)
+                item["source"] = label
+                data["news_college_hockey"].append(item)
+
     # National — added CNN
     national_sources = [
         ("https://feeds.npr.org/1001/rss.xml",                                  "NPR"),
