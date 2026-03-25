@@ -321,7 +321,12 @@ def fetch_feed(url, max_items=30):
                 "ts":         ts,
                 "author":     getattr(e,"author",""),
                 "feed_title": getattr(e.source,"title","") if hasattr(e,"source") and e.source else "",
-                "summary":    getattr(e,"summary","") or getattr(e,"description",""),
+                "summary":    (
+                    # Try content:encoded first (full text), then summary/description
+                    (e.content[0].value if hasattr(e,"content") and e.content else "")
+                    or getattr(e,"summary","")
+                    or getattr(e,"description","")
+                ),
             })
         return items
     except Exception as e:
@@ -792,6 +797,8 @@ def main():
     for i in substack_items:
         i["source"] = i.get("feed_title") or i.get("author") or "Substack"
     data["news_substack"] = substack_items
+    has_summary = sum(1 for i in substack_items if i.get("summary","").strip())
+    print(f"  → Substack: {len(substack_items)} items, {has_summary} with summaries")
 
     with open("data.json","w") as f:
         json.dump(data, f, indent=2, default=str)

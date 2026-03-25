@@ -1028,9 +1028,12 @@ function renderSubstack(id,items){
     const a=document.createElement('a');a.className='ni';a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
     let inner=item.source?`<div class="ni-src">${item.source}</div>`:'';
     inner+=`<div class="ni-title">${item.title}</div>`;
-    if(item.summary){
-      const plain=item.summary.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
-      if(plain.length>10)inner+=`<div class="ni-snippet">${plain}</div>`;
+    const raw=item.summary||item.description||item.content||'';
+    if(raw){
+      // Parse as HTML fragment to extract text content cleanly
+      const tmp=document.createElement('div');tmp.innerHTML=raw;
+      const plain=(tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim();
+      if(plain.length>20)inner+=`<div class="ni-snippet">${plain}</div>`;
     }
     if(item.ts||item.published)inner+=`<div class="ni-date">${fmtDateTime(item.ts,item.published)}</div>`;
     a.innerHTML=inner;c.appendChild(a);
