@@ -2369,14 +2369,26 @@ Score rules: Bruins/Sox have scores in title like "Bruins (4) @ Red Wings (2)" â
         mcp_servers:[{type:'url',url:'https://gcal.mcp.claude.com/mcp',name:'google-calendar'}]
       })
     });
-    if(!resp.ok)throw new Error(`API ${resp.status}`);
+    if(!resp.ok){
+      let errBody='';
+      try{const e=await resp.json();errBody=e?.error?.message||JSON.stringify(e);}catch(_){}
+      throw new Error(`API ${resp.status}: ${errBody}`);
+    }
     const data=await resp.json();
+    console.log('SC API response:',JSON.stringify(data).slice(0,2000));
     const textBlocks=(data.content||[]).filter(b=>b.type==='text');
-    if(!textBlocks.length)throw new Error('No text response');
+    if(!textBlocks.length){
+      console.error('SC: no text blocks, content types:',(data.content||[]).map(b=>b.type));
+      throw new Error('No text â€” types: '+((data.content||[]).map(b=>b.type).join(',')||'empty'));
+    }
     const raw=textBlocks[textBlocks.length-1].text.trim();
     const jsonStr=raw.replace(/^```json\s*/i,'').replace(/```\s*$/,'').trim();
-    const newEvents=JSON.parse(jsonStr);
-    if(!Array.isArray(newEvents)||!newEvents.length)throw new Error('Empty array');
+    let newEvents;
+    try{newEvents=JSON.parse(jsonStr);}catch(pe){
+      console.error('SC JSON parse error:',pe,'raw:',raw.slice(0,500));
+      throw new Error('JSON parse failed: '+pe.message);
+    }
+    if(!Array.isArray(newEvents)||!newEvents.length)throw new Error('Empty array returned');
     scEvents=newEvents;
     scRender();
     const ts=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
@@ -2384,7 +2396,7 @@ Score rules: Bruins/Sox have scores in title like "Bruins (4) @ Red Wings (2)" â
     try{localStorage.setItem(SC_STORAGE_KEY,JSON.stringify(scEvents));localStorage.setItem(SC_REFRESHED_KEY,new Date().toISOString());}catch(_){}
   }catch(err){
     console.error('Sports refresh error:',err);
-    if(status){status.textContent='Refresh failed';status.style.color='var(--red)';}
+    if(status){status.textContent='ERR: '+err.message.slice(0,55);status.style.color='var(--red)';}
   }finally{
     btn.disabled=false;btn.innerHTML='â†» Refresh';
   }
