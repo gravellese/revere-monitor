@@ -2503,13 +2503,10 @@ function initRevereMap(){
     (blue?.data||[]).forEach(s=>addStop(s,'#003DA5','Blue Line'));
     (bus?.data||[]).forEach(s=>addStop(s,'#FFC72C','Bus Stop'));
   });
-  map.on('click',e=>{
-    if(!placing)return;
 
   // ── SHARED GIS BASE ────────────────────────────────────────────
   const GIS_BASE='https://gis.revere.org/arcgis/rest/services/RevereMA/MapServer';
 
-  // Convert Esri JSON rings/paths to GeoJSON coordinates
   function esriRingsToGeoJSON(geometry){
     if(!geometry)return null;
     const rings=geometry.rings;
@@ -2519,7 +2516,6 @@ function initRevereMap(){
       :{type:'MultiPolygon',coordinates:rings.map(r=>[r])};
   }
 
-  // Generic Esri JSON → GeoJSON FeatureCollection
   async function fetchEsriLayer(layerId,fields){
     const params=new URLSearchParams({
       where:'1=1',
@@ -2665,6 +2661,9 @@ function initRevereMap(){
   };
   document.getElementById('rm-addr-input')?.addEventListener('keydown',e=>{if(e.key==='Enter')window.searchAddress();});
   // ── END GIS / SEARCH ───────────────────────────────────────────
+
+  map.on('click',e=>{
+    if(!placing)return;
     const label=document.getElementById('rm-lbl').value.trim();if(!label)return;
     const catName=document.getElementById('rm-cat').value;
     const color=catByName(catName).color;
