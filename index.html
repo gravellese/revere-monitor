@@ -450,6 +450,16 @@ a.big-btn:hover{opacity:.85;}
 .sc-refresh-btn{font-size:10px;padding:2px 9px;border-radius:3px;border:.5px solid var(--border2);background:transparent;cursor:pointer;color:var(--accent);font-family:var(--cond);letter-spacing:1px;}
 .sc-refresh-btn:hover{background:var(--bg3);}
 .sc-refresh-btn:disabled{opacity:.5;cursor:default;}
+.sc-key-btn{font-size:10px;padding:2px 7px;border-radius:3px;border:.5px solid #555;background:transparent;cursor:pointer;color:var(--text-mute);font-family:var(--cond);letter-spacing:1px;margin-left:4px;}
+.sc-key-btn:hover{color:var(--gold);border-color:var(--gold);}
+.sc-key-btn.sc-key-set{color:var(--green);border-color:var(--green);}
+#sc-key-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:3000;align-items:center;justify-content:center;}
+#sc-key-modal.open{display:flex;}
+#sc-key-box{background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:20px;width:460px;max-width:95vw;}
+#sc-key-box h3{font-family:var(--cond);font-size:16px;letter-spacing:2px;color:var(--white);margin-bottom:6px;}
+#sc-key-box p{font-size:12px;color:var(--text-mute);margin-bottom:10px;line-height:1.5;}
+#sc-key-box a{color:var(--accent);}
+#sc-key-input{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:var(--mono);font-size:12px;padding:7px 9px;outline:none;margin-bottom:10px;}
 .sc-refresh-status{font-size:9px;color:var(--text-mute);font-family:var(--mono);}
 @keyframes sc-spin{to{transform:rotate(360deg);}}
 .sc-spinning{display:inline-block;animation:sc-spin 1s linear infinite;}
@@ -1017,6 +1027,7 @@ a.big-btn:hover{opacity:.85;}
         </div>
         <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;margin-left:8px;">
           <span class="sc-refresh-status" id="sc-status"></span>
+          <button class="sc-key-btn" id="sc-key-btn" title="Set Anthropic API key">⚙ API Key</button>
           <button class="sc-refresh-btn" id="sc-refresh-btn" title="Refresh from Google Calendar">↻ Refresh</button>
         </div>
       </div>
@@ -2359,9 +2370,15 @@ Return a JSON array. Each item: {"date":"YYYY-MM-DD","team":"sox|bruins|lfc|flee
 Score rules: Bruins/Sox have scores in title like "Bruins (4) @ Red Wings (2)" — parse W/L from Boston team's perspective. BC feeds have [W]/[L] prefix and "W X-Y" score in description. NASCAR: parse race name from summary, venue from location. F1: include FP1/FP2/FP3/Qualifying/Grand Prix as separate events. Soccer results: parse from title or description if available. Future events: result=null, score=null.`;
 
   try{
+    const apiKey=localStorage.getItem('sc_anthropic_key')||'';
+    if(!apiKey){
+      if(status){status.textContent='⚠ Set API key first (⚙)';status.style.color='var(--gold)';}
+      btn.disabled=false;btn.innerHTML='↻ Refresh';
+      return;
+    }
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-beta':'interleaved-thinking-2025-05-14'},
       body:JSON.stringify({
         model:'claude-sonnet-4-6',
         max_tokens:16000,
@@ -2422,6 +2439,39 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('sc-next')?.addEventListener('click',()=>{scPageIdx++;scRender();});
   document.getElementById('sc-today')?.addEventListener('click',()=>{scPageIdx=0;scRender();});
   document.getElementById('sc-refresh-btn')?.addEventListener('click',scRefresh);
+
+  // API key modal
+  const scKeyModal=document.getElementById('sc-key-modal');
+  const scKeyInput=document.getElementById('sc-key-input');
+  const scKeyBtn=document.getElementById('sc-key-btn');
+  function scUpdateKeyBtn(){
+    const k=localStorage.getItem('sc_anthropic_key');
+    if(scKeyBtn){scKeyBtn.classList.toggle('sc-key-set',!!(k&&k.length>10));scKeyBtn.textContent=k&&k.length>10?'⚙ Key ✓':'⚙ API Key';}
+  }
+  scUpdateKeyBtn();
+  scKeyBtn?.addEventListener('click',()=>{
+    const k=localStorage.getItem('sc_anthropic_key')||'';
+    if(scKeyInput)scKeyInput.value=k;
+    scKeyModal?.classList.add('open');
+    setTimeout(()=>scKeyInput?.focus(),100);
+  });
+  document.getElementById('sc-key-cancel')?.addEventListener('click',()=>scKeyModal?.classList.remove('open'));
+  document.getElementById('sc-key-save')?.addEventListener('click',()=>{
+    const v=(scKeyInput?.value||'').trim();
+    if(!v){alert('Please enter a key.');return;}
+    localStorage.setItem('sc_anthropic_key',v);
+    scKeyModal?.classList.remove('open');
+    scUpdateKeyBtn();
+    const st=document.getElementById('sc-status');
+    if(st){st.textContent='Key saved';st.style.color='var(--green)';}
+  });
+  document.getElementById('sc-key-clear')?.addEventListener('click',()=>{
+    localStorage.removeItem('sc_anthropic_key');
+    if(scKeyInput)scKeyInput.value='';
+    scKeyModal?.classList.remove('open');
+    scUpdateKeyBtn();
+  });
+  scKeyModal?.addEventListener('click',(e)=>{if(e.target===scKeyModal)scKeyModal.classList.remove('open');});
   document.getElementById('sc-filter-scroll')?.addEventListener('click',e=>{
     const chip=e.target.closest('.sc-chip');if(!chip)return;
     scFilter=chip.dataset.filter;
@@ -2742,6 +2792,21 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 })();
 </script>
+
+
+<!-- API Key Modal -->
+<div id="sc-key-modal">
+  <div id="sc-key-box">
+    <h3>ANTHROPIC API KEY</h3>
+    <p>Required for the Sports Schedule live refresh. Your key is stored only in this browser's localStorage — it never leaves your device.<br>Get a key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>.</p>
+    <input id="sc-key-input" type="password" placeholder="sk-ant-api03-..." autocomplete="off" spellcheck="false">
+    <div class="mbtn-row">
+      <button class="btn-cancel" id="sc-key-cancel">Cancel</button>
+      <button class="btn-save" id="sc-key-clear" style="background:var(--red)">Clear Key</button>
+      <button class="btn-save" id="sc-key-save">Save Key</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
