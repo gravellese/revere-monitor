@@ -1141,7 +1141,7 @@ a.big-btn:hover{opacity:.85;}
         <span id="rm-hint" style="font-size:10px;color:#3a5a52;">Click map to place</span>
       </div>
       <div id="rm-addr-bar" style="background:#080e0c;border-bottom:1px solid #1c2e2a;padding:4px 8px;display:flex;align-items:center;gap:5px;flex-shrink:0;">
-        <span style="font-size:10px;color:#3a5a52;letter-spacing:1px;flex-shrink:0;">🔍</span>
+        <span style="font-size:10px;color:#3a5a52;flex-shrink:0;">🔍</span>
         <input id="rm-addr-input" placeholder="Search address in Revere…" style="flex:1;font-size:11px;padding:2px 6px;height:22px;background:#0d1614;border:1px solid #1c2e2a;color:#e0e0e0;border-radius:3px;min-width:0;"/>
         <button id="rm-addr-btn" onclick="searchAddress()" style="font-size:10px;padding:1px 8px;height:22px;background:#0d1614;border:1px solid #1c2e2a;color:#6ab0ff;border-radius:3px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Go</button>
         <span id="rm-addr-status" style="font-size:10px;color:#3a5a52;white-space:nowrap;"></span>
@@ -2503,255 +2503,168 @@ function initRevereMap(){
     (blue?.data||[]).forEach(s=>addStop(s,'#003DA5','Blue Line'));
     (bus?.data||[]).forEach(s=>addStop(s,'#FFC72C','Bus Stop'));
   });
-  // ── WARD / PRECINCT GIS LAYER ──────────────────────────────────
-  // Source: gis.revere.org — city's own ArcGIS REST server
-  // RevereMA/MapServer: Precincts=layer 6, Wards=layer 7
-  // Fields: ward, precinct, councilor
-  const GIS_BASE = 'https://gis.revere.org/arcgis/rest/services/RevereMA/MapServer';
-  const GIS_PARAMS = 'where=1%3D1&outFields=ward%2Cprecinct%2Ccouncilor&outSR=4326&f=geojson';
-
-  let gisLayer = null;
-  let gisVisible = false;
-  let gisLoaded = false;
-  let gisLoading = false;
-
-  const WARD_COLORS = ['#4a8fdd','#e07040','#50b870','#c060c0','#d0a030','#60b8b8','#d05070','#80a050'];
-  function wardColor(ward){ const n=parseInt(ward)||0; return WARD_COLORS[(n-1)%WARD_COLORS.length]||'#6080c0'; }
-
-  async function loadGisLayer(){
-    if(gisLoading) return;
-    gisLoading = true;
-    const btn = document.getElementById('gis-toggle');
-    if(btn){ btn.textContent='⬡ Loading…'; btn.style.color='#f5c518'; }
-
-    try{
-      // Fetch precincts (layer 6) — these have both ward+precinct so we can color+label
-      const resp = await fetch(`${GIS_BASE}/6/query?${GIS_PARAMS}`);
-      if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const geojson = await resp.json();
-      if(!geojson.features || !geojson.features.length) throw new Error('No features returned');
-
-      gisLayer = L.geoJSON(geojson, {
-        style: feature => {
-          const color = wardColor(feature.properties?.ward || '1');
-          return { color, weight: 1.5, opacity: 0.85, fillColor: color, fillOpacity: 0.15 };
-        },
-        onEachFeature: (feature, layer) => {
-          const p = feature.properties || {};
-          const ward = p.ward ? `Ward ${p.ward}` : '';
-          const prec = p.precinct ? `, Precinct ${p.precinct}` : '';
-          const councilor = p.councilor ? `<div style="font-size:10px;color:#5a9a7a;margin-top:3px;">Councilor: ${p.councilor}</div>` : '';
-          layer.bindPopup(
-            `<div style="min-width:140px;">
-              <div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">${ward}${prec}</div>
-              ${councilor}
-            </div>`, { maxWidth: 200 }
-          );
-          layer.on('mouseover', function(){ this.setStyle({ fillOpacity: 0.35, weight: 2.5 }); });
-          layer.on('mouseout', function(){ gisLayer.resetStyle(this); });
-        }
-      });
-
-      gisLoaded = true;
-      gisLoading = false;
-      if(gisVisible){
-        gisLayer.addTo(map);
-        if(btn){ btn.textContent='⬡ WARDS ON'; btn.style.color='#00ddb8'; btn.style.borderColor='#00ddb8'; }
-      } else {
-        if(btn){ btn.textContent='⬡ WARDS OFF'; btn.style.color='#5a9a7a'; btn.style.borderColor='#2a5a3a'; }
-      }
-    } catch(err){
-      gisLoading = false;
-      console.warn('GIS layer error:', err);
-      if(btn){ btn.textContent='⬡ GIS Error'; btn.style.color='var(--red)'; }
-    }
-  }
-
-  window.toggleGisLayer = function(){
-    const btn = document.getElementById('gis-toggle');
-    if(!gisLoaded && !gisLoading){ gisVisible = true; loadGisLayer(); return; }
-    if(gisLoading) return;
-    gisVisible = !gisVisible;
-    if(gisVisible){
-      gisLayer && gisLayer.addTo(map);
-      if(btn){ btn.textContent='⬡ WARDS ON'; btn.style.color='#00ddb8'; btn.style.borderColor='#00ddb8'; }
-    } else {
-      gisLayer && map.removeLayer(gisLayer);
-      if(btn){ btn.textContent='⬡ WARDS OFF'; btn.style.color='#5a9a7a'; btn.style.borderColor='#2a5a3a'; }
-    }
-  };
-  // ── END GIS LAYER ──────────────────────────────────────────────
-
-  // ── ZONING LAYER ───────────────────────────────────────────────
-  // RevereMA/MapServer layer 62 — fields: zone_name, orig_zone
-  let zoneLayer = null;
-  let zoneVisible = false;
-  let zoneLoaded = false;
-  let zoneLoading = false;
-
-  // Color by zone category
-  function zoneColor(zoneName) {
-    const z = (zoneName || '').toUpperCase();
-    if(z.startsWith('R'))  return '#4a9a4a'; // Residential — green
-    if(z.startsWith('B'))  return '#4a7add'; // Business — blue
-    if(z.startsWith('I'))  return '#c06030'; // Industrial — orange
-    if(z.startsWith('RC') || z === 'RC1' || z === 'RC2') return '#9060c0'; // Residential/Commercial — purple
-    if(z.includes('TOD'))  return '#e0c030'; // TOD — gold
-    if(z.includes('PDD'))  return '#d04090'; // PDD — pink
-    if(z.includes('OS'))   return '#30a870'; // Open Space — teal
-    return '#888888';
-  }
-
-  async function loadZoneLayer() {
-    if(zoneLoading) return;
-    zoneLoading = true;
-    const btn = document.getElementById('zone-toggle');
-    if(btn){ btn.textContent='◧ Loading…'; btn.style.color='#f5c518'; }
-
-    const params = new URLSearchParams({
-      where: '1=1',
-      outFields: 'zone_name,orig_zone',
-      outSR: '4326',
-      f: 'geojson'
-    });
-
-    try {
-      const resp = await fetch(`${GIS_BASE}/62/query?${params}`);
-      if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const geojson = await resp.json();
-      if(!geojson.features || !geojson.features.length) throw new Error('No features');
-
-      zoneLayer = L.geoJSON(geojson, {
-        style: feature => {
-          const zn = feature.properties?.zone_name || feature.properties?.orig_zone || '';
-          const color = zoneColor(zn);
-          return { color, weight: 1, opacity: 0.7, fillColor: color, fillOpacity: 0.2 };
-        },
-        onEachFeature: (feature, layer) => {
-          const p = feature.properties || {};
-          const name = p.zone_name || p.orig_zone || 'Unknown';
-          const orig = p.orig_zone && p.orig_zone !== name ? `<div style="font-size:10px;color:#5a7a72;margin-top:2px;">Code: ${p.orig_zone}</div>` : '';
-          layer.bindPopup(
-            `<div style="min-width:120px;">
-              <div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;">${name}</div>
-              ${orig}
-            </div>`, { maxWidth: 180 }
-          );
-          layer.on('mouseover', function(){ this.setStyle({ fillOpacity: 0.45, weight: 2 }); });
-          layer.on('mouseout', function(){ zoneLayer.resetStyle(this); });
-        }
-      });
-
-      zoneLoaded = true;
-      zoneLoading = false;
-      if(zoneVisible){
-        zoneLayer.addTo(map);
-        if(btn){ btn.textContent='◧ ZONING ON'; btn.style.color='#6ab0ff'; btn.style.borderColor='#3a6aaa'; }
-      } else {
-        if(btn){ btn.textContent='◧ ZONING OFF'; btn.style.color='#5a7a9a'; btn.style.borderColor='#2a3a5a'; }
-      }
-    } catch(err) {
-      zoneLoading = false;
-      console.warn('Zone layer error:', err);
-      if(btn){ btn.textContent='◧ Zone Error'; btn.style.color='var(--red)'; }
-    }
-  }
-
-  window.toggleZoneLayer = function(){
-    const btn = document.getElementById('zone-toggle');
-    if(!zoneLoaded && !zoneLoading){ zoneVisible = true; loadZoneLayer(); return; }
-    if(zoneLoading) return;
-    zoneVisible = !zoneVisible;
-    if(zoneVisible){
-      zoneLayer && zoneLayer.addTo(map);
-      if(btn){ btn.textContent='◧ ZONING ON'; btn.style.color='#6ab0ff'; btn.style.borderColor='#3a6aaa'; }
-    } else {
-      zoneLayer && map.removeLayer(zoneLayer);
-      if(btn){ btn.textContent='◧ ZONING OFF'; btn.style.color='#5a7a9a'; btn.style.borderColor='#2a3a5a'; }
-    }
-  };
-  // ── END ZONING LAYER ───────────────────────────────────────────
-
-  // ── ADDRESS SEARCH ─────────────────────────────────────────────
-  let addrMarker = null;
-
-  window.searchAddress = async function(){
-    const input = document.getElementById('rm-addr-input');
-    const status = document.getElementById('rm-addr-status');
-    const btn = document.getElementById('rm-addr-btn');
-    const q = (input?.value || '').trim();
-    if(!q) return;
-
-    btn.textContent = '…';
-    btn.disabled = true;
-    if(status) status.textContent = '';
-
-    // Append Revere MA if not already there to bias results
-    const query = /revere|MA\b/i.test(q) ? q : `${q}, Revere, MA`;
-
-    try {
-      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=3&q=${encodeURIComponent(query)}&countrycodes=us&viewbox=-71.12,42.38,-70.95,42.43&bounded=1`;
-      const resp = await fetch(url, { headers: { 'Accept-Language': 'en' } });
-      if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const results = await resp.json();
-
-      // Prefer a result in Revere; fall back to first result
-      const hit = results.find(r => /revere/i.test(r.display_name)) || results[0];
-
-      if(!hit) {
-        if(status){ status.textContent = 'Not found'; status.style.color = 'var(--red)'; }
-        return;
-      }
-
-      const lat = parseFloat(hit.lat);
-      const lng = parseFloat(hit.lon);
-
-      // Remove previous search marker
-      if(addrMarker) map.removeLayer(addrMarker);
-
-      // Drop a distinct marker
-      const icon = L.divIcon({
-        className: '',
-        html: `<div style="display:flex;flex-direction:column;align-items:center;">
-          <div style="background:#6ab0ff;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;border:1px solid rgba(255,255,255,0.4);">${hit.display_name.split(',')[0]}</div>
-          <div style="width:2px;height:8px;background:#6ab0ff;"></div>
-          <div style="width:8px;height:8px;border-radius:50%;background:#6ab0ff;border:2px solid #fff;"></div>
-        </div>`,
-        iconSize: [160, 34],
-        iconAnchor: [80, 34],
-        popupAnchor: [0, -36]
-      });
-
-      addrMarker = L.marker([lat, lng], { icon, zIndexOffset: 2000 }).addTo(map);
-      addrMarker.bindPopup(
-        `<div style="min-width:160px;">
-          <div style="font-size:12px;font-weight:700;color:#6ab0ff;margin-bottom:3px;">${hit.display_name.split(',').slice(0,2).join(',')}</div>
-          <div style="font-size:10px;color:#5a7a72;">${lat.toFixed(5)}, ${lng.toFixed(5)}</div>
-          <button onclick="if(window.rmMap)window.rmMap.removeLayer(window._addrMarker)" style="font-size:10px;cursor:pointer;background:#1c2e2a;border:1px solid #2a3e36;color:#e0e0e0;padding:2px 6px;border-radius:3px;margin-top:5px;">Clear</button>
-        </div>`, { maxWidth: 220 }
-      ).openPopup();
-      window._addrMarker = addrMarker;
-
-      map.setView([lat, lng], 17);
-      if(status){ status.textContent = ''; }
-
-    } catch(err) {
-      console.warn('Address search error:', err);
-      if(status){ status.textContent = 'Search error'; status.style.color = 'var(--red)'; }
-    } finally {
-      btn.textContent = 'Go';
-      btn.disabled = false;
-    }
-  };
-
-  // Wire Enter key on address input
-  document.getElementById('rm-addr-input')?.addEventListener('keydown', e => {
-    if(e.key === 'Enter') window.searchAddress();
-  });
-  // ── END ADDRESS SEARCH ─────────────────────────────────────────
-
   map.on('click',e=>{
     if(!placing)return;
+
+  // ── SHARED GIS BASE ────────────────────────────────────────────
+  const GIS_BASE='https://gis.revere.org/arcgis/rest/services/RevereMA/MapServer';
+
+  // Convert Esri JSON rings/paths to GeoJSON coordinates
+  function esriRingsToGeoJSON(geometry){
+    if(!geometry)return null;
+    const rings=geometry.rings;
+    if(!rings||!rings.length)return null;
+    return rings.length===1
+      ?{type:'Polygon',coordinates:rings}
+      :{type:'MultiPolygon',coordinates:rings.map(r=>[r])};
+  }
+
+  // Generic Esri JSON → GeoJSON FeatureCollection
+  async function fetchEsriLayer(layerId,fields){
+    const params=new URLSearchParams({
+      where:'1=1',
+      outFields:fields.join(','),
+      outSR:'4326',
+      f:'json',
+      resultRecordCount:'500'
+    });
+    const resp=await fetch(`${GIS_BASE}/${layerId}/query?${params}`);
+    if(!resp.ok)throw new Error(`HTTP ${resp.status}`);
+    const data=await resp.json();
+    if(data.error)throw new Error(data.error.message||'ArcGIS error');
+    if(!data.features||!data.features.length)throw new Error('No features returned');
+    return {
+      type:'FeatureCollection',
+      features:data.features.map(f=>({
+        type:'Feature',
+        properties:f.attributes||{},
+        geometry:esriRingsToGeoJSON(f.geometry)
+      })).filter(f=>f.geometry)
+    };
+  }
+
+  // ── WARDS / PRECINCTS LAYER ────────────────────────────────────
+  let gisLayer=null,gisVisible=false,gisLoaded=false,gisLoading=false;
+  const WARD_COLORS=['#4a8fdd','#e07040','#50b870','#c060c0','#d0a030','#60b8b8','#d05070','#80a050'];
+  function wardColor(ward){const n=parseInt(ward)||0;return WARD_COLORS[(n-1)%WARD_COLORS.length]||'#6080c0';}
+
+  async function loadGisLayer(){
+    if(gisLoading)return;
+    gisLoading=true;
+    const btn=document.getElementById('gis-toggle');
+    if(btn){btn.textContent='⬡ Loading…';btn.style.color='#f5c518';}
+    try{
+      // Layer 6 = Precincts (ward + precinct + councilor fields)
+      const geojson=await fetchEsriLayer(6,['ward','precinct','councilor']);
+      gisLayer=L.geoJSON(geojson,{
+        style:f=>({color:wardColor(f.properties?.ward||'1'),weight:1.5,opacity:0.85,fillColor:wardColor(f.properties?.ward||'1'),fillOpacity:0.15}),
+        onEachFeature:(f,layer)=>{
+          const p=f.properties||{};
+          const ward=p.ward?`Ward ${p.ward}`:'';
+          const prec=p.precinct?`, Precinct ${p.precinct}`:'';
+          const cncl=p.councilor?`<div style="font-size:10px;color:#5a9a7a;margin-top:3px;">Councilor: ${p.councilor}</div>`:'';
+          layer.bindPopup(`<div style="min-width:140px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">${ward}${prec}</div>${cncl}</div>`,{maxWidth:200});
+          layer.on('mouseover',function(){this.setStyle({fillOpacity:0.38,weight:2.5});});
+          layer.on('mouseout',function(){gisLayer.resetStyle(this);});
+        }
+      });
+      gisLoaded=true;gisLoading=false;
+      if(gisVisible){gisLayer.addTo(map);if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}}
+      else{if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}}
+    }catch(err){
+      gisLoading=false;console.warn('GIS wards error:',err);
+      if(btn){btn.textContent='⬡ Error: '+err.message.slice(0,20);btn.style.color='var(--red)';}
+    }
+  }
+
+  window.toggleGisLayer=function(){
+    const btn=document.getElementById('gis-toggle');
+    if(!gisLoaded&&!gisLoading){gisVisible=true;loadGisLayer();return;}
+    if(gisLoading)return;
+    gisVisible=!gisVisible;
+    if(gisVisible){gisLayer&&gisLayer.addTo(map);if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}}
+    else{gisLayer&&map.removeLayer(gisLayer);if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}}
+  };
+
+  // ── ZONING LAYER ───────────────────────────────────────────────
+  let zoneLayer=null,zoneVisible=false,zoneLoaded=false,zoneLoading=false;
+  function zoneColor(z){
+    z=(z||'').toUpperCase();
+    if(z.startsWith('R'))return'#4a9a4a';
+    if(z.startsWith('B'))return'#4a7add';
+    if(z.startsWith('I'))return'#c06030';
+    if(z.includes('TOD'))return'#e0c030';
+    if(z.includes('PDD'))return'#d04090';
+    if(z.includes('OS'))return'#30a870';
+    return'#888888';
+  }
+
+  async function loadZoneLayer(){
+    if(zoneLoading)return;
+    zoneLoading=true;
+    const btn=document.getElementById('zone-toggle');
+    if(btn){btn.textContent='◧ Loading…';btn.style.color='#f5c518';}
+    try{
+      const geojson=await fetchEsriLayer(62,['zone_name','orig_zone']);
+      zoneLayer=L.geoJSON(geojson,{
+        style:f=>{const c=zoneColor(f.properties?.zone_name||'');return{color:c,weight:1,opacity:0.7,fillColor:c,fillOpacity:0.2};},
+        onEachFeature:(f,layer)=>{
+          const p=f.properties||{};
+          const name=p.zone_name||p.orig_zone||'Unknown';
+          const orig=p.orig_zone&&p.orig_zone!==name?`<div style="font-size:10px;color:#5a7a72;margin-top:2px;">Code: ${p.orig_zone}</div>`:'';
+          layer.bindPopup(`<div style="min-width:120px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;">${name}</div>${orig}</div>`,{maxWidth:180});
+          layer.on('mouseover',function(){this.setStyle({fillOpacity:0.45,weight:2});});
+          layer.on('mouseout',function(){zoneLayer.resetStyle(this);});
+        }
+      });
+      zoneLoaded=true;zoneLoading=false;
+      if(zoneVisible){zoneLayer.addTo(map);if(btn){btn.textContent='◧ ZONING ON';btn.style.color='#6ab0ff';btn.style.borderColor='#3a6aaa';}}
+      else{if(btn){btn.textContent='◧ ZONING OFF';btn.style.color='#5a7a9a';btn.style.borderColor='#2a3a5a';}}
+    }catch(err){
+      zoneLoading=false;console.warn('Zone layer error:',err);
+      if(btn){btn.textContent='◧ Zone Error';btn.style.color='var(--red)';}
+    }
+  }
+
+  window.toggleZoneLayer=function(){
+    const btn=document.getElementById('zone-toggle');
+    if(!zoneLoaded&&!zoneLoading){zoneVisible=true;loadZoneLayer();return;}
+    if(zoneLoading)return;
+    zoneVisible=!zoneVisible;
+    if(zoneVisible){zoneLayer&&zoneLayer.addTo(map);if(btn){btn.textContent='◧ ZONING ON';btn.style.color='#6ab0ff';btn.style.borderColor='#3a6aaa';}}
+    else{zoneLayer&&map.removeLayer(zoneLayer);if(btn){btn.textContent='◧ ZONING OFF';btn.style.color='#5a7a9a';btn.style.borderColor='#2a3a5a';}}
+  };
+
+  // ── ADDRESS SEARCH ─────────────────────────────────────────────
+  let addrMarker=null;
+  window.searchAddress=async function(){
+    const input=document.getElementById('rm-addr-input');
+    const status=document.getElementById('rm-addr-status');
+    const btn=document.getElementById('rm-addr-btn');
+    const q=(input?.value||'').trim();if(!q)return;
+    btn.textContent='…';btn.disabled=true;if(status)status.textContent='';
+    const query=/revere|,\s*MA/i.test(q)?q:`${q}, Revere, MA`;
+    try{
+      const url=`https://nominatim.openstreetmap.org/search?format=json&limit=3&q=${encodeURIComponent(query)}&countrycodes=us&viewbox=-71.12,42.38,-70.95,42.43&bounded=1`;
+      const resp=await fetch(url,{headers:{'Accept-Language':'en'}});
+      if(!resp.ok)throw new Error(`HTTP ${resp.status}`);
+      const results=await resp.json();
+      const hit=results.find(r=>/revere/i.test(r.display_name))||results[0];
+      if(!hit){if(status){status.textContent='Not found';status.style.color='var(--red)';}return;}
+      const lat=parseFloat(hit.lat),lng=parseFloat(hit.lon);
+      if(addrMarker)map.removeLayer(addrMarker);
+      const icon=L.divIcon({className:'',html:`<div style="display:flex;flex-direction:column;align-items:center;"><div style="background:#6ab0ff;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;border:1px solid rgba(255,255,255,0.4);">${hit.display_name.split(',')[0]}</div><div style="width:2px;height:8px;background:#6ab0ff;"></div><div style="width:8px;height:8px;border-radius:50%;background:#6ab0ff;border:2px solid #fff;"></div></div>`,iconSize:[160,34],iconAnchor:[80,34],popupAnchor:[0,-36]});
+      addrMarker=L.marker([lat,lng],{icon,zIndexOffset:2000}).addTo(map);
+      window._addrMarker=addrMarker;
+      addrMarker.bindPopup(`<div style="min-width:160px;"><div style="font-size:12px;font-weight:700;color:#6ab0ff;margin-bottom:3px;">${hit.display_name.split(',').slice(0,2).join(',')}</div><div style="font-size:10px;color:#5a7a72;">${lat.toFixed(5)}, ${lng.toFixed(5)}</div><button onclick="window.rmMap&&window.rmMap.removeLayer(window._addrMarker)" style="font-size:10px;cursor:pointer;background:#1c2e2a;border:1px solid #2a3e36;color:#e0e0e0;padding:2px 6px;border-radius:3px;margin-top:5px;">Clear</button></div>`,{maxWidth:220}).openPopup();
+      map.setView([lat,lng],17);
+    }catch(err){
+      console.warn('Address search error:',err);
+      if(status){status.textContent='Search error';status.style.color='var(--red)';}
+    }finally{btn.textContent='Go';btn.disabled=false;}
+  };
+  document.getElementById('rm-addr-input')?.addEventListener('keydown',e=>{if(e.key==='Enter')window.searchAddress();});
+  // ── END GIS / SEARCH ───────────────────────────────────────────
     const label=document.getElementById('rm-lbl').value.trim();if(!label)return;
     const catName=document.getElementById('rm-cat').value;
     const color=catByName(catName).color;
