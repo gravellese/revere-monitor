@@ -1129,8 +1129,8 @@ a.big-btn:hover{opacity:.85;}
     <div class="ch grn" style="cursor:grab;flex-shrink:0;">
       <div class="ct">Revere · City Map</div>
       <div class="cb">MBTA stops · projects · click to place pins</div>
-      <button id="gis-toggle" onclick="toggleGisLayer()" title="Toggle ward/precinct boundaries" style="font-size:10px;padding:2px 8px;background:#0a1510;border:1px solid #2a5a3a;border-radius:3px;color:#5a9a7a;font-family:var(--cond);letter-spacing:1px;cursor:pointer;white-space:nowrap;flex-shrink:0;">⬡ WARDS OFF</button>
-      <button id="zone-toggle" onclick="toggleZoneLayer()" title="Toggle zoning layer" style="font-size:10px;padding:2px 8px;background:#0a1510;border:1px solid #2a3a5a;border-radius:3px;color:#5a7a9a;font-family:var(--cond);letter-spacing:1px;cursor:pointer;white-space:nowrap;flex-shrink:0;">◧ ZONING OFF</button>
+      <button id="gis-toggle" onclick="toggleGisLayer()" style="font-size:10px;padding:2px 8px;background:#0a1510;border:1px solid #2a5a3a;border-radius:3px;color:#5a9a7a;font-family:var(--cond);letter-spacing:1px;cursor:pointer;white-space:nowrap;flex-shrink:0;">⬡ WARDS OFF</button>
+      <button id="zone-toggle" onclick="toggleZoneLayer()" style="font-size:10px;padding:2px 8px;background:#0a1510;border:1px solid #2a3a5a;border-radius:3px;color:#5a7a9a;font-family:var(--cond);letter-spacing:1px;cursor:pointer;white-space:nowrap;flex-shrink:0;">◧ ZONING OFF</button>
     </div>
     <div class="cbody np" style="flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;">
       <div id="rm-toolbar" style="background:#0a1510;border-bottom:1px solid #1c2e2a;padding:6px 8px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex-shrink:0;">
@@ -1140,10 +1140,10 @@ a.big-btn:hover{opacity:.85;}
         <button id="rm-add" style="font-size:11px;padding:2px 8px;height:24px;background:#0d1614;border:1px solid #1c2e2a;color:#00ddb8;border-radius:3px;cursor:pointer;white-space:nowrap;">+ Add pin</button>
         <span id="rm-hint" style="font-size:10px;color:#3a5a52;">Click map to place</span>
       </div>
-      <div id="rm-addr-bar" style="background:#080e0c;border-bottom:1px solid #1c2e2a;padding:4px 8px;display:flex;align-items:center;gap:5px;flex-shrink:0;">
+      <div style="background:#080e0c;border-bottom:1px solid #1c2e2a;padding:4px 8px;display:flex;align-items:center;gap:5px;flex-shrink:0;">
         <span style="font-size:10px;color:#3a5a52;flex-shrink:0;">🔍</span>
         <input id="rm-addr-input" placeholder="Search address in Revere…" style="flex:1;font-size:11px;padding:2px 6px;height:22px;background:#0d1614;border:1px solid #1c2e2a;color:#e0e0e0;border-radius:3px;min-width:0;"/>
-        <button id="rm-addr-btn" onclick="searchAddress()" style="font-size:10px;padding:1px 8px;height:22px;background:#0d1614;border:1px solid #1c2e2a;color:#6ab0ff;border-radius:3px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Go</button>
+        <button id="rm-addr-btn" style="font-size:10px;padding:1px 8px;height:22px;background:#0d1614;border:1px solid #1c2e2a;color:#6ab0ff;border-radius:3px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Go</button>
         <span id="rm-addr-status" style="font-size:10px;color:#3a5a52;white-space:nowrap;"></span>
       </div>
       <div id="rm-cat-bar" style="background:#080e0c;border-bottom:1px solid #1c2e2a;padding:4px 8px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex-shrink:0;">
@@ -2503,165 +2503,6 @@ function initRevereMap(){
     (blue?.data||[]).forEach(s=>addStop(s,'#003DA5','Blue Line'));
     (bus?.data||[]).forEach(s=>addStop(s,'#FFC72C','Bus Stop'));
   });
-
-  // ── SHARED GIS BASE ────────────────────────────────────────────
-  const GIS_BASE='https://gis.revere.org/arcgis/rest/services/RevereMA/MapServer';
-
-  function esriRingsToGeoJSON(geometry){
-    if(!geometry)return null;
-    const rings=geometry.rings;
-    if(!rings||!rings.length)return null;
-    return rings.length===1
-      ?{type:'Polygon',coordinates:rings}
-      :{type:'MultiPolygon',coordinates:rings.map(r=>[r])};
-  }
-
-  async function fetchEsriLayer(layerId,fields){
-    const params=new URLSearchParams({
-      where:'1=1',
-      outFields:fields.join(','),
-      outSR:'4326',
-      f:'json',
-      resultRecordCount:'500'
-    });
-    const resp=await fetch(`${GIS_BASE}/${layerId}/query?${params}`);
-    if(!resp.ok)throw new Error(`HTTP ${resp.status}`);
-    const data=await resp.json();
-    if(data.error)throw new Error(data.error.message||'ArcGIS error');
-    if(!data.features||!data.features.length)throw new Error('No features returned');
-    return {
-      type:'FeatureCollection',
-      features:data.features.map(f=>({
-        type:'Feature',
-        properties:f.attributes||{},
-        geometry:esriRingsToGeoJSON(f.geometry)
-      })).filter(f=>f.geometry)
-    };
-  }
-
-  // ── WARDS / PRECINCTS LAYER ────────────────────────────────────
-  let gisLayer=null,gisVisible=false,gisLoaded=false,gisLoading=false;
-  const WARD_COLORS=['#4a8fdd','#e07040','#50b870','#c060c0','#d0a030','#60b8b8','#d05070','#80a050'];
-  function wardColor(ward){const n=parseInt(ward)||0;return WARD_COLORS[(n-1)%WARD_COLORS.length]||'#6080c0';}
-
-  async function loadGisLayer(){
-    if(gisLoading)return;
-    gisLoading=true;
-    const btn=document.getElementById('gis-toggle');
-    if(btn){btn.textContent='⬡ Loading…';btn.style.color='#f5c518';}
-    try{
-      // Layer 6 = Precincts (ward + precinct + councilor fields)
-      const geojson=await fetchEsriLayer(6,['ward','precinct','councilor']);
-      gisLayer=L.geoJSON(geojson,{
-        style:f=>({color:wardColor(f.properties?.ward||'1'),weight:1.5,opacity:0.85,fillColor:wardColor(f.properties?.ward||'1'),fillOpacity:0.15}),
-        onEachFeature:(f,layer)=>{
-          const p=f.properties||{};
-          const ward=p.ward?`Ward ${p.ward}`:'';
-          const prec=p.precinct?`, Precinct ${p.precinct}`:'';
-          const cncl=p.councilor?`<div style="font-size:10px;color:#5a9a7a;margin-top:3px;">Councilor: ${p.councilor}</div>`:'';
-          layer.bindPopup(`<div style="min-width:140px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">${ward}${prec}</div>${cncl}</div>`,{maxWidth:200});
-          layer.on('mouseover',function(){this.setStyle({fillOpacity:0.38,weight:2.5});});
-          layer.on('mouseout',function(){gisLayer.resetStyle(this);});
-        }
-      });
-      gisLoaded=true;gisLoading=false;
-      if(gisVisible){gisLayer.addTo(map);if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}}
-      else{if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}}
-    }catch(err){
-      gisLoading=false;console.warn('GIS wards error:',err);
-      if(btn){btn.textContent='⬡ Error: '+err.message.slice(0,20);btn.style.color='var(--red)';}
-    }
-  }
-
-  window.toggleGisLayer=function(){
-    const btn=document.getElementById('gis-toggle');
-    if(!gisLoaded&&!gisLoading){gisVisible=true;loadGisLayer();return;}
-    if(gisLoading)return;
-    gisVisible=!gisVisible;
-    if(gisVisible){gisLayer&&gisLayer.addTo(map);if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}}
-    else{gisLayer&&map.removeLayer(gisLayer);if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}}
-  };
-
-  // ── ZONING LAYER ───────────────────────────────────────────────
-  let zoneLayer=null,zoneVisible=false,zoneLoaded=false,zoneLoading=false;
-  function zoneColor(z){
-    z=(z||'').toUpperCase();
-    if(z.startsWith('R'))return'#4a9a4a';
-    if(z.startsWith('B'))return'#4a7add';
-    if(z.startsWith('I'))return'#c06030';
-    if(z.includes('TOD'))return'#e0c030';
-    if(z.includes('PDD'))return'#d04090';
-    if(z.includes('OS'))return'#30a870';
-    return'#888888';
-  }
-
-  async function loadZoneLayer(){
-    if(zoneLoading)return;
-    zoneLoading=true;
-    const btn=document.getElementById('zone-toggle');
-    if(btn){btn.textContent='◧ Loading…';btn.style.color='#f5c518';}
-    try{
-      const geojson=await fetchEsriLayer(62,['zone_name','orig_zone']);
-      zoneLayer=L.geoJSON(geojson,{
-        style:f=>{const c=zoneColor(f.properties?.zone_name||'');return{color:c,weight:1,opacity:0.7,fillColor:c,fillOpacity:0.2};},
-        onEachFeature:(f,layer)=>{
-          const p=f.properties||{};
-          const name=p.zone_name||p.orig_zone||'Unknown';
-          const orig=p.orig_zone&&p.orig_zone!==name?`<div style="font-size:10px;color:#5a7a72;margin-top:2px;">Code: ${p.orig_zone}</div>`:'';
-          layer.bindPopup(`<div style="min-width:120px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;">${name}</div>${orig}</div>`,{maxWidth:180});
-          layer.on('mouseover',function(){this.setStyle({fillOpacity:0.45,weight:2});});
-          layer.on('mouseout',function(){zoneLayer.resetStyle(this);});
-        }
-      });
-      zoneLoaded=true;zoneLoading=false;
-      if(zoneVisible){zoneLayer.addTo(map);if(btn){btn.textContent='◧ ZONING ON';btn.style.color='#6ab0ff';btn.style.borderColor='#3a6aaa';}}
-      else{if(btn){btn.textContent='◧ ZONING OFF';btn.style.color='#5a7a9a';btn.style.borderColor='#2a3a5a';}}
-    }catch(err){
-      zoneLoading=false;console.warn('Zone layer error:',err);
-      if(btn){btn.textContent='◧ Zone Error';btn.style.color='var(--red)';}
-    }
-  }
-
-  window.toggleZoneLayer=function(){
-    const btn=document.getElementById('zone-toggle');
-    if(!zoneLoaded&&!zoneLoading){zoneVisible=true;loadZoneLayer();return;}
-    if(zoneLoading)return;
-    zoneVisible=!zoneVisible;
-    if(zoneVisible){zoneLayer&&zoneLayer.addTo(map);if(btn){btn.textContent='◧ ZONING ON';btn.style.color='#6ab0ff';btn.style.borderColor='#3a6aaa';}}
-    else{zoneLayer&&map.removeLayer(zoneLayer);if(btn){btn.textContent='◧ ZONING OFF';btn.style.color='#5a7a9a';btn.style.borderColor='#2a3a5a';}}
-  };
-
-  // ── ADDRESS SEARCH ─────────────────────────────────────────────
-  let addrMarker=null;
-  window.searchAddress=async function(){
-    const input=document.getElementById('rm-addr-input');
-    const status=document.getElementById('rm-addr-status');
-    const btn=document.getElementById('rm-addr-btn');
-    const q=(input?.value||'').trim();if(!q)return;
-    btn.textContent='…';btn.disabled=true;if(status)status.textContent='';
-    const query=/revere|,\s*MA/i.test(q)?q:`${q}, Revere, MA`;
-    try{
-      const url=`https://nominatim.openstreetmap.org/search?format=json&limit=3&q=${encodeURIComponent(query)}&countrycodes=us&viewbox=-71.12,42.38,-70.95,42.43&bounded=1`;
-      const resp=await fetch(url,{headers:{'Accept-Language':'en'}});
-      if(!resp.ok)throw new Error(`HTTP ${resp.status}`);
-      const results=await resp.json();
-      const hit=results.find(r=>/revere/i.test(r.display_name))||results[0];
-      if(!hit){if(status){status.textContent='Not found';status.style.color='var(--red)';}return;}
-      const lat=parseFloat(hit.lat),lng=parseFloat(hit.lon);
-      if(addrMarker)map.removeLayer(addrMarker);
-      const icon=L.divIcon({className:'',html:`<div style="display:flex;flex-direction:column;align-items:center;"><div style="background:#6ab0ff;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;border:1px solid rgba(255,255,255,0.4);">${hit.display_name.split(',')[0]}</div><div style="width:2px;height:8px;background:#6ab0ff;"></div><div style="width:8px;height:8px;border-radius:50%;background:#6ab0ff;border:2px solid #fff;"></div></div>`,iconSize:[160,34],iconAnchor:[80,34],popupAnchor:[0,-36]});
-      addrMarker=L.marker([lat,lng],{icon,zIndexOffset:2000}).addTo(map);
-      window._addrMarker=addrMarker;
-      addrMarker.bindPopup(`<div style="min-width:160px;"><div style="font-size:12px;font-weight:700;color:#6ab0ff;margin-bottom:3px;">${hit.display_name.split(',').slice(0,2).join(',')}</div><div style="font-size:10px;color:#5a7a72;">${lat.toFixed(5)}, ${lng.toFixed(5)}</div><button onclick="window.rmMap&&window.rmMap.removeLayer(window._addrMarker)" style="font-size:10px;cursor:pointer;background:#1c2e2a;border:1px solid #2a3e36;color:#e0e0e0;padding:2px 6px;border-radius:3px;margin-top:5px;">Clear</button></div>`,{maxWidth:220}).openPopup();
-      map.setView([lat,lng],17);
-    }catch(err){
-      console.warn('Address search error:',err);
-      if(status){status.textContent='Search error';status.style.color='var(--red)';}
-    }finally{btn.textContent='Go';btn.disabled=false;}
-  };
-  document.getElementById('rm-addr-input')?.addEventListener('keydown',e=>{if(e.key==='Enter')window.searchAddress();});
-  // ── END GIS / SEARCH ───────────────────────────────────────────
-
   map.on('click',e=>{
     if(!placing)return;
     const label=document.getElementById('rm-lbl').value.trim();if(!label)return;
@@ -2678,6 +2519,154 @@ function initRevereMap(){
   });
   pins.forEach((p,i)=>addPinMarker(p,i));
   [300,700,1500].forEach(d=>setTimeout(()=>map.invalidateSize(),d));
+
+  // ── GIS LAYERS + ADDRESS SEARCH ────────────────────────────────
+  // All code here is at initRevereMap scope, NOT inside any event handler.
+  const GIS='https://gis.revere.org/arcgis/rest/services/RevereMA/MapServer';
+
+  // Fetch any Revere GIS layer as GeoJSON using Esri JSON + manual conversion.
+  // Using f=json (not geojson) because group child layers sometimes reject geojson.
+  // Using outFields=* to avoid field name mismatches.
+  // NOT using resultRecordCount — not universally supported.
+  async function fetchRevereLayer(layerId){
+    const url=`${GIS}/${layerId}/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json`;
+    const r=await fetch(url);
+    if(!r.ok)throw new Error(`HTTP ${r.status}`);
+    const d=await r.json();
+    if(d.error)throw new Error(d.error.message||`Layer ${layerId} query error`);
+    if(!d.features||!d.features.length)throw new Error('No features returned');
+    return{
+      type:'FeatureCollection',
+      features:d.features.map(f=>{
+        const geom=f.geometry;
+        if(!geom||!geom.rings)return null;
+        const geo=geom.rings.length===1
+          ?{type:'Polygon',coordinates:geom.rings}
+          :{type:'MultiPolygon',coordinates:geom.rings.map(r=>[r])};
+        return{type:'Feature',properties:f.attributes||{},geometry:geo};
+      }).filter(Boolean)
+    };
+  }
+
+  // WARDS layer — using layer 7 (Wards, standalone) rather than layer 6 (Precincts,
+  // sub-layer of Voting group) which was rejecting queries.
+  const WARD_COLORS=['#4a8fdd','#e07040','#50b870','#c060c0','#d0a030','#60b8b8','#d05070','#80a050'];
+  function wardFill(w){const n=parseInt(w)||0;return WARD_COLORS[(n-1)%WARD_COLORS.length]||'#6080c0';}
+  let gisLayer=null,gisOn=false,gisLoaded=false,gisLoading=false;
+
+  async function loadGisLayer(){
+    if(gisLoading)return;gisLoading=true;
+    const btn=document.getElementById('gis-toggle');
+    if(btn){btn.textContent='⬡ Loading…';btn.style.color='#f5c518';}
+    try{
+      const gj=await fetchRevereLayer(7); // Layer 7 = Wards
+      gisLayer=L.geoJSON(gj,{
+        style:f=>{const c=wardFill(f.properties?.ward||f.properties?.WARD||'1');return{color:c,weight:2,opacity:0.9,fillColor:c,fillOpacity:0.15};},
+        onEachFeature:(f,layer)=>{
+          const p=f.properties||{};
+          const w=p.ward||p.WARD||'';
+          const c=p.councilor||p.COUNCILOR||'';
+          layer.bindPopup(`<div style="min-width:130px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">Ward ${w}</div>${c?`<div style="font-size:10px;color:#5a9a7a;">Councilor: ${c}</div>`:''}</div>`,{maxWidth:200});
+          layer.on('mouseover',function(){this.setStyle({fillOpacity:0.4,weight:3});});
+          layer.on('mouseout',function(){gisLayer.resetStyle(this);});
+        }
+      });
+      gisLoaded=true;gisLoading=false;
+      if(gisOn){gisLayer.addTo(map);if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}}
+      else{if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}}
+    }catch(err){
+      gisLoading=false;
+      if(btn){btn.textContent='⬡ Err: '+err.message.slice(0,18);btn.style.color='var(--red)';}
+      console.warn('Wards layer error:',err);
+    }
+  }
+  window.toggleGisLayer=function(){
+    const btn=document.getElementById('gis-toggle');
+    if(!gisLoaded&&!gisLoading){gisOn=true;loadGisLayer();return;}
+    if(gisLoading)return;
+    gisOn=!gisOn;
+    if(gisOn){gisLayer&&gisLayer.addTo(map);if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}}
+    else{gisLayer&&map.removeLayer(gisLayer);if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}}
+  };
+
+  // ZONING layer — layer 62, standalone, already confirmed working
+  function zoneColor(z){
+    z=(z||'').toUpperCase();
+    if(z.startsWith('R'))return'#4a9a4a';
+    if(z.startsWith('B'))return'#4a7add';
+    if(z.startsWith('I'))return'#c06030';
+    if(z.includes('TOD'))return'#e0c030';
+    if(z.includes('PDD'))return'#d04090';
+    if(z.includes('OS'))return'#30a870';
+    return'#888888';
+  }
+  let zoneLayer=null,zoneOn=false,zoneLoaded=false,zoneLoading=false;
+
+  async function loadZoneLayer(){
+    if(zoneLoading)return;zoneLoading=true;
+    const btn=document.getElementById('zone-toggle');
+    if(btn){btn.textContent='◧ Loading…';btn.style.color='#f5c518';}
+    try{
+      const gj=await fetchRevereLayer(62); // Layer 62 = Zoning
+      zoneLayer=L.geoJSON(gj,{
+        style:f=>{const c=zoneColor(f.properties?.zone_name||f.properties?.ZONE_NAME||'');return{color:c,weight:1,opacity:0.7,fillColor:c,fillOpacity:0.2};},
+        onEachFeature:(f,layer)=>{
+          const p=f.properties||{};
+          const name=p.zone_name||p.ZONE_NAME||p.orig_zone||p.ORIG_ZONE||'Unknown';
+          layer.bindPopup(`<div style="min-width:120px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;">${name}</div></div>`,{maxWidth:180});
+          layer.on('mouseover',function(){this.setStyle({fillOpacity:0.45,weight:2});});
+          layer.on('mouseout',function(){zoneLayer.resetStyle(this);});
+        }
+      });
+      zoneLoaded=true;zoneLoading=false;
+      if(zoneOn){zoneLayer.addTo(map);if(btn){btn.textContent='◧ ZONING ON';btn.style.color='#6ab0ff';btn.style.borderColor='#3a6aaa';}}
+      else{if(btn){btn.textContent='◧ ZONING OFF';btn.style.color='#5a7a9a';btn.style.borderColor='#2a3a5a';}}
+    }catch(err){
+      zoneLoading=false;
+      if(btn){btn.textContent='◧ Zone Err';btn.style.color='var(--red)';}
+      console.warn('Zone layer error:',err);
+    }
+  }
+  window.toggleZoneLayer=function(){
+    const btn=document.getElementById('zone-toggle');
+    if(!zoneLoaded&&!zoneLoading){zoneOn=true;loadZoneLayer();return;}
+    if(zoneLoading)return;
+    zoneOn=!zoneOn;
+    if(zoneOn){zoneLayer&&zoneLayer.addTo(map);if(btn){btn.textContent='◧ ZONING ON';btn.style.color='#6ab0ff';btn.style.borderColor='#3a6aaa';}}
+    else{zoneLayer&&map.removeLayer(zoneLayer);if(btn){btn.textContent='◧ ZONING OFF';btn.style.color='#5a7a9a';btn.style.borderColor='#2a3a5a';}}
+  };
+
+  // ADDRESS SEARCH via Nominatim (OSM, no API key, biased to Revere bounding box)
+  let addrMarker=null;
+  function doSearch(){
+    const input=document.getElementById('rm-addr-input');
+    const status=document.getElementById('rm-addr-status');
+    const btn=document.getElementById('rm-addr-btn');
+    const q=(input?.value||'').trim();if(!q)return;
+    btn.textContent='…';btn.disabled=true;if(status)status.textContent='';
+    const query=/revere|,\s*MA/i.test(q)?q:`${q}, Revere, MA`;
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=3&q=${encodeURIComponent(query)}&countrycodes=us&viewbox=-71.12,42.38,-70.95,42.43&bounded=1`,{headers:{'Accept-Language':'en'}})
+      .then(r=>r.json())
+      .then(results=>{
+        const hit=results.find(r=>/revere/i.test(r.display_name))||results[0];
+        if(!hit){if(status){status.textContent='Not found';status.style.color='var(--red)';}return;}
+        const lat=parseFloat(hit.lat),lng=parseFloat(hit.lon);
+        if(addrMarker)map.removeLayer(addrMarker);
+        addrMarker=L.marker([lat,lng],{
+          icon:L.divIcon({className:'',html:`<div style="display:flex;flex-direction:column;align-items:center;"><div style="background:#6ab0ff;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;border:1px solid rgba(255,255,255,0.3);">${hit.display_name.split(',')[0]}</div><div style="width:2px;height:8px;background:#6ab0ff;"></div><div style="width:8px;height:8px;border-radius:50%;background:#6ab0ff;border:2px solid #fff;"></div></div>`,iconSize:[160,34],iconAnchor:[80,34],popupAnchor:[0,-36]}),
+          zIndexOffset:2000
+        }).addTo(map);
+        window._addrMarker=addrMarker;
+        addrMarker.bindPopup(`<div style="min-width:160px;"><div style="font-size:12px;font-weight:700;color:#6ab0ff;margin-bottom:3px;">${hit.display_name.split(',').slice(0,2).join(',')}</div><div style="font-size:10px;color:#5a7a72;">${lat.toFixed(5)}, ${lng.toFixed(5)}</div><button onclick="window.rmMap&&window.rmMap.removeLayer(window._addrMarker)" style="font-size:10px;cursor:pointer;background:#1c2e2a;border:1px solid #2a3e36;color:#e0e0e0;padding:2px 6px;border-radius:3px;margin-top:5px;">Clear</button></div>`,{maxWidth:220}).openPopup();
+        map.setView([lat,lng],17);
+      })
+      .catch(err=>{console.warn('Address search:',err);if(status){status.textContent='Error';status.style.color='var(--red)';} })
+      .finally(()=>{btn.textContent='Go';btn.disabled=false;});
+  }
+  window.searchAddress=doSearch;
+  document.getElementById('rm-addr-btn')?.addEventListener('click',doSearch);
+  document.getElementById('rm-addr-input')?.addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+  // ── END GIS / SEARCH ───────────────────────────────────────────
   // Seed example pins if empty
   if(!pins.length){
     pins=[
