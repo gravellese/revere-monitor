@@ -428,6 +428,14 @@ a.big-btn:hover{opacity:.85;}
 .sc-badge.bcbase{background:#6b0504;color:#f0c84a;}
 .sc-badge.bclax{background:#6b0504;color:#f0c84a;}
 .sc-badge.lfc{background:#c8102e;color:#fff;}
+.sc-badge.ncaa_hockey{background:#1a4a8a;color:#a0d0ff;}
+.sc-badge.worldcup{background:#006847;color:#FFD700;}
+.sc-badge.usmnt{background:#002868;color:#fff;}
+.sc-badge.uswnt{background:#002868;color:#ffd700;}
+.sc-badge.revolution{background:#00245D;color:#e8b020;}
+.sc-badge.italy{background:#003087;color:#fff;}
+.sc-badge.navigators{background:#1a3a6b;color:#f0c040;}
+.sc-badge.watchlist{background:#5c2a8a;color:#e0c0ff;}
 .sc-event-title{font-size:11px;color:var(--text);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .sc-event-title.sc-past{color:var(--text-mute);}
 .sc-event-meta{display:flex;align-items:center;gap:5px;flex-shrink:0;}
@@ -992,12 +1000,20 @@ a.big-btn:hover{opacity:.85;}
           <button class="sc-chip" data-filter="lfc">Liverpool</button>
           <button class="sc-chip" data-filter="fleet">Fleet</button>
           <button class="sc-chip" data-filter="legacy">Legacy</button>
+          <button class="sc-chip" data-filter="revolution">Revolution</button>
+          <button class="sc-chip" data-filter="usmnt">USMNT</button>
+          <button class="sc-chip" data-filter="uswnt">USWNT</button>
+          <button class="sc-chip" data-filter="italy">Italy</button>
+          <button class="sc-chip" data-filter="worldcup">World Cup</button>
+          <button class="sc-chip" data-filter="navigators">Navigators</button>
+          <button class="sc-chip" data-filter="ncaa_hockey">NCAA Hockey</button>
           <button class="sc-chip" data-filter="bcbase">BC Baseball</button>
           <button class="sc-chip" data-filter="bclax">BC Lacrosse</button>
           <button class="sc-chip" data-filter="nascar_cup">Cup</button>
           <button class="sc-chip" data-filter="nascar_ore">O'Reilly</button>
           <button class="sc-chip" data-filter="nascar_tck">Trucks</button>
           <button class="sc-chip" data-filter="f1">F1</button>
+          <button class="sc-chip" data-filter="watchlist">Watchlist</button>
         </div>
         <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;margin-left:8px;">
           <span class="sc-refresh-status" id="sc-status"></span>
@@ -2096,19 +2112,27 @@ setTimeout(()=>location.reload(),30*60*1000);
 // SPORTS SCHEDULE WIDGET
 // ═══════════════════════════════════════════════════════
 (function(){
-const SC_LABELS={sox:"Red Sox",bruins:"Bruins",fleet:"Fleet",legacy:"Legacy",nascar_cup:"Cup",nascar_ore:"O'Reilly",nascar_tck:"Trucks",f1:"F1",bcbase:"BC Baseball",bclax:"BC Lacrosse",lfc:"Liverpool"};
+const SC_LABELS={sox:"Red Sox",bruins:"Bruins",fleet:"Fleet",legacy:"Legacy",nascar_cup:"Cup",nascar_ore:"O'Reilly",nascar_tck:"Trucks",f1:"F1",bcbase:"BC Baseball",bclax:"BC Lacrosse",lfc:"Liverpool",ncaa_hockey:"NCAA Hockey",worldcup:"World Cup",usmnt:"USMNT",uswnt:"USWNT",revolution:"Revolution",italy:"Italy",navigators:"Navigators",watchlist:"Watchlist"};
 const SC_STORAGE_KEY='sc_events_v1';
 const SC_REFRESHED_KEY='sc_refreshed_v1';
 const SC_CAL_IDS={
   bruins:"nhl_-m-0j2zj_%42oston+%42ruins#sports@group.v.calendar.google.com",
   sox:"mlb_-m-01d5z_%42oston+%52ed+%53ox#sports@group.v.calendar.google.com",
-  lfc:"ud10344ahea8j0qc5s0cdk83kqd4ap9a@import.calendar.google.com",
+  lfc:"dpqj0f4137m5brcrar1jn1vs64@group.calendar.google.com",
   fleet:"nudcgn5li9mrusdhdd4h8abbj0@group.calendar.google.com",
   legacy:"elgb6vhfucpe38fhv6febj5l3etfbhmm@import.calendar.google.com",
   bcbase:"avkc7pucr075rp0ehvqbu1t5rlkku15r@import.calendar.google.com",
   bclax:"ne97hfv8h2chq71lb7vgrhc8oeenkqo7@import.calendar.google.com",
   nascar:"7e497131cc76c86d4aa976986c8b17eb5c3ecb8555a7dcf00cf1b26138ea3431@group.calendar.google.com",
-  f1:"4bu98arvuq4clcir4oqq74v8j8udo0dk@import.calendar.google.com"
+  f1:"4bu98arvuq4clcir4oqq74v8j8udo0dk@import.calendar.google.com",
+  ncaa_hockey:"4591a3673990b40870a5eea863bc4ecb27817dcf8cd1353c10a5fddc682c4659@group.calendar.google.com",
+  worldcup:"3hq899li0lh09cfs1h4bqdsdjs@group.calendar.google.com",
+  usmnt:"oib25ejldudu51vruaqvv2f8f8@group.calendar.google.com",
+  uswnt:"arpnl5b3behv8j9s9lfh32meug@group.calendar.google.com",
+  revolution:"8tnqel2hvmh8csqlmpira01500@group.calendar.google.com",
+  italy:"0eejc68fc0shdcks3bk0sh44mg@group.calendar.google.com",
+  navigators:"e455dca9fc4667821e23c4fc555bb7d631cd26148b8d3269561a8d4f6607f2fa@group.calendar.google.com",
+  watchlist:"df6346a0c4db83dfa688f28aba800e40ba131190994a61dfbc3de835ec2c3c7f@group.calendar.google.com"
 };
 
 // Seed data — Mar 12 through late April 2026
@@ -2311,20 +2335,28 @@ async function scRefresh(){
 
 Date range: ${pastDate} to ${futureDate}
 
-Call gcal_list_events for each of these 9 Google Calendar IDs:
+Call gcal_list_events for each of these 17 Google Calendar IDs:
 1. bruins: ${SC_CAL_IDS.bruins}
 2. sox: ${SC_CAL_IDS.sox}
 3. lfc (Liverpool): ${SC_CAL_IDS.lfc}
 4. fleet (PWHL Boston): ${SC_CAL_IDS.fleet} — skip non-game events (timesheets, meetings, AHTF)
-5. legacy (NWSL): ${SC_CAL_IDS.legacy}
+5. legacy (NWSL Boston): ${SC_CAL_IDS.legacy}
 6. bcbase (BC Baseball): ${SC_CAL_IDS.bcbase}
 7. bclax (BC Lacrosse): ${SC_CAL_IDS.bclax}
 8. nascar: ${SC_CAL_IDS.nascar} — deduplicate same race (appears twice); classify by description: "Cup Series"→nascar_cup, "O'Reilly"→nascar_ore, "Craftsman Truck"→nascar_tck
 9. f1: ${SC_CAL_IDS.f1}
+10. ncaa_hockey (2026 NCAA Men's Hockey Tournament): ${SC_CAL_IDS.ncaa_hockey}
+11. worldcup (FIFA World Cup 2026): ${SC_CAL_IDS.worldcup}
+12. usmnt (US Men's National Team): ${SC_CAL_IDS.usmnt}
+13. uswnt (US Women's National Team): ${SC_CAL_IDS.uswnt}
+14. revolution (New England Revolution): ${SC_CAL_IDS.revolution}
+15. italy (Italy national team): ${SC_CAL_IDS.italy}
+16. navigators (North Shore Navigators): ${SC_CAL_IDS.navigators}
+17. watchlist (Sports Watchlist — personal): ${SC_CAL_IDS.watchlist} — events may have a [sport] tag prefix like "[⚽]" or "[🏒]"; preserve it in the title as-is
 
-Return a JSON array. Each item: {"date":"YYYY-MM-DD","team":"sox|bruins|lfc|fleet|legacy|bcbase|bclax|nascar_cup|nascar_ore|nascar_tck|f1","title":"clean event title","time":"H:MM AM/PM","result":"W"|"L"|null,"score":"X-Y"|null,"venue":"venue"|null,"special":"tag"|null}
+Return a JSON array. Each item: {"date":"YYYY-MM-DD","team":"sox|bruins|lfc|fleet|legacy|bcbase|bclax|nascar_cup|nascar_ore|nascar_tck|f1|ncaa_hockey|worldcup|usmnt|uswnt|revolution|italy|navigators|watchlist","title":"clean event title","time":"H:MM AM/PM","result":"W"|"L"|null,"score":"X-Y"|null,"venue":"venue"|null,"special":"tag"|null}
 
-Score rules: Bruins/Sox have scores in title like "Bruins (4) @ Red Wings (2)" — parse W/L from Boston team's perspective. BC feeds have [W]/[L] prefix and "W X-Y" score in description. NASCAR: parse race name from summary, venue from location. F1: include FP1/FP2/FP3/Qualifying/Grand Prix as separate events. Future events: result=null, score=null.`;
+Score rules: Bruins/Sox have scores in title like "Bruins (4) @ Red Wings (2)" — parse W/L from Boston team's perspective. BC feeds have [W]/[L] prefix and "W X-Y" score in description. NASCAR: parse race name from summary, venue from location. F1: include FP1/FP2/FP3/Qualifying/Grand Prix as separate events. Soccer results: parse from title or description if available. Future events: result=null, score=null.`;
 
   try{
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
