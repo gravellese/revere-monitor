@@ -1129,6 +1129,7 @@ a.big-btn:hover{opacity:.85;}
     <div class="ch grn" style="cursor:grab;flex-shrink:0;">
       <div class="ct">Revere · City Map</div>
       <div class="cb">MBTA stops · projects · click to place pins</div>
+      <button id="gis-toggle" onclick="toggleGisLayer()" title="Toggle ward/precinct boundaries" style="font-size:10px;padding:2px 8px;background:#0a1510;border:1px solid #2a5a3a;border-radius:3px;color:#5a9a7a;font-family:var(--cond);letter-spacing:1px;cursor:pointer;white-space:nowrap;flex-shrink:0;">⬡ WARDS OFF</button>
     </div>
     <div class="cbody np" style="flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;">
       <div id="rm-toolbar" style="background:#0a1510;border-bottom:1px solid #1c2e2a;padding:6px 8px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex-shrink:0;">
@@ -2495,6 +2496,113 @@ function initRevereMap(){
     (blue?.data||[]).forEach(s=>addStop(s,'#003DA5','Blue Line'));
     (bus?.data||[]).forEach(s=>addStop(s,'#FFC72C','Bus Stop'));
   });
+  // ── WARD / PRECINCT GIS LAYER ──────────────────────────────────
+  // MassGIS 2022 Wards & Precincts — filtered to Revere via ArcGIS REST
+  // Field names: WARD, PRECINCT, WP_NAME, WP_DISTRICT, TOWN, POP_2020
+  let gisLayer=null;
+  let gisVisible=false;
+  let gisLoaded=false;
+  let gisLoading=false;
+
+  // Color palette — one color per ward, semi-transparent fill
+  const WARD_COLORS=[
+    '#4a8fdd','#e07040','#50b870','#c060c0','#d0a030','#60b8b8','#d05070','#80a050'
+  ];
+  function wardColor(ward){
+    const n=parseInt(ward)||0;
+    return WARD_COLORS[(n-1)%WARD_COLORS.length]||'#6080c0';
+  }
+
+  async function loadGisLayer(){
+    if(gisLoading)return;
+    gisLoading=true;
+    const btn=document.getElementById('gis-toggle');
+    if(btn){btn.textContent='⬡ Loading…';btn.style.color='#f5c518';}
+
+    // MassGIS 2022 Wards & Precincts — ArcGIS Online Feature Service
+    // Service: https://gis.data.mass.gov/datasets/massgis::wards-and-precincts-2022-feature-service
+    const BASE='https://services1.arcgis.com/hGdibHYSPO59RG1h/arcgis/rest/services/WARDSPRECINCTS2022_POLY/FeatureServer/0';
+    const params=new URLSearchParams({
+      where:"TOWN='REVERE'",
+      outFields:'WARD,PRECINCT,WP_NAME,WP_DISTRICT,POP_2020',
+      outSR:'4326',
+      f:'geojson'
+    });
+
+    try{
+      const resp=await fetch(`${BASE}/query?${params}`);
+      if(!resp.ok)throw new Error(`HTTP ${resp.status}`);
+      const geojson=await resp.json();
+      if(!geojson.features||!geojson.features.length)throw new Error('No features returned');
+
+      gisLayer=L.geoJSON(geojson,{
+        style:feature=>{
+          const ward=feature.properties?.WARD||'1';
+          const color=wardColor(ward);
+          return{
+            color:color,
+            weight:2,
+            opacity:0.9,
+            fillColor:color,
+            fillOpacity:0.18,
+          };
+        },
+        onEachFeature:(feature,layer)=>{
+          const p=feature.properties||{};
+          const ward=p.WARD?`Ward ${p.WARD}, `:'';
+          const prec=p.PRECINCT?`Precinct ${p.PRECINCT}`:'';
+          const pop=p.POP_2020?`<div style="font-size:10px;color:#5a7a72;margin-top:3px;">Pop. ${p.POP_2020.toLocaleString()}</div>`:'';
+          layer.bindPopup(
+            `<div style="min-width:130px;">
+              <div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;">Revere</div>
+              <div style="font-size:11px;color:#00ddb8;letter-spacing:.5px;">${ward}${prec}</div>
+              ${pop}
+            </div>`,{maxWidth:200}
+          );
+          layer.on('mouseover',function(){
+            this.setStyle({fillOpacity:0.38,weight:3});
+          });
+          layer.on('mouseout',function(){
+            gisLayer.resetStyle(this);
+          });
+        }
+      });
+
+      gisLoaded=true;
+      gisLoading=false;
+      if(gisVisible){
+        gisLayer.addTo(map);
+        if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}
+      } else {
+        if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}
+      }
+    }catch(err){
+      gisLoading=false;
+      console.warn('GIS layer load failed:',err);
+      if(btn){btn.textContent='⬡ GIS Error';btn.style.color='var(--red)';}
+    }
+  }
+
+  window.toggleGisLayer=function(){
+    const btn=document.getElementById('gis-toggle');
+    if(!gisLoaded&&!gisLoading){
+      // First click — load and show
+      gisVisible=true;
+      loadGisLayer();
+      return;
+    }
+    if(gisLoading)return; // wait for load to finish
+    gisVisible=!gisVisible;
+    if(gisVisible){
+      gisLayer&&gisLayer.addTo(map);
+      if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}
+    } else {
+      gisLayer&&map.removeLayer(gisLayer);
+      if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}
+    }
+  };
+  // ── END GIS LAYER ──────────────────────────────────────────────
+
   map.on('click',e=>{
     if(!placing)return;
     const label=document.getElementById('rm-lbl').value.trim();if(!label)return;
