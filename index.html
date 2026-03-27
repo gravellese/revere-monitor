@@ -795,35 +795,36 @@ a.big-btn:hover{opacity:.85;}
 
   <!-- LEFT COLUMN -->
 
-  <div class="grid-stack-item" gs-id="priorities" gs-x="0" gs-y="0" gs-w="3" gs-h="5" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch grn"><div class="ct">TOP 3 PRIORITIES</div><div class="cb">SAVED IN BROWSER</div></div>
-    <div class="cbody">
-      <div class="pri-wrap">
+  <div class="grid-stack-item" gs-id="priorities" gs-x="0" gs-y="0" gs-w="3" gs-h="8" gs-min-h="5">
+  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
+    <div class="ch grn" style="flex-shrink:0;"><div class="ct">TOP 3 PRIORITIES</div><div class="cb">SAVED IN BROWSER</div></div>
+    <div class="cbody" style="display:flex;flex-direction:column;flex:1;min-height:0;">
+      <div class="pri-wrap" style="flex-shrink:0;">
         <div class="pri-item"><div class="pri-num n1">1</div><textarea class="pri-ta" id="p1" placeholder="Most important thing right now…"></textarea></div>
         <div class="pri-item"><div class="pri-num n2">2</div><textarea class="pri-ta" id="p2" placeholder="Second priority…"></textarea></div>
         <div class="pri-item"><div class="pri-num n3">3</div><textarea class="pri-ta" id="p3" placeholder="Third priority…"></textarea></div>
       </div>
-      <div id="pri-saved">auto-saved to this browser</div>
+      <div style="flex-shrink:0;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--text-mute);text-transform:uppercase;padding:6px 0 3px;border-top:1px solid var(--border);margin-top:6px;">Notes</div>
+      <textarea id="p4" placeholder="Notes…" style="flex:1;min-height:0;width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:13px;padding:6px 10px;resize:none;outline:none;"></textarea>
+      <div id="pri-saved" style="flex-shrink:0;">auto-saved to this browser</div>
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="planner" gs-x="0" gs-y="5" gs-w="3" gs-h="7" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch acc"><div class="ct">PLANNER</div><div class="cb">NOTES + QUICK LINKS</div></div>
-    <div class="cbody">
-      <textarea id="planner-notes" placeholder="Today&#39;s meetings, priorities, notes…" oninput="localStorage.setItem(&#39;planner_notes&#39;,this.value)"></textarea>
-      <div class="planner-links">
-        <div class="planner-links-lbl">Quick Links</div>
-        <a href="https://calendar.google.com" target="_blank" rel="noopener" class="cal-btn">📅 Google Calendar</a>
-        <a href="https://www.revere.org/calendar" target="_blank" rel="noopener" class="cal-btn">🏛 City of Revere Calendar</a>
-        <a href="https://reverema.iqm2.com/Citizens/Calendar.aspx" target="_blank" rel="noopener" class="cal-btn">📋 Meeting Agendas (IQM2)</a>
-        <a href="https://www.bostonglobe.com/sports/tvradio/listings/" target="_blank" rel="noopener" class="cal-btn">📺 Globe Sports TV/Radio</a>
-      </div>
+
+
+  <!-- PERSONAL CALENDAR AGENDA -->
+  <div class="grid-stack-item" gs-id="personal-calendar" gs-x="0" gs-y="8" gs-w="3" gs-h="9" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
+    <div class="ch acc" style="flex-shrink:0;">
+      <div class="ct">AGENDA</div>
+      <div class="cb">JOSEPH · WESLEY · TODOIST</div>
+    </div>
+    <div class="cbody np" style="flex:1;overflow-y:auto;min-height:0;" id="personal-calendar-body">
+      <div class="empty">Loading…</div>
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="weather-unified" gs-x="3" gs-y="0" gs-w="4" gs-h="12" gs-min-h="8">
+    <div class="grid-stack-item" gs-id="weather-unified" gs-x="3" gs-y="0" gs-w="4" gs-h="12" gs-min-h="8">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <!-- WEATHER HEADER -->
     <div class="ch acc" style="flex-shrink:0;">
@@ -1238,68 +1239,38 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
-
-  <!-- PERSONAL CALENDAR PANEL -->
-  <div class="grid-stack-item" gs-id="personal-calendar" gs-x="3" gs-y="7" gs-w="4" gs-h="9" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
-    <div class="ch acc" style="flex-shrink:0;">
-      <div class="ct">AGENDA</div>
-      <div class="cb">JOSEPH · WESLEY · TODOIST</div>
-    </div>
-    <div class="cbody np" style="flex:1;overflow-y:auto;min-height:0;" id="personal-calendar-body">
-      <div class="empty">Loading…</div>
-    </div>
-  </div></div></div>
-
 </div><!-- /gs-grid -->
 
 <div id="page" style="display:none;"><div id="col-left"></div><div id="col-right"></div></div>
 
 <script>
-
 // ── PERSONAL CALENDAR ──
 function renderPersonalCalendar(events) {
   const el = document.getElementById('personal-calendar-body');
   if (!el) return;
-  if (!events || !events.length) {
-    el.innerHTML = '<div class="empty">No upcoming events</div>';
-    return;
-  }
-
+  if (!events || !events.length) { el.innerHTML = '<div class="empty">No upcoming events</div>'; return; }
   const CAL_COLOR = { 'Joseph': 'var(--accent)', 'Wesley': 'var(--green)', 'Todoist': 'var(--gold)' };
   const today = new Date().toISOString().slice(0, 10);
   const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
-
-  // Group by date
   const byDate = {};
-  events.forEach(ev => {
-    if (!byDate[ev.date]) byDate[ev.date] = [];
-    byDate[ev.date].push(ev);
-  });
-
+  events.forEach(ev => { if (!byDate[ev.date]) byDate[ev.date] = []; byDate[ev.date].push(ev); });
   let html = '';
   for (const date of Object.keys(byDate).sort()) {
     const d = new Date(date + 'T12:00:00');
-    const label = date === today ? 'TODAY'
-      : date === tomorrow ? 'TOMORROW'
+    const label = date === today ? 'TODAY' : date === tomorrow ? 'TOMORROW'
       : d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
-
     html += `<div style="padding:4px 10px 2px;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--text-mute);background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:0;">${label}</div>`;
-
     byDate[date].forEach(ev => {
       const color = CAL_COLOR[ev.calendar] || 'var(--text-dim)';
       const timeStr = ev.all_day ? 'All day' : (ev.time || '');
       html += `<div style="padding:5px 10px;border-bottom:1px solid var(--border2);display:flex;gap:8px;align-items:flex-start;">
         <div style="flex-shrink:0;width:3px;border-radius:2px;background:${color};align-self:stretch;min-height:16px;"></div>
-        <div style="min-width:0;flex:1;">
-          <div style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.summary}</div>
-          <div style="font-size:10px;color:var(--text-mute);margin-top:1px;">${timeStr}${ev.location ? ' · ' + ev.location : ''}</div>
-        </div>
-        <div style="flex-shrink:0;font-size:9px;color:${color};letter-spacing:.5px;font-weight:700;text-align:right;">${ev.calendar.toUpperCase()}</div>
+        <div style="min-width:0;flex:1;"><div style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.summary}</div>
+        <div style="font-size:10px;color:var(--text-mute);margin-top:1px;">${timeStr}${ev.location ? ' · ' + ev.location : ''}</div></div>
+        <div style="flex-shrink:0;font-size:9px;color:${color};letter-spacing:.5px;font-weight:700;">${ev.calendar.toUpperCase()}</div>
       </div>`;
     });
   }
-
   el.innerHTML = html;
 }
 
@@ -1783,13 +1754,13 @@ function plotRoadEvents(events){
 }
 
 // ── PRIORITIES + PLANNER ──
-['p1','p2','p3'].forEach(id=>{
+['p1','p2','p3','p4'].forEach(id=>{
   const el=document.getElementById(id);
   if(!el)return;
   el.value=localStorage.getItem('monitor_'+id)||'';
   el.addEventListener('input',()=>{localStorage.setItem('monitor_'+id,el.value);const s=document.getElementById('pri-saved');if(s){s.textContent='saved ✓';setTimeout(()=>s.textContent='auto-saved to this browser',1500);}});
 });
-(function(){const ta=document.getElementById('planner-notes');if(ta)ta.value=localStorage.getItem('planner_notes')||'';})();
+
 
 // ── WEATHER — UNIFIED WIDGET ──
 function wxEmoji(fc){
@@ -2134,10 +2105,8 @@ async function loadData(){
   safeRender(()=>renderRoadEvents(d.road_events||[]),'road-events-feed');
   // Plot road event markers on the Revere map
   if(window.rmMap && d.road_events) plotRoadEvents(d.road_events);
-  // Personal calendar agenda
-  if(d.personal_calendar) renderPersonalCalendar(d.personal_calendar);
-
   // Sports schedule — auto-updated by fetch.py, falls back to seed data
+  if(d.personal_calendar) renderPersonalCalendar(d.personal_calendar);
   if(d.sports_schedule&&d.sports_schedule.length&&window.scRender){
     const sorted=[...d.sports_schedule].sort((a,b)=>a.date===b.date?(a.time||'').localeCompare(b.time||''):a.date.localeCompare(b.date));
     window.scEventsRef(sorted);
