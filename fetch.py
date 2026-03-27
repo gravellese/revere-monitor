@@ -1169,6 +1169,16 @@ def main():
         print(f"  ✗ MassDOT road events: {e}")
         data["road_events"] = []
 
+    # Kill-the-Newsletter breaking news feed — filter to last 12 hours
+    import time
+    ktn_items = safe(lambda: fetch_feed(
+        'https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv.xml', 20
+    ), "KTN breaking news") or []
+    now_ts = time.time()
+    ktn_items = [i for i in ktn_items if (now_ts - i.get("ts", 0)) <= 43200][:6]
+    data["news_ktn"] = ktn_items
+    print(f"  → KTN breaking news: {len(ktn_items)} items (last 12h)")
+
     with open("data.json","w") as f:
         json.dump(data, f, indent=2, default=str)
     print(f"\n✅ Done — {data['updated_local']}")
