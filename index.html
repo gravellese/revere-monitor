@@ -1920,7 +1920,8 @@ async function fetchReddit(sub,id,attempt=1){
 async function loadData(){
   let d;
   try{
-    const r=await fetch('./data.json?t='+Date.now(),{cache:'no-store'});
+    const _cb=Math.random().toString(36).slice(2);
+    const r=await fetch('./data.json?nocache='+_cb,{cache:'no-store',headers:{'Cache-Control':'no-cache, no-store, must-revalidate','Pragma':'no-cache'}});
     d=await r.json();
   }catch(e){
     document.getElementById('upd-ts').textContent='ERROR — run GitHub Action';
@@ -2328,8 +2329,11 @@ const SC_SEED=[
   {date:"2026-06-19",team:"usmnt",title:"USMNT vs Australia",time:"3:00 PM",special:"World Cup Group"},
   {date:"2026-06-25",team:"usmnt",title:"USMNT — Group Stage #3",time:"10:00 PM",special:"World Cup Group"},
   // ── WATCHLIST ──
+  {date:"2026-03-27",team:"watchlist",title:"[TEST] Anthropic is a Cunt",time:"12:00 PM"},
   {date:"2026-03-27",team:"watchlist",title:"[WNCAABB] UConn vs. UNC",time:"5:00 PM"},
   {date:"2026-03-27",team:"watchlist",title:"[NBA] Celtics vs. Atlanta",time:"7:30 PM"},
+  // ── NAVIGATORS ──
+  {date:"2026-03-27",team:"navigators",title:"Navs vs. Anthropic - Navs Win",time:"12:30 PM"},
   // ── ITALY ──
   {date:"2026-03-26",team:"italy",title:"Italy vs Northern Ireland",time:"3:45 PM",special:"WC Qualifier"},
 ];
