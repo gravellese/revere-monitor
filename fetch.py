@@ -381,6 +381,166 @@ def fetch_iqm2_meetings():
     print(f"  {'✓' if meetings else '⚠'} IQM2: {len(meetings)} meetings")
     return meetings[:12]
 
+
+# ── SPORTS SCHEDULE ─────────────────────────────────
+def fetch_sports_schedule():
+    """Fetch sports calendar events directly from Google Calendar ICS feeds."""
+    import urllib.parse, re as re_mod
+    from datetime import date, timedelta, timezone
+    try:
+        from icalendar import Calendar as iCal
+    except ImportError:
+        print("  ✗ icalendar not installed — add to requirements.txt")
+        return []
+
+    today = date.today()
+    past_cutoff   = today - timedelta(days=21)
+    future_cutoff = today + timedelta(days=60)
+
+    CAL_IDS = {
+        "bruins":      "nhl_-m-0j2zj_%42oston+%42ruins#sports@group.v.calendar.google.com",
+        "sox":         "mlb_-m-01d5z_%42oston+%52ed+%53ox#sports@group.v.calendar.google.com",
+        "lfc":         "dpqj0f4137m5brcrar1jn1vs64@group.calendar.google.com",
+        "fleet":       "nudcgn5li9mrusdhdd4h8abbj0@group.calendar.google.com",
+        "legacy":      "elgb6vhfucpe38fhv6febj5l3etfbhmm@import.calendar.google.com",
+        "bcbase":      "avkc7pucr075rp0ehvqbu1t5rlkku15r@import.calendar.google.com",
+        "bclax":       "ne97hfv8h2chq71lb7vgrhc8oeenkqo7@import.calendar.google.com",
+        "nascar":      "7e497131cc76c86d4aa976986c8b17eb5c3ecb8555a7dcf00cf1b26138ea3431@group.calendar.google.com",
+        "f1":          "4bu98arvuq4clcir4oqq74v8j8udo0dk@import.calendar.google.com",
+        "ncaa_hockey": "4591a3673990b40870a5eea863bc4ecb27817dcf8cd1353c10a5fddc682c4659@group.calendar.google.com",
+        "worldcup":    "3hq899li0lh09cfs1h4bqdsdjs@group.calendar.google.com",
+        "usmnt":       "oib25ejldudu51vruaqvv2f8f8@group.calendar.google.com",
+        "uswnt":       "arpnl5b3behv8j9s9lfh32meug@group.calendar.google.com",
+        "revolution":  "8tnqel2hvmh8csqlmpira01500@group.calendar.google.com",
+        "italy":       "0eejc68fc0shdcks3bk0sh44mg@group.calendar.google.com",
+        "navigators":  "e455dca9fc4667821e23c4fc555bb7d631cd26148b8d3269561a8d4f6607f2fa@group.calendar.google.com",
+        "watchlist":   "df6346a0c4db83dfa688f28aba800e40ba131190994a61dfbc3de835ec2c3c7f@group.calendar.google.com",
+    }
+
+    events = []
+
+    for team, cal_id in CAL_IDS.items():
+        encoded = urllib.parse.quote(cal_id, safe='')
+        url = f"https://calendar.google.com/calendar/ical/{encoded}/public/basic.ics"
+        try:
+            r = requests.get(url, timeout=15, headers={"User-Agent": "RevereMonitor/6.0"})
+            if r.status_code != 200:
+                print(f"    ✗ {team}: HTTP {r.status_code} (calendar may be private)")
+                continue
+            cal = iCal.from_ical(r.content)
+            count = 0
+            for comp in cal.walk():
+                if comp.name != 'VEVENT':
+                    continue
+                dtstart = comp.get('DTSTART')
+                if not dtstart:
+                    continue
+                dt = dtstart.dt
+                # Handle all-day (date) vs datetime
+                if hasattr(dt, 'date'):
+                    try:
+                        from zoneinfo import ZoneInfo
+                        et = dt.astimezone(ZoneInfo("America/New_York"))
+                        event_date = et.date()
+                        time_str = et.strftime("%-I:%M %p")
+                    except Exception:
+                        event_date = dt.date()
+                        time_str = dt.strftime("%I:%M %p").lstrip('0')
+                else:
+                    event_date = dt
+                    time_str = ""
+
+                if event_date < past_cutoff or event_date > future_cutoff:
+                    continue
+
+                summary     = str(comp.get('SUMMARY', '') or '').strip()
+                location    = str(comp.get('LOCATION', '') or '').strip()
+                description = str(comp.get('DESCRIPTION', '') or '').strip()
+
+                # Clean location
+                location = re_mod.sub(r'\n.*', '', location)
+                location = re_mod.sub(r'https?://\S+', '', location).strip()
+                location = location[:45] if location else None
+
+                result = None
+                score  = None
+                special = None
+
+                # Bruins / Sox: "Team (X) @ Team (Y)"
+                if team in ('bruins', 'sox'):
+                    scores = re_mod.findall(r'\((\d+)\)', summary)
+                    home = "Bruins" if team == 'bruins' else "Red Sox"
+                    if len(scores) == 2 and event_date < today and home in summary:
+                        parts = summary.split('@')
+                        if len(parts) == 2:
+                            ls = re_mod.search(r'\((\d+)\)', parts[0])
+                            rs = re_mod.search(r'\((\d+)\)', parts[1])
+                            if ls and rs:
+                                if home in parts[0]:
+                                    our, their = int(ls.group(1)), int(rs.group(1))
+                                else:
+                                    our, their = int(rs.group(1)), int(ls.group(1))
+                                score  = f"{our}-{their}"
+                                result = "W" if our > their else ("L" if our < their else None)
+
+                # BC: [W] or [L] prefix, score in description
+                if team in ('bcbase', 'bclax'):
+                    m = re_mod.match(r'^\[([WL])\]', summary)
+                    if m:
+                        result = m.group(1)
+                        sm = re_mod.search(r'[WL]\s+(\d+-\d+)', description)
+                        if sm:
+                            score = sm.group(1)
+                    summary = re_mod.sub(r'^\[.\]\s*', '', summary)
+
+                # NASCAR: classify by series
+                actual_team = team
+                if team == 'nascar':
+                    blob = (summary + description).lower()
+                    if 'cup' in blob:
+                        actual_team = 'nascar_cup'
+                    elif "o'reilly" in blob or 'xfinity' in blob:
+                        actual_team = 'nascar_ore'
+                    elif 'truck' in blob or 'craftsman' in blob:
+                        actual_team = 'nascar_tck'
+                    else:
+                        actual_team = 'nascar_cup'
+
+                # Special badges
+                blob = (summary + description).lower()
+                if 'fa cup' in blob:
+                    special = "FA Cup"
+                elif 'champions league' in blob or ' ucl' in blob:
+                    special = "UCL"
+                elif 'derby' in blob:
+                    special = "Derby"
+                elif 'fenway' in blob:
+                    special = "Fenway"
+                elif 'beanpot' in blob:
+                    special = "Beanpot"
+                elif 'playoff' in blob or 'postseason' in blob:
+                    special = "Playoff"
+
+                events.append({
+                    "date":   event_date.isoformat(),
+                    "team":   actual_team,
+                    "title":  summary[:80],
+                    "time":   time_str,
+                    "result": result,
+                    "score":  score,
+                    "venue":  location,
+                    "special": special,
+                })
+                count += 1
+            print(f"    ✓ {team}: {count} events in range")
+        except Exception as e:
+            print(f"    ✗ {team}: {e}")
+
+    events.sort(key=lambda x: (x['date'], x['time'] or ''))
+    print(f"  → Total: {len(events)} sports events")
+    return events
+
+
 # ── MAIN ─────────────────────────────────────────────
 def main():
     print("🔄 Revere Monitor v6 — fetching...")
@@ -801,6 +961,9 @@ def main():
     sports_items.sort(key=lambda x: x.get("ts",0), reverse=True)
     data["news_sports"] = sports_items[:40]
     print(f"  \u2192 Sports news: {len(data['news_sports'])} items")
+
+    print("\n⚽🏒 Sports Schedule")
+    data["sports_schedule"] = safe(fetch_sports_schedule, "Sports calendars") or []
 
     # MassDOT Roadway Events — public XML feed, no key needed
     try:
