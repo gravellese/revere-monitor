@@ -701,16 +701,16 @@ a.big-btn:hover{opacity:.85;}
 @keyframes ktn-pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
 #ktn-scroll-track{display:inline-flex;white-space:nowrap;will-change:transform;}
 </style>
-<div id="ktn-ticker-wrap" style="display:block;width:100%;background:#0d1117;border-bottom:2px solid #1a1a1a;font-family:'Barlow Condensed',sans-serif;overflow:hidden;">
-  <div style="display:flex;align-items:stretch;height:34px;">
-    <div style="background:#fff;color:#c0392b;font-size:11px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;padding:0 12px;display:flex;align-items:center;gap:7px;flex-shrink:0;border-right:3px solid #c0392b;">
-      <span style="width:7px;height:7px;border-radius:50%;background:#c0392b;flex-shrink:0;animation:ktn-pulse 1.4s infinite;display:inline-block;"></span>
+<div id="ktn-ticker-wrap" style="display:block;width:100%;background:#e8e8e8;border-bottom:2px solid #ccc;font-family:'Barlow Condensed',sans-serif;overflow:hidden;">
+  <div style="display:flex;align-items:stretch;height:36px;">
+    <div style="background:#fff;color:#c0392b;font-size:12px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;padding:0 14px;display:flex;align-items:center;gap:7px;flex-shrink:0;border-right:3px solid #c0392b;">
+      <span style="width:8px;height:8px;border-radius:50%;background:#c0392b;flex-shrink:0;animation:ktn-pulse 1.4s infinite;display:inline-block;"></span>
       BREAKING
     </div>
     <div style="flex:1;overflow:hidden;position:relative;">
       <div id="ktn-scroll-track" style="display:inline-flex;white-space:nowrap;will-change:transform;padding:0;"></div>
     </div>
-    <div id="ktn-ts" style="font-size:10px;color:#4a6080;font-family:monospace;padding:0 10px;display:flex;align-items:center;flex-shrink:0;border-left:1px solid #1e2a3a;white-space:nowrap;"></div>
+    <div id="ktn-ts" style="font-size:10px;color:#888;font-family:monospace;padding:0 10px;display:flex;align-items:center;flex-shrink:0;border-left:1px solid #ccc;white-space:nowrap;"></div>
   </div>
 </div>
 <script>
@@ -727,39 +727,68 @@ function renderKTN(items){
   }
 
   if(!items||!items.length){
-    track.innerHTML='<span style="font-size:11px;color:#4a6080;padding:0 16px;font-family:monospace;line-height:34px;">no alerts in the last 12 hours</span>';
+    track.innerHTML='<span style="font-size:13px;color:#888;padding:0 16px;font-family:monospace;line-height:36px;">no alerts in the last 12 hours</span>';
     return;
   }
 
-  function makeItem(item,idx){
+  function makeSep(big){
+    const s=document.createElement('span');
+    if(big){
+      // end-of-loop: 5 red dots spread out
+      s.style.cssText='display:inline-flex;align-items:center;gap:6px;padding:0 32px;';
+      for(let i=0;i<5;i++){
+        const d=document.createElement('span');
+        d.style.cssText='width:8px;height:8px;border-radius:50%;background:#c0392b;flex-shrink:0;display:inline-block;';
+        s.appendChild(d);
+      }
+    } else {
+      // between stories: single big red dot
+      s.style.cssText='display:inline-flex;align-items:center;padding:0 20px;';
+      const d=document.createElement('span');
+      d.style.cssText='width:9px;height:9px;border-radius:50%;background:#c0392b;flex-shrink:0;display:inline-block;';
+      s.appendChild(d);
+    }
+    return s;
+  }
+
+  function makeItem(item,idx,isLast){
     const span=document.createElement('span');
-    span.style.cssText='display:inline-flex;align-items:center;gap:10px;padding:0 28px 0 0;cursor:'+(item.link?'pointer':'default')+';';
+    span.style.cssText='display:inline-flex;align-items:center;gap:10px;cursor:'+(item.link?'pointer':'default')+';';
     const num=document.createElement('span');
-    num.style.cssText='font-size:10px;color:#c0392b;font-weight:700;font-family:monospace;flex-shrink:0;';
+    num.style.cssText='font-size:11px;color:#c0392b;font-weight:700;font-family:monospace;flex-shrink:0;';
     num.textContent=String(idx+1).padStart(2,'0');
     const title=document.createElement('span');
-    title.style.cssText='font-size:13px;color:#d0dcee;font-weight:600;letter-spacing:.4px;';
+    title.style.cssText='font-size:15px;color:#111;font-weight:700;letter-spacing:.3px;';
     title.textContent=item.title;
-    const sep=document.createElement('span');
-    sep.style.cssText='font-size:11px;color:#2a3a4a;padding:0 0 0 28px;';
-    sep.textContent='◆';
     span.appendChild(num);span.appendChild(title);
     if(item.ts){
       const ts=document.createElement('span');
-      ts.style.cssText='font-size:10px;color:#4a6080;font-family:monospace;flex-shrink:0;';
+      ts.style.cssText='font-size:11px;color:#555;font-family:monospace;flex-shrink:0;';
       ts.textContent=fmtTime(item.ts);
       span.appendChild(ts);
     }
-    span.appendChild(sep);
     if(item.link){
       span.addEventListener('click',()=>window.open(item.link,'_blank'));
-      span.addEventListener('mouseover',()=>title.style.color='#fff');
-      span.addEventListener('mouseout',()=>title.style.color='#d0dcee');
+      span.addEventListener('mouseover',()=>title.style.color='#c0392b');
+      span.addEventListener('mouseout',()=>title.style.color='#111');
     }
     return span;
   }
 
-  [0,1,2].forEach(()=>items.forEach((item,i)=>track.appendChild(makeItem(item,i))));
+  function buildSet(items){
+    const frag=document.createDocumentFragment();
+    items.forEach((item,i)=>{
+      frag.appendChild(makeItem(item,i));
+      if(i<items.length-1){
+        frag.appendChild(makeSep(false));
+      }
+    });
+    frag.appendChild(makeSep(true));
+    return frag;
+  }
+
+  [0,1,2].forEach(()=>track.appendChild(buildSet(items)));
+
   requestAnimationFrame(()=>{
     halfW=track.scrollWidth/3;
     offset=0;
