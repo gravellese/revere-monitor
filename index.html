@@ -2340,7 +2340,7 @@ let scFilter='all';
 let scPageIdx=0;
 const SC_DAYS=3;
 
-function scTodayStr(){return new Date().toISOString().slice(0,10);}
+function scTodayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function scDateOffset(base,n){const d=new Date(base+'T12:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10);}
 
 // Page math — no gaps, no skips:
@@ -2377,7 +2377,7 @@ function scRender(){
     const isToday=d===today,isPast=d<today;
     const dt=new Date(d+'T12:00:00');
     const label=(isToday?'Today — ':'')+dt.toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'});
-    const dayEvts=filtered.filter(e=>e.date===d);
+    const dayEvts=filtered.filter(e=>e.date===d).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
     if(!dayEvts.length)return`<div class="sc-day-block"><div class="sc-day-label${isToday?' sc-today':''}">${label}</div><div class="sc-no-events">No events</div></div>`;
     const rows=dayEvts.map(e=>{
       let rh='';
