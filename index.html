@@ -1155,7 +1155,7 @@ a.big-btn:hover{opacity:.85;}
   </div></div>
 
   <!-- MBTA ALERTS PANEL -->
-  <div class="grid-stack-item" gs-id="mbta-alerts" gs-x="0" gs-y="115" gs-w="9" gs-h="8" gs-min-h="2">
+  <div class="grid-stack-item" gs-id="mbta-alerts" gs-x="0" gs-y="115" gs-w="7" gs-h="8" gs-min-h="2">
   <div class="grid-stack-item-content" style="overflow:visible;">
     <div class="mbta-wrap">
       <div class="mbta-hdr ch">
@@ -1185,7 +1185,7 @@ a.big-btn:hover{opacity:.85;}
 
 
   <!-- REVERE TRANSIT MAP -->
-  <div class="grid-stack-item" gs-id="revere-map" gs-x="7" gs-y="75" gs-w="5" gs-h="22" gs-min-h="10">
+  <div class="grid-stack-item" gs-id="revere-map" gs-x="7" gs-y="75" gs-w="5" gs-h="17" gs-min-h="10">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <div class="ch grn" style="cursor:grab;flex-shrink:0;">
       <div class="ct">Revere · City Map</div>
@@ -1227,7 +1227,7 @@ a.big-btn:hover{opacity:.85;}
 
 
   <!-- MASSDOT ROAD EVENTS PANEL -->
-  <div class="grid-stack-item" gs-id="road-events" gs-x="0" gs-y="123" gs-w="9" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item" gs-id="road-events" gs-x="7" gs-y="123" gs-w="5" gs-h="5" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch ora">
       <div class="ct">MassDOT · Road Events</div>
@@ -1585,6 +1585,30 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
       else if(types.has(2))byMode.cr.push(a);
       else if(types.has(4))byMode.ferry.push(a);
     });
+
+    // Blue Line status summary pill — always shown at top
+    const blueAlerts=alerts.filter(a=>(a.attributes?.informed_entity||[]).some(e=>e.route==='Blue'));
+    const blueOk=blueAlerts.length===0;
+    const bluePill=document.createElement('div');
+    bluePill.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid #1a2820;';
+    bluePill.innerHTML=`<div style="width:10px;height:10px;border-radius:50%;background:#003DA5;flex-shrink:0;"></div>`
+      +`<span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#c0d8ff;font-family:var(--cond);">BLUE LINE</span>`
+      +`<span style="margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:3px;`
+      +(blueOk?`background:#0a2a1a;color:var(--green);border:1px solid #1a5a2a;">NORMAL OPERATION`:`background:#2a0a0a;color:var(--red);border:1px solid #5a1a1a;">${blueAlerts.length} ALERT${blueAlerts.length!==1?'S':''}`)
+      +`</span>`;
+    if(!blueOk){
+      blueAlerts.forEach(a=>{
+        const hdr=a.attributes?.header||'';
+        const eff=EFFECT_MAP[a.attributes?.effect]||'ALERT';
+        const effCls=EFFECT_CLS[eff]||'aeff-other';
+        const d=document.createElement('div');
+        d.className='alrt-item';d.style.cssText='margin-left:28px;border-left:2px solid #003DA5;';
+        d.innerHTML=`<div class="alrt-effect ${effCls}">${eff}</div><div class="alrt-header-txt">${hdr}</div>`;
+        bluePill.appendChild(d);
+      });
+    }
+    body.appendChild(bluePill);
+
     let total=0;
     MODE_ORDER.forEach((mode,idx)=>{
       const modeAlerts=byMode[mode.key]||[];
@@ -1814,22 +1838,23 @@ function renderLogan(logan){
   if(!faaDelays.length){(logan.arriveDeparDelay||[]).forEach(d=>faaDelays.push({type:d.type,reason:d.reason,avg:d.avg}));(logan.groundDelay||[]).forEach(d=>faaDelays.push({type:'Ground Delay',reason:d.reason,avg:d.avg}));}
   const hasDelay=logan.delay||faaDelays.length>0;
   const cls=hasDelay?'delay':'ok';
-  let html=`<div class="l-ind ${cls}"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${hasDelay?'DELAYS IN EFFECT':'NORMAL OPERATIONS'}</div></div>`;
+  let html=`<div class="l-ind ${cls}" style="margin-bottom:4px;"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${hasDelay?'DELAYS IN EFFECT':'NORMAL OPERATIONS'}</div></div>`;
   if(faaDelays.length){faaDelays.forEach(d=>{html+=`<div class="l-det"><strong>${d.type||'Advisory'}</strong> — ${d.reason||''}${d.avg?' · '+d.avg:''}</div>`;});}
-  else{html+='<div class="l-det" style="color:var(--text-mute)">No FAA delays or advisories.</div>';}
+  else{html+='<div class="l-det" style="color:var(--text-mute);margin-bottom:4px;">No FAA delays or advisories.</div>';}
   const metar=typeof logan.metar==='object'&&logan.metar!==null?logan.metar:null;
   if(metar){
     const m=metar,catColors={'VFR':'var(--green)','MVFR':'var(--blue)','IFR':'var(--red)','LIFR':'var(--red)'},catColor=catColors[m.flight_cat]||'var(--text-dim)';
-    html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">
-      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:6px;">CURRENT CONDITIONS (METAR)</div>
-      ${m.flight_cat?`<div class="l-det"><strong>FLIGHT CAT</strong> <span style="color:${catColor};font-weight:700;">${m.flight_cat}</span></div>`:''}
-      ${m.wind?`<div class="l-det"><strong>WIND</strong> ${m.wind}</div>`:''}
-      ${m.visibility?`<div class="l-det"><strong>VISIBILITY</strong> ${m.visibility}</div>`:''}
-      ${m.temp_c!=null?`<div class="l-det"><strong>TEMP</strong> ${m.temp_c}°C</div>`:''}
-      ${m.raw?`<div style="margin-top:5px;font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;padding:4px;background:var(--bg);border-radius:3px;">${m.raw}</div>`:''}
+    html+=`<div style="padding-top:6px;border-top:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:4px;">CURRENT CONDITIONS</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;">
+      ${m.flight_cat?`<div class="l-det" style="margin:0;"><strong>CAT</strong> <span style="color:${catColor};font-weight:700;">${m.flight_cat}</span></div>`:''}
+      ${m.wind?`<div class="l-det" style="margin:0;"><strong>WIND</strong> ${m.wind}</div>`:''}
+      ${m.visibility?`<div class="l-det" style="margin:0;"><strong>VIS</strong> ${m.visibility}</div>`:''}
+      ${m.temp_c!=null?`<div class="l-det" style="margin:0;"><strong>TEMP</strong> ${m.temp_c}°C</div>`:''}
+      </div>
     </div>`;
   }
-  if(logan.taf){html+=`<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);"><div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:4px;">FORECAST (TAF)</div><div style="font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;line-height:1.5;padding:4px;background:var(--bg);border-radius:3px;">${logan.taf}</div></div>`;}
+  if(logan.taf){html+=`<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);"><div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:3px;">FORECAST (TAF)</div><div style="font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;line-height:1.5;padding:4px;background:var(--bg);border-radius:3px;max-height:60px;overflow-y:auto;">${logan.taf}</div></div>`;}
   b.innerHTML=html;
 }
 
