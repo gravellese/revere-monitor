@@ -1996,6 +1996,13 @@ async function loadData(){
   safeRender(()=>renderRoadEvents(d.road_events||[]),'road-events-feed');
   // Plot road event markers on the Revere map
   if(window.rmMap && d.road_events) plotRoadEvents(d.road_events);
+  // Sports schedule — auto-updated by fetch.py, falls back to seed data
+  if(d.sports_schedule&&d.sports_schedule.length){
+    scEvents=[...d.sports_schedule];
+    scRender();
+    const st=document.getElementById('sc-status');
+    if(st){st.textContent='Cal: '+( d.updated_local||'');st.style.color='var(--text-mute)';}
+  }
 }
 
 // ── INIT ──
