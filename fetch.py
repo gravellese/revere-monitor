@@ -94,7 +94,7 @@ def fetch_weather_daily():
             "precip":           (day_p or night_p).get("probabilityOfPrecipitation",{}).get("value",0) or 0,
         })
 
-        if len(days) == 5:
+        if len(days) == 7:
             break
 
     return days
