@@ -21,7 +21,7 @@
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;}
 
 /* ── HEADER ── */
-#header{background:#1e1e1e;border-bottom:3px solid var(--accent);padding:0 16px;height:56px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.5);}
+#header{background:#1e1e1e;border-bottom:3px solid var(--accent);padding:0 16px;height:68px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.5);}
 #wordmark{font-family:var(--cond);font-weight:900;font-size:24px;letter-spacing:5px;color:var(--white);}
 #wordmark em{color:var(--accent);font-style:normal;}
 .hd{width:1px;height:28px;background:#555;margin:0 14px;}
@@ -31,6 +31,21 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 #sun-hdr{display:flex;gap:12px;font-size:12px;color:var(--text-dim);margin-right:14px;}
 #sun-hdr .sv{color:var(--gold);font-weight:600;}
 #upd-hdr{font-size:11px;color:var(--text-mute);border-left:1px solid #555;padding-left:14px;}
+
+/* ── HEADER TIDE SLOTS ── */
+.tide-slot{display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 7px;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid #404040;min-width:54px;}
+.tide-slot.next-tide{border-color:rgba(106,176,255,.4);background:rgba(106,176,255,.07);}
+.tide-slot.past-tide{opacity:.4;}
+.ts-type{font-family:var(--cond);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;line-height:1;}
+.ts-type.H{color:var(--accent);}
+.ts-type.L{color:var(--text-mute);}
+.ts-time{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--white);line-height:1.1;}
+.ts-ft{font-family:var(--mono);font-size:10px;color:var(--orange);line-height:1;}
+
+/* ── HEADER SUN SLOTS ── */
+.sun-slot{display:flex;flex-direction:column;align-items:center;gap:1px;}
+.ss-lbl{font-size:9px;color:var(--text-mute);letter-spacing:1.5px;text-transform:uppercase;line-height:1;}
+.ss-val{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--gold);line-height:1.1;}
 
 /* ── LINKS BAR ── */
 #links-bar-wrap{background:#242424;border-bottom:1px solid #444;padding:5px 16px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
@@ -462,27 +477,45 @@ a.big-btn:hover{opacity:.85;}
 <header id="header">
   <div id="wordmark">REVERE<em>.</em>MONITOR</div>
   <div class="hd"></div>
-  <div id="clock">--:--:-- --</div>
-  <div id="datestamp"></div>
+  <div style="display:flex;flex-direction:column;justify-content:center;gap:0px;">
+    <div id="clock" style="font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);letter-spacing:1px;line-height:1.1;">--:--:-- --</div>
+    <div id="datestamp" style="font-family:var(--cond);font-size:14px;font-weight:600;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px;"></div>
+  </div>
   <div id="hs"></div>
-  <div id="sun-hdr">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
-      <span style="font-size:9px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;line-height:1;">Dawn</span>
-      <span class="sv" id="h-dawn" style="font-size:11px;">--</span>
+
+  <!-- TIDES -->
+  <div id="tide-hdr" style="display:flex;gap:1px;margin-right:10px;border-right:1px solid #444;padding-right:14px;">
+    <div style="display:flex;flex-direction:column;justify-content:center;margin-right:8px;">
+      <span style="font-size:9px;color:var(--text-mute);letter-spacing:1.5px;text-transform:uppercase;line-height:1;margin-bottom:2px;">Tides · NOAA</span>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
-      <span style="font-size:9px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;line-height:1;">Rise</span>
-      <span class="sv" id="h-rise" style="font-size:11px;">--</span>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
-      <span style="font-size:9px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;line-height:1;">Set</span>
-      <span class="sv" id="h-set" style="font-size:11px;">--</span>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:1px;">
-      <span style="font-size:9px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;line-height:1;">Dusk</span>
-      <span class="sv" id="h-dusk" style="font-size:11px;">--</span>
+    <div id="tide-hdr-slots" style="display:flex;gap:8px;align-items:center;">
+      <div class="tide-slot" id="tide-slot-0"><span class="ts-type">--</span><span class="ts-time">--</span><span class="ts-ft">--</span></div>
+      <div class="tide-slot" id="tide-slot-1"><span class="ts-type">--</span><span class="ts-time">--</span><span class="ts-ft">--</span></div>
+      <div class="tide-slot" id="tide-slot-2"><span class="ts-type">--</span><span class="ts-time">--</span><span class="ts-ft">--</span></div>
+      <div class="tide-slot" id="tide-slot-3"><span class="ts-type">--</span><span class="ts-time">--</span><span class="ts-ft">--</span></div>
     </div>
   </div>
+
+  <!-- SUN -->
+  <div id="sun-hdr" style="display:flex;gap:8px;margin-right:12px;">
+    <div class="sun-slot">
+      <span class="ss-lbl">Dawn</span>
+      <span class="ss-val" id="h-dawn">--</span>
+    </div>
+    <div class="sun-slot">
+      <span class="ss-lbl">Rise</span>
+      <span class="ss-val" id="h-rise">--</span>
+    </div>
+    <div class="sun-slot">
+      <span class="ss-lbl">Set</span>
+      <span class="ss-val" id="h-set">--</span>
+    </div>
+    <div class="sun-slot">
+      <span class="ss-lbl">Dusk</span>
+      <span class="ss-val" id="h-dusk">--</span>
+    </div>
+  </div>
+
   <div id="upd-hdr">UPDATED: <span id="upd-ts">--</span></div>
 </header>
 
@@ -786,37 +819,51 @@ a.big-btn:hover{opacity:.85;}
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="weather-now" gs-x="3" gs-y="0" gs-w="4" gs-h="4" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch acc"><div class="ct">NOW — REVERE, MA</div><div class="cb">NWS WEATHER</div></div>
-    <div class="cbody">
-      <div id="wx-now">
-        <div><div id="wx-temp">--<sup>°F</sup></div></div>
-        <div style="flex:1;">
-          <div id="wx-desc" style="font-size:17px;font-weight:600;margin-bottom:8px;">Loading…</div>
-          <div class="wx-r"><span class="wx-k">💨 Wind</span><span class="wx-v" id="wx-wind">--</span></div>
-          <div class="wx-r"><span class="wx-k">💧 Humidity</span><span class="wx-v" id="wx-hum">--</span></div>
-          <div class="wx-r"><span class="wx-k">🌧 Precip</span><span class="wx-v" id="wx-pct">--</span></div>
+  <div class="grid-stack-item" gs-id="weather-unified" gs-x="3" gs-y="0" gs-w="4" gs-h="12" gs-min-h="8">
+  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
+    <!-- WEATHER HEADER -->
+    <div class="ch acc" style="flex-shrink:0;">
+      <div class="ct">Revere, MA</div>
+      <div style="display:flex;align-items:baseline;gap:6px;">
+        <div style="font-family:var(--cond);font-size:32px;font-weight:900;color:#fff;line-height:1;" id="wx-big-temp">--<sup style="font-size:14px;color:var(--text-dim);vertical-align:super;">°F</sup></div>
+        <div style="font-size:12px;color:var(--text-dim);" id="wx-big-desc">NWS</div>
+      </div>
+    </div>
+    <!-- CONDITIONS -->
+    <div style="flex-shrink:0;border-bottom:1px solid var(--border);padding:8px 14px 4px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-mute);margin-bottom:6px;">Conditions</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 8px;margin-bottom:6px;">
+        <div style="display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:9px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;">💨 Wind</span>
+          <span style="font-size:14px;font-weight:700;color:var(--text);font-family:var(--cond);" id="wx-wind">--</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:9px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;">💧 Humidity</span>
+          <span style="font-size:14px;font-weight:700;color:var(--text);font-family:var(--cond);" id="wx-hum">--</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:9px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;">🌧 Precip</span>
+          <span style="font-size:14px;font-weight:700;color:var(--text);font-family:var(--cond);" id="wx-pct">--</span>
         </div>
       </div>
-      <div id="wx-detailed" style="margin-top:9px;padding-top:8px;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);line-height:1.5;font-style:italic;display:none;"></div>
-      <a id="wx-forecast-link" href="https://forecast.weather.gov/MapClick.php?CityName=Revere&state=MA&site=BOX" target="_blank" rel="noopener">📋 View full NWS forecast →</a>
+      <div id="wx-blurb" style="font-size:12px;color:var(--text-dim);line-height:1.5;font-style:italic;border-left:2px solid var(--accent);padding-left:8px;margin-bottom:8px;display:none;"></div>
     </div>
-  </div></div></div>
-
-  <div class="grid-stack-item" gs-id="hourly" gs-x="3" gs-y="4" gs-w="4" gs-h="3" gs-min-h="3">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch acc"><div class="ct">HOURLY FORECAST</div><div class="cb">NEXT 24H</div></div>
-    <div class="cbody">
-      <div id="hourly-scroll"><div id="hourly-inner"><div class="empty">Loading…</div></div></div>
+    <!-- HOURLY -->
+    <div style="flex-shrink:0;border-bottom:1px solid var(--border);padding:6px 14px 8px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-mute);margin-bottom:5px;">Hourly</div>
+      <div style="overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;">
+        <div id="wx-hourly-inner" style="display:flex;gap:5px;min-width:max-content;"><div class="empty">Loading…</div></div>
+      </div>
     </div>
-  </div></div></div>
-
-  <div class="grid-stack-item" gs-id="sevenday" gs-x="3" gs-y="7" gs-w="4" gs-h="5" gs-min-h="4">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch acc"><div class="ct">5-DAY FORECAST</div><div class="cb">NWS · HIGH · LOW · PRECIP</div></div>
-    <div class="cbody">
-      <div id="daily-grid"><div class="empty">Loading…</div></div>
+    <!-- 7-DAY -->
+    <div style="flex:1;overflow-y:auto;padding:6px 14px 8px;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-mute);margin-bottom:5px;">7-Day Forecast</div>
+      <div id="wx-daily-body" style="display:flex;flex-direction:column;gap:4px;"><div class="empty">Loading…</div></div>
+    </div>
+    <!-- FOOTER -->
+    <div style="flex-shrink:0;border-top:1px solid var(--border);padding:5px 14px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:9px;color:var(--text-mute);font-family:var(--mono);" id="wx-upd-time">–</span>
+      <a href="https://forecast.weather.gov/MapClick.php?CityName=Revere&state=MA&site=BOX" target="_blank" rel="noopener" style="font-size:10px;color:var(--accent);text-decoration:none;">Full forecast ↗</a>
     </div>
   </div></div></div>
 
@@ -842,12 +889,6 @@ a.big-btn:hover{opacity:.85;}
   <!-- RIGHT COLUMN — each card is its own separate grid item -->
 
 
-
-  <div class="grid-stack-item" gs-id="tides" gs-x="7" gs-y="4" gs-w="2" gs-h="4" gs-min-h="3">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch acc"><div class="ct">TIDES</div><div class="cb">NOAA · BOSTON HARBOR</div></div>
-    <div class="cbody np"><div id="tide-list"><div class="empty">Loading…</div></div></div>
-  </div></div></div>
 
   <div class="grid-stack-item" gs-id="logan" gs-x="9" gs-y="0" gs-w="3" gs-h="12" gs-min-h="5">
   <div class="grid-stack-item-content"><div class="card">
@@ -1220,20 +1261,6 @@ function fmtDateTime(ts,pub){
   try{return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+', '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}catch{return'';}
 }
 function fmtDayLen(sec){if(!sec)return'--';return`${Math.floor(sec/3600)}h ${Math.floor((sec%3600)/60)}m`;}
-function wxEmoji(fc=''){
-  const s=fc.toLowerCase();
-  if(s.includes('snow')||s.includes('blizzard'))return'❄️';
-  if(s.includes('sleet')||s.includes('ice'))return'🌨️';
-  if(s.includes('thunder'))return'⛈️';
-  if(s.includes('rain')||s.includes('shower'))return'🌧️';
-  if(s.includes('drizzle'))return'🌦️';
-  if(s.includes('fog')||s.includes('mist'))return'🌫️';
-  if(s.includes('mostly cloudy')||s.includes('overcast'))return'☁️';
-  if(s.includes('partly'))return'⛅';
-  if(s.includes('sunny')||s.includes('clear')||s.includes('fair'))return'☀️';
-  if(s.includes('wind'))return'💨';
-  return'🌡️';
-}
 function fmtScore(n){return n>=1000?(n/1000).toFixed(1)+'k':String(n);}
 function sortByDate(items){
   return [...items].sort((a,b)=>{
@@ -1676,81 +1703,102 @@ function plotRoadEvents(events){
 });
 (function(){const ta=document.getElementById('planner-notes');if(ta)ta.value=localStorage.getItem('planner_notes')||'';})();
 
-// ── WEATHER ──
+// ── WEATHER — UNIFIED WIDGET ──
+function wxEmoji(fc){
+  const s=(fc||'').toLowerCase();
+  if(s.includes('snow')||s.includes('blizzard'))return'❄️';
+  if(s.includes('sleet')||s.includes('ice'))return'🌨️';
+  if(s.includes('thunder'))return'⛈️';
+  if(s.includes('rain')||s.includes('shower'))return'🌧️';
+  if(s.includes('drizzle'))return'🌦️';
+  if(s.includes('fog')||s.includes('mist'))return'🌫️';
+  if(s.includes('mostly cloudy')||s.includes('overcast'))return'☁️';
+  if(s.includes('partly'))return'⛅';
+  if(s.includes('sunny')||s.includes('clear')||s.includes('fair'))return'☀️';
+  if(s.includes('wind'))return'💨';
+  return'🌡️';
+}
 function renderCurrentWx(w){
   if(!w)return;
-  document.getElementById('wx-temp').innerHTML=`${w.temp}<sup>°${w.unit}</sup>`;
-  document.getElementById('wx-desc').textContent=w.shortForecast;
-  document.getElementById('wx-wind').textContent=`${w.wind} ${w.windDir||''}`.trim();
-  document.getElementById('wx-hum').textContent=w.humidity!=null?`${w.humidity}%`:'N/A';
-  document.getElementById('wx-pct').textContent=`${w.precip||0}%`;
-  const detail = document.getElementById('wx-detailed');
-  if(w.detailedForecast){
-    detail.textContent = w.detailedForecast;
-    detail.style.display = 'block';
-  }
+  const bigTemp=document.getElementById('wx-big-temp');
+  if(bigTemp)bigTemp.innerHTML=`${w.temp}<sup style="font-size:14px;color:var(--text-dim);vertical-align:super;">°${w.unit||'F'}</sup>`;
+  const bigDesc=document.getElementById('wx-big-desc');
+  if(bigDesc)bigDesc.textContent=wxEmoji(w.shortForecast)+' '+w.shortForecast;
+  const windEl=document.getElementById('wx-wind');
+  if(windEl)windEl.textContent=`${w.wind||'--'} ${w.windDir||''}`.trim();
+  const humEl=document.getElementById('wx-hum');
+  if(humEl)humEl.textContent=w.humidity!=null?`${w.humidity}%`:'N/A';
+  const pctEl=document.getElementById('wx-pct');
+  if(pctEl)pctEl.textContent=`${w.precip||0}%`;
+  const blurb=document.getElementById('wx-blurb');
+  if(blurb&&w.detailedForecast){blurb.textContent=w.detailedForecast;blurb.style.display='block';}
 }
 function renderHourly(periods){
-  const inner=document.getElementById('hourly-inner');
+  const inner=document.getElementById('wx-hourly-inner');
+  if(!inner)return;
   if(!periods?.length){inner.innerHTML='<div class="empty">No data</div>';return;}
   inner.innerHTML='';
   periods.forEach((p,i)=>{
     const d=new Date(p.time),hr=d.getHours();
     const lbl=i===0?'NOW':hr===0?'12A':hr===12?'12P':hr<12?`${hr}A`:`${hr-12}P`;
     const pct=p.precip||0;
-    const div=document.createElement('div');div.className='hb'+(i===0?' now':'');
-    div.innerHTML=`<div class="hb-time${i===0?' now':''}">${lbl}</div><div class="hb-temp">${p.temp}°</div><div class="hb-icon">${wxEmoji(p.shortForecast)}</div><div class="hb-pct${pct===0?' none':''}">${pct>0?pct+'%':'—'}</div>`;
+    const div=document.createElement('div');
+    div.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;width:46px;padding:6px 3px;border:1px solid var(--border);border-radius:4px;background:var(--bg3);flex-shrink:0;'+(i===0?'border-color:var(--accent);background:var(--bg4);':'');
+    div.innerHTML=`<div style="font-size:9px;color:${i===0?'var(--accent)':'var(--text-mute)'};font-family:var(--mono);">${lbl}</div><div style="font-size:15px;font-weight:700;color:#fff;font-family:var(--cond);">${p.temp}°</div><div style="font-size:15px;line-height:1;">${wxEmoji(p.shortForecast)}</div><div style="font-size:9px;color:${pct>0?'#6ab0ff':'var(--text-mute)'};font-family:var(--mono);">${pct>0?pct+'%':'—'}</div>`;
     inner.appendChild(div);
   });
 }
 function renderDaily(days){
-  const grid=document.getElementById('daily-grid');
-  if(!days?.length){grid.innerHTML='<div class="empty">No data</div>';return;}
-  grid.innerHTML='';
-  days.slice(0,5).forEach(d=>{
+  const body=document.getElementById('wx-daily-body');
+  if(!body)return;
+  if(!days?.length){body.innerHTML='<div class="empty">No data</div>';return;}
+  body.innerHTML='';
+  days.slice(0,7).forEach((d,i)=>{
     const name=d.name.split(' ')[0].substring(0,3).toUpperCase();
     const pct=d.precip||0;
-    const dc=document.createElement('div');
-    dc.className='dc';
-    dc.title=d.detailedForecast||d.shortForecast||'';
-    dc.innerHTML=
-      `<div class="dc-name">${name}</div>`+
-      `<div class="dc-icon">${wxEmoji(d.shortForecast)}</div>`+
-      `<div class="dc-temps">`+
-        (d.high!=null?`<div class="dc-hi">${d.high}°</div>`:'<div class="dc-hi">--</div>')+
-        (d.low!=null?`<div class="dc-lo">/ ${d.low}°</div>`:'')+
-      `</div>`+
-      `<div class="dc-pct${pct===0?' none':''}">${pct>0?'🌧 '+pct+'%':'—'}</div>`+
-      `<div class="dc-desc">${d.shortForecast}</div>`;
-    grid.appendChild(dc);
+    const row=document.createElement('div');
+    row.style.cssText='display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:3px;background:'+(i===0?'var(--bg4);border:1px solid var(--border2)':'var(--bg3)')+';';
+    row.title=d.detailedForecast||d.shortForecast||'';
+    row.innerHTML=
+      `<div style="font-size:12px;font-weight:700;letter-spacing:1px;color:var(--text-dim);width:32px;flex-shrink:0;font-family:var(--cond);">${name}</div>`+
+      `<div style="font-size:16px;line-height:1;flex-shrink:0;">${wxEmoji(d.shortForecast)}</div>`+
+      `<div style="font-size:11px;color:var(--text-mute);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${d.shortForecast}</div>`+
+      `<div style="display:flex;align-items:baseline;gap:4px;flex-shrink:0;font-family:var(--mono);"><span style="font-size:13px;font-weight:700;color:#fff;">${d.high!=null?d.high+'°':'--'}</span><span style="font-size:11px;color:var(--text-mute);">/ ${d.low!=null?d.low+'°':'--'}</span></div>`+
+      `<div style="font-size:10px;color:${pct>0?'#6ab0ff':'var(--text-mute)'};font-family:var(--mono);width:32px;text-align:right;flex-shrink:0;">${pct>0?pct+'%':'—'}</div>`;
+    body.appendChild(row);
   });
+  const upd=document.getElementById('wx-upd-time');
+  if(upd)upd.textContent='NWS · '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
 }
 
 // ── SUN ──
 function renderSun(s){
   if(!s?.sunrise)return;
-  document.getElementById('h-rise').textContent=fmtTime(s.sunrise);
-  document.getElementById('h-set').textContent=fmtTime(s.sunset);
+  if(document.getElementById('h-rise'))document.getElementById('h-rise').textContent=fmtTime(s.sunrise);
+  if(document.getElementById('h-set'))document.getElementById('h-set').textContent=fmtTime(s.sunset);
   if(document.getElementById('h-dawn'))document.getElementById('h-dawn').textContent=fmtTime(s.dawn);
   if(document.getElementById('h-dusk'))document.getElementById('h-dusk').textContent=fmtTime(s.dusk);
-  if(document.getElementById('s-rise'))document.getElementById('s-rise').textContent=fmtTime(s.sunrise);
-  if(document.getElementById('s-dawn'))document.getElementById('s-dawn').textContent=fmtTime(s.dawn);
-  if(document.getElementById('s-set'))document.getElementById('s-set').textContent=fmtTime(s.sunset);
-  if(document.getElementById('s-dusk'))document.getElementById('s-dusk').textContent=fmtTime(s.dusk);
-  document.getElementById('s-len').textContent=fmtDayLen(s.day_length);
 }
 
-// ── TIDES ──
+// ── TIDES — header display ──
 function renderTides(tides){
-  const list=document.getElementById('tide-list');
-  if(!tides?.length){list.innerHTML='<div class="empty">No data</div>';return;}
-  list.innerHTML='';
-  const now=new Date(),nextIdx=tides.findIndex(t=>new Date(t.t)>now);
-  tides.slice(0,8).forEach((t,i)=>{
-    const dt=new Date(t.t),isPast=dt<now,isNext=i===nextIdx;
-    const div=document.createElement('div');div.className='tide-item'+(isPast?' past':'');
-    div.innerHTML=`<div class="tide-arr ${t.type}">${t.type==='H'?'▲':'▽'}</div><div class="tide-info"><div class="tide-time">${dt.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true})}</div><div class="tide-lbl">${t.type==='H'?'HIGH':'LOW'} · ${dt.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}</div></div><div class="tide-ft">${t.v.toFixed(1)}<span style="font-size:11px;color:var(--text-mute)"> ft</span></div>${isNext?'<div class="tide-next">NEXT</div>':''}`;
-    list.appendChild(div);
+  if(!tides?.length)return;
+  const now=new Date();
+  const upcoming=tides.filter(t=>new Date(t.t)>=new Date(now-60000*30));
+  const next4=upcoming.slice(0,4);
+  next4.forEach((t,i)=>{
+    const slot=document.getElementById('tide-slot-'+i);
+    if(!slot)return;
+    const dt=new Date(t.t);
+    const isPast=dt<now;
+    const isNext=i===0;
+    slot.className='tide-slot'+(isPast?' past-tide':isNext?' next-tide':'');
+    const typeEl=slot.querySelector('.ts-type');
+    const timeEl=slot.querySelector('.ts-time');
+    const ftEl=slot.querySelector('.ts-ft');
+    if(typeEl){typeEl.textContent=t.type==='H'?'HIGH':'LOW';typeEl.className='ts-type '+(t.type||'');}
+    if(timeEl)timeEl.textContent=dt.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+    if(ftEl)ftEl.textContent=Number(t.v).toFixed(1)+' ft';
   });
 }
 
@@ -1931,11 +1979,11 @@ async function loadData(){
     return;
   }
   document.getElementById('upd-ts').textContent=d.updated_local||'--';
-  safeRender(()=>renderCurrentWx(d.weather_current),'weather');
-  safeRender(()=>renderHourly(d.weather_hourly),'hourly');
-  safeRender(()=>renderDaily(d.weather_daily),'daily');
-  safeRender(()=>renderSun(d.sunrise_sunset),'weather-now'); // sun data in header
-  safeRender(()=>renderTides(d.tides),'tides');
+  safeRender(()=>renderCurrentWx(d.weather_current),'weather-current');
+  safeRender(()=>renderHourly(d.weather_hourly),'weather-hourly');
+  safeRender(()=>renderDaily(d.weather_daily),'weather-daily');
+  safeRender(()=>renderSun(d.sunrise_sunset),'sun');
+  safeRender(()=>renderTides(d.tides),'tides-header');
   safeRender(()=>renderLogan(d.logan),'logan');
   safeRender(()=>renderRevereTv(d.revere_tv),'reveretv');
   safeRender(()=>renderNews('news-revere',(d.news_revere||[]).slice(0,30)),'news-revere');
