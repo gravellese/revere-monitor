@@ -420,7 +420,8 @@ def fetch_sports_schedule():
     events = []
 
     for team, cal_id in CAL_IDS.items():
-        encoded = urllib.parse.quote(cal_id, safe='')
+        # safe='%' prevents double-encoding of already-encoded sequences like %42oston in sports calendar IDs
+        encoded = urllib.parse.quote(cal_id, safe='%_+-.')
         url = f"https://calendar.google.com/calendar/ical/{encoded}/public/basic.ics"
         try:
             r = requests.get(url, timeout=15, headers={"User-Agent": "RevereMonitor/6.0"})
