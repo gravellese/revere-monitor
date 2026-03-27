@@ -1999,7 +1999,8 @@ async function loadData(){
   if(window.rmMap && d.road_events) plotRoadEvents(d.road_events);
   // Sports schedule — auto-updated by fetch.py, falls back to seed data
   if(d.sports_schedule&&d.sports_schedule.length&&window.scRender){
-    window.scEventsRef([...d.sports_schedule]);
+    const sorted=[...d.sports_schedule].sort((a,b)=>a.date===b.date?(a.time||'').localeCompare(b.time||''):a.date.localeCompare(b.date));
+    window.scEventsRef(sorted);
     window.scRender();
     const st=document.getElementById('sc-status');
     if(st){st.textContent='Cal: '+(d.updated_local||'');st.style.color='var(--text-mute)';}
