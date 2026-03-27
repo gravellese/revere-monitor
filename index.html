@@ -36,16 +36,16 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .tide-slot{display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 7px;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid #404040;min-width:54px;}
 .tide-slot.next-tide{border-color:rgba(106,176,255,.4);background:rgba(106,176,255,.07);}
 .tide-slot.past-tide{opacity:.4;}
-.ts-type{font-family:var(--cond);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;line-height:1;}
+.ts-type{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;line-height:1;}
 .ts-type.H{color:var(--accent);}
 .ts-type.L{color:var(--text-mute);}
-.ts-time{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--white);line-height:1.1;}
-.ts-ft{font-family:var(--mono);font-size:10px;color:var(--orange);line-height:1;}
+.ts-time{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--white);line-height:1.1;}
+.ts-ft{font-family:var(--mono);font-size:11px;color:var(--orange);line-height:1;}
 
 /* ── HEADER SUN SLOTS ── */
 .sun-slot{display:flex;flex-direction:column;align-items:center;gap:1px;}
-.ss-lbl{font-size:9px;color:var(--text-mute);letter-spacing:1.5px;text-transform:uppercase;line-height:1;}
-.ss-val{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--gold);line-height:1.1;}
+.ss-lbl{font-size:10px;color:var(--text-mute);letter-spacing:1.5px;text-transform:uppercase;line-height:1;}
+.ss-val{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--gold);line-height:1.1;}
 
 /* ── LINKS BAR ── */
 #links-bar-wrap{background:#242424;border-bottom:1px solid #444;padding:5px 16px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
@@ -477,17 +477,18 @@ a.big-btn:hover{opacity:.85;}
 <header id="header">
   <div id="wordmark">REVERE<em>.</em>MONITOR</div>
   <div class="hd"></div>
-  <div style="display:flex;flex-direction:column;justify-content:center;gap:0px;">
-    <div id="clock" style="font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);letter-spacing:1px;line-height:1.1;">--:--:-- --</div>
-    <div id="datestamp" style="font-family:var(--cond);font-size:14px;font-weight:600;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px;"></div>
+
+  <!-- CLOCK + DATE inline -->
+  <div style="display:flex;align-items:baseline;gap:12px;flex-shrink:0;">
+    <div id="clock" style="font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);letter-spacing:1px;line-height:1;">--:--:-- --</div>
+    <div id="datestamp" style="font-family:var(--cond);font-size:16px;font-weight:700;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase;"></div>
   </div>
+
   <div id="hs"></div>
 
   <!-- TIDES -->
-  <div id="tide-hdr" style="display:flex;gap:1px;margin-right:10px;border-right:1px solid #444;padding-right:14px;">
-    <div style="display:flex;flex-direction:column;justify-content:center;margin-right:8px;">
-      <span style="font-size:9px;color:var(--text-mute);letter-spacing:1.5px;text-transform:uppercase;line-height:1;margin-bottom:2px;">Tides · NOAA</span>
-    </div>
+  <div id="tide-hdr" style="display:flex;align-items:center;gap:8px;margin-right:10px;border-right:1px solid #444;padding-right:16px;">
+    <span style="font-size:18px;line-height:1;" title="Tides · NOAA">🌊</span>
     <div id="tide-hdr-slots" style="display:flex;gap:8px;align-items:center;">
       <div class="tide-slot" id="tide-slot-0"><span class="ts-type">--</span><span class="ts-time">--</span><span class="ts-ft">--</span></div>
       <div class="tide-slot" id="tide-slot-1"><span class="ts-type">--</span><span class="ts-time">--</span><span class="ts-ft">--</span></div>
@@ -497,22 +498,25 @@ a.big-btn:hover{opacity:.85;}
   </div>
 
   <!-- SUN -->
-  <div id="sun-hdr" style="display:flex;gap:8px;margin-right:12px;">
-    <div class="sun-slot">
-      <span class="ss-lbl">Dawn</span>
-      <span class="ss-val" id="h-dawn">--</span>
-    </div>
-    <div class="sun-slot">
-      <span class="ss-lbl">Rise</span>
-      <span class="ss-val" id="h-rise">--</span>
-    </div>
-    <div class="sun-slot">
-      <span class="ss-lbl">Set</span>
-      <span class="ss-val" id="h-set">--</span>
-    </div>
-    <div class="sun-slot">
-      <span class="ss-lbl">Dusk</span>
-      <span class="ss-val" id="h-dusk">--</span>
+  <div id="sun-hdr" style="display:flex;align-items:center;gap:8px;margin-right:12px;">
+    <span style="font-size:18px;line-height:1;" title="Sun times">☀️</span>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <div class="sun-slot">
+        <span class="ss-lbl">Dawn</span>
+        <span class="ss-val" id="h-dawn">--</span>
+      </div>
+      <div class="sun-slot">
+        <span class="ss-lbl">Sunrise</span>
+        <span class="ss-val" id="h-rise">--</span>
+      </div>
+      <div class="sun-slot">
+        <span class="ss-lbl">Sunset</span>
+        <span class="ss-val" id="h-set">--</span>
+      </div>
+      <div class="sun-slot">
+        <span class="ss-lbl">Dusk</span>
+        <span class="ss-val" id="h-dusk">--</span>
+      </div>
     </div>
   </div>
 
