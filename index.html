@@ -1998,11 +1998,11 @@ async function loadData(){
   // Plot road event markers on the Revere map
   if(window.rmMap && d.road_events) plotRoadEvents(d.road_events);
   // Sports schedule — auto-updated by fetch.py, falls back to seed data
-  if(d.sports_schedule&&d.sports_schedule.length){
-    scEvents=[...d.sports_schedule];
-    scRender();
+  if(d.sports_schedule&&d.sports_schedule.length&&window.scRender){
+    window.scEventsRef([...d.sports_schedule]);
+    window.scRender();
     const st=document.getElementById('sc-status');
-    if(st){st.textContent='Cal: '+( d.updated_local||'');st.style.color='var(--text-mute)';}
+    if(st){st.textContent='Cal: '+(d.updated_local||'');st.style.color='var(--text-mute)';}
   }
 }
 
@@ -2409,6 +2409,10 @@ function scRender(){
   }).join('');
 }
 
+
+// Expose to global scope so loadData() can call them
+window.scRender=scRender;
+window.scEventsRef=function(arr){scEvents=arr;};
 
 // ── Wire up nav + filter controls ──
 document.addEventListener('DOMContentLoaded',()=>{
