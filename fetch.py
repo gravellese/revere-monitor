@@ -220,37 +220,141 @@ def fetch_mbta():
         })
     return alerts
 
-# ── REVERE CALENDAR ───────────────────────────────────
+# ── REVERE CITY CALENDAR ─────────────────────────────
 def fetch_revere_calendar():
-    r = requests.get("https://www.revere.org/calendar", timeout=15, headers=HEADERS)
-    soup = BeautifulSoup(r.text, "html.parser")
+    """
+    Scrapes the City of Revere CivicPlus calendar for current + next 2 months.
+    CivicPlus renders all event data server-side as PHP print_r() arrays in the
+    raw HTML — no JS rendering or API key needed.
+    """
+    import time as _time
+    from datetime import date as _date
+
+    today = _date.today()
     events = []
-    for item in soup.select("article, .event, .event-item, li.views-row, .calendar-item")[:12]:
-        title_el = item.select_one("h2,h3,h4,.event-title,.title")
-        date_el  = item.select_one("time,.date,.event-date,[class*='date']")
-        time_el  = item.select_one(".time,.event-time,[class*='time']")
-        link_el  = item.select_one("a[href]")
-        if title_el and len(title_el.get_text(strip=True)) > 4:
-            link = ""
-            if link_el:
-                link = link_el.get("href","")
-                if link and not link.startswith("http"):
-                    link = "https://www.revere.org" + link
-            events.append({
-                "title": title_el.get_text(strip=True),
-                "date":  date_el.get_text(strip=True) if date_el else "",
-                "time":  time_el.get_text(strip=True) if time_el else "",
-                "link":  link,
-            })
-    if not events:
-        for a in soup.find_all("a",href=True):
-            href, text = a["href"], a.get_text(strip=True)
-            if "/calendar/" in href and text and len(text) > 5:
-                full = href if href.startswith("http") else "https://www.revere.org" + href
-                events.append({"title":text,"date":"","time":"","link":full})
-                if len(events) >= 8: break
-    print(f"  {'✓' if events else '⚠'} Revere calendar: {len(events)} events")
-    return events[:10]
+    seen_ids = set()
+
+    # Build (month, year) list for current + next 2 months
+    months_to_fetch = []
+    for delta in range(3):
+        m = ((today.month - 1 + delta) % 12) + 1
+        y = today.year + ((today.month - 1 + delta) // 12)
+        months_to_fetch.append((m, y))
+
+    for month, year in months_to_fetch:
+        month_url = (f"https://www.revere.org/calendar/view/month"
+                     f"/m/{month}/d/1/y/{year}/v/grid")
+        try:
+            r = requests.get(month_url, headers=HEADERS, timeout=15)
+            r.raise_for_status()
+        except Exception as e:
+            print(f"    [revere_cal] month {month}/{year} failed: {e}")
+            continue
+
+        # Find day links — only days with events are hyperlinked
+        day_links = list(dict.fromkeys(re.findall(
+            r'href="(https://www\.revere\.org/calendar/view/day/[^"]+)"', r.text
+        )))
+        print(f"    [revere_cal] {month}/{year}: {len(day_links)} days with events")
+
+        for day_url in day_links:
+            # Skip past days
+            dm = re.search(r'/m/(\d+)/d/(\d+)/y/(\d+)', day_url)
+            if dm:
+                try:
+                    ed = _date(int(dm.group(3)), int(dm.group(1)), int(dm.group(2)))
+                    if ed < today:
+                        continue
+                except ValueError:
+                    pass
+
+            _time.sleep(0.25)
+            try:
+                dr = requests.get(day_url, headers=HEADERS, timeout=15)
+                dr.raise_for_status()
+            except Exception as e:
+                print(f"    [revere_cal] day fetch failed: {e}")
+                continue
+
+            events.extend(_parse_civicplus_events(dr.text, seen_ids))
+
+    events.sort(key=lambda e: e.get("ts", 0))
+    print(f"  {'✓' if events else '⚠'} Revere calendar: {len(events)} upcoming events")
+    return events
+
+
+def _parse_civicplus_events(html, seen_ids):
+    """
+    CivicPlus embeds event data as PHP print_r() arrays in the raw page HTML.
+    Parse by finding field positions and nearest-neighbour matching.
+    """
+    from datetime import datetime as _dt
+    events = []
+    raw = html
+
+    def _all(pattern):
+        return {m.start(): m.group(1).strip() for m in re.finditer(pattern, raw)}
+
+    def _nearest(pos_dict, pos, window=700):
+        candidates = [(abs(k - pos), v) for k, v in pos_dict.items() if abs(k - pos) < window]
+        return min(candidates, key=lambda x: x[0])[1] if candidates else ""
+
+    titles     = [(m.start(), m.group(1).strip()) for m in re.finditer(r'\[title\]\s*=>\s*([^\[\n\r]+)', raw)]
+    ids        = _all(r'\[id\]\s*=>\s*(\d{4,})')
+    timestamps = {m.start(): int(m.group(1)) for m in re.finditer(r'\[startDateTimestamp\]\s*=>\s*(\d+)', raw)}
+    locations  = _all(r'\[location\]\s*=>\s*([^\[\n\r]+)')
+    ical_urls  = _all(r'\[icalUrl\]\s*=>\s*([^\[\n\r]+)')
+    time_starts= _all(r'\[start\]\s*=>\s*(\d+:\d+\s*[AP]M)')
+    time_ends  = _all(r'\[end\]\s*=>\s*(\d+:\d+\s*[AP]M)')
+    categories = _all(r'\[categoryName\]\s*=>\s*([^\[\n\r]+)')
+
+    SKIP_TITLES = {"Public Meeting", "Events", "City Calendar", "Holiday", "Special Event"}
+
+    for pos, title in titles:
+        if not title or len(title) < 4 or title in SKIP_TITLES:
+            continue
+        ts = _nearest(timestamps, pos, 600)
+        if not ts:
+            continue
+        ts_int = int(ts)
+        ev_id = _nearest(ids, pos, 600)
+        if ev_id and ev_id in seen_ids:
+            continue
+        if ev_id:
+            seen_ids.add(ev_id)
+
+        dt = None
+        try:
+            dt = _dt.fromtimestamp(ts_int)
+        except Exception:
+            continue
+
+        loc    = _nearest(locations,  pos, 800)
+        ical   = _nearest(ical_urls,  pos, 800)
+        t_st   = _nearest(time_starts,pos, 800)
+        t_en   = _nearest(time_ends,  pos, 800)
+        cat    = _nearest(categories, pos, 600)
+
+        loc = re.sub(r'<br\s*/?>', ' · ', loc, flags=re.I).strip()
+
+        time_str = ""
+        if t_st:
+            time_str = t_st + ("–" + t_en if t_en and t_en != t_st else "")
+
+        events.append({
+            "date":     dt.strftime("%Y-%m-%d"),   # ISO, same as personal calendar
+            "date_fmt": dt.strftime("%a, %b %-d"),
+            "ts":       ts_int,
+            "time":     time_str or None,
+            "all_day":  not bool(time_str),
+            "summary":  title,
+            "location": loc[:60] if loc else None,
+            "category": cat or "City Event",
+            "url":      ("https://www.revere.org" + ical) if ical else "https://www.revere.org/calendar",
+            "calendar": "City",                    # matches personal calendar key convention
+        })
+
+    return events
 
 # ── REVERE TV CHANNEL ID ──────────────────────────────
 def fetch_revere_tv_channel_id():

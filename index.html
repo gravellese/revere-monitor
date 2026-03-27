@@ -817,7 +817,7 @@ a.big-btn:hover{opacity:.85;}
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <div class="ch acc" style="flex-shrink:0;">
       <div class="ct">AGENDA</div>
-      <div class="cb">JOSEPH · WESLEY · TODOIST</div>
+      <div class="cb">JOSEPH · WESLEY · TODOIST · REVERE CITY</div>
     </div>
     <div class="cbody np" style="flex:1;overflow-y:auto;min-height:0;" id="personal-calendar-body">
       <div class="empty">Loading…</div>
@@ -1244,30 +1244,92 @@ a.big-btn:hover{opacity:.85;}
 <div id="page" style="display:none;"><div id="col-left"></div><div id="col-right"></div></div>
 
 <script>
-// ── PERSONAL CALENDAR ──
-function renderPersonalCalendar(events) {
+// ── PERSONAL CALENDAR + CITY EVENTS ──
+function renderPersonalCalendar(personalEvents, cityEvents) {
   const el = document.getElementById('personal-calendar-body');
   if (!el) return;
-  if (!events || !events.length) { el.innerHTML = '<div class="empty">No upcoming events</div>'; return; }
-  const CAL_COLOR = { 'Joseph': 'var(--accent)', 'Wesley': 'var(--green)', 'Todoist': 'var(--gold)' };
-  const today = new Date().toISOString().slice(0, 10);
+
+  // Normalize city events to same shape as personal events
+  const CAL_COLOR = {
+    'Joseph':  'var(--accent)',
+    'Wesley':  'var(--green)',
+    'Todoist': 'var(--gold)',
+    'City':    'var(--orange)',
+  };
+
+  // Category → shorter badge label for city events
+  const CAT_BADGE = {
+    'Public Meeting': 'MEETING',
+    'City Event':     'CITY',
+    'Election':       'ELECTION',
+    'Holiday':        'HOLIDAY',
+  };
+
+  const allEvents = [
+    ...(personalEvents || []),
+    ...(cityEvents || []).map(ev => ({
+      date:     ev.date,
+      time:     ev.time || null,
+      all_day:  ev.all_day,
+      summary:  ev.summary,
+      location: ev.location || null,
+      calendar: 'City',
+      category: ev.category,
+      url:      ev.url,
+    })),
+  ];
+
+  if (!allEvents.length) {
+    el.innerHTML = '<div class="empty">No upcoming events</div>';
+    return;
+  }
+
+  const today    = new Date().toISOString().slice(0, 10);
   const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+
+  // Group by date
   const byDate = {};
-  events.forEach(ev => { if (!byDate[ev.date]) byDate[ev.date] = []; byDate[ev.date].push(ev); });
+  allEvents.forEach(ev => {
+    if (!byDate[ev.date]) byDate[ev.date] = [];
+    byDate[ev.date].push(ev);
+  });
+
+  // Sort events within each day: timed events first (by time), then all-day
+  for (const date of Object.keys(byDate)) {
+    byDate[date].sort((a, b) => {
+      if (a.all_day && !b.all_day) return 1;
+      if (!a.all_day && b.all_day) return -1;
+      return (a.time || '').localeCompare(b.time || '');
+    });
+  }
+
   let html = '';
   for (const date of Object.keys(byDate).sort()) {
     const d = new Date(date + 'T12:00:00');
-    const label = date === today ? 'TODAY' : date === tomorrow ? 'TOMORROW'
-      : d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
+    const label = date === today    ? 'TODAY'
+                : date === tomorrow ? 'TOMORROW'
+                : d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase();
+
     html += `<div style="padding:4px 10px 2px;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--text-mute);background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:0;">${label}</div>`;
+
     byDate[date].forEach(ev => {
-      const color = CAL_COLOR[ev.calendar] || 'var(--text-dim)';
-      const timeStr = ev.all_day ? 'All day' : (ev.time || '');
+      const color    = CAL_COLOR[ev.calendar] || 'var(--text-dim)';
+      const timeStr  = ev.all_day ? 'All day' : (ev.time || '');
+      const isCity   = ev.calendar === 'City';
+      const badge    = isCity
+        ? (CAT_BADGE[ev.category] || 'CITY')
+        : ev.calendar.toUpperCase();
+      const titleEl  = isCity && ev.url
+        ? `<a href="${ev.url}" target="_blank" rel="noopener" style="color:var(--text);text-decoration:none;font-size:12px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;">${ev.summary}</a>`
+        : `<div style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.summary}</div>`;
+
       html += `<div style="padding:5px 10px;border-bottom:1px solid var(--border2);display:flex;gap:8px;align-items:flex-start;">
         <div style="flex-shrink:0;width:3px;border-radius:2px;background:${color};align-self:stretch;min-height:16px;"></div>
-        <div style="min-width:0;flex:1;"><div style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.summary}</div>
-        <div style="font-size:10px;color:var(--text-mute);margin-top:1px;">${timeStr}${ev.location ? ' · ' + ev.location : ''}</div></div>
-        <div style="flex-shrink:0;font-size:9px;color:${color};letter-spacing:.5px;font-weight:700;">${ev.calendar.toUpperCase()}</div>
+        <div style="min-width:0;flex:1;">
+          ${titleEl}
+          <div style="font-size:10px;color:var(--text-mute);margin-top:1px;">${timeStr}${ev.location ? ' · ' + ev.location : ''}</div>
+        </div>
+        <div style="flex-shrink:0;font-size:9px;color:${color};letter-spacing:.5px;font-weight:700;">${badge}</div>
       </div>`;
     });
   }
@@ -2106,7 +2168,7 @@ async function loadData(){
   // Plot road event markers on the Revere map
   if(window.rmMap && d.road_events) plotRoadEvents(d.road_events);
   // Sports schedule — auto-updated by fetch.py, falls back to seed data
-  if(d.personal_calendar) renderPersonalCalendar(d.personal_calendar);
+  if(d.personal_calendar || d.revere_calendar) renderPersonalCalendar(d.personal_calendar||[], d.revere_calendar||[]);
   if(d.sports_schedule&&d.sports_schedule.length&&window.scRender){
     const sorted=[...d.sports_schedule].sort((a,b)=>a.date===b.date?(a.time||'').localeCompare(b.time||''):a.date.localeCompare(b.date));
     window.scEventsRef(sorted);
