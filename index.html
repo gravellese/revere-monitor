@@ -695,6 +695,55 @@ a.big-btn:hover{opacity:.85;}
     <button id="globeNext" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8250;</button>
   </div>
 </div>
+
+<!-- KTN BREAKING NEWS TICKER -->
+<div id="ktn-ticker-wrap" style="display:none;width:100%;background:#0d1117;border-bottom:2px solid #1a1a1a;font-family:'Barlow Condensed',sans-serif;">
+  <div style="display:flex;align-items:stretch;min-height:34px;">
+    <div style="background:#c0392b;color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:0 12px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #a03020;">BREAKING</div>
+    <div id="ktn-stories" style="flex:1;display:flex;align-items:stretch;overflow:hidden;"></div>
+    <div id="ktn-ts" style="font-size:10px;color:#4a6080;font-family:monospace;padding:0 10px;display:flex;align-items:center;flex-shrink:0;border-left:1px solid #1e2a3a;white-space:nowrap;"></div>
+  </div>
+</div>
+<script>
+(function(){
+  const FEED='https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv.xml';
+  const PROXY='https://api.allorigins.win/get?url='+encodeURIComponent(FEED);
+  const MAX_ITEMS=5, MAX_AGE_MS=12*60*60*1000;
+  function stripHtml(h){const d=document.createElement('div');d.innerHTML=h;return(d.textContent||'').trim();}
+  function fmtTime(s){const d=new Date(s);return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});}
+  fetch(PROXY).then(r=>r.json()).then(json=>{
+    const xml=new DOMParser().parseFromString(json.contents,'text/xml');
+    const isAtom=!!xml.querySelector('feed');
+    const entries=Array.from(xml.querySelectorAll(isAtom?'entry':'item'));
+    const now=Date.now();
+    const fresh=entries.filter(e=>{
+      const dateStr=(isAtom?(e.querySelector('updated')||e.querySelector('published')):e.querySelector('pubDate'))?.textContent;
+      return dateStr&&(now-new Date(dateStr).getTime())<=MAX_AGE_MS;
+    }).slice(0,MAX_ITEMS);
+    if(!fresh.length)return;
+    const wrap=document.getElementById('ktn-ticker-wrap');
+    const box=document.getElementById('ktn-stories');
+    fresh.forEach((e,i)=>{
+      const titleEl=e.querySelector('title');
+      const title=titleEl?stripHtml(titleEl.textContent):'(no title)';
+      const dateStr=(isAtom?(e.querySelector('updated')||e.querySelector('published')):e.querySelector('pubDate'))?.textContent;
+      const link=isAtom?(e.querySelector('link')?.getAttribute('href')||e.querySelector('link')?.textContent):e.querySelector('link')?.textContent;
+      const div=document.createElement('div');
+      div.style.cssText='display:flex;align-items:center;gap:8px;padding:0 12px;border-left:1px solid #1e2a3a;flex:1;min-width:0;cursor:'+(link?'pointer':'default')+';transition:background .12s;';
+      div.innerHTML='<span style="font-size:10px;color:#c0392b;font-weight:700;font-family:monospace;flex-shrink:0;">'+String(i+1).padStart(2,'0')+'</span>'
+        +'<span style="font-size:13px;color:#d0dcee;font-weight:600;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+title+'</span>'
+        +(dateStr?'<span style="font-size:10px;color:#4a6080;font-family:monospace;white-space:nowrap;flex-shrink:0;">'+fmtTime(dateStr)+'</span>':'');
+      if(link)div.addEventListener('click',()=>window.open(link,'_blank'));
+      div.addEventListener('mouseover',()=>div.style.background='#0f1923');
+      div.addEventListener('mouseout',()=>div.style.background='');
+      box.appendChild(div);
+    });
+    document.getElementById('ktn-ts').textContent='updated '+new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+    wrap.style.display='block';
+  }).catch(()=>{});
+})();
+</script>
+
 <script>
 (function(){
 
