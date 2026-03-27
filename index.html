@@ -2374,8 +2374,8 @@ Score rules: Bruins/Sox have scores in title like "Bruins (4) @ Red Wings (2)" â
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        model:'claude-sonnet-4-6',
-        max_tokens:16000,
+        model:'claude-sonnet-4-20250514',
+        max_tokens:8000,
         messages:[{role:'user',content:prompt}],
         mcp_servers:[{type:'url',url:'https://gcal.mcp.claude.com/mcp',name:'google-calendar'}]
       })
