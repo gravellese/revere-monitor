@@ -2370,15 +2370,9 @@ Return a JSON array. Each item: {"date":"YYYY-MM-DD","team":"sox|bruins|lfc|flee
 Score rules: Bruins/Sox have scores in title like "Bruins (4) @ Red Wings (2)" — parse W/L from Boston team's perspective. BC feeds have [W]/[L] prefix and "W X-Y" score in description. NASCAR: parse race name from summary, venue from location. F1: include FP1/FP2/FP3/Qualifying/Grand Prix as separate events. Soccer results: parse from title or description if available. Future events: result=null, score=null.`;
 
   try{
-    const apiKey=localStorage.getItem('sc_anthropic_key')||'';
-    if(!apiKey){
-      if(status){status.textContent='⚠ Set API key first (⚙)';status.style.color='var(--gold)';}
-      btn.disabled=false;btn.innerHTML='↻ Refresh';
-      return;
-    }
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01'},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         model:'claude-sonnet-4-6',
         max_tokens:16000,
