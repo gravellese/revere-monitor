@@ -383,6 +383,83 @@ def fetch_iqm2_meetings():
 
 
 # ── SPORTS SCHEDULE ─────────────────────────────────
+def fetch_personal_calendar():
+    """Fetch personal Google Calendar ICS feeds and return upcoming events."""
+    from datetime import date, timedelta
+    try:
+        from icalendar import Calendar as iCal
+    except ImportError:
+        print("  ✗ icalendar not installed")
+        return []
+
+    PERSONAL_CALS = [
+        ("Joseph", "https://calendar.google.com/calendar/ical/gravellese%40gmail.com/private-f7d5ed600f87f0f696c1afd76fb0cb1e/basic.ics"),
+        ("Wesley", "https://calendar.google.com/calendar/ical/49304c3e8f536ae830a6357b1e913aa895693f4565adec7a611dc95eac9961d5%40group.calendar.google.com/private-f5988f3e5bb13da18482519c327d463e/basic.ics"),
+        ("Todoist", "https://calendar.google.com/calendar/ical/472e59defe9def3c4f1c8539c4f2ba0db7f21d8d2dd420a73175a82b8c5ed927%40group.calendar.google.com/private-2fc84c690aafe491aede4fa26f43c4bb/basic.ics"),
+    ]
+
+    today = date.today()
+    future_cutoff = today + timedelta(days=14)
+
+    events = []
+    for cal_name, url in PERSONAL_CALS:
+        try:
+            r = requests.get(url, timeout=15, headers={"User-Agent": "RevereMonitor/6.0"})
+            if r.status_code != 200:
+                print(f"    ✗ {cal_name}: HTTP {r.status_code}")
+                continue
+            cal = iCal.from_ical(r.content)
+            count = 0
+            for comp in cal.walk():
+                if comp.name != 'VEVENT':
+                    continue
+                dtstart = comp.get('DTSTART')
+                if not dtstart:
+                    continue
+                dt = dtstart.dt
+                all_day = not hasattr(dt, 'hour')
+                if all_day:
+                    event_date = dt
+                    time_str = None
+                else:
+                    try:
+                        from zoneinfo import ZoneInfo
+                        et = dt.astimezone(ZoneInfo("America/New_York"))
+                        event_date = et.date()
+                        time_str = et.strftime("%-I:%M %p")
+                    except Exception:
+                        event_date = dt.date()
+                        time_str = dt.strftime("%I:%M %p").lstrip('0')
+
+                if event_date < today or event_date > future_cutoff:
+                    continue
+
+                summary  = str(comp.get('SUMMARY', '') or '').strip()
+                location = str(comp.get('LOCATION', '') or '').strip()
+                if not summary:
+                    continue
+
+                import re as _re
+                location = _re.sub(r'https?://\S+', '', location).strip()
+                location = location[:50] if location else None
+
+                events.append({
+                    "date":     event_date.isoformat(),
+                    "time":     time_str,
+                    "all_day":  all_day,
+                    "summary":  summary,
+                    "location": location,
+                    "calendar": cal_name,
+                })
+                count += 1
+            print(f"    ✓ {cal_name}: {count} upcoming events")
+        except Exception as e:
+            print(f"    ✗ {cal_name}: {e}")
+
+    events.sort(key=lambda x: (x["date"], x["time"] or "00:00"))
+    return events
+
+
 def fetch_sports_schedule():
     """Fetch sports calendar events directly from Google Calendar ICS feeds."""
     import urllib.parse, re as re_mod
@@ -962,6 +1039,9 @@ def main():
     sports_items.sort(key=lambda x: x.get("ts",0), reverse=True)
     data["news_sports"] = sports_items[:40]
     print(f"  \u2192 Sports news: {len(data['news_sports'])} items")
+
+    print("\n📅 Personal Calendar")
+    data["personal_calendar"] = safe(fetch_personal_calendar, "Personal calendars") or []
 
     print("\n⚽🏒 Sports Schedule")
     data["sports_schedule"] = safe(fetch_sports_schedule, "Sports calendars") or []
