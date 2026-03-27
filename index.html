@@ -1920,7 +1920,7 @@ async function fetchReddit(sub,id,attempt=1){
 async function loadData(){
   let d;
   try{
-    const r=await fetch('./data.json?t='+Date.now());
+    const r=await fetch('./data.json?t='+Date.now(),{cache:'no-store'});
     d=await r.json();
   }catch(e){
     document.getElementById('upd-ts').textContent='ERROR — run GitHub Action';
