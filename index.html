@@ -1367,6 +1367,16 @@ function renderKTN(items){
     </div>
   </div></div></div>
 
+
+  <!-- TOP STORIES WIDGET -->
+  <div class="grid-stack-item" gs-id="top-stories" gs-x="0" gs-y="120" gs-w="12" gs-h="7" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch acc"><div class="ct">🔥 TOP STORIES RIGHT NOW</div><div class="cb">RANKED BY LOCAL IMPACT · COVERAGE · RECENCY</div></div>
+    <div class="cbody np" style="overflow-y:auto;">
+      <div id="top-stories-widget"><div class="empty" style="padding:14px;">Loading top stories…</div></div>
+    </div>
+  </div></div></div>
+
 </div><!-- /gs-grid -->
 
 <div id="page" style="display:none;"><div id="col-left"></div><div id="col-right"></div></div>
@@ -2226,6 +2236,87 @@ async function fetchReddit(sub,id,attempt=1){
 }
 
 // ── LOAD DATA ──
+// ── TOP STORIES WIDGET ──────────────────────────────────────────
+function renderTopStories(d) {
+  const container = document.getElementById("top-stories-widget");
+  if (!container) return;
+
+  const allArticles = [
+    ...(d.news_revere || []),
+    ...(d.news_communities || []),
+    ...(d.news_boston || []),
+    ...(d.news_national || []),
+    ...(d.news_ma_transit || [])
+  ];
+
+  function normalize(text) {
+    return text.toLowerCase().replace(/[^a-z0-9\s]/g,"").replace(/\b(the|a|an|to|of|and|in|on|for|with|at|by)\b/g,"").replace(/\s+/g," ").trim();
+  }
+  function extractKeywords(title) { return normalize(title).split(" ").slice(0,8); }
+
+  const cleaned = allArticles.map(a => ({
+    title: a.title || '',
+    link: a.link || '#',
+    source: a.source || "Unknown",
+    date: new Date((a.ts ? a.ts * 1000 : null) || a.pubDate || a.date || Date.now()),
+    keywords: extractKeywords(a.title || '')
+  }));
+
+  const clusters = [];
+  function keywordOverlap(a, b) {
+    const setA = new Set(a), setB = new Set(b);
+    return [...setA].filter(x => setB.has(x)).length / Math.max(setA.size, 1);
+  }
+  cleaned.forEach(article => {
+    let matched = false;
+    for (let cluster of clusters) {
+      if (keywordOverlap(article.keywords, cluster.keywords) > 0.5) { cluster.articles.push(article); matched = true; break; }
+    }
+    if (!matched) clusters.push({ keywords: article.keywords, articles: [article] });
+  });
+
+  function getWeight(article) {
+    let w = 1, t = article.title.toLowerCase();
+    if (t.includes("revere")) w += 5;
+    if (t.match(/chelsea|everett|east boston|winthrop|lynn/)) w += 3;
+    if (t.match(/boston|mbta|logan|massdot|north shore/)) w += 2;
+    if (t.match(/us |america|congress|white house/)) w -= 1;
+    if (t.match(/fire|crash|shooting|closure|alert/)) w += 2;
+    return w;
+  }
+
+  const ranked = clusters.map(cluster => {
+    const sources = new Set(cluster.articles.map(a => a.source));
+    const newest = Math.max(...cluster.articles.map(a => a.date));
+    const baseScore = sources.size * 2 + cluster.articles.length + (Date.now() - newest < 1000 * 60 * 60 * 3 ? 4 : 0);
+    return { title: cluster.articles[0].title, link: cluster.articles[0].link, articles: cluster.articles, coverage: sources.size, score: baseScore + cluster.articles.reduce((s, a) => s + getWeight(a), 0), newest };
+  }).sort((a, b) => b.score - a.score).slice(0, 5);
+
+  function whyItMatters(title) {
+    const t = title.toLowerCase();
+    if (t.includes("revere")) return "Direct impact on Revere residents";
+    if (t.includes("mbta")) return "Affects commuting and transit access";
+    if (t.includes("logan")) return "Impacts flights and regional travel";
+    if (t.match(/housing|development/)) return "Impacts housing and local growth";
+    if (t.match(/crime|fire|police/)) return "Public safety concern";
+    return "Developing regional story";
+  }
+
+  container.innerHTML = `<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;">
+    ${ranked.map((story, i) => `
+      <div style="padding:10px 14px;border-right:1px solid var(--border);${i===ranked.length-1?'border-right:none;':''}">
+        <div style="font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-mute);margin-bottom:5px;">#${i+1}</div>
+        <a href="${story.link}" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;color:var(--text);text-decoration:none;line-height:1.35;display:block;margin-bottom:6px;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">${story.title}</a>
+        <div style="font-size:10px;color:var(--text-mute);margin-bottom:4px;">${story.coverage} source${story.coverage!==1?'s':''} · ${story.articles.length} article${story.articles.length!==1?'s':''}</div>
+        <div style="font-size:10px;color:var(--accent);margin-bottom:6px;">${whyItMatters(story.title)}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;">
+          ${story.articles.slice(0,3).map(a => `<a href="${a.link}" target="_blank" rel="noopener" style="font-size:10px;font-family:var(--cond);letter-spacing:1px;color:var(--text-mute);text-decoration:none;background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:1px 6px;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-mute)'">${a.source}</a>`).join('')}
+        </div>
+      </div>
+    `).join('')}
+  </div>`;
+}
+
 async function loadData(){
   let d;
   try{
@@ -2317,6 +2408,7 @@ async function loadData(){
     const st=document.getElementById('sc-status');
     if(st){st.textContent='Cal: '+(d.updated_local||'');st.style.color='var(--text-mute)';}
   }
+  safeRender(()=>renderTopStories(d),'top-stories');
 }
 
 // ── INIT ──
