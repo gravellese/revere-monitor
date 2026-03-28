@@ -1833,6 +1833,8 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
       });
     }
     body.appendChild(revBusPill);
+
+    let total=0;
     MODE_ORDER.forEach((mode,idx)=>{
       const modeAlerts=byMode[mode.key]||[];
       total+=modeAlerts.length;
@@ -3071,263 +3073,276 @@ document.addEventListener('DOMContentLoaded',()=>{
   const ROOT = document.getElementById('scores-root');
   if (!ROOT) return;
 
-  // ── Colours ──
   const C = {
-    bg:     '#111',
-    bg2:    '#181818',
-    bg3:    '#222',
-    border: '#2a2a2a',
-    text:   '#e0e0e0',
-    dim:    '#888',
-    gold:   '#f0c060',
-    green:  '#58d888',
-    red:    '#f06060',
-    blue:   '#6ab0ff',
-    accent: '#f5c518',
+    bg:'#111', bg2:'#181818', bg3:'#222', border:'#2a2a2a',
+    text:'#e8e8e8', dim:'#777', gold:'#f0c060', green:'#58d888',
+    red:'#f06060', blue:'#6ab0ff', accent:'#f5c518',
   };
 
-  // ── State ──
-  let league  = 'nhl';   // 'nhl' | 'mlb'
-  let dayOff  = 0;       // 0=today, -1=yesterday, 1=tomorrow
-  let view    = 'scores'; // 'scores' | 'standings'
-  let cache   = {};      // keyed by `${league}-${dayOff}` and `${league}-standings`
+  let league = 'nhl', dayOff = 0, view = 'scores', cache = {};
 
-  // ── Date helpers ──
   function dateForOffset(off) {
-    const d = new Date();
-    d.setDate(d.getDate() + off);
-    return d.toISOString().slice(0,10).replace(/-/g,'');  // YYYYMMDD for ESPN API
+    const d = new Date(); d.setDate(d.getDate() + off);
+    return d.toISOString().slice(0,10).replace(/-/g,'');
   }
   function labelForOffset(off) {
-    if (off === 0) return 'TODAY';
-    if (off === -1) return 'YESTERDAY';
-    if (off === 1) return 'TOMORROW';
-    return off > 0 ? `+${off}d` : `${off}d`;
+    return off===0?'TODAY':off===-1?'YESTERDAY':off===1?'TOMORROW':(off>0?`+${off}d`:`${off}d`);
   }
-
-  // ── ESPN API ──
   function espnScoreUrl(lg, off) {
-    const date = dateForOffset(off);
-    const sport = lg === 'nhl' ? 'hockey/nhl' : 'baseball/mlb';
-    return `https://site.api.espn.com/apis/site/v2/sports/${sport}/scoreboard?dates=${date}`;
+    const s = lg==='nhl'?'hockey/nhl':'baseball/mlb';
+    return `https://site.api.espn.com/apis/site/v2/sports/${s}/scoreboard?dates=${dateForOffset(off)}`;
   }
   function espnStandingsUrl(lg) {
-    const sport = lg === 'nhl' ? 'hockey/nhl' : 'baseball/mlb';
-    return `https://site.api.espn.com/apis/v2/sports/${sport}/standings`;
+    const s = lg==='nhl'?'hockey/nhl':'baseball/mlb';
+    return `https://site.api.espn.com/apis/v2/sports/${s}/standings`;
   }
-
   async function fetchJSON(url) {
-    const r = await fetch(url); if (!r.ok) throw new Error(r.status);
-    return r.json();
+    const r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json();
   }
 
-  // ── Team detection ──
-  const BRUINS_IDS  = ['1','BOS']; // ESPN NHL id for Bruins
-  const REDSOX_IDS  = ['2','BOS']; // ESPN MLB id for Red Sox
-  function isBruins(team)  { return /bruins|BOS/i.test(team?.displayName||team?.abbreviation||''); }
-  function isRedSox(team)  { return /red sox|BOS/i.test(team?.displayName||team?.abbreviation||''); }
+  function isBruins(team) { return /bruins/i.test(team?.displayName||'') || (team?.abbreviation==='BOS' && league==='nhl'); }
+  function isRedSox(team) { return /red sox/i.test(team?.displayName||'') || (team?.abbreviation==='BOS' && league==='mlb'); }
 
-  // ── Format score/status ──
+  // Full city name: prefer location + shortDisplayName, fall back to displayName
+  function teamName(team) {
+    if (!team) return '–';
+    // ESPN gives us e.g. location="Boston" name="Bruins" displayName="Boston Bruins"
+    if (team.displayName) return team.displayName;
+    const loc = team.location || '';
+    const nm  = team.shortDisplayName || team.name || team.abbreviation || '';
+    return (loc + ' ' + nm).trim() || '–';
+  }
+
   function fmtStatus(ev) {
     const st = ev.status?.type;
-    const detail = ev.status?.type?.detail || ev.status?.type?.shortDetail || '';
-    if (st?.completed) return { label: 'FINAL', done: true };
-    if (st?.name === 'STATUS_IN_PROGRESS' || st?.name === 'STATUS_HALFTIME') return { label: detail || 'LIVE', done: false, live: true };
-    // scheduled
+    const detail = st?.shortDetail || st?.detail || '';
+    if (st?.completed) return { label:'FINAL', done:true };
+    if (st?.name==='STATUS_IN_PROGRESS'||st?.name==='STATUS_HALFTIME')
+      return { label:detail||'LIVE', done:false, live:true };
     const t = ev.competitions?.[0]?.date;
     if (t) {
       const d = new Date(t);
-      return { label: d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}), done: false };
+      return { label:d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}), done:false };
     }
-    return { label: detail || '–', done: false };
+    return { label:detail||'–', done:false };
   }
 
-  // ── Render scores ──
+  // ── Scores ──
   function renderScores(data) {
     const events = data.events || [];
-    if (!events.length) return `<div style="padding:16px;text-align:center;font-size:12px;color:${C.dim};">No games scheduled</div>`;
+    if (!events.length) return `<div style="padding:20px;text-align:center;font-size:13px;color:${C.dim};">No games scheduled</div>`;
 
     return events.map(ev => {
       const comp = ev.competitions?.[0];
       const teams = comp?.competitors || [];
-      const home = teams.find(t => t.homeAway === 'home') || teams[0] || {};
-      const away = teams.find(t => t.homeAway === 'away') || teams[1] || {};
+      const home = teams.find(t=>t.homeAway==='home') || teams[0] || {};
+      const away = teams.find(t=>t.homeAway==='away') || teams[1] || {};
       const st = fmtStatus(ev);
 
       const homeScore = home.score ?? '–';
       const awayScore = away.score ?? '–';
       const homeWin = st.done && +home.score > +away.score;
       const awayWin = st.done && +away.score > +home.score;
-
       const statusColor = st.live ? C.green : st.done ? C.dim : C.gold;
-      const statusBg    = st.live ? 'rgba(88,216,136,.12)' : 'transparent';
+      const statusBg    = st.live ? 'rgba(88,216,136,.15)' : st.done ? C.bg2 : 'rgba(240,192,96,.08)';
 
-      return `<div style="display:flex;align-items:center;gap:6px;padding:5px 8px;border-bottom:1px solid ${C.border};font-size:12px;">
+      const rowStyle = `display:flex;align-items:center;padding:7px 10px;border-bottom:1px solid ${C.border};gap:8px;`;
+      const nameStyle = (win) => `font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:${win?700:500};color:${win?C.text:C.dim};flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`;
+      const scoreStyle = (win) => `font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:${win?C.text:C.dim};min-width:22px;text-align:right;flex-shrink:0;`;
+
+      return `<div style="${rowStyle}">
         <div style="flex:1;min-width:0;">
-          <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
-            <span style="font-size:11px;font-weight:700;color:${awayWin?C.text:C.dim};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px;">${away.team?.abbreviation||away.team?.shortDisplayName||'–'}</span>
-            <span style="font-family:monospace;font-size:13px;font-weight:700;color:${awayWin?C.text:C.dim};margin-left:auto;min-width:20px;text-align:right;">${awayScore}</span>
+          <div style="display:flex;align-items:center;margin-bottom:4px;">
+            <span style="${nameStyle(awayWin)}">${teamName(away.team)}</span>
+            <span style="${scoreStyle(awayWin)}">${awayScore}</span>
           </div>
-          <div style="display:flex;align-items:center;gap:4px;">
-            <span style="font-size:11px;font-weight:700;color:${homeWin?C.text:C.dim};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px;">${home.team?.abbreviation||home.team?.shortDisplayName||'–'}</span>
-            <span style="font-family:monospace;font-size:13px;font-weight:700;color:${homeWin?C.text:C.dim};margin-left:auto;min-width:20px;text-align:right;">${homeScore}</span>
+          <div style="display:flex;align-items:center;">
+            <span style="${nameStyle(homeWin)}">${teamName(home.team)}</span>
+            <span style="${scoreStyle(homeWin)}">${homeScore}</span>
           </div>
         </div>
-        <div style="text-align:center;min-width:48px;flex-shrink:0;">
-          <span style="font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 5px;border-radius:3px;background:${statusBg};color:${statusColor};">${st.label}</span>
+        <div style="flex-shrink:0;text-align:center;min-width:52px;">
+          <span style="display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 6px;border-radius:3px;background:${statusBg};color:${statusColor};border:1px solid ${st.live?'rgba(88,216,136,.3)':st.done?C.border:'rgba(240,192,96,.25)'};">${st.label}</span>
         </div>
       </div>`;
     }).join('');
   }
 
-  // ── Render standings ──
+  // ── Standings ──
   function renderStandings(data) {
-    const groups = data.standings?.entries
-      || data.children?.flatMap(c=>c.standings?.entries||[])
-      || [];
-
-    // Flatten all teams from all conference groups
-    let rows = [];
-    function extract(node) {
-      if (node.standings?.entries) {
-        rows = rows.concat(node.standings.entries);
-      }
-      if (node.children) node.children.forEach(extract);
-    }
-    extract(data);
-
-    if (!rows.length) return `<div style="padding:16px;text-align:center;font-size:12px;color:${C.dim};">Standings unavailable</div>`;
-
-    // Build header
     const isNHL = league === 'nhl';
+    // NHL cols: GP W L OT PTS  |  MLB cols: W L PCT GB
     const cols = isNHL
-      ? [{k:'GP',l:'GP'},{k:'W',l:'W'},{k:'L',l:'L'},{k:'OTL',l:'OT'},{k:'PTS',l:'PTS'}]
-      : [{k:'W',l:'W'},{k:'L',l:'L'},{k:'PCT',l:'PCT'},{k:'GB',l:'GB'}];
+      ? [{k:'GP',l:'GP',w:'34px'},{k:'W',l:'W',w:'28px'},{k:'L',l:'L',w:'28px'},{k:'OTL',l:'OT',w:'28px'},{k:'PTS',l:'PTS',w:'34px'}]
+      : [{k:'W',l:'W',w:'30px'},{k:'L',l:'L',w:'30px'},{k:'PCT',l:'PCT',w:'42px'},{k:'GB',l:'GB',w:'34px'}];
 
-    const hdr = `<div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid ${C.border};font-size:9px;color:${C.dim};letter-spacing:1px;font-family:monospace;">
-      <span style="flex:1;">TEAM</span>
-      ${cols.map(c=>`<span style="min-width:28px;text-align:right;">${c.l}</span>`).join('')}
-    </div>`;
+    // Extract all entries, grouped by conference/division
+    let sections = []; // [{label, entries:[]}]
+    function extract(node, depth) {
+      const hasEntries = node.standings?.entries?.length > 0;
+      const hasChildren = node.children?.length > 0;
+      if (hasEntries && !hasChildren) {
+        sections.push({ label: node.name || node.abbreviation || '', entries: node.standings.entries });
+      } else if (hasChildren) {
+        node.children.forEach(c => extract(c, depth+1));
+      } else if (hasEntries) {
+        sections.push({ label: node.name || '', entries: node.standings.entries });
+      }
+    }
+    if (data.children) data.children.forEach(c => extract(c, 0));
+    else if (data.standings?.entries) sections.push({ label:'', entries: data.standings.entries });
 
-    const teamRows = rows.slice(0,30).map(entry => {
-      const team = entry.team;
-      const abbr = team?.abbreviation || team?.shortDisplayName || '–';
-      const isBos = isNHL ? isBruins(team) : isRedSox(team);
-      const stats = {};
-      (entry.stats||[]).forEach(s=>{ stats[s.abbreviation||s.name] = s.displayValue||s.value; });
+    if (!sections.length) return `<div style="padding:20px;text-align:center;font-size:13px;color:${C.dim};">Standings unavailable</div>`;
 
-      const vals = cols.map(c => {
-        const v = stats[c.k] ?? stats[c.l] ?? '–';
-        return `<span style="min-width:28px;text-align:right;font-family:monospace;font-size:11px;color:${isBos?C.gold:C.text};">${v}</span>`;
-      }).join('');
+    // Sort each section's entries by PTS (NHL) or W (MLB) desc
+    sections.forEach(sec => {
+      sec.entries.sort((a,b) => {
+        const getV = (e,k) => { const s=(e.stats||[]).find(x=>x.abbreviation===k||x.name===k); return s?parseFloat(s.value||0):0; };
+        return isNHL ? getV(b,'PTS')-getV(a,'PTS') : getV(b,'W')-getV(a,'W');
+      });
+    });
 
-      return `<div style="display:flex;align-items:center;padding:3px 8px;border-bottom:1px solid ${C.border};background:${isBos?'rgba(240,192,96,.07)':'transparent'};">
-        <span style="flex:1;font-size:11px;font-weight:${isBos?700:400};color:${isBos?C.gold:C.text};">${abbr}</span>
-        ${vals}
+    const cellStyle = (isBos) => `display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:${isBos?700:400};color:${isBos?C.gold:C.text};text-align:center;background:${isBos?'rgba(240,192,96,.1)':C.bg3};border:1px solid ${isBos?'rgba(240,192,96,.3)':C.border};border-radius:2px;padding:1px 0;`;
+
+    let html = '';
+    sections.forEach(sec => {
+      if (sec.label) {
+        html += `<div style="padding:4px 10px 2px;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:${C.dim};text-transform:uppercase;background:${C.bg2};border-bottom:1px solid ${C.border};position:sticky;top:0;">${sec.label}</div>`;
+      }
+      // column header row
+      html += `<div style="display:flex;align-items:center;padding:3px 10px;border-bottom:1px solid ${C.border};background:${C.bg2};">
+        <span style="flex:1;font-family:'Barlow Condensed',sans-serif;font-size:9px;color:${C.dim};letter-spacing:1px;">TEAM</span>
+        ${cols.map(c=>`<span style="width:${c.w};flex-shrink:0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:9px;color:${C.dim};letter-spacing:1px;">${c.l}</span>`).join('')}
       </div>`;
-    }).join('');
 
-    return hdr + teamRows;
+      sec.entries.forEach((entry,idx) => {
+        const team = entry.team;
+        const isBos = isNHL ? isBruins(team) : isRedSox(team);
+        const name = teamName(team);
+        const stats = {};
+        (entry.stats||[]).forEach(s=>{ stats[s.abbreviation||s.name] = s.displayValue ?? s.value ?? '–'; });
+        const vals = cols.map(c => {
+          const v = String(stats[c.k] ?? stats[c.l] ?? '–');
+          return `<span style="${cellStyle(isBos)}width:${c.w};flex-shrink:0;">${v}</span>`;
+        }).join('');
+        html += `<div style="display:flex;align-items:center;padding:3px 10px;border-bottom:1px solid ${C.border};background:${isBos?'rgba(240,192,96,.05)':'transparent'};">
+          <span style="flex:1;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:${isBos?700:400};color:${isBos?C.gold:C.text};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:4px;">${name}</span>
+          ${vals}
+        </div>`;
+      });
+    });
+    return html;
   }
 
-  // ── Bruins / Red Sox summary bar ──
-  function teamSummary(allScoreData, standingsData) {
+  // ── Summary bar — two stacked rows: last game + next game ──
+  function teamSummary() {
     const isNHL = league === 'nhl';
-    const labelTeam = isNHL ? 'BRUINS' : 'RED SOX';
-    const dotColor  = isNHL ? '#fcb514' : '#c8102e';
     const matchFn   = isNHL ? isBruins : isRedSox;
+    const teamLabel = isNHL ? 'BRUINS' : 'RED SOX';
+    const dotColor  = isNHL ? '#fcb514' : '#c8102e';
 
-    // Find today's game for this team across days -1,0,1
+    // Collect all games for this team across cached days, sorted by date offset
     let lastGame = null, nextGame = null;
-    const today = new Date().toISOString().slice(0,10).replace(/-/g,'');
 
-    [-1,0,1].forEach(off => {
-      const key = `${league}-${off}`;
-      const d = cache[key];
-      if (!d) return;
-      const dateStr = dateForOffset(off);
+    for (const off of [-2,-1,0,1,2]) {
+      const d = cache[`${league}-${off}`];
+      if (!d) continue;
       (d.events||[]).forEach(ev => {
         const comp = ev.competitions?.[0];
         const teams = comp?.competitors||[];
         if (!teams.some(t=>matchFn(t.team))) return;
         const st = fmtStatus(ev);
-        if (st.done || (off < 0 && !st.done)) {
-          // completed or past — treat as last
-          const home = teams.find(t=>t.homeAway==='home')||teams[0]||{};
-          const away = teams.find(t=>t.homeAway==='away')||teams[1]||{};
-          const myTeam = teams.find(t=>matchFn(t.team));
-          const oppTeam = teams.find(t=>!matchFn(t.team));
-          if (st.done) {
-            const won = +myTeam.score > +oppTeam.score;
-            lastGame = `${won?'W':'L'} ${myTeam.score}-${oppTeam.score} vs ${oppTeam.team?.abbreviation||'–'}`;
-          }
-        } else if (!st.done && off >= 0) {
-          if (!nextGame) {
-            const oppTeam = teams.find(t=>!matchFn(t.team));
-            nextGame = `${st.label} vs ${oppTeam?.team?.abbreviation||'–'}`;
-          }
+        const myTeam  = teams.find(t=> matchFn(t.team));
+        const oppTeam = teams.find(t=>!matchFn(t.team));
+        const opp = teamName(oppTeam?.team);
+        if (st.done) {
+          const won = +myTeam.score > +oppTeam.score;
+          const result = won ? 'W' : 'L';
+          const resColor = won ? C.green : C.red;
+          lastGame = { text:`${opp}`, score:`${myTeam.score}–${oppTeam.score}`, result, resColor };
+        } else if (!lastGame && !nextGame && off >= 0) {
+          // live or future — this is the next game
+          nextGame = { text:opp, time:st.label, live:st.live };
+        } else if (!nextGame && off >= 0 && !st.done) {
+          nextGame = { text:opp, time:st.label, live:st.live };
         }
       });
-    });
+    }
 
     if (!lastGame && !nextGame) return '';
-    return `<div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#181818;border-top:1px solid ${C.border};font-size:10px;flex-shrink:0;">
-      <span style="width:8px;height:8px;border-radius:50%;background:${dotColor};flex-shrink:0;display:inline-block;"></span>
-      <span style="font-weight:700;color:${dotColor};letter-spacing:1px;font-family:var(--cond);flex-shrink:0;">${labelTeam}</span>
-      ${lastGame?`<span style="color:${C.dim};">Last: <span style="color:${C.text};">${lastGame}</span></span>`:''}
-      ${lastGame&&nextGame?`<span style="color:${C.border};">·</span>`:''}
-      ${nextGame?`<span style="color:${C.dim};">Next: <span style="color:${C.gold};">${nextGame}</span></span>`:''}
-    </div>`;
+
+    const rowBase = `display:flex;align-items:center;gap:6px;padding:4px 10px;border-top:1px solid ${C.border};background:${C.bg2};flex-shrink:0;`;
+    const labelSpan = `<span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:${dotColor};letter-spacing:1px;flex-shrink:0;min-width:38px;">${teamLabel}</span>`;
+
+    let rows = '';
+    if (lastGame) {
+      rows += `<div style="${rowBase}">
+        ${labelSpan}
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:10px;color:${C.dim};flex-shrink:0;">LAST</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;color:${C.text};flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${lastGame.text}</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:${lastGame.resColor};flex-shrink:0;">${lastGame.result} ${lastGame.score}</span>
+      </div>`;
+    }
+    if (nextGame) {
+      rows += `<div style="${rowBase}${lastGame?'border-top:1px solid '+C.border+';':''}">
+        ${labelSpan}
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:10px;color:${C.dim};flex-shrink:0;">NEXT</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;color:${C.text};flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${nextGame.text}</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:${nextGame.live?C.green:C.gold};flex-shrink:0;">${nextGame.time}</span>
+      </div>`;
+    }
+    return rows;
   }
 
-  // ── Render shell ──
+  // ── Shell ──
   function buildShell() {
     ROOT.innerHTML = '';
-    ROOT.style.cssText = `display:flex;flex-direction:column;height:100%;min-height:0;background:${C.bg};font-family:'Barlow Condensed',sans-serif;`;
+    ROOT.style.cssText = `display:flex;flex-direction:column;height:100%;min-height:0;background:${C.bg};`;
 
     // League tabs
     const tabBar = document.createElement('div');
-    tabBar.style.cssText = `display:flex;align-items:center;background:${C.bg2};border-bottom:1px solid ${C.border};flex-shrink:0;`;
+    tabBar.style.cssText = `display:flex;background:${C.bg2};border-bottom:2px solid ${C.border};flex-shrink:0;`;
     ['nhl','mlb'].forEach(lg => {
       const btn = document.createElement('button');
       btn.textContent = lg.toUpperCase();
-      btn.style.cssText = `flex:1;padding:6px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;border:none;cursor:pointer;border-bottom:2px solid ${league===lg?C.accent:'transparent'};background:${league===lg?C.bg3:'transparent'};color:${league===lg?C.accent:C.dim};transition:all .15s;`;
+      const act = league===lg;
+      btn.style.cssText = `flex:1;padding:7px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;border:none;cursor:pointer;border-bottom:2px solid ${act?C.accent:'transparent'};margin-bottom:-2px;background:${act?C.bg3:'transparent'};color:${act?C.accent:C.dim};transition:all .15s;`;
       btn.addEventListener('click',()=>{ league=lg; dayOff=0; view='scores'; buildShell(); loadAndRender(); });
       tabBar.appendChild(btn);
     });
     ROOT.appendChild(tabBar);
 
-    // Day nav + Standings tab
+    // Day nav
     const navBar = document.createElement('div');
-    navBar.style.cssText = `display:flex;align-items:center;gap:4px;padding:4px 8px;border-bottom:1px solid ${C.border};flex-shrink:0;`;
+    navBar.style.cssText = `display:flex;align-items:center;gap:4px;padding:5px 8px;border-bottom:1px solid ${C.border};flex-shrink:0;`;
     [-1,0,1].forEach(off => {
       const btn = document.createElement('button');
       btn.textContent = labelForOffset(off);
-      const active = (view==='scores' && dayOff===off);
-      btn.style.cssText = `flex:1;padding:3px 0;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;border:1px solid ${active?C.gold:C.border};border-radius:3px;cursor:pointer;background:${active?'rgba(240,192,96,.12)':'transparent'};color:${active?C.gold:C.dim};`;
+      const act = view==='scores' && dayOff===off;
+      btn.style.cssText = `flex:1;padding:4px 0;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;border:1px solid ${act?C.gold:C.border};border-radius:3px;cursor:pointer;background:${act?'rgba(240,192,96,.12)':'transparent'};color:${act?C.gold:C.dim};`;
       btn.addEventListener('click',()=>{ view='scores'; dayOff=off; buildShell(); loadAndRender(); });
       navBar.appendChild(btn);
     });
     const stBtn = document.createElement('button');
-    stBtn.textContent = 'STAND.';
-    const stActive = view==='standings';
-    stBtn.style.cssText = `padding:3px 8px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;border:1px solid ${stActive?C.blue:C.border};border-radius:3px;cursor:pointer;background:${stActive?'rgba(106,176,255,.12)':'transparent'};color:${stActive?C.blue:C.dim};`;
+    stBtn.textContent = 'STANDINGS';
+    const stAct = view==='standings';
+    stBtn.style.cssText = `padding:4px 8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;border:1px solid ${stAct?C.blue:C.border};border-radius:3px;cursor:pointer;background:${stAct?'rgba(106,176,255,.12)':'transparent'};color:${stAct?C.blue:C.dim};white-space:nowrap;`;
     stBtn.addEventListener('click',()=>{ view='standings'; buildShell(); loadAndRender(); });
     navBar.appendChild(stBtn);
     ROOT.appendChild(navBar);
 
-    // Content area
+    // Content
     const content = document.createElement('div');
     content.id = 'scores-content';
     content.style.cssText = `flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#333 transparent;min-height:0;`;
-    content.innerHTML = `<div style="padding:16px;text-align:center;font-size:12px;color:${C.dim};">Loading…</div>`;
+    content.innerHTML = `<div style="padding:20px;text-align:center;font-size:13px;color:${C.dim};">Loading…</div>`;
     ROOT.appendChild(content);
 
-    // Team summary bar (two lines stacked)
-    const summaryBar = document.createElement('div');
-    summaryBar.id = 'scores-summary';
-    summaryBar.style.cssText = `flex-shrink:0;`;
-    ROOT.appendChild(summaryBar);
+    // Summary (two rows)
+    const summaryEl = document.createElement('div');
+    summaryEl.id = 'scores-summary';
+    summaryEl.style.cssText = `flex-shrink:0;border-top:2px solid ${C.border};`;
+    ROOT.appendChild(summaryEl);
   }
 
   async function loadAndRender() {
@@ -3337,35 +3352,26 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     if (view === 'standings') {
       const key = `${league}-standings`;
-      if (!cache[key]) {
-        try { cache[key] = await fetchJSON(espnStandingsUrl(league)); } catch(e) { cache[key]={}; }
-      }
+      if (!cache[key]) { try { cache[key]=await fetchJSON(espnStandingsUrl(league)); } catch(e){ cache[key]={}; } }
       content.innerHTML = renderStandings(cache[key]);
     } else {
       const key = `${league}-${dayOff}`;
-      if (!cache[key]) {
-        try { cache[key] = await fetchJSON(espnScoreUrl(league, dayOff)); } catch(e) { cache[key]={}; }
-      }
-      // Pre-fetch adjacent days for summary bar
+      if (!cache[key]) { try { cache[key]=await fetchJSON(espnScoreUrl(league,dayOff)); } catch(e){ cache[key]={}; } }
+      // Pre-fetch ±1 day for summary bar
       for (const off of [-1,0,1]) {
-        const k2=`${league}-${off}`;
-        if(!cache[k2]){try{cache[k2]=await fetchJSON(espnScoreUrl(league,off));}catch(e){cache[k2]={};}}
+        const k=`${league}-${off}`;
+        if (!cache[k]) { try { cache[k]=await fetchJSON(espnScoreUrl(league,off)); } catch(e){ cache[k]={}; } }
       }
       content.innerHTML = renderScores(cache[key]);
     }
-
-    // Rebuild summary with two rows — one per team depending on league
-    if (summary) {
-      summary.innerHTML = teamSummary(cache, cache[`${league}-standings`]);
-    }
+    if (summary) summary.innerHTML = teamSummary();
   }
 
-  // ── Boot ──
   buildShell();
   loadAndRender();
-  // Refresh every 60s if scores view
-  setInterval(()=>{ if(view==='scores'){delete cache[`${league}-${dayOff}`];loadAndRender();} }, 60000);
+  setInterval(()=>{ if(view==='scores'){ delete cache[`${league}-${dayOff}`]; loadAndRender(); } }, 60000);
 })();
+
 </script>
 
 
