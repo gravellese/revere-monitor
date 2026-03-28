@@ -2295,6 +2295,7 @@ async function loadData(){
     bosResume();
   })();
   safeRender(()=>renderSubstack('news-sports',(d.news_sports||[]).slice(0,40)),'news-sports');
+  safeRender(()=>renderNews('news-espn',(d.news_espn||[]).slice(0,30)),'espn-feed');
   safeRender(()=>renderNews('news-bc',(d.news_bc||[]).slice(0,30)),'news-bc');
   safeRender(()=>renderNews('news-college-hockey',(d.news_college_hockey||[]).slice(0,40)),'college-hockey');
   safeRender(()=>renderNews('news-bc-hockey',(d.news_bc_hockey||[]).sort((a,b)=>(b.ts||0)-(a.ts||0)).slice(0,20)),'bc-hockey');
@@ -2321,35 +2322,6 @@ async function loadData(){
 // ── INIT ──
 loadData();
 
-// ── ESPN FEED — client-side RSS ──
-(function(){
-  async function loadESPN(){
-    const el=document.getElementById('news-espn');
-    if(!el)return;
-    let xml=null;
-    const url='https://www.espn.com/espn/rss/news';
-    for(const fn of[u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`]){
-      try{const r=await fetch(fn(url),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
-    }
-    if(!xml){el.innerHTML='<div class="empty">ESPN feed unavailable</div>';return;}
-    const doc=new DOMParser().parseFromString(xml,'text/xml');
-    const items=[...doc.querySelectorAll('item')].map(n=>({
-      title:n.querySelector('title')?.textContent||'',
-      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
-      pub:n.querySelector('pubDate')?.textContent||'',
-      desc:(n.querySelector('description')?.textContent||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()
-    })).filter(i=>i.title).slice(0,30);
-    el.innerHTML='';
-    items.forEach(item=>{
-      const a=document.createElement('a');a.className='ni';a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-      let inner=`<div class="ni-src">ESPN</div><div class="ni-title">${item.title}</div>`;
-      if(item.desc&&item.desc.length>30)inner+=`<div class="ni-snippet">${item.desc}</div>`;
-      if(item.pub){const d=new Date(item.pub);if(!isNaN(d))inner+=`<div class="ni-date">${d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+', '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}</div>`;}
-      a.innerHTML=inner;el.appendChild(a);
-    });
-  }
-  loadESPN();
-})();
 const redditFeeds=[
   {sub:'boston',id:'r-boston'},
   {sub:'massachusetts',id:'r-mass'},
@@ -3147,18 +3119,21 @@ document.addEventListener('DOMContentLoaded',()=>{
       const statusBg    = st.live ? 'rgba(88,216,136,.15)' : st.done ? C.bg2 : 'rgba(240,192,96,.08)';
 
       const rowStyle = `display:flex;align-items:center;padding:7px 10px;border-bottom:1px solid ${C.border};gap:8px;`;
-      const nameStyle = (win) => `font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:${win?700:500};color:${win?C.text:C.dim};flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`;
-      const scoreStyle = (win) => `font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:${win?C.text:C.dim};min-width:22px;text-align:right;flex-shrink:0;`;
+      // Scheduled/live: both teams white. Final: winner white, loser dimmed.
+      const awayColor = st.done ? (awayWin ? C.text : C.dim) : C.text;
+      const homeColor = st.done ? (homeWin ? C.text : C.dim) : C.text;
+      const nameStyle = (col) => `font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:${col===C.text?600:400};color:${col};flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`;
+      const scoreStyle = (col) => `font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:${col};min-width:22px;text-align:right;flex-shrink:0;`;
 
       return `<div style="${rowStyle}">
         <div style="flex:1;min-width:0;">
           <div style="display:flex;align-items:center;margin-bottom:4px;">
-            <span style="${nameStyle(awayWin)}">${teamName(away.team)}</span>
-            <span style="${scoreStyle(awayWin)}">${awayScore}</span>
+            <span style="${nameStyle(awayColor)}">${teamName(away.team)}</span>
+            <span style="${scoreStyle(awayColor)}">${awayScore}</span>
           </div>
           <div style="display:flex;align-items:center;">
-            <span style="${nameStyle(homeWin)}">${teamName(home.team)}</span>
-            <span style="${scoreStyle(homeWin)}">${homeScore}</span>
+            <span style="${nameStyle(homeColor)}">${teamName(home.team)}</span>
+            <span style="${scoreStyle(homeColor)}">${homeScore}</span>
           </div>
         </div>
         <div style="flex-shrink:0;text-align:center;min-width:52px;">
@@ -3241,10 +3216,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     const teamLabel = isNHL ? 'BRUINS' : 'RED SOX';
     const dotColor  = isNHL ? '#fcb514' : '#c8102e';
 
-    // Collect all games for this team across cached days, sorted by date offset
     let lastGame = null, nextGame = null;
 
-    for (const off of [-2,-1,0,1,2]) {
+    // Scan past (-5 to -1) for most recent completed game, future (0 to +3) for next game
+    // We only have cache for what was pre-fetched; missing days are just skipped
+    for (const off of [-5,-4,-3,-2,-1,0,1,2,3]) {
       const d = cache[`${league}-${off}`];
       if (!d) continue;
       (d.events||[]).forEach(ev => {
@@ -3256,15 +3232,12 @@ document.addEventListener('DOMContentLoaded',()=>{
         const oppTeam = teams.find(t=>!matchFn(t.team));
         const opp = teamName(oppTeam?.team);
         if (st.done) {
+          // Always overwrite — loop is oldest-to-newest so last write = most recent
           const won = +myTeam.score > +oppTeam.score;
-          const result = won ? 'W' : 'L';
-          const resColor = won ? C.green : C.red;
-          lastGame = { text:`${opp}`, score:`${myTeam.score}–${oppTeam.score}`, result, resColor };
-        } else if (!lastGame && !nextGame && off >= 0) {
-          // live or future — this is the next game
-          nextGame = { text:opp, time:st.label, live:st.live };
-        } else if (!nextGame && off >= 0 && !st.done) {
-          nextGame = { text:opp, time:st.label, live:st.live };
+          lastGame = { text:opp, score:`${myTeam.score}–${oppTeam.score}`, result:won?'W':'L', resColor:won?C.green:C.red };
+        } else if (!nextGame && off >= 0) {
+          // First non-completed game on today or future = next game
+          nextGame = { text:opp, time:st.label, live:!!st.live };
         }
       });
     }
@@ -3357,8 +3330,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     } else {
       const key = `${league}-${dayOff}`;
       if (!cache[key]) { try { cache[key]=await fetchJSON(espnScoreUrl(league,dayOff)); } catch(e){ cache[key]={}; } }
-      // Pre-fetch ±1 day for summary bar
-      for (const off of [-1,0,1]) {
+      // Pre-fetch ±days for summary bar (wider window catches recent completed games)
+      for (const off of [-3,-2,-1,0,1,2]) {
         const k=`${league}-${off}`;
         if (!cache[k]) { try { cache[k]=await fetchJSON(espnScoreUrl(league,off)); } catch(e){ cache[k]={}; } }
       }

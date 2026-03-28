@@ -1132,6 +1132,15 @@ def main():
     data["news_sports"] = sports_items[:40]
     print(f"  \u2192 Sports news: {len(data['news_sports'])} items")
 
+    # ESPN feed — fetched server-side to avoid CORS blocks
+    espn_items = safe(lambda: fetch_feed(
+        'https://www.espn.com/espn/rss/news', 30
+    ), "ESPN feed") or []
+    for i in espn_items:
+        i["source"] = "ESPN"
+    data["news_espn"] = espn_items
+    print(f"  \u2192 ESPN feed: {len(espn_items)} items")
+
     print("\n📅 Personal Calendar")
     data["personal_calendar"] = safe(fetch_personal_calendar, "Personal calendars") or []
 
