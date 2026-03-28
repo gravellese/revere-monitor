@@ -340,6 +340,8 @@ a.ni:hover{background:rgba(255,255,255,.04);margin:0 -14px;padding-left:14px;pad
 .ni-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.35;}
 a.ni:hover .ni-title{color:var(--white);}
 .ni-date{font-size:11px;color:var(--text-mute);}
+.ni-snippet{font-size:11px;color:var(--text-mute);line-height:1.4;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.comm-card-snippet{font-size:10px;color:#5a7a9a;line-height:1.35;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .comm-tag{display:inline-block;background:rgba(106,176,255,.1);color:var(--accent);border:1px solid rgba(106,176,255,.2);border-radius:3px;font-size:10px;padding:1px 5px;margin-right:4px;text-transform:uppercase;}
 
 /* ── REDDIT ── */
@@ -454,7 +456,7 @@ a.big-btn:hover{opacity:.85;}
 .sc-event-title{font-size:11px;color:var(--text);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .sc-event-title.sc-past{color:var(--text-mute);}
 .sc-event-meta{display:flex;align-items:center;gap:5px;flex-shrink:0;}
-.sc-time{font-size:10px;color:var(--text-mute);font-family:var(--mono);white-space:nowrap;}
+.sc-time{font-size:10px;color:var(--gold);font-family:var(--mono);white-space:nowrap;font-weight:600;}
 .sc-venue{font-size:9px;color:var(--text-mute);white-space:nowrap;max-width:100px;overflow:hidden;text-overflow:ellipsis;}
 .sc-special{font-size:9px;background:var(--odim);color:var(--orange);padding:1px 4px;border-radius:2px;white-space:nowrap;font-family:var(--cond);}
 .sc-score-w{font-size:10px;font-weight:700;color:var(--green);white-space:nowrap;font-family:var(--mono);}
@@ -1140,13 +1142,20 @@ function renderKTN(items){
 
   <div class="grid-stack-item" gs-id="news-sports" gs-x="0" gs-y="91" gs-w="8" gs-h="8" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch ora"><div class="ct">SPORTS NEWS</div><div class="cb">COMBINED FEED</div></div>
+    <div class="ch ora"><div class="ct">MY SPORTS NEWS</div><div class="cb">COMBINED FEED</div></div>
     <div class="cbody npx">
       <div class="news-feed scroll-box h-news" id="news-sports"><div class="empty">Loading…</div></div>
     </div>
   </div></div></div>
 
-  <!-- SPORTS SCHEDULE -->
+  <!-- ESPN FEED -->
+  <div class="grid-stack-item" gs-id="espn-feed" gs-x="0" gs-y="107" gs-w="8" gs-h="8" gs-min-h="4">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch ora"><div class="ct">ESPN FEED</div><div class="cb">ESPN.COM · RSS</div></div>
+    <div class="cbody npx">
+      <div class="news-feed scroll-box h-news" id="news-espn"><div class="empty">Loading…</div></div>
+    </div>
+  </div></div></div>
   <div class="grid-stack-item" gs-id="sports-schedule" gs-x="4" gs-y="9" gs-w="4" gs-h="6" gs-min-h="6">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch ora"><div class="ct">SPORTS SCHEDULE</div><div class="cb">GCAL · LIVE REFRESH</div></div>
@@ -1210,10 +1219,16 @@ function renderKTN(items){
   <!-- CHN · BC Hockey — Google News -->
   <div class="grid-stack-item" gs-id="chn-bc" gs-x="8" gs-y="94" gs-w="4" gs-h="8" gs-min-h="4">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch bc"><div class="ct">BC HOCKEY NEWS</div><div class="cb">GOOGLE NEWS</div></div>
+    <div class="ch bc"><div class="ct">BC HOCKEY NEWS</div><div class="cb">GOOGLE NEWS · 7 DAYS</div></div>
     <div class="cbody npx">
       <div class="news-feed scroll-box h-news" id="news-bc-hockey"><div class="empty">Loading…</div></div>
     </div>
+  </div></div></div>
+
+  <!-- SCORES WIDGET -->
+  <div class="grid-stack-item" gs-id="scores-widget" gs-x="8" gs-y="102" gs-w="4" gs-h="9" gs-min-h="6">
+  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;background:#111;border-color:#2a2a2a;">
+    <div id="scores-root" style="display:flex;flex-direction:column;height:100%;min-height:0;"></div>
   </div></div></div>
 
   <!-- CHN · All College Hockey -->
@@ -1402,15 +1417,24 @@ function renderPersonalCalendar(personalEvents, cityEvents) {
 
     dayEvents.forEach(ev => {
       const color = CAL_COLOR[ev.calendar] || 'var(--text-dim)';
-      const timeStr = ev.all_day ? 'All day' : (ev.time || '');
+      const timeDisplay = ev.all_day ? '' : (ev.time || '');
       const evUrl = ev.url ? `href="${ev.url}" target="_blank"` : '';
       const titleEl = ev.url
-        ? `<a ${evUrl} style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none;display:block;">${ev.summary}</a>`
-        : `<div style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.summary}</div>`;
+        ? `<a ${evUrl} style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3;overflow:hidden;text-overflow:ellipsis;text-decoration:none;display:block;min-width:0;flex:1;">${ev.summary}</a>`
+        : `<div style="font-size:12px;font-weight:600;color:var(--text);line-height:1.3;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1;">${ev.summary}</div>`;
+      const metaParts = [];
+      if (ev.all_day) metaParts.push('All day');
+      if (ev.location) metaParts.push(ev.location);
+      const metaLine = metaParts.length ? `<div style="font-size:10px;color:var(--text-mute);margin-top:2px;">${metaParts.join(' · ')}</div>` : '';
       html += `<div style="padding:5px 10px;border-bottom:1px solid var(--border2);display:flex;gap:8px;align-items:flex-start;">
         <div style="flex-shrink:0;width:3px;border-radius:2px;background:${color};align-self:stretch;min-height:16px;"></div>
-        <div style="min-width:0;flex:1;">${titleEl}
-        <div style="font-size:10px;color:var(--text-mute);margin-top:1px;">${timeStr}${ev.location ? ' · ' + ev.location : ''}</div></div>
+        <div style="min-width:0;flex:1;">
+          <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:nowrap;min-width:0;">
+            ${timeDisplay ? `<span style="font-family:var(--mono);font-size:10px;color:var(--gold);font-weight:700;flex-shrink:0;letter-spacing:.5px;">${timeDisplay}</span>` : ''}
+            ${titleEl}
+          </div>
+          ${metaLine}
+        </div>
         <div style="flex-shrink:0;font-size:9px;color:${color};letter-spacing:.5px;font-weight:700;">${(ev.calendar||'').toUpperCase()}</div>
       </div>`;
     });
@@ -1586,12 +1610,13 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
 (function(){
   const MBTA_API='https://api-v3.mbta.com';
   const CARDS=[
-    {name:'Beachmont',             stopId:'70039,70040', pills:[{l:'Blue',c:'mbta-pill-blue'}],                                   routeFilter:null},
-    {name:'State St',              stopId:'place-state', pills:[{l:'Blue',c:'mbta-pill-blue'},{l:'Orange',c:'mbta-pill-orange'}],  routeFilter:null},
-    {name:'Broadway @ Pleasant',   stopId:'5761',        pills:[{l:'Bus',c:'mbta-pill-bus'}],                                     routeFilter:null},
-    {name:'Broadway @ Yeamans',    stopId:'5714',        pills:[{l:'116',c:'mbta-pill-bus'},{l:'119',c:'mbta-pill-bus'}],          routeFilter:['116','119']},
-    {name:'110 · Stop 5790', stopId:'5790', pills:[{l:'110',c:'mbta-pill-bus'}], routeFilter:'110', lookupName:true},
-    {name:'110 · Stop 5538', stopId:'5538', pills:[{l:'110',c:'mbta-pill-bus'}], routeFilter:'110', lookupName:true},
+    {name:'Beachmont',             stopId:'70039,70040', pills:[{l:'Blue',c:'mbta-pill-blue'}],                                   routeFilter:null, maxPreds:4},
+    {name:'State St',              stopId:'place-state', pills:[{l:'Blue',c:'mbta-pill-blue'},{l:'Orange',c:'mbta-pill-orange'}],  routeFilter:null, maxPreds:4},
+    {name:'Winthrop Ave @ Beachmont', stopId:'5819',     pills:[{l:'Bus',c:'mbta-pill-bus'}],                                     routeFilter:null, maxPreds:3},
+    {name:'Broadway @ Pleasant',   stopId:'5761',        pills:[{l:'Bus',c:'mbta-pill-bus'}],                                     routeFilter:null, maxPreds:3},
+    {name:'Broadway @ Yeamans',    stopId:'5714',        pills:[{l:'116',c:'mbta-pill-bus'},{l:'119',c:'mbta-pill-bus'}],          routeFilter:['116','119'], maxPreds:3},
+    {name:'110 · Stop 5790', stopId:'5790', pills:[{l:'110',c:'mbta-pill-bus'}], routeFilter:'110', lookupName:true, maxPreds:3},
+    {name:'110 · Stop 5538', stopId:'5538', pills:[{l:'110',c:'mbta-pill-bus'}], routeFilter:'110', lookupName:true, maxPreds:3},
   ];
   const ROUTE_MODE={Blue:'blue',Orange:'orange',Red:'red','Green-B':'green','Green-C':'green','Green-D':'green','Green-E':'green',Green:'green'};
   function routeMode(rid){return ROUTE_MODE[rid]||(rid?'bus':'other');}
@@ -1671,7 +1696,7 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
     const arr=div.querySelector('.mbta-arrivals');
     let items=(preds||[]);
     if(card.routeFilter)items=items.filter(p=>Array.isArray(card.routeFilter)?card.routeFilter.includes(p.routeId):p.routeId===card.routeFilter);
-    items=items.slice(0,4);
+    items=items.slice(0,card.maxPreds||4);
     if(!items.length){arr.innerHTML='<div class="mbta-no-pred">No predictions</div>';return div;}
     items.forEach(p=>{
       const mode=routeMode(p.routeId);
@@ -1784,7 +1809,30 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
     }
     body.appendChild(bluePill);
 
-    let total=0;
+    // Revere Bus lines status pill — Routes 110, 116, 119
+    const REVERE_BUS_ROUTES=['110','116','119'];
+    const revBusAlerts=alerts.filter(a=>(a.attributes?.informed_entity||[]).some(e=>REVERE_BUS_ROUTES.includes(e.route)));
+    const revBusOk=revBusAlerts.length===0;
+    const revBusPill=document.createElement('div');
+    revBusPill.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid #1a2820;';
+    revBusPill.innerHTML=`<div style="width:10px;height:10px;border-radius:50%;background:#FFC72C;flex-shrink:0;"></div>`
+      +`<span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#ffe090;font-family:var(--cond);">REVERE BUS</span>`
+      +`<span style="font-size:10px;color:#5a7a72;font-family:var(--mono);">110 · 116 · 119</span>`
+      +`<span style="margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:3px;`
+      +(revBusOk?`background:#0a2a1a;color:var(--green);border:1px solid #1a5a2a;">NORMAL OPERATION`:`background:#2a1a00;color:#FFC72C;border:1px solid #5a3a00;">${revBusAlerts.length} ALERT${revBusAlerts.length!==1?'S':''}`)
+      +`</span>`;
+    if(!revBusOk){
+      revBusAlerts.forEach(a=>{
+        const hdr=a.attributes?.header||'';
+        const eff=EFFECT_MAP[a.attributes?.effect]||'ALERT';
+        const effCls=EFFECT_CLS[eff]||'aeff-other';
+        const d=document.createElement('div');
+        d.className='alrt-item';d.style.cssText='margin-left:28px;border-left:2px solid #FFC72C;';
+        d.innerHTML=`<div class="alrt-effect ${effCls}">${eff}</div><div class="alrt-header-txt">${hdr}</div>`;
+        revBusPill.appendChild(d);
+      });
+    }
+    body.appendChild(revBusPill);
     MODE_ORDER.forEach((mode,idx)=>{
       const modeAlerts=byMode[mode.key]||[];
       total+=modeAlerts.length;
@@ -2057,6 +2105,11 @@ function renderCommGrid(items){
         <span class="comm-card-date" style="margin-top:0;">${t}</span>
       </div>
       <div class="comm-card-title">${item.title||''}</div>`;
+    if(item.summary||item.description){
+      const tmp=document.createElement('div');tmp.innerHTML=item.summary||item.description||'';
+      const plain=(tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim();
+      if(plain.length>30){const snip=document.createElement('div');snip.className='comm-card-snippet';snip.textContent=plain;a.appendChild(snip);}
+    }
     el.appendChild(a);
   });
 }
@@ -2069,6 +2122,8 @@ function renderNews(id,items,communityTags=false){
     const a=document.createElement('a');a.className='ni';a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
     let inner=communityTags&&item.source?`<span class="comm-tag">${item.source}</span>`:item.source?`<div class="ni-src">${item.source}</div>`:'';
     inner+=`<div class="ni-title">${item.title}</div>`;
+    const rawSnip=item.summary||item.description||item.content||'';
+    if(rawSnip){const tmp=document.createElement('div');tmp.innerHTML=rawSnip;const plain=(tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim();if(plain.length>30)inner+=`<div class="ni-snippet">${plain}</div>`;}
     if(item.ts||item.published)inner+=`<div class="ni-date">${fmtDateTime(item.ts,item.published)}</div>`;
     a.innerHTML=inner;c.appendChild(a);
   });
@@ -2240,7 +2295,7 @@ async function loadData(){
   safeRender(()=>renderSubstack('news-sports',(d.news_sports||[]).slice(0,40)),'news-sports');
   safeRender(()=>renderNews('news-bc',(d.news_bc||[]).slice(0,30)),'news-bc');
   safeRender(()=>renderNews('news-college-hockey',(d.news_college_hockey||[]).slice(0,40)),'college-hockey');
-  safeRender(()=>renderNews('news-bc-hockey',(d.news_bc_hockey||[]).slice(0,20)),'bc-hockey');
+  safeRender(()=>renderNews('news-bc-hockey',(d.news_bc_hockey||[]).sort((a,b)=>(b.ts||0)-(a.ts||0)).slice(0,20)),'bc-hockey');
   safeRender(()=>renderNews('news-hockey-east',(d.news_hockey_east||[]).slice(0,20)),'hockey-east');
   safeRender(()=>renderNews('news-national',(d.news_national||[]).slice(0,50)),'news-national');
   safeRender(()=>renderSubstack('news-substack',(d.news_substack||[]).slice(0,50)),'news-substack');
@@ -2263,6 +2318,36 @@ async function loadData(){
 
 // ── INIT ──
 loadData();
+
+// ── ESPN FEED — client-side RSS ──
+(function(){
+  async function loadESPN(){
+    const el=document.getElementById('news-espn');
+    if(!el)return;
+    let xml=null;
+    const url='https://www.espn.com/espn/rss/news';
+    for(const fn of[u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`]){
+      try{const r=await fetch(fn(url),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
+    }
+    if(!xml){el.innerHTML='<div class="empty">ESPN feed unavailable</div>';return;}
+    const doc=new DOMParser().parseFromString(xml,'text/xml');
+    const items=[...doc.querySelectorAll('item')].map(n=>({
+      title:n.querySelector('title')?.textContent||'',
+      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
+      pub:n.querySelector('pubDate')?.textContent||'',
+      desc:(n.querySelector('description')?.textContent||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()
+    })).filter(i=>i.title).slice(0,30);
+    el.innerHTML='';
+    items.forEach(item=>{
+      const a=document.createElement('a');a.className='ni';a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
+      let inner=`<div class="ni-src">ESPN</div><div class="ni-title">${item.title}</div>`;
+      if(item.desc&&item.desc.length>30)inner+=`<div class="ni-snippet">${item.desc}</div>`;
+      if(item.pub){const d=new Date(item.pub);if(!isNaN(d))inner+=`<div class="ni-date">${d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+', '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}</div>`;}
+      a.innerHTML=inner;el.appendChild(a);
+    });
+  }
+  loadESPN();
+})();
 const redditFeeds=[
   {sub:'boston',id:'r-boston'},
   {sub:'massachusetts',id:'r-mass'},
@@ -2277,7 +2362,7 @@ redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
 // ── GRIDSTACK ──────────────────────────────────────────────────────
 const GS_KEY = 'revere_monitor_gs_v2';
 
-const DEFAULT_LAYOUT = {"priorities":{"x":0,"y":9,"w":4,"h":5},"personal-calendar":{"x":0,"y":0,"w":4,"h":9},"weather-unified":{"x":4,"y":0,"w":4,"h":9},"markets":{"x":0,"y":22,"w":3,"h":10},"radio":{"x":0,"y":18,"w":2,"h":4},"logan":{"x":9,"y":13,"w":3,"h":10},"boston-news":{"x":0,"y":46,"w":12,"h":5},"uhub-rss":{"x":0,"y":51,"w":5,"h":11},"uhub-bsky":{"x":0,"y":63,"w":3,"h":14},"bc-schedule":{"x":0,"y":107,"w":5,"h":12},"nyt-link":{"x":0,"y":14,"w":2,"h":4},"news-revere":{"x":0,"y":32,"w":4,"h":14},"news-comm":{"x":4,"y":28,"w":5,"h":18},"r-boston-panel":{"x":5,"y":51,"w":4,"h":9},"r-mass-panel":{"x":9,"y":51,"w":3,"h":9},"r-mbta-panel":{"x":9,"y":36,"w":3,"h":10},"r-nascar-panel":{"x":3,"y":99,"w":3,"h":7},"r-neo-panel":{"x":3,"y":62,"w":3,"h":7},"r-bruins-panel":{"x":0,"y":99,"w":3,"h":7},"r-urban-panel":{"x":8,"y":69,"w":4,"h":8},"news-sports":{"x":0,"y":91,"w":8,"h":8},"sports-schedule":{"x":4,"y":9,"w":4,"h":6},"news-bc":{"x":3,"y":78,"w":5,"h":13},"college-hockey":{"x":0,"y":77,"w":3,"h":14},"chn-bc":{"x":8,"y":94,"w":4,"h":8},"chn-all":{"x":8,"y":84,"w":4,"h":10},"national":{"x":6,"y":60,"w":6,"h":9},"reveretv":{"x":8,"y":77,"w":4,"h":7},"substack-feed":{"x":3,"y":69,"w":5,"h":9},"mbta-arrivals":{"x":8,"y":5,"w":4,"h":8},"mbta-alerts":{"x":8,"y":0,"w":4,"h":5},"mbta-news":{"x":9,"y":23,"w":3,"h":7},"revere-map":{"x":3,"y":15,"w":6,"h":13},"road-events":{"x":9,"y":30,"w":3,"h":6}};
+const DEFAULT_LAYOUT = {"priorities":{"x":0,"y":9,"w":4,"h":5},"personal-calendar":{"x":0,"y":0,"w":4,"h":9},"weather-unified":{"x":4,"y":0,"w":4,"h":9},"markets":{"x":0,"y":22,"w":3,"h":10},"radio":{"x":0,"y":18,"w":2,"h":4},"logan":{"x":9,"y":13,"w":3,"h":10},"boston-news":{"x":0,"y":46,"w":12,"h":5},"uhub-rss":{"x":0,"y":51,"w":5,"h":11},"uhub-bsky":{"x":0,"y":63,"w":3,"h":14},"bc-schedule":{"x":0,"y":120,"w":5,"h":12},"nyt-link":{"x":0,"y":14,"w":2,"h":4},"news-revere":{"x":0,"y":32,"w":4,"h":14},"news-comm":{"x":4,"y":28,"w":5,"h":18},"r-boston-panel":{"x":5,"y":51,"w":4,"h":9},"r-mass-panel":{"x":9,"y":51,"w":3,"h":9},"r-mbta-panel":{"x":9,"y":36,"w":3,"h":10},"r-nascar-panel":{"x":3,"y":107,"w":3,"h":7},"r-neo-panel":{"x":3,"y":62,"w":3,"h":7},"r-bruins-panel":{"x":0,"y":107,"w":3,"h":7},"r-urban-panel":{"x":8,"y":69,"w":4,"h":8},"news-sports":{"x":0,"y":91,"w":8,"h":8},"espn-feed":{"x":0,"y":107,"w":8,"h":8},"sports-schedule":{"x":4,"y":9,"w":4,"h":6},"news-bc":{"x":3,"y":78,"w":5,"h":13},"college-hockey":{"x":0,"y":77,"w":3,"h":14},"chn-bc":{"x":8,"y":94,"w":4,"h":8},"scores-widget":{"x":8,"y":102,"w":4,"h":9},"chn-all":{"x":8,"y":84,"w":4,"h":10},"national":{"x":6,"y":60,"w":6,"h":9},"reveretv":{"x":8,"y":77,"w":4,"h":7},"substack-feed":{"x":3,"y":69,"w":5,"h":9},"mbta-arrivals":{"x":8,"y":5,"w":4,"h":8},"mbta-alerts":{"x":8,"y":0,"w":4,"h":5},"mbta-news":{"x":9,"y":23,"w":3,"h":7},"revere-map":{"x":3,"y":15,"w":6,"h":13},"road-events":{"x":9,"y":30,"w":3,"h":6}};
 
 const grid = GridStack.init({
   float: true,
@@ -2977,6 +3062,309 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
   setTimeout(initRevereMap,400);
 });
+})();
+
+// ═══════════════════════════════════════════════════════
+// NHL / MLB SCORES WIDGET
+// ═══════════════════════════════════════════════════════
+(function(){
+  const ROOT = document.getElementById('scores-root');
+  if (!ROOT) return;
+
+  // ── Colours ──
+  const C = {
+    bg:     '#111',
+    bg2:    '#181818',
+    bg3:    '#222',
+    border: '#2a2a2a',
+    text:   '#e0e0e0',
+    dim:    '#888',
+    gold:   '#f0c060',
+    green:  '#58d888',
+    red:    '#f06060',
+    blue:   '#6ab0ff',
+    accent: '#f5c518',
+  };
+
+  // ── State ──
+  let league  = 'nhl';   // 'nhl' | 'mlb'
+  let dayOff  = 0;       // 0=today, -1=yesterday, 1=tomorrow
+  let view    = 'scores'; // 'scores' | 'standings'
+  let cache   = {};      // keyed by `${league}-${dayOff}` and `${league}-standings`
+
+  // ── Date helpers ──
+  function dateForOffset(off) {
+    const d = new Date();
+    d.setDate(d.getDate() + off);
+    return d.toISOString().slice(0,10).replace(/-/g,'');  // YYYYMMDD for ESPN API
+  }
+  function labelForOffset(off) {
+    if (off === 0) return 'TODAY';
+    if (off === -1) return 'YESTERDAY';
+    if (off === 1) return 'TOMORROW';
+    return off > 0 ? `+${off}d` : `${off}d`;
+  }
+
+  // ── ESPN API ──
+  function espnScoreUrl(lg, off) {
+    const date = dateForOffset(off);
+    const sport = lg === 'nhl' ? 'hockey/nhl' : 'baseball/mlb';
+    return `https://site.api.espn.com/apis/site/v2/sports/${sport}/scoreboard?dates=${date}`;
+  }
+  function espnStandingsUrl(lg) {
+    const sport = lg === 'nhl' ? 'hockey/nhl' : 'baseball/mlb';
+    return `https://site.api.espn.com/apis/v2/sports/${sport}/standings`;
+  }
+
+  async function fetchJSON(url) {
+    const r = await fetch(url); if (!r.ok) throw new Error(r.status);
+    return r.json();
+  }
+
+  // ── Team detection ──
+  const BRUINS_IDS  = ['1','BOS']; // ESPN NHL id for Bruins
+  const REDSOX_IDS  = ['2','BOS']; // ESPN MLB id for Red Sox
+  function isBruins(team)  { return /bruins|BOS/i.test(team?.displayName||team?.abbreviation||''); }
+  function isRedSox(team)  { return /red sox|BOS/i.test(team?.displayName||team?.abbreviation||''); }
+
+  // ── Format score/status ──
+  function fmtStatus(ev) {
+    const st = ev.status?.type;
+    const detail = ev.status?.type?.detail || ev.status?.type?.shortDetail || '';
+    if (st?.completed) return { label: 'FINAL', done: true };
+    if (st?.name === 'STATUS_IN_PROGRESS' || st?.name === 'STATUS_HALFTIME') return { label: detail || 'LIVE', done: false, live: true };
+    // scheduled
+    const t = ev.competitions?.[0]?.date;
+    if (t) {
+      const d = new Date(t);
+      return { label: d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}), done: false };
+    }
+    return { label: detail || '–', done: false };
+  }
+
+  // ── Render scores ──
+  function renderScores(data) {
+    const events = data.events || [];
+    if (!events.length) return `<div style="padding:16px;text-align:center;font-size:12px;color:${C.dim};">No games scheduled</div>`;
+
+    return events.map(ev => {
+      const comp = ev.competitions?.[0];
+      const teams = comp?.competitors || [];
+      const home = teams.find(t => t.homeAway === 'home') || teams[0] || {};
+      const away = teams.find(t => t.homeAway === 'away') || teams[1] || {};
+      const st = fmtStatus(ev);
+
+      const homeScore = home.score ?? '–';
+      const awayScore = away.score ?? '–';
+      const homeWin = st.done && +home.score > +away.score;
+      const awayWin = st.done && +away.score > +home.score;
+
+      const statusColor = st.live ? C.green : st.done ? C.dim : C.gold;
+      const statusBg    = st.live ? 'rgba(88,216,136,.12)' : 'transparent';
+
+      return `<div style="display:flex;align-items:center;gap:6px;padding:5px 8px;border-bottom:1px solid ${C.border};font-size:12px;">
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+            <span style="font-size:11px;font-weight:700;color:${awayWin?C.text:C.dim};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px;">${away.team?.abbreviation||away.team?.shortDisplayName||'–'}</span>
+            <span style="font-family:monospace;font-size:13px;font-weight:700;color:${awayWin?C.text:C.dim};margin-left:auto;min-width:20px;text-align:right;">${awayScore}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span style="font-size:11px;font-weight:700;color:${homeWin?C.text:C.dim};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px;">${home.team?.abbreviation||home.team?.shortDisplayName||'–'}</span>
+            <span style="font-family:monospace;font-size:13px;font-weight:700;color:${homeWin?C.text:C.dim};margin-left:auto;min-width:20px;text-align:right;">${homeScore}</span>
+          </div>
+        </div>
+        <div style="text-align:center;min-width:48px;flex-shrink:0;">
+          <span style="font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 5px;border-radius:3px;background:${statusBg};color:${statusColor};">${st.label}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // ── Render standings ──
+  function renderStandings(data) {
+    const groups = data.standings?.entries
+      || data.children?.flatMap(c=>c.standings?.entries||[])
+      || [];
+
+    // Flatten all teams from all conference groups
+    let rows = [];
+    function extract(node) {
+      if (node.standings?.entries) {
+        rows = rows.concat(node.standings.entries);
+      }
+      if (node.children) node.children.forEach(extract);
+    }
+    extract(data);
+
+    if (!rows.length) return `<div style="padding:16px;text-align:center;font-size:12px;color:${C.dim};">Standings unavailable</div>`;
+
+    // Build header
+    const isNHL = league === 'nhl';
+    const cols = isNHL
+      ? [{k:'GP',l:'GP'},{k:'W',l:'W'},{k:'L',l:'L'},{k:'OTL',l:'OT'},{k:'PTS',l:'PTS'}]
+      : [{k:'W',l:'W'},{k:'L',l:'L'},{k:'PCT',l:'PCT'},{k:'GB',l:'GB'}];
+
+    const hdr = `<div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid ${C.border};font-size:9px;color:${C.dim};letter-spacing:1px;font-family:monospace;">
+      <span style="flex:1;">TEAM</span>
+      ${cols.map(c=>`<span style="min-width:28px;text-align:right;">${c.l}</span>`).join('')}
+    </div>`;
+
+    const teamRows = rows.slice(0,30).map(entry => {
+      const team = entry.team;
+      const abbr = team?.abbreviation || team?.shortDisplayName || '–';
+      const isBos = isNHL ? isBruins(team) : isRedSox(team);
+      const stats = {};
+      (entry.stats||[]).forEach(s=>{ stats[s.abbreviation||s.name] = s.displayValue||s.value; });
+
+      const vals = cols.map(c => {
+        const v = stats[c.k] ?? stats[c.l] ?? '–';
+        return `<span style="min-width:28px;text-align:right;font-family:monospace;font-size:11px;color:${isBos?C.gold:C.text};">${v}</span>`;
+      }).join('');
+
+      return `<div style="display:flex;align-items:center;padding:3px 8px;border-bottom:1px solid ${C.border};background:${isBos?'rgba(240,192,96,.07)':'transparent'};">
+        <span style="flex:1;font-size:11px;font-weight:${isBos?700:400};color:${isBos?C.gold:C.text};">${abbr}</span>
+        ${vals}
+      </div>`;
+    }).join('');
+
+    return hdr + teamRows;
+  }
+
+  // ── Bruins / Red Sox summary bar ──
+  function teamSummary(allScoreData, standingsData) {
+    const isNHL = league === 'nhl';
+    const labelTeam = isNHL ? 'BRUINS' : 'RED SOX';
+    const dotColor  = isNHL ? '#fcb514' : '#c8102e';
+    const matchFn   = isNHL ? isBruins : isRedSox;
+
+    // Find today's game for this team across days -1,0,1
+    let lastGame = null, nextGame = null;
+    const today = new Date().toISOString().slice(0,10).replace(/-/g,'');
+
+    [-1,0,1].forEach(off => {
+      const key = `${league}-${off}`;
+      const d = cache[key];
+      if (!d) return;
+      const dateStr = dateForOffset(off);
+      (d.events||[]).forEach(ev => {
+        const comp = ev.competitions?.[0];
+        const teams = comp?.competitors||[];
+        if (!teams.some(t=>matchFn(t.team))) return;
+        const st = fmtStatus(ev);
+        if (st.done || (off < 0 && !st.done)) {
+          // completed or past — treat as last
+          const home = teams.find(t=>t.homeAway==='home')||teams[0]||{};
+          const away = teams.find(t=>t.homeAway==='away')||teams[1]||{};
+          const myTeam = teams.find(t=>matchFn(t.team));
+          const oppTeam = teams.find(t=>!matchFn(t.team));
+          if (st.done) {
+            const won = +myTeam.score > +oppTeam.score;
+            lastGame = `${won?'W':'L'} ${myTeam.score}-${oppTeam.score} vs ${oppTeam.team?.abbreviation||'–'}`;
+          }
+        } else if (!st.done && off >= 0) {
+          if (!nextGame) {
+            const oppTeam = teams.find(t=>!matchFn(t.team));
+            nextGame = `${st.label} vs ${oppTeam?.team?.abbreviation||'–'}`;
+          }
+        }
+      });
+    });
+
+    if (!lastGame && !nextGame) return '';
+    return `<div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#181818;border-top:1px solid ${C.border};font-size:10px;flex-shrink:0;">
+      <span style="width:8px;height:8px;border-radius:50%;background:${dotColor};flex-shrink:0;display:inline-block;"></span>
+      <span style="font-weight:700;color:${dotColor};letter-spacing:1px;font-family:var(--cond);flex-shrink:0;">${labelTeam}</span>
+      ${lastGame?`<span style="color:${C.dim};">Last: <span style="color:${C.text};">${lastGame}</span></span>`:''}
+      ${lastGame&&nextGame?`<span style="color:${C.border};">·</span>`:''}
+      ${nextGame?`<span style="color:${C.dim};">Next: <span style="color:${C.gold};">${nextGame}</span></span>`:''}
+    </div>`;
+  }
+
+  // ── Render shell ──
+  function buildShell() {
+    ROOT.innerHTML = '';
+    ROOT.style.cssText = `display:flex;flex-direction:column;height:100%;min-height:0;background:${C.bg};font-family:'Barlow Condensed',sans-serif;`;
+
+    // League tabs
+    const tabBar = document.createElement('div');
+    tabBar.style.cssText = `display:flex;align-items:center;background:${C.bg2};border-bottom:1px solid ${C.border};flex-shrink:0;`;
+    ['nhl','mlb'].forEach(lg => {
+      const btn = document.createElement('button');
+      btn.textContent = lg.toUpperCase();
+      btn.style.cssText = `flex:1;padding:6px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;border:none;cursor:pointer;border-bottom:2px solid ${league===lg?C.accent:'transparent'};background:${league===lg?C.bg3:'transparent'};color:${league===lg?C.accent:C.dim};transition:all .15s;`;
+      btn.addEventListener('click',()=>{ league=lg; dayOff=0; view='scores'; buildShell(); loadAndRender(); });
+      tabBar.appendChild(btn);
+    });
+    ROOT.appendChild(tabBar);
+
+    // Day nav + Standings tab
+    const navBar = document.createElement('div');
+    navBar.style.cssText = `display:flex;align-items:center;gap:4px;padding:4px 8px;border-bottom:1px solid ${C.border};flex-shrink:0;`;
+    [-1,0,1].forEach(off => {
+      const btn = document.createElement('button');
+      btn.textContent = labelForOffset(off);
+      const active = (view==='scores' && dayOff===off);
+      btn.style.cssText = `flex:1;padding:3px 0;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;border:1px solid ${active?C.gold:C.border};border-radius:3px;cursor:pointer;background:${active?'rgba(240,192,96,.12)':'transparent'};color:${active?C.gold:C.dim};`;
+      btn.addEventListener('click',()=>{ view='scores'; dayOff=off; buildShell(); loadAndRender(); });
+      navBar.appendChild(btn);
+    });
+    const stBtn = document.createElement('button');
+    stBtn.textContent = 'STAND.';
+    const stActive = view==='standings';
+    stBtn.style.cssText = `padding:3px 8px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;border:1px solid ${stActive?C.blue:C.border};border-radius:3px;cursor:pointer;background:${stActive?'rgba(106,176,255,.12)':'transparent'};color:${stActive?C.blue:C.dim};`;
+    stBtn.addEventListener('click',()=>{ view='standings'; buildShell(); loadAndRender(); });
+    navBar.appendChild(stBtn);
+    ROOT.appendChild(navBar);
+
+    // Content area
+    const content = document.createElement('div');
+    content.id = 'scores-content';
+    content.style.cssText = `flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#333 transparent;min-height:0;`;
+    content.innerHTML = `<div style="padding:16px;text-align:center;font-size:12px;color:${C.dim};">Loading…</div>`;
+    ROOT.appendChild(content);
+
+    // Team summary bar (two lines stacked)
+    const summaryBar = document.createElement('div');
+    summaryBar.id = 'scores-summary';
+    summaryBar.style.cssText = `flex-shrink:0;`;
+    ROOT.appendChild(summaryBar);
+  }
+
+  async function loadAndRender() {
+    const content = document.getElementById('scores-content');
+    const summary = document.getElementById('scores-summary');
+    if (!content) return;
+
+    if (view === 'standings') {
+      const key = `${league}-standings`;
+      if (!cache[key]) {
+        try { cache[key] = await fetchJSON(espnStandingsUrl(league)); } catch(e) { cache[key]={}; }
+      }
+      content.innerHTML = renderStandings(cache[key]);
+    } else {
+      const key = `${league}-${dayOff}`;
+      if (!cache[key]) {
+        try { cache[key] = await fetchJSON(espnScoreUrl(league, dayOff)); } catch(e) { cache[key]={}; }
+      }
+      // Pre-fetch adjacent days for summary bar
+      for (const off of [-1,0,1]) {
+        const k2=`${league}-${off}`;
+        if(!cache[k2]){try{cache[k2]=await fetchJSON(espnScoreUrl(league,off));}catch(e){cache[k2]={};}}
+      }
+      content.innerHTML = renderScores(cache[key]);
+    }
+
+    // Rebuild summary with two rows — one per team depending on league
+    if (summary) {
+      summary.innerHTML = teamSummary(cache, cache[`${league}-standings`]);
+    }
+  }
+
+  // ── Boot ──
+  buildShell();
+  loadAndRender();
+  // Refresh every 60s if scores view
+  setInterval(()=>{ if(view==='scores'){delete cache[`${league}-${dayOff}`];loadAndRender();} }, 60000);
 })();
 </script>
 

@@ -1050,9 +1050,10 @@ def main():
 
     # BC Hockey specific news
     bc_hockey = safe(lambda: fetch_feed(
-        'https://news.google.com/rss/search?q=%22Boston+College+hockey%22+OR+%22BC+Eagles+hockey%22&hl=en-US&gl=US&ceid=US:en', 15
+        'https://news.google.com/rss/search?q=%22boston%20college%22%20hockey%20when%3A7d&hl=en-US&gl=US&ceid=US%3Aen', 20
     ), "BC Hockey news") or []
     for i in bc_hockey: i["source"] = "Google News · BC Hockey"
+    bc_hockey.sort(key=lambda x: x.get("ts",0), reverse=True)
     data["news_bc_hockey"] = bc_hockey
 
     # Hockey East news
