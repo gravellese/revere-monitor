@@ -3223,6 +3223,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     for (const off of [-5,-4,-3,-2,-1,0,1,2,3]) {
       const d = cache[`${league}-${off}`];
       if (!d) continue;
+      const dayLabel = (() => {
+        const dt = new Date(); dt.setDate(dt.getDate() + off);
+        return dt.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();
+      })();
       (d.events||[]).forEach(ev => {
         const comp = ev.competitions?.[0];
         const teams = comp?.competitors||[];
@@ -3234,10 +3238,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         if (st.done) {
           // Always overwrite — loop is oldest-to-newest so last write = most recent
           const won = +myTeam.score > +oppTeam.score;
-          lastGame = { text:opp, score:`${myTeam.score}–${oppTeam.score}`, result:won?'W':'L', resColor:won?C.green:C.red };
+          lastGame = { day:dayLabel, text:opp, score:`${myTeam.score}–${oppTeam.score}`, result:won?'W':'L', resColor:won?C.green:C.red };
         } else if (!nextGame && off >= 0) {
           // First non-completed game on today or future = next game
-          nextGame = { text:opp, time:st.label, live:!!st.live };
+          nextGame = { day:dayLabel, text:opp, time:st.label, live:!!st.live };
         }
       });
     }
@@ -3253,7 +3257,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         ${labelSpan}
         <span style="font-family:'Barlow Condensed',sans-serif;font-size:10px;color:${C.dim};flex-shrink:0;">LAST</span>
         <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;color:${C.text};flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${lastGame.text}</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:${lastGame.resColor};flex-shrink:0;">${lastGame.result} ${lastGame.score}</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:${lastGame.resColor};flex-shrink:0;">${lastGame.day} ${lastGame.result} ${lastGame.score}</span>
       </div>`;
     }
     if (nextGame) {
@@ -3261,7 +3265,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         ${labelSpan}
         <span style="font-family:'Barlow Condensed',sans-serif;font-size:10px;color:${C.dim};flex-shrink:0;">NEXT</span>
         <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;color:${C.text};flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${nextGame.text}</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:${nextGame.live?C.green:C.gold};flex-shrink:0;">${nextGame.time}</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:${nextGame.live?C.green:C.gold};flex-shrink:0;">${nextGame.day} ${nextGame.time}</span>
       </div>`;
     }
     return rows;
