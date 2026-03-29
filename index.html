@@ -2241,79 +2241,173 @@ function renderTopStories(d) {
   const container = document.getElementById("top-stories-widget");
   if (!container) return;
 
+  // ── NOISE FILTER ─────────────────────────────────────────────
+  // Patterns that reliably indicate non-news content
+  const JUNK_PATTERNS = [
+    /obituar|obit\b|in loving memory|passed away|in memoriam|death notice|memorial service|survived by|funeral home|arrangements by/i,
+    /meeting (agenda|notice|minutes)|public hearing|city council agenda|agenda for|board of/i,
+    /job (opening|posting|listing)|now hiring|career opportunity|apply (today|now|online)/i,
+    /police (log|blotter)|arrest (log|report)s?\b/i,
+    /classified|real estate listing|open house|for sale|price (reduced|drop)/i,
+    /this week(\'s)? events|community calendar|upcoming events|things to do/i,
+    /sponsored|advertisement|press release|submitted (by|photo)|opinion:/i,
+    /horoscope|lottery results|weather (forecast|outlook) for/i,
+    /anniversary (of|celebration)|years ago (today|this week)/i,
+  ];
+
+  // ── AGE GATE ─────────────────────────────────────────────────
+  // Hard cutoff: skip anything older than 72 hours
+  const CUTOFF_MS = 72 * 60 * 60 * 1000;
+  const now = Date.now();
+
+  function getTs(a) {
+    if (a.ts) return a.ts * 1000;
+    if (a.pubDate) return new Date(a.pubDate).getTime();
+    if (a.date) return new Date(a.date).getTime();
+    return 0;
+  }
+
+  function isJunk(title) {
+    return JUNK_PATTERNS.some(p => p.test(title));
+  }
+
+  // ── GATHER + FILTER ──────────────────────────────────────────
   const allArticles = [
     ...(d.news_revere || []),
     ...(d.news_communities || []),
     ...(d.news_boston || []),
     ...(d.news_national || []),
-    ...(d.news_ma_transit || [])
+    ...(d.news_ma_transit || []),
   ];
 
-  function normalize(text) {
-    return text.toLowerCase().replace(/[^a-z0-9\s]/g,"").replace(/\b(the|a|an|to|of|and|in|on|for|with|at|by)\b/g,"").replace(/\s+/g," ").trim();
-  }
-  function extractKeywords(title) { return normalize(title).split(" ").slice(0,8); }
+  const articles = allArticles
+    .map(a => ({ title: (a.title || '').trim(), link: a.link || '#', source: a.source || 'Unknown', ts: getTs(a) }))
+    .filter(a => a.title.length > 15)          // skip stub titles
+    .filter(a => !isJunk(a.title))              // skip noise
+    .filter(a => a.ts > 0 && (now - a.ts) < CUTOFF_MS); // 72-hour gate
 
-  const cleaned = allArticles.map(a => ({
-    title: a.title || '',
-    link: a.link || '#',
-    source: a.source || "Unknown",
-    date: new Date((a.ts ? a.ts * 1000 : null) || a.pubDate || a.date || Date.now()),
-    keywords: extractKeywords(a.title || '')
-  }));
+  // ── CLUSTERING ───────────────────────────────────────────────
+  // Extract meaningful words (4+ chars, not stopwords)
+  const STOP = new Set(['that','this','with','from','have','will','been','were','they','their','into','about','more','also','when','than','just','over','after','before','would','could','should','then','them']);
+  function keywords(title) {
+    return title.toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length >= 4 && !STOP.has(w));
+  }
+
+  function overlap(kwA, kwB) {
+    const setA = new Set(kwA), setB = new Set(kwB);
+    const shared = [...setA].filter(w => setB.has(w)).length;
+    return shared / Math.max(Math.min(setA.size, setB.size), 1);
+  }
 
   const clusters = [];
-  function keywordOverlap(a, b) {
-    const setA = new Set(a), setB = new Set(b);
-    return [...setA].filter(x => setB.has(x)).length / Math.max(setA.size, 1);
-  }
-  cleaned.forEach(article => {
+  articles.forEach(article => {
+    const kw = keywords(article.title);
     let matched = false;
-    for (let cluster of clusters) {
-      if (keywordOverlap(article.keywords, cluster.keywords) > 0.5) { cluster.articles.push(article); matched = true; break; }
+    for (const cluster of clusters) {
+      if (overlap(kw, cluster.kw) >= 0.4) {
+        cluster.articles.push(article);
+        // Update cluster keywords toward centroid (most representative article)
+        matched = true;
+        break;
+      }
     }
-    if (!matched) clusters.push({ keywords: article.keywords, articles: [article] });
+    if (!matched) clusters.push({ kw, articles: [article] });
   });
 
-  function getWeight(article) {
-    let w = 1, t = article.title.toLowerCase();
-    if (t.includes("revere")) w += 5;
-    if (t.match(/chelsea|everett|east boston|winthrop|lynn/)) w += 3;
-    if (t.match(/boston|mbta|logan|massdot|north shore/)) w += 2;
-    if (t.match(/us |america|congress|white house/)) w -= 1;
-    if (t.match(/fire|crash|shooting|closure|alert/)) w += 2;
-    return w;
+  // ── SCORING ──────────────────────────────────────────────────
+  function scoreCluster(cluster) {
+    const articles = cluster.articles;
+    const sources = new Set(articles.map(a => a.source));
+    const newest = Math.max(...articles.map(a => a.ts));
+    const ageHrs = (now - newest) / 3600000;
+
+    // Recency decay: steep drop-off after 6 hours, gentler after that
+    const recencyScore = ageHrs < 1 ? 20 : ageHrs < 3 ? 14 : ageHrs < 6 ? 9 : ageHrs < 12 ? 5 : ageHrs < 24 ? 2 : 0;
+
+    // Multi-source coverage is a strong signal of real importance
+    const coverageScore = (sources.size - 1) * 6;
+
+    // Volume signal (but diminishing — 10 articles from one source shouldn't beat 2 from different ones)
+    const volumeScore = Math.min(articles.length, 5);
+
+    // Local relevance boost
+    let localBoost = 0;
+    const t = articles[0].title.toLowerCase();
+    if (t.includes('revere')) localBoost += 8;
+    else if (t.match(/chelsea|east boston|everett|winthrop|lynn|malden|saugus/)) localBoost += 5;
+    else if (t.match(/boston|mbta|massdot|logan|massachusetts|mass\./)) localBoost += 3;
+
+    // Impact signal — words that suggest consequence, not just events
+    const impactWords = /arrested|charged|killed|closed|suspended|banned|shutdown|evacuated|emergency|crisis|breakthrough|signed|passed|rejected|overturned|awarded|fined|indicted|fatal|outbreak|fire|flood|storm|strike|protest/i;
+    const impactBoost = impactWords.test(articles[0].title) ? 4 : 0;
+
+    return recencyScore + coverageScore + volumeScore + localBoost + impactBoost;
   }
 
-  const ranked = clusters.map(cluster => {
-    const sources = new Set(cluster.articles.map(a => a.source));
-    const newest = Math.max(...cluster.articles.map(a => a.date));
-    const baseScore = sources.size * 2 + cluster.articles.length + (Date.now() - newest < 1000 * 60 * 60 * 3 ? 4 : 0);
-    return { title: cluster.articles[0].title, link: cluster.articles[0].link, articles: cluster.articles, coverage: sources.size, score: baseScore + cluster.articles.reduce((s, a) => s + getWeight(a), 0), newest };
-  }).sort((a, b) => b.score - a.score).slice(0, 5);
-
-  function whyItMatters(title) {
+  // ── LABEL ────────────────────────────────────────────────────
+  function storyTag(title) {
     const t = title.toLowerCase();
-    if (t.includes("revere")) return "Direct impact on Revere residents";
-    if (t.includes("mbta")) return "Affects commuting and transit access";
-    if (t.includes("logan")) return "Impacts flights and regional travel";
-    if (t.match(/housing|development/)) return "Impacts housing and local growth";
-    if (t.match(/crime|fire|police/)) return "Public safety concern";
-    return "Developing regional story";
+    if (t.includes('revere')) return { label: 'REVERE', color: 'var(--accent)' };
+    if (t.match(/chelsea|east boston|everett|winthrop|lynn/)) return { label: 'LOCAL', color: 'var(--green)' };
+    if (t.match(/mbta|massdot|transit/)) return { label: 'TRANSIT', color: '#f5c518' };
+    if (t.match(/boston|massachusetts/)) return { label: 'REGIONAL', color: 'var(--orange)' };
+    return { label: 'NATIONAL', color: 'var(--text-mute)' };
   }
 
-  container.innerHTML = `<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;">
-    ${ranked.map((story, i) => `
-      <div style="padding:10px 14px;border-right:1px solid var(--border);${i===ranked.length-1?'border-right:none;':''}">
-        <div style="font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-mute);margin-bottom:5px;">#${i+1}</div>
-        <a href="${story.link}" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;color:var(--text);text-decoration:none;line-height:1.35;display:block;margin-bottom:6px;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">${story.title}</a>
-        <div style="font-size:10px;color:var(--text-mute);margin-bottom:4px;">${story.coverage} source${story.coverage!==1?'s':''} · ${story.articles.length} article${story.articles.length!==1?'s':''}</div>
-        <div style="font-size:10px;color:var(--accent);margin-bottom:6px;">${whyItMatters(story.title)}</div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;">
-          ${story.articles.slice(0,3).map(a => `<a href="${a.link}" target="_blank" rel="noopener" style="font-size:10px;font-family:var(--cond);letter-spacing:1px;color:var(--text-mute);text-decoration:none;background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:1px 6px;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-mute)'">${a.source}</a>`).join('')}
+  function fmtAge(ts) {
+    const hrs = (now - ts) / 3600000;
+    if (hrs < 1) return `${Math.round(hrs * 60)}m ago`;
+    if (hrs < 24) return `${Math.round(hrs)}h ago`;
+    return `${Math.round(hrs / 24)}d ago`;
+  }
+
+  // ── RANK + PICK TOP 5 ────────────────────────────────────────
+  const ranked = clusters
+    .map(c => {
+      // Use the most recent article's title/link as headline
+      const byRecency = [...c.articles].sort((a, b) => b.ts - a.ts);
+      return {
+        title: byRecency[0].title,
+        link: byRecency[0].link,
+        articles: byRecency,
+        sources: [...new Set(byRecency.map(a => a.source))],
+        newest: byRecency[0].ts,
+        score: scoreCluster(c),
+      };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5);
+
+  // ── RENDER ───────────────────────────────────────────────────
+  if (!ranked.length) {
+    container.innerHTML = `<div style="padding:16px;color:var(--text-mute);font-size:13px;">No fresh stories in the last 72 hours — check back after the next data refresh.</div>`;
+    return;
+  }
+
+  container.innerHTML = `<div style="display:grid;grid-template-columns:repeat(5,1fr);height:100%;">
+    ${ranked.map((story, i) => {
+      const tag = storyTag(story.title);
+      const age = fmtAge(story.newest);
+      const isLast = i === ranked.length - 1;
+      return `<div style="padding:12px 14px;border-right:${isLast ? 'none' : '1px solid var(--border)'};display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:2px;color:${tag.color};">${tag.label}</span>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--text-mute);">${age}</span>
         </div>
-      </div>
-    `).join('')}
+        <a href="${story.link}" target="_blank" rel="noopener"
+           style="font-size:13px;font-weight:600;color:var(--text);text-decoration:none;line-height:1.4;flex:1;"
+           onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">${story.title}</a>
+        <div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:auto;">
+          ${story.sources.slice(0, 3).map(src =>
+            `<span style="font-size:10px;font-family:var(--cond);letter-spacing:0.5px;color:var(--text-mute);background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:1px 6px;">${src}</span>`
+          ).join('')}
+          ${story.articles.length > 1 ? `<span style="font-size:10px;color:var(--text-mute);padding:1px 4px;">${story.articles.length} articles</span>` : ''}
+        </div>
+      </div>`;
+    }).join('')}
   </div>`;
 }
 
