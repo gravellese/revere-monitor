@@ -2242,7 +2242,6 @@ function renderTopStories(d) {
   if (!container) return;
 
   // ── NOISE FILTER ─────────────────────────────────────────────
-  // Patterns that reliably indicate non-news content
   const JUNK_PATTERNS = [
     /obituar|obit\b|in loving memory|passed away|in memoriam|death notice|memorial service|survived by|funeral home|arrangements by/i,
     /meeting (agenda|notice|minutes)|public hearing|city council agenda|agenda for|board of/i,
@@ -2253,10 +2252,14 @@ function renderTopStories(d) {
     /sponsored|advertisement|press release|submitted (by|photo)|opinion:/i,
     /horoscope|lottery results|weather (forecast|outlook) for/i,
     /anniversary (of|celebration)|years ago (today|this week)/i,
+    // ── META/ROUNDUP CONTENT ──
+    /top stories|breaking news roundup|news roundup|daily roundup|weekly roundup/i,
+    /today's (top |breaking )?stories|this week in|news for (monday|tuesday|wednesday|thursday|friday|saturday|sunday)/i,
+    /headlines for|morning headlines|evening headlines/i,
+    /(new bedford|lynn|chelsea|salem|malden|everett|somerville|cambridge|quincy|brockton|lowell|worcester)\s+(top stories|headlines|news roundup|daily news)/i,
   ];
 
   // ── AGE GATE ─────────────────────────────────────────────────
-  // Hard cutoff: skip anything older than 72 hours
   const CUTOFF_MS = 72 * 60 * 60 * 1000;
   const now = Date.now();
 
@@ -2282,13 +2285,13 @@ function renderTopStories(d) {
 
   const articles = allArticles
     .map(a => ({ title: (a.title || '').trim(), link: a.link || '#', source: a.source || 'Unknown', ts: getTs(a) }))
-    .filter(a => a.title.length > 15)          // skip stub titles
-    .filter(a => !isJunk(a.title))              // skip noise
-    .filter(a => a.ts > 0 && (now - a.ts) < CUTOFF_MS); // 72-hour gate
+    .filter(a => a.title.length > 15)
+    .filter(a => !isJunk(a.title))
+    .filter(a => a.ts > 0 && (now - a.ts) < CUTOFF_MS);
 
   // ── CLUSTERING ───────────────────────────────────────────────
-  // Extract meaningful words (4+ chars, not stopwords)
-  const STOP = new Set(['that','this','with','from','have','will','been','were','they','their','into','about','more','also','when','than','just','over','after','before','would','could','should','then','them']);
+  const STOP = new Set(['that','this','with','from','have','will','been','were','they','their','into','about','more','also','when','than','just','over','after','before','would','could','should','then','them','says','rally','rallies','hold','held','protest','protesters']);
+  
   function keywords(title) {
     return title.toLowerCase()
       .replace(/[^a-z0-9\s]/g, ' ')
@@ -2307,9 +2310,9 @@ function renderTopStories(d) {
     const kw = keywords(article.title);
     let matched = false;
     for (const cluster of clusters) {
-      if (overlap(kw, cluster.kw) >= 0.4) {
+      // Increased threshold from 0.4 to 0.5 for more aggressive clustering
+      if (overlap(kw, cluster.kw) >= 0.5) {
         cluster.articles.push(article);
-        // Update cluster keywords toward centroid (most representative article)
         matched = true;
         break;
       }
@@ -2324,23 +2327,16 @@ function renderTopStories(d) {
     const newest = Math.max(...articles.map(a => a.ts));
     const ageHrs = (now - newest) / 3600000;
 
-    // Recency decay: steep drop-off after 6 hours, gentler after that
     const recencyScore = ageHrs < 1 ? 20 : ageHrs < 3 ? 14 : ageHrs < 6 ? 9 : ageHrs < 12 ? 5 : ageHrs < 24 ? 2 : 0;
-
-    // Multi-source coverage is a strong signal of real importance
     const coverageScore = (sources.size - 1) * 6;
-
-    // Volume signal (but diminishing — 10 articles from one source shouldn't beat 2 from different ones)
     const volumeScore = Math.min(articles.length, 5);
 
-    // Local relevance boost
     let localBoost = 0;
     const t = articles[0].title.toLowerCase();
     if (t.includes('revere')) localBoost += 8;
     else if (t.match(/chelsea|east boston|everett|winthrop|lynn|malden|saugus/)) localBoost += 5;
     else if (t.match(/boston|mbta|massdot|logan|massachusetts|mass\./)) localBoost += 3;
 
-    // Impact signal — words that suggest consequence, not just events
     const impactWords = /arrested|charged|killed|closed|suspended|banned|shutdown|evacuated|emergency|crisis|breakthrough|signed|passed|rejected|overturned|awarded|fined|indicted|fatal|outbreak|fire|flood|storm|strike|protest/i;
     const impactBoost = impactWords.test(articles[0].title) ? 4 : 0;
 
@@ -2367,7 +2363,6 @@ function renderTopStories(d) {
   // ── RANK + PICK TOP 5 ────────────────────────────────────────
   const ranked = clusters
     .map(c => {
-      // Use the most recent article's title/link as headline
       const byRecency = [...c.articles].sort((a, b) => b.ts - a.ts);
       return {
         title: byRecency[0].title,
