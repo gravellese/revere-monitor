@@ -702,213 +702,7 @@ a.big-btn:hover{opacity:.85;}
 }
 </style>
 
-<script>
-(function(){
-  const MERGED_FEED = 'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RAnWsB0A7AnhAlgLYCmmAxgPaGKzEoBu+ZpiAHoQDarqK4SIAJKsQAKAQwDmxDOw4gANOChwk3TGOjREAM2LEAJrEQARYwFksYwvQAcATgCKdgKpYAUgAZjMziAC6QA';
-  const MAX_ITEMS = 48;
 
-  function isXML(s) {
-    return typeof s === 'string' && (s.includes('<item>') || s.includes('<entry>') || s.includes('<rss') || s.includes('<feed'));
-  }
-
-  async function fetchFeed(url) {
-    const enc = encodeURIComponent(url);
-
-    // 1. allorigins — returns JSON {contents: "..."}
-    try {
-      const r = await fetch(`https://api.allorigins.win/get?url=${enc}`, {cache:'no-cache'});
-      if (r.ok) {
-        const d = await r.json();
-        const xml = d.contents;
-        if (isXML(xml)) return xml;
-      }
-    } catch(e) {}
-
-    // 2. corsproxy.io — returns raw text directly (NOT JSON)
-    try {
-      const r = await fetch(`https://corsproxy.io/?${enc}`, {cache:'no-cache'});
-      if (r.ok) {
-        const xml = await r.text();
-        if (isXML(xml)) return xml;
-      }
-    } catch(e) {}
-
-    // 3. allorigins raw endpoint
-    try {
-      const r = await fetch(`https://api.allorigins.win/raw?url=${enc}`, {cache:'no-cache'});
-      if (r.ok) {
-        const xml = await r.text();
-        if (isXML(xml)) return xml;
-      }
-    } catch(e) {}
-
-    // 4. rss2json — returns JSON with items array, handle separately
-    try {
-      const r = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${enc}&count=60`, {cache:'no-cache'});
-      if (r.ok) {
-        const d = await r.json();
-        if (d.status === 'ok' && Array.isArray(d.items)) {
-          // Convert rss2json format to our item format and return a synthetic XML-like object
-          // Flag it so we handle it differently
-          return { __rss2json: true, items: d.items, feed: d.feed };
-        }
-      }
-    } catch(e) {}
-
-    // 5. Direct fetch (works if server sends CORS headers)
-    try {
-      const r = await fetch(url, {cache:'no-cache'});
-      if (r.ok) {
-        const xml = await r.text();
-        if (isXML(xml)) return xml;
-      }
-    } catch(e) {}
-
-    return null;
-  }
-
-  function parseDate(s) {
-    if (!s) return 0;
-    try { return new Date(s).getTime(); } catch(e) { return 0; }
-  }
-
-  function fmtDateTime(ts) {
-    if (!ts) return '';
-    const d = new Date(ts);
-    const now = new Date();
-    const sameDay = d.toDateString() === now.toDateString();
-    const time = d.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'});
-    if (sameDay) return time;
-    return d.toLocaleDateString('en-US', {month:'short', day:'numeric'}) + ' ' + time;
-  }
-
-  function guessSource(item) {
-    const link = (item.link || '').toLowerCase();
-    const src  = (item.source || '').toLowerCase();
-    if (link.includes('nytimes') || link.includes('nyt.com') || src.includes('times')) return 'nyt';
-    if (link.includes('bostonglobe') || link.includes('globe.com') || src.includes('globe')) return 'globe';
-    // rssrssrssrss merged feed: alternate items tend to be NYT then Globe
-    // Fall back to checking for common Globe story signals
-    if (link.includes('boston') || src.includes('boston')) return 'globe';
-    return 'nyt';
-  }
-
-  function getSnippet(item) {
-    // Try description/summary fields
-    const desc = item.description || item.summary || item.content || '';
-    if (!desc) return '';
-    // Strip HTML tags
-    const clean = desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g,' ').trim();
-    return clean.slice(0, 200);
-  }
-
-  function parseItems(xmlOrObj) {
-    // Handle rss2json fallback format
-    if (xmlOrObj && xmlOrObj.__rss2json) {
-      return xmlOrObj.items.map(n => ({
-        title: n.title || '',
-        link: n.link || n.guid || '#',
-        pubDate: n.pubDate || '',
-        description: n.description || n.content || '',
-        source: n.author || '',
-        ts: parseDate(n.pubDate)
-      })).filter(i => i.title);
-    }
-
-    const xml = xmlOrObj;
-    const doc = new DOMParser().parseFromString(xml, 'text/xml');
-    const items = [];
-
-    // RSS <item>
-    doc.querySelectorAll('item').forEach(n => {
-      const title = n.querySelector('title')?.textContent?.trim() || '';
-      const link = n.querySelector('link')?.textContent?.trim() || n.querySelector('guid')?.textContent || '#';
-      const pubDate = n.querySelector('pubDate')?.textContent || '';
-      const description = (() => {
-        // Try namespaced content:encoded first
-        const ns = [...n.children].find(c => c.tagName === 'content:encoded');
-        return ns?.textContent || n.querySelector('description')?.textContent || '';
-      })();
-      if (title) items.push({ title, link, pubDate, description, source: '', ts: parseDate(pubDate) });
-    });
-
-    // Atom <entry>
-    doc.querySelectorAll('entry').forEach(n => {
-      const title = n.querySelector('title')?.textContent?.trim() || '';
-      const link = n.querySelector('link[rel="alternate"]')?.getAttribute('href') || n.querySelector('link')?.getAttribute('href') || '#';
-      const pubDate = n.querySelector('updated')?.textContent || n.querySelector('published')?.textContent || '';
-      const description = n.querySelector('summary')?.textContent || n.querySelector('content')?.textContent || '';
-      if (title) items.push({ title, link, pubDate, description, source: '', ts: parseDate(pubDate) });
-    });
-
-    return items;
-  }
-
-  function renderItems(items) {
-    const grid = document.getElementById('ngl-grid');
-    const meta = document.getElementById('ngl-meta');
-    if (!items.length) {
-      grid.innerHTML = '<div class="ngl-loading">No stories available</div>';
-      meta.textContent = 'Feed unavailable';
-      return;
-    }
-
-    // Sort by newest first
-    items.sort((a,b) => b.ts - a.ts);
-    const top = items.slice(0, MAX_ITEMS);
-
-    // Count sources
-    let nytCount = 0, globeCount = 0;
-    top.forEach(it => {
-      const src = guessSource(it);
-      if (src === 'globe') globeCount++; else nytCount++;
-    });
-
-    grid.innerHTML = '';
-    top.forEach(item => {
-      const src = guessSource(item);
-      const snippet = getSnippet(item);
-      const a = document.createElement('a');
-      a.href = item.link || '#';
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.className = 'ngl-item';
-      a.innerHTML = `
-        <div class="ngl-item-top">
-          <span class="ngl-src-badge ngl-src-${src}">${src === 'globe' ? 'GLOBE' : 'NYT'}</span>
-          <span class="ngl-item-time">${fmtDateTime(item.ts)}</span>
-        </div>
-        <div class="ngl-item-title">${item.title}</div>
-        ${snippet ? `<div class="ngl-item-summary">${snippet}</div>` : ''}
-      `;
-      grid.appendChild(a);
-    });
-
-    meta.textContent = `${top.length} stories · NYT: ${nytCount} · Globe: ${globeCount} · updated ${new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'})}`;
-  }
-
-  async function load() {
-    document.getElementById('ngl-meta').textContent = 'Loading…';
-    const result = await fetchFeed(MERGED_FEED);
-    if (!result) {
-      document.getElementById('ngl-grid').innerHTML = `
-        <div class="ngl-loading" style="color:#c0392b;">
-          Feed unavailable — all proxies failed.<br>
-          <button onclick="nglRetry()" style="margin-top:10px;padding:5px 16px;background:#c0392b;color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;">↺ RETRY</button>
-        </div>`;
-      document.getElementById('ngl-meta').textContent = 'Error';
-      return;
-    }
-    renderItems(parseItems(result));
-  }
-
-  window.nglRetry = load;
-
-  load();
-  // Refresh every 5 minutes
-  setInterval(load, 300000);
-})();
-</script>
 
 
 
@@ -3917,5 +3711,165 @@ document.addEventListener('DOMContentLoaded',()=>{
   </div>
 </div>
 
+
+<script>
+/* ── NYT + GLOBE FEED ── runs after full DOM is ready */
+(function(){
+  const MERGED_FEED = 'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RAnWsB0A7AnhAlgLYCmmAxgPaGKzEoBu+ZpiAHoQDarqK4SIAJKsQAKAQwDmxDOw4gANOChwk3TGOjREAM2LEAJrEQARYwFksYwvQAcATgCKdgKpYAUgAZjMziAC6QA';
+  const MAX_ITEMS = 48;
+
+  function grid()  { return document.getElementById('ngl-grid'); }
+  function meta()  { return document.getElementById('ngl-meta'); }
+
+  function isXML(s) {
+    return typeof s === 'string' && (s.includes('<item>') || s.includes('<entry>') || s.includes('<rss') || s.includes('<feed'));
+  }
+
+  async function fetchFeed(url) {
+    const enc = encodeURIComponent(url);
+
+    // 1. Direct fetch — rssrssrssrss.com sends CORS headers
+    try {
+      const r = await fetch(url, { cache: 'no-cache' });
+      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
+    } catch(e) {}
+
+    // 2. allorigins JSON wrapper
+    try {
+      const r = await fetch('https://api.allorigins.win/get?url=' + enc, { cache: 'no-cache' });
+      if (r.ok) { const d = await r.json(); if (isXML(d.contents)) return d.contents; }
+    } catch(e) {}
+
+    // 3. corsproxy raw text
+    try {
+      const r = await fetch('https://corsproxy.io/?' + enc, { cache: 'no-cache' });
+      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
+    } catch(e) {}
+
+    // 4. allorigins raw
+    try {
+      const r = await fetch('https://api.allorigins.win/raw?url=' + enc, { cache: 'no-cache' });
+      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
+    } catch(e) {}
+
+    // 5. rss2json
+    try {
+      const r = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + enc + '&count=60', { cache: 'no-cache' });
+      if (r.ok) { const d = await r.json(); if (d.status === 'ok' && d.items?.length) return { __rss2json: true, items: d.items }; }
+    } catch(e) {}
+
+    return null;
+  }
+
+  function parseDate(s) { try { return s ? new Date(s).getTime() : 0; } catch(e) { return 0; } }
+
+  function fmtDateTime(ts) {
+    if (!ts) return '';
+    const d = new Date(ts), now = new Date();
+    const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    return d.toDateString() === now.toDateString()
+      ? time
+      : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' + time;
+  }
+
+  function getSnippet(desc) {
+    if (!desc) return '';
+    return desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+  }
+
+  function guessSource(item) {
+    const link = (item.link || '').toLowerCase();
+    const src  = (item.source || '').toLowerCase();
+    if (link.includes('nytimes') || link.includes('nyt.com') || src.includes('times')) return 'nyt';
+    if (link.includes('bostonglobe') || link.includes('globe.com') || src.includes('globe') || link.includes('boston')) return 'globe';
+    return 'nyt';
+  }
+
+  function parseItems(result) {
+    if (!result) return [];
+    // rss2json format
+    if (result.__rss2json) {
+      return result.items.map(n => ({
+        title: n.title || '', link: n.link || n.guid || '#',
+        pubDate: n.pubDate || '', description: n.description || n.content || '',
+        source: n.author || '', ts: parseDate(n.pubDate)
+      })).filter(i => i.title);
+    }
+    const doc = new DOMParser().parseFromString(result, 'text/xml');
+    const items = [];
+    doc.querySelectorAll('item').forEach(n => {
+      const title = n.querySelector('title')?.textContent?.trim() || '';
+      const link  = n.querySelector('link')?.textContent?.trim() || n.querySelector('guid')?.textContent || '#';
+      const pub   = n.querySelector('pubDate')?.textContent || '';
+      const desc  = [...n.children].find(c => c.tagName === 'content:encoded')?.textContent
+                    || n.querySelector('description')?.textContent || '';
+      if (title) items.push({ title, link, pubDate: pub, description: desc, source: '', ts: parseDate(pub) });
+    });
+    doc.querySelectorAll('entry').forEach(n => {
+      const title = n.querySelector('title')?.textContent?.trim() || '';
+      const link  = n.querySelector('link[rel="alternate"]')?.getAttribute('href') || n.querySelector('link')?.getAttribute('href') || '#';
+      const pub   = n.querySelector('updated')?.textContent || n.querySelector('published')?.textContent || '';
+      const desc  = n.querySelector('summary')?.textContent || n.querySelector('content')?.textContent || '';
+      if (title) items.push({ title, link, pubDate: pub, description: desc, source: '', ts: parseDate(pub) });
+    });
+    return items;
+  }
+
+  function renderItems(items) {
+    const g = grid(), m = meta();
+    if (!g) return;
+    if (!items.length) {
+      g.innerHTML = '<div class="ngl-loading">No stories available</div>';
+      if (m) m.textContent = 'Feed unavailable';
+      return;
+    }
+    items.sort((a, b) => b.ts - a.ts);
+    const top = items.slice(0, MAX_ITEMS);
+    let nyt = 0, globe = 0;
+    g.innerHTML = '';
+    top.forEach(item => {
+      const src = guessSource(item);
+      if (src === 'globe') globe++; else nyt++;
+      const snippet = getSnippet(item.description);
+      const a = document.createElement('a');
+      a.href = item.link || '#';
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = 'ngl-item';
+      a.innerHTML =
+        '<div class="ngl-item-top">'
+        + '<span class="ngl-src-badge ngl-src-' + src + '">' + (src === 'globe' ? 'GLOBE' : 'NYT') + '</span>'
+        + '<span class="ngl-item-time">' + fmtDateTime(item.ts) + '</span>'
+        + '</div>'
+        + '<div class="ngl-item-title">' + item.title + '</div>'
+        + (snippet ? '<div class="ngl-item-summary">' + snippet + '</div>' : '');
+      g.appendChild(a);
+    });
+    if (m) m.textContent = top.length + ' stories · NYT: ' + nyt + ' · Globe: ' + globe
+      + ' · updated ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  async function load() {
+    const g = grid(), m = meta();
+    if (!g) { console.warn('NGL: ngl-grid not found'); return; }
+    if (m) m.textContent = 'Loading…';
+    const result = await fetchFeed(MERGED_FEED);
+    if (!result) {
+      g.innerHTML = '<div class="ngl-loading" style="color:#c0392b;">Feed unavailable'
+        + '<br><button onclick="nglRetry()" style="margin-top:10px;padding:5px 16px;'
+        + 'background:#c0392b;color:#fff;border:none;border-radius:4px;'
+        + 'font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;'
+        + 'letter-spacing:1px;cursor:pointer;">↺ RETRY</button></div>';
+      if (m) m.textContent = 'Error';
+      return;
+    }
+    renderItems(parseItems(result));
+  }
+
+  window.nglRetry = load;
+  load();
+  setInterval(load, 300000);
+})();
+</script>
 </body>
 </html>
