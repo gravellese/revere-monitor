@@ -726,22 +726,64 @@ a.big-btn:hover{opacity:.85;}
 (function(){
   const MERGED_FEED = 'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RAnWsB0A7AnhAlgLYCmmAxgPaGKzEoBu+ZpiAHoQDarqK4SIAJKsQAKAQwDmxDOw4gANOChwk3TGOjREAM2LEAJrEQARYwFksYwvQAcATgCKdgKpYAUgAZjMziAC6QA';
   const MAX_ITEMS = 48;
-  const PROXY_FNS = [
-    u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-    u => `https://corsproxy.io/?${encodeURIComponent(u)}`
-  ];
+
+  function isXML(s) {
+    return typeof s === 'string' && (s.includes('<item>') || s.includes('<entry>') || s.includes('<rss') || s.includes('<feed'));
+  }
 
   async function fetchFeed(url) {
-    for (const fn of PROXY_FNS) {
-      try {
-        const r = await fetch(fn(url), {cache:'no-cache'});
-        if (!r.ok) continue;
+    const enc = encodeURIComponent(url);
+
+    // 1. allorigins — returns JSON {contents: "..."}
+    try {
+      const r = await fetch(`https://api.allorigins.win/get?url=${enc}`, {cache:'no-cache'});
+      if (r.ok) {
         const d = await r.json();
-        const xml = d.contents || d;
-        if (typeof xml === 'string' && (xml.includes('<item>') || xml.includes('<entry>'))) return xml;
-      } catch(e) {}
-    }
-    try { const r = await fetch(url); return await r.text(); } catch(e) {}
+        const xml = d.contents;
+        if (isXML(xml)) return xml;
+      }
+    } catch(e) {}
+
+    // 2. corsproxy.io — returns raw text directly (NOT JSON)
+    try {
+      const r = await fetch(`https://corsproxy.io/?${enc}`, {cache:'no-cache'});
+      if (r.ok) {
+        const xml = await r.text();
+        if (isXML(xml)) return xml;
+      }
+    } catch(e) {}
+
+    // 3. allorigins raw endpoint
+    try {
+      const r = await fetch(`https://api.allorigins.win/raw?url=${enc}`, {cache:'no-cache'});
+      if (r.ok) {
+        const xml = await r.text();
+        if (isXML(xml)) return xml;
+      }
+    } catch(e) {}
+
+    // 4. rss2json — returns JSON with items array, handle separately
+    try {
+      const r = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${enc}&count=60`, {cache:'no-cache'});
+      if (r.ok) {
+        const d = await r.json();
+        if (d.status === 'ok' && Array.isArray(d.items)) {
+          // Convert rss2json format to our item format and return a synthetic XML-like object
+          // Flag it so we handle it differently
+          return { __rss2json: true, items: d.items, feed: d.feed };
+        }
+      }
+    } catch(e) {}
+
+    // 5. Direct fetch (works if server sends CORS headers)
+    try {
+      const r = await fetch(url, {cache:'no-cache'});
+      if (r.ok) {
+        const xml = await r.text();
+        if (isXML(xml)) return xml;
+      }
+    } catch(e) {}
+
     return null;
   }
 
@@ -762,11 +804,13 @@ a.big-btn:hover{opacity:.85;}
 
   function guessSource(item) {
     const link = (item.link || '').toLowerCase();
-    const title = (item.title || '').toLowerCase();
-    if (link.includes('nytimes') || link.includes('nyt.') || title.includes('nytimes')) return 'nyt';
-    if (link.includes('bostonglobe') || link.includes('globe.com')) return 'globe';
-    // Try to guess from feed content
-    return 'nyt'; // default
+    const src  = (item.source || '').toLowerCase();
+    if (link.includes('nytimes') || link.includes('nyt.com') || src.includes('times')) return 'nyt';
+    if (link.includes('bostonglobe') || link.includes('globe.com') || src.includes('globe')) return 'globe';
+    // rssrssrssrss merged feed: alternate items tend to be NYT then Globe
+    // Fall back to checking for common Globe story signals
+    if (link.includes('boston') || src.includes('boston')) return 'globe';
+    return 'nyt';
   }
 
   function getSnippet(item) {
@@ -778,21 +822,37 @@ a.big-btn:hover{opacity:.85;}
     return clean.slice(0, 200);
   }
 
-  function parseItems(xml) {
+  function parseItems(xmlOrObj) {
+    // Handle rss2json fallback format
+    if (xmlOrObj && xmlOrObj.__rss2json) {
+      return xmlOrObj.items.map(n => ({
+        title: n.title || '',
+        link: n.link || n.guid || '#',
+        pubDate: n.pubDate || '',
+        description: n.description || n.content || '',
+        source: n.author || '',
+        ts: parseDate(n.pubDate)
+      })).filter(i => i.title);
+    }
+
+    const xml = xmlOrObj;
     const doc = new DOMParser().parseFromString(xml, 'text/xml');
     const items = [];
-    
-    // RSS items
+
+    // RSS <item>
     doc.querySelectorAll('item').forEach(n => {
       const title = n.querySelector('title')?.textContent?.trim() || '';
       const link = n.querySelector('link')?.textContent?.trim() || n.querySelector('guid')?.textContent || '#';
-      const pubDate = n.querySelector('pubDate')?.textContent || n.querySelector('dc\:date')?.textContent || '';
-      const description = n.querySelector('description')?.textContent || n.querySelector('content\:encoded')?.textContent || '';
-      const source = n.querySelector('source')?.textContent || '';
-      if (title) items.push({ title, link, pubDate, description, source, ts: parseDate(pubDate) });
+      const pubDate = n.querySelector('pubDate')?.textContent || '';
+      const description = (() => {
+        // Try namespaced content:encoded first
+        const ns = [...n.children].find(c => c.tagName === 'content:encoded');
+        return ns?.textContent || n.querySelector('description')?.textContent || '';
+      })();
+      if (title) items.push({ title, link, pubDate, description, source: '', ts: parseDate(pubDate) });
     });
 
-    // Atom entries
+    // Atom <entry>
     doc.querySelectorAll('entry').forEach(n => {
       const title = n.querySelector('title')?.textContent?.trim() || '';
       const link = n.querySelector('link[rel="alternate"]')?.getAttribute('href') || n.querySelector('link')?.getAttribute('href') || '#';
@@ -848,14 +908,21 @@ a.big-btn:hover{opacity:.85;}
   }
 
   async function load() {
-    const xml = await fetchFeed(MERGED_FEED);
-    if (!xml) {
-      document.getElementById('ngl-grid').innerHTML = '<div class="ngl-loading" style="color:#c0392b;">Failed to load feed</div>';
+    document.getElementById('ngl-meta').textContent = 'Loading…';
+    const result = await fetchFeed(MERGED_FEED);
+    if (!result) {
+      document.getElementById('ngl-grid').innerHTML = `
+        <div class="ngl-loading" style="color:#c0392b;">
+          Feed unavailable — all proxies failed.<br>
+          <button onclick="nglRetry()" style="margin-top:10px;padding:5px 16px;background:#c0392b;color:#fff;border:none;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;">↺ RETRY</button>
+        </div>`;
       document.getElementById('ngl-meta').textContent = 'Error';
       return;
     }
-    renderItems(parseItems(xml));
+    renderItems(parseItems(result));
   }
+
+  window.nglRetry = load;
 
   load();
   // Refresh every 5 minutes
