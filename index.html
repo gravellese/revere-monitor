@@ -396,18 +396,11 @@ a.big-btn:hover{opacity:.85;}
 .section-divider{font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;padding:8px 0 4px;border-top:1px solid var(--border);margin-top:6px;}
 
 /* ── BOSTON CAROUSEL ── */
-.bos-carousel-wrap{background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;overflow:hidden;}
-.bos-carousel-header{background:#0d2b5e;border-bottom:1px solid #1a3a6a;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;}
-.bos-carousel-header .ct{font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:3px;color:#f5c518;text-transform:uppercase;}
-.bos-carousel-header .cb{font-size:10px;color:#a8b8d0;letter-spacing:1px;text-transform:uppercase;}
-.bos-carousel-nav{display:flex;align-items:center;gap:6px;}
 .bos-nav-btn{width:24px;height:24px;border-radius:50%;background:#081a3a;border:1px solid #1a3a6a;color:#00ddb8;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;}
 .bos-nav-btn:hover{background:#0f2550;border-color:#00ddb8;}
 .bos-nav-btn:active{transform:scale(.93);}
 .bos-pause-btn{font-size:10px;color:#5a7a9a;background:none;border:1px solid #1a3a6a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
 .bos-pause-btn:hover{color:#00ddb8;border-color:#00ddb8;}
-.bos-carousel-viewport{overflow:hidden;padding:10px 12px;}
-.bos-carousel-track{display:flex;gap:10px;transition:transform .35s cubic-bezier(.4,0,.2,1);}
 .bos-card{flex-shrink:0;width:260px;background:#0d1614;border:1px solid #1c2e2a;border-radius:5px;padding:10px 14px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:3px;}
 .bos-card:hover{border-color:#00ddb8;}
 .bos-card .bc-src{font-size:10px;color:#f5c518;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);}
@@ -632,11 +625,11 @@ a.big-btn:hover{opacity:.85;}
 }
 .ngl-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
   overflow-y: auto;
-  /* 8 stories = 4 rows; each row ~105px → 420px shows exactly 8 before scroll */
-  max-height: 420px;
+  flex: 1;
+  min-height: 0;
   scrollbar-width: thin;
   scrollbar-color: #aaa #e8e8e8;
 }
@@ -647,13 +640,12 @@ a.big-btn:hover{opacity:.85;}
   display: block;
   padding: 12px 16px;
   border-bottom: 1px solid #ccc;
-  border-right: 1px solid #ccc;
   text-decoration: none;
   background: #f2f2f2;
   transition: background .12s;
   cursor: pointer;
 }
-.ngl-item:nth-child(even) { border-right: none; background: #efefef; }
+.ngl-item:nth-child(even) { background: #eeeeee; }
 .ngl-item:hover { background: #e0e8f4 !important; }
 .ngl-item-top {
   display: flex;
@@ -709,20 +701,6 @@ a.big-btn:hover{opacity:.85;}
   color: #555;
 }
 </style>
-
-<div class="ngl-wrap">
-  <div class="ngl-header">
-    <div class="ngl-header-left">
-      <span class="ngl-badge-nyt">NYT</span>
-      <span class="ngl-badge-globe">GLOBE</span>
-      <span class="ngl-title">NYT + Globe Latest</span>
-    </div>
-    <span class="ngl-meta" id="ngl-meta">Loading…</span>
-  </div>
-  <div class="ngl-grid" id="ngl-grid">
-    <div class="ngl-loading">Loading NYT + Globe stories…</div>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -950,10 +928,12 @@ a.big-btn:hover{opacity:.85;}
     <div id="ktn-viewport" style="flex:1;overflow:hidden;position:relative;cursor:pointer;" title="Click to pause/resume">
       <div id="ktn-scroll-track" style="display:inline-flex;white-space:nowrap;will-change:transform;align-items:center;min-height:60px;padding:0;"></div>
     </div>
-    <!-- Controls: pause button + timestamp -->
-    <div style="display:flex;align-items:center;gap:6px;padding:0 12px;flex-shrink:0;border-left:1px solid #ccc;background:#f0f0f0;">
+    <!-- Controls: prev/next + pause + timestamp -->
+    <div style="display:flex;align-items:center;gap:5px;padding:0 10px;flex-shrink:0;border-left:1px solid #ccc;background:#f0f0f0;">
+      <button id="ktn-prev" style="width:28px;height:28px;border-radius:50%;background:#fff;border:1.5px solid #bbb;color:#555;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='#c0392b';this.style.color='#c0392b'" onmouseout="this.style.borderColor='#bbb';this.style.color='#555'">&#8249;</button>
       <button id="ktn-pause-btn" style="font-size:11px;color:#c0392b;background:#fff;border:1.5px solid #c0392b;border-radius:4px;padding:3px 10px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700;white-space:nowrap;transition:background .15s;">⏸ PAUSE</button>
-      <div id="ktn-ts" style="font-size:10px;color:#888;font-family:monospace;white-space:nowrap;"></div>
+      <button id="ktn-next" style="width:28px;height:28px;border-radius:50%;background:#fff;border:1.5px solid #bbb;color:#555;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .15s,color .15s;" onmouseover="this.style.borderColor='#c0392b';this.style.color='#c0392b'" onmouseout="this.style.borderColor='#bbb';this.style.color='#555'">&#8250;</button>
+      <div id="ktn-ts" style="font-size:10px;color:#888;font-family:monospace;white-space:nowrap;margin-left:4px;"></div>
     </div>
   </div>
 </div>
@@ -962,22 +942,53 @@ a.big-btn:hover{opacity:.85;}
 function renderKTN(items) {
   const MAX_KTN = 10;
   const PPS = 60;
+  const NUDGE_PX = 420; // roughly one story width
   let offset = 0, halfW = 0, raf = null, lastT = null, paused = false;
   const track = document.getElementById('ktn-scroll-track');
   const pauseBtn = document.getElementById('ktn-pause-btn');
+  const prevBtn = document.getElementById('ktn-prev');
+  const nextBtn = document.getElementById('ktn-next');
   const viewport = document.getElementById('ktn-viewport');
   if (!track) return;
+
+  let resumeTimer = null;
+
+  function nudge(dir) {
+    // Pause briefly, scroll, then resume
+    paused = true;
+    if (resumeTimer) clearTimeout(resumeTimer);
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    offset += dir * NUDGE_PX;
+    if (offset < 0) offset += halfW;
+    if (offset >= halfW) offset -= halfW;
+    track.style.transition = 'transform .3s ease';
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    setTimeout(() => { track.style.transition = ''; }, 320);
+    // Auto-resume after 2s unless user manually paused
+    resumeTimer = setTimeout(() => {
+      if (paused && pauseBtn && !pauseBtn.dataset.manualPause) {
+        paused = false;
+        lastT = null;
+        startScroll();
+      }
+    }, 2000);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => nudge(-1));
+  if (nextBtn) nextBtn.addEventListener('click', () => nudge(+1));
 
   // Pause/resume on button click
   if (pauseBtn) {
     pauseBtn.addEventListener('click', () => {
       paused = !paused;
       if (paused) {
+        pauseBtn.dataset.manualPause = '1';
         pauseBtn.textContent = '▶ RESUME';
         pauseBtn.style.background = '#c0392b';
         pauseBtn.style.color = '#fff';
         if (raf) { cancelAnimationFrame(raf); raf = null; }
       } else {
+        delete pauseBtn.dataset.manualPause;
         pauseBtn.textContent = '⏸ PAUSE';
         pauseBtn.style.background = '#fff';
         pauseBtn.style.color = '#c0392b';
@@ -1093,20 +1104,7 @@ function renderKTN(items) {
 
   <!-- LEFT COLUMN -->
 
-  <div class="grid-stack-item" gs-id="priorities" gs-x="0" gs-y="9" gs-w="4" gs-h="5" gs-min-h="5">
-  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
-    <div class="ch grn" style="flex-shrink:0;"><div class="ct">TOP 3 PRIORITIES</div><div class="cb">SAVED IN BROWSER</div></div>
-    <div class="cbody" style="display:flex;flex-direction:column;flex:1;min-height:0;">
-      <div class="pri-wrap" style="flex-shrink:0;">
-        <div class="pri-item"><div class="pri-num n1">1</div><textarea class="pri-ta" id="p1" placeholder="Most important thing right now…"></textarea></div>
-        <div class="pri-item"><div class="pri-num n2">2</div><textarea class="pri-ta" id="p2" placeholder="Second priority…"></textarea></div>
-        <div class="pri-item"><div class="pri-num n3">3</div><textarea class="pri-ta" id="p3" placeholder="Third priority…"></textarea></div>
-      </div>
-      <div style="flex-shrink:0;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--text-mute);text-transform:uppercase;padding:6px 0 3px;border-top:1px solid var(--border);margin-top:6px;">Notes</div>
-      <textarea id="p4" placeholder="Notes…" style="flex:1;min-height:0;width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--white);font-family:var(--sans);font-size:13px;padding:6px 10px;resize:none;outline:none;"></textarea>
-      <div id="pri-saved" style="flex-shrink:0;">auto-saved to this browser</div>
-    </div>
-  </div></div></div>
+
 
 
 
@@ -1207,30 +1205,54 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="boston-news" gs-x="0" gs-y="46" gs-w="12" gs-h="5" gs-min-h="5">
-  <div class="grid-stack-item-content">
-    <div class="bos-carousel-wrap">
-      <div class="bos-carousel-header">
-        <div><div class="ct">BOSTON NEWS</div><div class="cb">25 MOST RECENT STORIES</div></div>
-        <div class="bos-carousel-nav">
-          <button class="bos-nav-btn" id="bosCarPrev">&#8249;</button>
-          <button class="bos-pause-btn" id="bosCarPause">⏸ pause</button>
-          <button class="bos-nav-btn" id="bosCarNext">&#8250;</button>
-        </div>
+
+  <!-- NYT + GLOBE FEED (GridStack) -->
+  <div class="grid-stack-item" gs-id="nyt-globe-feed" gs-x="0" gs-y="46" gs-w="4" gs-h="14" gs-min-h="6">
+  <div class="grid-stack-item-content" style="overflow:hidden;">
+  <div class="ngl-wrap" style="height:100%;display:flex;flex-direction:column;">
+    <div class="ngl-header" style="flex-shrink:0;">
+      <div class="ngl-header-left">
+        <span class="ngl-badge-nyt">NYT</span>
+        <span class="ngl-badge-globe">GLOBE</span>
+        <span class="ngl-title">NYT + Globe Latest</span>
       </div>
-      <div class="bos-carousel-viewport" id="bosCarViewport">
-        <div class="bos-carousel-track" id="bosCarTrack"><div style="color:#5a7a9a;font-size:13px;padding:20px;">Loading…</div></div>
-      </div>
-      <div class="bos-dots" id="bosDots"></div>
+      <span class="ngl-meta" id="ngl-meta">Loading…</span>
     </div>
+    <div class="ngl-grid" id="ngl-grid" style="flex:1;max-height:none;overflow-y:auto;">
+      <div class="ngl-loading">Loading NYT + Globe stories…</div>
+    </div>
+  </div>
   </div></div>
+  <div class="grid-stack-item" gs-id="boston-news" gs-x="0" gs-y="46" gs-w="4" gs-h="14" gs-min-h="5">
+  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
+    <div class="ch bos" style="flex-shrink:0;">
+      <div><div class="ct">BOSTON NEWS</div><div class="cb">30 MOST RECENT STORIES</div></div>
+      <span id="bos-meta" style="font-size:10px;color:#a8b8d0;font-family:monospace;margin-left:auto;"></span>
+    </div>
+    <div id="bos-list" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;min-height:0;">
+      <div class="empty">Loading…</div>
+    </div>
+    <div style="flex-shrink:0;border-top:1px solid #1a3a6a;padding:6px 10px;display:flex;align-items:center;justify-content:space-between;background:#081a3a;">
+      <button id="bos-prev" style="font-size:11px;padding:2px 10px;border-radius:4px;border:1px solid #1a3a6a;background:transparent;cursor:pointer;color:#a8b8d0;font-family:var(--cond);letter-spacing:1px;">← PREV</button>
+      <span id="bos-page-label" style="font-size:11px;color:#5a7a9a;font-family:var(--mono);"></span>
+      <button id="bos-next" style="font-size:11px;padding:2px 10px;border-radius:4px;border:1px solid #1a3a6a;background:transparent;cursor:pointer;color:#a8b8d0;font-family:var(--cond);letter-spacing:1px;">NEXT →</button>
+    </div>
+  </div></div></div>
 
   <div class="grid-stack-item" gs-id="uhub-rss" gs-x="0" gs-y="51" gs-w="5" gs-h="11" gs-min-h="3">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch ora"><div class="ct">UNIVERSAL HUB</div><div class="cb">LIVE FEED</div></div>
-    <div class="cbody np" style="padding:8px;">
-      <rssapp-list id="JDVfRVH4lICb0p4B"></rssapp-list>
-      <script src="https://widget.rss.app/v1/list.js" type="text/javascript" async></script>
+  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
+    <div class="ch ora" style="flex-shrink:0;">
+      <div class="ct">UNIVERSAL HUB</div>
+      <div class="cb">LIVE FEED</div>
+      <span id="uhub-meta" style="font-size:10px;color:#7a5a30;font-family:monospace;margin-left:auto;"></span>
+    </div>
+    <div id="uhub-list" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;">
+      <div class="empty">Loading…</div>
+    </div>
+    <div style="flex-shrink:0;border-top:1px solid var(--border);padding:6px 10px;display:flex;align-items:center;justify-content:space-between;background:var(--bg3);">
+      <button id="uhub-prev" style="font-size:11px;padding:2px 10px;border-radius:4px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text-mute);font-family:var(--cond);letter-spacing:1px;">← PREV</button>
+      <span id="uhub-page-label" style="font-size:11px;color:var(--text-mute);font-family:var(--mono);"></span>
+      <button id="uhub-next" style="font-size:11px;padding:2px 10px;border-radius:4px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text-mute);font-family:var(--cond);letter-spacing:1px;">NEXT →</button>
     </div>
   </div></div></div>
 
@@ -1561,6 +1583,127 @@ function renderKTN(items) {
   </div></div></div>
 
 </div><!-- /gs-grid -->
+
+<script>
+// ── UNIVERSAL HUB FEED ──
+(function(){
+  const UHUB_FEED = 'https://rss.app/feeds/JDVfRVH4lICb0p4B.xml';
+  const MAX_UHUB = 24;
+  const PER_PAGE = 6;
+  let allItems = [];
+  let page = 0;
+
+  function isXML(s) {
+    return typeof s === 'string' && (s.includes('<item>') || s.includes('<rss') || s.includes('<feed'));
+  }
+
+  async function fetchFeed(url) {
+    const enc = encodeURIComponent(url);
+    try {
+      const r = await fetch(`https://api.allorigins.win/get?url=${enc}`, {cache:'no-cache'});
+      if (r.ok) { const d = await r.json(); if (isXML(d.contents)) return d.contents; }
+    } catch(e) {}
+    try {
+      const r = await fetch(`https://corsproxy.io/?${enc}`, {cache:'no-cache'});
+      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
+    } catch(e) {}
+    try {
+      const r = await fetch(`https://api.allorigins.win/raw?url=${enc}`, {cache:'no-cache'});
+      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
+    } catch(e) {}
+    return null;
+  }
+
+  function parseDate(s) { try { return s ? new Date(s).getTime() : 0; } catch(e) { return 0; } }
+
+  function fmtDateTime(ts) {
+    if (!ts) return '';
+    const d = new Date(ts);
+    const now = new Date();
+    const sameDay = d.toDateString() === now.toDateString();
+    const time = d.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'});
+    return sameDay ? time : d.toLocaleDateString('en-US', {month:'short', day:'numeric'}) + ' ' + time;
+  }
+
+  function getSnippet(desc) {
+    if (!desc) return '';
+    return desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+  }
+
+  function parseItems(xml) {
+    const doc = new DOMParser().parseFromString(xml, 'text/xml');
+    const items = [];
+    doc.querySelectorAll('item').forEach(n => {
+      const title = n.querySelector('title')?.textContent?.trim() || '';
+      const link = n.querySelector('link')?.textContent?.trim() || n.querySelector('guid')?.textContent || '#';
+      const pubDate = n.querySelector('pubDate')?.textContent || '';
+      const description = n.querySelector('description')?.textContent || '';
+      if (title) items.push({ title, link, pubDate, description, ts: parseDate(pubDate) });
+    });
+    items.sort((a, b) => b.ts - a.ts);
+    return items.slice(0, MAX_UHUB);
+  }
+
+  function renderPage() {
+    const list = document.getElementById('uhub-list');
+    const meta = document.getElementById('uhub-meta');
+    const pageLabel = document.getElementById('uhub-page-label');
+    const prevBtn = document.getElementById('uhub-prev');
+    const nextBtn = document.getElementById('uhub-next');
+    if (!list) return;
+
+    const start = page * PER_PAGE;
+    const slice = allItems.slice(start, start + PER_PAGE);
+    const totalPages = Math.ceil(allItems.length / PER_PAGE);
+
+    list.innerHTML = '';
+    slice.forEach(item => {
+      const snippet = getSnippet(item.description);
+      const a = document.createElement('a');
+      a.href = item.link || '#';
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.style.cssText = 'display:block;padding:10px 14px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .12s;';
+      a.onmouseover = () => a.style.background = 'var(--bg3)';
+      a.onmouseout = () => a.style.background = '';
+      a.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;">
+          <span style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--orange);font-family:var(--cond);text-transform:uppercase;">UNIVERSAL HUB</span>
+          <span style="font-size:10px;color:var(--text-mute);font-family:monospace;flex-shrink:0;">${fmtDateTime(item.ts)}</span>
+        </div>
+        <div style="font-size:14px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${item.title}</div>
+        ${snippet ? `<div style="font-size:12px;color:var(--text-dim);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${snippet}</div>` : ''}
+      `;
+      list.appendChild(a);
+    });
+
+    if (pageLabel) pageLabel.textContent = `${start + 1}–${Math.min(start + PER_PAGE, allItems.length)} of ${allItems.length}`;
+    if (prevBtn) { prevBtn.style.opacity = page === 0 ? '0.3' : '1'; prevBtn.disabled = page === 0; }
+    if (nextBtn) { nextBtn.style.opacity = page >= totalPages - 1 ? '0.3' : '1'; nextBtn.disabled = page >= totalPages - 1; }
+    if (meta) meta.textContent = `updated ${new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'})}`;
+  }
+
+  async function load() {
+    const list = document.getElementById('uhub-list');
+    if (!list) return;
+    list.innerHTML = '<div class="empty">Loading…</div>';
+    const xml = await fetchFeed(UHUB_FEED);
+    if (!xml) { list.innerHTML = '<div class="empty">Feed unavailable</div>'; return; }
+    allItems = parseItems(xml);
+    page = 0;
+    renderPage();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const prev = document.getElementById('uhub-prev');
+    const next = document.getElementById('uhub-next');
+    if (prev) prev.addEventListener('click', () => { if (page > 0) { page--; renderPage(); } });
+    if (next) next.addEventListener('click', () => { if ((page + 1) * PER_PAGE < allItems.length) { page++; renderPage(); } });
+    load();
+    setInterval(load, 300000);
+  });
+})();
+</script>
 
 <div id="page" style="display:none;"><div id="col-left"></div><div id="col-right"></div></div>
 
@@ -1979,53 +2122,65 @@ document.getElementById('links-modal').addEventListener('click',e=>{if(e.target=
       else if(types.has(4))byMode.ferry.push(a);
     });
 
-    // Blue Line status summary pill — always shown at top
-    const blueAlerts=alerts.filter(a=>(a.attributes?.informed_entity||[]).some(e=>e.route==='Blue'));
-    const blueOk=blueAlerts.length===0;
-    const bluePill=document.createElement('div');
-    bluePill.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid #1a2820;';
-    bluePill.innerHTML=`<div style="width:10px;height:10px;border-radius:50%;background:#003DA5;flex-shrink:0;"></div>`
-      +`<span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#c0d8ff;font-family:var(--cond);">BLUE LINE</span>`
-      +`<span style="margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:3px;`
-      +(blueOk?`background:#0a2a1a;color:var(--green);border:1px solid #1a5a2a;">NORMAL OPERATION`:`background:#2a0a0a;color:var(--red);border:1px solid #5a1a1a;">${blueAlerts.length} ALERT${blueAlerts.length!==1?'S':''}`)
-      +`</span>`;
-    if(!blueOk){
-      blueAlerts.forEach(a=>{
-        const hdr=a.attributes?.header||'';
-        const eff=EFFECT_MAP[a.attributes?.effect]||'ALERT';
-        const effCls=EFFECT_CLS[eff]||'aeff-other';
-        const d=document.createElement('div');
-        d.className='alrt-item';d.style.cssText='margin-left:28px;border-left:2px solid #003DA5;';
-        d.innerHTML=`<div class="alrt-effect ${effCls}">${eff}</div><div class="alrt-header-txt">${hdr}</div>`;
-        bluePill.appendChild(d);
-      });
-    }
-    body.appendChild(bluePill);
+    // ── Helper: build an expandable priority pill (Blue Line, Revere Bus, CR) ──
+    function makePriorityPill(opts) {
+      // opts: {dotColor, label, sublabel, alerts, lineColor}
+      const { dotColor, label, sublabel, alerts, lineColor } = opts;
+      const hasAlerts = alerts.length > 0;
+      const pillId = 'pill-' + label.replace(/\W/g, '');
+      const listId = 'list-' + label.replace(/\W/g, '');
 
-    // Revere Bus lines status pill — Routes 110, 116, 119
-    const REVERE_BUS_ROUTES=['110','116','119'];
-    const revBusAlerts=alerts.filter(a=>(a.attributes?.informed_entity||[]).some(e=>REVERE_BUS_ROUTES.includes(e.route)));
-    const revBusOk=revBusAlerts.length===0;
-    const revBusPill=document.createElement('div');
-    revBusPill.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid #1a2820;';
-    revBusPill.innerHTML=`<div style="width:10px;height:10px;border-radius:50%;background:#FFC72C;flex-shrink:0;"></div>`
-      +`<span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#ffe090;font-family:var(--cond);">REVERE BUS</span>`
-      +`<span style="font-size:10px;color:#5a7a72;font-family:var(--mono);">110 · 116 · 119</span>`
-      +`<span style="margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:3px;`
-      +(revBusOk?`background:#0a2a1a;color:var(--green);border:1px solid #1a5a2a;">NORMAL OPERATION`:`background:#2a1a00;color:#FFC72C;border:1px solid #5a3a00;">${revBusAlerts.length} ALERT${revBusAlerts.length!==1?'S':''}`)
-      +`</span>`;
-    if(!revBusOk){
-      revBusAlerts.forEach(a=>{
-        const hdr=a.attributes?.header||'';
-        const eff=EFFECT_MAP[a.attributes?.effect]||'ALERT';
-        const effCls=EFFECT_CLS[eff]||'aeff-other';
-        const d=document.createElement('div');
-        d.className='alrt-item';d.style.cssText='margin-left:28px;border-left:2px solid #FFC72C;';
-        d.innerHTML=`<div class="alrt-effect ${effCls}">${eff}</div><div class="alrt-header-txt">${hdr}</div>`;
-        revBusPill.appendChild(d);
-      });
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'border-bottom:1px solid #1a2820;';
+
+      const btn = document.createElement('button');
+      btn.className = 'alrt-mode-toggle';
+      btn.setAttribute('onclick', `document.getElementById('${listId}').classList.toggle('open');this.querySelector('.alrt-chevron').classList.toggle('open');`);
+      btn.innerHTML = `
+        <div style="width:10px;height:10px;border-radius:50%;background:${dotColor};flex-shrink:0;"></div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#c0d8ff;font-family:var(--cond);flex:1;">${label}${sublabel ? `<span style="font-size:10px;color:#5a7a72;font-family:var(--mono);font-weight:400;margin-left:6px;">${sublabel}</span>` : ''}</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:3px;${hasAlerts
+          ? 'background:#2a0a0a;color:var(--red);border:1px solid #5a1a1a;'
+          : 'background:#0a2a1a;color:var(--green);border:1px solid #1a5a2a;'}">${hasAlerts ? `${alerts.length} ALERT${alerts.length !== 1 ? 'S' : ''}` : 'NORMAL OPERATION'}</span>
+        <span class="alrt-chevron">▶</span>`;
+      wrap.appendChild(btn);
+
+      const list = document.createElement('div');
+      list.className = 'alrt-list';
+      list.id = listId;
+      if (!hasAlerts) {
+        list.innerHTML = '<div style="padding:7px 12px 7px 30px;font-size:11px;color:#3a5a52;">No active alerts</div>';
+      } else {
+        alerts.forEach(a => {
+          const hdr = a.attributes?.header || '';
+          const eff = EFFECT_MAP[a.attributes?.effect] || 'ALERT';
+          const effCls = EFFECT_CLS[eff] || 'aeff-other';
+          const routes = [...new Set((a.attributes?.informed_entity || []).map(e => e.route).filter(Boolean))].slice(0, 5);
+          const badges = routes.map(r => `<span class="alrt-rbadge ${routeBadgeCls(r)}">${r}</span>`).join('');
+          const d = document.createElement('div');
+          d.className = 'alrt-item';
+          d.style.cssText = `margin-left:28px;border-left:2px solid ${lineColor};`;
+          d.innerHTML = `<div class="alrt-effect ${effCls}">${eff}</div><div class="alrt-header-txt">${hdr}</div>${routes.length ? `<div class="alrt-routes">${badges}</div>` : ''}`;
+          list.appendChild(d);
+        });
+      }
+      wrap.appendChild(list);
+      return wrap;
     }
-    body.appendChild(revBusPill);
+
+    // Blue Line pill
+    const blueAlerts = alerts.filter(a => (a.attributes?.informed_entity || []).some(e => e.route === 'Blue'));
+    body.appendChild(makePriorityPill({ dotColor: '#003DA5', label: 'BLUE LINE', sublabel: '', alerts: blueAlerts, lineColor: '#003DA5' }));
+
+    // Revere Bus pill
+    const REVERE_BUS_ROUTES = ['110', '116', '119'];
+    const revBusAlerts = alerts.filter(a => (a.attributes?.informed_entity || []).some(e => REVERE_BUS_ROUTES.includes(e.route)));
+    body.appendChild(makePriorityPill({ dotColor: '#FFC72C', label: 'REVERE BUS', sublabel: '110 · 116 · 119', alerts: revBusAlerts, lineColor: '#FFC72C' }));
+
+    // Newburyport/Rockport Commuter Rail pill
+    const CR_NR_ROUTES = ['CR-Newburyport', 'CR-Rockport'];
+    const crNrAlerts = alerts.filter(a => (a.attributes?.informed_entity || []).some(e => CR_NR_ROUTES.includes(e.route)));
+    body.appendChild(makePriorityPill({ dotColor: '#80276C', label: 'NBPT/ROCKPORT', sublabel: 'CR', alerts: crNrAlerts, lineColor: '#80276C' }));
 
     let total=0;
     MODE_ORDER.forEach((mode,idx)=>{
@@ -2656,49 +2811,49 @@ async function loadData(){
   safeRender(()=>renderKTN(d.news_ktn||[]),'ktn-scroll-track');
   safeRender(()=>renderNews('news-revere',(d.news_revere||[]).slice(0,30)),'news-revere');
   safeRender(()=>renderNews('news-comm',(d.news_communities||[]).filter(i=>(i.ts||0)>(Date.now()/1000-2592000)).slice(0,150),true),'news-comm');
-  // ── BOSTON CAROUSEL ──
+  // ── BOSTON NEWS VERTICAL LIST ──
   (function(){
-    const raw = (d.news_boston||[]);
-    const items = sortByDate(raw).slice(0,25);
-    const track = document.getElementById('bosCarTrack');
-    const viewport = document.getElementById('bosCarViewport');
-    const dotsEl = document.getElementById('bosDots');
-    if(!items.length){track.innerHTML='<div style="color:#5a7a9a;font-size:13px;padding:20px;">No items loaded</div>';return;}
-    track.innerHTML='';
-    dotsEl.innerHTML='';
-    items.forEach((item,i)=>{
-      const a=document.createElement('a');a.className='bos-card';a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
-      const raw2=item.summary||item.description||item.content||'';
-      const tmp=document.createElement('div');tmp.innerHTML=raw2;
-      const plain=(tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim();
-      a.innerHTML=`<div class="bc-src">${item.source||'Boston News'}</div><div class="bc-title">${item.title||''}</div>`
-        +(plain.length>20?`<div class="bc-snippet">${plain}</div>`:'')+`<div class="bc-time">${fmtDateTime(item.ts,item.published)}</div>`;
-      track.appendChild(a);
-      const dot=document.createElement('div');dot.className='bos-dot'+(i===0?' active':'');
-      dot.addEventListener('click',()=>bosGoTo(i,true));
-      dotsEl.appendChild(dot);
-    });
-    const CARD_W=260+10;
-    let cur=0,paused=false,timer=null;
-    function visN(){return Math.floor(viewport.offsetWidth/CARD_W)||1;}
-    function bosGoTo(idx,userAction){
-      if(userAction)bosPause();
-      cur=Math.max(0,Math.min(idx,items.length-visN()));
-      track.style.transform=`translateX(-${cur*CARD_W}px)`;
-      document.querySelectorAll('.bos-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+    const PER_PAGE = 6;
+    const allItems = sortByDate(d.news_boston||[]).slice(0,30);
+    let page = 0;
+    const list = document.getElementById('bos-list');
+    const meta = document.getElementById('bos-meta');
+    const pageLabel = document.getElementById('bos-page-label');
+    const prevBtn = document.getElementById('bos-prev');
+    const nextBtn = document.getElementById('bos-next');
+    if(!list) return;
+    if(!allItems.length){list.innerHTML='<div class="empty">No items loaded</div>';return;}
+    function renderPage(){
+      const start = page * PER_PAGE;
+      const slice = allItems.slice(start, start + PER_PAGE);
+      const totalPages = Math.ceil(allItems.length / PER_PAGE);
+      list.innerHTML='';
+      list.scrollTop=0;
+      slice.forEach(item=>{
+        const raw2=item.summary||item.description||item.content||'';
+        const tmp=document.createElement('div');tmp.innerHTML=raw2;
+        const plain=(tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim().slice(0,200);
+        const a=document.createElement('a');
+        a.href=item.link||'#';a.target='_blank';a.rel='noopener noreferrer';
+        a.style.cssText='display:block;padding:10px 14px;border-bottom:1px solid #1a3a6a;text-decoration:none;transition:background .12s;';
+        a.onmouseover=()=>a.style.background='#0f2550';
+        a.onmouseout=()=>a.style.background='';
+        a.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:3px;">
+          <span style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#f5c518;font-family:var(--cond);text-transform:uppercase;">${item.source||'Boston News'}</span>
+          <span style="font-size:10px;color:#3a5a7a;font-family:monospace;flex-shrink:0;">${fmtDateTime(item.ts,item.published)}</span>
+        </div>
+        <div style="font-size:14px;font-weight:600;color:#c8d8f0;line-height:1.35;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${item.title||''}</div>
+        ${plain.length>20?`<div style="font-size:12px;color:#5a7a9a;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${plain}</div>`:''}`;
+        list.appendChild(a);
+      });
+      if(pageLabel) pageLabel.textContent=`${start+1}–${Math.min(start+PER_PAGE,allItems.length)} of ${allItems.length}`;
+      if(prevBtn){prevBtn.style.opacity=page===0?'0.3':'1';prevBtn.disabled=page===0;}
+      if(nextBtn){const last=page>=totalPages-1;nextBtn.style.opacity=last?'0.3':'1';nextBtn.disabled=last;}
+      if(meta) meta.textContent=`${allItems.length} stories`;
     }
-    function bosNext(u){const m=items.length-visN();bosGoTo(cur>=m?0:cur+1,u);}
-    function bosPrev(u){const m=items.length-visN();bosGoTo(cur<=0?m:cur-1,u);}
-    function bosPause(){paused=true;clearInterval(timer);const b=document.getElementById('bosCarPause');if(b)b.textContent='▶ resume';}
-    function bosResume(){paused=false;timer=setInterval(()=>bosNext(false),3800);const b=document.getElementById('bosCarPause');if(b)b.textContent='⏸ pause';}
-    const nb=document.getElementById('bosCarNext');if(nb)nb.addEventListener('click',()=>bosNext(true));
-    const pb=document.getElementById('bosCarPrev');if(pb)pb.addEventListener('click',()=>bosPrev(true));
-    const pauseB=document.getElementById('bosCarPause');if(pauseB)pauseB.addEventListener('click',()=>{paused?bosResume():bosPause();});
-    let dragStart=null;
-    viewport.addEventListener('mousedown',e=>{dragStart=e.clientX;});
-    viewport.addEventListener('mouseup',e=>{if(dragStart===null)return;const diff=dragStart-e.clientX;if(Math.abs(diff)>40){diff>0?bosNext(true):bosPrev(true);}dragStart=null;});
-    viewport.addEventListener('mouseleave',()=>{dragStart=null;});
-    bosResume();
+    if(prevBtn) prevBtn.addEventListener('click',()=>{if(page>0){page--;renderPage();}});
+    if(nextBtn) nextBtn.addEventListener('click',()=>{if((page+1)*PER_PAGE<allItems.length){page++;renderPage();}});
+    renderPage();
   })();
   safeRender(()=>renderSubstack('news-sports',(d.news_sports||[]).slice(0,40)),'news-sports');
   safeRender(()=>renderNews('news-espn',(d.news_espn||[]).slice(0,30)),'espn-feed');
@@ -2743,7 +2898,7 @@ redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
 // ── GRIDSTACK ──────────────────────────────────────────────────────
 const GS_KEY = 'revere_monitor_gs_v2';
 
-const DEFAULT_LAYOUT = {"priorities":{"x":0,"y":9,"w":4,"h":5},"personal-calendar":{"x":0,"y":0,"w":4,"h":9},"weather-unified":{"x":4,"y":0,"w":4,"h":9},"markets":{"x":0,"y":22,"w":3,"h":10},"radio":{"x":0,"y":18,"w":2,"h":4},"logan":{"x":9,"y":13,"w":3,"h":10},"boston-news":{"x":0,"y":46,"w":12,"h":5},"uhub-rss":{"x":0,"y":51,"w":5,"h":11},"uhub-bsky":{"x":0,"y":63,"w":3,"h":14},"bc-schedule":{"x":0,"y":120,"w":5,"h":12},"nyt-link":{"x":0,"y":14,"w":2,"h":4},"news-revere":{"x":0,"y":32,"w":4,"h":14},"news-comm":{"x":4,"y":28,"w":5,"h":18},"r-boston-panel":{"x":5,"y":51,"w":4,"h":9},"r-mass-panel":{"x":9,"y":51,"w":3,"h":9},"r-mbta-panel":{"x":9,"y":36,"w":3,"h":10},"r-nascar-panel":{"x":3,"y":107,"w":3,"h":7},"r-neo-panel":{"x":3,"y":62,"w":3,"h":7},"r-bruins-panel":{"x":0,"y":107,"w":3,"h":7},"r-urban-panel":{"x":8,"y":69,"w":4,"h":8},"news-sports":{"x":0,"y":91,"w":8,"h":8},"espn-feed":{"x":0,"y":107,"w":8,"h":8},"sports-schedule":{"x":4,"y":9,"w":4,"h":6},"news-bc":{"x":3,"y":78,"w":5,"h":13},"college-hockey":{"x":0,"y":77,"w":3,"h":14},"chn-bc":{"x":8,"y":94,"w":4,"h":8},"scores-widget":{"x":8,"y":102,"w":4,"h":9},"chn-all":{"x":8,"y":84,"w":4,"h":10},"national":{"x":6,"y":60,"w":6,"h":9},"reveretv":{"x":8,"y":77,"w":4,"h":7},"substack-feed":{"x":3,"y":69,"w":5,"h":9},"mbta-arrivals":{"x":8,"y":5,"w":4,"h":8},"mbta-alerts":{"x":8,"y":0,"w":4,"h":5},"mbta-news":{"x":9,"y":23,"w":3,"h":7},"revere-map":{"x":3,"y":15,"w":6,"h":13},"road-events":{"x":9,"y":30,"w":3,"h":6}};
+const DEFAULT_LAYOUT = {"personal-calendar":{"x":0,"y":0,"w":4,"h":9},"weather-unified":{"x":4,"y":0,"w":4,"h":9},"markets":{"x":0,"y":22,"w":3,"h":10},"radio":{"x":0,"y":18,"w":2,"h":4},"logan":{"x":9,"y":13,"w":3,"h":10},"nyt-globe-feed":{"x":8,"y":46,"w":4,"h":14},"boston-news":{"x":0,"y":46,"w":4,"h":14},"uhub-rss":{"x":0,"y":51,"w":5,"h":11},"uhub-bsky":{"x":0,"y":63,"w":3,"h":14},"bc-schedule":{"x":0,"y":120,"w":5,"h":12},"nyt-link":{"x":0,"y":14,"w":2,"h":4},"news-revere":{"x":0,"y":32,"w":4,"h":14},"news-comm":{"x":4,"y":28,"w":5,"h":18},"r-boston-panel":{"x":5,"y":51,"w":4,"h":9},"r-mass-panel":{"x":9,"y":51,"w":3,"h":9},"r-mbta-panel":{"x":9,"y":36,"w":3,"h":10},"r-nascar-panel":{"x":3,"y":107,"w":3,"h":7},"r-neo-panel":{"x":3,"y":62,"w":3,"h":7},"r-bruins-panel":{"x":0,"y":107,"w":3,"h":7},"r-urban-panel":{"x":8,"y":69,"w":4,"h":8},"news-sports":{"x":0,"y":91,"w":8,"h":8},"espn-feed":{"x":0,"y":107,"w":8,"h":8},"sports-schedule":{"x":4,"y":9,"w":4,"h":6},"news-bc":{"x":3,"y":78,"w":5,"h":13},"college-hockey":{"x":0,"y":77,"w":3,"h":14},"chn-bc":{"x":8,"y":94,"w":4,"h":8},"scores-widget":{"x":8,"y":102,"w":4,"h":9},"chn-all":{"x":8,"y":84,"w":4,"h":10},"national":{"x":6,"y":60,"w":6,"h":9},"reveretv":{"x":8,"y":77,"w":4,"h":7},"substack-feed":{"x":3,"y":69,"w":5,"h":9},"mbta-arrivals":{"x":8,"y":5,"w":4,"h":8},"mbta-alerts":{"x":8,"y":0,"w":4,"h":5},"mbta-news":{"x":9,"y":23,"w":3,"h":7},"revere-map":{"x":3,"y":15,"w":6,"h":13},"road-events":{"x":9,"y":30,"w":3,"h":6}};
 
 const grid = GridStack.init({
   float: true,
