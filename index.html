@@ -2240,170 +2240,204 @@ async function fetchReddit(sub,id,attempt=1){
 function renderTopStories(d) {
   const container = document.getElementById("top-stories-widget");
   if (!container) return;
-
-  // ── NOISE FILTER ─────────────────────────────────────────────
-  const JUNK_PATTERNS = [
-    /obituar|obit\b|in loving memory|passed away|in memoriam|death notice|memorial service|survived by|funeral home|arrangements by/i,
-    /meeting (agenda|notice|minutes)|public hearing|city council agenda|agenda for|board of/i,
-    /job (opening|posting|listing)|now hiring|career opportunity|apply (today|now|online)/i,
-    /police (log|blotter)|arrest (log|report)s?\b/i,
-    /classified|real estate listing|open house|for sale|price (reduced|drop)/i,
-    /this week(\'s)? events|community calendar|upcoming events|things to do/i,
-    /sponsored|advertisement|press release|submitted (by|photo)|opinion:/i,
-    /horoscope|lottery results|weather (forecast|outlook) for/i,
-    /anniversary (of|celebration)|years ago (today|this week)/i,
-    // ── META/ROUNDUP CONTENT ──
-    /top stories|breaking news roundup|news roundup|daily roundup|weekly roundup/i,
-    /today's (top |breaking )?stories|this week in|news for (monday|tuesday|wednesday|thursday|friday|saturday|sunday)/i,
-    /headlines for|morning headlines|evening headlines/i,
-    /(new bedford|lynn|chelsea|salem|malden|everett|somerville|cambridge|quincy|brockton|lowell|worcester)\s+(top stories|headlines|news roundup|daily news)/i,
-  ];
-
-  // ── AGE GATE ─────────────────────────────────────────────────
-  const CUTOFF_MS = 72 * 60 * 60 * 1000;
+ 
   const now = Date.now();
-
-  function getTs(a) {
-    if (a.ts) return a.ts * 1000;
-    if (a.pubDate) return new Date(a.pubDate).getTime();
-    if (a.date) return new Date(a.date).getTime();
-    return 0;
-  }
-
-  function isJunk(title) {
-    return JUNK_PATTERNS.some(p => p.test(title));
-  }
-
-  // ── GATHER + FILTER ──────────────────────────────────────────
-  const allArticles = [
-    ...(d.news_revere || []),
-    ...(d.news_communities || []),
-    ...(d.news_boston || []),
-    ...(d.news_national || []),
-    ...(d.news_ma_transit || []),
+  const CUTOFF_MS = 24 * 60 * 60 * 1000; // 24 hours
+ 
+  // ── JUNK FILTER ──────────────────────────────────────────────
+  const JUNK = [
+    /obituar|passed away|in memoriam|funeral|memorial service|survived by/i,
+    /meeting agenda|public hearing|board of (health|appeal|selectmen)/i,
+    /job opening|now hiring|career opportunity|apply (today|now)/i,
+    /police (log|blotter)\b/i,
+    /classified|open house|real estate listing|for sale\b/i,
+    /community calendar|things to do this week|upcoming events/i,
+    /sponsored|advertisement|press release/i,
+    /horoscope|lottery (results|numbers)/i,
+    /weekly roundup|news roundup|morning headlines|evening headlines/i,
   ];
-
-  const articles = allArticles
-    .map(a => ({ title: (a.title || '').trim(), link: a.link || '#', source: a.source || 'Unknown', ts: getTs(a) }))
-    .filter(a => a.title.length > 15)
-    .filter(a => !isJunk(a.title))
-    .filter(a => a.ts > 0 && (now - a.ts) < CUTOFF_MS);
-
+  function isJunk(title) { return JUNK.some(p => p.test(title)); }
+ 
+  // ── GATHER ───────────────────────────────────────────────────
+  const pools = [
+    { key: 'news_ktn',         boost: 12 },  // breaking news — highest boost
+    { key: 'news_revere',      boost: 6  },
+    { key: 'news_boston',      boost: 3  },
+    { key: 'news_universalhub',boost: 3  },
+    { key: 'news_communities', boost: 2  },
+    { key: 'news_national',    boost: 0  },
+    { key: 'news_ma_transit',  boost: 4  },
+  ];
+ 
+  const articles = [];
+  pools.forEach(({ key, boost }) => {
+    (d[key] || []).forEach(a => {
+      const ts = a.ts ? a.ts * 1000 : (a.published ? new Date(a.published).getTime() : 0);
+      if (!ts || (now - ts) > CUTOFF_MS) return;
+      const title = (a.title || '').trim();
+      if (title.length < 15 || isJunk(title)) return;
+      articles.push({
+        title,
+        link:    a.link || '#',
+        source:  a.source || 'Unknown',
+        ts,
+        boost,
+      });
+    });
+  });
+ 
   // ── CLUSTERING ───────────────────────────────────────────────
-  const STOP = new Set(['that','this','with','from','have','will','been','were','they','their','into','about','more','also','when','than','just','over','after','before','would','could','should','then','them','says','rally','rallies','hold','held','protest','protesters']);
-  
+  const STOP = new Set([
+    'that','this','with','from','have','will','been','were','they','their',
+    'into','about','more','also','when','than','just','over','after','before',
+    'would','could','should','then','them','says','said','just','some','what',
+  ]);
+ 
   function keywords(title) {
     return title.toLowerCase()
       .replace(/[^a-z0-9\s]/g, ' ')
       .split(/\s+/)
       .filter(w => w.length >= 4 && !STOP.has(w));
   }
-
+ 
   function overlap(kwA, kwB) {
-    const setA = new Set(kwA), setB = new Set(kwB);
-    const shared = [...setA].filter(w => setB.has(w)).length;
-    return shared / Math.max(Math.min(setA.size, setB.size), 1);
+    const setA = new Set(kwA);
+    let shared = 0;
+    kwB.forEach(w => { if (setA.has(w)) shared++; });
+    return shared / Math.max(Math.min(setA.size, kwB.length), 1);
   }
-
+ 
   const clusters = [];
   articles.forEach(article => {
     const kw = keywords(article.title);
     let matched = false;
     for (const cluster of clusters) {
-      // Increased threshold from 0.4 to 0.5 for more aggressive clustering
-      if (overlap(kw, cluster.kw) >= 0.5) {
+      if (overlap(kw, cluster.kw) >= 0.45) {
         cluster.articles.push(article);
+        // Expand cluster keywords with any new unique words
+        kw.forEach(w => { if (!cluster.kw.includes(w)) cluster.kw.push(w); });
         matched = true;
         break;
       }
     }
     if (!matched) clusters.push({ kw, articles: [article] });
   });
-
+ 
   // ── SCORING ──────────────────────────────────────────────────
   function scoreCluster(cluster) {
-    const articles = cluster.articles;
-    const sources = new Set(articles.map(a => a.source));
-    const newest = Math.max(...articles.map(a => a.ts));
-    const ageHrs = (now - newest) / 3600000;
-
-    const recencyScore = ageHrs < 1 ? 20 : ageHrs < 3 ? 14 : ageHrs < 6 ? 9 : ageHrs < 12 ? 5 : ageHrs < 24 ? 2 : 0;
-    const coverageScore = (sources.size - 1) * 6;
-    const volumeScore = Math.min(articles.length, 5);
-
-    let localBoost = 0;
-    const t = articles[0].title.toLowerCase();
-    if (t.includes('revere')) localBoost += 8;
-    else if (t.match(/chelsea|east boston|everett|winthrop|lynn|malden|saugus/)) localBoost += 5;
-    else if (t.match(/boston|mbta|massdot|logan|massachusetts|mass\./)) localBoost += 3;
-
-    const impactWords = /arrested|charged|killed|closed|suspended|banned|shutdown|evacuated|emergency|crisis|breakthrough|signed|passed|rejected|overturned|awarded|fined|indicted|fatal|outbreak|fire|flood|storm|strike|protest/i;
-    const impactBoost = impactWords.test(articles[0].title) ? 4 : 0;
-
-    return recencyScore + coverageScore + volumeScore + localBoost + impactBoost;
+    const arts    = cluster.articles;
+    const sources = new Set(arts.map(a => a.source));
+    const newest  = Math.max(...arts.map(a => a.ts));
+    const ageHrs  = (now - newest) / 3_600_000;
+    const maxBoost = Math.max(...arts.map(a => a.boost));
+ 
+    // Coverage breadth is the primary signal
+    const coverageScore = (sources.size - 1) * 10;  // 0, 10, 20, 30…
+ 
+    // Volume matters but caps out
+    const volumeScore = Math.min(arts.length - 1, 6) * 2;
+ 
+    // Recency is a tiebreaker, not the main event
+    const recencyScore = ageHrs < 1 ? 8 : ageHrs < 3 ? 5 : ageHrs < 6 ? 3 : ageHrs < 12 ? 1 : 0;
+ 
+    // Source pool boost (KTN, transit, local)
+    const boostScore = maxBoost;
+ 
+    return coverageScore + volumeScore + recencyScore + boostScore;
   }
-
-  // ── LABEL ────────────────────────────────────────────────────
-  function storyTag(title) {
-    const t = title.toLowerCase();
-    if (t.includes('revere')) return { label: 'REVERE', color: 'var(--accent)' };
-    if (t.match(/chelsea|east boston|everett|winthrop|lynn/)) return { label: 'LOCAL', color: 'var(--green)' };
-    if (t.match(/mbta|massdot|transit/)) return { label: 'TRANSIT', color: '#f5c518' };
-    if (t.match(/boston|massachusetts/)) return { label: 'REGIONAL', color: 'var(--orange)' };
-    return { label: 'NATIONAL', color: 'var(--text-mute)' };
+ 
+  // ── FILTER: require 2+ sources unless it's local/KTN ─────────
+  function keepCluster(cluster) {
+    const sources = new Set(cluster.articles.map(a => a.source));
+    if (sources.size >= 2) return true;
+    // Single-source OK only for KTN breaking or Revere-specific
+    const maxBoost = Math.max(...cluster.articles.map(a => a.boost));
+    if (maxBoost >= 6) return true; // KTN or Revere
+    return false;
   }
-
+ 
+  // ── TAG ──────────────────────────────────────────────────────
+  function storyTag(articles) {
+    // Use the highest-boost source to determine tag
+    const topArt = [...articles].sort((a,b) => b.boost - a.boost)[0];
+    const b = topArt.boost;
+    const t = topArt.title.toLowerCase();
+    if (b >= 12) return { label: '🔴 BREAKING', color: '#ff5050' };
+    if (b >= 6 || t.includes('revere')) return { label: '🏘️ REVERE', color: 'var(--accent)' };
+    if (b >= 4 || t.match(/mbta|massdot|transit|housing|eohlc/))
+      return { label: '🚇 TRANSIT', color: '#f5c518' };
+    if (t.match(/chelsea|east boston|everett|winthrop|lynn|saugus|malden/))
+      return { label: '📍 LOCAL', color: 'var(--green)' };
+    if (t.match(/boston|massachusetts|mass\.\s/))
+      return { label: '🏙️ REGIONAL', color: 'var(--orange)' };
+    return { label: '🇺🇸 NATIONAL', color: 'var(--text-mute)' };
+  }
+ 
   function fmtAge(ts) {
-    const hrs = (now - ts) / 3600000;
+    const hrs = (now - ts) / 3_600_000;
     if (hrs < 1) return `${Math.round(hrs * 60)}m ago`;
     if (hrs < 24) return `${Math.round(hrs)}h ago`;
     return `${Math.round(hrs / 24)}d ago`;
   }
-
-  // ── RANK + PICK TOP 5 ────────────────────────────────────────
+ 
+  // ── RANK ─────────────────────────────────────────────────────
   const ranked = clusters
+    .filter(keepCluster)
     .map(c => {
-      const byRecency = [...c.articles].sort((a, b) => b.ts - a.ts);
+      const byRecency = [...c.articles].sort((a,b) => b.ts - a.ts);
+      const sources   = [...new Set(byRecency.map(a => a.source))];
       return {
-        title: byRecency[0].title,
-        link: byRecency[0].link,
+        title:   byRecency[0].title,
+        link:    byRecency[0].link,
         articles: byRecency,
-        sources: [...new Set(byRecency.map(a => a.source))],
-        newest: byRecency[0].ts,
-        score: scoreCluster(c),
+        sources,
+        newest:  byRecency[0].ts,
+        score:   scoreCluster(c),
+        boost:   Math.max(...c.articles.map(a => a.boost)),
       };
     })
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 5);
-
+    .sort((a,b) => b.score - a.score)
+    .slice(0, 6);
+ 
   // ── RENDER ───────────────────────────────────────────────────
   if (!ranked.length) {
-    container.innerHTML = `<div style="padding:16px;color:var(--text-mute);font-size:13px;">No fresh stories in the last 72 hours — check back after the next data refresh.</div>`;
+    container.innerHTML = `<div style="padding:16px;color:var(--text-mute);font-size:13px;">No stories meeting the threshold in the past 24 hours.</div>`;
     return;
   }
-
-  container.innerHTML = `<div style="display:grid;grid-template-columns:repeat(5,1fr);height:100%;">
-    ${ranked.map((story, i) => {
-      const tag = storyTag(story.title);
-      const age = fmtAge(story.newest);
-      const isLast = i === ranked.length - 1;
-      return `<div style="padding:12px 14px;border-right:${isLast ? 'none' : '1px solid var(--border)'};display:flex;flex-direction:column;gap:6px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <span style="font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:2px;color:${tag.color};">${tag.label}</span>
-          <span style="font-family:var(--mono);font-size:10px;color:var(--text-mute);">${age}</span>
-        </div>
-        <a href="${story.link}" target="_blank" rel="noopener"
-           style="font-size:13px;font-weight:600;color:var(--text);text-decoration:none;line-height:1.4;flex:1;"
-           onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">${story.title}</a>
-        <div style="display:flex;flex-wrap:wrap;gap:3px;margin-top:auto;">
-          ${story.sources.slice(0, 3).map(src =>
-            `<span style="font-size:10px;font-family:var(--cond);letter-spacing:0.5px;color:var(--text-mute);background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:1px 6px;">${src}</span>`
-          ).join('')}
-          ${story.articles.length > 1 ? `<span style="font-size:10px;color:var(--text-mute);padding:1px 4px;">${story.articles.length} articles</span>` : ''}
-        </div>
-      </div>`;
-    }).join('')}
-  </div>`;
+ 
+  // 2-row × 3-col grid, fills the widget height
+  container.innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);height:100%;gap:0;">
+      ${ranked.map((story, i) => {
+        const tag      = storyTag(story.articles);
+        const age      = fmtAge(story.newest);
+        const srcList  = story.sources.slice(0, 4).join(' · ');
+        const more     = story.sources.length > 4 ? ` +${story.sources.length - 4}` : '';
+        const count    = story.articles.length > 1
+          ? `<span style="color:var(--text-mute);font-size:10px;">${story.articles.length} articles</span>`
+          : '';
+        const col      = i % 3;
+        const row      = Math.floor(i / 3);
+        const borderR  = col < 2 ? '1px solid var(--border)' : 'none';
+        const borderB  = row < 1 ? '1px solid var(--border)' : 'none';
+ 
+        return `
+          <div style="padding:10px 13px;border-right:${borderR};border-bottom:${borderB};display:flex;flex-direction:column;gap:5px;overflow:hidden;">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+              <span style="font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:1.5px;color:${tag.color};">${tag.label}</span>
+              <span style="font-family:var(--mono);font-size:10px;color:var(--text-mute);">${age}</span>
+            </div>
+            <a href="${story.link}" target="_blank" rel="noopener"
+               style="font-size:13px;font-weight:600;color:var(--text);text-decoration:none;line-height:1.4;flex:1;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;"
+               onmouseover="this.style.color='var(--accent)'"
+               onmouseout="this.style.color='var(--text)'">${story.title}</a>
+            <div style="flex-shrink:0;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+              <span style="font-size:10px;color:var(--text-mute);font-family:var(--mono);">${srcList}${more}</span>
+              ${count}
+            </div>
+          </div>`;
+      }).join('')}
+    </div>`;
 }
 
 async function loadData(){
