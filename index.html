@@ -575,335 +575,449 @@ a.big-btn:hover{opacity:.85;}
   </div>
 </div>
 
-<!-- NYT NEWS TICKER -->
-<div style="background:#111;border-bottom:2px solid #1a1a1a;display:flex;align-items:stretch;">
-  <div style="background:#cc0000;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #aa0000;">NYT</div>
-  <div id="nytViewport" style="overflow:hidden;padding:8px 12px;flex:1;position:relative;">
-    <div id="nytTrack" style="display:inline-flex;gap:10px;will-change:transform;">
-      <div style="color:#555;font-size:13px;padding:10px;">Loading NYT headlines…</div>
+<!-- NYT + GLOBE MERGED FEED -->
+<style>
+.ngl-wrap {
+  background: #111;
+  border-bottom: 2px solid #1a1a1a;
+  display: flex;
+  flex-direction: column;
+}
+.ngl-header {
+  background: #0d0d0d;
+  border-bottom: 1px solid #222;
+  padding: 7px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.ngl-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ngl-badge-nyt {
+  background: #cc0000;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.ngl-badge-globe {
+  background: #0d2b5e;
+  color: #f5c518;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.ngl-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #e0e0e0;
+  text-transform: uppercase;
+}
+.ngl-meta {
+  font-size: 10px;
+  color: #555;
+  font-family: monospace;
+}
+.ngl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  overflow-y: auto;
+  max-height: 520px;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+.ngl-grid::-webkit-scrollbar { width: 5px; }
+.ngl-grid::-webkit-scrollbar-track { background: #111; }
+.ngl-grid::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+.ngl-item {
+  display: block;
+  padding: 10px 14px;
+  border-bottom: 1px solid #1a1a1a;
+  border-right: 1px solid #1a1a1a;
+  text-decoration: none;
+  transition: background .12s;
+  cursor: pointer;
+}
+.ngl-item:nth-child(even) { border-right: none; }
+.ngl-item:hover { background: #1a1a1a; }
+.ngl-item-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.ngl-src-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.ngl-src-nyt { background: #2a0000; color: #ff6666; }
+.ngl-src-globe { background: #081830; color: #f5c518; }
+.ngl-item-time {
+  font-size: 10px;
+  color: #555;
+  font-family: monospace;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.ngl-item-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e0e0e0;
+  line-height: 1.35;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ngl-item:hover .ngl-item-title { color: #fff; }
+.ngl-item-summary {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ngl-loading {
+  grid-column: 1 / -1;
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #444;
+}
+</style>
+
+<div class="ngl-wrap">
+  <div class="ngl-header">
+    <div class="ngl-header-left">
+      <span class="ngl-badge-nyt">NYT</span>
+      <span class="ngl-badge-globe">GLOBE</span>
+      <span class="ngl-title">Latest</span>
     </div>
+    <span class="ngl-meta" id="ngl-meta">Loading…</span>
   </div>
-  <div style="display:flex;align-items:center;gap:5px;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
-    <button id="nytPrev" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8249;</button>
-    <button id="nytPauseBtn" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
-    <button id="nytNext" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8250;</button>
+  <div class="ngl-grid" id="ngl-grid">
+    <div class="ngl-loading">Loading NYT + Globe stories…</div>
   </div>
 </div>
+
 <script>
 (function(){
+  const MERGED_FEED = 'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RAnWsB0A7AnhAlgLYCmmAxgPaGKzEoBu+ZpiAHoQDarqK4SIAJKsQAKAQwDmxDOw4gANOChwk3TGOjREAM2LEAJrEQARYwFksYwvQAcATgCKdgKpYAUgAZjMziAC6QA';
+  const MAX_ITEMS = 48;
+  const PROXY_FNS = [
+    u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+    u => `https://corsproxy.io/?${encodeURIComponent(u)}`
+  ];
 
-  const CARD_W = 280 + 10;
-  let autoPaused=false,btnPaused=false,offset=0,halfW=0,lastT=null,raf=null;
-  const PPS=65;
-  let resumeTimer=null;
-  function isPaused(){return autoPaused||btnPaused;}
-
-  function buildCards(items,track,cardStyle,hoverColor,feedName){
-    track.innerHTML='';
-    function addSep(){
-      const sep=document.createElement('div');
-      sep.style.cssText='flex-shrink:0;display:flex;align-items:center;padding:0 16px;color:#444;font-size:11px;letter-spacing:2px;white-space:nowrap;font-family:monospace;';
-      sep.textContent=`····· ${feedName} ·····`;
-      track.appendChild(sep);
+  async function fetchFeed(url) {
+    for (const fn of PROXY_FNS) {
+      try {
+        const r = await fetch(fn(url), {cache:'no-cache'});
+        if (!r.ok) continue;
+        const d = await r.json();
+        const xml = d.contents || d;
+        if (typeof xml === 'string' && (xml.includes('<item>') || xml.includes('<entry>'))) return xml;
+      } catch(e) {}
     }
-    [0,1,2].forEach(rep=>{
-      items.forEach(item=>{
-        const a=document.createElement('a');
-        a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-        a.style.cssText=cardStyle+'user-select:none;';
-        a.onmouseover=()=>{a.style.borderColor=hoverColor;};
-        a.onmouseout=()=>{a.style.borderColor=a.dataset.bc;};
-        a.dataset.bc=a.style.borderColor;
-        const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
-        a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
-          +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
-        track.appendChild(a);
-      });
-      addSep();
+    try { const r = await fetch(url); return await r.text(); } catch(e) {}
+    return null;
+  }
+
+  function parseDate(s) {
+    if (!s) return 0;
+    try { return new Date(s).getTime(); } catch(e) { return 0; }
+  }
+
+  function fmtDateTime(ts) {
+    if (!ts) return '';
+    const d = new Date(ts);
+    const now = new Date();
+    const sameDay = d.toDateString() === now.toDateString();
+    const time = d.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'});
+    if (sameDay) return time;
+    return d.toLocaleDateString('en-US', {month:'short', day:'numeric'}) + ' ' + time;
+  }
+
+  function guessSource(item) {
+    const link = (item.link || '').toLowerCase();
+    const title = (item.title || '').toLowerCase();
+    if (link.includes('nytimes') || link.includes('nyt.') || title.includes('nytimes')) return 'nyt';
+    if (link.includes('bostonglobe') || link.includes('globe.com')) return 'globe';
+    // Try to guess from feed content
+    return 'nyt'; // default
+  }
+
+  function getSnippet(item) {
+    // Try description/summary fields
+    const desc = item.description || item.summary || item.content || '';
+    if (!desc) return '';
+    // Strip HTML tags
+    const clean = desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g,' ').trim();
+    return clean.slice(0, 200);
+  }
+
+  function parseItems(xml) {
+    const doc = new DOMParser().parseFromString(xml, 'text/xml');
+    const items = [];
+    
+    // RSS items
+    doc.querySelectorAll('item').forEach(n => {
+      const title = n.querySelector('title')?.textContent?.trim() || '';
+      const link = n.querySelector('link')?.textContent?.trim() || n.querySelector('guid')?.textContent || '#';
+      const pubDate = n.querySelector('pubDate')?.textContent || n.querySelector('dc\:date')?.textContent || '';
+      const description = n.querySelector('description')?.textContent || n.querySelector('content\:encoded')?.textContent || '';
+      const source = n.querySelector('source')?.textContent || '';
+      if (title) items.push({ title, link, pubDate, description, source, ts: parseDate(pubDate) });
     });
-    requestAnimationFrame(()=>{halfW=track.scrollWidth/3;offset=0;startScroll(track);});
+
+    // Atom entries
+    doc.querySelectorAll('entry').forEach(n => {
+      const title = n.querySelector('title')?.textContent?.trim() || '';
+      const link = n.querySelector('link[rel="alternate"]')?.getAttribute('href') || n.querySelector('link')?.getAttribute('href') || '#';
+      const pubDate = n.querySelector('updated')?.textContent || n.querySelector('published')?.textContent || '';
+      const description = n.querySelector('summary')?.textContent || n.querySelector('content')?.textContent || '';
+      if (title) items.push({ title, link, pubDate, description, source: '', ts: parseDate(pubDate) });
+    });
+
+    return items;
   }
 
-  function startScroll(track){
-    if(raf)cancelAnimationFrame(raf);lastT=null;
-    function tick(ts){
-      if(!lastT)lastT=ts;
-      if(!isPaused()){
-        offset+=PPS*((ts-lastT)/1000);
-        if(offset>=halfW)offset-=halfW;
-        if(offset<0)offset+=halfW;
-        track.style.transform=`translateX(-${offset}px)`;
-      }
-      lastT=ts;raf=requestAnimationFrame(tick);
+  function renderItems(items) {
+    const grid = document.getElementById('ngl-grid');
+    const meta = document.getElementById('ngl-meta');
+    if (!items.length) {
+      grid.innerHTML = '<div class="ngl-loading">No stories available</div>';
+      meta.textContent = 'Feed unavailable';
+      return;
     }
-    raf=requestAnimationFrame(tick);
+
+    // Sort by newest first
+    items.sort((a,b) => b.ts - a.ts);
+    const top = items.slice(0, MAX_ITEMS);
+
+    // Count sources
+    let nytCount = 0, globeCount = 0;
+    top.forEach(it => {
+      const src = guessSource(it);
+      if (src === 'globe') globeCount++; else nytCount++;
+    });
+
+    grid.innerHTML = '';
+    top.forEach(item => {
+      const src = guessSource(item);
+      const snippet = getSnippet(item);
+      const a = document.createElement('a');
+      a.href = item.link || '#';
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = 'ngl-item';
+      a.innerHTML = `
+        <div class="ngl-item-top">
+          <span class="ngl-src-badge ngl-src-${src}">${src === 'globe' ? 'GLOBE' : 'NYT'}</span>
+          <span class="ngl-item-time">${fmtDateTime(item.ts)}</span>
+        </div>
+        <div class="ngl-item-title">${item.title}</div>
+        ${snippet ? `<div class="ngl-item-summary">${snippet}</div>` : ''}
+      `;
+      grid.appendChild(a);
+    });
+
+    meta.textContent = `${top.length} stories · NYT: ${nytCount} · Globe: ${globeCount} · updated ${new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'})}`;
   }
 
-  function nudge(track,dir){
-    btnPaused=true;
-    if(resumeTimer)clearTimeout(resumeTimer);
-    offset+=dir*CARD_W;
-    if(offset>=halfW)offset-=halfW;
-    if(offset<0)offset+=halfW;
-    track.style.transition='transform .3s ease';
-    track.style.transform=`translateX(-${offset}px)`;
-    setTimeout(()=>{track.style.transition='';},320);
-    resumeTimer=setTimeout(()=>{btnPaused=false;lastT=null;},1500);
-  }
-
-  async function fetchRSS(url){
-    let xml=null;
-    for(const fn of[u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`]){
-      try{const r=await fetch(fn(url),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
+  async function load() {
+    const xml = await fetchFeed(MERGED_FEED);
+    if (!xml) {
+      document.getElementById('ngl-grid').innerHTML = '<div class="ngl-loading" style="color:#c0392b;">Failed to load feed</div>';
+      document.getElementById('ngl-meta').textContent = 'Error';
+      return;
     }
-    if(!xml){try{const r=await fetch(url);xml=await r.text();}catch(e){}}
-    return xml;
+    renderItems(parseItems(xml));
   }
 
-  function parseItems(xml,max){
-    const doc=new DOMParser().parseFromString(xml,'text/xml');
-    return[...doc.querySelectorAll('item')].map(n=>({
-      title:n.querySelector('title')?.textContent||'',
-      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
-      pub:n.querySelector('pubDate')?.textContent||''
-    })).filter(i=>i.title).slice(0,max);
-  }
-
-  const nytTrack=document.getElementById('nytTrack');
-  const nytBtn=document.getElementById('nytPauseBtn');
-  const nytPrev=document.getElementById('nytPrev');
-  const nytNext=document.getElementById('nytNext');
-  nytBtn.addEventListener('click',()=>{autoPaused=!autoPaused;nytBtn.textContent=autoPaused?'▶ resume':'⏸ pause';if(!autoPaused)lastT=null;});
-  nytPrev.addEventListener('click',()=>nudge(nytTrack,-1));
-  nytNext.addEventListener('click',()=>nudge(nytTrack,+1));
-  fetchRSS('https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml').then(xml=>{
-    if(!xml||!xml.includes('<item>')){nytTrack.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">NYT feed unavailable</div>';return;}
-    buildCards(parseItems(xml,20),nytTrack,'flex-shrink:0;width:280px;background:#0d0d0d;border:1px solid #222;border-radius:5px;padding:10px 14px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#888','New York Times');
-  });
+  load();
+  // Refresh every 5 minutes
+  setInterval(load, 300000);
 })();
 </script>
 
-<!-- BOSTON GLOBE CAROUSEL -->
-<div style="background:#111;border-bottom:2px solid #1a1a1a;display:flex;align-items:stretch;">
-  <div style="background:#0d2b5e;color:#fff;font-size:16px;font-weight:700;letter-spacing:2px;padding:0 16px;display:flex;align-items:center;flex-shrink:0;border-right:2px solid #0a2050;">GLOBE</div>
-  <div id="globeViewport" style="overflow:hidden;padding:8px 12px;flex:1;position:relative;">
-    <div id="globeTrack" style="display:inline-flex;gap:10px;will-change:transform;">
-      <div style="color:#555;font-size:13px;padding:10px;">Loading Globe headlines…</div>
-    </div>
-  </div>
-  <div style="display:flex;align-items:center;gap:5px;padding:0 10px;flex-shrink:0;border-left:1px solid #1a1a1a;">
-    <button id="globePrev" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8249;</button>
-    <button id="globePauseBtn" style="font-size:10px;color:#666;background:none;border:1px solid #2a2a2a;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;">⏸ pause</button>
-    <button id="globeNext" style="width:26px;height:26px;border-radius:50%;background:#1a1a1a;border:1px solid #333;color:#aaa;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,border-color .15s;" onmouseover="this.style.background='#2a2a2a';this.style.borderColor='#666'" onmouseout="this.style.background='#1a1a1a';this.style.borderColor='#333'">&#8250;</button>
-  </div>
-</div>
+
+
 
 <!-- KTN BREAKING NEWS TICKER -->
 <style>
 @keyframes ktn-pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
-#ktn-scroll-track{display:inline-flex;white-space:nowrap;will-change:transform;}
 </style>
 <div id="ktn-ticker-wrap" style="display:block;width:100%;background:#e8e8e8;border-bottom:2px solid #ccc;font-family:'Barlow Condensed',sans-serif;overflow:hidden;">
-  <div style="display:flex;align-items:stretch;height:36px;">
+  <div style="display:flex;align-items:stretch;min-height:60px;">
+    <!-- BREAKING label -->
     <div style="background:#fff;color:#c0392b;font-size:12px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;padding:0 14px;display:flex;align-items:center;gap:7px;flex-shrink:0;border-right:3px solid #c0392b;">
       <span style="width:8px;height:8px;border-radius:50%;background:#c0392b;flex-shrink:0;animation:ktn-pulse 1.4s infinite;display:inline-block;"></span>
       BREAKING
     </div>
-    <div style="flex:1;overflow:hidden;position:relative;">
-      <div id="ktn-scroll-track" style="display:inline-flex;white-space:nowrap;will-change:transform;padding:0;"></div>
+    <!-- Scrolling track -->
+    <div id="ktn-viewport" style="flex:1;overflow:hidden;position:relative;cursor:pointer;" title="Click to pause/resume">
+      <div id="ktn-scroll-track" style="display:inline-flex;white-space:nowrap;will-change:transform;align-items:center;min-height:60px;padding:0;"></div>
     </div>
-    <div id="ktn-ts" style="font-size:10px;color:#888;font-family:monospace;padding:0 10px;display:flex;align-items:center;flex-shrink:0;border-left:1px solid #ccc;white-space:nowrap;"></div>
+    <!-- Controls: pause button + timestamp -->
+    <div style="display:flex;align-items:center;gap:6px;padding:0 12px;flex-shrink:0;border-left:1px solid #ccc;background:#f0f0f0;">
+      <button id="ktn-pause-btn" style="font-size:11px;color:#c0392b;background:#fff;border:1.5px solid #c0392b;border-radius:4px;padding:3px 10px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700;white-space:nowrap;transition:background .15s;">⏸ PAUSE</button>
+      <div id="ktn-ts" style="font-size:10px;color:#888;font-family:monospace;white-space:nowrap;"></div>
+    </div>
   </div>
 </div>
-<script>
-function renderKTN(items){
-  const PPS=60;
-  let offset=0,halfW=0,raf=null,lastT=null;
-  const track=document.getElementById('ktn-scroll-track');
-  if(!track)return;
 
-  function fmtTime(ts){
-    if(!ts)return'';
-    const d=new Date(ts*1000);
-    return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+<script>
+function renderKTN(items) {
+  const MAX_KTN = 10;
+  const PPS = 60;
+  let offset = 0, halfW = 0, raf = null, lastT = null, paused = false;
+  const track = document.getElementById('ktn-scroll-track');
+  const pauseBtn = document.getElementById('ktn-pause-btn');
+  const viewport = document.getElementById('ktn-viewport');
+  if (!track) return;
+
+  // Pause/resume on button click
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', () => {
+      paused = !paused;
+      if (paused) {
+        pauseBtn.textContent = '▶ RESUME';
+        pauseBtn.style.background = '#c0392b';
+        pauseBtn.style.color = '#fff';
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
+      } else {
+        pauseBtn.textContent = '⏸ PAUSE';
+        pauseBtn.style.background = '#fff';
+        pauseBtn.style.color = '#c0392b';
+        lastT = null;
+        startScroll();
+      }
+    });
   }
 
-  if(!items||!items.length){
-    track.innerHTML='<span style="font-size:13px;color:#888;padding:0 16px;font-family:monospace;line-height:36px;">no alerts in the last 12 hours</span>';
+  // Click viewport to toggle pause
+  if (viewport) {
+    viewport.addEventListener('click', () => {
+      if (pauseBtn) pauseBtn.click();
+    });
+  }
+
+  function fmtTime(ts) {
+    if (!ts) return '';
+    const d = new Date(ts * 1000);
+    return d.toLocaleDateString('en-US', {month:'short', day:'numeric'}) + ' ' + d.toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit'});
+  }
+
+  const shown = (items || []).slice(0, MAX_KTN);
+
+  if (!shown.length) {
+    track.innerHTML = '<span style="font-size:13px;color:#888;padding:0 16px;font-family:monospace;line-height:60px;">No breaking alerts in the last 12 hours</span>';
     return;
   }
 
-  function makeSep(big){
-    const s=document.createElement('span');
-    if(big){
-      // end-of-loop: 5 red dots spread out
-      s.style.cssText='display:inline-flex;align-items:center;gap:6px;padding:0 32px;';
-      for(let i=0;i<5;i++){
-        const d=document.createElement('span');
-        d.style.cssText='width:8px;height:8px;border-radius:50%;background:#c0392b;flex-shrink:0;display:inline-block;';
+  function makeSep(big) {
+    const s = document.createElement('span');
+    if (big) {
+      s.style.cssText = 'display:inline-flex;align-items:center;gap:6px;padding:0 32px;';
+      for (let i = 0; i < 5; i++) {
+        const d = document.createElement('span');
+        d.style.cssText = 'width:8px;height:8px;border-radius:50%;background:#c0392b;flex-shrink:0;display:inline-block;';
         s.appendChild(d);
       }
     } else {
-      // between stories: single big red dot
-      s.style.cssText='display:inline-flex;align-items:center;padding:0 20px;';
-      const d=document.createElement('span');
-      d.style.cssText='width:9px;height:9px;border-radius:50%;background:#c0392b;flex-shrink:0;display:inline-block;';
+      s.style.cssText = 'display:inline-flex;align-items:center;padding:0 20px;';
+      const d = document.createElement('span');
+      d.style.cssText = 'width:9px;height:9px;border-radius:50%;background:#c0392b;flex-shrink:0;display:inline-block;';
       s.appendChild(d);
     }
     return s;
   }
 
-  function makeItem(item,idx,isLast){
-    const span=document.createElement('span');
-    span.style.cssText='display:inline-flex;align-items:center;gap:10px;cursor:'+(item.link?'pointer':'default')+';';
-    const num=document.createElement('span');
-    num.style.cssText='font-size:11px;color:#c0392b;font-weight:700;font-family:monospace;flex-shrink:0;';
-    num.textContent=String(idx+1).padStart(2,'0');
-    const title=document.createElement('span');
-    title.style.cssText='font-size:15px;color:#111;font-weight:700;letter-spacing:.3px;';
-    title.textContent=item.title;
-    span.appendChild(num);span.appendChild(title);
-    if(item.ts){
-      const ts=document.createElement('span');
-      ts.style.cssText='font-size:11px;color:#555;font-family:monospace;flex-shrink:0;';
-      ts.textContent=fmtTime(item.ts);
+  function makeItem(item, idx) {
+    const span = document.createElement('span');
+    span.style.cssText = 'display:inline-flex;align-items:center;gap:10px;cursor:' + (item.link ? 'pointer' : 'default') + ';padding:0 2px;';
+    const num = document.createElement('span');
+    num.style.cssText = 'font-size:11px;color:#c0392b;font-weight:700;font-family:monospace;flex-shrink:0;';
+    num.textContent = String(idx + 1).padStart(2, '0');
+    const title = document.createElement('span');
+    title.style.cssText = 'font-size:16px;color:#111;font-weight:700;letter-spacing:.3px;line-height:1.2;';
+    title.textContent = item.title;
+    span.appendChild(num);
+    span.appendChild(title);
+    if (item.ts) {
+      const ts = document.createElement('span');
+      ts.style.cssText = 'font-size:11px;color:#555;font-family:monospace;flex-shrink:0;';
+      ts.textContent = fmtTime(item.ts);
       span.appendChild(ts);
     }
-    if(item.link){
-      span.addEventListener('click',()=>window.open(item.link,'_blank'));
-      span.addEventListener('mouseover',()=>title.style.color='#c0392b');
-      span.addEventListener('mouseout',()=>title.style.color='#111');
+    if (item.link) {
+      span.addEventListener('click', e => { e.stopPropagation(); window.open(item.link, '_blank'); });
+      span.addEventListener('mouseover', () => title.style.color = '#c0392b');
+      span.addEventListener('mouseout', () => title.style.color = '#111');
     }
     return span;
   }
 
-  function buildSet(items){
-    const frag=document.createDocumentFragment();
-    items.forEach((item,i)=>{
-      frag.appendChild(makeItem(item,i));
-      if(i<items.length-1){
-        frag.appendChild(makeSep(false));
-      }
+  function buildSet(items) {
+    const frag = document.createDocumentFragment();
+    items.forEach((item, i) => {
+      frag.appendChild(makeItem(item, i));
+      if (i < items.length - 1) frag.appendChild(makeSep(false));
     });
     frag.appendChild(makeSep(true));
     return frag;
   }
 
-  [0,1,2].forEach(()=>track.appendChild(buildSet(items)));
+  track.innerHTML = '';
+  [0, 1, 2].forEach(() => track.appendChild(buildSet(shown)));
 
-  requestAnimationFrame(()=>{
-    halfW=track.scrollWidth/3;
-    offset=0;
-    lastT=null;
-    if(raf)cancelAnimationFrame(raf);
-    const tick=ts=>{
-      if(!lastT)lastT=ts;
-      offset+=PPS*((ts-lastT)/1000);
-      if(offset>=halfW)offset-=halfW;
-      track.style.transform='translateX(-'+offset+'px)';
-      lastT=ts;
-      raf=requestAnimationFrame(tick);
+  function startScroll() {
+    if (raf) cancelAnimationFrame(raf);
+    lastT = null;
+    const tick = ts => {
+      if (!lastT) lastT = ts;
+      offset += PPS * ((ts - lastT) / 1000);
+      if (offset >= halfW) offset -= halfW;
+      track.style.transform = 'translateX(-' + offset + 'px)';
+      lastT = ts;
+      raf = requestAnimationFrame(tick);
     };
-    raf=requestAnimationFrame(tick);
+    raf = requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(() => {
+    halfW = track.scrollWidth / 3;
+    offset = 0;
+    startScroll();
   });
-  document.getElementById('ktn-ts').textContent='updated '+new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+
+  const tsEl = document.getElementById('ktn-ts');
+  if (tsEl) tsEl.textContent = 'updated ' + new Date().toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit'});
 }
 </script>
-
-<script>
-(function(){
-
-  const CARD_W = 280 + 10;
-  let autoPaused=false,btnPaused=false,offset=0,halfW=0,lastT=null,raf=null;
-  const PPS=65;
-  let resumeTimer=null;
-  function isPaused(){return autoPaused||btnPaused;}
-
-  function buildCards(items,track,cardStyle,hoverColor,feedName){
-    track.innerHTML='';
-    function addSep(){
-      const sep=document.createElement('div');
-      sep.style.cssText='flex-shrink:0;display:flex;align-items:center;padding:0 16px;color:#444;font-size:11px;letter-spacing:2px;white-space:nowrap;font-family:monospace;';
-      sep.textContent=`····· ${feedName} ·····`;
-      track.appendChild(sep);
-    }
-    [0,1,2].forEach(rep=>{
-      items.forEach(item=>{
-        const a=document.createElement('a');
-        a.href=item.link;a.target='_blank';a.rel='noopener noreferrer';
-        a.style.cssText=cardStyle+'user-select:none;';
-        a.onmouseover=()=>{a.style.borderColor=hoverColor;};
-        a.onmouseout=()=>{a.style.borderColor=a.dataset.bc;};
-        a.dataset.bc=a.style.borderColor;
-        const t=item.pub?new Date(item.pub).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}):'';
-        a.innerHTML=(t?`<div style="font-size:10px;color:#fff;font-family:monospace;text-align:right;">${t}</div>`:'')
-          +`<div style="font-size:15px;color:#e0e0e0;line-height:1.3;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">${item.title}</div>`;
-        track.appendChild(a);
-      });
-      addSep();
-    });
-    requestAnimationFrame(()=>{halfW=track.scrollWidth/3;offset=0;startScroll(track);});
-  }
-
-  function startScroll(track){
-    if(raf)cancelAnimationFrame(raf);lastT=null;
-    function tick(ts){
-      if(!lastT)lastT=ts;
-      if(!isPaused()){
-        offset+=PPS*((ts-lastT)/1000);
-        if(offset>=halfW)offset-=halfW;
-        if(offset<0)offset+=halfW;
-        track.style.transform=`translateX(-${offset}px)`;
-      }
-      lastT=ts;raf=requestAnimationFrame(tick);
-    }
-    raf=requestAnimationFrame(tick);
-  }
-
-  function nudge(track,dir){
-    btnPaused=true;
-    if(resumeTimer)clearTimeout(resumeTimer);
-    offset+=dir*CARD_W;
-    if(offset>=halfW)offset-=halfW;
-    if(offset<0)offset+=halfW;
-    track.style.transition='transform .3s ease';
-    track.style.transform=`translateX(-${offset}px)`;
-    setTimeout(()=>{track.style.transition='';},320);
-    resumeTimer=setTimeout(()=>{btnPaused=false;lastT=null;},1500);
-  }
-
-  async function fetchRSS(url){
-    let xml=null;
-    for(const fn of[u=>`https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,u=>`https://corsproxy.io/?${encodeURIComponent(u)}`]){
-      try{const r=await fetch(fn(url),{cache:'no-cache'});if(!r.ok)continue;const d=await r.json();xml=d.contents||d;if(typeof xml==='string'&&xml.includes('<item>'))break;xml=null;}catch(e){xml=null;}
-    }
-    if(!xml){try{const r=await fetch(url);xml=await r.text();}catch(e){}}
-    return xml;
-  }
-
-  function parseItems(xml,max){
-    const doc=new DOMParser().parseFromString(xml,'text/xml');
-    return[...doc.querySelectorAll('item')].map(n=>({
-      title:n.querySelector('title')?.textContent||'',
-      link:n.querySelector('link')?.textContent||n.querySelector('guid')?.textContent||'#',
-      pub:n.querySelector('pubDate')?.textContent||''
-    })).filter(i=>i.title).slice(0,max);
-  }
-
-  const globeTrack=document.getElementById('globeTrack');
-  const globeBtn=document.getElementById('globePauseBtn');
-  const globePrev=document.getElementById('globePrev');
-  const globeNext=document.getElementById('globeNext');
-  globeBtn.addEventListener('click',()=>{autoPaused=!autoPaused;globeBtn.textContent=autoPaused?'▶ resume':'⏸ pause';if(!autoPaused)lastT=null;});
-  globePrev.addEventListener('click',()=>nudge(globeTrack,-1));
-  globeNext.addEventListener('click',()=>nudge(globeTrack,+1));
-  fetchRSS('https://rss.app/feeds/DDMnamv89Q9UnJ0D.xml').then(xml=>{
-    if(!xml||!xml.includes('<item>')){globeTrack.innerHTML='<div style="color:#555;font-size:13px;padding:20px;">Globe feed unavailable</div>';return;}
-    buildCards(parseItems(xml,20),globeTrack,'flex-shrink:0;width:280px;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;padding:10px 14px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:border-color .15s;','#f5c518','Boston Globe');
-  });
-})();
-</script>
-
 
 <!-- MAIN GRIDSTACK GRID -->
 <div class="grid-stack" id="gs-grid">
