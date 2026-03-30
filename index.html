@@ -568,139 +568,7 @@ a.big-btn:hover{opacity:.85;}
   </div>
 </div>
 
-<!-- NYT + GLOBE MERGED FEED -->
-<style>
-.ngl-wrap {
-  background: #e8e8e8;
-  border-bottom: 2px solid #c8c8c8;
-  display: flex;
-  flex-direction: column;
-}
-.ngl-header {
-  background: #d8d8d8;
-  border-bottom: 1px solid #bbb;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-.ngl-header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.ngl-badge-nyt {
-  background: #cc0000;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  padding: 3px 9px;
-  border-radius: 3px;
-  font-family: 'Barlow Condensed', sans-serif;
-}
-.ngl-badge-globe {
-  background: #0d2b5e;
-  color: #f5c518;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  padding: 3px 9px;
-  border-radius: 3px;
-  font-family: 'Barlow Condensed', sans-serif;
-}
-.ngl-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: #222;
-  text-transform: uppercase;
-}
-.ngl-meta {
-  font-size: 11px;
-  color: #666;
-  font-family: monospace;
-}
-.ngl-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  overflow-y: auto;
-  flex: 1;
-  min-height: 0;
-  scrollbar-width: thin;
-  scrollbar-color: #aaa #e8e8e8;
-}
-.ngl-grid::-webkit-scrollbar { width: 6px; }
-.ngl-grid::-webkit-scrollbar-track { background: #e8e8e8; }
-.ngl-grid::-webkit-scrollbar-thumb { background: #bbb; border-radius: 3px; }
-.ngl-item {
-  display: block;
-  padding: 12px 16px;
-  border-bottom: 1px solid #ccc;
-  text-decoration: none;
-  background: #f2f2f2;
-  transition: background .12s;
-  cursor: pointer;
-}
-.ngl-item:nth-child(even) { background: #eeeeee; }
-.ngl-item:hover { background: #e0e8f4 !important; }
-.ngl-item-top {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 5px;
-}
-.ngl-src-badge {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 2px 6px;
-  border-radius: 2px;
-  flex-shrink: 0;
-  font-family: 'Barlow Condensed', sans-serif;
-}
-.ngl-src-nyt  { background: #cc0000; color: #fff; }
-.ngl-src-globe { background: #0d2b5e; color: #f5c518; }
-.ngl-item-time {
-  font-size: 11px;
-  color: #777;
-  font-family: monospace;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.ngl-item-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #111;
-  line-height: 1.35;
-  margin-bottom: 5px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.ngl-item:hover .ngl-item-title { color: #1a3a7a; }
-.ngl-item-summary {
-  font-size: 12px;
-  color: #444;
-  line-height: 1.45;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.ngl-loading {
-  grid-column: 1 / -1;
-  padding: 24px;
-  text-align: center;
-  font-size: 14px;
-  color: #555;
-}
-</style>
+
 
 
 
@@ -1001,19 +869,36 @@ function renderKTN(items) {
 
 
   <!-- NYT + GLOBE FEED (GridStack) -->
-  <div class="grid-stack-item" gs-id="nyt-globe-feed" gs-x="0" gs-y="46" gs-w="4" gs-h="14" gs-min-h="6">
+  <!-- NYT FEED -->
+  <div class="grid-stack-item" gs-id="nyt-feed" gs-x="0" gs-y="46" gs-w="4" gs-h="14" gs-min-h="6">
   <div class="grid-stack-item-content" style="overflow:hidden;">
-  <div class="ngl-wrap" style="height:100%;display:flex;flex-direction:column;">
-    <div class="ngl-header" style="flex-shrink:0;">
-      <div class="ngl-header-left">
-        <span class="ngl-badge-nyt">NYT</span>
-        <span class="ngl-badge-globe">GLOBE</span>
-        <span class="ngl-title">NYT + Globe Latest</span>
+  <div style="height:100%;display:flex;flex-direction:column;background:#111;border:1px solid #222;border-radius:5px;">
+    <div style="background:#0d0d0d;border-bottom:1px solid #222;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="background:#cc0000;color:#fff;font-size:12px;font-weight:900;letter-spacing:2px;padding:3px 9px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;">NYT</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#e0e0e0;text-transform:uppercase;">Latest</span>
       </div>
-      <span class="ngl-meta" id="ngl-meta">Loading…</span>
+      <span id="nyt-feed-meta" style="font-size:10px;color:#555;font-family:monospace;">Loading…</span>
     </div>
-    <div class="ngl-grid" id="ngl-grid" style="flex:1;max-height:none;overflow-y:auto;">
-      <div class="ngl-loading">Loading NYT + Globe stories…</div>
+    <div id="nyt-feed-list" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#333 transparent;">
+      <div style="padding:20px;text-align:center;font-size:13px;color:#555;">Loading NYT headlines…</div>
+    </div>
+  </div>
+  </div></div>
+
+  <!-- GLOBE FEED -->
+  <div class="grid-stack-item" gs-id="globe-feed" gs-x="0" gs-y="60" gs-w="4" gs-h="14" gs-min-h="6">
+  <div class="grid-stack-item-content" style="overflow:hidden;">
+  <div style="height:100%;display:flex;flex-direction:column;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;">
+    <div style="background:#0d2b5e;border-bottom:1px solid #1a3a6a;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="background:#0d2b5e;color:#f5c518;border:1px solid #f5c518;font-size:12px;font-weight:900;letter-spacing:2px;padding:3px 9px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;">GLOBE</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#c8d8f0;text-transform:uppercase;">Latest</span>
+      </div>
+      <span id="globe-feed-meta" style="font-size:10px;color:#3a5a7a;font-family:monospace;">Loading…</span>
+    </div>
+    <div id="globe-feed-list" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#1a3a6a transparent;">
+      <div style="padding:20px;text-align:center;font-size:13px;color:#3a5a7a;">Loading Globe headlines…</div>
     </div>
   </div>
   </div></div>
@@ -2692,7 +2577,7 @@ redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
 // ── GRIDSTACK ──────────────────────────────────────────────────────
 const GS_KEY = 'revere_monitor_gs_v2';
 
-const DEFAULT_LAYOUT = {"personal-calendar":{"x":0,"y":0,"w":4,"h":9},"weather-unified":{"x":4,"y":0,"w":4,"h":9},"markets":{"x":0,"y":22,"w":3,"h":10},"radio":{"x":0,"y":18,"w":2,"h":4},"logan":{"x":9,"y":13,"w":3,"h":10},"nyt-globe-feed":{"x":8,"y":46,"w":4,"h":14},"boston-news":{"x":0,"y":46,"w":4,"h":14},"uhub-rss":{"x":0,"y":51,"w":5,"h":11},"uhub-bsky":{"x":0,"y":63,"w":3,"h":14},"bc-schedule":{"x":0,"y":120,"w":5,"h":12},"nyt-link":{"x":0,"y":14,"w":2,"h":4},"news-revere":{"x":0,"y":32,"w":4,"h":14},"news-comm":{"x":4,"y":28,"w":5,"h":18},"r-boston-panel":{"x":5,"y":51,"w":4,"h":9},"r-mass-panel":{"x":9,"y":51,"w":3,"h":9},"r-mbta-panel":{"x":9,"y":36,"w":3,"h":10},"r-nascar-panel":{"x":3,"y":107,"w":3,"h":7},"r-neo-panel":{"x":3,"y":62,"w":3,"h":7},"r-bruins-panel":{"x":0,"y":107,"w":3,"h":7},"r-urban-panel":{"x":8,"y":69,"w":4,"h":8},"news-sports":{"x":0,"y":91,"w":8,"h":8},"espn-feed":{"x":0,"y":107,"w":8,"h":8},"sports-schedule":{"x":4,"y":9,"w":4,"h":6},"news-bc":{"x":3,"y":78,"w":5,"h":13},"college-hockey":{"x":0,"y":77,"w":3,"h":14},"chn-bc":{"x":8,"y":94,"w":4,"h":8},"scores-widget":{"x":8,"y":102,"w":4,"h":9},"chn-all":{"x":8,"y":84,"w":4,"h":10},"national":{"x":6,"y":60,"w":6,"h":9},"reveretv":{"x":8,"y":77,"w":4,"h":7},"substack-feed":{"x":3,"y":69,"w":5,"h":9},"mbta-arrivals":{"x":8,"y":5,"w":4,"h":8},"mbta-alerts":{"x":8,"y":0,"w":4,"h":5},"mbta-news":{"x":9,"y":23,"w":3,"h":7},"revere-map":{"x":3,"y":15,"w":6,"h":13},"road-events":{"x":9,"y":30,"w":3,"h":6}};
+const DEFAULT_LAYOUT = {"personal-calendar":{"x":0,"y":0,"w":4,"h":9},"weather-unified":{"x":4,"y":0,"w":4,"h":9},"markets":{"x":0,"y":22,"w":3,"h":10},"radio":{"x":0,"y":18,"w":2,"h":4},"logan":{"x":9,"y":13,"w":3,"h":10},"nyt-feed":{"x":8,"y":46,"w":4,"h":14},"globe-feed":{"x":8,"y":60,"w":4,"h":14},"boston-news":{"x":0,"y":46,"w":4,"h":14},"uhub-rss":{"x":0,"y":51,"w":5,"h":11},"uhub-bsky":{"x":0,"y":63,"w":3,"h":14},"bc-schedule":{"x":0,"y":120,"w":5,"h":12},"nyt-link":{"x":0,"y":14,"w":2,"h":4},"news-revere":{"x":0,"y":32,"w":4,"h":14},"news-comm":{"x":4,"y":28,"w":5,"h":18},"r-boston-panel":{"x":5,"y":51,"w":4,"h":9},"r-mass-panel":{"x":9,"y":51,"w":3,"h":9},"r-mbta-panel":{"x":9,"y":36,"w":3,"h":10},"r-nascar-panel":{"x":3,"y":107,"w":3,"h":7},"r-neo-panel":{"x":3,"y":62,"w":3,"h":7},"r-bruins-panel":{"x":0,"y":107,"w":3,"h":7},"r-urban-panel":{"x":8,"y":69,"w":4,"h":8},"news-sports":{"x":0,"y":91,"w":8,"h":8},"espn-feed":{"x":0,"y":107,"w":8,"h":8},"sports-schedule":{"x":4,"y":9,"w":4,"h":6},"news-bc":{"x":3,"y":78,"w":5,"h":13},"college-hockey":{"x":0,"y":77,"w":3,"h":14},"chn-bc":{"x":8,"y":94,"w":4,"h":8},"scores-widget":{"x":8,"y":102,"w":4,"h":9},"chn-all":{"x":8,"y":84,"w":4,"h":10},"national":{"x":6,"y":60,"w":6,"h":9},"reveretv":{"x":8,"y":77,"w":4,"h":7},"substack-feed":{"x":3,"y":69,"w":5,"h":9},"mbta-arrivals":{"x":8,"y":5,"w":4,"h":8},"mbta-alerts":{"x":8,"y":0,"w":4,"h":5},"mbta-news":{"x":9,"y":23,"w":3,"h":7},"revere-map":{"x":3,"y":15,"w":6,"h":13},"road-events":{"x":9,"y":30,"w":3,"h":6}};
 
 const grid = GridStack.init({
   float: true,
@@ -3712,178 +3597,148 @@ document.addEventListener('DOMContentLoaded',()=>{
 </div>
 
 
+
 <script>
-/* ── NYT + GLOBE FEED ── runs after full DOM is ready */
+/* ── SIMPLE RSS FEED LOADER — used by NYT and Globe boxes ── */
 (function(){
-  const MERGED_FEED = 'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RAnWsB0A7AnhAlgLYCmmAxgPaGKzEoBu+ZpiAHoQDarqK4SIAJKsQAKAQwDmxDOw4gANOChwk3TGOjREAM2LEAJrEQARYwFksYwvQAcATgCKdgKpYAUgAZjMziAC6QA';
-  const MAX_ITEMS = 48;
 
-  function grid()  { return document.getElementById('ngl-grid'); }
-  function meta()  { return document.getElementById('ngl-meta'); }
-
-  function isXML(s) {
-    return typeof s === 'string' && (s.includes('<item>') || s.includes('<entry>') || s.includes('<rss') || s.includes('<feed'));
-  }
-
-  // Fetch with hard timeout — aborts after ms milliseconds
-  async function timedFetch(url, ms, opts) {
+  async function timedFetch(url, ms) {
     const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), ms);
+    const t = setTimeout(() => ctrl.abort(), ms);
     try {
-      const r = await fetch(url, { ...opts, signal: ctrl.signal });
-      clearTimeout(timer);
+      const r = await fetch(url, { signal: ctrl.signal, cache: 'no-cache' });
+      clearTimeout(t);
       return r;
-    } catch(e) {
-      clearTimeout(timer);
-      throw e;
-    }
+    } catch(e) { clearTimeout(t); throw e; }
   }
 
-  async function fetchFeed(url) {
+  async function fetchRSS(url) {
     const enc = encodeURIComponent(url);
-    const T = 8000; // 8-second timeout per attempt
+    const T = 8000;
 
-    // 1. allorigins JSON wrapper (most reliable proxy)
+    // Try allorigins (returns JSON with .contents)
     try {
-      const r = await timedFetch('https://api.allorigins.win/get?url=' + enc, T, { cache: 'no-cache' });
-      if (r.ok) { const d = await r.json(); if (isXML(d.contents)) return d.contents; }
+      const r = await timedFetch('https://api.allorigins.win/get?url=' + enc, T);
+      if (r.ok) {
+        const d = await r.json();
+        if (d.contents && d.contents.includes('<item>')) return d.contents;
+      }
     } catch(e) {}
 
-    // 2. corsproxy raw text
+    // Try corsproxy (returns raw text)
     try {
-      const r = await timedFetch('https://corsproxy.io/?' + enc, T, { cache: 'no-cache' });
-      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
+      const r = await timedFetch('https://corsproxy.io/?' + enc, T);
+      if (r.ok) {
+        const x = await r.text();
+        if (x.includes('<item>')) return x;
+      }
     } catch(e) {}
 
-    // 3. allorigins raw endpoint
+    // Try allorigins raw
     try {
-      const r = await timedFetch('https://api.allorigins.win/raw?url=' + enc, T, { cache: 'no-cache' });
-      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
-    } catch(e) {}
-
-    // 4. rss2json (returns JSON, handled separately)
-    try {
-      const r = await timedFetch('https://api.rss2json.com/v1/api.json?rss_url=' + enc + '&count=60', T, { cache: 'no-cache' });
-      if (r.ok) { const d = await r.json(); if (d.status === 'ok' && d.items?.length) return { __rss2json: true, items: d.items }; }
-    } catch(e) {}
-
-    // 5. Direct fetch last (CORS may block, but worth a try)
-    try {
-      const r = await timedFetch(url, T, { cache: 'no-cache' });
-      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
+      const r = await timedFetch('https://api.allorigins.win/raw?url=' + enc, T);
+      if (r.ok) {
+        const x = await r.text();
+        if (x.includes('<item>')) return x;
+      }
     } catch(e) {}
 
     return null;
   }
 
-  function parseDate(s) { try { return s ? new Date(s).getTime() : 0; } catch(e) { return 0; } }
-
-  function fmtDateTime(ts) {
-    if (!ts) return '';
-    const d = new Date(ts), now = new Date();
-    const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-    return d.toDateString() === now.toDateString()
-      ? time
-      : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' + time;
-  }
-
-  function getSnippet(desc) {
-    if (!desc) return '';
-    return desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
-  }
-
-  function guessSource(item) {
-    const link = (item.link || '').toLowerCase();
-    const src  = (item.source || '').toLowerCase();
-    if (link.includes('nytimes') || link.includes('nyt.com') || src.includes('times')) return 'nyt';
-    if (link.includes('bostonglobe') || link.includes('globe.com') || src.includes('globe') || link.includes('boston')) return 'globe';
-    return 'nyt';
-  }
-
-  function parseItems(result) {
-    if (!result) return [];
-    // rss2json format
-    if (result.__rss2json) {
-      return result.items.map(n => ({
-        title: n.title || '', link: n.link || n.guid || '#',
-        pubDate: n.pubDate || '', description: n.description || n.content || '',
-        source: n.author || '', ts: parseDate(n.pubDate)
-      })).filter(i => i.title);
-    }
-    const doc = new DOMParser().parseFromString(result, 'text/xml');
+  function parseRSS(xml, max) {
+    const doc = new DOMParser().parseFromString(xml, 'text/xml');
     const items = [];
     doc.querySelectorAll('item').forEach(n => {
       const title = n.querySelector('title')?.textContent?.trim() || '';
       const link  = n.querySelector('link')?.textContent?.trim() || n.querySelector('guid')?.textContent || '#';
       const pub   = n.querySelector('pubDate')?.textContent || '';
-      const desc  = [...n.children].find(c => c.tagName === 'content:encoded')?.textContent
-                    || n.querySelector('description')?.textContent || '';
-      if (title) items.push({ title, link, pubDate: pub, description: desc, source: '', ts: parseDate(pub) });
+      const desc  = n.querySelector('description')?.textContent || '';
+      if (title) items.push({ title, link, pub, desc });
     });
-    doc.querySelectorAll('entry').forEach(n => {
-      const title = n.querySelector('title')?.textContent?.trim() || '';
-      const link  = n.querySelector('link[rel="alternate"]')?.getAttribute('href') || n.querySelector('link')?.getAttribute('href') || '#';
-      const pub   = n.querySelector('updated')?.textContent || n.querySelector('published')?.textContent || '';
-      const desc  = n.querySelector('summary')?.textContent || n.querySelector('content')?.textContent || '';
-      if (title) items.push({ title, link, pubDate: pub, description: desc, source: '', ts: parseDate(pub) });
-    });
-    return items;
+    return items.slice(0, max);
   }
 
-  function renderItems(items) {
-    const g = grid(), m = meta();
-    if (!g) return;
+  function fmtTime(pub) {
+    if (!pub) return '';
+    try {
+      const d = new Date(pub);
+      const now = new Date();
+      const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      return d.toDateString() === now.toDateString()
+        ? time
+        : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' + time;
+    } catch(e) { return ''; }
+  }
+
+  function snippet(html) {
+    if (!html) return '';
+    return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 180);
+  }
+
+  function renderFeed(listId, metaId, items, accentColor, hoverBg) {
+    const list = document.getElementById(listId);
+    const meta = document.getElementById(metaId);
+    if (!list) return;
     if (!items.length) {
-      g.innerHTML = '<div class="ngl-loading">No stories available</div>';
-      if (m) m.textContent = 'Feed unavailable';
+      list.innerHTML = '<div style="padding:20px;text-align:center;font-size:13px;color:#666;">No stories available</div>';
+      if (meta) meta.textContent = 'unavailable';
       return;
     }
-    items.sort((a, b) => b.ts - a.ts);
-    const top = items.slice(0, MAX_ITEMS);
-    let nyt = 0, globe = 0;
-    g.innerHTML = '';
-    top.forEach(item => {
-      const src = guessSource(item);
-      if (src === 'globe') globe++; else nyt++;
-      const snippet = getSnippet(item.description);
+    list.innerHTML = '';
+    items.forEach(item => {
+      const snip = snippet(item.desc);
       const a = document.createElement('a');
-      a.href = item.link || '#';
+      a.href = item.link;
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
-      a.className = 'ngl-item';
+      a.style.cssText = 'display:block;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.06);text-decoration:none;transition:background .12s;';
+      a.onmouseover = () => a.style.background = hoverBg;
+      a.onmouseout  = () => a.style.background = '';
       a.innerHTML =
-        '<div class="ngl-item-top">'
-        + '<span class="ngl-src-badge ngl-src-' + src + '">' + (src === 'globe' ? 'GLOBE' : 'NYT') + '</span>'
-        + '<span class="ngl-item-time">' + fmtDateTime(item.ts) + '</span>'
+        '<div style="display:flex;align-items:center;justify-content:flex-end;margin-bottom:4px;">'
+        + '<span style="font-size:10px;color:' + accentColor + ';font-family:monospace;opacity:0.7;">' + fmtTime(item.pub) + '</span>'
         + '</div>'
-        + '<div class="ngl-item-title">' + item.title + '</div>'
-        + (snippet ? '<div class="ngl-item-summary">' + snippet + '</div>' : '');
-      g.appendChild(a);
+        + '<div style="font-size:14px;font-weight:600;color:#e8e8e8;line-height:1.35;margin-bottom:4px;'
+        + 'display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + item.title + '</div>'
+        + (snip ? '<div style="font-size:11px;color:#888;line-height:1.4;'
+          + 'display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + snip + '</div>' : '');
+      list.appendChild(a);
     });
-    if (m) m.textContent = top.length + ' stories · NYT: ' + nyt + ' · Globe: ' + globe
-      + ' · updated ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    if (meta) meta.textContent = items.length + ' stories · updated ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   }
 
-  async function load() {
-    const g = grid(), m = meta();
-    if (!g) { console.warn('NGL: ngl-grid not found'); return; }
-    if (m) m.textContent = 'Loading…';
-    const result = await fetchFeed(MERGED_FEED);
-    if (!result) {
-      g.innerHTML = '<div class="ngl-loading" style="color:#c0392b;">Feed unavailable'
-        + '<br><button onclick="nglRetry()" style="margin-top:10px;padding:5px 16px;'
-        + 'background:#c0392b;color:#fff;border:none;border-radius:4px;'
-        + 'font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;'
-        + 'letter-spacing:1px;cursor:pointer;">↺ RETRY</button></div>';
-      if (m) m.textContent = 'Error';
+  async function loadFeed(url, listId, metaId, max, accentColor, hoverBg) {
+    const list = document.getElementById(listId);
+    const meta = document.getElementById(metaId);
+    if (!list) return;
+    if (meta) meta.textContent = 'Loading…';
+    const xml = await fetchRSS(url);
+    if (!xml) {
+      list.innerHTML = '<div style="padding:16px;text-align:center;font-size:13px;color:#c0392b;">'
+        + 'Feed unavailable<br>'
+        + '<button onclick="this.closest('[id]') && window['' + listId + 'Retry']()" '
+        + 'style="margin-top:10px;padding:4px 14px;background:#c0392b;color:#fff;border:none;'
+        + 'border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:13px;'
+        + 'font-weight:700;letter-spacing:1px;cursor:pointer;">↺ RETRY</button></div>';
+      if (meta) meta.textContent = 'error';
       return;
     }
-    renderItems(parseItems(result));
+    renderFeed(listId, metaId, parseRSS(xml, max), accentColor, hoverBg);
   }
 
-  window.nglRetry = load;
-  load();
-  setInterval(load, 300000);
+  // ── NYT ──
+  const NYT_URL = 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
+  window['nyt-feed-listRetry'] = () => loadFeed(NYT_URL, 'nyt-feed-list', 'nyt-feed-meta', 30, '#aaaaaa', '#1a1a1a');
+  loadFeed(NYT_URL, 'nyt-feed-list', 'nyt-feed-meta', 30, '#aaaaaa', '#1a1a1a');
+  setInterval(() => loadFeed(NYT_URL, 'nyt-feed-list', 'nyt-feed-meta', 30, '#aaaaaa', '#1a1a1a'), 300000);
+
+  // ── GLOBE ──
+  const GLOBE_URL = 'https://rss.app/feeds/DDMnamv89Q9UnJ0D.xml';
+  window['globe-feed-listRetry'] = () => loadFeed(GLOBE_URL, 'globe-feed-list', 'globe-feed-meta', 30, '#f5c518', '#0f2550');
+  loadFeed(GLOBE_URL, 'globe-feed-list', 'globe-feed-meta', 30, '#f5c518', '#0f2550');
+  setInterval(() => loadFeed(GLOBE_URL, 'globe-feed-list', 'globe-feed-meta', 30, '#f5c518', '#0f2550'), 300000);
+
 })();
 </script>
 </body>
