@@ -1037,7 +1037,7 @@ def main():
 
     # ── SPORTS COMBINED FEED ─────────────────────────────────────────────────
     sports_items = safe(lambda: fetch_feed(
-        'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6AdgTwgSwFsBTWdAYwHsDEBDCMAGyPzMU0cQiJuoCMAnAK55MsRCAA04KHCSoMOfMVKVqdRszysCDXp27V+RACawKAD3FTIMBMjQosuQiXJVa9JizYAzBvp5EaDp+PAoIMUlpWzkHJyVXVQ8Nbx8KcN4aBn8uQKMANwoGQXwKTCto2XsFZ2U3NU9NVkxMgOoyIgYWSOsZO3lHRRcVd3UvLURKbKIAcyIAWjSMrJyDRF4KWAgy+ammOfnuGaZYXaL9haWITOyKmyqB+OH65PHWPdmFzNgAa2Yb1aBDZbHYfA5HE5naYHb5-a4rO59WI1BIjBopCZXAGoCj8BjGXaCaCImLVQa1RKjRreTA0WBkGj8EkPOJDOpJMZNRBYhGYFCwfxRe79VkUtGvLkoKhEUTzMAUMh-bDMkUo54c6mY3EEQQMGjzACMKuRjh I0EwLzN5X4sDEmCI-KFSOQsEE-HyeA9mBmM34NGM2BePiIJidpMQACsKNgKD4zOZ0LwGBQZrBoOEgyHTEFNhFEMYiD4aLqIGGWRgKPkiPx6EQCGUttWXmX+jdSDRoMTgyYxBAAFIAdQASgBZAAK0AAkhAAGwjg1kABei4ArOhzDoQABdIA',
+        'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6AdgTwgSwFsBTWdAYwHsDEBDCMAGyPzMU0cQiJuoCMAnAK55MsRCAA04KHCSoMOfMVKVqdRszysCDXp27V+RACawKAD3FTIMBMjQosuQiXJVa9JizYAzBvp5EaDp+PAoIMUlpWzkHJyVXVQ8Nbx8KcN4aBn8uQKMANwoGQXwKTCto2XsFZ2U3NU9NVkxMgOoyIgYWSOsZO3lHRRcVd3UvLURKbKIAcyIAWjSMrJyDRF4KWAgy+ammOfnuGaZYXaL9haWITOyKmyqB+OH65PHWPdmFzNgAa2Yb1aBDZbHYfA5HE5naYHb5-a4rO59WI1BIjBopCZXAGoCj8BjGXaCaCImLVQa1RKjRreTA0WBkGj8EkPOJDOpJMZNRBYhGYFCwfxRe79VkUtGvLkoKhEUTzMAUMh-bDMkUo54c6mY3EEQQMGjzACMKuRjhI0EwLzN5X4sDEmCI-KFSOQsEE-HyeA9mBmM34NGM2BePiIJidpMQACsKNgKD4zOZ0LwGBQZrBoOEgyHTEFNhFEMYiD4aLqIGGWRgKPkiPx6EQCGUttWXmX+jdSDRoMTgyYxBAAFIAdQASgBZAAK0AAkhAAGwjg1kABei4ArOhzDoQABdIA',
         50
     ), "Sports combined feed") or []
     for i in sports_items:
@@ -1090,14 +1090,17 @@ def main():
         data["road_events"] = []
 
     # ── KTN BREAKING NEWS ────────────────────────────────────────────────────
-    import time
-    ktn_items = safe(lambda: fetch_feed(
+    import time as _time
+    ktn_raw = safe(lambda: fetch_feed(
         'https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv.xml', 20
     ), "KTN breaking news") or []
-    now_ts = time.time()
-    ktn_items = [i for i in ktn_items if (now_ts - i.get("ts", 0)) <= 43200][:10]
+    _now = _time.time()
+    # Keep items from last 12h; if ts=0 (timestamp unreadable) keep them anyway
+    # since KTN only ever contains very recent items
+    ktn_items = [i for i in ktn_raw
+                 if i.get("ts", 0) == 0 or (_now - i["ts"]) <= 43200][:10]
     data["news_ktn"] = ktn_items
-    print(f"  → KTN breaking news: {len(ktn_items)} items (last 12h)")
+    print(f"  → KTN breaking news: {len(ktn_items)} items (last 12h, raw:{len(ktn_raw)})")
 
     with open("data.json","w") as f:
         json.dump(data, f, indent=2, default=str)
