@@ -2260,12 +2260,12 @@ function renderTopStories(d) {
  
   // ── GATHER ───────────────────────────────────────────────────
   const pools = [
-    { key: 'news_ktn',         boost: 12 },  // breaking news — highest boost
+    { key: 'news_ktn',         boost: 6 },  
     { key: 'news_revere',      boost: 6  },
-    { key: 'news_boston',      boost: 3  },
+    { key: 'news_boston',      boost: 4  },
     { key: 'news_universalhub',boost: 3  },
     { key: 'news_communities', boost: 2  },
-    { key: 'news_national',    boost: 0  },
+    { key: 'news_national',    boost: 2  },
     { key: 'news_ma_transit',  boost: 4  },
   ];
  
@@ -2312,7 +2312,7 @@ function renderTopStories(d) {
     const kw = keywords(article.title);
     let matched = false;
     for (const cluster of clusters) {
-      if (overlap(kw, cluster.kw) >= 0.45) {
+      if (overlap(kw, cluster.kw) >= 0.25) {
         cluster.articles.push(article);
         // Expand cluster keywords with any new unique words
         kw.forEach(w => { if (!cluster.kw.includes(w)) cluster.kw.push(w); });
@@ -2396,7 +2396,16 @@ function renderTopStories(d) {
         boost:   Math.max(...c.articles.map(a => a.boost)),
       };
     })
-    .sort((a,b) => b.score - a.score)
+   .sort((a,b) => b.score - a.score)
+    .filter((story, idx, arr) => {
+      if (idx === 0) return true;
+      const kw = new Set(keywords(story.title));
+      return !arr.slice(0, idx).some(prev => {
+        const prevKw = keywords(prev.title);
+        const shared = prevKw.filter(w => kw.has(w)).length;
+        return shared >= 2;
+      });
+    })
     .slice(0, 6);
  
   // ── RENDER ───────────────────────────────────────────────────
