@@ -890,37 +890,14 @@ def main():
     data["news_universalhub"] = uhub
 
     # ── SPORTS ───────────────────────────────────────────────────────────────
-    sports_sources = [
-        ("https://www.bostonglobe.com/rss/sports",             "Globe Sports"),
-        ("https://www.espn.com/espn/rss/boston/news",          "ESPN Boston"),
-        ("https://nesn.com/feed/",                             "NESN"),
-        ("https://feeds.wbur.org/wburnews",                    "WBUR Sports"),
-        ("https://www.masslive.com/sports/arc/outboundfeeds/rss/?outputType=xml","MassLive Sports"),
-        ("https://bostonherald.com/sports/feed/",              "Herald Sports"),
-        ("https://theathletic.com/boston-bruins/feed/",        "The Athletic · Bruins"),
-        ("https://theathletic.com/boston-celtics/feed/",       "The Athletic · Celtics"),
-        ("https://theathletic.com/boston-red-sox/feed/",       "The Athletic · Red Sox"),
-        ("https://theathletic.com/new-england-patriots/feed/", "The Athletic · Patriots"),
-        ("https://theathletic.com/nhl/feed/",                  "The Athletic · NHL"),
-        ("https://theathletic.com/college-football/feed/",     "The Athletic · CFB"),
-        ("https://news.google.com/rss/search?q=Boston+Bruins&hl=en-US&gl=US&ceid=US:en",        "Google News · Bruins"),
-        ("https://news.google.com/rss/search?q=Boston+Celtics&hl=en-US&gl=US&ceid=US:en",       "Google News · Celtics"),
-        ("https://news.google.com/rss/search?q=Boston+Red+Sox&hl=en-US&gl=US&ceid=US:en",       "Google News · Red Sox"),
-        ("https://news.google.com/rss/search?q=New+England+Patriots&hl=en-US&gl=US&ceid=US:en", "Google News · Patriots"),
-        ("https://news.google.com/rss/search?q=New+England+Revolution+MLS&hl=en-US&gl=US&ceid=US:en", "Google News · Revolution"),
-    ]
-    data["news_sports"] = []
-    seen_sports = set()
-    for url, label in sports_sources:
-        items = safe(lambda u=url: fetch_feed(u, 6), label) or []
-        for item in items:
-            link = item.get("link","")
-            if link and link not in seen_sports:
-                seen_sports.add(link)
-                item["source"] = label
-                data["news_sports"].append(item)
-    data["news_sports"].sort(key=lambda x: x.get("ts",0), reverse=True)
-    data["news_sports"] = data["news_sports"][:40]
+    sports_items = safe(lambda: fetch_feed(
+        'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6AdgTwgSwFsBTWdAYwHsDEBDCMAGyPzMU0cQiJuoCMAnAK55MsRCAA04KHCSoMOfMVKVqdRszysCDXp27V+RACawKAD3FTIMBMjQosuQiXJVa9JizYAzBvp5EaDp+PAoIMUlpWzkHJyVXVQ8Nbx8KcN4aBn8uQKMANwoGQXwKTCto2XsFZ2U3NU9NVkxMgOoyIgYWSOsZO3lHRRcVd3UvLURKbKIAcyIAWjSMrJyDRF4KWAgy+ammOfnuGaZYXaL9haWITOyKmyqB+OH65PHWPdmFzNgAa2Yb1aBDZbHYfA5HE5naYHb5-a4rO59WI1BIjBopCZXAGoCj8BjGXaCaCImLVQa1RKjRreTA0WBkGj8EkPOJDOpJMZNRBYhGYFCwfxRe79VkUtGvLkoKhEUTzMAUMh-bDMkUo54c6mY3EEQQMGjzACMKuRjhI0EwLzN5X4sDEmCI-KFSOQsEE-HyeA9mBmM34NGM2BePiIJidpMQACsKNgKD4zOZ0LwGBQZrBoOEgyHTEFNhFEMYiD4aLqIGGWRgKPkiPx6EQCGUttWXmX+jdSDRoMTgyYxBAAFIAdQASgBZAAK0AAkhAAGwjg1kABei4ArOhzDoQABdIA',
+        50
+    ), "My Sports News") or []
+    for i in sports_items:
+        i["source"] = i.get("feed_title") or i.get("author") or "Sports"
+    sports_items.sort(key=lambda x: x.get("ts", 0), reverse=True)
+    data["news_sports"] = sports_items[:40]
     print(f"  → My Sports News: {len(data['news_sports'])} items")
 
     # ── BOSTON COLLEGE ───────────────────────────────────────────────────────
