@@ -578,15 +578,15 @@ a.big-btn:hover{opacity:.85;}
 <!-- NYT + GLOBE MERGED FEED -->
 <style>
 .ngl-wrap {
-  background: #111;
-  border-bottom: 2px solid #1a1a1a;
+  background: #e8e8e8;
+  border-bottom: 2px solid #c8c8c8;
   display: flex;
   flex-direction: column;
 }
 .ngl-header {
-  background: #0d0d0d;
-  border-bottom: 1px solid #222;
-  padding: 7px 16px;
+  background: #d8d8d8;
+  border-bottom: 1px solid #bbb;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -600,34 +600,34 @@ a.big-btn:hover{opacity:.85;}
 .ngl-badge-nyt {
   background: #cc0000;
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 2px;
-  padding: 2px 8px;
+  padding: 3px 9px;
   border-radius: 3px;
   font-family: 'Barlow Condensed', sans-serif;
 }
 .ngl-badge-globe {
   background: #0d2b5e;
   color: #f5c518;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 2px;
-  padding: 2px 8px;
+  padding: 3px 9px;
   border-radius: 3px;
   font-family: 'Barlow Condensed', sans-serif;
 }
 .ngl-title {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 3px;
-  color: #e0e0e0;
+  color: #222;
   text-transform: uppercase;
 }
 .ngl-meta {
-  font-size: 10px;
-  color: #555;
+  font-size: 11px;
+  color: #666;
   font-family: monospace;
 }
 .ngl-grid {
@@ -635,65 +635,67 @@ a.big-btn:hover{opacity:.85;}
   grid-template-columns: 1fr 1fr;
   gap: 0;
   overflow-y: auto;
-  max-height: 520px;
+  /* 8 stories = 4 rows; each row ~105px → 420px shows exactly 8 before scroll */
+  max-height: 420px;
   scrollbar-width: thin;
-  scrollbar-color: #333 transparent;
+  scrollbar-color: #aaa #e8e8e8;
 }
-.ngl-grid::-webkit-scrollbar { width: 5px; }
-.ngl-grid::-webkit-scrollbar-track { background: #111; }
-.ngl-grid::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+.ngl-grid::-webkit-scrollbar { width: 6px; }
+.ngl-grid::-webkit-scrollbar-track { background: #e8e8e8; }
+.ngl-grid::-webkit-scrollbar-thumb { background: #bbb; border-radius: 3px; }
 .ngl-item {
   display: block;
-  padding: 10px 14px;
-  border-bottom: 1px solid #1a1a1a;
-  border-right: 1px solid #1a1a1a;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   text-decoration: none;
+  background: #f2f2f2;
   transition: background .12s;
   cursor: pointer;
 }
-.ngl-item:nth-child(even) { border-right: none; }
-.ngl-item:hover { background: #1a1a1a; }
+.ngl-item:nth-child(even) { border-right: none; background: #efefef; }
+.ngl-item:hover { background: #e0e8f4 !important; }
 .ngl-item-top {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 4px;
+  gap: 7px;
+  margin-bottom: 5px;
 }
 .ngl-src-badge {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 1px 5px;
+  padding: 2px 6px;
   border-radius: 2px;
   flex-shrink: 0;
   font-family: 'Barlow Condensed', sans-serif;
 }
-.ngl-src-nyt { background: #2a0000; color: #ff6666; }
-.ngl-src-globe { background: #081830; color: #f5c518; }
+.ngl-src-nyt  { background: #cc0000; color: #fff; }
+.ngl-src-globe { background: #0d2b5e; color: #f5c518; }
 .ngl-item-time {
-  font-size: 10px;
-  color: #555;
+  font-size: 11px;
+  color: #777;
   font-family: monospace;
   flex-shrink: 0;
   margin-left: auto;
 }
 .ngl-item-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #e0e0e0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
   line-height: 1.35;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.ngl-item:hover .ngl-item-title { color: #fff; }
+.ngl-item:hover .ngl-item-title { color: #1a3a7a; }
 .ngl-item-summary {
-  font-size: 11px;
-  color: #666;
-  line-height: 1.4;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.45;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -703,8 +705,8 @@ a.big-btn:hover{opacity:.85;}
   grid-column: 1 / -1;
   padding: 24px;
   text-align: center;
-  font-size: 13px;
-  color: #444;
+  font-size: 14px;
+  color: #555;
 }
 </style>
 
@@ -713,7 +715,7 @@ a.big-btn:hover{opacity:.85;}
     <div class="ngl-header-left">
       <span class="ngl-badge-nyt">NYT</span>
       <span class="ngl-badge-globe">GLOBE</span>
-      <span class="ngl-title">Latest</span>
+      <span class="ngl-title">NYT + Globe Latest</span>
     </div>
     <span class="ngl-meta" id="ngl-meta">Loading…</span>
   </div>
