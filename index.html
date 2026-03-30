@@ -3725,37 +3725,52 @@ document.addEventListener('DOMContentLoaded',()=>{
     return typeof s === 'string' && (s.includes('<item>') || s.includes('<entry>') || s.includes('<rss') || s.includes('<feed'));
   }
 
+  // Fetch with hard timeout — aborts after ms milliseconds
+  async function timedFetch(url, ms, opts) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ms);
+    try {
+      const r = await fetch(url, { ...opts, signal: ctrl.signal });
+      clearTimeout(timer);
+      return r;
+    } catch(e) {
+      clearTimeout(timer);
+      throw e;
+    }
+  }
+
   async function fetchFeed(url) {
     const enc = encodeURIComponent(url);
+    const T = 8000; // 8-second timeout per attempt
 
-    // 1. Direct fetch — rssrssrssrss.com sends CORS headers
+    // 1. allorigins JSON wrapper (most reliable proxy)
     try {
-      const r = await fetch(url, { cache: 'no-cache' });
-      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
-    } catch(e) {}
-
-    // 2. allorigins JSON wrapper
-    try {
-      const r = await fetch('https://api.allorigins.win/get?url=' + enc, { cache: 'no-cache' });
+      const r = await timedFetch('https://api.allorigins.win/get?url=' + enc, T, { cache: 'no-cache' });
       if (r.ok) { const d = await r.json(); if (isXML(d.contents)) return d.contents; }
     } catch(e) {}
 
-    // 3. corsproxy raw text
+    // 2. corsproxy raw text
     try {
-      const r = await fetch('https://corsproxy.io/?' + enc, { cache: 'no-cache' });
+      const r = await timedFetch('https://corsproxy.io/?' + enc, T, { cache: 'no-cache' });
       if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
     } catch(e) {}
 
-    // 4. allorigins raw
+    // 3. allorigins raw endpoint
     try {
-      const r = await fetch('https://api.allorigins.win/raw?url=' + enc, { cache: 'no-cache' });
+      const r = await timedFetch('https://api.allorigins.win/raw?url=' + enc, T, { cache: 'no-cache' });
       if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
     } catch(e) {}
 
-    // 5. rss2json
+    // 4. rss2json (returns JSON, handled separately)
     try {
-      const r = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' + enc + '&count=60', { cache: 'no-cache' });
+      const r = await timedFetch('https://api.rss2json.com/v1/api.json?rss_url=' + enc + '&count=60', T, { cache: 'no-cache' });
       if (r.ok) { const d = await r.json(); if (d.status === 'ok' && d.items?.length) return { __rss2json: true, items: d.items }; }
+    } catch(e) {}
+
+    // 5. Direct fetch last (CORS may block, but worth a try)
+    try {
+      const r = await timedFetch(url, T, { cache: 'no-cache' });
+      if (r.ok) { const x = await r.text(); if (isXML(x)) return x; }
     } catch(e) {}
 
     return null;
