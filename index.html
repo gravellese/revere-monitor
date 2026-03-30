@@ -3599,62 +3599,41 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 <script>
-/* ── SIMPLE RSS FEED LOADER — used by NYT and Globe boxes ── */
 (function(){
+  /* ── NYT + GLOBE FEED BOXES ── */
 
-  async function timedFetch(url, ms) {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), ms);
-    try {
-      const r = await fetch(url, { signal: ctrl.signal, cache: 'no-cache' });
-      clearTimeout(t);
-      return r;
-    } catch(e) { clearTimeout(t); throw e; }
-  }
-
+  // Exact proxy pattern from the original working tickers
   async function fetchRSS(url) {
-    const enc = encodeURIComponent(url);
-    const T = 8000;
-
-    // Try allorigins (returns JSON with .contents)
-    try {
-      const r = await timedFetch('https://api.allorigins.win/get?url=' + enc, T);
-      if (r.ok) {
-        const d = await r.json();
-        if (d.contents && d.contents.includes('<item>')) return d.contents;
-      }
-    } catch(e) {}
-
-    // Try corsproxy (returns raw text)
-    try {
-      const r = await timedFetch('https://corsproxy.io/?' + enc, T);
-      if (r.ok) {
-        const x = await r.text();
-        if (x.includes('<item>')) return x;
-      }
-    } catch(e) {}
-
-    // Try allorigins raw
-    try {
-      const r = await timedFetch('https://api.allorigins.win/raw?url=' + enc, T);
-      if (r.ok) {
-        const x = await r.text();
-        if (x.includes('<item>')) return x;
-      }
-    } catch(e) {}
-
-    return null;
+    var xml = null;
+    var proxies = [
+      function(u){ return 'https://api.allorigins.win/get?url=' + encodeURIComponent(u); },
+      function(u){ return 'https://corsproxy.io/?' + encodeURIComponent(u); }
+    ];
+    for (var i = 0; i < proxies.length; i++) {
+      try {
+        var r = await fetch(proxies[i](url), { cache: 'no-cache' });
+        if (!r.ok) continue;
+        var d = await r.json();
+        xml = d.contents || d;
+        if (typeof xml === 'string' && xml.includes('<item>')) break;
+        xml = null;
+      } catch(e) { xml = null; }
+    }
+    if (!xml) {
+      try { var r2 = await fetch(url); xml = await r2.text(); } catch(e) {}
+    }
+    return xml;
   }
 
   function parseRSS(xml, max) {
-    const doc = new DOMParser().parseFromString(xml, 'text/xml');
-    const items = [];
-    doc.querySelectorAll('item').forEach(n => {
-      const title = n.querySelector('title')?.textContent?.trim() || '';
-      const link  = n.querySelector('link')?.textContent?.trim() || n.querySelector('guid')?.textContent || '#';
-      const pub   = n.querySelector('pubDate')?.textContent || '';
-      const desc  = n.querySelector('description')?.textContent || '';
-      if (title) items.push({ title, link, pub, desc });
+    var doc = new DOMParser().parseFromString(xml, 'text/xml');
+    var items = [];
+    doc.querySelectorAll('item').forEach(function(n) {
+      var title = (n.querySelector('title') || {}).textContent || '';
+      var link  = (n.querySelector('link')  || {}).textContent || (n.querySelector('guid') || {}).textContent || '#';
+      var pub   = (n.querySelector('pubDate') || {}).textContent || '';
+      var desc  = (n.querySelector('description') || {}).textContent || '';
+      if (title.trim()) items.push({ title: title.trim(), link: link.trim(), pub: pub, desc: desc });
     });
     return items.slice(0, max);
   }
@@ -3662,23 +3641,21 @@ document.addEventListener('DOMContentLoaded',()=>{
   function fmtTime(pub) {
     if (!pub) return '';
     try {
-      const d = new Date(pub);
-      const now = new Date();
-      const time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      var d = new Date(pub), now = new Date();
+      var time = d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
       return d.toDateString() === now.toDateString()
         ? time
         : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' + time;
     } catch(e) { return ''; }
   }
 
-  function snippet(html) {
-    if (!html) return '';
-    return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 180);
+  function strip(h) {
+    return h ? h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 180) : '';
   }
 
-  function renderFeed(listId, metaId, items, accentColor, hoverBg) {
-    const list = document.getElementById(listId);
-    const meta = document.getElementById(metaId);
+  function renderList(listId, metaId, items, accent, hoverBg) {
+    var list = document.getElementById(listId);
+    var meta = document.getElementById(metaId);
     if (!list) return;
     if (!items.length) {
       list.innerHTML = '<div style="padding:20px;text-align:center;font-size:13px;color:#666;">No stories available</div>';
@@ -3686,58 +3663,52 @@ document.addEventListener('DOMContentLoaded',()=>{
       return;
     }
     list.innerHTML = '';
-    items.forEach(item => {
-      const snip = snippet(item.desc);
-      const a = document.createElement('a');
+    items.forEach(function(item) {
+      var snip = strip(item.desc);
+      var a = document.createElement('a');
       a.href = item.link;
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
-      a.style.cssText = 'display:block;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.06);text-decoration:none;transition:background .12s;';
-      a.onmouseover = () => a.style.background = hoverBg;
-      a.onmouseout  = () => a.style.background = '';
-      a.innerHTML =
-        '<div style="display:flex;align-items:center;justify-content:flex-end;margin-bottom:4px;">'
-        + '<span style="font-size:10px;color:' + accentColor + ';font-family:monospace;opacity:0.7;">' + fmtTime(item.pub) + '</span>'
-        + '</div>'
-        + '<div style="font-size:14px;font-weight:600;color:#e8e8e8;line-height:1.35;margin-bottom:4px;'
-        + 'display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + item.title + '</div>'
-        + (snip ? '<div style="font-size:11px;color:#888;line-height:1.4;'
-          + 'display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + snip + '</div>' : '');
+      a.style.cssText = 'display:block;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,0.07);text-decoration:none;transition:background .12s;';
+      a.onmouseover = function(){ a.style.background = hoverBg; };
+      a.onmouseout  = function(){ a.style.background = ''; };
+      var timeHtml = fmtTime(item.pub)
+        ? '<div style="font-size:10px;color:' + accent + ';font-family:monospace;opacity:0.7;margin-bottom:3px;text-align:right;">' + fmtTime(item.pub) + '</div>'
+        : '';
+      var titleHtml = '<div style="font-size:14px;font-weight:600;color:#e8e8e8;line-height:1.35;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + item.title + '</div>';
+      var snipHtml = snip ? '<div style="font-size:11px;color:#888;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + snip + '</div>' : '';
+      a.innerHTML = timeHtml + titleHtml + snipHtml;
       list.appendChild(a);
     });
-    if (meta) meta.textContent = items.length + ' stories · updated ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    if (meta) meta.textContent = items.length + ' stories \u00b7 updated ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   }
 
-  async function loadFeed(url, listId, metaId, max, accentColor, hoverBg) {
-    const list = document.getElementById(listId);
-    const meta = document.getElementById(metaId);
+  async function load(url, listId, metaId, max, accent, hoverBg) {
+    var list = document.getElementById(listId);
+    var meta = document.getElementById(metaId);
     if (!list) return;
-    if (meta) meta.textContent = 'Loading…';
-    const xml = await fetchRSS(url);
+    if (meta) meta.textContent = 'Loading\u2026';
+    var xml = await fetchRSS(url);
     if (!xml) {
-      list.innerHTML = '<div style="padding:16px;text-align:center;font-size:13px;color:#c0392b;">'
-        + 'Feed unavailable<br>'
-        + '<button onclick="this.closest('[id]') && window['' + listId + 'Retry']()" '
-        + 'style="margin-top:10px;padding:4px 14px;background:#c0392b;color:#fff;border:none;'
-        + 'border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:13px;'
-        + 'font-weight:700;letter-spacing:1px;cursor:pointer;">↺ RETRY</button></div>';
+      list.innerHTML = '<div style="padding:16px;text-align:center;font-size:13px;color:#c0392b;">Feed unavailable &mdash; <a href="javascript:void(0)" onclick="window._nytGlobeRetry && window._nytGlobeRetry()" style="color:#c0392b;">retry</a></div>';
       if (meta) meta.textContent = 'error';
       return;
     }
-    renderFeed(listId, metaId, parseRSS(xml, max), accentColor, hoverBg);
+    renderList(listId, metaId, parseRSS(xml, max), accent, hoverBg);
   }
 
-  // ── NYT ──
-  const NYT_URL = 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
-  window['nyt-feed-listRetry'] = () => loadFeed(NYT_URL, 'nyt-feed-list', 'nyt-feed-meta', 30, '#aaaaaa', '#1a1a1a');
-  loadFeed(NYT_URL, 'nyt-feed-list', 'nyt-feed-meta', 30, '#aaaaaa', '#1a1a1a');
-  setInterval(() => loadFeed(NYT_URL, 'nyt-feed-list', 'nyt-feed-meta', 30, '#aaaaaa', '#1a1a1a'), 300000);
+  var NYT   = 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml';
+  var GLOBE = 'https://rss.app/feeds/DDMnamv89Q9UnJ0D.xml';
 
-  // ── GLOBE ──
-  const GLOBE_URL = 'https://rss.app/feeds/DDMnamv89Q9UnJ0D.xml';
-  window['globe-feed-listRetry'] = () => loadFeed(GLOBE_URL, 'globe-feed-list', 'globe-feed-meta', 30, '#f5c518', '#0f2550');
-  loadFeed(GLOBE_URL, 'globe-feed-list', 'globe-feed-meta', 30, '#f5c518', '#0f2550');
-  setInterval(() => loadFeed(GLOBE_URL, 'globe-feed-list', 'globe-feed-meta', 30, '#f5c518', '#0f2550'), 300000);
+  function loadNYT()   { load(NYT,   'nyt-feed-list',   'nyt-feed-meta',   30, '#aaaaaa', '#1a1a1a'); }
+  function loadGlobe() { load(GLOBE, 'globe-feed-list', 'globe-feed-meta', 30, '#f5c518', '#0f2550'); }
+
+  window._nytGlobeRetry = function() { loadNYT(); loadGlobe(); };
+
+  loadNYT();
+  loadGlobe();
+  setInterval(loadNYT,   300000);
+  setInterval(loadGlobe, 300000);
 
 })();
 </script>
