@@ -542,11 +542,19 @@ def fetch_sports_schedule():
         "watchlist":   "df6346a0c4db83dfa688f28aba800e40ba131190994a61dfbc3de835ec2c3c7f@group.calendar.google.com",
     }
 
-    events = []
+    PRIVATE_CAL_URLS = {
+        "nascar_ore": "https://calendar.google.com/calendar/ical/7e497131cc76c86d4aa976986c8b17eb5c3ecb8555a7dcf00cf1b26138ea3431%40group.calendar.google.com/private-0756c6ff19c58c3cfae14b48ca05f3a7/basic.ics",
+    }
 
+    cal_urls = {}
     for team, cal_id in CAL_IDS.items():
         encoded = urllib.parse.quote(cal_id, safe='%_+-.')
-        url = f"https://calendar.google.com/calendar/ical/{encoded}/public/basic.ics"
+        cal_urls[team] = f"https://calendar.google.com/calendar/ical/{encoded}/public/basic.ics"
+    cal_urls.update(PRIVATE_CAL_URLS)
+
+    events = []
+
+    for team, url in cal_urls.items():
         try:
             r = requests.get(url, timeout=15, headers={"User-Agent": "RevereMonitor/6.0"})
             if r.status_code != 200:
@@ -619,7 +627,7 @@ def fetch_sports_schedule():
                     blob = (summary + description).lower()
                     if team == 'nascar_cup' or 'cup' in blob:
                         actual_team = 'nascar_cup'
-                    elif team == 'nascar_xfy' or "o'reilly" in blob or 'xfinity' in blob:
+                    elif team in ('nascar_xfy', 'nascar_ore') or "o'reilly" in blob or 'xfinity' in blob:
                         actual_team = 'nascar_ore'
                     elif team == 'nascar_tck' or 'truck' in blob or 'craftsman' in blob:
                         actual_team = 'nascar_tck'
