@@ -528,7 +528,9 @@ def fetch_sports_schedule():
         "legacy":      "elgb6vhfucpe38fhv6febj5l3etfbhmm@import.calendar.google.com",
         "bcbase":      "avkc7pucr075rp0ehvqbu1t5rlkku15r@import.calendar.google.com",
         "bclax":       "ne97hfv8h2chq71lb7vgrhc8oeenkqo7@import.calendar.google.com",
-        "nascar":      "7e497131cc76c86d4aa976986c8b17eb5c3ecb8555a7dcf00cf1b26138ea3431@group.calendar.google.com",
+        "nascar_cup":  "db8c47ne2bt9qbld2mhdabm0u8@group.calendar.google.com",
+        "nascar_xfy":  "t5krtr2252lbdd7ft3644tlc4k@group.calendar.google.com",
+        "nascar_tck":  "lnpvdfud8lhom7opdsnnbtu268@group.calendar.google.com",
         "f1":          "4bu98arvuq4clcir4oqq74v8j8udo0dk@import.calendar.google.com",
         "ncaa_hockey": "4591a3673990b40870a5eea863bc4ecb27817dcf8cd1353c10a5fddc682c4659@group.calendar.google.com",
         "worldcup":    "3hq899li0lh09cfs1h4bqdsdjs@group.calendar.google.com",
@@ -613,13 +615,13 @@ def fetch_sports_schedule():
                     summary = re_mod.sub(r'^\[.\]\s*', '', summary)
 
                 actual_team = team
-                if team == 'nascar':
+                if team.startswith('nascar'):
                     blob = (summary + description).lower()
-                    if 'cup' in blob:
+                    if team == 'nascar_cup' or 'cup' in blob:
                         actual_team = 'nascar_cup'
-                    elif "o'reilly" in blob or 'xfinity' in blob:
+                    elif team == 'nascar_xfy' or "o'reilly" in blob or 'xfinity' in blob:
                         actual_team = 'nascar_ore'
-                    elif 'truck' in blob or 'craftsman' in blob:
+                    elif team == 'nascar_tck' or 'truck' in blob or 'craftsman' in blob:
                         actual_team = 'nascar_tck'
                     else:
                         actual_team = 'nascar_cup'
@@ -689,15 +691,12 @@ def main():
     print("\n📰 News")
 
     # ── REVERE ───────────────────────────────────────────────────────────────
-    # Revere.org official RSS
     revere_official = safe(lambda: fetch_feed("https://www.revere.org/news/feed/rss", 20), "Revere.org RSS") or []
     for i in revere_official: i["source"] = "Revere.org"
 
-    # Revere Journal
     revere_journal = safe(lambda: fetch_feed("https://www.reverejournal.com/feed/", 20), "Revere Journal") or []
     for i in revere_journal: i["source"] = "Revere Journal"
 
-    # Advocate News — keep any item that mentions Revere in title, link, OR description/summary
     revere_advocate_raw = safe(lambda: fetch_feed("https://advocatenews.net/feed/", 40), "Advocate News") or []
     revere_advocate = [
         i for i in revere_advocate_raw
@@ -707,11 +706,9 @@ def main():
     ]
     for i in revere_advocate: i["source"] = "Advocate News"
 
-    # NBC Boston Revere tag
     revere_nbc = safe(lambda: fetch_feed("https://www.nbcboston.com/tag/revere/feed/", 10), "NBC Boston/Revere") or []
     for i in revere_nbc: i["source"] = "NBC Boston"
 
-    # Google News — three separate focused queries (more reliable than compound OR)
     revere_gnews1 = safe(lambda: fetch_feed(
         "https://news.google.com/rss/search?q=%22Revere%2C+MA%22&hl=en-US&gl=US&ceid=US:en", 15
     ), "Google News: Revere, MA") or []
@@ -727,7 +724,6 @@ def main():
     ), "Google News: City of Revere") or []
     for i in revere_gnews3: i["source"] = "Google News"
 
-    # Deduplicate by link, merge all sources
     seen_rev = set()
     revere_all = []
     for item in (revere_official + revere_journal + revere_advocate +
@@ -896,7 +892,6 @@ def main():
     ), "My Sports News") or []
     for i in sports_items:
         i["source"] = i.get("feed_title") or i.get("author") or "Sports"
-    # Filter out generic ESPN national feed items
     sports_items = [i for i in sports_items if 'espn.com/espn/rss/news' not in i.get("link","") and 'espn.com/espn/rss/news' not in i.get("feed_title","").lower()]
     sports_items.sort(key=lambda x: x.get("ts", 0), reverse=True)
     data["news_sports"] = sports_items[:40]
@@ -1017,8 +1012,6 @@ def main():
     data["news_ma_transit"] = ma_transit_all[:20]
     print(f"  → MA Transit & Housing: {len(data['news_ma_transit'])} items")
 
-    # (sports combined feed removed — news_sports built from per-source block above)
-
     # ── ESPN ─────────────────────────────────────────────────────────────────
     espn_items = safe(lambda: fetch_feed('https://www.espn.com/espn/rss/news', 30), "ESPN feed") or []
     for i in espn_items: i["source"] = "ESPN"
@@ -1068,8 +1061,6 @@ def main():
         'https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv.xml', 20
     ), "KTN breaking news") or []
     _now = _time.time()
-    # Keep items from last 12h; if ts=0 (timestamp unreadable) keep them anyway
-    # since KTN only ever contains very recent items
     ktn_items = [i for i in ktn_raw
                  if i.get("ts", 0) == 0 or (_now - i["ts"]) <= 43200][:10]
     data["news_ktn"] = ktn_items
