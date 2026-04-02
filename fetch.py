@@ -392,20 +392,11 @@ def fetch_iqm2_meetings():
 
 # ── PERSONAL CALENDAR ─────────────────────────────────
 def fetch_personal_calendar():
-    from datetime import date, timedelta, datetime as _dt
-    from zoneinfo import ZoneInfo
-    import re as _re
-
+    from datetime import date, timedelta
     try:
         from icalendar import Calendar as iCal
     except ImportError:
         print("  ✗ icalendar not installed")
-        return []
-
-    try:
-        import recurring_ical_events
-    except ImportError:
-        print("  ✗ recurring-ical-events not installed")
         return []
 
     PERSONAL_CALS = [
@@ -416,12 +407,6 @@ def fetch_personal_calendar():
 
     today = date.today()
     future_cutoff = today + timedelta(days=14)
-    ET = ZoneInfo("America/New_York")
-
-    # Must be timezone-aware — Google ICS events have TZID set, comparing against
-    # naive datetimes throws TypeError and silently kills each calendar fetch.
-    range_start = _dt.combine(today, _dt.min.time(), tzinfo=ET)
-    range_end   = _dt.combine(future_cutoff, _dt.max.time(), tzinfo=ET)
 
     events = []
     for cal_name, url in PERSONAL_CALS:
@@ -431,9 +416,10 @@ def fetch_personal_calendar():
                 print(f"    ✗ {cal_name}: HTTP {r.status_code}")
                 continue
             cal = iCal.from_ical(r.content)
-            occurrences = recurring_ical_events.of(cal).between(range_start, range_end)
             count = 0
-            for comp in occurrences:
+            for comp in cal.walk():
+                if comp.name != 'VEVENT':
+                    continue
                 dtstart = comp.get('DTSTART')
                 if not dtstart:
                     continue
@@ -444,33 +430,42 @@ def fetch_personal_calendar():
                     time_str = None
                 else:
                     try:
-                        et = dt.astimezone(ET)
+                        from zoneinfo import ZoneInfo
+                        et = dt.astimezone(ZoneInfo("America/New_York"))
                         event_date = et.date()
                         time_str = et.strftime("%-I:%M %p")
                     except Exception:
                         event_date = dt.date()
                         time_str = dt.strftime("%I:%M %p").lstrip('0')
-                summary = str(comp.get('SUMMARY', '') or '').strip()
+
+                if event_date < today or event_date > future_cutoff:
+                    continue
+
+                summary  = str(comp.get('SUMMARY', '') or '').strip()
                 location = str(comp.get('LOCATION', '') or '').strip()
                 if not summary:
                     continue
+
+                import re as _re
                 location = _re.sub(r'https?://\S+', '', location).strip()
                 location = location[:50] if location else None
+
                 events.append({
-                    "date": event_date.isoformat(),
-                    "time": time_str,
-                    "all_day": all_day,
-                    "summary": summary,
+                    "date":     event_date.isoformat(),
+                    "time":     time_str,
+                    "all_day":  all_day,
+                    "summary":  summary,
                     "location": location,
                     "calendar": cal_name,
                 })
                 count += 1
-            print(f"    ✓ {cal_name}: {count} upcoming events (incl. recurrences)")
+            print(f"    ✓ {cal_name}: {count} upcoming events")
         except Exception as e:
             print(f"    ✗ {cal_name}: {e}")
 
     events.sort(key=lambda x: (x["date"], x["time"] or "00:00"))
     return events
+
 
 # ── SPORTS SCHEDULE ───────────────────────────────────
 def fetch_sports_schedule():
