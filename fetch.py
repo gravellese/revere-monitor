@@ -394,13 +394,20 @@ def fetch_iqm2_meetings():
 def fetch_personal_calendar():
     from datetime import date, timedelta, datetime as _dt
     from zoneinfo import ZoneInfo
+    import re as _re
+
     try:
         from icalendar import Calendar as iCal
     except ImportError:
         print("  ✗ icalendar not installed")
         return []
 
-    import recurring_ical_events
+    try:
+        import recurring_ical_events
+        HAS_RECURRING = True
+    except ImportError:
+        HAS_RECURRING = False
+        print("  ⚠ recurring-ical-events not available, using basic mode")
 
     PERSONAL_CALS = [
         ("Joseph",  "https://calendar.google.com/calendar/ical/gravellese%40gmail.com/private-f7d5ed600f87f0f696c1afd76fb0cb1e/basic.ics"),
@@ -414,6 +421,40 @@ def fetch_personal_calendar():
     range_start = _dt.combine(today, _dt.min.time(), tzinfo=ET)
     range_end   = _dt.combine(future_cutoff, _dt.max.time(), tzinfo=ET)
 
+    def process_comp(comp, all_events, cal_name):
+        """Process a single VEVENT component and append to all_events. Returns 1 if added, 0 if skipped."""
+        dtstart = comp.get('DTSTART')
+        if not dtstart:
+            return 0
+        dt = dtstart.dt
+        all_day = not hasattr(dt, 'hour')
+        if all_day:
+            event_date = dt
+            time_str = None
+        else:
+            try:
+                et = dt.astimezone(ET)
+                event_date = et.date()
+                time_str = et.strftime("%-I:%M %p")
+            except Exception:
+                event_date = dt.date()
+                time_str = dt.strftime("%I:%M %p").lstrip('0')
+        summary  = str(comp.get('SUMMARY',  '') or '').strip()
+        location = str(comp.get('LOCATION', '') or '').strip()
+        if not summary:
+            return 0
+        location = _re.sub(r'https?://\S+', '', location).strip()
+        location = location[:50] if location else None
+        all_events.append({
+            "date":     event_date.isoformat(),
+            "time":     time_str,
+            "all_day":  all_day,
+            "summary":  summary,
+            "location": location,
+            "calendar": cal_name,
+        })
+        return 1
+
     events = []
     for cal_name, url in PERSONAL_CALS:
         try:
@@ -423,44 +464,42 @@ def fetch_personal_calendar():
                 continue
             cal = iCal.from_ical(r.content)
             count = 0
-            for comp in recurring_ical_events.of(cal).between(range_start, range_end):
+
+            if HAS_RECURRING:
+                try:
+                    for comp in recurring_ical_events.of(cal).between(range_start, range_end):
+                        count += process_comp(comp, events, cal_name)
+                    print(f"    ✓ {cal_name}: {count} upcoming events (recurring)")
+                    continue
+                except Exception as e:
+                    print(f"    ⚠ {cal_name}: recurring expansion failed ({e}), falling back")
+                    count = 0
+                    events = [ev for ev in events if ev["calendar"] != cal_name]
+
+            # Fallback: plain cal.walk()
+            for comp in cal.walk():
+                if comp.name != 'VEVENT':
+                    continue
                 dtstart = comp.get('DTSTART')
                 if not dtstart:
                     continue
                 dt = dtstart.dt
                 all_day = not hasattr(dt, 'hour')
-                if all_day:
-                    event_date = dt
-                    time_str = None
-                else:
-                    try:
-                        from zoneinfo import ZoneInfo
-                        et = dt.astimezone(ZoneInfo("America/New_York"))
-                        event_date = et.date()
-                        time_str = et.strftime("%-I:%M %p")
-                    except Exception:
-                        event_date = dt.date()
-                        time_str = dt.strftime("%I:%M %p").lstrip('0')
-
-                summary  = str(comp.get('SUMMARY', '') or '').strip()
-                location = str(comp.get('LOCATION', '') or '').strip()
-                if not summary:
+                event_date = dt if all_day else (lambda: (
+                    dt.astimezone(ET).date()
+                ))()
+                try:
+                    if all_day:
+                        event_date = dt
+                    else:
+                        event_date = dt.astimezone(ET).date()
+                except Exception:
+                    event_date = dt.date() if hasattr(dt, 'date') else dt
+                if event_date < today or event_date > future_cutoff:
                     continue
+                count += process_comp(comp, events, cal_name)
+            print(f"    ✓ {cal_name}: {count} upcoming events (basic)")
 
-                import re as _re
-                location = _re.sub(r'https?://\S+', '', location).strip()
-                location = location[:50] if location else None
-
-                events.append({
-                    "date":     event_date.isoformat(),
-                    "time":     time_str,
-                    "all_day":  all_day,
-                    "summary":  summary,
-                    "location": location,
-                    "calendar": cal_name,
-                })
-                count += 1
-            print(f"    ✓ {cal_name}: {count} upcoming events")
         except Exception as e:
             print(f"    ✗ {cal_name}: {e}")
 
