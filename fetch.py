@@ -392,12 +392,15 @@ def fetch_iqm2_meetings():
 
 # ── PERSONAL CALENDAR ─────────────────────────────────
 def fetch_personal_calendar():
-    from datetime import date, timedelta
+    from datetime import date, timedelta, datetime as _dt
+    from zoneinfo import ZoneInfo
     try:
         from icalendar import Calendar as iCal
     except ImportError:
         print("  ✗ icalendar not installed")
         return []
+
+    import recurring_ical_events
 
     PERSONAL_CALS = [
         ("Joseph",  "https://calendar.google.com/calendar/ical/gravellese%40gmail.com/private-f7d5ed600f87f0f696c1afd76fb0cb1e/basic.ics"),
@@ -407,6 +410,9 @@ def fetch_personal_calendar():
 
     today = date.today()
     future_cutoff = today + timedelta(days=14)
+    ET = ZoneInfo("America/New_York")
+    range_start = _dt.combine(today, _dt.min.time(), tzinfo=ET)
+    range_end   = _dt.combine(future_cutoff, _dt.max.time(), tzinfo=ET)
 
     events = []
     for cal_name, url in PERSONAL_CALS:
@@ -417,9 +423,7 @@ def fetch_personal_calendar():
                 continue
             cal = iCal.from_ical(r.content)
             count = 0
-            for comp in cal.walk():
-                if comp.name != 'VEVENT':
-                    continue
+            for comp in recurring_ical_events.of(cal).between(range_start, range_end):
                 dtstart = comp.get('DTSTART')
                 if not dtstart:
                     continue
@@ -437,9 +441,6 @@ def fetch_personal_calendar():
                     except Exception:
                         event_date = dt.date()
                         time_str = dt.strftime("%I:%M %p").lstrip('0')
-
-                if event_date < today or event_date > future_cutoff:
-                    continue
 
                 summary  = str(comp.get('SUMMARY', '') or '').strip()
                 location = str(comp.get('LOCATION', '') or '').strip()
