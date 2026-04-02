@@ -431,90 +431,98 @@ def fetch_iqm2_meetings():
     return meetings[:12]
 
 # ── PERSONAL CALENDAR ─────────────────────────────────
+
 def fetch_personal_calendar():
-    from datetime import date, timedelta, datetime as _dt
+from datetime import date, timedelta, datetime as _dt
+from zoneinfo import ZoneInfo
+import re as _re
+
+```
+try:
+    from icalendar import Calendar as iCal
+except ImportError:
+    print("  ✗ icalendar not installed")
+    return []
+
+try:
+    import recurring_ical_events
+except ImportError:
+    print("  ✗ recurring-ical-events not installed — pip install recurring-ical-events")
+    return []
+
+PERSONAL_CALS = [
+    ("Joseph",  "https://calendar.google.com/calendar/ical/gravellese%40gmail.com/private-f7d5ed600f87f0f696c1afd76fb0cb1e/basic.ics"),
+    ("Wesley",  "https://calendar.google.com/calendar/ical/49304c3e8f536ae830a6357b1e913aa895693f4565adec7a611dc95eac9961d5%40group.calendar.google.com/private-f5988f3e5bb13da18482519c327d463e/basic.ics"),
+    ("Todoist", "https://calendar.google.com/calendar/ical/472e59defe9def3c4f1c8539c4f2ba0db7f21d8d2dd420a73175a82b8c5ed927%40group.calendar.google.com/private-2fc84c690aafe491aede4fa26f43c4bb/basic.ics"),
+]
+
+today         = date.today()
+future_cutoff = today + timedelta(days=14)
+ET            = ZoneInfo("America/New_York")
+
+# timezone-aware range — required when ICS events have TZID set (Google always does)
+range_start = _dt.combine(today,         _dt.min.time(), tzinfo=ET)
+range_end   = _dt.combine(future_cutoff, _dt.max.time(), tzinfo=ET)
+
+events = []
+
+for cal_name, url in PERSONAL_CALS:
     try:
-        from icalendar import Calendar as iCal
-    except ImportError:
-        print("  ✗ icalendar not installed")
-        return []
+        r = requests.get(url, timeout=15, headers={"User-Agent": "RevereMonitor/6.0"})
+        if r.status_code != 200:
+            print(f"    ✗ {cal_name}: HTTP {r.status_code}")
+            continue
 
-    try:
-        import recurring_ical_events
-    except ImportError:
-        print("  ✗ recurring-ical-events not installed — pip install recurring-ical-events")
-        return []
+        cal          = iCal.from_ical(r.content)
+        occurrences  = recurring_ical_events.of(cal).between(range_start, range_end)
 
-    PERSONAL_CALS = [
-        ("Joseph", "https://calendar.google.com/calendar/ical/gravellese%40gmail.com/private-f7d5ed600f87f0f696c1afd76fb0cb1e/basic.ics"),
-        ("Wesley", "https://calendar.google.com/calendar/ical/49304c3e8f536ae830a6357b1e913aa895693f4565adec7a611dc95eac9961d5%40group.calendar.google.com/private-f5988f3e5bb13da18482519c327d463e/basic.ics"),
-        ("Todoist", "https://calendar.google.com/calendar/ical/472e59defe9def3c4f1c8539c4f2ba0db7f21d8d2dd420a73175a82b8c5ed927%40group.calendar.google.com/private-2fc84c690aafe491aede4fa26f43c4bb/basic.ics"),
-    ]
-
-    today = date.today()
-    future_cutoff = today + timedelta(days=14)
-
-    # recurring_ical_events expects datetime objects
-    range_start = _dt.combine(today, _dt.min.time())
-    range_end   = _dt.combine(future_cutoff, _dt.max.time())
-
-    events = []
-    for cal_name, url in PERSONAL_CALS:
-        try:
-            r = requests.get(url, timeout=15, headers={"User-Agent": "RevereMonitor/6.0"})
-            if r.status_code != 200:
-                print(f"    ✗ {cal_name}: HTTP {r.status_code}")
+        count = 0
+        for comp in occurrences:
+            dtstart = comp.get('DTSTART')
+            if not dtstart:
                 continue
-            cal = iCal.from_ical(r.content)
 
-            # Use recurring_ical_events to expand all recurrences in range
-            occurrences = recurring_ical_events.of(cal).between(range_start, range_end)
+            dt      = dtstart.dt
+            all_day = not hasattr(dt, 'hour')
 
-            count = 0
-            for comp in occurrences:
-                dtstart = comp.get('DTSTART')
-                if not dtstart:
-                    continue
-                dt = dtstart.dt
-                all_day = not hasattr(dt, 'hour')
+            if all_day:
+                event_date = dt
+                time_str   = None
+            else:
+                try:
+                    et         = dt.astimezone(ET)
+                    event_date = et.date()
+                    time_str   = et.strftime("%-I:%M %p")
+                except Exception:
+                    event_date = dt.date()
+                    time_str   = dt.strftime("%I:%M %p").lstrip('0')
 
-                if all_day:
-                    event_date = dt
-                    time_str = None
-                else:
-                    try:
-                        from zoneinfo import ZoneInfo
-                        et = dt.astimezone(ZoneInfo("America/New_York"))
-                        event_date = et.date()
-                        time_str = et.strftime("%-I:%M %p")
-                    except Exception:
-                        event_date = dt.date()
-                        time_str = dt.strftime("%I:%M %p").lstrip('0')
+            summary  = str(comp.get('SUMMARY',  '') or '').strip()
+            location = str(comp.get('LOCATION', '') or '').strip()
+            if not summary:
+                continue
 
-                summary  = str(comp.get('SUMMARY', '') or '').strip()
-                location = str(comp.get('LOCATION', '') or '').strip()
-                if not summary:
-                    continue
+            location = _re.sub(r'https?://\S+', '', location).strip()
+            location = location[:50] if location else None
 
-                import re as _re
-                location = _re.sub(r'https?://\S+', '', location).strip()
-                location = location[:50] if location else None
+            events.append({
+                "date":     event_date.isoformat(),
+                "time":     time_str,
+                "all_day":  all_day,
+                "summary":  summary,
+                "location": location,
+                "calendar": cal_name,
+            })
+            count += 1
 
-                events.append({
-                    "date":     event_date.isoformat(),
-                    "time":     time_str,
-                    "all_day":  all_day,
-                    "summary":  summary,
-                    "location": location,
-                    "calendar": cal_name,
-                })
-                count += 1
-            print(f"    ✓ {cal_name}: {count} upcoming events (incl. recurrences)")
-        except Exception as e:
-            print(f"    ✗ {cal_name}: {e}")
+        print(f"    ✓ {cal_name}: {count} upcoming events (incl. recurrences)")
 
-    events.sort(key=lambda x: (x["date"], x["time"] or "00:00"))
-    return events
+    except Exception as e:
+        print(f"    ✗ {cal_name}: {e}")
+
+events.sort(key=lambda x: (x["date"], x["time"] or "00:00"))
+return events
+```
 
 # ── SPORTS SCHEDULE ───────────────────────────────────
 def fetch_sports_schedule():
