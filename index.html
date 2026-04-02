@@ -937,45 +937,39 @@ function renderKTN(items) {
 
   <div class="grid-stack-item" gs-id="uhub-bsky" gs-x="6" gs-y="100" gs-w="6" gs-h="12">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
-
     <div class="ch ora" style="flex-shrink:0;justify-content:space-between;">
       <div><div class="ct">BLUESKY</div><div class="cb" id="bsky-hdr-sub">MULTI-FEED</div></div>
       <div style="display:flex;align-items:center;gap:6px;">
-        <span id="bsky-spin" style="display:none;font-size:14px;">&#8635;</span>
         <button id="bsky-refresh" style="font-size:10px;padding:2px 8px;background:transparent;border:1px solid var(--border2);border-radius:3px;color:var(--text-mute);font-family:var(--cond);letter-spacing:1px;cursor:pointer;">&#8635; REFRESH</button>
       </div>
     </div>
-
     <div id="bsky-chips" style="display:flex;gap:4px;flex-wrap:wrap;padding:6px 10px;border-bottom:1px solid var(--border);flex-shrink:0;"></div>
     <div id="bsky-err" style="display:none;padding:5px 10px;font-size:11px;color:var(--red);background:rgba(240,96,96,.1);border-bottom:1px solid rgba(240,96,96,.2);flex-shrink:0;"></div>
     <div id="bsky-feed" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;">
       <div class="empty">Loading&#8230;</div>
     </div>
-
   </div></div></div>
 
   <style>
-    @keyframes bsky-spin { to { transform: rotate(360deg); } }
-    #bsky-spin.spinning { display: inline-block !important; animation: bsky-spin .8s linear infinite; }
-    .bsky-post { display:flex; gap:9px; padding:9px 12px; border-bottom:1px solid var(--border); text-decoration:none; }
-    .bsky-post:hover { background:var(--bg3); }
-    .bsky-av { width:28px; height:28px; border-radius:50%; flex-shrink:0; background:var(--bg3); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:var(--text-mute); overflow:hidden; }
-    .bsky-av img { width:100%; height:100%; object-fit:cover; }
-    .bsky-body { flex:1; min-width:0; }
-    .bsky-meta { display:flex; align-items:baseline; gap:5px; margin-bottom:2px; }
-    .bsky-name { font-size:12px; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:140px; flex-shrink:0; }
-    .bsky-handle { font-size:10px; color:var(--text-mute); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1; min-width:0; }
-    .bsky-time { font-size:10px; color:var(--text-mute); flex-shrink:0; margin-left:auto; }
-    .bsky-text { font-size:12px; color:var(--text-dim); line-height:1.4; word-break:break-word; white-space:pre-wrap; }
-    .bsky-stats { display:flex; gap:12px; margin-top:4px; }
-    .bsky-stat { font-size:10px; color:var(--text-mute); }
-    .bsky-chip-f { font-size:10px; padding:2px 8px; border-radius:20px; border:1px solid var(--border); background:transparent; cursor:pointer; color:var(--text-mute); white-space:nowrap; font-family:var(--cond); letter-spacing:.5px; }
-    .bsky-chip-f.active { background:var(--bg4); color:var(--text); border-color:var(--border2); }
+    .bsky-post{display:flex;gap:9px;padding:9px 12px;border-bottom:1px solid var(--border);text-decoration:none;}
+    .bsky-post:hover{background:var(--bg3);}
+    .bsky-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--text-mute);overflow:hidden;}
+    .bsky-av img{width:100%;height:100%;object-fit:cover;}
+    .bsky-body{flex:1;min-width:0;}
+    .bsky-meta{display:flex;align-items:baseline;gap:5px;margin-bottom:2px;}
+    .bsky-name{font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px;flex-shrink:0;}
+    .bsky-handle{font-size:10px;color:var(--text-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;}
+    .bsky-time{font-size:10px;color:var(--text-mute);flex-shrink:0;margin-left:auto;}
+    .bsky-text{font-size:12px;color:var(--text-dim);line-height:1.4;word-break:break-word;white-space:pre-wrap;}
+    .bsky-stats{display:flex;gap:12px;margin-top:4px;}
+    .bsky-stat{font-size:10px;color:var(--text-mute);}
+    .bsky-chip-f{font-size:10px;padding:2px 8px;border-radius:20px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-mute);white-space:nowrap;font-family:var(--cond);letter-spacing:.5px;}
+    .bsky-chip-f.active{background:var(--bg4);color:var(--text);border-color:var(--border2);}
   </style>
 
   <script>
   (function(){
-    const ACCOUNTS = [
+    var ACCOUNTS = [
       { handle: 'universalhub.com',            label: 'UHub'        },
       { handle: 'bostonglobe.com',             label: 'Globe'       },
       { handle: 'wbur.org',                    label: 'WBUR'        },
@@ -993,11 +987,11 @@ function renderKTN(items) {
       { handle: 'gintautasd.bsky.social',      label: 'Gintautas'   },
     ];
 
-    const API = 'https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed';
-    let allPosts = [], activeFilter = 'all';
+    var API = 'https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed';
+    var allPosts = [], activeFilter = 'all';
 
     function relTime(iso) {
-      const s = (Date.now() - new Date(iso)) / 1000;
+      var s = (Date.now() - new Date(iso)) / 1000;
       if (s < 60)    return Math.round(s) + 's';
       if (s < 3600)  return Math.round(s / 60) + 'm';
       if (s < 86400) return Math.round(s / 3600) + 'h';
@@ -1005,18 +999,18 @@ function renderKTN(items) {
     }
 
     function initials(name) {
-      return (name || '?').split(' ').slice(0, 2).map(function(w){ return w[0]; }).join('').toUpperCase();
+      return (name || '?').split(' ').slice(0,2).map(function(w){return w[0];}).join('').toUpperCase();
     }
 
     function renderChips() {
       var el = document.getElementById('bsky-chips');
       if (!el) return;
-      var opts = [{ id: 'all', label: 'All' }].concat(ACCOUNTS.map(function(a){ return { id: a.handle, label: a.label }; }));
+      var opts = [{id:'all',label:'All'}].concat(ACCOUNTS.map(function(a){return {id:a.handle,label:a.label};}));
       el.innerHTML = opts.map(function(o){
-        return '<span class="bsky-chip-f' + (activeFilter === o.id ? ' active' : '') + '" data-id="' + o.id + '">' + o.label + '</span>';
+        return '<span class="bsky-chip-f' + (activeFilter===o.id?' active':'') + '" data-id="' + o.id + '">' + o.label + '</span>';
       }).join('');
-      el.querySelectorAll('.bsky-chip-f').forEach(function(chip) {
-        chip.addEventListener('click', function() {
+      el.querySelectorAll('.bsky-chip-f').forEach(function(chip){
+        chip.addEventListener('click', function(){
           activeFilter = chip.dataset.id;
           renderChips();
           renderPosts();
@@ -1027,12 +1021,12 @@ function renderKTN(items) {
     function renderPosts() {
       var feed = document.getElementById('bsky-feed');
       if (!feed) return;
-      var posts = activeFilter === 'all' ? allPosts : allPosts.filter(function(p){ return p._src === activeFilter; });
+      var posts = activeFilter === 'all' ? allPosts : allPosts.filter(function(p){return p._src===activeFilter;});
       if (!posts.length) { feed.innerHTML = '<div class="empty">No posts found.</div>'; return; }
-      feed.innerHTML = posts.map(function(p) {
+      feed.innerHTML = posts.map(function(p){
         var author  = (p.post && p.post.author) ? p.post.author : {};
         var record  = (p.post && p.post.record) ? p.post.record : {};
-        var text    = (record.text || '').replace(/</g, '&lt;');
+        var text    = (record.text || '').replace(/</g,'&lt;');
         var name    = author.displayName || author.handle || '?';
         var handle  = author.handle || '';
         var avatar  = author.avatar
@@ -1042,72 +1036,62 @@ function renderKTN(items) {
         var likes   = (p.post && p.post.likeCount)   || 0;
         var reposts = (p.post && p.post.repostCount) || 0;
         var replies = (p.post && p.post.replyCount)  || 0;
-        var uri     = (p.post && p.post.uri) ? p.post.uri : '';
-        var rkey    = uri.split('/').pop();
+        var rkey    = ((p.post && p.post.uri) ? p.post.uri : '').split('/').pop();
         var url     = 'https://bsky.app/profile/' + handle + '/post/' + rkey;
         return '<a class="bsky-post" href="' + url + '" target="_blank" rel="noopener">'
           + '<div class="bsky-av">' + avatar + '</div>'
           + '<div class="bsky-body">'
-          + '<div class="bsky-meta">'
-          + '<span class="bsky-name">' + name + '</span>'
-          + '<span class="bsky-handle">@' + handle + '</span>'
-          + '<span class="bsky-time">' + time + '</span>'
-          + '</div>'
+          + '<div class="bsky-meta"><span class="bsky-name">' + name + '</span><span class="bsky-handle">@' + handle + '</span><span class="bsky-time">' + time + '</span></div>'
           + '<div class="bsky-text">' + text + '</div>'
-          + '<div class="bsky-stats">'
-          + '<span class="bsky-stat">&#9829; ' + likes + '</span>'
-          + '<span class="bsky-stat">&#8635; ' + reposts + '</span>'
-          + '<span class="bsky-stat">&#8617; ' + replies + '</span>'
-          + '</div>'
-          + '</div>'
-          + '</a>';
+          + '<div class="bsky-stats"><span class="bsky-stat">&#9829; ' + likes + '</span><span class="bsky-stat">&#8635; ' + reposts + '</span><span class="bsky-stat">&#8617; ' + replies + '</span></div>'
+          + '</div></a>';
       }).join('');
     }
 
-    async function fetchAccount(account) {
+    function fetchAccount(account) {
       var url = API + '?actor=' + encodeURIComponent(account.handle) + '&limit=15&filter=posts_no_replies';
-      var r = await fetch(url);
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      var data = await r.json();
-      return (data.feed || []).map(function(item){ return Object.assign({}, item, { _src: account.handle }); });
+      return fetch(url).then(function(r){
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      }).then(function(data){
+        return (data.feed || []).map(function(item){return Object.assign({}, item, {_src: account.handle});});
+      });
     }
 
-    async function loadFeeds() {
-      var spin = document.getElementById('bsky-spin');
-      var btn  = document.getElementById('bsky-refresh');
-      var err  = document.getElementById('bsky-err');
-      var sub  = document.getElementById('bsky-hdr-sub');
-      if (spin) { spin.style.display = 'inline-block'; spin.classList.add('spinning'); }
-      if (btn)  btn.disabled = true;
-      if (err)  err.style.display = 'none';
+    function loadFeeds() {
+      var btn = document.getElementById('bsky-refresh');
+      var err = document.getElementById('bsky-err');
+      var sub = document.getElementById('bsky-hdr-sub');
+      if (btn) btn.disabled = true;
+      if (err) err.style.display = 'none';
 
-      var results = await Promise.allSettled(ACCOUNTS.map(fetchAccount));
-      var errors  = [];
-      allPosts = [];
-      results.forEach(function(r, i) {
-        if (r.status === 'fulfilled') allPosts = allPosts.concat(r.value);
-        else errors.push(ACCOUNTS[i].label + ': ' + ((r.reason && r.reason.message) || 'failed'));
+      Promise.allSettled(ACCOUNTS.map(fetchAccount)).then(function(results){
+        var errors = [];
+        allPosts = [];
+        results.forEach(function(r, i){
+          if (r.status === 'fulfilled') allPosts = allPosts.concat(r.value);
+          else errors.push(ACCOUNTS[i].label + ': ' + ((r.reason && r.reason.message) || 'failed'));
+        });
+        allPosts.sort(function(a, b){
+          var ta = (a.post && a.post.record && a.post.record.createdAt) ? new Date(a.post.record.createdAt) : 0;
+          var tb = (b.post && b.post.record && b.post.record.createdAt) ? new Date(b.post.record.createdAt) : 0;
+          return tb - ta;
+        });
+        if (errors.length && err) { err.textContent = 'Could not load: ' + errors.join(' · '); err.style.display = 'block'; }
+        if (btn) btn.disabled = false;
+        if (sub) sub.textContent = allPosts.length + ' POSTS · ' + (ACCOUNTS.length - errors.length) + '/' + ACCOUNTS.length + ' ACCOUNTS';
+        renderPosts();
       });
-      allPosts.sort(function(a, b) {
-        var ta = (a.post && a.post.record && a.post.record.createdAt) ? new Date(a.post.record.createdAt) : 0;
-        var tb = (b.post && b.post.record && b.post.record.createdAt) ? new Date(b.post.record.createdAt) : 0;
-        return tb - ta;
-      });
-
-      if (errors.length && err) { err.textContent = 'Could not load: ' + errors.join(' · '); err.style.display = 'block'; }
-      if (spin) { spin.classList.remove('spinning'); spin.style.display = 'none'; }
-      if (btn)  btn.disabled = false;
-      if (sub)  sub.textContent = allPosts.length + ' POSTS · ' + (ACCOUNTS.length - errors.length) + '/' + ACCOUNTS.length + ' ACCOUNTS';
-      renderPosts();
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      renderChips();
-      loadFeeds();
-      var rb = document.getElementById('bsky-refresh');
-      if (rb) rb.addEventListener('click', loadFeeds);
-      setInterval(loadFeeds, 300000);
-    });
+    // Wire up refresh button immediately; kick off load right away
+    var rb = document.getElementById('bsky-refresh');
+    if (rb) rb.addEventListener('click', loadFeeds);
+
+    // Run immediately — no DOMContentLoaded needed since script is inline after the elements
+    renderChips();
+    loadFeeds();
+    setInterval(loadFeeds, 300000);
   })();
   </script>
 
