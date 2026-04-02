@@ -432,11 +432,17 @@ def fetch_iqm2_meetings():
 
 # ── PERSONAL CALENDAR ─────────────────────────────────
 def fetch_personal_calendar():
-    from datetime import date, timedelta
+    from datetime import date, timedelta, datetime as _dt
     try:
         from icalendar import Calendar as iCal
     except ImportError:
         print("  ✗ icalendar not installed")
+        return []
+
+    try:
+        import recurring_ical_events
+    except ImportError:
+        print("  ✗ recurring-ical-events not installed — pip install recurring-ical-events")
         return []
 
     PERSONAL_CALS = [
@@ -448,6 +454,10 @@ def fetch_personal_calendar():
     today = date.today()
     future_cutoff = today + timedelta(days=14)
 
+    # recurring_ical_events expects datetime objects
+    range_start = _dt.combine(today, _dt.min.time())
+    range_end   = _dt.combine(future_cutoff, _dt.max.time())
+
     events = []
     for cal_name, url in PERSONAL_CALS:
         try:
@@ -456,15 +466,18 @@ def fetch_personal_calendar():
                 print(f"    ✗ {cal_name}: HTTP {r.status_code}")
                 continue
             cal = iCal.from_ical(r.content)
+
+            # Use recurring_ical_events to expand all recurrences in range
+            occurrences = recurring_ical_events.of(cal).between(range_start, range_end)
+
             count = 0
-            for comp in cal.walk():
-                if comp.name != 'VEVENT':
-                    continue
+            for comp in occurrences:
                 dtstart = comp.get('DTSTART')
                 if not dtstart:
                     continue
                 dt = dtstart.dt
                 all_day = not hasattr(dt, 'hour')
+
                 if all_day:
                     event_date = dt
                     time_str = None
@@ -477,9 +490,6 @@ def fetch_personal_calendar():
                     except Exception:
                         event_date = dt.date()
                         time_str = dt.strftime("%I:%M %p").lstrip('0')
-
-                if event_date < today or event_date > future_cutoff:
-                    continue
 
                 summary  = str(comp.get('SUMMARY', '') or '').strip()
                 location = str(comp.get('LOCATION', '') or '').strip()
@@ -499,7 +509,7 @@ def fetch_personal_calendar():
                     "calendar": cal_name,
                 })
                 count += 1
-            print(f"    ✓ {cal_name}: {count} upcoming events")
+            print(f"    ✓ {cal_name}: {count} upcoming events (incl. recurrences)")
         except Exception as e:
             print(f"    ✗ {cal_name}: {e}")
 
@@ -689,15 +699,12 @@ def main():
     print("\n📰 News")
 
     # ── REVERE ───────────────────────────────────────────────────────────────
-    # Revere.org official RSS
     revere_official = safe(lambda: fetch_feed("https://www.revere.org/news/feed/rss", 20), "Revere.org RSS") or []
     for i in revere_official: i["source"] = "Revere.org"
 
-    # Revere Journal
     revere_journal = safe(lambda: fetch_feed("https://www.reverejournal.com/feed/", 20), "Revere Journal") or []
     for i in revere_journal: i["source"] = "Revere Journal"
 
-    # Advocate News — keep any item that mentions Revere in title, link, OR description/summary
     revere_advocate_raw = safe(lambda: fetch_feed("https://advocatenews.net/feed/", 40), "Advocate News") or []
     revere_advocate = [
         i for i in revere_advocate_raw
@@ -707,11 +714,9 @@ def main():
     ]
     for i in revere_advocate: i["source"] = "Advocate News"
 
-    # NBC Boston Revere tag
     revere_nbc = safe(lambda: fetch_feed("https://www.nbcboston.com/tag/revere/feed/", 10), "NBC Boston/Revere") or []
     for i in revere_nbc: i["source"] = "NBC Boston"
 
-    # Google News — three separate focused queries (more reliable than compound OR)
     revere_gnews1 = safe(lambda: fetch_feed(
         "https://news.google.com/rss/search?q=%22Revere%2C+MA%22&hl=en-US&gl=US&ceid=US:en", 15
     ), "Google News: Revere, MA") or []
@@ -727,7 +732,6 @@ def main():
     ), "Google News: City of Revere") or []
     for i in revere_gnews3: i["source"] = "Google News"
 
-    # Deduplicate by link, merge all sources
     seen_rev = set()
     revere_all = []
     for item in (revere_official + revere_journal + revere_advocate +
@@ -896,7 +900,6 @@ def main():
     ), "My Sports News") or []
     for i in sports_items:
         i["source"] = i.get("feed_title") or i.get("author") or "Sports"
-    # Filter out generic ESPN national feed items
     sports_items = [i for i in sports_items if 'espn.com/espn/rss/news' not in i.get("link","") and 'espn.com/espn/rss/news' not in i.get("feed_title","").lower()]
     sports_items.sort(key=lambda x: x.get("ts", 0), reverse=True)
     data["news_sports"] = sports_items[:40]
@@ -986,7 +989,7 @@ def main():
 
     # ── SUBSTACK ─────────────────────────────────────────────────────────────
     substack_items = safe(lambda: fetch_feed(
-        'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6WAbA9igRjgE4CWAdgOboDGOAtogGYCmzAJiADThRxKL5qYHNQDWzAJ75cVWAFd8sCAEMxNek1YdukGAmRoU6rFmYVmwsZPKwSbZkXUMW7Ljz38IJLBDAPljBAOsKSUmApKqqJOmq46vPqoGL7szKZBbLDUzGTMsDEu2u58yCm5KHJE+MpkxPaO8ooqarTOWm66JUlGvuSi5BT4JIMSvWT9lLB0yiYF7fEeBmDKECF5OGQrA+FNUXNxxYmG6ClEzPhy3mzo0AqxRZ2J1CQQUpdY9WTU6MQU9x0JfjHIQ1CgDLA1PLlbDMKAOfYPQEGDCbIK2LAAN3huQg-wWXWOACscLAwNUiEQcAiAYtuuhasowNByCQNuhpDg-oUaQSMJVqmQSFNYNBmMpxMpYBJqfjElkcFB5HRcg0Is1oq08YcgRgiBIarcAF4SMQkGXa5DiDF9LB9HL4ByyNV7TXc2U6oz1ZiiXz0OBs37-AC6QA',
+        'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6WAbA9igRjgE4CWAdgOboDGOAtogGYCmzAJiADThRxKL5qYHNQDWzAJ75cVWAFd8sCAEMxNek1YdukGAmRoU6rFmYVmwsZPKkWQD8rWAF4AnrMjy+S9Ju1FdxMhKkyul3snoBDbXZ16bnKeqBgoeACu1OhE1ADmiCr0KOzuPAqhyihxeMKxCUkpIAC6QA',
         50
     ), "Substack reading list") or []
     for i in substack_items:
@@ -1016,8 +1019,6 @@ def main():
     ma_transit_all.sort(key=lambda x: x.get("ts",0), reverse=True)
     data["news_ma_transit"] = ma_transit_all[:20]
     print(f"  → MA Transit & Housing: {len(data['news_ma_transit'])} items")
-
-    # (sports combined feed removed — news_sports built from per-source block above)
 
     # ── ESPN ─────────────────────────────────────────────────────────────────
     espn_items = safe(lambda: fetch_feed('https://www.espn.com/espn/rss/news', 30), "ESPN feed") or []
@@ -1068,8 +1069,6 @@ def main():
         'https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv.xml', 20
     ), "KTN breaking news") or []
     _now = _time.time()
-    # Keep items from last 12h; if ts=0 (timestamp unreadable) keep them anyway
-    # since KTN only ever contains very recent items
     ktn_items = [i for i in ktn_raw
                  if i.get("ts", 0) == 0 or (_now - i["ts"]) <= 43200][:10]
     data["news_ktn"] = ktn_items
