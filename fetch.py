@@ -406,8 +406,16 @@ def fetch_personal_calendar():
         import recurring_ical_events
         HAS_RECURRING = True
     except ImportError:
-        HAS_RECURRING = False
-        print("  ⚠ recurring-ical-events not available, using basic mode")
+        try:
+            import subprocess, sys
+            print("  ⚠ recurring-ical-events not found — installing...")
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'recurring-ical-events', '-q'])
+            import recurring_ical_events
+            HAS_RECURRING = True
+            print("  ✓ recurring-ical-events installed OK")
+        except Exception as install_err:
+            HAS_RECURRING = False
+            print(f"  ⚠ recurring-ical-events install failed ({install_err}), using basic mode")
 
     PERSONAL_CALS = [
         ("Joseph",  "https://calendar.google.com/calendar/ical/gravellese%40gmail.com/private-f7d5ed600f87f0f696c1afd76fb0cb1e/basic.ics"),
