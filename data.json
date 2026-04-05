@@ -1,25 +1,17 @@
 {
-  "updated": "2026-04-05T09:51:43.744438+00:00",
-  "updated_local": "April 5, 2026 at 9:51 AM",
+  "updated": "2026-04-05T10:49:28.018384+00:00",
+  "updated_local": "April 5, 2026 at 10:49 AM",
   "weather_current": {
-    "temp": 40,
+    "temp": 41,
     "unit": "F",
-    "wind": "7 mph",
+    "wind": "6 mph",
     "windDir": "SE",
     "shortForecast": "Chance Rain Showers",
     "detailedForecast": "A chance of rain showers and patchy fog before 8am, then patchy fog and a slight chance of rain showers between 8am and 10am, then a chance of rain showers and patchy fog between 10am and noon, then showers and thunderstorms. Cloudy, with a high near 61. South wind 6 to 12 mph, with gusts as high as 23 mph. Chance of precipitation is 90%. New rainfall amounts between a tenth and quarter of an inch possible.",
     "humidity": 96,
-    "precip": 42
+    "precip": 34
   },
   "weather_hourly": [
-    {
-      "time": "2026-04-05T05:00:00-04:00",
-      "temp": 40,
-      "unit": "F",
-      "shortForecast": "Chance Rain Showers",
-      "wind": "7 mph",
-      "precip": 42
-    },
     {
       "time": "2026-04-05T06:00:00-04:00",
       "temp": 41,
@@ -203,11 +195,19 @@
       "shortForecast": "Clear",
       "wind": "14 mph",
       "precip": 0
+    },
+    {
+      "time": "2026-04-06T05:00:00-04:00",
+      "temp": 39,
+      "unit": "F",
+      "shortForecast": "Clear",
+      "wind": "14 mph",
+      "precip": 0
     }
   ],
   "weather_daily": [
     {
-      "name": "Sunday",
+      "name": "Today",
       "date": "2026-04-05T06:00:00-04:00",
       "high": 61,
       "low": 38,
@@ -264,7 +264,7 @@
       "name": "Saturday",
       "date": "2026-04-11T06:00:00-04:00",
       "high": 66,
-      "low": null,
+      "low": 45,
       "shortForecast": "Partly Sunny then Slight Chance Rain Showers",
       "detailedForecast": "A slight chance of rain showers after 2pm. Partly sunny, with a high near 66. Southwest wind around 8 mph.",
       "precip": 16
@@ -325,15 +325,15 @@
     "delay": false,
     "status": "ok",
     "metar": {
-      "raw": "SPECI KBOS 050937Z 13005KT 2 1/2SM -RA BR OVC004 04/04 A3004 RMK AO2 RAB32 P0000 T00440039",
-      "wind": "130\u00b0 @ 5 kts",
-      "visibility": "2.5 SM",
+      "raw": "SPECI KBOS 051045Z 13004KT 1 1/4SM R04R/6000FT BR OVC004 04/04 A2998 RMK AO2 VIS 1V1 3/4 RAE39 P0000 T00440044",
+      "wind": "130\u00b0 @ 4 kts",
+      "visibility": "1.25 SM",
       "sky": "",
       "temp_c": 4.4,
-      "dewpoint": 3.9,
-      "altimeter": 1017.4,
-      "wx": "-RA BR",
-      "obs_time": 1775381820,
+      "dewpoint": 4.4,
+      "altimeter": 1015.3,
+      "wx": "BR",
+      "obs_time": 1775385900,
       "flight_cat": ""
     },
     "taf": "TAF KBOS 050825Z 0508/0612 12008KT 2SM BR VCSH OVC005 FM051100 13009KT 1/2SM FG VCSH OVC003 WS020/19035KT FM051500 21010G21KT 4SM -SHRA BR OVC007 FM052300 24009KT P6SM OVC012 FM060200 27013G20KT P6SM BKN050",
@@ -376,12 +376,22 @@
       "routes": []
     },
     {
+      "header": "Blue Line: Delays of about 10 minutes due to a signal problem at Maverick. Trains may stand by at stations.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
       "header": "On April 10-12 & April 24-27, the Orange Line will replace service on the Haverhill Line between North Station and Oak Grove.",
       "effect": "SUSPENSION",
       "routes": []
     },
     {
       "header": "Orange Line: Trains in both directions will operate on a single track between Oak Grove and Wellington on Sunday, April 5, from 6:30 PM to the end of service. This is to allow for critical switch work.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Haverhill Line Train 5208 (5:35 AM from Haverhill) is operating 5-15 minutes behind schedule between Andover and North Station.",
       "effect": "DELAY",
       "routes": []
     },
@@ -428,11 +438,6 @@
     {
       "header": "The Riverside Ave entrance at Campello Station is currently closed. Passengers may continue to use the Plain St entrance.",
       "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "On the weekends of April 11-12, 18-19, & 25-26, Fall River/New Bedford Line service will  originate and terminate at Braintree. Passengers can use the Red Line for service between Braintree and South Station.",
-      "effect": "SUSPENSION",
       "routes": []
     }
   ],
@@ -1552,6 +1557,16 @@
       "source": "Google News"
     },
     {
+      "title": "Richard M. Santosuosso Obituary | Vertuccio Smith & Vazza, Beechwood Home for Funerals | Revere, MA - Tribute Archive",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE0tX043LTVQQjhfRy10bjl5VVRYTlozT2Q4aW9Fcm1IRjQ4X1djQ2FtR2RGOUhlZ0JILWN4QXJqRXRncDNXZG9Fc0pHVzFjSGZyX3FaNS1NSlgzRkJ0eWJZZEJkWTRPcTFpb2RWak1mM3ZOSUJHbkhTTUNyczhXUQ?oc=5",
+      "published": "Wed, 01 Apr 2026 02:20:17 GMT",
+      "ts": 1775010017,
+      "author": "",
+      "feed_title": "Tribute Archive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTE0tX043LTVQQjhfRy10bjl5VVRYTlozT2Q4aW9Fcm1IRjQ4X1djQ2FtR2RGOUhlZ0JILWN4QXJqRXRncDNXZG9Fc0pHVzFjSGZyX3FaNS1NSlgzRkJ0eWJZZEJkWTRPcTFpb2RWak1mM3ZOSUJHbkhTTUNyczhXUQ?oc=5\" target=\"_blank\">Richard M. Santosuosso Obituary | Vertuccio Smith & Vazza, Beechwood Home for Funerals | Revere, MA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Tribute Archive</font>",
+      "source": "Google News"
+    },
+    {
       "title": "Worker dies in fall from roof in Revere - NBC Boston",
       "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPYTZTUDhScEc1WUdMUldxOENWWEhORE9CQzBSQjZObkJSa0o0am84ZW8tXzMtejd5MFQ0TFppeV9ZRHUzcG9TMmFNZmtKeEh6bGZ1czZvb0NhX1Nyc2hUMmZKZGUzN3BuUGxTU2RxTTAyRVc5YWpVY3NBenhMVGVlR9IBiAFBVV95cUxNWm9TS1RwcnJ6VXY5Z1lpZ2tEd1hkMGFsV1RTQU1LSF8wN2t3ZFFoMHRwaldrTXZGTV96bkxmUzZLbzJZM04wMVdySG9zZ0E5RGF5RFhqOGFYcmZvMERYSXZJVThPV1Z3UjB2dWdFNlYxMzh4akhQd2haUVdpY2tzeVhOSVRZVWFo?oc=5",
       "published": "Tue, 07 Oct 2025 07:00:00 GMT",
@@ -1662,16 +1677,6 @@
       "source": "Google News"
     },
     {
-      "title": "Guiseppe Salvati Obituary (2026) - Revere, MA - Buonfiglio Funeral Home - Legacy",
-      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPQi1LQjJqT2VpM1ZlMjJEWHFQWTRUaFg1bUdCeldLN2l0TnpONHpvODVmZVVtR2pzc0llYVdIUTNKeVE1M0pLMi10RURNWjZMZVFSdjZVekZkNVc1cDNJSjkwR1JGTXdaVk9tTmdWVlVQbUk2LXJoWEpHSmZweThTdzhMbFZ4Zw?oc=5",
-      "published": "Sat, 14 Feb 2026 08:00:00 GMT",
-      "ts": 1771056000,
-      "author": "",
-      "feed_title": "Legacy",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihgFBVV95cUxPQi1LQjJqT2VpM1ZlMjJEWHFQWTRUaFg1bUdCeldLN2l0TnpONHpvODVmZVVtR2pzc0llYVdIUTNKeVE1M0pLMi10RURNWjZMZVFSdjZVekZkNVc1cDNJSjkwR1JGTXdaVk9tTmdWVlVQbUk2LXJoWEpHSmZweThTdzhMbFZ4Zw?oc=5\" target=\"_blank\">Guiseppe Salvati Obituary (2026) - Revere, MA - Buonfiglio Funeral Home</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Legacy</font>",
-      "source": "Google News"
-    },
-    {
       "title": "Paul Gilleberto Obituary (2025) - Revere, MA - Boston Globe - Legacy",
       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQYXJCdU83cUYwMklNM2t0WkpXbzJ5VU1oWE9TN1BHblJJMXFqNWxHS05GNU96X1RtaHo2c3JsbmoxZGpaamdZTUgwOW1aT2ZOZHI5MG51U004a2FWNTYyUUJFdGRRMS1iVmFsRzA4RV84cGxDWTloWlNKUWhfOGRQYjRXaFMxeGExalBrNFk2c3pfUUU3?oc=5",
       "published": "Sun, 28 Dec 2025 08:00:00 GMT",
@@ -1692,13 +1697,13 @@
       "source": "Google News"
     },
     {
-      "title": "Manager buys and reopens Uno Pizzeria in Revere, Massachusetts weeks after state-wide closures - CBS News",
+      "title": "Manager buys and reopens Uno Pizzeria in Revere, Massachusetts weeks after state-wide closures - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQbVRYQjFRREk5NEhRV1JTU0gwMHN5ZTg0X3NfNlVfYVpXbjFqOUk3MHZ4emhvY2UtellFUzNvYlVUZmR4VEZWU2lCRmhkMEloN0I2OWlSd09CbHoxd3pyVHRhSEdVVzgzcEhFdmpRUEgzTF9qdUZhT2I1QWpfYkJsVFhqUjE?oc=5",
       "published": "Sat, 07 Mar 2026 08:00:00 GMT",
       "ts": 1772870400,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxQbVRYQjFRREk5NEhRV1JTU0gwMHN5ZTg0X3NfNlVfYVpXbjFqOUk3MHZ4emhvY2UtellFUzNvYlVUZmR4VEZWU2lCRmhkMEloN0I2OWlSd09CbHoxd3pyVHRhSEdVVzgzcEhFdmpRUEgzTF9qdUZhT2I1QWpfYkJsVFhqUjE?oc=5\" target=\"_blank\">Manager buys and reopens Uno Pizzeria in Revere, Massachusetts weeks after state-wide closures</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxQbVRYQjFRREk5NEhRV1JTU0gwMHN5ZTg0X3NfNlVfYVpXbjFqOUk3MHZ4emhvY2UtellFUzNvYlVUZmR4VEZWU2lCRmhkMEloN0I2OWlSd09CbHoxd3pyVHRhSEdVVzgzcEhFdmpRUEgzTF9qdUZhT2I1QWpfYkJsVFhqUjE?oc=5\" target=\"_blank\">Manager buys and reopens Uno Pizzeria in Revere, Massachusetts weeks after state-wide closures</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "Google News"
     },
     {
@@ -1709,16 +1714,6 @@
       "author": "",
       "feed_title": "The Weather Channel",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxOTlhfUlB4OXpKNTFIRU41MXdKVFNJRzBicWV2Uk9SQmdGZ2tsNFNXUXFIelYtMC1MSG1DVjlHTFh1Y0JoYkdOa21Sd3RxMFZqaDNIZUV1OTk5M04xeWc2MHFBczYxVjQ3cFZ0LUM1bWxhRVc5bTBfZmstX3Z0aVZFczNtMUVyNjhiYkFhNHlFVnJaSm13d2VQbkhIb2R0SEhVMmtEb2E5WndpVlpDR2VjNXpR?oc=5\" target=\"_blank\">Weather and Radar Map for Revere Beach, Revere, Massachusetts - The Weather Channel | Weather.com</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Weather Channel</font>",
-      "source": "Google News"
-    },
-    {
-      "title": "Richard M. Santosuosso Obituary | Vertuccio Smith & Vazza, Beechwood Home for Funerals | Revere, MA - Tribute Archive",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE0tX043LTVQQjhfRy10bjl5VVRYTlozT2Q4aW9Fcm1IRjQ4X1djQ2FtR2RGOUhlZ0JILWN4QXJqRXRncDNXZG9Fc0pHVzFjSGZyX3FaNS1NSlgzRkJ0eWJZZEJkWTRPcTFpb2RWak1mM3ZOSUJHbkhTTUNyczhXUQ?oc=5",
-      "published": "Wed, 01 Apr 2026 02:20:17 GMT",
-      "ts": 1775010017,
-      "author": "",
-      "feed_title": "Tribute Archive",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTE0tX043LTVQQjhfRy10bjl5VVRYTlozT2Q4aW9Fcm1IRjQ4X1djQ2FtR2RGOUhlZ0JILWN4QXJqRXRncDNXZG9Fc0pHVzFjSGZyX3FaNS1NSlgzRkJ0eWJZZEJkWTRPcTFpb2RWak1mM3ZOSUJHbkhTTUNyczhXUQ?oc=5\" target=\"_blank\">Richard M. Santosuosso Obituary | Vertuccio Smith & Vazza, Beechwood Home for Funerals | Revere, MA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Tribute Archive</font>",
       "source": "Google News"
     },
     {
@@ -1772,13 +1767,13 @@
       "source": "Google News"
     },
     {
-      "title": "Uno Pizzeria in Revere, Massachusetts reopens 5 weeks after closing as manager buys location - CBS News",
+      "title": "Uno Pizzeria in Revere, Massachusetts reopens 5 weeks after closing as manager buys location - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUjQ1OVBQVVR2Wkd6UVpzNzFlb2x1ekQ3YXplMjg0MVFnUXM1bzc5TENjNnVJTVg5SkhPZkFXM3lMSUsxNzkzWVBnb1lxZmQ0LUY5TlBnc05mMXFQNUZuUnhDYkZGSlR0UHJxVHZ6ZzBFemhQQzdsQnlZdFBOSW10QlZkRVctQi15LTlvSkdVMEV5SThOSHJSOEVQZVl2cFFwYlBWUllCcGdVUC1Kdk1VNnRCQnEtVnk5Wm52cVF6V2V6ZFZmQV82Mg?oc=5",
       "published": "Sat, 07 Mar 2026 08:00:00 GMT",
       "ts": 1772870400,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUjQ1OVBQVVR2Wkd6UVpzNzFlb2x1ekQ3YXplMjg0MVFnUXM1bzc5TENjNnVJTVg5SkhPZkFXM3lMSUsxNzkzWVBnb1lxZmQ0LUY5TlBnc05mMXFQNUZuUnhDYkZGSlR0UHJxVHZ6ZzBFemhQQzdsQnlZdFBOSW10QlZkRVctQi15LTlvSkdVMEV5SThOSHJSOEVQZVl2cFFwYlBWUllCcGdVUC1Kdk1VNnRCQnEtVnk5Wm52cVF6V2V6ZFZmQV82Mg?oc=5\" target=\"_blank\">Uno Pizzeria in Revere, Massachusetts reopens 5 weeks after closing as manager buys location</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUjQ1OVBQVVR2Wkd6UVpzNzFlb2x1ekQ3YXplMjg0MVFnUXM1bzc5TENjNnVJTVg5SkhPZkFXM3lMSUsxNzkzWVBnb1lxZmQ0LUY5TlBnc05mMXFQNUZuUnhDYkZGSlR0UHJxVHZ6ZzBFemhQQzdsQnlZdFBOSW10QlZkRVctQi15LTlvSkdVMEV5SThOSHJSOEVQZVl2cFFwYlBWUllCcGdVUC1Kdk1VNnRCQnEtVnk5Wm52cVF6V2V6ZFZmQV82Mg?oc=5\" target=\"_blank\">Uno Pizzeria in Revere, Massachusetts reopens 5 weeks after closing as manager buys location</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "Google News"
     },
     {
@@ -1802,13 +1797,13 @@
       "source": "Google News"
     },
     {
-      "title": "Kowloon gets approvals for new Revere Beach tiki bar: \"Going to be mobbed\" - CBS News",
+      "title": "Kowloon gets approvals for new Revere Beach tiki bar: \"Going to be mobbed\" - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBVcjg4RFBJRzdNUDlmUjJ1LUlodk5DU3prcFMwZzJhci1NWFdKM2dlTFZIMnI1QS10MWlpeUhUdGJWVXJXY1JGVFdrdTlLOUxjQlNTSG96QmJqMEV5T2o2ZzZHMl9kSlJUNHdvWHQzS3RaY3BuU3RwTko4LUZ3SEE?oc=5",
       "published": "Thu, 19 Feb 2026 08:00:00 GMT",
       "ts": 1771488000,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTFBVcjg4RFBJRzdNUDlmUjJ1LUlodk5DU3prcFMwZzJhci1NWFdKM2dlTFZIMnI1QS10MWlpeUhUdGJWVXJXY1JGVFdrdTlLOUxjQlNTSG96QmJqMEV5T2o2ZzZHMl9kSlJUNHdvWHQzS3RaY3BuU3RwTko4LUZ3SEE?oc=5\" target=\"_blank\">Kowloon gets approvals for new Revere Beach tiki bar: \"Going to be mobbed\"</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTFBVcjg4RFBJRzdNUDlmUjJ1LUlodk5DU3prcFMwZzJhci1NWFdKM2dlTFZIMnI1QS10MWlpeUhUdGJWVXJXY1JGVFdrdTlLOUxjQlNTSG96QmJqMEV5T2o2ZzZHMl9kSlJUNHdvWHQzS3RaY3BuU3RwTko4LUZ3SEE?oc=5\" target=\"_blank\">Kowloon gets approvals for new Revere Beach tiki bar: \"Going to be mobbed\"</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "Google News"
     },
     {
@@ -1902,17 +1897,27 @@
       "source": "Google News"
     },
     {
-      "title": "Construction begins on nearly 500 apartments at Portico in Revere - bostonagentmagazine.com",
+      "title": "Construction begins on nearly 500 apartments at Portico in Revere - Boston Agent Magazine",
       "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8zRnZzYm8wdjVYNUR3QmZRT2p0bVZ1MlhaLTJYX2FyWEttOF9vQjV4WmJ5SkpVZmJkR2tXQVpwMUxqUUhWSXVNSjV5eVJSdnMtYnVNMEtwWnZydHJTamJtbTlzVG5feUMxZ1BENk1ad1U?oc=5",
       "published": "Fri, 19 Dec 2025 08:00:00 GMT",
       "ts": 1766131200,
       "author": "",
-      "feed_title": "bostonagentmagazine.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTE8zRnZzYm8wdjVYNUR3QmZRT2p0bVZ1MlhaLTJYX2FyWEttOF9vQjV4WmJ5SkpVZmJkR2tXQVpwMUxqUUhWSXVNSjV5eVJSdnMtYnVNMEtwWnZydHJTamJtbTlzVG5feUMxZ1BENk1ad1U?oc=5\" target=\"_blank\">Construction begins on nearly 500 apartments at Portico in Revere</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">bostonagentmagazine.com</font>",
+      "feed_title": "Boston Agent Magazine",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTE8zRnZzYm8wdjVYNUR3QmZRT2p0bVZ1MlhaLTJYX2FyWEttOF9vQjV4WmJ5SkpVZmJkR2tXQVpwMUxqUUhWSXVNSjV5eVJSdnMtYnVNMEtwWnZydHJTamJtbTlzVG5feUMxZ1BENk1ad1U?oc=5\" target=\"_blank\">Construction begins on nearly 500 apartments at Portico in Revere</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston Agent Magazine</font>",
       "source": "Google News"
     }
   ],
   "news_communities": [
+    {
+      "title": "Men's Rowing Opens Spring At Home In Malden Racing Series - gotuftsjumbos.com",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPVnJuSTRfMm9XNXZ2T3NPMGl5V01YYkZyNS1xVjdzdEVibXYwdVBzNnY5ZWFMM0g2MWpzM21vOVRhWkM2S0J6bDk2SXp3bVNZN0lCWm4tTm9EajhVZTljempSTTZEVkcxWjVOUXAwTFRETWxEQkhzcFNaRUdtSjRvcFZNQjZQc2RyMjJ3T2JoVl9hS2h2WGY2RnJRMThlODRxQ1cw?oc=5",
+      "published": "Sat, 04 Apr 2026 23:39:56 GMT",
+      "ts": 1775345996,
+      "author": "",
+      "feed_title": "gotuftsjumbos.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxPVnJuSTRfMm9XNXZ2T3NPMGl5V01YYkZyNS1xVjdzdEVibXYwdVBzNnY5ZWFMM0g2MWpzM21vOVRhWkM2S0J6bDk2SXp3bVNZN0lCWm4tTm9EajhVZTljempSTTZEVkcxWjVOUXAwTFRETWxEQkhzcFNaRUdtSjRvcFZNQjZQc2RyMjJ3T2JoVl9hS2h2WGY2RnJRMThlODRxQ1cw?oc=5\" target=\"_blank\">Men's Rowing Opens Spring At Home In Malden Racing Series</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">gotuftsjumbos.com</font>",
+      "source": "Malden"
+    },
     {
       "title": "Women's Rowing Starts Spring With Solid Effort At Malden Racing Series - gotuftsjumbos.com",
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQSFlfRVlZdVpnSWc3eTBhYVB3OGlINklTcXhmVTIxbmVjdTQtSkJpSjJBMXFVYXRaR1Faamk5ZVMtM0xnMnBNQWhCcW9UaTdENG5jeEtoajVmZFFWMG1sQ05KRFdFT2RvV1RmT1N1RmtRWVIzdHJMS3lWSVFmX2RURkVHQk1MQ1U1bmlPbGRneXNCWGxGU05jLWUtNEhHZjZPTndOd2pUOWdoWkNocW5DSmJodC0?oc=5",
@@ -2034,6 +2039,16 @@
       "source": "Lynn"
     },
     {
+      "title": "389th First Muster to be held in the City of Salem - Saturday, April 11 - Salem, MA (.gov)",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBGdVI4a0N5eWpIUlBYV3JHaDlqaWJRaURCeUhDajBobmJmRkRzMzVyVl9XWVhxcm5VdFQ1bzY1dGx3VFdSdTc2cE1fczZUZ29Id3ZpLVdkUkhUVjlX?oc=5",
+      "published": "Fri, 03 Apr 2026 21:03:59 GMT",
+      "ts": 1775250239,
+      "author": "",
+      "feed_title": "Salem, MA (.gov)",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTFBGdVI4a0N5eWpIUlBYV3JHaDlqaWJRaURCeUhDajBobmJmRkRzMzVyVl9XWVhxcm5VdFQ1bzY1dGx3VFdSdTc2cE1fczZUZ29Id3ZpLVdkUkhUVjlX?oc=5\" target=\"_blank\">389th First Muster to be held in the City of Salem - Saturday, April 11</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA (.gov)</font>",
+      "source": "Salem"
+    },
+    {
       "title": "Pastor goes extra mile for parishioner",
       "link": "https://itemlive.com/2026/04/03/pastor-goes-extra-mile-for-parishioner/?utm_source=rss&utm_medium=rss&utm_campaign=pastor-goes-extra-mile-for-parishioner",
       "published": "Fri, 03 Apr 2026 20:30:15 +0000",
@@ -2124,6 +2139,16 @@
       "source": "Malden"
     },
     {
+      "title": "Barry Geiman Obituary - Salem, MA - Dignity Memorial",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1DdDZSOVg5a2h5SFh4SmI2U2JUUExSNklrclc4OVdNcWwxNUdtd3NxNmJmOURqQlhwSEZyWlBJUWFSZVdweHFqX1VwYWdJTUhuUHZiU2JJb0laUlpjbW4xMG5XZU5QcG1VZ1B4MDhMNkVJcEFyMEdVdE8wd1dDQQ?oc=5",
+      "published": "Fri, 03 Apr 2026 07:00:00 GMT",
+      "ts": 1775199600,
+      "author": "",
+      "feed_title": "Dignity Memorial",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTE1DdDZSOVg5a2h5SFh4SmI2U2JUUExSNklrclc4OVdNcWwxNUdtd3NxNmJmOURqQlhwSEZyWlBJUWFSZVdweHFqX1VwYWdJTUhuUHZiU2JJb0laUlpjbW4xMG5XZU5QcG1VZ1B4MDhMNkVJcEFyMEdVdE8wd1dDQQ?oc=5\" target=\"_blank\">Barry Geiman Obituary - Salem, MA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Dignity Memorial</font>",
+      "source": "Marblehead"
+    },
+    {
       "title": "Joan Burnett Obituary (1935 - 2026) - New Salem, MA - Athol Daily News - Legacy",
       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTEQtOGNDYTc2QzFXMXRVU1VWTHlTcF83V3hUbEVKd0FIV3l6ZzlJTHNqcllpdERkYkM2Y29qNnIyWnZpcUJBendtUWRscnVkVGFxSkp4RTN2TXc2dTQxVnV0SV9rcmtndG1ydG5QWkd0N1pnUEJsaFJfZTlXQTg4N0QtRkJKejItQlJXeGlTNkhoSHA5?oc=5",
       "published": "Fri, 03 Apr 2026 06:44:25 GMT",
@@ -2192,6 +2217,16 @@
       "feed_title": "",
       "summary": "<div class=\"fblikebutton_button\" style=\"float: right; margin-left: 10px;\">\n\t\t\t\n\t\t</div><div class=\"wp-block-image\">\n<figure class=\"aligncenter size-large\"><a href=\"https://i0.wp.com/everettindependent.com/wp-content/uploads/2026/04/image-1.png?ssl=1\"><img alt=\"\" class=\"not-transparent wp-image-24143\" height=\"325\" src=\"https://i0.wp.com/everettindependent.com/wp-content/uploads/2026/04/image-1-1024x594.png?resize=560%2C325&#038;ssl=1\" width=\"560\" /></a><figcaption class=\"wp-element-caption\">Last week the cheerleaders of Everett High School\u2019s winter program were recognized for their achievements and recognized for their never-ending commitment to the program. Shown are Asst. Coach Julia Garcia and Head Coach Holly Garcia with the 2025-2026 Cheering Squad. Back row: Captain  Shaeendra Hall, Neya Maharjan, Hayana Richmond, Morgan Salvi, and Kiley Reyes. Middle row: Bianca Rosa, Emma Figueiredo, Jessica Aguilar Hernandez, Carolynn Avalos, Ashley Pineda, and Cristal Tejada. Front row: Assistant Coach Julia Cheffro, Alexandrea Rodriguez Chacon, Keimy Ortiz Romero, Kyrianis Ortiz, Ashley Grifone, Victoria Cutler Head Coach Holly Garcia</figcaption></figure>\n</div>",
       "source": "Everett"
+    },
+    {
+      "title": "Massachusetts House passes fair share supplemental budget - East Boston Times-Free Press",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNV2RyeUdUeDBZZXB5ZGwxVFgxeFpGaXZ3Yk9LUEVsRTE0TWZzOVhmSW9wLUg1T2tlNlVtSFBaX3ZENjdrYlFQWUhNckR0WnhveFNFY2RqSUltaGkwOXBDUmQtbEZGTVRFZkJjZnVjaERWbVJydjl1R3V1ZWlXMm9LRmdZLThOSW83VzZZdEpGQ3lHc3hPVjlJeNIBngFBVV95cUxPWV96Q1ZUS2RTVG8tS3ZDMG1JR1pVdUxNRWVUS043Q2pNQTVpOFd4bllIZWVobFV1V04yUTFnY0FqMHlTWW5EQ3lZQTBLU0dBN2o4b3dWRkZEejIxZVExeUkxeDJHTVBjUGo5c0RlcDNRTG1KNmYydldXZ1ZEd0JUbklwbkZyR29SRnB4WWdRR2xIcjUyUUMxYm9kRTlXUQ?oc=5",
+      "published": "Thu, 02 Apr 2026 19:57:04 GMT",
+      "ts": 1775159824,
+      "author": "",
+      "feed_title": "East Boston Times-Free Press",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxNV2RyeUdUeDBZZXB5ZGwxVFgxeFpGaXZ3Yk9LUEVsRTE0TWZzOVhmSW9wLUg1T2tlNlVtSFBaX3ZENjdrYlFQWUhNckR0WnhveFNFY2RqSUltaGkwOXBDUmQtbEZGTVRFZkJjZnVjaERWbVJydjl1R3V1ZWlXMm9LRmdZLThOSW83VzZZdEpGQ3lHc3hPVjlJeNIBngFBVV95cUxPWV96Q1ZUS2RTVG8tS3ZDMG1JR1pVdUxNRWVUS043Q2pNQTVpOFd4bllIZWVobFV1V04yUTFnY0FqMHlTWW5EQ3lZQTBLU0dBN2o4b3dWRkZEejIxZVExeUkxeDJHTVBjUGo5c0RlcDNRTG1KNmYydldXZ1ZEd0JUbklwbkZyR29SRnB4WWdRR2xIcjUyUUMxYm9kRTlXUQ?oc=5\" target=\"_blank\">Massachusetts House passes fair share supplemental budget</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">East Boston Times-Free Press</font>",
+      "source": "East Boston"
     },
     {
       "title": "McColaugh Voices her Opposition to Construction of Data Centers in Everett",
@@ -2522,6 +2557,16 @@
       "feed_title": "",
       "summary": "<p>A truck crashed right through an Eastern Bank branch in Everett, Massachusetts, on Thursday morning, leaving a large hole in the building.</p>\n\n\n\n<p>The crash occurred sometime after 7 a.m. at an Eastern Bank branch at 1763 Revere Beach Parkway.</p>\n\n\n\n<p>Photos from the scene showed a truck that appeared have gone completely through a building, with a large field of debris strewn all over the exterior. A large hole could be seen at the front of the building, right underneath the Eastern Bank logo.</p>\n\n\n\n<p>Everett police and firefighters were at the scene. Yellow police tape surrounds the building.</p>\n\n\n\n<p>Everett Police Chief Paul Strong said it appears the driver had some type of a medical episode and crashed through the bank.</p>\n\n\n\n<p>Both occupants of the truck were taken to a local hospital with minor injuries.</p>\n\n\n\n<p>Strong said the building sustained major damage and the building inspector is on scene.</p>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199505\" height=\"3024\" src=\"https://media.nbcboston.com/2026/04/IMG_2994.jpg?quality=85&#038;strip=all&#038;resize=4032%2C3024\" width=\"4032\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199506\" height=\"3024\" src=\"https://media.nbcboston.com/2026/04/IMG_2997.jpg?quality=85&#038;strip=all&#038;resize=4032%2C3024\" width=\"4032\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199515\" height=\"3024\" src=\"https://media.nbcboston.com/2026/04/IMG_3015.jpg?quality=85&#038;strip=all&#038;resize=4032%2C3024\" width=\"4032\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199548\" height=\"3024\" src=\"https://media.nbcboston.com/2026/04/IMG_3005.jpg?quality=85&#038;strip=all&#038;resize=4032%2C3024\" width=\"4032\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199549\" height=\"3024\" src=\"https://media.nbcboston.com/2026/04/IMG_3003.jpg?quality=85&#038;strip=all&#038;resize=4032%2C3024\" width=\"4032\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199552\" height=\"3024\" src=\"https://media.nbcboston.com/2026/04/IMG_3022.jpg?quality=85&#038;strip=all&#038;resize=4032%2C3024\" width=\"4032\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199624\" height=\"1537\" src=\"https://media.nbcboston.com/2026/04/8B97AC74-1ACE-4241-97D0-D2037660712F.jpg?quality=85&#038;strip=all&#038;resize=2329%2C1537\" width=\"2329\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11199625\" height=\"5464\" src=\"https://media.nbcboston.com/2026/04/2D65DA9A-2B18-48D3-B244-3841E0FBA4FE.jpg?resize=8192%2C5464&#038;quality=85&#038;strip=all\" width=\"8192\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199626\" height=\"1824\" src=\"https://media.nbcboston.com/2026/04/56B1212A-26E9-45A4-B894-5ADB82306691.jpg?quality=85&#038;strip=all&#038;resize=2736%2C1824\" width=\"2736\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11199627\" height=\"4913\" src=\"https://media.nbcboston.com/2026/04/26245486-A52B-40BB-BB03-A1B11FA30E8F.jpg?quality=85&#038;strip=all&#038;resize=7489%2C4913\" width=\"7489\" /></figure>",
       "source": "Everett"
+    },
+    {
+      "title": "North Shore News in Brief--donot use - Salem News",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNRjJiS0tjVXRQcGEwNTRydDBOWkpBLTB3dFhLMnVsdnZiaGotT3FJTWpWOUhNblhDR0RicGJYTDdlS0RFZDZDSXNrT08yZDE5Y0NEQlQzblVodDhYRl9VX1NTeUhyY3FPclVTVlhnSXJwQ2JSYndmZnNwWS1RRk1iN1ZXak0xX3g2OEl1MUFKNlJyYk1BVHRhcHlTN1FZb2wzbHFEcXF2YUdBOTZIQnd6NkpOWHZxZ0loV29LdlpndVRSRlhPM2hz?oc=5",
+      "published": "Thu, 02 Apr 2026 07:30:00 GMT",
+      "ts": 1775115000,
+      "author": "",
+      "feed_title": "Salem News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxNRjJiS0tjVXRQcGEwNTRydDBOWkpBLTB3dFhLMnVsdnZiaGotT3FJTWpWOUhNblhDR0RicGJYTDdlS0RFZDZDSXNrT08yZDE5Y0NEQlQzblVodDhYRl9VX1NTeUhyY3FPclVTVlhnSXJwQ2JSYndmZnNwWS1RRk1iN1ZXak0xX3g2OEl1MUFKNlJyYk1BVHRhcHlTN1FZb2wzbHFEcXF2YUdBOTZIQnd6NkpOWHZxZ0loV29LdlpndVRSRlhPM2hz?oc=5\" target=\"_blank\">North Shore News in Brief--donot use</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem News</font>",
+      "source": "North Shore"
     },
     {
       "title": "Roger W. Worthley Obituary | Bisbee-Porcella Funeral Home | Saugus, MA - Tribute Archive",
@@ -3234,13 +3279,13 @@
       "source": "Saugus"
     },
     {
-      "title": "Bishop Fenwick High School senior charged in random murder of Danvers woman \"wanted to kill someone for a long time,\" police say - CBS News",
+      "title": "Bishop Fenwick High School senior charged in random murder of Danvers woman \"wanted to kill someone for a long time,\" police say - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSExlY0dwLTI2WlUtaGoyb2psNWRINTQybmZ2a0lIQXJYeTNjMExzVUgtZXlTVmMwb1BidUpZYXRzaXJsQ2phZGZrNG9hdGpVemVKZGlnRV9Sb0xhcHNiRGFoTGdORmtHS0RSV1NyWUpkX1l4UmRpaEczMldDb1Q1ZXlFQWtPTmJKTWVra3ozX0xpdw?oc=5",
       "published": "Fri, 13 Mar 2026 07:00:00 GMT",
       "ts": 1773385200,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxOSExlY0dwLTI2WlUtaGoyb2psNWRINTQybmZ2a0lIQXJYeTNjMExzVUgtZXlTVmMwb1BidUpZYXRzaXJsQ2phZGZrNG9hdGpVemVKZGlnRV9Sb0xhcHNiRGFoTGdORmtHS0RSV1NyWUpkX1l4UmRpaEczMldDb1Q1ZXlFQWtPTmJKTWVra3ozX0xpdw?oc=5\" target=\"_blank\">Bishop Fenwick High School senior charged in random murder of Danvers woman \"wanted to kill someone for a long time,\" police say</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxOSExlY0dwLTI2WlUtaGoyb2psNWRINTQybmZ2a0lIQXJYeTNjMExzVUgtZXlTVmMwb1BidUpZYXRzaXJsQ2phZGZrNG9hdGpVemVKZGlnRV9Sb0xhcHNiRGFoTGdORmtHS0RSV1NyWUpkX1l4UmRpaEczMldDb1Q1ZXlFQWtPTmJKTWVra3ozX0xpdw?oc=5\" target=\"_blank\">Bishop Fenwick High School senior charged in random murder of Danvers woman \"wanted to kill someone for a long time,\" police say</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "Peabody"
     },
     {
@@ -3251,16 +3296,6 @@
       "author": "",
       "feed_title": "facebook.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxQZzNFaThxS3ZvMHU2U1FSdHRIMElCTnpNeTZLZEFxcDdmejBHOENSelZrU0VTLXpaU2pXQ3BSZWp0WnE5NGVYbF9EVmpreE1FamxVLVcyUXFxTWlfU3JZZlhpMnNuNGJtNDhSVWJfcW9IbWdtX2d0YmRiSzA4dWdOU25BamRkb1V1RzREVHdXc1dPV05oUW5FazlXZmZPRlVaRjl4NnVCUk42WHhTTS11Tlg5dGx5clBjYmoxVXhQZkpWWXRXMmlxWHRGS005VllYMjBjX0ZtWWhQQQ?oc=5\" target=\"_blank\">WATCH LIVE: High school student charged in 'random' murder of North Shore woman facing a judge.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">facebook.com</font>",
-      "source": "North Shore"
-    },
-    {
-      "title": "High school student accused of killing woman in \u2018random\u2019 attack at her North Shore home - Boston 25 News",
-      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNRXEyQVoySzRwVDVSZ25wN1o5VmUwU3RkNENSRUFiYVcwbEZuZHRlUlRYV1djZW9VWS1mWDBhaldQQU5DQnVhZlRKM0d6QkMwOGF0MEM1REpQMUZfSFBwV2NIQnZOZWt1NWgyaEpFRkdjMlZ5X0psVW9ZRmhzYzhQRHBZMDBkWV80d3RSWVp1VldqTWF5bk5YdUJkaGZOMXVOakYxQ1M1UDdiaDV3b0d1bllGZkVKVkxFYzJSWEhhOGJwN0NibVpSZWkxVmsxMHpUd3ZsUFBYczZZUlNn0gHwAUFVX3lxTE1pbVFNa2Y0M2RhenZ5MVNtSGtrckNOamhUdTdEMnFxVUpPWTNsQ0JMQzZDWk5YdzFKZDJDQkJUdXdrcUQ4RW9odG5Pcy05eTNaM1VNU2lsMDJ1YjdyVzdWY0tKS3NCeVlVdnZYS01DeUhHVEJtQ0hSMUV3S093eXc5Q2RBbVhlZGpsR3dqdXV3RVRVX2FPZE43R2lLR1pUUXFOZUhHaEV5THJkSVNER2xISjZDRmFDR0tFWnVpQWF3eVVydE9aMlVxN3phbndRV0tqQkhVWlNYT1lRTnVCdF84WXViRWE0N29OUkJMNmVaaQ?oc=5",
-      "published": "Fri, 13 Mar 2026 07:00:00 GMT",
-      "ts": 1773385200,
-      "author": "",
-      "feed_title": "Boston 25 News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3AFBVV95cUxNRXEyQVoySzRwVDVSZ25wN1o5VmUwU3RkNENSRUFiYVcwbEZuZHRlUlRYV1djZW9VWS1mWDBhaldQQU5DQnVhZlRKM0d6QkMwOGF0MEM1REpQMUZfSFBwV2NIQnZOZWt1NWgyaEpFRkdjMlZ5X0psVW9ZRmhzYzhQRHBZMDBkWV80d3RSWVp1VldqTWF5bk5YdUJkaGZOMXVOakYxQ1M1UDdiaDV3b0d1bllGZkVKVkxFYzJSWEhhOGJwN0NibVpSZWkxVmsxMHpUd3ZsUFBYczZZUlNn0gHwAUFVX3lxTE1pbVFNa2Y0M2RhenZ5MVNtSGtrckNOamhUdTdEMnFxVUpPWTNsQ0JMQzZDWk5YdzFKZDJDQkJUdXdrcUQ4RW9odG5Pcy05eTNaM1VNU2lsMDJ1YjdyVzdWY0tKS3NCeVlVdnZYS01DeUhHVEJtQ0hSMUV3S093eXc5Q2RBbVhlZGpsR3dqdXV3RVRVX2FPZE43R2lLR1pUUXFOZUhHaEV5THJkSVNER2xISjZDRmFDR0tFWnVpQWF3eVVydE9aMlVxN3phbndRV0tqQkhVWlNYT1lRTnVCdF84WXViRWE0N29OUkJMNmVaaQ?oc=5\" target=\"_blank\">High school student accused of killing woman in \u2018random\u2019 attack at her North Shore home</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
       "source": "North Shore"
     },
     {
@@ -3304,13 +3339,13 @@
       "source": "Lynn"
     },
     {
-      "title": "Marblehead, Massachusetts could lose its public library amid $7 million budget deficit - CBS News",
+      "title": "Marblehead, Massachusetts could lose its public library amid $7 million budget deficit - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSDZJMGJJV0djMWFRTVhkX0hhWjdlMi13NUlQYkF1MEx0eFRHZHRodU9xWmtrVVgwc2pPTzdnWFBnZkw3OW5BY3I3elVKdkY0QmJPNEllNjlITV9SaHoycVNha0dRN0xfT1Rpc1ZENDBpMkl3dlcySi00bHppMVllc0F6OXJRZVU?oc=5",
       "published": "Thu, 12 Mar 2026 07:00:00 GMT",
       "ts": 1773298800,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxPSDZJMGJJV0djMWFRTVhkX0hhWjdlMi13NUlQYkF1MEx0eFRHZHRodU9xWmtrVVgwc2pPTzdnWFBnZkw3OW5BY3I3elVKdkY0QmJPNEllNjlITV9SaHoycVNha0dRN0xfT1Rpc1ZENDBpMkl3dlcySi00bHppMVllc0F6OXJRZVU?oc=5\" target=\"_blank\">Marblehead, Massachusetts could lose its public library amid $7 million budget deficit</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxPSDZJMGJJV0djMWFRTVhkX0hhWjdlMi13NUlQYkF1MEx0eFRHZHRodU9xWmtrVVgwc2pPTzdnWFBnZkw3OW5BY3I3elVKdkY0QmJPNEllNjlITV9SaHoycVNha0dRN0xfT1Rpc1ZENDBpMkl3dlcySi00bHppMVllc0F6OXJRZVU?oc=5\" target=\"_blank\">Marblehead, Massachusetts could lose its public library amid $7 million budget deficit</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "Marblehead"
     },
     {
@@ -3452,6 +3487,16 @@
       "feed_title": "",
       "summary": "<p>A 54-year-old teacher accused of raping a high school student in Malden, Massachusetts, faced a judge Thursday, a day after his arrest.</p>\n\n\n\n<p>Authorities allege Scott Marino gave alcohol to an 18-year-old who is known to him and then sexually assaulted her last Wednesday, Feb. 18, at his Stoneham home, where the victim was currently living. <a href=\"https://www.nbcboston.com/news/local/malden-teacher-and-coach-arrested-over-serious-incident-involving-student/3906794/\" rel=\"noreferrer noopener\" target=\"_blank\">Marino was arrested a week after the alleged incident and has been charged</a> with two counts of rape, one count of indecent assault and battery and one count of furnishing alcohol to a person under the age of 21, according to the Middlesex County District Attorney&#8217;s Office.</p>\n\n\n\n<p>Prosecutors provided shocking new details Thursday in Woburn District Court at the arraignment for Marino, who teaches at Linden STEAM Academy in Malden and coaches the girls&#8217; basketball team at Malden High School.</p>\n\n\n\n<blockquote class=\"featured-text\">\n\t<strong><em>Resources for victims of sexual assault are available through the National Sexual Violence Resources Center and the National Sexual Assault Telephone Hotline at\u00a0</em></strong><a href=\"\"><strong><em>800-656-4673</em></strong></a><strong><em>, and <a href=\"https://www.mass.gov/info-details/statewide-resources-for-sexual-assault-survivors\" rel=\"noreferrer noopener\" target=\"_blank\">Massachusetts provides this list of statewide and resources for sexual assault survivors</a>.</em></strong></blockquote>\n\n\n\n<p>Jacob McCrindle of the Middlesex County District Attorney&#8217;s Office said in court that the alleged victim in this case had been in the foster care of Marino and his wife at the time this occurred. The victim, who moved in with the Marinos at their Stoneham home in the fall, was a basketball player for Marino during the season, and the two were known to each other for many years.</p>\n\n\n\n<p>According to prosecutors, Marino&#8217;s wife was scheduled to take a trip out of state last Wednesday. The victim was on school vacation, so she went with Marino and a grandfather who lives in a basement apartment at the home to an Ash Wednesday mass. They dropped the older man off at home, and then Marino and the victim went driving because she had a learner&#8217;s permit and was learning to drive on the highway. They made the decision to go into Boston to get a takeout seafood dinner, and on the way home, Marino had them stop at a liquor store where surveillance video shows he purchased a strawberry margarita mix, a large bottle of Patron tequila and some other agave liquor.</p>\n\n\n\n<p>The two then went back to Marino&#8217;s Stoneham home and he allegedly gave her a large margarita. She drank some of it but didn&#8217;t like it, though Marino allegedly encouraged her to keep drinking. He later poured them shots of tequila, and they ate the seafood dinner they got. The victim later told police that she was feeling ill so she went to her bedroom where she vomited many times, eventually lying down in bed.</p>\n\n\n<div></div>\n\n\n<p>Marino then came in and sexually assaulted her two times, prosecutors said in court. The victim later retrieved her cell phone and began texting friends and ultimately an aunt, begging for help.</p>\n\n\n\n<p>McCrindle said that the aunt called 911 as she was driving to the Marino&#8217;s home, and the victim was taken to Winchester Hospital for a full sexual assault examination.</p>\n\n\n\n<p>&#8220;This is a relationship where the defendant was the victim&#8217;s foster parent, he took her into his home, that&#8217;s a position of trust, as well as coupled with the fact that the defendant is a teacher, or was a teacher at the Malden Public Schools and he was also her coach for many years,&#8221; McCrindle said in court, arguing for $100,000 cash bail. &#8220;The defendant used I would suggest that relationship, he took advantage of that relationship, there&#8217;s a significant age difference, the defendant is 54 years old, the victim is 18 years old. There&#8217;s also a significant size difference that&#8217;s described in the police report between the defendant and the alleged victim&#8230;. it&#8217;s also noteworthy that the defendant appears to have waited until his wife left the home so he was more isolated with the victim&#8230;clearly some planning went into this.&#8221;</p>\n\n\n\n<p>Marino&#8217;s defense attorney argued before the judge that he&#8217;s a respected educator with deep community support who has &#8220;never been in court in his life.&#8221;</p>\n\n\n\n<p>The judge ultimately ordered $75,000 cash bail based on the gravity of circumstances along with several conditions requested by the commonwealth, including that Marino stay away and have no contact from the victim and any witnesses, stay away from all Malden school property and events, be fitted with a GPS bracelet to enforce exclusive zones including the victim&#8217;s home address, her school, her workplace and a gym that she frequents, surrender his passport and not be allowed to leave the state.</p>\n\n\n\n<p>The judge also added the condition that Marino be alcohol free and submit to SCRAM testing. </p>\n\n\n\n<blockquote class=\"featured-text\">\n\t<strong><em>Resources for victims of sexual assault are available through the National Sexual Violence Resources Center and the National Sexual Assault Telephone Hotline at\u00a0</em></strong><a href=\"\"><strong><em>800-656-4673</em></strong></a><strong><em>, and <a href=\"https://www.mass.gov/info-details/statewide-resources-for-sexual-assault-survivors\" rel=\"noreferrer noopener\" target=\"_blank\">Massachusetts provides this list of statewide and resources for sexual assault survivors</a>.</em></strong></blockquote>\n\n\n\n<p>Malden Superintendent Timothy Sippel previously said the district was informed Wednesday that Marino had been taken into custody in connection with &#8220;a serious incident alleged to have occurred outside of working hours and involving one of our high school students.&#8221;</p>\n\n\n\n<p>Marino was immediately placed on leave, the superintendent added, noting that the district is cooperating fully with law enforcement agencies in their investigation.</p>\n\n\n\n<p>&#8220;I understand how upsetting and distressing this is to our community given the serious nature of these allegations,&#8221; Sippel said in a statement. &#8220;The safety of our students and staff is our highest priority.&#8221;</p>\n\n\n\n<p>A plea of not guilty was entered on Marino&#8217;s behalf. He is due back in court for a probable cause hearing on April 16.</p>",
       "source": "Malden"
+    },
+    {
+      "title": "And the answer is\u2026 Marblehead: Town appears in \u2018Jeopardy!\u2019 clue for first time in 17 years - Marblehead Current",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNdVc3dTBuTDYxYjgxSVJLRWlveVpkcW40ZTZZUHZRLUZqZ0QtSHBwcmZoeTBjd1NBbS12Rm5WZjhuQ0hDQWdwdEVlRE0yTjRPdFpmOG9yVDZQOWpWaGFMQl9KaW1EZmlSeGVnUzFLNklvME50Uy1VTlNjUWtua0RyVG9GUXhzNjVjVXl2eWh3d3ZqbkcySXJJc2o2YmhEQzlibEgwdFhtdjY2Q3BETTNnZEUwOEdDbVA3ZnFSOUJna0RtT1BrTFE?oc=5",
+      "published": "Thu, 26 Feb 2026 08:00:00 GMT",
+      "ts": 1772092800,
+      "author": "",
+      "feed_title": "Marblehead Current",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxNdVc3dTBuTDYxYjgxSVJLRWlveVpkcW40ZTZZUHZRLUZqZ0QtSHBwcmZoeTBjd1NBbS12Rm5WZjhuQ0hDQWdwdEVlRE0yTjRPdFpmOG9yVDZQOWpWaGFMQl9KaW1EZmlSeGVnUzFLNklvME50Uy1VTlNjUWtua0RyVG9GUXhzNjVjVXl2eWh3d3ZqbkcySXJJc2o2YmhEQzlibEgwdFhtdjY2Q3BETTNnZEUwOEdDbVA3ZnFSOUJna0RtT1BrTFE?oc=5\" target=\"_blank\">And the answer is\u2026 Marblehead: Town appears in \u2018Jeopardy!\u2019 clue for first time in 17 years</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Marblehead Current</font>",
+      "source": "Marblehead"
     },
     {
       "title": "Malden teacher and coach charged with rape of teen",
@@ -3734,13 +3779,13 @@
       "source": "Melrose"
     },
     {
-      "title": "Massachusetts on \"razor's edge\" with weekend storm. Maps show best chance for snow, high winds. - CBS News",
+      "title": "Massachusetts on \"razor's edge\" with weekend storm. Maps show best chance for snow, high winds. - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNREs1Vkt2ZnZGRTJfdTVtZWJ6ajhpRnlsVUpmaGtZVEJmcGZ6SVkwLWNBYldFazdQTkZienVoWm5IMl9mVVdFcVpmbHNCODgzS1RlcGNITGF5ZUxfTWFPRy1LdzhzQUZRbkk0MnhVejRqZEpodE9hTHVMbTR0MHdQWUpGZVB2XzViVGNINTR3?oc=5",
       "published": "Sun, 01 Feb 2026 08:00:00 GMT",
       "ts": 1769932800,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxNREs1Vkt2ZnZGRTJfdTVtZWJ6ajhpRnlsVUpmaGtZVEJmcGZ6SVkwLWNBYldFazdQTkZienVoWm5IMl9mVVdFcVpmbHNCODgzS1RlcGNITGF5ZUxfTWFPRy1LdzhzQUZRbkk0MnhVejRqZEpodE9hTHVMbTR0MHdQWUpGZVB2XzViVGNINTR3?oc=5\" target=\"_blank\">Massachusetts on \"razor's edge\" with weekend storm. Maps show best chance for snow, high winds.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxNREs1Vkt2ZnZGRTJfdTVtZWJ6ajhpRnlsVUpmaGtZVEJmcGZ6SVkwLWNBYldFazdQTkZienVoWm5IMl9mVVdFcVpmbHNCODgzS1RlcGNITGF5ZUxfTWFPRy1LdzhzQUZRbkk0MnhVejRqZEpodE9hTHVMbTR0MHdQWUpGZVB2XzViVGNINTR3?oc=5\" target=\"_blank\">Massachusetts on \"razor's edge\" with weekend storm. Maps show best chance for snow, high winds.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "North Shore"
     },
     {
@@ -3924,6 +3969,16 @@
       "source": "Lynn"
     },
     {
+      "title": "Women's Body Recovered From North Shore Water: Essex DA - Patch",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPWjBDVVNvN2ctRlVZWl9VN2stVVpIblZiRTRMX0dkczNoYVY3MjdpWmRNV3c5LW4wUXFVemZ2T3B2MVpkN1dNVFNRX2dZNEdBai1IdzhlQl95cmdKR2NOWmw4TDZWbTYxNlhWRHRZeVptVUlUc2VsQldxaGV3WVc3UzRvWC1ZbTlWNjZVdE8wd1BQUQ?oc=5",
+      "published": "Fri, 16 Jan 2026 08:00:00 GMT",
+      "ts": 1768550400,
+      "author": "",
+      "feed_title": "Patch",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxPWjBDVVNvN2ctRlVZWl9VN2stVVpIblZiRTRMX0dkczNoYVY3MjdpWmRNV3c5LW4wUXFVemZ2T3B2MVpkN1dNVFNRX2dZNEdBai1IdzhlQl95cmdKR2NOWmw4TDZWbTYxNlhWRHRZeVptVUlUc2VsQldxaGV3WVc3UzRvWC1ZbTlWNjZVdE8wd1BQUQ?oc=5\" target=\"_blank\">Women's Body Recovered From North Shore Water: Essex DA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
+      "source": "North Shore"
+    },
+    {
       "title": "Salem police find car but not driver from hit-and-run that injured officer",
       "link": "https://www.nbcboston.com/news/local/salem-mass-officer-hit-and-run-search/3878866/",
       "published": "Fri, Jan 16 2026 07:57:10 AM",
@@ -4042,16 +4097,6 @@
       "feed_title": "The Weather Channel",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxPc0kwTExSaFUwR2F3MUZjNlBwRHA1QzJ3cDc2WlpHamZLVzc1akhOb2J1dW5hU09fYTl3Vnp6Yjlla2dHcFU0ZDJvYmM3Nk96RGZMZlg2MVg1d3FKZmVGZm1WQlZLX0pkOTBZV1pkdnY0Q3lwNEtnRDVPTldMZkpMZ25oc1JiV2pHX3doRE9zaTdkZWdnSER2OWctZXZOUDM0OFNFQlVUQkVIT05MS2pNVnNLZXpFSkdSY3RTZFRfNkJFcWxURFE?oc=5\" target=\"_blank\">Weather and Radar Map for Swampscott, Massachusetts 01907 - The Weather Channel | Weather.com</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Weather Channel</font>",
       "source": "Swampscott"
-    },
-    {
-      "title": "Climate Ready East Boston - American Society of Landscape Architects",
-      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNNHJoRUdfUl9ybjdEYWlERlFXcGpLX3dtalpUY1dwbndTaFNVYWhsRVVlWDA5YURCdGxlZkZ1cjVzQUtKMjE2c2p4dFlLSHlBTi1zUWdRUGVsMkg0QTFHdHlEckliZmowWGU1emNvVGNyVUNBbl9FUDBfaGdPbkprNFJabnFYS0tOSFBHaHhjc3ROVmVYMldQZGpVQ2xQQjl6TjhXTnBiQVR4MkRhNkZjN1pUTWJYVFRGcGVNRmdxRTRxNHU5aVE?oc=5",
-      "published": "Wed, 24 Dec 2025 21:22:43 GMT",
-      "ts": 1766611363,
-      "author": "",
-      "feed_title": "American Society of Landscape Architects",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxNNHJoRUdfUl9ybjdEYWlERlFXcGpLX3dtalpUY1dwbndTaFNVYWhsRVVlWDA5YURCdGxlZkZ1cjVzQUtKMjE2c2p4dFlLSHlBTi1zUWdRUGVsMkg0QTFHdHlEckliZmowWGU1emNvVGNyVUNBbl9FUDBfaGdPbkprNFJabnFYS0tOSFBHaHhjc3ROVmVYMldQZGpVQ2xQQjl6TjhXTnBiQVR4MkRhNkZjN1pUTWJYVFRGcGVNRmdxRTRxNHU5aVE?oc=5\" target=\"_blank\">Climate Ready East Boston</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">American Society of Landscape Architects</font>",
-      "source": "East Boston"
     },
     {
       "title": "Healey-Driscoll Administration Announces Nearly $190,000 in Grants to Support Inclusive and Accessible Outdoor Recreation - Mass.gov",
@@ -4504,16 +4549,6 @@
       "source": "Winthrop"
     },
     {
-      "title": "The tiny seaside town of Marblehead, Massachusetts, played a big role in the birth of the U.S. Navy - National Geographic",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPZTBBSWwzTHEyWmtwNW1VN2FmaUZ1d2tFUHFGNnhibHdtUWdiZ3d0NDR0TFNuc0oycGNOYkJ4TDQzWkZSV3VRSFhwaDh4NGFkVHA4SEpoSFRFWnlUYjRKUXB4TnNFSWNCdUgxcDJqYWxkWVBENzVyN1lGak5nc0tqUjY1dUxNXzdkaHBrcXE1ZXA3V1JNN0E?oc=5",
-      "published": "Fri, 10 Oct 2025 07:00:00 GMT",
-      "ts": 1760079600,
-      "author": "",
-      "feed_title": "National Geographic",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxPZTBBSWwzTHEyWmtwNW1VN2FmaUZ1d2tFUHFGNnhibHdtUWdiZ3d0NDR0TFNuc0oycGNOYkJ4TDQzWkZSV3VRSFhwaDh4NGFkVHA4SEpoSFRFWnlUYjRKUXB4TnNFSWNCdUgxcDJqYWxkWVBENzVyN1lGak5nc0tqUjY1dUxNXzdkaHBrcXE1ZXA3V1JNN0E?oc=5\" target=\"_blank\">The tiny seaside town of Marblehead, Massachusetts, played a big role in the birth of the U.S. Navy</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">National Geographic</font>",
-      "source": "Marblehead"
-    },
-    {
       "title": "Woman airlifted after hit-and-run crash in Peabody",
       "link": "https://www.nbcboston.com/news/local/woman-airlifted-after-hit-and-run-crash-in-peabody/3823284/",
       "published": "Wed, Oct 08 2025 10:34:01 PM",
@@ -4571,16 +4606,6 @@
       "author": "Marc Fortier",
       "feed_title": "",
       "summary": "<p>A 12-year-old has been identified as the sole suspect in two recent fires at a church in Marblehead, Massachusetts.</p>\n\n\n\n<p>Marblehead police and fire, in conjunction with the State Fire Marshal&#8217;s Office, said they are investigating two fires at Our Lady, Star of the Sea, a Catholic church on Atlantic Avenue.</p>\n\n\n\n<p>Around 11:42 a.m. on Sunday, police and firefighters responded to a small fire in the church&#8217;s bathroom. They said a similar incident occurred a week earlier, on Sept. 21. In each case, the small fires were quickly extinguished, causing no permanent damage.</p>\n\n\n\n<p>The results of an investigation into both fires determined that the fires were intentionally set, and fire and police officials said an unnamed 12-year-old has been identified as the sole suspect. They did not say what, if any, charges the suspect will face.</p>\n\n\n\n<p>\u201cWe take all fire incidents seriously, no matter how small, and are grateful for the teamwork that helped us bring this case to a swift resolution,\u201d Marblehead Fire Chief Jason Gilliland said. \u201cWe are thankful to the parish staff for their vigilance, and to our partners in law enforcement who assisted in this investigation.\u201d</p>\n\n\n\n<p>&#8220;These incidents appear to be isolated, and there is no identifiable threat to the community or the parishioners at Star of the Sea Church,&#8221; Marblehead Police Chief Dennis King added. &#8220;We are ever vigilant to protect our places of worship and appreciate the assistance of our public safety partners and the church staff to identify the individual responsible and hold them accountable.&#8221;</p>\n\n\n\n<p><a href=\"https://www.nbcboston.com/news/local/fire-investigation-underway-in-beverly/3817164/\" rel=\"noreferrer noopener\" target=\"_blank\">Authorities in nearby Beverly are also investigating a fire overnight at a church there</a>, but the State Fire Marshal&#8217;s Office said in a statement Monday that there is no connection to the fires in Marblehead.</p>\n\n\n\n<p>&#8220;State Police fire investigators assigned to the State Fire Marshal\u2019s office assisted Marblehead officials with the investigation into yesterday\u2019s fire in a church bathroom and a similar fire on 9/21/25. Both fires were small, caused minimal damage, and were quickly extinguished. A pre-teen juvenile took responsibility for both,&#8221; a spokesperson for the State Fire Marshal&#8217;s Office said in an email.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More Massachusetts stories</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/2025-mcas-results/3817278/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/09/mcas.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/education/\">Education</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tSep 29, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/2025-mcas-results/3817278/\">\n\t\t\t\t\t\t\t\t\t\tNewly released MCAS results show students are still struggling post-COVID\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcsportsboston.com/nba/boston-celtics/live-updates-celtics-media-day-interviews-press-conferences/734807/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/09/Jayson-Tatum-USATSI_27200122.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/celtics-media-day/\">Celtics Media Day</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tSep 29, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcsportsboston.com/nba/boston-celtics/live-updates-celtics-media-day-interviews-press-conferences/734807/\">\n\t\t\t\t\t\t\t\t\t\tCeltics Media Day highlights: Tatum talks rehab; Pritchard sets the tone\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/clinton-schools-social-media-threat/3817213/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2019/09/Blue-School-Locker-Generic-School-Generic.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/clinton/\">Clinton</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tSep 29, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/clinton-schools-social-media-threat/3817213/\">\n\t\t\t\t\t\t\t\t\t\t13-year-old charged with making social media threat to Clinton school\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
-      "source": "Marblehead"
-    },
-    {
-      "title": "Crews investigating after fire breaks out in Marblehead church for 2nd week in a row - WCVB",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUFNBU2VFUzVhaEVDM2dIZEZReGNYZmZOZk9jSG1XNTVqWi1tVUp0TlFjUHUtMGhBaU1RalFINWw1MHJBX3E4UUVFSjMzSC04a1ZrN0ZKd3dTc3lKbThZR1pYei1uTFdxNVU0RWdNR3U5ZWNtdFR6OW4xVlhWZTdjR3pYbDRwTVBXUS1z?oc=5",
-      "published": "Sun, 28 Sep 2025 07:00:00 GMT",
-      "ts": 1759042800,
-      "author": "",
-      "feed_title": "WCVB",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUFNBU2VFUzVhaEVDM2dIZEZReGNYZmZOZk9jSG1XNTVqWi1tVUp0TlFjUHUtMGhBaU1RalFINWw1MHJBX3E4UUVFSjMzSC04a1ZrN0ZKd3dTc3lKbThZR1pYei1uTFdxNVU0RWdNR3U5ZWNtdFR6OW4xVlhWZTdjR3pYbDRwTVBXUS1z?oc=5\" target=\"_blank\">Crews investigating after fire breaks out in Marblehead church for 2nd week in a row</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WCVB</font>",
       "source": "Marblehead"
     },
     {
@@ -4754,13 +4779,13 @@
       "source": "Melrose"
     },
     {
-      "title": "Communities work to clear out garbage as trash collectors' strike continues in Massachusetts - CBS News",
+      "title": "Communities work to clear out garbage as trash collectors' strike continues in Massachusetts - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQenZ4YUp6RERLcURCVG5CTUZzVzMzS3B6VDNycVhTbVB5YkNDSkl6VDU2bU5TRFlqNHFDSG5UNVRwYXRjc2JYNXFKcGhyX0RYOUVxMTNMcHJFbDRzckxTaHRqUzRhQy15ZE1TeV9OR3hUeVFvX25NYXBCSmlqdTRPNmhBVQ?oc=5",
       "published": "Wed, 02 Jul 2025 07:00:00 GMT",
       "ts": 1751439600,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxQenZ4YUp6RERLcURCVG5CTUZzVzMzS3B6VDNycVhTbVB5YkNDSkl6VDU2bU5TRFlqNHFDSG5UNVRwYXRjc2JYNXFKcGhyX0RYOUVxMTNMcHJFbDRzckxTaHRqUzRhQy15ZE1TeV9OR3hUeVFvX25NYXBCSmlqdTRPNmhBVQ?oc=5\" target=\"_blank\">Communities work to clear out garbage as trash collectors' strike continues in Massachusetts</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxQenZ4YUp6RERLcURCVG5CTUZzVzMzS3B6VDNycVhTbVB5YkNDSkl6VDU2bU5TRFlqNHFDSG5UNVRwYXRjc2JYNXFKcGhyX0RYOUVxMTNMcHJFbDRzckxTaHRqUzRhQy15ZE1TeV9OR3hUeVFvX25NYXBCSmlqdTRPNmhBVQ?oc=5\" target=\"_blank\">Communities work to clear out garbage as trash collectors' strike continues in Massachusetts</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "Malden City"
     },
     {
@@ -4916,6 +4941,16 @@
   ],
   "news_boston": [
     {
+      "title": "US aviator missing after Iran shot down fighter jet has been rescued",
+      "link": "https://www.wcvb.com/article/us-aviator-missing-ira-fighter-jet-rescued/70935545",
+      "published": "Sun, 05 Apr 2026 10:33:00 GMT",
+      "ts": 1775385180,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A U.S. service member who has been missing since Iran shot down a fighter jet has been rescued, President Donald Trump wrote in a social media post early Sunday.</p>",
+      "source": "Top Stories"
+    },
+    {
       "title": "\u2018SNL\u2019 recap: Best moments from Jack Black hosting \u2018Saturday Night Live\u2019",
       "link": "https://www.boston.com/culture/entertainment/2026/04/05/snl-recap-jack-black-2026/",
       "published": "Sun, 05 Apr 2026 09:48:30 +0000",
@@ -4926,16 +4961,6 @@
       "source": "Boston.com"
     },
     {
-      "title": "US aviator missing after Iran shot down fighter jet has been rescued",
-      "link": "https://www.wcvb.com/article/us-aviator-missing-ira-fighter-jet-rescued/70935545",
-      "published": "Sun, 05 Apr 2026 08:53:00 GMT",
-      "ts": 1775379180,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>A U.S. service member who has been missing since Iran shot down a fighter jet has been rescued, President Donald Trump wrote in a social media post early Sunday.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "NH AG says Matthew J. Masse, 38, was killed in an exchange of gunfire with police",
       "link": "https://www.wcvb.com/article/suspect-accused-of-shooting-officer-in-raymond-nh-is-dead/70934249",
       "published": "Sun, 05 Apr 2026 08:12:00 GMT",
@@ -4944,6 +4969,16 @@
       "feed_title": "Top Stories",
       "summary": "<p>The suspect wanted in the shooting of a New Hampshire police officer and other felonies has been shot and killed in an exchange of gunfire with police.</p>",
       "source": "Top Stories"
+    },
+    {
+      "title": "Pope Leo marks first Easter as pontiff with call for hope amid global conflicts",
+      "link": "https://www.nbcboston.com/news/national-international/pope-leo-first-easter-calls-for-hope-amid-global-conflicts/3928149/",
+      "published": "Sun, Apr 05 2026 06:00:25 AM",
+      "ts": 1775368825,
+      "author": "Collen Barry and Paolo Santalucia | The Associated Press",
+      "feed_title": "NBC Boston",
+      "summary": "<p>Pope Leo celebrated his first <a href=\"https://www.nbcboston.com/tag/easter/\" rel=\"noreferrer noopener\" target=\"_blank\">Easter Mass</a> as pontiff with a call Sunday to exercise hope against \u201cthe violence of war that kills and destroys,\u2019\u2019 saying \u201cwe need this song of hope today\u201d as conflicts spread around the world.</p>\n\n\n\n<p>With the U.S.-Israeli <a href=\"https://www.nbcboston.com/tag/war-with-iran/\" rel=\"noreferrer noopener\" target=\"_blank\">war on Iran</a> in its second month and <a href=\"https://www.nbcboston.com/tag/russia-ukraine-war/\" rel=\"noreferrer noopener\" target=\"_blank\">Russia\u2019s ongoing campaign in Ukraine</a>, Leo has repeatedly called for a halt in hostilities. In his Easter homily, the pope singled out those who wage war, abuse the weak and prioritize profits.</p>\n\n\n\n<p>Leo, the first U.S.-born pope, addressed the faithful from an open-air altar in St. Peter\u2019s Square flanked with white roses, while the steps leading down to the piazza where the faithful gathered were filled with spring perennials, symbolically resonating with the pope\u2019s message of hope.</p>\n\n\n\n<p>The pontiff implored the faithful to keep their hope in the face of death, which lurks \u201cin injustices, in partisan selfishness, in the oppression of the poor, in the lack of attention given to the most vulnerable.</p>\n\n\n\n<p>\u201cWe see it in violence, in the wounds of the world, in the cry of pain that rises from every corner because of the abuses that crush the weakest among us, because of the idolatry of profit that plunders the earth\u2019s resources, because of the violence of war that kills and destroys,&#8221; he said.</p>\n\n\n\n<p>He quoted his predecessor Pope Francis in warning against falling into indifference in the face of \u201cpersistent injustice, evil, indifference and cruelty,&#8221; because \u201cit is also true that in the midst of darkness, something new always springs to life and sooner or later produces fruit.\u201d</p>\n\n\n\n<p>He will later deliver the traditional \u201cUrbi et Orbi\u201d message \u2014 Latin for \u201cto the city and the world.\u2019\u2019 </p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Christians in the Holy Land were marking a subdued Easter</h2>\n\n\n\n<p>Traditional ceremonies at the Church of the Holy Sepulchre, revered by Christians as the traditional site of Jesus\u2019 crucifixion and resurrection, were scaled back under an agreement with Israeli police. Authorities have put limits on the sizes of public gatherings due to ongoing missile attacks.</p>\n\n\n\n<p>The restrictions also dampened the recent Muslim holy month of Ramadan and Eid al-Fitr holiday, as well as the current weeklong Jewish festival of Passover. On Sunday, the Jewish priestly blessing at the Western Wall \u2014 normally attended by tens of thousands \u2014 was limited to just 50 people.</p>\n\n\n\n<p>The restrictions have strained relations between Israeli authorities and Christian leaders. Police last week prevented two of the church\u2019s top religious leaders, including Latin Patriarch Pierbattista Pizzaballa, from celebrating Palm Sunday at the Church of the Holy Sepulchre.</p>\n\n\n\n<p>On Tuesday, the pope had expressed hope that the war could be finished before Easter.</p>\n\n\n\n<p>____</p>\n\n\n\n<p><em>Barry reported from Milan. Josef Federman in Jerusalem contributed.</em></p>",
+      "source": "NBC Boston"
     },
     {
       "title": "If you're strength-training and middle-aged, this is how heavy your weights should be",
@@ -5092,7 +5127,7 @@
       "ts": 1775391654,
       "author": "Matthew Lee and Konstantin Toropin | The Associated Press",
       "feed_title": "NBC Boston",
-      "summary": "<p>The <a href=\"https://www.nbcboston.com/tag/united-states/\" rel=\"noreferrer noopener\" target=\"_blank\">United States</a> said Sunday it rescued a service member missing behind enemy lines since <a href=\"https://www.nbcboston.com/tag/iran/\" rel=\"noreferrer noopener\" target=\"_blank\">Iran</a> downed a fighter jet, as President <a href=\"https://www.nbcboston.com/tag/donald-trump/\" rel=\"noreferrer noopener\" target=\"_blank\">Donald Trump</a> escalated pressure on Tehran with a new looming deadline to reopen the Strait of Hormuz.</p>\n\n\n\n<p>Iran showed no signs of backing down, striking new economic and infrastructure targets in neighboring Gulf Arab countries.</p>\n\n\n\n<p>The airman\u2019s extraction followed a frantic U.S. search-and-rescue operation after the Friday crash of the F-15E Strike Eagle, as Iran also promised a reward for anyone who turned in an \u201cenemy pilot.\u201d Trump said he was injured but in stable condition.</p>\n\n\n\n<p>\u201cThis brave Warrior was behind enemy lines in the treacherous mountains of Iran, being hunted down by our enemies, who were getting closer and closer by the hour,\u201d Trump wrote on social media.</p>\n\n\n\n<p>A second crew member was rescued earlier.</p>\n\n\n\n<p>The fighter jet was the first American aircraft to have crashed in Iranian territory since the U.S. and Israel launched the war, striking Iran on Feb. 28. It has since killed thousands, shaken global markets, cut off key shipping routes and spiked fuel prices. Both sides have threatened and hit civilian targets, bringing warnings of possible war crimes.</p>\n\n\n\n<p>Trump said last week that the U.S. had \u201cdecimated\u201d Iran and would finish the war \u201cvery fast.\u201d Two days later, Iran shot down two U.S. military planes, showing the ongoing perils of the bombing campaign and the ability of a degraded Iranian military to continue to hit back.</p>\n\n\n\n<p>As Iran continues to exert control over the Strait of Hormuz, Trump, in a weekend social media post, threatened to unleash \u201call Hell\u201d if it isn\u2019t opened by Monday. He has issued such threats before and extended them when mediators have claimed progress toward ending the war on agreeable terms.</p>\n\n\n\n<p>The other jet to go down was a U.S. A-10 attack aircraft. Neither the status of the crew nor exactly where it crashed was immediately known.</p>\n\n\n\n<p>On Sunday, Iran\u2019s state TV aired a video showing thick black smoke rising into the air, claiming that they had shot down an American transport plane and two helicopters that were part of the rescue operation. However, a regional intelligence official briefed on the mission told The Associated Press that the U.S. military blew up two transport planes due to a technical malfunction, forcing it to bring in additional aircraft to complete the rescue.</p>\n\n\n\n<p>The official spoke on condition of anonymity to discuss the covert mission.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Drones hit Gulf energy infrastructure</h2>\n\n\n\n<p>In Kuwait, an Iranian drone attack caused significant damage to two power plants and put a water desalination station out of service, according to the Ministry of Electricity. No injuries were reported from the attack, the ministry said.</p>\n\n\n\n<p>In Bahrain, the national oil company said that a drone attack caused a fire at one of its storage facilities, which was extinguished. It said the damage was still being assessed and no injuries had been reported.</p>\n\n\n\n<p>In the United Arab Emirates, authorities responded to multiple fires at the Borouge petrochemicals plant, a joint venture of the Abu Dhabi National Oil Co. and Borealis of Austria. They say the fires were caused by falling debris following successful interceptions by air defense systems, but production at the plant in Ruwais, near the UAE\u2019s western border with Saudi Arabia, has halted.</p>\n\n\n\n<p>The strike came a day after Israel struck a petrochemical plant in Iran that Prime Minister Benjamin Netanyahu said generated revenue that it had used to fund the war.</p>\n\n\n\n<p>The war began with joint U.S.-Israel strikes on Feb. 28 and has killed thousands, shaken global markets, cut off key shipping routes and spiked fuel prices. Both sides have threatened and hit civilian targets, bringing warnings of possible war crimes.</p>\n\n\n<div></div>\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Trump renews threat</h2>\n\n\n\n<p>Trump renewed his threats for Iran to open up the Strait of Hormuz, a crucial waterway for global energy shipments that has been choked off by Tehran, by Monday or face devastating consequences, writing Saturday in a social media post: \u201cRemember when I gave Iran ten days to MAKE A DEAL or OPEN UP THE HORMUZ STRAIT. Time is running out \u2014 48 hours before all Hell will reign down on them.\u201d</p>\n\n\n\n<p>\u201cThe doors of hell will be opened to you\u201d if Iran\u2019s infrastructure is attacked, Gen. Ali Abdollahi Aliabadi with the country\u2019s joint military command said late Saturday in response to Trump\u2019s renewed threat, state media reported. In turn, the general threatened all infrastructure used by the U.S. military in the region.</p>\n\n\n\n<p>But Pakistan\u2019s Foreign Ministry spokesperson, Tahir Andrabi, told The Associated Press that his government\u2019s efforts to broker a ceasefire are \u201cright on track\u201d after Islamabad last week said that it would soon host talks between the U.S. and Iran.</p>\n\n\n\n<p>Iran\u2019s foreign minister, Abbas Araghchi, said that Iranian officials \u201chave never refused to go to Islamabad.\u201d</p>\n\n\n\n<p>Mediators from Pakistan, Turkey and Egypt were working to bring the U.S. and Iran to the negotiating table, according to two regional officials.</p>\n\n\n\n<p>The proposed compromise includes a cessation of hostilities to allow a diplomatic settlement, according to a regional official involved in the efforts and a Gulf diplomat briefed on the matter. They spoke on condition of anonymity to discuss closed-door diplomacy.</p>\n\n\n\n<p>A second U.S. Air Force combat aircraft went down in the Middle East on Friday, according to a U.S. official, who spoke on condition of anonymity to discuss a sensitive military situation. It wasn\u2019t clear if the aircraft crashed or was shot down, or whether Iran was involved.</p>\n\n\n\n<p>Iranian state media said a U.S. A-10 attack aircraft crashed in the Persian Gulf after being struck by Iran\u2019s defense forces.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Iran threatens to disrupt traffic in a second key strait</h2>\n\n\n\n<p>Iran\u2019s parliamentary speaker, Mohammad Bagher Qalibaf, issued a veiled threat late Friday to disrupt traffic through a second strategic waterway in the region, the Bab el-Mandeb.</p>\n\n\n\n<p>The strait, 32 kilometers (20 miles) wide, links the Red Sea with the Gulf of Aden and the Indian Ocean. More than a tenth of seaborne global oil and a quarter of container ships pass through it.</p>\n\n\n\n<p>\u201cWhich countries and companies account for the highest transit volumes through the strait?\u201d Qalibaf wrote.</p>\n\n\n\n<p>More than 1,900 people have been killed in Iran since the war began.</p>\n\n\n\n<p>In Gulf Arab states and the occupied West Bank, more than two dozen people have died, while 19 have been reported dead in Israel and 13 U.S. service members have been killed. In Lebanon, more than 1,400 people have been killed and more than 1 million people have been displaced. Ten Israeli soldiers have died there.</p>",
+      "summary": "<p>The <a href=\"https://www.nbcboston.com/tag/united-states/\" rel=\"noreferrer noopener\" target=\"_blank\">United States</a> said Sunday it rescued a service member missing behind enemy lines since <a href=\"https://www.nbcboston.com/tag/iran/\" rel=\"noreferrer noopener\" target=\"_blank\">Iran</a> downed a fighter jet, as President <a href=\"https://www.nbcboston.com/tag/donald-trump/\" rel=\"noreferrer noopener\" target=\"_blank\">Donald Trump</a> escalated pressure on Tehran with a new looming deadline to reopen the Strait of Hormuz.</p>\n\n\n\n<p>Iran showed no signs of backing down, striking new economic and infrastructure targets in neighboring Gulf Arab countries.</p>\n\n\n\n<p>The airman\u2019s extraction followed a frantic U.S. search-and-rescue operation after the Friday crash of the F-15E Strike Eagle, as Iran also promised a reward for anyone who turned in an \u201cenemy pilot.\u201d Trump said he was injured but in stable condition.</p>\n\n\n\n<p>\u201cThis brave Warrior was behind enemy lines in the treacherous mountains of Iran, being hunted down by our enemies, who were getting closer and closer by the hour,\u201d Trump wrote on social media.</p>\n\n\n\n<p>A second crew member was rescued earlier.</p>\n\n\n\n<p>The fighter jet was the first American aircraft to have crashed in Iranian territory since the U.S. and Israel launched the war, striking Iran on Feb. 28. It has since killed thousands, shaken global markets, cut off key shipping routes and spiked fuel prices. Both sides have threatened and hit civilian targets, bringing warnings of possible war crimes.</p>\n\n\n\n<p>Trump said last week that the U.S. had \u201cdecimated\u201d Iran and would finish the war \u201cvery fast.\u201d Two days later, Iran shot down two U.S. military planes, showing the ongoing perils of the bombing campaign and the ability of a degraded Iranian military to continue to hit back.</p>\n\n\n\n<p>As Iran continues to exert control over the Strait of Hormuz, Trump, in a weekend social media post, threatened to unleash \u201call Hell\u201d if it isn\u2019t opened by Monday. He has issued such threats before and extended them when mediators have claimed progress toward ending the war on agreeable terms.</p>\n\n\n\n<p>The other jet to go down was a U.S. A-10 attack aircraft. Neither the status of the crew nor exactly where it crashed was immediately known.</p>\n\n\n\n<p>On Sunday, Iran\u2019s state TV aired a video showing thick black smoke rising into the air, claiming that they had shot down an American transport plane and two helicopters that were part of the rescue operation. However, a regional intelligence official briefed on the mission told The Associated Press that the U.S. military blew up two transport planes due to a technical malfunction, forcing it to bring in additional aircraft to complete the rescue.</p>\n\n\n\n<p>The official spoke on condition of anonymity to discuss the covert mission.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Drones hit Gulf energy infrastructure</h2>\n\n\n\n<p>In Kuwait, an Iranian drone attack caused significant damage to two power plants and put a water desalination station out of service, according to the Ministry of Electricity. No injuries were reported from the attack, the ministry said.</p>\n\n\n\n<p>In Bahrain, the national oil company said that a drone attack caused a fire at one of its storage facilities, which was extinguished. It said the damage was still being assessed and no injuries had been reported.</p>\n\n\n\n<p>In the United Arab Emirates, authorities responded to multiple fires at the Borouge petrochemicals plant, a joint venture of the Abu Dhabi National Oil Co. and Borealis of Austria. They say the fires were caused by falling debris following successful interceptions by air defense systems, but production at the plant in Ruwais, near the UAE\u2019s western border with Saudi Arabia, has halted.</p>\n\n\n\n<p>The strike came a day after Israel struck a petrochemical plant in Iran that Prime Minister Benjamin Netanyahu said generated revenue that it had used to fund the war.</p>\n\n\n\n<p>The war began with joint U.S.-Israel strikes on Feb. 28 and has killed thousands, shaken global markets, cut off key shipping routes and spiked fuel prices. Both sides have threatened and hit civilian targets, bringing warnings of possible war crimes.</p>\n\n\n<div></div>\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Trump renews threat</h2>\n\n\n\n<p>Trump renewed his threats for Iran to open up the Strait of Hormuz, a crucial waterway for global energy shipments that has been choked off by Tehran, by Monday or face devastating consequences, writing Saturday in a social media post: \u201cRemember when I gave Iran ten days to MAKE A DEAL or OPEN UP THE HORMUZ STRAIT. Time is running out \u2014 48 hours before all Hell will reign down on them.\u201d</p>\n\n\n\n<p>\u201cThe doors of hell will be opened to you\u201d if Iran\u2019s infrastructure is attacked, Gen. Ali Abdollahi Aliabadi with the country\u2019s joint military command said late Saturday in response to Trump\u2019s renewed threat, state media reported. In turn, the general threatened all infrastructure used by the U.S. military in the region.</p>\n\n\n\n<p>But Pakistan\u2019s Foreign Ministry spokesperson, Tahir Andrabi, told The Associated Press that his government\u2019s efforts to broker a ceasefire are \u201cright on track\u201d after Islamabad last week said that it would soon host talks between the U.S. and Iran.</p>\n\n\n\n<p>Iran\u2019s foreign minister, Abbas Araghchi, said that Iranian officials \u201chave never refused to go to Islamabad.\u201d</p>\n\n\n\n<p>Mediators from Pakistan, Turkey and Egypt were working to bring the U.S. and Iran to the negotiating table, according to two regional officials.</p>\n\n\n\n<p>The proposed compromise includes a cessation of hostilities to allow a diplomatic settlement, according to a regional official involved in the efforts and a Gulf diplomat briefed on the matter. They spoke on condition of anonymity to discuss closed-door diplomacy.</p>\n\n\n\n<p>A second U.S. Air Force combat aircraft went down in the Middle East on Friday, according to a U.S. official, who spoke on condition of anonymity to discuss a sensitive military situation. It wasn\u2019t clear if the aircraft crashed or was shot down, or whether Iran was involved.</p>\n\n\n\n<p>Iranian state media said a U.S. A-10 attack aircraft crashed in the Persian Gulf after being struck by Iran\u2019s defense forces.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Iran threatens to disrupt traffic in a second key strait</h2>\n\n\n\n<p>Iran\u2019s parliamentary speaker, Mohammad Bagher Qalibaf, issued a veiled threat late Friday to disrupt traffic through a second strategic waterway in the region, the Bab el-Mandeb.</p>\n\n\n\n<p>The strait, 32 kilometers (20 miles) wide, links the Red Sea with the Gulf of Aden and the Indian Ocean. More than a tenth of seaborne global oil and a quarter of container ships pass through it.</p>\n\n\n\n<p>\u201cWhich countries and companies account for the highest transit volumes through the strait?\u201d Qalibaf wrote.</p>\n\n\n\n<p>More than 1,900 people have been killed in Iran since the war began.</p>\n\n\n\n<p>In Gulf Arab states and the occupied West Bank, more than two dozen people have died, while 19 have been reported dead in Israel and 13 U.S. service members have been killed. In Lebanon, more than 1,400 people have been killed and more than 1 million people have been displaced. Ten Israeli soldiers have died there.</p>\n\n\n<div></div>",
       "source": "NBC Boston"
     },
     {
@@ -5216,13 +5251,13 @@
       "source": "NBC Boston"
     },
     {
-      "title": "Search underway for \u2018armed and dangerous\u2019 man accused of shooting a police officer in Raymond, NH",
-      "link": "https://whdh.com/news/search-underway-for-armed-and-dangerous-man-accused-of-shooting-a-police-officer-in-raymond-nh/",
+      "title": "Man accused of shooting a police officer in Raymond, NH dead after shootout with police",
+      "link": "https://whdh.com/news/man-accused-of-shooting-a-police-officer-in-raymond-nh-dead-after-shootout-with-police/",
       "published": "Sat, 04 Apr 2026 19:43:58 +0000",
       "ts": 1775331838,
       "author": "Owen Boss",
       "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "Authorities are searching for a man who they say shot a police officer in Raymond, New Hampshire on Saturday afternoon, officials said. Officers responding to...",
+      "summary": "A man accused of shooting a police officer in Raymond, New Hampshire on Saturday afternoon is dead after a shootout with police, officials said. Officers...",
       "source": "Boston News, Weather, Sports | WHDH 7News"
     },
     {
@@ -5404,16 +5439,6 @@
       "feed_title": "NBC Boston",
       "summary": "<p>A suspect experiencing a mental health episode was shot and killed by Boston police Saturday morning after attacking a police officer and an EMS worker with a sword, authorities say.</p>\n\n\n\n<p>Several other officers were also hospitalized, according to Boston Police Commissioner Michael Cox. He said he wasn&#8217;t sure of the exact number of officers injured.</p>\n\n\n\n<p>The incident began around 10:44 a.m. Saturday when police responded to a 911 call from the 200 block of Hemenway Street near the Northeastern University campus. The caller told police there were four people with a gun who were looking to harm him.</p>\n\n\n\n<p>When they arrived at the scene, officers located the 911 caller and started speaking with them through the door of an apartment. At some point, the officers requested EMS and their clinician, and they responded and began talking with the individual.</p>\n\n\n\n<p>After an extended period of time &#8212; about 35-45 minutes &#8212; Cox said EMS concluded the person was in immediate need of attention due to some type of a mental health crisis.</p>\n\n\n\n<p>As they asked the individual to come out of the apartment, he immediately opened the door and struck both the clinician and an officer outside the door.</p>\n\n\n\n<p>&#8220;He was armed with some type of sword,&#8221; Cox said.</p>\n\n\n\n<p>The officer was stabbed in the arm and the EMS clinician knocked to the ground. At this point, Cox said &#8220;one or more officers&#8221; fired both a Taser and their gun at the individual, bringing him to a halt. EMS provided medical attention to the individual at the scene and he was taken to an area hospital, where he later died.</p>\n\n\n\n<blockquote class=\"featured-text\">\n\t<em>If you or someone you know is in crisis, call\u00a0or text\u00a0988 to reach the Suicide and Crisis Lifeline\u00a0or chat live at\u00a0</em><a href=\"http://988lifeline.org/\" rel=\"noreferrer noopener\" target=\"_blank\"><em>988lifeline.org</em></a><em>. You can also visit\u00a0</em><a href=\"http://speakingofsuicide.com/resources\" rel=\"noreferrer noopener\" target=\"_blank\"><em>SpeakingOfSuicide.com/resources</em></a><em>\u00a0for additional\u00a0support.</em></blockquote>\n\n\n\n<p>Cox said officers applied a tourniquet to the officer who was stabbed with the sword, and he was taken to an area hospital for a severe laceration. Multiple other officers and EMS clinicians were taken to area hospitals as well. All of the officers and EMS workers who were injured are expected to survive, Cox said.</p>\n\n\n\n<p>&#8220;I just want to say, for all those impacted by this, our thoughts and prayers are with them,&#8221; Cox said. &#8220;All of the public safety professionals who showed up here today to provide service, we wish them a speedy recovery and are thankful for their service.&#8221;</p>\n\n\n\n<p>The police commissioner also offered condolences to the family of the man who died. &#8220;It&#8217;s a sad event for all those involved,&#8221; he said.</p>\n\n\n\n<p>Suffolk District Attorney Kevin Hayden said his office is investigating the shooting, as it does with any situation involving an officer discharging their weapon.</p>\n\n\n\n<p>&#8220;As you&#8217;ve heard, this was a very chaotic circumstance,&#8221; he said. &#8220;There are a number of first responders, from a mental health perspective and the Boston Police Department, who were doing everything they could to deal with a difficult situation&#8230; This was an individual who was clearly in some sort of mental distress.&#8221;</p>\n\n\n\n<p>Hayden said the investigation is still in its early stages, and there is still a lot of information that needs to be pieced togather. &#8220;I think it&#8217;s going to be some time before we have a full picture of exactly what happened here,&#8221; he said.</p>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "Judge halts Trump effort requiring colleges to show they aren\u2019t considering race in admissions",
-      "link": "https://www.wbur.org/news/2026/04/04/judge-halts-trump-effort-requiring-colleges-to-show-they-arent-considering-race-in-admissions",
-      "published": "2026-04-04 12:12:09",
-      "ts": 1775304729,
-      "author": "WBUR",
-      "feed_title": "WBUR News",
-      "summary": "<p>A federal judge has halted efforts by the Trump administration to collect data that proves higher education institutions aren\u2019t considering race in admissions. The ruling granting the preliminary injunction follows a lawsuit filed earlier this month by a coalition of 17 Democratic state attorneys general. </p>",
-      "source": "WBUR News"
     }
   ],
   "news_universalhub": [
@@ -6182,83 +6207,83 @@
       "source": "BC Interruption"
     },
     {
-      "title": "North Carolina 8, Boston College 7: Late Inning Bullpen Woes Costs the Eagles a Series - 247sports.com",
+      "title": "North Carolina 8, Boston College 7: Late Inning Bullpen Woes Costs the Eagles a Series - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPeGdNUklldm84aWc1RndRdW45Y2lwSjNBWko4bllyR2ZYLUxXZHYyX3hZRU5vWDhuVHl2V1VDYXRnb2lyN28wdHBRMHBfMFpNQ1JzbFFuc0djQXlwR0R3TWliOEpjVEtZWWVRYjdITFJIcFJycU1IY1Rfd3Z5TEJDNG9KZFFZbm9OQmlDSGluYjB5UnNLVHh5OTMzYVNiVXJDU3FTYU5IX0l1dGZLVTI5VVZHQnpUS0JRSHRmV0FKNTJMenFJanlyMzVvaXFUOG5RUWFjWXBvUXJ4RVZaNkluNC1R?oc=5",
       "published": "Sun, 05 Apr 2026 02:03:11 GMT",
       "ts": 1775354591,
       "author": "",
-      "feed_title": "247sports.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4gFBVV95cUxPeGdNUklldm84aWc1RndRdW45Y2lwSjNBWko4bllyR2ZYLUxXZHYyX3hZRU5vWDhuVHl2V1VDYXRnb2lyN28wdHBRMHBfMFpNQ1JzbFFuc0djQXlwR0R3TWliOEpjVEtZWWVRYjdITFJIcFJycU1IY1Rfd3Z5TEJDNG9KZFFZbm9OQmlDSGluYjB5UnNLVHh5OTMzYVNiVXJDU3FTYU5IX0l1dGZLVTI5VVZHQnpUS0JRSHRmV0FKNTJMenFJanlyMzVvaXFUOG5RUWFjWXBvUXJ4RVZaNkluNC1R?oc=5\" target=\"_blank\">North Carolina 8, Boston College 7: Late Inning Bullpen Woes Costs the Eagles a Series</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247sports.com</font>",
+      "feed_title": "247Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4gFBVV95cUxPeGdNUklldm84aWc1RndRdW45Y2lwSjNBWko4bllyR2ZYLUxXZHYyX3hZRU5vWDhuVHl2V1VDYXRnb2lyN28wdHBRMHBfMFpNQ1JzbFFuc0djQXlwR0R3TWliOEpjVEtZWWVRYjdITFJIcFJycU1IY1Rfd3Z5TEJDNG9KZFFZbm9OQmlDSGluYjB5UnNLVHh5OTMzYVNiVXJDU3FTYU5IX0l1dGZLVTI5VVZHQnpUS0JRSHRmV0FKNTJMenFJanlyMzVvaXFUOG5RUWFjWXBvUXJ4RVZaNkluNC1R?oc=5\" target=\"_blank\">North Carolina 8, Boston College 7: Late Inning Bullpen Woes Costs the Eagles a Series</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
       "source": "247Sports BC"
     },
     {
-      "title": "Diamond Heels Comeback Game Three Against Boston College - 247sports.com",
+      "title": "Diamond Heels Comeback Game Three Against Boston College - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPTHpENEVjSlp3aXdhNTVvQmIwUlZhOGVMNldpWlBUdGYxSGNVZUdoTUJPbHRLa2c3TmY3UUxJUlU5ZEZadXptS25tYThVZWh6Y1h0eUFMaFVSV2hyWFB4MFhKdjlWTWhwQUIyNjA4Q3hUR3c0TnhvXzBzNXZxQ203Sm9aOTZPblFfbXRQOEhLX3ZlSE9UbFZUcENSRFhTczZXVUhVVEpndEY?oc=5",
       "published": "Sat, 04 Apr 2026 20:12:09 GMT",
       "ts": 1775333529,
       "author": "",
-      "feed_title": "247sports.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPTHpENEVjSlp3aXdhNTVvQmIwUlZhOGVMNldpWlBUdGYxSGNVZUdoTUJPbHRLa2c3TmY3UUxJUlU5ZEZadXptS25tYThVZWh6Y1h0eUFMaFVSV2hyWFB4MFhKdjlWTWhwQUIyNjA4Q3hUR3c0TnhvXzBzNXZxQ203Sm9aOTZPblFfbXRQOEhLX3ZlSE9UbFZUcENSRFhTczZXVUhVVEpndEY?oc=5\" target=\"_blank\">Diamond Heels Comeback Game Three Against Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247sports.com</font>",
+      "feed_title": "247Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPTHpENEVjSlp3aXdhNTVvQmIwUlZhOGVMNldpWlBUdGYxSGNVZUdoTUJPbHRLa2c3TmY3UUxJUlU5ZEZadXptS25tYThVZWh6Y1h0eUFMaFVSV2hyWFB4MFhKdjlWTWhwQUIyNjA4Q3hUR3c0TnhvXzBzNXZxQ203Sm9aOTZPblFfbXRQOEhLX3ZlSE9UbFZUcENSRFhTczZXVUhVVEpndEY?oc=5\" target=\"_blank\">Diamond Heels Comeback Game Three Against Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
       "source": "247Sports BC"
     },
     {
-      "title": "Forbes, McDuffie, Winslow Speak After Game Three 8-7 Win Over Boston College - 247sports.com",
+      "title": "Forbes, McDuffie, Winslow Speak After Game Three 8-7 Win Over Boston College - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMimgJBVV95cUxOTFpYdjctZGZoUU5oS3QyZC15a3c0czg4OGpkX21jdmZDZmtWNHpzT2ZNeHZmN0dDSHpzVGFMcXAwcmxFOUxCVXFlYXNzMU9odUllM0htbG93emFzdFM4VGhPa2xOdUJpdWQ1b0M5aFNzbEJacWk4dmh4TjBHVWwxd1I3N3ZpWWFCb1Z1WGpLZHg2ZmFpYzhSV25GVXVpMVF4b3ZXTExVZ2xFLUhzREtDVFd5ODNiOWlwZG1UZ0ZHTWhfX3dfVHlWVFR0ZlROQlduM1ZOQ25HamRFTlVJRFBEbldrSTdnelpVbFptX1Q0dHVyZVVNbTkxVENFcHNnejV2RW5UMEtUOGJXS0lLbTkwTVFSeEZNN0VtRnc?oc=5",
       "published": "Sat, 04 Apr 2026 20:22:09 GMT",
       "ts": 1775334129,
       "author": "",
-      "feed_title": "247sports.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgJBVV95cUxOTFpYdjctZGZoUU5oS3QyZC15a3c0czg4OGpkX21jdmZDZmtWNHpzT2ZNeHZmN0dDSHpzVGFMcXAwcmxFOUxCVXFlYXNzMU9odUllM0htbG93emFzdFM4VGhPa2xOdUJpdWQ1b0M5aFNzbEJacWk4dmh4TjBHVWwxd1I3N3ZpWWFCb1Z1WGpLZHg2ZmFpYzhSV25GVXVpMVF4b3ZXTExVZ2xFLUhzREtDVFd5ODNiOWlwZG1UZ0ZHTWhfX3dfVHlWVFR0ZlROQlduM1ZOQ25HamRFTlVJRFBEbldrSTdnelpVbFptX1Q0dHVyZVVNbTkxVENFcHNnejV2RW5UMEtUOGJXS0lLbTkwTVFSeEZNN0VtRnc?oc=5\" target=\"_blank\">Forbes, McDuffie, Winslow Speak After Game Three 8-7 Win Over Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247sports.com</font>",
+      "feed_title": "247Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgJBVV95cUxOTFpYdjctZGZoUU5oS3QyZC15a3c0czg4OGpkX21jdmZDZmtWNHpzT2ZNeHZmN0dDSHpzVGFMcXAwcmxFOUxCVXFlYXNzMU9odUllM0htbG93emFzdFM4VGhPa2xOdUJpdWQ1b0M5aFNzbEJacWk4dmh4TjBHVWwxd1I3N3ZpWWFCb1Z1WGpLZHg2ZmFpYzhSV25GVXVpMVF4b3ZXTExVZ2xFLUhzREtDVFd5ODNiOWlwZG1UZ0ZHTWhfX3dfVHlWVFR0ZlROQlduM1ZOQ25HamRFTlVJRFBEbldrSTdnelpVbFptX1Q0dHVyZVVNbTkxVENFcHNnejV2RW5UMEtUOGJXS0lLbTkwTVFSeEZNN0VtRnc?oc=5\" target=\"_blank\">Forbes, McDuffie, Winslow Speak After Game Three 8-7 Win Over Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
       "source": "247Sports BC"
     },
     {
-      "title": "Diamond Heels Even Series Against Boston College - 247sports.com",
+      "title": "Diamond Heels Even Series Against Boston College - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQ2RfaTFRVzkzOXplS3hwVm96bndHRk90VkVMVmg2amoyakxETTdSVkNyQUNmQjl2bG03bmpNS1kzRnJ2V1JjRDlnNmNXUENjbHNSNHE5dEFjMG96bWNDZzN3T2laSVBhcTFrU0xtSmlIRTRRTGZqczBzSWNRN0h2NG9DaGxGVUxCOENNTEpkZHZQSFVaRC0xRHFKSEF1bzRfTVRhZmRzWnhfZnh2?oc=5",
       "published": "Sat, 04 Apr 2026 01:09:10 GMT",
       "ts": 1775264950,
       "author": "",
-      "feed_title": "247sports.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirAFBVV95cUxNQ2RfaTFRVzkzOXplS3hwVm96bndHRk90VkVMVmg2amoyakxETTdSVkNyQUNmQjl2bG03bmpNS1kzRnJ2V1JjRDlnNmNXUENjbHNSNHE5dEFjMG96bWNDZzN3T2laSVBhcTFrU0xtSmlIRTRRTGZqczBzSWNRN0h2NG9DaGxGVUxCOENNTEpkZHZQSFVaRC0xRHFKSEF1bzRfTVRhZmRzWnhfZnh2?oc=5\" target=\"_blank\">Diamond Heels Even Series Against Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247sports.com</font>",
+      "feed_title": "247Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirAFBVV95cUxNQ2RfaTFRVzkzOXplS3hwVm96bndHRk90VkVMVmg2amoyakxETTdSVkNyQUNmQjl2bG03bmpNS1kzRnJ2V1JjRDlnNmNXUENjbHNSNHE5dEFjMG96bWNDZzN3T2laSVBhcTFrU0xtSmlIRTRRTGZqczBzSWNRN0h2NG9DaGxGVUxCOENNTEpkZHZQSFVaRC0xRHFKSEF1bzRfTVRhZmRzWnhfZnh2?oc=5\" target=\"_blank\">Diamond Heels Even Series Against Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
       "source": "247Sports BC"
     },
     {
-      "title": "Forbes, Players Speak on Game Two Win Over Boston College - 247sports.com",
+      "title": "Forbes, Players Speak on Game Two Win Over Boston College - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONzU0eHNubE5CM05Td1hZR0lKUGhIX0VYUHphVlUxNjJITFc1TTd5dFpOcmZEelg3VXljQmJWRmdmM090QVVZeXhiZ201WUx6QjU4NDBIYnhoRFJqUXFiYTNmX1ZYQ1NqWDM5VlVyVWp3TFdmTnlBMUdLUnhibEYxYU5VVm9tTFRXZ3ZLVHJaS1hVVjAybWJvMEEySk0tbkVnNlNQaUpRQzctQWxmY0FzWVJfdjlQallY?oc=5",
       "published": "Sat, 04 Apr 2026 00:59:08 GMT",
       "ts": 1775264348,
       "author": "",
-      "feed_title": "247sports.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxONzU0eHNubE5CM05Td1hZR0lKUGhIX0VYUHphVlUxNjJITFc1TTd5dFpOcmZEelg3VXljQmJWRmdmM090QVVZeXhiZ201WUx6QjU4NDBIYnhoRFJqUXFiYTNmX1ZYQ1NqWDM5VlVyVWp3TFdmTnlBMUdLUnhibEYxYU5VVm9tTFRXZ3ZLVHJaS1hVVjAybWJvMEEySk0tbkVnNlNQaUpRQzctQWxmY0FzWVJfdjlQallY?oc=5\" target=\"_blank\">Forbes, Players Speak on Game Two Win Over Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247sports.com</font>",
+      "feed_title": "247Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxONzU0eHNubE5CM05Td1hZR0lKUGhIX0VYUHphVlUxNjJITFc1TTd5dFpOcmZEelg3VXljQmJWRmdmM090QVVZeXhiZ201WUx6QjU4NDBIYnhoRFJqUXFiYTNmX1ZYQ1NqWDM5VlVyVWp3TFdmTnlBMUdLUnhibEYxYU5VVm9tTFRXZ3ZLVHJaS1hVVjAybWJvMEEySk0tbkVnNlNQaUpRQzctQWxmY0FzWVJfdjlQallY?oc=5\" target=\"_blank\">Forbes, Players Speak on Game Two Win Over Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
       "source": "247Sports BC"
     },
     {
-      "title": "Diamond Heels Drop Game One to Boston College - 247sports.com",
+      "title": "Diamond Heels Drop Game One to Boston College - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOdFJHVmgtX0c1WDU5N0FrLUFqYklTcGkxMFBqR05hcTdqdXcwTjdZZnhhbFFGNUhabERiZGdNSkU1UXR3bDRnbElZbERCWDc2dG5OaWZDbDRQcHYwLUoydC1FdmhIMHVxNTJUTl9teUxsVU1FMWFjWjhiUzJHb0d0dGozVU9LR09LemJIUk9WdU43aWZyYWxwVVh3?oc=5",
       "published": "Fri, 03 Apr 2026 04:04:07 GMT",
       "ts": 1775189047,
       "author": "",
-      "feed_title": "247sports.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxOdFJHVmgtX0c1WDU5N0FrLUFqYklTcGkxMFBqR05hcTdqdXcwTjdZZnhhbFFGNUhabERiZGdNSkU1UXR3bDRnbElZbERCWDc2dG5OaWZDbDRQcHYwLUoydC1FdmhIMHVxNTJUTl9teUxsVU1FMWFjWjhiUzJHb0d0dGozVU9LR09LemJIUk9WdU43aWZyYWxwVVh3?oc=5\" target=\"_blank\">Diamond Heels Drop Game One to Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247sports.com</font>",
+      "feed_title": "247Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxOdFJHVmgtX0c1WDU5N0FrLUFqYklTcGkxMFBqR05hcTdqdXcwTjdZZnhhbFFGNUhabERiZGdNSkU1UXR3bDRnbElZbERCWDc2dG5OaWZDbDRQcHYwLUoydC1FdmhIMHVxNTJUTl9teUxsVU1FMWFjWjhiUzJHb0d0dGozVU9LR09LemJIUk9WdU43aWZyYWxwVVh3?oc=5\" target=\"_blank\">Diamond Heels Drop Game One to Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
       "source": "247Sports BC"
     },
     {
-      "title": "Forbes Speaks on Game One Loss to Boston College - 247sports.com",
+      "title": "Forbes Speaks on Game One Loss to Boston College - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdnN3bl9wamlGM2JmVmkwOUVYN2VHTjNoejFKSGVFVDFTQURyWnVmaUNFU054RTRRMDRiZHNtaUE1cHJKbFZWc1I4RjMtMHpfZzYwcDBwX1N3Y1hlS2dyV1pNRUtITk5NSW9ZYmtqZEFMWUJVaG16NWloUU9TTUZSMlFfRExNN0stc2pnbmRGQVc1dUIwM05RLWxzTmxaV3pZbF9HRjNMaHE?oc=5",
       "published": "Thu, 02 Apr 2026 23:48:00 GMT",
       "ts": 1775173680,
       "author": "",
-      "feed_title": "247sports.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdnN3bl9wamlGM2JmVmkwOUVYN2VHTjNoejFKSGVFVDFTQURyWnVmaUNFU054RTRRMDRiZHNtaUE1cHJKbFZWc1I4RjMtMHpfZzYwcDBwX1N3Y1hlS2dyV1pNRUtITk5NSW9ZYmtqZEFMWUJVaG16NWloUU9TTUZSMlFfRExNN0stc2pnbmRGQVc1dUIwM05RLWxzTmxaV3pZbF9HRjNMaHE?oc=5\" target=\"_blank\">Forbes Speaks on Game One Loss to Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247sports.com</font>",
+      "feed_title": "247Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdnN3bl9wamlGM2JmVmkwOUVYN2VHTjNoejFKSGVFVDFTQURyWnVmaUNFU054RTRRMDRiZHNtaUE1cHJKbFZWc1I4RjMtMHpfZzYwcDBwX1N3Y1hlS2dyV1pNRUtITk5NSW9ZYmtqZEFMWUJVaG16NWloUU9TTUZSMlFfRExNN0stc2pnbmRGQVc1dUIwM05RLWxzTmxaV3pZbF9HRjNMaHE?oc=5\" target=\"_blank\">Forbes Speaks on Game One Loss to Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
       "source": "247Sports BC"
     },
     {
-      "title": "A Pair of Ranked Teams Face Off in Chapel Hill (Boston College/N.Carolina Preview) - 247sports.com",
+      "title": "A Pair of Ranked Teams Face Off in Chapel Hill (Boston College/N.Carolina Preview) - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPcm15aGE2Qk9udlp5SVhDRDlDTUo5bDlCbV9sU2VmV3o3X0RKb0tpb29MNm0yV2l0X3UyNzI4ME1QODF3YWstUUdJZVVsNHFBVVhUR1hSM2llUmhLRWF5TkttUENqUlRkOEg0OU16di12TU8xRGFzM2J1TDFHYmVwNzFLMlhMckJUamhFVElsRWhkMEdQQUtBQVRxQUUtdWpuREw3bUwtSmplR3dHZ0NoYXl1UEtoZFFNa2I0UDBKelVKT3Zxd1BaZW10eXZZVlVnRlI4QnNBdVdfZw?oc=5",
       "published": "Thu, 02 Apr 2026 04:30:33 GMT",
       "ts": 1775104233,
       "author": "",
-      "feed_title": "247sports.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPcm15aGE2Qk9udlp5SVhDRDlDTUo5bDlCbV9sU2VmV3o3X0RKb0tpb29MNm0yV2l0X3UyNzI4ME1QODF3YWstUUdJZVVsNHFBVVhUR1hSM2llUmhLRWF5TkttUENqUlRkOEg0OU16di12TU8xRGFzM2J1TDFHYmVwNzFLMlhMckJUamhFVElsRWhkMEdQQUtBQVRxQUUtdWpuREw3bUwtSmplR3dHZ0NoYXl1UEtoZFFNa2I0UDBKelVKT3Zxd1BaZW10eXZZVlVnRlI4QnNBdVdfZw?oc=5\" target=\"_blank\">A Pair of Ranked Teams Face Off in Chapel Hill (Boston College/N.Carolina Preview)</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247sports.com</font>",
+      "feed_title": "247Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPcm15aGE2Qk9udlp5SVhDRDlDTUo5bDlCbV9sU2VmV3o3X0RKb0tpb29MNm0yV2l0X3UyNzI4ME1QODF3YWstUUdJZVVsNHFBVVhUR1hSM2llUmhLRWF5TkttUENqUlRkOEg0OU16di12TU8xRGFzM2J1TDFHYmVwNzFLMlhMckJUamhFVElsRWhkMEdQQUtBQVRxQUUtdWpuREw3bUwtSmplR3dHZ0NoYXl1UEtoZFFNa2I0UDBKelVKT3Zxd1BaZW10eXZZVlVnRlI4QnNBdVdfZw?oc=5\" target=\"_blank\">A Pair of Ranked Teams Face Off in Chapel Hill (Boston College/N.Carolina Preview)</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
       "source": "247Sports BC"
     },
     {
@@ -6279,6 +6304,16 @@
       "author": "",
       "feed_title": "Sports Illustrated",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxPbHpYY1hSMEsweFNidHJ1a0p1ekF4dFZrbHFuMXgzdl9Gdm5ZSG9XcWprR2tOOHNYQ2tiNTRXTldEZWFTeVZEZEdUWjZoTE52T2tYZTR2cWo4RHhFaHBxX3BOVlBUYkxKUDhHRUJGdE52ZmhRS09rLVA0VGtNeFBxNlItV283ZFFuZklXUWdBZ0NKcTViUTN3Q0h0QVlBdkxiT3F5cHFZQXpQNU1QNzV2TFRLVVdEdUlWMVI0VUtwMV9qa0JZ?oc=5\" target=\"_blank\">Live Updates For No. 22 Boston College Baseball's Rubber Match at No. 6 UNC</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
+      "source": "SI Boston College"
+    },
+    {
+      "title": "Boston College High vs Lincoln-Sudbury Baseball - Apr 9, 2026 - Sports Illustrated",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOOUhNYnZCc2dLajZ6a1ZSWlBTVGZSeERlRTBVcUNVOXc2QTFaOHlxMmpkdk96RlFwMk04b3UwZm1VUlFNMGUxR1BsSzRkb09SaW1uRjBiMHc0bXIwQVlYTVFUQjRtb3dETExHWHpjTG02X1NGMjhPZzV1OW9pVmhJeG80OXJYRUxCVzJlb0pLajhiWWFnbFE5YzJqajJDMHF5TlRsY2lyTTRNV0g3RTJNeg?oc=5",
+      "published": "Sun, 05 Apr 2026 04:53:25 GMT",
+      "ts": 1775364805,
+      "author": "",
+      "feed_title": "Sports Illustrated",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxOOUhNYnZCc2dLajZ6a1ZSWlBTVGZSeERlRTBVcUNVOXc2QTFaOHlxMmpkdk96RlFwMk04b3UwZm1VUlFNMGUxR1BsSzRkb09SaW1uRjBiMHc0bXIwQVlYTVFUQjRtb3dETExHWHpjTG02X1NGMjhPZzV1OW9pVmhJeG80OXJYRUxCVzJlb0pLajhiWWFnbFE5YzJqajJDMHF5TlRsY2lyTTRNV0g3RTJNeg?oc=5\" target=\"_blank\">Boston College High vs Lincoln-Sudbury Baseball - Apr 9, 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
       "source": "SI Boston College"
     },
     {
@@ -6329,16 +6364,6 @@
       "author": "",
       "feed_title": "Sports Illustrated",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxNVUs2ZW9KclZYeHltcXFvZGpwbHJLOUROWTVmeTF1ZzVqRGNYVjFTY18tNEdyQjh6RDRNamNzcjd0TWZZd3FIbXFZaUVNdnpiQWRnZHAwUzkwQzNUbndEUzhZMkthUXVTR0xRVll0X250eE1yNEdrTGV0OGMyelFSQk9qVzN4Z29aWHl1T2w1TFpYNURqejNMeXdtTmNUbWdRVWlCdWNMYjdYMXdMbVNQSk5rSQ?oc=5\" target=\"_blank\">No. 22 Boston College Baseball Earns Road Win Over No. 6 UNC</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
-      "source": "SI Boston College"
-    },
-    {
-      "title": "How to Watch No. 22 Boston College Baseball's Series at No. 6 UNC - Sports Illustrated",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNODBQNHVqclRTUEtMTzhrY2VYbjl2TmpCUDJXSGtoTldIdWdWYUlCN2hqcEdpY1JSM28xaG5IN1JPNHZrSDEycjY1emNrSlFSVjIxdHRMN1MwS0tfdWZVWXIxUDBjS0lRZXhzWHhLQ04zY1RDZXBkaDRDamVmMEYtZ2N5Q3lDSXIyRS1rSDlFdzFCN29mMTJjV2xkdTN2QnNma09jQUpQeHppeDNweFo0Vm1pM3hxakk?oc=5",
-      "published": "Wed, 01 Apr 2026 19:26:45 GMT",
-      "ts": 1775071605,
-      "author": "",
-      "feed_title": "Sports Illustrated",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxNODBQNHVqclRTUEtMTzhrY2VYbjl2TmpCUDJXSGtoTldIdWdWYUlCN2hqcEdpY1JSM28xaG5IN1JPNHZrSDEycjY1emNrSlFSVjIxdHRMN1MwS0tfdWZVWXIxUDBjS0lRZXhzWHhLQ04zY1RDZXBkaDRDamVmMEYtZ2N5Q3lDSXIyRS1rSDlFdzFCN29mMTJjV2xkdTN2QnNma09jQUpQeHppeDNweFo0Vm1pM3hxakk?oc=5\" target=\"_blank\">How to Watch No. 22 Boston College Baseball's Series at No. 6 UNC</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
       "source": "SI Boston College"
     },
     {
@@ -6674,26 +6699,6 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "Wisconsin men's hockey returns to Frozen Four after 16-year absence, hopes to make this their new norm - Channel 3000",
-      "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPUkJOQjAtS2pSVXRqVy1jeTJxTWVVUXV1NW1EMzYtcU1FX3Yxa0FGY2lxaHNQOUFzOThsV1lWTV9EeWtPWlMzUG1ZU3BoajJibnhMS05FVno0Sm9LY3loNFVHcGhIZUFGUmU3aFc3XzVSTUI1WHN6cVZKY2ozY3R6a1gzeTgxTU5oa2xiaERQU3A3UlhoNjZvc3M4WjBwbWlzWDdBNjZobk53WWxwT2xONXUwbGVTanBBM0lDTUswQmI1UDl0Q1J3WExiSU8xN2IxUU1kYXJubElHeG93dnZORk5yX1dmU2FINWFRYXljR1lhX2R6NnJQWi1qWUw?oc=5",
-      "published": "Sat, 04 Apr 2026 00:58:00 GMT",
-      "ts": 1775264280,
-      "author": "",
-      "feed_title": "Channel 3000",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi_AFBVV95cUxPUkJOQjAtS2pSVXRqVy1jeTJxTWVVUXV1NW1EMzYtcU1FX3Yxa0FGY2lxaHNQOUFzOThsV1lWTV9EeWtPWlMzUG1ZU3BoajJibnhMS05FVno0Sm9LY3loNFVHcGhIZUFGUmU3aFc3XzVSTUI1WHN6cVZKY2ozY3R6a1gzeTgxTU5oa2xiaERQU3A3UlhoNjZvc3M4WjBwbWlzWDdBNjZobk53WWxwT2xONXUwbGVTanBBM0lDTUswQmI1UDl0Q1J3WExiSU8xN2IxUU1kYXJubElHeG93dnZORk5yX1dmU2FINWFRYXljR1lhX2R6NnJQWi1qWUw?oc=5\" target=\"_blank\">Wisconsin men's hockey returns to Frozen Four after 16-year absence, hopes to make this their new norm</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Channel 3000</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
-      "title": "What to know about NCAA Frozen Four: top players, field, schedule, TV - Milwaukee Journal Sentinel",
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNdGlrUzBqaVV5aWVrRkVXRjkwRm53VGZZQXZ6cElVcTVua20tTlBnVVVwWk5QdnFVTDNqck1ya3RQamVlRjJ3MDMwV1NsbXY1ZnlZeUZiQXJ0ek5SbS1qX0FzQjE0c2lNRGg0OUpNb1hOZFJWeW5pdnBkemdiZHk1TTMwV2t1bHlHT2hVdm45cER3cFdhUTJmUkdNVGVCZm5aWDRzZHFscVdZUUNLdTJraFRQU1UzVlpUWGx2LW0yUURiUi0yZzdqdlpoV0xfVVlfRnRBeFBn?oc=5",
-      "published": "Fri, 03 Apr 2026 10:15:00 GMT",
-      "ts": 1775211300,
-      "author": "",
-      "feed_title": "Milwaukee Journal Sentinel",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxNdGlrUzBqaVV5aWVrRkVXRjkwRm53VGZZQXZ6cElVcTVua20tTlBnVVVwWk5QdnFVTDNqck1ya3RQamVlRjJ3MDMwV1NsbXY1ZnlZeUZiQXJ0ek5SbS1qX0FzQjE0c2lNRGg0OUpNb1hOZFJWeW5pdnBkemdiZHk1TTMwV2t1bHlHT2hVdm45cER3cFdhUTJmUkdNVGVCZm5aWDRzZHFscVdZUUNLdTJraFRQU1UzVlpUWGx2LW0yUURiUi0yZzdqdlpoV0xfVVlfRnRBeFBn?oc=5\" target=\"_blank\">What to know about NCAA Frozen Four: top players, field, schedule, TV</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Milwaukee Journal Sentinel</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
       "title": "1982 North Dakota-Wisconsin NCAA Title Tilt Was Legendary in Many Ways - College Hockey News",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSF8wR2ZWajVHdUE3dkRwbGdZSm5ibm5rY2FCVkFZZmtleXVUSGYzcDBGQlk4elhJdXZGN3YtMUxqZERmSmU1SGtxRTM4RzRYNmlJcUxKT3VfblpMMTlKRXU2aVB0NXQydkJiWndKaFVKMGxrb0IxNTRKdXg0V083ZVZHSS1oNlIx?oc=5",
       "published": "Sat, 04 Apr 2026 01:55:32 GMT",
@@ -6724,6 +6729,16 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
+      "title": "Wisconsin men's hockey returns to Frozen Four after 16-year absence, hopes to make this their new norm - Channel 3000",
+      "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPUkJOQjAtS2pSVXRqVy1jeTJxTWVVUXV1NW1EMzYtcU1FX3Yxa0FGY2lxaHNQOUFzOThsV1lWTV9EeWtPWlMzUG1ZU3BoajJibnhMS05FVno0Sm9LY3loNFVHcGhIZUFGUmU3aFc3XzVSTUI1WHN6cVZKY2ozY3R6a1gzeTgxTU5oa2xiaERQU3A3UlhoNjZvc3M4WjBwbWlzWDdBNjZobk53WWxwT2xONXUwbGVTanBBM0lDTUswQmI1UDl0Q1J3WExiSU8xN2IxUU1kYXJubElHeG93dnZORk5yX1dmU2FINWFRYXljR1lhX2R6NnJQWi1qWUw?oc=5",
+      "published": "Sat, 04 Apr 2026 00:58:00 GMT",
+      "ts": 1775264280,
+      "author": "",
+      "feed_title": "Channel 3000",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi_AFBVV95cUxPUkJOQjAtS2pSVXRqVy1jeTJxTWVVUXV1NW1EMzYtcU1FX3Yxa0FGY2lxaHNQOUFzOThsV1lWTV9EeWtPWlMzUG1ZU3BoajJibnhMS05FVno0Sm9LY3loNFVHcGhIZUFGUmU3aFc3XzVSTUI1WHN6cVZKY2ozY3R6a1gzeTgxTU5oa2xiaERQU3A3UlhoNjZvc3M4WjBwbWlzWDdBNjZobk53WWxwT2xONXUwbGVTanBBM0lDTUswQmI1UDl0Q1J3WExiSU8xN2IxUU1kYXJubElHeG93dnZORk5yX1dmU2FINWFRYXljR1lhX2R6NnJQWi1qWUw?oc=5\" target=\"_blank\">Wisconsin men's hockey returns to Frozen Four after 16-year absence, hopes to make this their new norm</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Channel 3000</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
       "title": "Hughes, Pohlkamp and Plante are Hobey Hat Trick - USCHO.com",
       "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNdjN5dk1QaTZoNzN5ZWNNVy1TVno4RVVaenhUT0NyNE9mODd3TGtXQjVFUkxiLThuTnh0RGtzNm5RNWdpRzBmNHRNaElGOFNhdHpSNUtndnZzVVkyeGVnWV9GRmMxMnI4SHNRcFl0MTVUVU1hUkJucWFjcGVoMUNnQy13UV9iMjg?oc=5",
       "published": "Thu, 02 Apr 2026 21:22:03 GMT",
@@ -6731,6 +6746,16 @@
       "author": "",
       "feed_title": "USCHO.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxNdjN5dk1QaTZoNzN5ZWNNVy1TVno4RVVaenhUT0NyNE9mODd3TGtXQjVFUkxiLThuTnh0RGtzNm5RNWdpRzBmNHRNaElGOFNhdHpSNUtndnZzVVkyeGVnWV9GRmMxMnI4SHNRcFl0MTVUVU1hUkJucWFjcGVoMUNnQy13UV9iMjg?oc=5\" target=\"_blank\">Hughes, Pohlkamp and Plante are Hobey Hat Trick</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">USCHO.com</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "What to know about NCAA Frozen Four: top players, field, schedule, TV - Milwaukee Journal Sentinel",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNdGlrUzBqaVV5aWVrRkVXRjkwRm53VGZZQXZ6cElVcTVua20tTlBnVVVwWk5QdnFVTDNqck1ya3RQamVlRjJ3MDMwV1NsbXY1ZnlZeUZiQXJ0ek5SbS1qX0FzQjE0c2lNRGg0OUpNb1hOZFJWeW5pdnBkemdiZHk1TTMwV2t1bHlHT2hVdm45cER3cFdhUTJmUkdNVGVCZm5aWDRzZHFscVdZUUNLdTJraFRQU1UzVlpUWGx2LW0yUURiUi0yZzdqdlpoV0xfVVlfRnRBeFBn?oc=5",
+      "published": "Fri, 03 Apr 2026 10:15:00 GMT",
+      "ts": 1775211300,
+      "author": "",
+      "feed_title": "Milwaukee Journal Sentinel",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxNdGlrUzBqaVV5aWVrRkVXRjkwRm53VGZZQXZ6cElVcTVua20tTlBnVVVwWk5QdnFVTDNqck1ya3RQamVlRjJ3MDMwV1NsbXY1ZnlZeUZiQXJ0ek5SbS1qX0FzQjE0c2lNRGg0OUpNb1hOZFJWeW5pdnBkemdiZHk1TTMwV2t1bHlHT2hVdm45cER3cFdhUTJmUkdNVGVCZm5aWDRzZHFscVdZUUNLdTJraFRQU1UzVlpUWGx2LW0yUURiUi0yZzdqdlpoV0xfVVlfRnRBeFBn?oc=5\" target=\"_blank\">What to know about NCAA Frozen Four: top players, field, schedule, TV</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Milwaukee Journal Sentinel</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -6814,13 +6839,13 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Belmont\u2019s Kara Goulding on Final Stretch of BC Hockey Career - The Belmont Voice",
+      "title": "Belmont\u2019s Kara Goulding on Final Stretch of BC Hockey Career - belmontvoice.org",
       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOZXhWUEpRdW1PbEY0c1BoYUhpZGMxaGt1UVpsV1I4MndyaHJOLWZiTzdXSk5yNkxMa3RRaDlSZHB2U0phVDVnWGhFMzJzSXlXblJ6UWotdEVDZnhLNHRyWnRpVHl2NlBtX3RnSjlPMlNuSXFpdm11MXFMZzlrcjVwTjA0Wjk3Tm1hbUNxbldn?oc=5",
       "published": "Wed, 07 Jan 2026 08:00:00 GMT",
       "ts": 1767772800,
       "author": "",
-      "feed_title": "The Belmont Voice",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxOZXhWUEpRdW1PbEY0c1BoYUhpZGMxaGt1UVpsV1I4MndyaHJOLWZiTzdXSk5yNkxMa3RRaDlSZHB2U0phVDVnWGhFMzJzSXlXblJ6UWotdEVDZnhLNHRyWnRpVHl2NlBtX3RnSjlPMlNuSXFpdm11MXFMZzlrcjVwTjA0Wjk3Tm1hbUNxbldn?oc=5\" target=\"_blank\">Belmont\u2019s Kara Goulding on Final Stretch of BC Hockey Career</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Belmont Voice</font>",
+      "feed_title": "belmontvoice.org",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxOZXhWUEpRdW1PbEY0c1BoYUhpZGMxaGt1UVpsV1I4MndyaHJOLWZiTzdXSk5yNkxMa3RRaDlSZHB2U0phVDVnWGhFMzJzSXlXblJ6UWotdEVDZnhLNHRyWnRpVHl2NlBtX3RnSjlPMlNuSXFpdm11MXFMZzlrcjVwTjA0Wjk3Tm1hbUNxbldn?oc=5\" target=\"_blank\">Belmont\u2019s Kara Goulding on Final Stretch of BC Hockey Career</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">belmontvoice.org</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
@@ -6834,13 +6859,13 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Early power play goals lead Boston College hockey to 7-3 win over UMaine - Bangor Daily News",
+      "title": "Early power play goals lead Boston College hockey to 7-3 win over UMaine - bangordailynews.com",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5",
       "published": "Fri, 21 Nov 2025 08:00:00 GMT",
       "ts": 1763712000,
       "author": "",
-      "feed_title": "Bangor Daily News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5\" target=\"_blank\">Early power play goals lead Boston College hockey to 7-3 win over UMaine</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Bangor Daily News</font>",
+      "feed_title": "bangordailynews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5\" target=\"_blank\">Early power play goals lead Boston College hockey to 7-3 win over UMaine</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">bangordailynews.com</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
@@ -6986,16 +7011,6 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "BC's James Hagens tabbed Hockey East scoring champion, earns Three Stars Award - MSN",
-      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNejlTVDlQZ2tYckxyTTloMmR3VTFZRWFvUEtCOWUyQ3JiZkxob3A0cHdzNlFiUVZBX25vbmUySVFiVERKYmxMVF9IMWVGeUFwWmNyLTlmSVFnYlA4ZVpYZ3hTLWl0ZHdXbU1abmFpQ2JZMHQ1M3Q5cW1aM2RUVWZfOXJqdDJpTmVWa1NMUTN5clBYNThyY0R2VE9VMGdfSTlKMXUyUEM4OUUyTW45eWRyVHc2TG13QjZNN2Qyb1pQVWhzekR4?oc=5",
-      "published": "Tue, 31 Mar 2026 00:07:13 GMT",
-      "ts": 1774915633,
-      "author": "",
-      "feed_title": "MSN",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxNejlTVDlQZ2tYckxyTTloMmR3VTFZRWFvUEtCOWUyQ3JiZkxob3A0cHdzNlFiUVZBX25vbmUySVFiVERKYmxMVF9IMWVGeUFwWmNyLTlmSVFnYlA4ZVpYZ3hTLWl0ZHdXbU1abmFpQ2JZMHQ1M3Q5cW1aM2RUVWZfOXJqdDJpTmVWa1NMUTN5clBYNThyY0R2VE9VMGdfSTlKMXUyUEM4OUUyTW45eWRyVHc2TG13QjZNN2Qyb1pQVWhzekR4?oc=5\" target=\"_blank\">BC's James Hagens tabbed Hockey East scoring champion, earns Three Stars Award</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MSN</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
       "title": "How to Watch No. 22 Boston College Baseball's Midweek Matchup With Maine - Sports Illustrated",
       "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNX3ZISHprQkg0TEhjMU5OSGk1RGdqLVdyZExsc2tVRDNxb2ZmbjBmbThma0xhLUszTEp3SFVVWlFveTg3MmlKWHRjYWE1a3ktZGZ2MGJ0YlR3aFpYVmRyUFBqVVFJanR5LWRCTWNneXdNOFBJeVRNLUFNWnp3MGwwbTVXWWkyVHRnbjBESHpfQkk5eG1kX2tvYUhGUkVXMG9iZFljODVMdXFwalRUMXMxY3RwSGZFZ1V3TUdkcno5Y2tEQQ?oc=5",
       "published": "Mon, 30 Mar 2026 20:33:43 GMT",
@@ -7003,6 +7018,16 @@
       "author": "",
       "feed_title": "Sports Illustrated",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxNX3ZISHprQkg0TEhjMU5OSGk1RGdqLVdyZExsc2tVRDNxb2ZmbjBmbThma0xhLUszTEp3SFVVWlFveTg3MmlKWHRjYWE1a3ktZGZ2MGJ0YlR3aFpYVmRyUFBqVVFJanR5LWRCTWNneXdNOFBJeVRNLUFNWnp3MGwwbTVXWWkyVHRnbjBESHpfQkk5eG1kX2tvYUhGUkVXMG9iZFljODVMdXFwalRUMXMxY3RwSGZFZ1V3TUdkcno5Y2tEQQ?oc=5\" target=\"_blank\">How to Watch No. 22 Boston College Baseball's Midweek Matchup With Maine</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
+    {
+      "title": "D2 Boston University Women's Club Hockey - Videos - FloHockey",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPZjg2MlVvWFpEUUtIUjhaandRNmVhU3ZXZl9VTDI0M0hGZHVNcURrQ3hSNGdwRjJ0OGNEZ2Vheno1Q0dLTHhlTDUtd2I5RW1BeTkxVWU1T0luMjc0WUNpa2l0UTVTcDBPX2xKVHJ2UGZIQTBsSmVxcVdsS0d0dmNleUdvOVBMTkd5dlMtSkhHNUVwUmpjd2ZsbnZyWFM5dmI2b3RjLXNn?oc=5",
+      "published": "Mon, 30 Mar 2026 18:52:22 GMT",
+      "ts": 1774896742,
+      "author": "",
+      "feed_title": "FloHockey",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxPZjg2MlVvWFpEUUtIUjhaandRNmVhU3ZXZl9VTDI0M0hGZHVNcURrQ3hSNGdwRjJ0OGNEZ2Vheno1Q0dLTHhlTDUtd2I5RW1BeTkxVWU1T0luMjc0WUNpa2l0UTVTcDBPX2xKVHJ2UGZIQTBsSmVxcVdsS0d0dmNleUdvOVBMTkd5dlMtSkhHNUVwUmpjd2ZsbnZyWFM5dmI2b3RjLXNn?oc=5\" target=\"_blank\">D2 Boston University Women's Club Hockey - Videos</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">FloHockey</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
@@ -7068,46 +7093,6 @@
   ],
   "news_hockey_east": [
     {
-      "title": "Merrimack's Lundgren signs with Bruins - USCHO.com",
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE4zdk8xdXk1Q3FRZ19jZU4xWlpyR2lNMHp3OUZ4bW5CMlBoQ2NNOEozWks2cGVrWjN2cGNZTk9acUtWR3p5YjNGZ3RJUVBOb2xfaWE2LTc1ZWlPOUxJWHl6THRTOF9UWF9pRkNGNkZQdE44WVF5U1ZIeWxudw?oc=5",
-      "published": "Thu, 02 Apr 2026 04:34:46 GMT",
-      "ts": 1775104486,
-      "author": "",
-      "feed_title": "USCHO.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMie0FVX3lxTE4zdk8xdXk1Q3FRZ19jZU4xWlpyR2lNMHp3OUZ4bW5CMlBoQ2NNOEozWks2cGVrWjN2cGNZTk9acUtWR3p5YjNGZ3RJUVBOb2xfaWE2LTc1ZWlPOUxJWHl6THRTOF9UWF9pRkNGNkZQdE44WVF5U1ZIeWxudw?oc=5\" target=\"_blank\">Merrimack's Lundgren signs with Bruins</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">USCHO.com</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
-      "title": "2026 NCAA men's hockey tournament: Schedule, results - ESPN",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcnp6dmhYVTd2OTV1MGhrRGYtcThISkhiYndhQlhpZ1dzaDJGcFhxVGoxVXE2WTB5SExXcnBPYXVUQ2E3SzdoNHFUR3VyYU1SYlYxN1F1ZVc2dzRNcm5QYVJwcUxCSEk5eFBXZzY4MFZqRXRTbUxnTHhrZDFPZlNKaGtOY3dKWkh0cDhrRVUzM0dhdlpxMmNSb0diZG1TaW5KaGhQd1F2VHY4S3czMVN6WmxfaUFMR3c?oc=5",
-      "published": "Mon, 30 Mar 2026 17:20:00 GMT",
-      "ts": 1774891200,
-      "author": "",
-      "feed_title": "ESPN",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQcnp6dmhYVTd2OTV1MGhrRGYtcThISkhiYndhQlhpZ1dzaDJGcFhxVGoxVXE2WTB5SExXcnBPYXVUQ2E3SzdoNHFUR3VyYU1SYlYxN1F1ZVc2dzRNcm5QYVJwcUxCSEk5eFBXZzY4MFZqRXRTbUxnTHhrZDFPZlNKaGtOY3dKWkh0cDhrRVUzM0dhdlpxMmNSb0diZG1TaW5KaGhQd1F2VHY4S3czMVN6WmxfaUFMR3c?oc=5\" target=\"_blank\">2026 NCAA men's hockey tournament: Schedule, results</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ESPN</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
-      "title": "2026 men's NCAA hockey tournament Bubble Watch - ESPN",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNZkFGd09FbEs0TjAyOEozRTBfNmpfYkZZYUJCd29kRVBtV01RZ3ozaDB2dURqTkZEZHJUUDZEX1doQ2lnMFU1OGJMVl8ycUlpNThkUGJpMVJFdmpzYjNLY3NOcFFwd2cxR084M3NzeWU0a0w2Ni11bjU4MHkyVmVmcThwenJleE84WHpqeDF4Tmt2NGZoMVJOQ0hRMzJxQnlvRGFhSGNsaG9NZkJjSE1hTlV3?oc=5",
-      "published": "Sun, 22 Mar 2026 07:00:00 GMT",
-      "ts": 1774162800,
-      "author": "",
-      "feed_title": "ESPN",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxNZkFGd09FbEs0TjAyOEozRTBfNmpfYkZZYUJCd29kRVBtV01RZ3ozaDB2dURqTkZEZHJUUDZEX1doQ2lnMFU1OGJMVl8ycUlpNThkUGJpMVJFdmpzYjNLY3NOcFFwd2cxR084M3NzeWU0a0w2Ni11bjU4MHkyVmVmcThwenJleE84WHpqeDF4Tmt2NGZoMVJOQ0hRMzJxQnlvRGFhSGNsaG9NZkJjSE1hTlV3?oc=5\" target=\"_blank\">2026 men's NCAA hockey tournament Bubble Watch</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ESPN</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
-      "title": "Postgame Press Conference | Hockey East Opening Round Vs. Merrimack | March 12, 2025 [9e6e28] - Fathom Journal",
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9Qa2FidmJrUnR6RFhFb3dUTXpDNGhwN3hyWm5kTkpZRDdHa0VGSXh2TDQ2VjVHYVEzU3VqQk5QWWJRZHNzdmdfVzNGSXpndWFGT0RPcFltV1BqZnFwdW9MSzhhenRwRlVXeUVhUUYxWTk?oc=5",
-      "published": "Sun, 05 Apr 2026 05:36:29 GMT",
-      "ts": 1775367389,
-      "author": "",
-      "feed_title": "Fathom Journal",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTE9Qa2FidmJrUnR6RFhFb3dUTXpDNGhwN3hyWm5kTkpZRDdHa0VGSXh2TDQ2VjVHYVEzU3VqQk5QWWJRZHNzdmdfVzNGSXpndWFGT0RPcFltV1BqZnFwdW9MSzhhenRwRlVXeUVhUUYxWTk?oc=5\" target=\"_blank\">Postgame Press Conference | Hockey East Opening Round Vs. Merrimack | March 12, 2025 [9e6e28]</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Fathom Journal</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
       "title": "Huskies Set for Hockey East Championship Matchup vs. Merrimack - University of Connecticut Athletics",
       "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYlFJZ0JpLWNPd1FqaWhNaHNDa1M4NndvY0ZBT1Bia242SEMyajFveWpzQ3lSNm9NMkVlZlAwdnVhVXhYbmlydTFfNllGTHlZTHBkVzh6MEtFOTVuZEJ5LUJ2eUQtRENRYzU4VU1WY1J6V1pQa3kwbUoxRklsVWUxT0VSUGY1aWdFZ2hzQlh6SGdvSTk3dlBPdlhCS2xsdll5aEx0cWlXeDU2cHVlRTJPQ1VrdEdDZERG?oc=5",
       "published": "Sat, 21 Mar 2026 07:00:00 GMT",
@@ -7135,6 +7120,16 @@
       "author": "",
       "feed_title": "NESN",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxNVUsxMDJFMnpVUXFMd3h4QXBmcDExWUwtUldPMjZLNml6WUltLWRaalZRTnVvY1EwRTFCTFFZT0p5Wl8zeUNEcy1fZXBGYnUyR3hSQTFqMy03ZWxZQ0h4ZWlUX3FoeHpraWdITUtjdXI0RmU2ektJcFcxY0pqeFJsR1dUSnFIUlIxSW5BVUh0Q0d2bzYwVHd4ekthdkRDT1RBQ1Rwb01Gc1JqODFmWlZhWE05cndJbnJPMFE?oc=5\" target=\"_blank\">Hockey East Men's Tournament Schedule 2026: Dates, Channels, Live Streams for NCAA Hockey Games</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NESN</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "2026 NCAA men's hockey tournament: Schedule, results - ESPN",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcnp6dmhYVTd2OTV1MGhrRGYtcThISkhiYndhQlhpZ1dzaDJGcFhxVGoxVXE2WTB5SExXcnBPYXVUQ2E3SzdoNHFUR3VyYU1SYlYxN1F1ZVc2dzRNcm5QYVJwcUxCSEk5eFBXZzY4MFZqRXRTbUxnTHhrZDFPZlNKaGtOY3dKWkh0cDhrRVUzM0dhdlpxMmNSb0diZG1TaW5KaGhQd1F2VHY4S3czMVN6WmxfaUFMR3c?oc=5",
+      "published": "Mon, 30 Mar 2026 17:20:00 GMT",
+      "ts": 1774891200,
+      "author": "",
+      "feed_title": "ESPN",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQcnp6dmhYVTd2OTV1MGhrRGYtcThISkhiYndhQlhpZ1dzaDJGcFhxVGoxVXE2WTB5SExXcnBPYXVUQ2E3SzdoNHFUR3VyYU1SYlYxN1F1ZVc2dzRNcm5QYVJwcUxCSEk5eFBXZzY4MFZqRXRTbUxnTHhrZDFPZlNKaGtOY3dKWkh0cDhrRVUzM0dhdlpxMmNSb0diZG1TaW5KaGhQd1F2VHY4S3czMVN6WmxfaUFMR3c?oc=5\" target=\"_blank\">2026 NCAA men's hockey tournament: Schedule, results</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ESPN</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -7168,23 +7163,13 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "No. 13 UConn Sends No. 17 BC Home With 4\u20133 OT Win in Hockey East Semifinal - bcheights.com",
-      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5kRTVtdnN6UjZwQXVMbTBPam9qTGI5Y05KU0NoMUx2OUl6VVVMXzRBejZCZExGWmM3MUhlSWR2YWxjc0UwSjBkRW9NVzBCRk5RR3ROMHdQaW83RGtzZ0tJbGhQZE1HcFhvM1JEajNDUHFrblJ3Ri04QVBzS0Q?oc=5",
-      "published": "Sat, 21 Mar 2026 07:00:00 GMT",
-      "ts": 1774076400,
-      "author": "",
-      "feed_title": "bcheights.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE5kRTVtdnN6UjZwQXVMbTBPam9qTGI5Y05KU0NoMUx2OUl6VVVMXzRBejZCZExGWmM3MUhlSWR2YWxjc0UwSjBkRW9NVzBCRk5RR3ROMHdQaW83RGtzZ0tJbGhQZE1HcFhvM1JEajNDUHFrblJ3Ri04QVBzS0Q?oc=5\" target=\"_blank\">No. 13 UConn Sends No. 17 BC Home With 4\u20133 OT Win in Hockey East Semifinal</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">bcheights.com</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
-      "title": "Maine falls at Boston College in Hockey East Tournament quarterfinal - University of Maine Athletics - goblackbears.com",
+      "title": "Maine falls at Boston College in Hockey East Tournament quarterfinal - University of Maine Athletics - University of Maine Athletics",
       "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1PNXA0VVJMLXN3N0JLd1ZQV0ZjRXI5SWNLRXJUMzM1b2RuQXhjaEdHUmNwV3dwY3VvU25OOS1NSzFCX19mcHoxTDh6RVJuTmIzX2F2aWtMVVY2TndBcmVBQWhZVUNGRGQyOXRkUFZ5M1NJbDdYZy0tcQ?oc=5",
       "published": "Fri, 13 Mar 2026 07:00:00 GMT",
       "ts": 1773385200,
       "author": "",
-      "feed_title": "goblackbears.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTE1PNXA0VVJMLXN3N0JLd1ZQV0ZjRXI5SWNLRXJUMzM1b2RuQXhjaEdHUmNwV3dwY3VvU25OOS1NSzFCX19mcHoxTDh6RVJuTmIzX2F2aWtMVVY2TndBcmVBQWhZVUNGRGQyOXRkUFZ5M1NJbDdYZy0tcQ?oc=5\" target=\"_blank\">Maine falls at Boston College in Hockey East Tournament quarterfinal - University of Maine Athletics</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">goblackbears.com</font>",
+      "feed_title": "University of Maine Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTE1PNXA0VVJMLXN3N0JLd1ZQV0ZjRXI5SWNLRXJUMzM1b2RuQXhjaEdHUmNwV3dwY3VvU25OOS1NSzFCX19mcHoxTDh6RVJuTmIzX2F2aWtMVVY2TndBcmVBQWhZVUNGRGQyOXRkUFZ5M1NJbDdYZy0tcQ?oc=5\" target=\"_blank\">Maine falls at Boston College in Hockey East Tournament quarterfinal - University of Maine Athletics</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Maine Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -7195,6 +7180,16 @@
       "author": "",
       "feed_title": "USCHO.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxPUTNFY0FZZVJLSjcwQ1I1ZmxuUXNyTklMY2hEMmwtTGJhMjk3S2lXSkgxbFV2MWt4QmRnLXVyb1NfUmRJTnE0MDMwTm5kYURBb0JQb3k4QnZQaFhCOEJ4QURzWi1GbmxGX3o0MFVpUlk4RjF5Yjl0elZVdUR4SVRiMlE5VjNlUXJHUzY5YV9sQ1puUTB3SmdZSw?oc=5\" target=\"_blank\">ROUNDUP: Merrimack wins first Hockey East championship</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">USCHO.com</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "No. 13 UConn Sends No. 17 BC Home With 4\u20133 OT Win in Hockey East Semifinal - bcheights.com",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5kRTVtdnN6UjZwQXVMbTBPam9qTGI5Y05KU0NoMUx2OUl6VVVMXzRBejZCZExGWmM3MUhlSWR2YWxjc0UwSjBkRW9NVzBCRk5RR3ROMHdQaW83RGtzZ0tJbGhQZE1HcFhvM1JEajNDUHFrblJ3Ri04QVBzS0Q?oc=5",
+      "published": "Sat, 21 Mar 2026 07:00:00 GMT",
+      "ts": 1774076400,
+      "author": "",
+      "feed_title": "bcheights.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE5kRTVtdnN6UjZwQXVMbTBPam9qTGI5Y05KU0NoMUx2OUl6VVVMXzRBejZCZExGWmM3MUhlSWR2YWxjc0UwSjBkRW9NVzBCRk5RR3ROMHdQaW83RGtzZ0tJbGhQZE1HcFhvM1JEajNDUHFrblJ3Ri04QVBzS0Q?oc=5\" target=\"_blank\">No. 13 UConn Sends No. 17 BC Home With 4\u20133 OT Win in Hockey East Semifinal</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">bcheights.com</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -7216,9 +7211,49 @@
       "feed_title": "WTNH.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxPYlJ6S2pCTklBNXNKdkwxTklLbFEtLVBGd21WUXBmbWxEaXhjYlo4akpLQ1luUzRLbnFBbkpRMDUzTHhHenNhbkpKcW1rMUdxNmxpNDUzVGlwZGFxMFBBclFjNHU5dm1RdzhuVkFKa3lUOGxicTh6eVJzcDhTSXpPemVFRlRFa2lHTGlTaHhCaVh0cmJNVV9DWkZxOVZlb1JpYVdJRjk5bWZDRlnSAbABQVVfeXFMTVdpTlN1T05XaFk1X2xobWlTY3E1S09adnlNS19Xc295dU0xbG5wZzNvTG1LaFpscmFDRXhkTTdCM1p0bk5mb1loT0UybE1nRjJCOHJteUpqTXVIYTdSRDdtS2VtM3FCMW5MYjNjMWZRa3J4SHdCR2pPY0FfM2xJVEppd0lleG1fZENyYXFnZ01lSWY2aGRFTV9VdEphT0h5Nkg3WmVlbmRhVDFUby1RSXo?oc=5\" target=\"_blank\">UConn men\u2019s hockey faces Boston College in Hockey East tournament</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WTNH.com</font>",
       "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "No. 15 Massachusetts Falls To Merrimack In Hockey East Semifinals, 2-0 - University of Massachusetts Athletics",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQSUpieGhrOXEyMTh6WklMZUhZUk1BWFp1RlNBcTFDYmo5ZXc3bTNtaTVSZUZLWlFlSVljSWY4cU1xcXhGYmJmTi1pV1NpZWJtdlVJcVd4ZW9tUmFrbHM1Y09NNWtGbjM4dENsM3JqcnhLOEozeWtvY3ZiRW1NbEpTYjdBU1ItVjgtU3FmanVoUTQwcldvRG1vbWlrQVlZREdEN1F6Nkg2WS1ZeHdtU2Jj?oc=5",
+      "published": "Fri, 20 Mar 2026 07:00:00 GMT",
+      "ts": 1773990000,
+      "author": "",
+      "feed_title": "University of Massachusetts Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxQSUpieGhrOXEyMTh6WklMZUhZUk1BWFp1RlNBcTFDYmo5ZXc3bTNtaTVSZUZLWlFlSVljSWY4cU1xcXhGYmJmTi1pV1NpZWJtdlVJcVd4ZW9tUmFrbHM1Y09NNWtGbjM4dENsM3JqcnhLOEozeWtvY3ZiRW1NbEpTYjdBU1ItVjgtU3FmanVoUTQwcldvRG1vbWlrQVlZREdEN1F6Nkg2WS1ZeHdtU2Jj?oc=5\" target=\"_blank\">No. 15 Massachusetts Falls To Merrimack In Hockey East Semifinals, 2-0</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Massachusetts Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "Three Hockey East teams in NCAA men\u2019s hockey tournament - MassLive",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQOERFeWFoS196U2w0TEJweDRicjBlVm1xSEt3aXNPYV94VFBOaVRRWUxsUVdGNTViSEFxZWZfcUdrdFFiMmN6Vk5La0YzaGxRUGFVTlFsZzdTVzhVdHZTMVlIZjNacThoRDJoUU1Gc2I0Vm5WeXAxM1p3WDhLblU2bnBHOS1hbnRnSER2a1dnb0ZRcE1WSnUwVHVsZDZnZWs20gG0AUFVX3lxTE9fVmFVSUk0NDBJN25jOTV1Sk9uSXRVV1gtT0Y4RDRCMzJMcEV3VnhaM2FRVEhfb3JYbGp5T1lzaW9uLUdxVlh3OW9la2hRcDh6X3V2Xy1fc2hCWk5jTENGN3F3VVZvbmZnaVZBbi14YXhxUE9hNkFEZTRvY3ZGTzRubjdIYWR6WDRJemdsXzNISXBiTF81dEdNaHU2RlQ2dkdHRnRKaXVIc20xemJCNV9HOFZlYg?oc=5",
+      "published": "Sun, 22 Mar 2026 07:00:00 GMT",
+      "ts": 1774162800,
+      "author": "",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxQOERFeWFoS196U2w0TEJweDRicjBlVm1xSEt3aXNPYV94VFBOaVRRWUxsUVdGNTViSEFxZWZfcUdrdFFiMmN6Vk5La0YzaGxRUGFVTlFsZzdTVzhVdHZTMVlIZjNacThoRDJoUU1Gc2I0Vm5WeXAxM1p3WDhLblU2bnBHOS1hbnRnSER2a1dnb0ZRcE1WSnUwVHVsZDZnZWs20gG0AUFVX3lxTE9fVmFVSUk0NDBJN25jOTV1Sk9uSXRVV1gtT0Y4RDRCMzJMcEV3VnhaM2FRVEhfb3JYbGp5T1lzaW9uLUdxVlh3OW9la2hRcDh6X3V2Xy1fc2hCWk5jTENGN3F3VVZvbmZnaVZBbi14YXhxUE9hNkFEZTRvY3ZGTzRubjdIYWR6WDRJemdsXzNISXBiTF81dEdNaHU2RlQ2dkdHRnRKaXVIc20xemJCNV9HOFZlYg?oc=5\" target=\"_blank\">Three Hockey East teams in NCAA men\u2019s hockey tournament</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "Underdog Merrimack claims first Hockey East title, Lundgren makes 49 saves - Boston Herald",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPMTVUUGZEcG9vaDVaRUdJNVJNUWczLWhTUlBzSFk1bkxXRzA0OGx6MWJwYVQ0UDNHSVZTVE82cnh2bUxnQ3ZhZ3draXg0YXpwbVRseFU5QkFLazhqaW84LTFmcXF1cGtqdE11eUtUcUVoQWtyNDVJQVhpUi1KNmZvSXVFTFhMWlVVSnhpUzlQSjlTelpjTDc5ekNRdkwtcVBEWDB3a3Rncko0d0RGdDRWZWx6NTA?oc=5",
+      "published": "Sat, 21 Mar 2026 07:00:00 GMT",
+      "ts": 1774076400,
+      "author": "",
+      "feed_title": "Boston Herald",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxPMTVUUGZEcG9vaDVaRUdJNVJNUWczLWhTUlBzSFk1bkxXRzA0OGx6MWJwYVQ0UDNHSVZTVE82cnh2bUxnQ3ZhZ3draXg0YXpwbVRseFU5QkFLazhqaW84LTFmcXF1cGtqdE11eUtUcUVoQWtyNDVJQVhpUi1KNmZvSXVFTFhMWlVVSnhpUzlQSjlTelpjTDc5ekNRdkwtcVBEWDB3a3Rncko0d0RGdDRWZWx6NTA?oc=5\" target=\"_blank\">Underdog Merrimack claims first Hockey East title, Lundgren makes 49 saves</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston Herald</font>",
+      "source": "Google News \u00b7 Hockey East"
     }
   ],
   "news_national": [
+    {
+      "title": "In Lebanon, more than 50 medics have been killed by Israel. Some say they're targeted",
+      "link": "https://www.npr.org/2026/04/05/nx-s1-5763606/lebanon-medics-killed-targeted-israel",
+      "published": "Sun, 05 Apr 2026 06:00:00 -0400",
+      "ts": 1775383200,
+      "author": "Lauren Frayer",
+      "feed_title": "",
+      "summary": "<img alt=\"Red Cross director of emergency medical services Alexy Nehme has asked United Nations peacekeepers and Israeli officials why volunteer paramedic Assaf was killed.\" src=\"https://feeds.npr.org/1001/undefined\" /><p>Lebanon says at least 54 health workers are among more than 1,400 people killed by Israel during the current invasion. Human rights groups say first responders are being targeted \u2014 something Israel denies.</p><p>(Image credit: Claire Harbage)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5763606\" />",
+      "source": "NPR"
+    },
     {
       "title": "Questions to help you get 'financially naked' with your partner",
       "link": "https://www.npr.org/2026/04/05/nx-s1-5745032/questions-to-help-you-get-financially-naked-with-your-partner",
@@ -7310,16 +7345,6 @@
       "source": "NPR"
     },
     {
-      "title": "The busiest place you've never seen",
-      "link": "https://www.npr.org/sections/the-picture-show/2026/04/04/g-s1-116218/life-on-tristan-da-cunha",
-      "published": "Sat, 04 Apr 2026 06:00:00 -0400",
-      "ts": 1775296800,
-      "author": "Julia Gunther",
-      "feed_title": "",
-      "summary": "<img alt=\"Home to just 221 people, Edinburgh of the Seven Seas is the only settlement on Tristan da Cunha, the world\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3840x2160+0+0/resize/3840x2160!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F67%2Fae%2F9d4782e84d7fb0213fe0ae3907df%2Ftristandrone1-mp4.jpg\" /><p>Photographer Julia Gunther and writer-filmmaker Nick Sch\u00f6nfeld chronicle the rhythms of daily life on Tristan da Cunha, the world's most remote inhabited island.</p><p>(Image credit: Nick Sch\u00f6nfeld for NPR)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-116218\" />",
-      "source": "NPR"
-    },
-    {
       "title": "What We Know About the F-15E Strike Eagle Shot Down by Iran",
       "link": "https://www.nytimes.com/2026/04/03/world/middleeast/f-15-us-fighter-jet-iran.html",
       "published": "Sun, 05 Apr 2026 09:40:14 +0000",
@@ -7330,23 +7355,33 @@
       "source": "NY Times"
     },
     {
-      "title": "\u2018I Got Back Every Penny\u2019: Inside Trump\u2019s Supercharged Tax Season",
-      "link": "https://www.nytimes.com/2026/04/04/business/economy/taxes-deductions-cuts.html",
-      "published": "Sat, 04 Apr 2026 09:00:33 +0000",
-      "ts": 1775293233,
-      "author": "Andrew Duehren",
+      "title": "Interceptor Missiles Save Lives, but Stockpiles Are Dwindling",
+      "link": "https://www.nytimes.com/2026/04/05/world/middleeast/iran-war-interceptor-missiles.html",
+      "published": "Sun, 05 Apr 2026 09:01:38 +0000",
+      "ts": 1775379698,
+      "author": "Nicholas Kulish",
       "feed_title": "",
-      "summary": "The law Republicans passed last year has so far been largely imperceptible to most Americans. That\u2019s changing as tens of millions file their taxes this spring.",
+      "summary": "Manama, Bahrain, after a drone was intercepted near the Bahrain Financial Harbour towers last month.",
       "source": "NY Times"
     },
     {
-      "title": "The I.R.S. Shut Its Direct File, but Here Are Other Free Filing Options",
-      "link": "https://www.nytimes.com/2026/02/27/your-money/irs-free-tax-filing.html",
-      "published": "Fri, 27 Feb 2026 14:00:05 +0000",
-      "ts": 1772200805,
-      "author": "Ann Carrns",
+      "title": "Stephen Miller Is Still Pursuing His Immigration Agenda, but More Quietly",
+      "link": "https://www.nytimes.com/2026/04/05/us/politics/stephen-miller-immigration-agenda.html",
+      "published": "Sun, 05 Apr 2026 09:00:22 +0000",
+      "ts": 1775379622,
+      "author": "Zolan Kanno-Youngs, Hamed Aleaziz, Christopher Flavelle, Emily Cochrane and Glenn Thrush",
       "feed_title": "",
-      "summary": "The agency still offers a Free File program that works with commercial tax software firms. Some companies also offer free tools for certain filers.",
+      "summary": "The architect of President Trump\u2019s mass deportation campaign wants \u201ca moratorium on immigration from third world countries until we can heal ourselves as a nation.\u201d The chaos in Minneapolis has not pushed him off that course.",
+      "source": "NY Times"
+    },
+    {
+      "title": "ICE Arrests in Texas Leave Children to Raise Their Siblings After Parents Are Detained",
+      "link": "https://www.nytimes.com/2026/04/05/us/their-parents-were-taken-by-ice-the-children-had-to-raise-one-another.html",
+      "published": "Sun, 05 Apr 2026 09:00:50 +0000",
+      "ts": 1775379650,
+      "author": "Edgar Sandoval and Gabriel V. C\u00e1rdenas",
+      "feed_title": "",
+      "summary": "\u201cOur lives changed suddenly,\u201d said Andrea Garc\u00eda, 22, at center with her younger siblings. \u201cI never thought I would have to wake up early and do everything to help my siblings.\u201d",
       "source": "NY Times"
     },
     {
@@ -7360,16 +7395,6 @@
       "source": "NY Times"
     },
     {
-      "title": "Some Voters Say Congress Is Too Old. These Black Democrats Aren\u2019t Leaving.",
-      "link": "https://www.nytimes.com/2026/04/04/us/voters-congress-old-democrats.html",
-      "published": "Sat, 04 Apr 2026 18:29:27 +0000",
-      "ts": 1775327367,
-      "author": "Robert Jimison",
-      "feed_title": "",
-      "summary": "Representative Al Green, Democrat of Texas, made headlines last year for shaking his cane at President Trump. Mr. Green, 78, is seeking re-election to Congress.",
-      "source": "NY Times"
-    },
-    {
       "title": "China Built the World\u2019s Drone Industry. Now It\u2019s Locking Down the Skies.",
       "link": "https://www.nytimes.com/2026/04/05/world/asia/china-drone-regulations.html",
       "published": "Sun, 05 Apr 2026 04:01:08 +0000",
@@ -7380,13 +7405,23 @@
       "source": "NY Times"
     },
     {
-      "title": "\u2018Hacks\u2019 Has the Last Laugh",
-      "link": "https://www.nytimes.com/2026/04/04/arts/television/hacks-final-season.html",
-      "published": "Sat, 04 Apr 2026 19:41:28 +0000",
-      "ts": 1775331688,
-      "author": "Chantal Anderson and Alexis Soloski",
+      "title": "What Were Bob Dylan and John Lennon Really Saying in the Back of That Limo?",
+      "link": "https://www.nytimes.com/2026/04/05/style/bob-dylan-john-lennon-limo-ride.html",
+      "published": "Sun, 05 Apr 2026 09:00:14 +0000",
+      "ts": 1775379614,
+      "author": "Jim Windolf",
       "feed_title": "",
-      "summary": "As the HBO comedy finished production earlier this year, a photographer captured some of the final days on set and the showrunners looked back on its award-winning run.",
+      "summary": "A film scene of Dylan and Lennon at a low moment in 1966 has held a grim fascination for fans. Beneath the repartee, a touchy issue was at stake.",
+      "source": "NY Times"
+    },
+    {
+      "title": "A Smoldering Wick in the Darkness",
+      "link": "https://www.nytimes.com/2026/04/05/opinion/easter-vigil-paschal-candle.html",
+      "published": "Sun, 05 Apr 2026 10:00:19 +0000",
+      "ts": 1775383219,
+      "author": "David French",
+      "feed_title": "",
+      "summary": "The light that changed my life.",
       "source": "NY Times"
     },
     {
@@ -7400,30 +7435,20 @@
       "source": "NY Times"
     },
     {
-      "title": "Hormones Don\u2019t Need to Make You Live Longer to Be Worth It",
-      "link": "https://www.nytimes.com/2026/04/05/opinion/estrogen-hormone-therapy-patches-shortage.html",
-      "published": "Sun, 05 Apr 2026 07:55:18 +0000",
-      "ts": 1775375718,
-      "author": "Gillian Goddard",
+      "title": "Dozens Killed in Haiti Massacre as International Force Trickles In",
+      "link": "https://www.nytimes.com/2026/04/04/world/americas/haiti-gang-massacre.html",
+      "published": "Sat, 04 Apr 2026 23:17:17 +0000",
+      "ts": 1775344637,
+      "author": "Andr\u00e9 Paultre and Frances Robles",
       "feed_title": "",
-      "summary": "Estrogen patches are in scarce supply because of increased demand \u2014 that\u2019s mostly a good thing.",
-      "source": "NY Times"
-    },
-    {
-      "title": "Hollywood Writers Union and Studios Reach Contract Deal",
-      "link": "https://www.nytimes.com/2026/04/04/business/media/hollywood-writers-contract-deal.html",
-      "published": "Sun, 05 Apr 2026 03:41:02 +0000",
-      "ts": 1775360462,
-      "author": "Brooks Barnes",
-      "feed_title": "",
-      "summary": "Members of the Writers Guild of America on striking in 2023. The contract talks then were particularly drawn out and acrimonious.",
+      "summary": "Gangs tore through several rural communities last weekend, underscoring the challenges that will face the new, U.N.-backed Gang Suppression Force starting to enter the country.",
       "source": "NY Times"
     },
     {
       "title": "What we know so far about rescue of US airman in Iran",
       "link": "https://www.bbc.com/news/articles/cm2k1dgz142o?at_medium=RSS&at_campaign=rss",
-      "published": "Sun, 05 Apr 2026 06:59:48 GMT",
-      "ts": 1775372388,
+      "published": "Sun, 05 Apr 2026 10:07:16 GMT",
+      "ts": 1775383636,
       "author": "",
       "feed_title": "",
       "summary": "The US has rescued the missing crew member of the US F-15 fighter jet which was shot down over southern Iran.",
@@ -7460,23 +7485,23 @@
       "source": "BBC"
     },
     {
-      "title": "Storm Dave hits road and rail travel but is set to ease",
+      "title": "Storm Dave hits road and rail travel but conditions easing",
       "link": "https://www.bbc.com/news/articles/cg40xx110peo?at_medium=RSS&at_campaign=rss",
-      "published": "Sun, 05 Apr 2026 09:44:23 GMT",
-      "ts": 1775382263,
+      "published": "Sun, 05 Apr 2026 10:45:51 GMT",
+      "ts": 1775385951,
       "author": "",
       "feed_title": "",
       "summary": "Storm Dave will clear northeast on Easter Sunday, bringing \"sunshine and showers\" to much of the country.",
       "source": "BBC"
     },
     {
-      "title": "Archbishop to pray for Middle East peace in first Easter sermon",
-      "link": "https://www.bbc.com/news/articles/c93edxr57d0o?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 04 Apr 2026 21:30:15 GMT",
-      "ts": 1775338215,
+      "title": "Royals gather for Windsor Easter Sunday service",
+      "link": "https://www.bbc.com/news/articles/c80md8v473do?at_medium=RSS&at_campaign=rss",
+      "published": "Sun, 05 Apr 2026 10:15:32 GMT",
+      "ts": 1775384132,
       "author": "",
       "feed_title": "",
-      "summary": "Dame Sarah Mullally will call for an 'end to the violence and destruction' before a congregation in Canterbury.",
+      "summary": "Andrew-Mountbatten Windsor and his family are absent from the traditional family event.",
       "source": "BBC"
     },
     {
@@ -7518,6 +7543,26 @@
       "feed_title": "",
       "summary": "Two bodies which represent driving instructors have sent letters to the UK government.",
       "source": "BBC"
+    },
+    {
+      "title": "In fight against ICE facemasks, Black Democrats point to history",
+      "link": "https://thehill.com/homenews/house/5813945-ice-facemasks-black-democrats/",
+      "published": "Sun, 05 Apr 2026 10:00:00 +0000",
+      "ts": 1775383200,
+      "author": "Mike Lillis",
+      "feed_title": "",
+      "summary": "The Democrats\u2019 push to prohibit facemasks for federal immigration officers is a new fight with very old roots. While Democrats have demanded the ban only in the wake of a pair of fatal shootings by masked agents in Minnesota just this year, many lawmakers are pointing to the country\u2019s long history of racial violence as&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Jet fuel costs skyrocket amid Iran war, exacerbating crisis for airlines, travelers",
+      "link": "https://thehill.com/business/5815792-flight-cancellations-and-fare-hikes/",
+      "published": "Sun, 05 Apr 2026 10:00:00 +0000",
+      "ts": 1775383200,
+      "author": "Sarah Fortinsky",
+      "feed_title": "",
+      "summary": "An international jet fuel shortage is driving up airfares and triggering thousands of flight cancellations as airlines grapple with rising costs. Analysts warn the crisis could deepen in the coming weeks, with the war in Iran showing little sign of easing and jet fuel prices continuing to climb. Since before the war began, the price&#8230;",
+      "source": "The Hill"
     },
     {
       "title": "Judge blocks Trump bid to require colleges to prove race not considered in admissions",
@@ -7600,26 +7645,6 @@
       "source": "The Hill"
     },
     {
-      "title": "How your smart phone could help your motion sickness in moving vehicles",
-      "link": "https://thehill.com/policy/technology/5816249-smartphones-motion-sickness-relief/",
-      "published": "Sat, 04 Apr 2026 18:09:47 +0000",
-      "ts": 1775326187,
-      "author": "Juan Cisneros",
-      "feed_title": "",
-      "summary": "(NEXSTAR) &#8212; Do you get dizzy while looking at your phone while riding as a passenger in a car? That could be a sign of motion sickness, a common, yet complex, condition that can have varying severities of symptoms to go along with it. Managing the symptoms can involve sitting in certain seats in moving&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "The US can beat Iran at its own game, and without boots on the ground",
-      "link": "https://thehill.com/opinion/national-security/5815369-iran-us-war-attrition/",
-      "published": "Sat, 04 Apr 2026 18:00:00 +0000",
-      "ts": 1775325600,
-      "author": "Eric R. Mandel, opinion contributor",
-      "feed_title": "",
-      "summary": "The United States can win a war of attrition against Iran by empowering the Iranian people, imposing economic and geopolitical pressure, and aligning U.S. strategy with the aspirations of the Iranian people.",
-      "source": "The Hill"
-    },
-    {
       "title": "Their tiny church is on the cover of JD Vance\u2019s new book. They don\u2019t know him.",
       "link": "https://www.washingtonpost.com/nation/2026/04/03/vance-book-cover-church-photograph/",
       "published": "Fri, 03 Apr 2026 21:58:53 +0000",
@@ -7652,13 +7677,13 @@
       "source": "Google News"
     },
     {
-      "title": "Travelers at Logan Airport hope that short TSA lines are here to stay - CBS News",
+      "title": "Travelers at Logan Airport hope that short TSA lines are here to stay - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTmxMd2c0M1JQZ196bDc3NmZMSTM0V1BReEcxMnFmckVadUdPcnZYeXVnblhDNFRyeGRWVmEzd092UlVfLW5XbmRIdklMZkxjSjdFY3JESktfeFNoVnBmalpyd2NJVE5SSVJmMVViSmJHZ2JMaFF2c3pZdElKSWdjdXg0ZzBUUUhHSXRSRDJKLURQQmFib3ItRUxEOFFlTXp6Y0o4V3lfNF9mNVU?oc=5",
       "published": "Mon, 30 Mar 2026 16:08:00 GMT",
       "ts": 1774886880,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTmxMd2c0M1JQZ196bDc3NmZMSTM0V1BReEcxMnFmckVadUdPcnZYeXVnblhDNFRyeGRWVmEzd092UlVfLW5XbmRIdklMZkxjSjdFY3JESktfeFNoVnBmalpyd2NJVE5SSVJmMVViSmJHZ2JMaFF2c3pZdElKSWdjdXg0ZzBUUUhHSXRSRDJKLURQQmFib3ItRUxEOFFlTXp6Y0o4V3lfNF9mNVU?oc=5\" target=\"_blank\">Travelers at Logan Airport hope that short TSA lines are here to stay</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTmxMd2c0M1JQZ196bDc3NmZMSTM0V1BReEcxMnFmckVadUdPcnZYeXVnblhDNFRyeGRWVmEzd092UlVfLW5XbmRIdklMZkxjSjdFY3JESktfeFNoVnBmalpyd2NJVE5SSVJmMVViSmJHZ2JMaFF2c3pZdElKSWdjdXg0ZzBUUUhHSXRSRDJKLURQQmFib3ItRUxEOFFlTXp6Y0o4V3lfNF9mNVU?oc=5\" target=\"_blank\">Travelers at Logan Airport hope that short TSA lines are here to stay</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "Google News"
     },
     {
@@ -7752,13 +7777,13 @@
       "source": "Google News"
     },
     {
-      "title": "ICE not coming to Logan Airport or any New England airports to help TSA with wait times, Boston union says - CBS News",
+      "title": "ICE not coming to Logan Airport or any New England airports to help TSA with wait times, Boston union says - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE81Z2RNbmZ0a3ZTSjFWeng4eUJCeEFoOFM3eXRMZDNDY1FscHZHcHlQZEpxQmpTY3N1cFBQT01xQ1pLcFdqUDFVVTRDV1EtcUdydUtGWEJIZlNJa3l0N2w2RjZLeW9zS0NPaGNzZHhvVy0yajN1UDBvZ19LbXUtaGs?oc=5",
       "published": "Tue, 24 Mar 2026 07:00:00 GMT",
       "ts": 1774335600,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE81Z2RNbmZ0a3ZTSjFWeng4eUJCeEFoOFM3eXRMZDNDY1FscHZHcHlQZEpxQmpTY3N1cFBQT01xQ1pLcFdqUDFVVTRDV1EtcUdydUtGWEJIZlNJa3l0N2w2RjZLeW9zS0NPaGNzZHhvVy0yajN1UDBvZ19LbXUtaGs?oc=5\" target=\"_blank\">ICE not coming to Logan Airport or any New England airports to help TSA with wait times, Boston union says</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE81Z2RNbmZ0a3ZTSjFWeng4eUJCeEFoOFM3eXRMZDNDY1FscHZHcHlQZEpxQmpTY3N1cFBQT01xQ1pLcFdqUDFVVTRDV1EtcUdydUtGWEJIZlNJa3l0N2w2RjZLeW9zS0NPaGNzZHhvVy0yajN1UDBvZ19LbXUtaGs?oc=5\" target=\"_blank\">ICE not coming to Logan Airport or any New England airports to help TSA with wait times, Boston union says</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "Google News"
     },
     {
@@ -7855,13 +7880,13 @@
       "source": "DCR"
     },
     {
-      "title": "Cumberland Farms, MassDOT At Odds Over MacArthur Boulevard Store - CapeNews.net",
+      "title": "Cumberland Farms, MassDOT At Odds Over MacArthur Boulevard Store - capenews.net",
       "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNRVdsM2VUd28xS1pKQmM2VFNTZFZmRzdFX0tPYW8tazgwNnJwVDZydXlaZVB6STNicDJoRUJBM05aZmhYbWRSYlJRZUlvcHNBR0Y0N3JqMnhQeVFfS193WEpzQzhIZC1BeVQ5azB4SGwxbk1yMGcyUmljMmFaSkFGaDRpSHNOM0d5OGlTS0dKSU1VWWV1bWJ2a2c0TkdfWXNsMk5uc1c5cDd6cFc2aHp6Vk1UWHVlWEdkUHpWRVdIWVR2Q2ZGcjhVMjVaY285STdISjRZeWdQUnZJVGZRWi0zWGtWSjc?oc=5",
       "published": "Fri, 03 Apr 2026 01:30:00 GMT",
       "ts": 1775179800,
       "author": "",
-      "feed_title": "CapeNews.net",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi5AFBVV95cUxNRVdsM2VUd28xS1pKQmM2VFNTZFZmRzdFX0tPYW8tazgwNnJwVDZydXlaZVB6STNicDJoRUJBM05aZmhYbWRSYlJRZUlvcHNBR0Y0N3JqMnhQeVFfS193WEpzQzhIZC1BeVQ5azB4SGwxbk1yMGcyUmljMmFaSkFGaDRpSHNOM0d5OGlTS0dKSU1VWWV1bWJ2a2c0TkdfWXNsMk5uc1c5cDd6cFc2aHp6Vk1UWHVlWEdkUHpWRVdIWVR2Q2ZGcjhVMjVaY285STdISjRZeWdQUnZJVGZRWi0zWGtWSjc?oc=5\" target=\"_blank\">Cumberland Farms, MassDOT At Odds Over MacArthur Boulevard Store</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CapeNews.net</font>",
+      "feed_title": "capenews.net",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi5AFBVV95cUxNRVdsM2VUd28xS1pKQmM2VFNTZFZmRzdFX0tPYW8tazgwNnJwVDZydXlaZVB6STNicDJoRUJBM05aZmhYbWRSYlJRZUlvcHNBR0Y0N3JqMnhQeVFfS193WEpzQzhIZC1BeVQ5azB4SGwxbk1yMGcyUmljMmFaSkFGaDRpSHNOM0d5OGlTS0dKSU1VWWV1bWJ2a2c0TkdfWXNsMk5uc1c5cDd6cFc2aHp6Vk1UWHVlWEdkUHpWRVdIWVR2Q2ZGcjhVMjVaY285STdISjRZeWdQUnZJVGZRWi0zWGtWSjc?oc=5\" target=\"_blank\">Cumberland Farms, MassDOT At Odds Over MacArthur Boulevard Store</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">capenews.net</font>",
       "source": "MassDOT"
     },
     {
@@ -7875,13 +7900,13 @@
       "source": "MassDOT"
     },
     {
-      "title": "MBTA consultant with no-bid contract paid more than $710,000 to work from South Carolina home - CBS News",
+      "title": "MBTA consultant with no-bid contract paid more than $710,000 to work from South Carolina home - cbsnews.com",
       "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNUVBNkdEWHNPSzhHMlBVMm5ZbHBjOHlVWGt5aWtPVE5rdEhoY2pDV0MyRkxDNVdCZkR2Z1NiZmpxZzRFVjZsODhDb3J4RjVVemQ5M2FBRnlHVDZKOTlYdlc2R2xhb3A4cFVwTUVZZElza2NTVFhBZldFeDlhV3B2blRRSQ?oc=5",
       "published": "Thu, 02 Apr 2026 22:09:00 GMT",
       "ts": 1775167740,
       "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxPNUVBNkdEWHNPSzhHMlBVMm5ZbHBjOHlVWGt5aWtPVE5rdEhoY2pDV0MyRkxDNVdCZkR2Z1NiZmpxZzRFVjZsODhDb3J4RjVVemQ5M2FBRnlHVDZKOTlYdlc2R2xhb3A4cFVwTUVZZElza2NTVFhBZldFeDlhV3B2blRRSQ?oc=5\" target=\"_blank\">MBTA consultant with no-bid contract paid more than $710,000 to work from South Carolina home</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "feed_title": "cbsnews.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxPNUVBNkdEWHNPSzhHMlBVMm5ZbHBjOHlVWGt5aWtPVE5rdEhoY2pDV0MyRkxDNVdCZkR2Z1NiZmpxZzRFVjZsODhDb3J4RjVVemQ5M2FBRnlHVDZKOTlYdlc2R2xhb3A4cFVwTUVZZElza2NTVFhBZldFeDlhV3B2blRRSQ?oc=5\" target=\"_blank\">MBTA consultant with no-bid contract paid more than $710,000 to work from South Carolina home</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">cbsnews.com</font>",
       "source": "MBTA"
     },
     {
@@ -7895,13 +7920,23 @@
       "source": "MassDOT"
     },
     {
-      "title": "Inland route trains planned to connect Boston and NYC via Springfield in 2030 - spectrumnews1.com",
+      "title": "Inland route trains planned to connect Boston and NYC via Springfield in 2030 - Spectrum News",
       "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOYVVQUG5kRExVSWNJT2Q3c3daUTdLa2tRbkJzYzRlUkVkT3k1eU1lWnpsUnRZRzZ5b0hja1hYNFEybzZ3QVpIVGZvRDU0RmRFU0VaNTRTZU9RWV9xY3RrZUVCd1lOeVFBVHdPVE5WQzFPZ24zV0JNNVZDX2FsR095SjlCWGo1X09YcUM5eFJiU19saXVOOGc?oc=5",
       "published": "Wed, 01 Apr 2026 21:23:00 GMT",
       "ts": 1775078580,
       "author": "",
-      "feed_title": "spectrumnews1.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxOYVVQUG5kRExVSWNJT2Q3c3daUTdLa2tRbkJzYzRlUkVkT3k1eU1lWnpsUnRZRzZ5b0hja1hYNFEybzZ3QVpIVGZvRDU0RmRFU0VaNTRTZU9RWV9xY3RrZUVCd1lOeVFBVHdPVE5WQzFPZ24zV0JNNVZDX2FsR095SjlCWGo1X09YcUM5eFJiU19saXVOOGc?oc=5\" target=\"_blank\">Inland route trains planned to connect Boston and NYC via Springfield in 2030</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">spectrumnews1.com</font>",
+      "feed_title": "Spectrum News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxOYVVQUG5kRExVSWNJT2Q3c3daUTdLa2tRbkJzYzRlUkVkT3k1eU1lWnpsUnRZRzZ5b0hja1hYNFEybzZ3QVpIVGZvRDU0RmRFU0VaNTRTZU9RWV9xY3RrZUVCd1lOeVFBVHdPVE5WQzFPZ24zV0JNNVZDX2FsR095SjlCWGo1X09YcUM5eFJiU19saXVOOGc?oc=5\" target=\"_blank\">Inland route trains planned to connect Boston and NYC via Springfield in 2030</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Spectrum News</font>",
+      "source": "MassDOT"
+    },
+    {
+      "title": "MassDOT provides design update for Streiber School sidewalk project - The Reminder",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPTnd3NTVLeFZMbUJzRmxMMUxNRUg0eDVXS3ZEbENRTnhiTnhNa0lRZkJ1UWQ5Q2hQY2hpNVFpN1NRU1ZhS0x1TlFwdUdjd0RIaXdFd0MxUmszdmtBRUpsdDJQNUk1S2M3Rm9Jd2wwNnBocU9ObnZJUUtfVnpSMkR3d05vN08zTzFwZUY1Z0I0c3pCcm1fNU1ZcVNzZjRkaU1wSzJ1MUs4MFNLSkF5d0xuM1Njb2hkOUdyNElQSDh0Q1k1RnZzc1E?oc=5",
+      "published": "Wed, 01 Apr 2026 19:56:50 GMT",
+      "ts": 1775073410,
+      "author": "",
+      "feed_title": "The Reminder",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxPTnd3NTVLeFZMbUJzRmxMMUxNRUg0eDVXS3ZEbENRTnhiTnhNa0lRZkJ1UWQ5Q2hQY2hpNVFpN1NRU1ZhS0x1TlFwdUdjd0RIaXdFd0MxUmszdmtBRUpsdDJQNUk1S2M3Rm9Jd2wwNnBocU9ObnZJUUtfVnpSMkR3d05vN08zTzFwZUY1Z0I0c3pCcm1fNU1ZcVNzZjRkaU1wSzJ1MUs4MFNLSkF5d0xuM1Njb2hkOUdyNElQSDh0Q1k1RnZzc1E?oc=5\" target=\"_blank\">MassDOT provides design update for Streiber School sidewalk project</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Reminder</font>",
       "source": "MassDOT"
     },
     {
@@ -7963,16 +7998,6 @@
       "feed_title": "CommonWealth Beacon",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxOcEE5Y1ZVbkg1RGlfblBBSFpUaGVsRjZXYzlWM25ldDgxb3A2YWVMdzV3TGtYWmlnMW9DNlEzY1pXWGtyLWJsQThiWHdLdlBoR05OYnNCRnc2WHNwM2ZhWm1wNGxiYnVSWmRma1hsUFc1MEFMd3VjUWY5V3oxSmNfYXdfckhheWxJaVd4SzkxQ25Ld0tFeXRQMkJhX1FrbTlUejg2Zm9wZXJlaWxhanhpdjdCU1pXQTk0NUlURTlsQzZMTlNIa01ZQ0o5N2MwTng3NUVTejZUNGtsLVl0MXQ2dXQ4Yw?oc=5\" target=\"_blank\">Rail projects inching along in Western Mass. as MassDOT discusses hourly trains from Springfield to NYC</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CommonWealth Beacon</font>",
       "source": "MassDOT"
-    },
-    {
-      "title": "DCR's Park Madness tournament returns - Salem News",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOWlplSnNEemtxR0ZJb0FHZFhycUFHVFF2dDRDdDBrSU1hZVowTUdiTm9LRnNtcnhMbEc4dFEzVEZLZFpJUGEyLThqSUhpbjNBc1A4NXBqaFFwaHJOQnQzbXM0b1AxaFB1d01Ob3RRM2Yxakd4dGg2bDBYVDloX0IyNldwdGZUZlNDWWxQS28xd1Q4VFZPa2JMUm9lNDBUczdReFlyWjlHRzNfN3NPOFRNcWY3RGZEMzhOcVh2NWhXaXhzUlBXMlpB?oc=5",
-      "published": "Sat, 28 Mar 2026 08:30:00 GMT",
-      "ts": 1774686600,
-      "author": "",
-      "feed_title": "Salem News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxOWlplSnNEemtxR0ZJb0FHZFhycUFHVFF2dDRDdDBrSU1hZVowTUdiTm9LRnNtcnhMbEc4dFEzVEZLZFpJUGEyLThqSUhpbjNBc1A4NXBqaFFwaHJOQnQzbXM0b1AxaFB1d01Ob3RRM2Yxakd4dGg2bDBYVDloX0IyNldwdGZUZlNDWWxQS28xd1Q4VFZPa2JMUm9lNDBUczdReFlyWjlHRzNfN3NPOFRNcWY3RGZEMzhOcVh2NWhXaXhzUlBXMlpB?oc=5\" target=\"_blank\">DCR's Park Madness tournament returns</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem News</font>",
-      "source": "DCR"
     },
     {
       "title": "Massachusetts DCR launches 'Park Madness' tournament - AOL.com",
@@ -8324,79 +8349,7 @@
       "date": "2026-04-06",
       "time": null,
       "all_day": true,
-      "summary": "asked Nick to directly sell - follow up; call Nick if no answer",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "book an appointment with HIMS to discuss hair regrowth",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
       "summary": "Winix Filters",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "Fine Line + Dryft TV placement and coordination",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "PCP appointment",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "discuss w/ tom",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "Think through big picture buckets",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "Mayor signature and check disbursement",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "return overdue library books",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "Follow up with Sand Sculpting festival re: final",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8412,7 +8365,15 @@
       "date": "2026-04-06",
       "time": null,
       "all_day": true,
-      "summary": "follow up on viewing license app response",
+      "summary": "earmark sheet - await state followup",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "asked Nick to directly sell - follow up; call Nick if no answer",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8428,39 +8389,7 @@
       "date": "2026-04-06",
       "time": null,
       "all_day": true,
-      "summary": "APA membership",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "Follow up on project ideas w/ Amelia and Tom",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "earmark sheet - await state followup",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "Alumni Appreciation Football Tailgate concept checkin",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": null,
-      "all_day": true,
-      "summary": "Residency/eligibility verifications and letters offering assistance",
+      "summary": "discuss w/ tom",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8476,7 +8405,15 @@
       "date": "2026-04-06",
       "time": null,
       "all_day": true,
-      "summary": "rha board research",
+      "summary": "book an appointment with HIMS to discuss hair regrowth",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "Fine Line + Dryft TV placement and coordination",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8485,6 +8422,94 @@
       "time": null,
       "all_day": true,
       "summary": "Therapist/meds",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "Mayor signature and check disbursement",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "PCP appointment",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "Residency/eligibility verifications and letters offering assistance",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "APA membership",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "follow up on viewing license app response",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "Follow up with Sand Sculpting festival re: final",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "rha board research",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "Follow up on project ideas w/ Amelia and Tom",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "Alumni Appreciation Football Tailgate concept checkin",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "return overdue library books",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-06",
+      "time": null,
+      "all_day": true,
+      "summary": "Think through big picture buckets",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8532,14 +8557,6 @@
       "date": "2026-04-06",
       "time": "4:00 PM",
       "all_day": false,
-      "summary": "check in with Matt about leading the meeting",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-06",
-      "time": "4:00 PM",
-      "all_day": false,
       "summary": "Check in with Matt about budget spreadsheet for AHTF",
       "location": null,
       "calendar": "Todoist"
@@ -8554,11 +8571,11 @@
     },
     {
       "date": "2026-04-06",
-      "time": "5:00 PM",
+      "time": "4:00 PM",
       "all_day": false,
-      "summary": "HOLD for WBR Meeting",
+      "summary": "check in with Matt about leading the meeting",
       "location": null,
-      "calendar": "Joseph"
+      "calendar": "Todoist"
     },
     {
       "date": "2026-04-06",
@@ -8566,6 +8583,14 @@
       "all_day": false,
       "summary": "Walk Bike Roll Preliminary Meeting",
       "location": "Microsoft Teams Meeting",
+      "calendar": "Joseph"
+    },
+    {
+      "date": "2026-04-06",
+      "time": "5:00 PM",
+      "all_day": false,
+      "summary": "HOLD for WBR Meeting",
+      "location": null,
       "calendar": "Joseph"
     },
     {
@@ -8596,7 +8621,7 @@
       "date": "2026-04-07",
       "time": null,
       "all_day": true,
-      "summary": "Reading sessions",
+      "summary": "Check in with Tom - next steps re: property",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8612,7 +8637,7 @@
       "date": "2026-04-07",
       "time": null,
       "all_day": true,
-      "summary": "Check in with Tom - next steps re: property",
+      "summary": "Housing Leadership Academy",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8628,7 +8653,7 @@
       "date": "2026-04-07",
       "time": null,
       "all_day": true,
-      "summary": "Housing Leadership Academy",
+      "summary": "Reading sessions",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8740,7 +8765,7 @@
       "date": "2026-04-08",
       "time": "6:30 PM",
       "all_day": false,
-      "summary": "Canceled: Affordable Housing Trust Fund",
+      "summary": "Canceled: Affordable Housing Trust Fund Board (monthly)",
       "location": "City Hall Council Chambers",
       "calendar": "Joseph"
     },
@@ -8748,7 +8773,7 @@
       "date": "2026-04-08",
       "time": "6:30 PM",
       "all_day": false,
-      "summary": "Canceled: Affordable Housing Trust Fund Board (monthly)",
+      "summary": "Canceled: Affordable Housing Trust Fund",
       "location": "City Hall Council Chambers",
       "calendar": "Joseph"
     },
@@ -8812,7 +8837,7 @@
       "date": "2026-04-10",
       "time": null,
       "all_day": true,
-      "summary": "follow up on release as non buildable RFP",
+      "summary": "Consult travel spreadsheet to work on plans",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8820,7 +8845,7 @@
       "date": "2026-04-10",
       "time": null,
       "all_day": true,
-      "summary": "Consult travel spreadsheet to work on plans",
+      "summary": "follow up on release as non buildable RFP",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8908,6 +8933,14 @@
       "date": "2026-04-14",
       "time": null,
       "all_day": true,
+      "summary": "release as RFP",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-14",
+      "time": null,
+      "all_day": true,
       "summary": "Dentist",
       "location": null,
       "calendar": "Todoist"
@@ -8916,7 +8949,7 @@
       "date": "2026-04-14",
       "time": null,
       "all_day": true,
-      "summary": "Await Becca's response re updated map",
+      "summary": "sr repairs grid - check on status of payments, etc",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8925,14 +8958,6 @@
       "time": null,
       "all_day": true,
       "summary": "Legalizing infill/starter homes plan of action",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-14",
-      "time": null,
-      "all_day": true,
-      "summary": "pick a partner - Murray's?",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8956,7 +8981,7 @@
       "date": "2026-04-14",
       "time": null,
       "all_day": true,
-      "summary": "release as RFP",
+      "summary": "pick a partner - Murray's?",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8964,7 +8989,7 @@
       "date": "2026-04-14",
       "time": null,
       "all_day": true,
-      "summary": "sr repairs grid - check on status of payments, etc",
+      "summary": "Await Becca's response re updated map",
       "location": null,
       "calendar": "Todoist"
     },
@@ -9004,46 +9029,6 @@
       "date": "2026-04-15",
       "time": null,
       "all_day": true,
-      "summary": "update MA ID with new address",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-15",
-      "time": null,
-      "all_day": true,
-      "summary": "Lock in Fine Line/Dryft?",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-15",
-      "time": null,
-      "all_day": true,
-      "summary": "discuss parks and rec logistics for this event",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-15",
-      "time": null,
-      "all_day": true,
-      "summary": "Reading sessions",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-15",
-      "time": null,
-      "all_day": true,
-      "summary": "cancel globe subscription/ renegotiate",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-04-15",
-      "time": null,
-      "all_day": true,
       "summary": "Check in on progress toward the plan and identify projects/action items",
       "location": null,
       "calendar": "Todoist"
@@ -9068,7 +9053,47 @@
       "date": "2026-04-15",
       "time": null,
       "all_day": true,
+      "summary": "discuss parks and rec logistics for this event",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-15",
+      "time": null,
+      "all_day": true,
       "summary": "night time cust serv job?",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-15",
+      "time": null,
+      "all_day": true,
+      "summary": "update MA ID with new address",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-15",
+      "time": null,
+      "all_day": true,
+      "summary": "cancel globe subscription/ renegotiate",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-15",
+      "time": null,
+      "all_day": true,
+      "summary": "Reading sessions",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-04-15",
+      "time": null,
+      "all_day": true,
+      "summary": "Lock in Fine Line/Dryft?",
       "location": null,
       "calendar": "Todoist"
     },
@@ -9116,7 +9141,7 @@
       "date": "2026-04-16",
       "time": null,
       "all_day": true,
-      "summary": "check in on FTHB resources for website -",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -9124,7 +9149,7 @@
       "date": "2026-04-16",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "check in on FTHB resources for website -",
       "location": null,
       "calendar": "Todoist"
     },
