@@ -213,21 +213,22 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 .ch.grn{border-left:3px solid var(--green);}
 .ch.gld{border-left:3px solid var(--gold);}
 .ch.red{border-left:3px solid var(--red);}
-/* BC Eagles — maroon background, gold text (brand colors, kept dark) */
-.ch.bc{background:#6b0504;border-left:3px solid #c8a94a;}
-.ch.bc .ct{color:#f0c84a;}
-.ch.bc .cb{color:#c8a465;opacity:.9;}
-.ch.bc a{color:#f0c84a !important;}
-/* Local news — steel blue background */
-.ch.local{background:#1a3a52;border-left:3px solid #5ba3d0;}
-.ch.local .ct{color:#f4f1ea;}
-.ch.local .cb{color:#b8d0e0;opacity:.9;}
+/* BC Eagles — maroon accent border only; light bg + dark text for newspaper consistency */
+.ch.bc{background:var(--bg3);border-left:3px solid #6b0504;}
+.ch.bc .ct{color:var(--text);}
+.ch.bc .cb{color:var(--text-mute);opacity:.9;}
+.ch.bc a{color:#6b0504 !important;}
+/* Local news — steel blue accent border; light bg + dark text */
+.ch.local{background:var(--bg3);border-left:3px solid #1a3a52;}
+.ch.local .ct{color:var(--text);}
+.ch.local .cb{color:var(--text-mute);opacity:.9;}
 .ch.sub{background:#efe8dc;border-left:3px solid #b45a2a;}
 .ch.sub .ct{color:#2a1a0e;letter-spacing:3px;}
 .ch.sub .cb{color:#7a5a40;opacity:.9;}
-.ch.bos{background:#0d2b5e;border-left:3px solid #c49a4a;}
-.ch.bos .ct{color:#f0c84a;}
-.ch.bos .cb{color:#a8b8d0;opacity:.9;}
+/* Boston News — navy accent border; light bg + dark text */
+.ch.bos{background:var(--bg3);border-left:3px solid #0d2b5e;}
+.ch.bos .ct{color:var(--text);}
+.ch.bos .cb{color:var(--text-mute);opacity:.9;}
 .card.bos-card{background:#f2efe8;border-color:#ccc6b8;}
 .card.bos-card a.ni{border-bottom:1px solid #ccc6b8;}
 .card.bos-card a.ni:hover{background:#e8e3d8;}
@@ -906,7 +907,7 @@ function renderKTN(items) {
     <div class="ch acc" style="flex-shrink:0;">
       <div class="ct">Revere, MA</div>
       <div style="display:flex;align-items:baseline;gap:6px;">
-        <div style="font-family:var(--cond);font-size:32px;font-weight:900;color:#fff;line-height:1;" id="wx-big-temp">--<sup style="font-size:14px;color:var(--text-dim);vertical-align:super;">°F</sup></div>
+        <div style="font-family:var(--cond);font-size:32px;font-weight:900;color:var(--text);line-height:1;" id="wx-big-temp">--<sup style="font-size:14px;color:var(--text-dim);vertical-align:super;">°F</sup></div>
         <div style="font-size:12px;color:var(--text-dim);" id="wx-big-desc">NWS</div>
       </div>
     </div>
@@ -2322,7 +2323,7 @@ function renderHourly(periods){
     const pct=p.precip||0;
     const div=document.createElement('div');
     div.style.cssText='display:flex;flex-direction:column;align-items:center;gap:2px;width:46px;padding:6px 3px;border:1px solid var(--border);border-radius:4px;background:var(--bg3);flex-shrink:0;'+(i===0?'border-color:var(--accent);background:var(--bg4);':'');
-    div.innerHTML=`<div style="font-size:9px;color:${i===0?'var(--accent)':'var(--text-mute)'};font-family:var(--mono);">${lbl}</div><div style="font-size:15px;font-weight:700;color:#fff;font-family:var(--cond);">${p.temp}°</div><div style="font-size:15px;line-height:1;">${wxEmoji(p.shortForecast)}</div><div style="font-size:9px;color:${pct>0?'#6ab0ff':'var(--text-mute)'};font-family:var(--mono);">${pct>0?pct+'%':'—'}</div>`;
+    div.innerHTML=`<div style="font-size:9px;color:${i===0?'var(--accent)':'var(--text-mute)'};font-family:var(--mono);">${lbl}</div><div style="font-size:15px;font-weight:700;color:var(--text);font-family:var(--cond);">${p.temp}°</div><div style="font-size:15px;line-height:1;">${wxEmoji(p.shortForecast)}</div><div style="font-size:9px;color:${pct>0?'#6ab0ff':'var(--text-mute)'};font-family:var(--mono);">${pct>0?pct+'%':'—'}</div>`;
     inner.appendChild(div);
   });
 }
@@ -2341,7 +2342,7 @@ function renderDaily(days){
       `<div style="font-size:12px;font-weight:700;letter-spacing:1px;color:var(--text-dim);width:32px;flex-shrink:0;font-family:var(--cond);">${name}</div>`+
       `<div style="font-size:16px;line-height:1;flex-shrink:0;">${wxEmoji(d.shortForecast)}</div>`+
       `<div style="font-size:11px;color:var(--text-mute);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${d.shortForecast}</div>`+
-      `<div style="display:flex;align-items:baseline;gap:4px;flex-shrink:0;font-family:var(--mono);"><span style="font-size:13px;font-weight:700;color:#fff;">${d.high!=null?d.high+'°':'--'}</span><span style="font-size:11px;color:var(--text-mute);">/ ${d.low!=null?d.low+'°':'--'}</span></div>`+
+      `<div style="display:flex;align-items:baseline;gap:4px;flex-shrink:0;font-family:var(--mono);"><span style="font-size:13px;font-weight:700;color:var(--text);">${d.high!=null?d.high+'°':'--'}</span><span style="font-size:11px;color:var(--text-mute);">/ ${d.low!=null?d.low+'°':'--'}</span></div>`+
       `<div style="font-size:10px;color:${pct>0?'#6ab0ff':'var(--text-mute)'};font-family:var(--mono);width:32px;text-align:right;flex-shrink:0;">${pct>0?pct+'%':'—'}</div>`;
     body.appendChild(row);
   });
@@ -2870,11 +2871,11 @@ async function loadData(){
         a.onmouseover=()=>a.style.background='#0f2550';
         a.onmouseout=()=>a.style.background='';
         a.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:3px;">
-          <span style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:#f5c518;font-family:var(--cond);text-transform:uppercase;">${item.source||'Boston News'}</span>
-          <span style="font-size:10px;color:#3a5a7a;font-family:monospace;flex-shrink:0;">${fmtDateTime(item.ts,item.published)}</span>
+          <span style="font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--gold);font-family:var(--cond);text-transform:uppercase;">${item.source||'Boston News'}</span>
+          <span style="font-size:10px;color:var(--text-mute);font-family:monospace;flex-shrink:0;">${fmtDateTime(item.ts,item.published)}</span>
         </div>
-        <div style="font-size:14px;font-weight:600;color:#c8d8f0;line-height:1.35;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${item.title||''}</div>
-        ${plain.length>20?`<div style="font-size:12px;color:#5a7a9a;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${plain}</div>`:''}`;
+        <div style="font-size:14px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${item.title||''}</div>
+        ${plain.length>20?`<div style="font-size:12px;color:var(--text-dim);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${plain}</div>`:''}`;
         list.appendChild(a);
       });
       if(pageLabel) pageLabel.textContent=`${start+1}–${Math.min(start+PER_PAGE,allItems.length)} of ${allItems.length}`;
@@ -2932,7 +2933,7 @@ const GS_KEY = 'revere_monitor_gs_v6';
 const DEFAULT_LAYOUT = {"weather-unified":{"x":0,"y":0,"w":6,"h":12},"personal-calendar":{"x":0,"y":12,"w":6,"h":9},"sports-schedule":{"x":0,"y":21,"w":6,"h":9},"countdowns":{"x":0,"y":30,"w":6,"h":5},"scores-widget":{"x":0,"y":35,"w":6,"h":11},"mbta-alerts":{"x":0,"y":46,"w":6,"h":6},"mbta-arrivals":{"x":0,"y":52,"w":6,"h":9},"road-events":{"x":0,"y":61,"w":6,"h":7},"logan":{"x":0,"y":68,"w":6,"h":14},"mbta-news":{"x":0,"y":82,"w":6,"h":9},"markets":{"x":0,"y":91,"w":6,"h":10},"radio":{"x":0,"y":101,"w":6,"h":7},"nyt-link":{"x":0,"y":108,"w":6,"h":6},"reveretv":{"x":0,"y":114,"w":6,"h":8},"bc-schedule":{"x":0,"y":122,"w":6,"h":10},"top-stories":{"x":6,"y":0,"w":6,"h":7},"globe-feed":{"x":6,"y":7,"w":6,"h":13},"nyt-feed":{"x":6,"y":20,"w":6,"h":14},"boston-news":{"x":6,"y":34,"w":6,"h":12},"news-revere":{"x":6,"y":46,"w":6,"h":14},"news-comm":{"x":6,"y":60,"w":6,"h":16},"national":{"x":6,"y":76,"w":6,"h":12},"uhub-rss":{"x":6,"y":88,"w":6,"h":12},"uhub-bsky":{"x":6,"y":100,"w":6,"h":12},"substack-feed":{"x":6,"y":112,"w":6,"h":12},"r-boston-panel":{"x":6,"y":124,"w":3,"h":9},"r-mass-panel":{"x":9,"y":124,"w":3,"h":9},"r-mbta-panel":{"x":6,"y":133,"w":3,"h":9},"r-neo-panel":{"x":9,"y":133,"w":3,"h":9},"r-urban-panel":{"x":6,"y":142,"w":3,"h":9},"r-bruins-panel":{"x":9,"y":142,"w":3,"h":9},"r-nascar-panel":{"x":6,"y":151,"w":6,"h":9},"news-sports":{"x":6,"y":160,"w":6,"h":9},"espn-feed":{"x":6,"y":169,"w":6,"h":9},"news-bc":{"x":6,"y":178,"w":6,"h":14},"college-hockey":{"x":6,"y":192,"w":6,"h":14},"chn-bc":{"x":6,"y":206,"w":3,"h":10},"chn-all":{"x":9,"y":206,"w":3,"h":12}};
 
 const grid = GridStack.init({
-  float: true,
+  float: false,
   cellHeight: 32,
   column: 12,
   handle: '.ch',   // every panel now has exactly one .ch card header
@@ -3063,6 +3064,8 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
       }
     });
     window.grid.batchUpdate(false);
+    // After collapsing/expanding, pull all items upward to close any gaps
+    try{ window.grid.compact(); }catch(e){}
   }
 
   function toggleItem(gid){
@@ -3448,8 +3451,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 })();
 </script>
 
-
-
+<script>
 // ═══════════════════════════════════════════════════════
 // NHL / MLB SCORES WIDGET
 // ═══════════════════════════════════════════════════════
