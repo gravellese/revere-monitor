@@ -10,50 +10,65 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#2a2a2a; --bg2:#333; --bg3:#3d3d3d; --bg4:#474747;
-  --border:#505050; --border2:#626262;
-  --text:#f2f2f2; --text-dim:#c8c8c8; --text-mute:#909090; --white:#ffffff;
-  --accent:#6ab0ff; --orange:#f08050; --odim:#7a3820;
-  --gold:#f0c060; --red:#f06060; --green:#58d888; --blue:#6ab0ff; --reddit:#ff5528;
+  /* Newspaper light theme */
+  --bg:#e8e4dc;       /* page background — warm newsprint gray */
+  --bg2:#f4f1ea;      /* card/panel background — slightly lighter cream */
+  --bg3:#dcd7cc;      /* element bg — toolbar, chips */
+  --bg4:#cec8bb;      /* hover / active element */
+  --border:#b8b2a4;   /* primary rule */
+  --border2:#9c9585;  /* secondary rule / stronger edges */
+  --text:#1f1c16;     /* body text — near-black ink */
+  --text-dim:#3d3830; /* secondary text */
+  --text-mute:#706954;/* muted / meta text */
+  --white:#0e0c08;    /* strongest text (was bright white) — now near-black */
+  --accent:#1d4a80;   /* newspaper navy */
+  --orange:#b45a2a;   /* warm print orange */
+  --odim:#e8d5c2;     /* orange dim background */
+  --gold:#a07a20;     /* muted gold */
+  --red:#b83838;      /* ink red */
+  --green:#2d7a4a;    /* forest green */
+  --blue:#1d4a80;
+  --reddit:#c74a1a;
   --cond:'Barlow Condensed',sans-serif; --sans:'Barlow',sans-serif; --mono:'JetBrains Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;background-image:radial-gradient(circle at 25% 25%,#8a7a60 1px,transparent 1px),radial-gradient(circle at 75% 75%,#8a7a60 1px,transparent 1px);background-size:4px 4px;}
 
 /* ── HEADER ── */
-#header{background:#1e1e1e;border-bottom:3px solid var(--accent);padding:0 16px;height:68px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.5);}
-#wordmark{font-family:var(--cond);font-weight:900;font-size:24px;letter-spacing:5px;color:var(--white);}
-#wordmark em{color:var(--accent);font-style:normal;}
-.hd{width:1px;height:28px;background:#555;margin:0 14px;}
-#clock{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--accent);letter-spacing:1px;}
-#datestamp{font-size:13px;color:var(--text-dim);margin-left:12px;}
+#header{background:#1a1814;border-bottom:3px solid var(--accent);padding:0 16px;height:68px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.15);}
+#wordmark{font-family:var(--cond);font-weight:900;font-size:24px;letter-spacing:5px;color:#f4f1ea;}
+#wordmark em{color:#c49a4a;font-style:normal;}
+.hd{width:1px;height:28px;background:#3a3630;margin:0 14px;}
+#clock{font-family:var(--mono);font-size:20px;font-weight:600;color:#c49a4a;letter-spacing:1px;}
+#datestamp{font-size:13px;color:#d4ccbe;margin-left:12px;}
 #hs{flex:1;}
-#sun-hdr{display:flex;gap:12px;font-size:12px;color:var(--text-dim);margin-right:14px;}
-#sun-hdr .sv{color:var(--gold);font-weight:600;}
-#upd-hdr{font-size:11px;color:var(--text-mute);border-left:1px solid #555;padding-left:14px;}
+#sun-hdr{display:flex;gap:12px;font-size:12px;color:#d4ccbe;margin-right:14px;}
+#sun-hdr .sv{color:#c49a4a;font-weight:600;}
+#upd-hdr{font-size:11px;color:#8a8474;border-left:1px solid #3a3630;padding-left:14px;}
 
 /* ── HEADER TIDE SLOTS ── */
-.tide-slot{display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 7px;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid #404040;min-width:54px;}
-.tide-slot.next-tide{border-color:rgba(106,176,255,.4);background:rgba(106,176,255,.07);}
+.tide-slot{display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 7px;border-radius:4px;background:rgba(255,255,255,.06);border:1px solid #3a3630;min-width:54px;}
+.tide-slot.next-tide{border-color:rgba(196,154,74,.5);background:rgba(196,154,74,.12);}
 .tide-slot.past-tide{opacity:.4;}
 .ts-type{font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;line-height:1;}
-.ts-type.H{color:var(--accent);}
-.ts-type.L{color:var(--text-mute);}
-.ts-time{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--white);line-height:1.1;}
-.ts-ft{font-family:var(--mono);font-size:11px;color:var(--orange);line-height:1;}
+.ts-type.H{color:#c49a4a;}
+.ts-type.L{color:#8a8474;}
+.ts-time{font-family:var(--mono);font-size:15px;font-weight:600;color:#f4f1ea;line-height:1.1;}
+.ts-ft{font-family:var(--mono);font-size:11px;color:#d4ccbe;line-height:1;}
 
 /* ── HEADER SUN SLOTS ── */
 .sun-slot{display:flex;flex-direction:column;align-items:center;gap:1px;}
-.ss-lbl{font-size:10px;color:var(--text-mute);letter-spacing:1.5px;text-transform:uppercase;line-height:1;}
-.ss-val{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--gold);line-height:1.1;}
+.ss-lbl{font-size:10px;color:#8a8474;letter-spacing:1.5px;text-transform:uppercase;line-height:1;}
+.ss-val{font-family:var(--mono);font-size:15px;font-weight:600;color:#c49a4a;line-height:1.1;}
 
 /* ── LINKS BAR ── */
-#links-bar-wrap{background:#242424;border-bottom:1px solid #444;padding:5px 16px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+#links-bar-wrap{background:#ddd8cc;border-bottom:1px solid var(--border);padding:5px 16px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
 #links-bar{display:flex;gap:5px;flex-wrap:wrap;flex:1;}
-a.qlink{display:inline-flex;align-items:center;padding:3px 10px;border:1px solid #505050;border-radius:4px;background:var(--bg2);color:var(--text-dim);text-decoration:none;font-size:12px;font-family:var(--cond);font-weight:600;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
-a.qlink:hover{background:var(--bg3);border-color:var(--accent);color:var(--accent);}
-button.hdr-btn{padding:3px 10px;background:var(--bg3);border:1px solid #555;border-radius:4px;color:var(--text-mute);font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:1px;cursor:pointer;}
-button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
+a.qlink{display:inline-flex;align-items:center;padding:3px 10px;border:1px solid var(--border);border-radius:4px;background:var(--bg2);color:var(--text-dim);text-decoration:none;font-size:12px;font-family:var(--cond);font-weight:600;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
+a.qlink:hover{background:var(--bg4);border-color:var(--accent);color:var(--accent);}
+button.hdr-btn{padding:3px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;color:var(--text-mute);font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:1px;cursor:pointer;}
+button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:var(--bg4);}
 
 /* Links modal */
 #links-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;}
@@ -68,13 +83,13 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 .btn-cancel{background:var(--bg3);color:var(--text-dim);border:1px solid #555 !important;}
 
 /* ── MBTA ARRIVALS + ALERTS ── */
-.mbta-wrap{background:#0d1614;border:2px solid #f5c518;border-radius:5px;overflow:hidden;display:flex;flex-direction:column;}
+.mbta-wrap{background:#16211e;border:2px solid #c49a4a;border-radius:5px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.1);}
 .grid-stack-item-content>.mbta-wrap{height:100%;overflow:hidden;border-radius:4px;}
 .mbta-wrap .mbta-stops-grid,.mbta-wrap #mbtaAlertsBody{overflow-y:auto;flex:1;}
-.mbta-hdr{background:#0a1210;border-bottom:1px solid #2a2010;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;cursor:grab;flex-shrink:0;}
+.mbta-hdr{background:#0f1a17;border-bottom:1px solid #2a2010;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;cursor:grab;flex-shrink:0;}
 .mbta-hdr-title{font-size:12px;font-weight:700;letter-spacing:3px;color:#f5c518;text-transform:uppercase;font-family:var(--cond);}
-.mbta-hdr-meta{font-size:10px;color:#3a5a52;letter-spacing:1px;}
-.mbta-ctrl-btn{font-size:10px;color:#5a7a72;background:none;border:1px solid #2a2010;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;}
+.mbta-hdr-meta{font-size:10px;color:#7a9a90;letter-spacing:1px;}
+.mbta-ctrl-btn{font-size:10px;color:#9aaa9a;background:none;border:1px solid #3a2a14;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;}
 .mbta-ctrl-btn:hover{border-color:#f5c518;color:#f5c518;}
 .mbta-stops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
 .mbta-stop-card{border-right:1px solid #1c2e2a;}
@@ -190,56 +205,96 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 #page,#col-left,#col-right{display:contents;}
 
 /* ── CARDS ── */
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;}
-.ch{background:var(--bg3);border-bottom:1px solid var(--border);padding:7px 14px;display:flex;align-items:center;justify-content:space-between;}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+.ch{background:var(--bg3);border-bottom:1px solid var(--border2);padding:7px 14px;display:flex;align-items:center;justify-content:space-between;cursor:grab;}
+.ch:active{cursor:grabbing;}
 .ch.acc{border-left:3px solid var(--accent);}
 .ch.ora{border-left:3px solid var(--orange);}
 .ch.grn{border-left:3px solid var(--green);}
 .ch.gld{border-left:3px solid var(--gold);}
-.ch.red{border-left:3px solid var(--reddit);}
-/* BC Eagles — maroon background, gold text */
+.ch.red{border-left:3px solid var(--red);}
+/* BC Eagles — maroon background, gold text (brand colors, kept dark) */
 .ch.bc{background:#6b0504;border-left:3px solid #c8a94a;}
 .ch.bc .ct{color:#f0c84a;}
-.ch.bc .cb{color:#c8a465;opacity:.85;}
+.ch.bc .cb{color:#c8a465;opacity:.9;}
 .ch.bc a{color:#f0c84a !important;}
-/* Local news — steel blue background, white text */
+/* Local news — steel blue background */
 .ch.local{background:#1a3a52;border-left:3px solid #5ba3d0;}
-.ch.local .ct{color:#a8d4f0;}
-.ch.local .cb{color:#6ba8c8;opacity:.9;}
-.ch.sub{background:#f0ede8;border-left:3px solid #e06c2a;}
+.ch.local .ct{color:#f4f1ea;}
+.ch.local .cb{color:#b8d0e0;opacity:.9;}
+.ch.sub{background:#efe8dc;border-left:3px solid #b45a2a;}
 .ch.sub .ct{color:#2a1a0e;letter-spacing:3px;}
 .ch.sub .cb{color:#7a5a40;opacity:.9;}
-.ch.bos{background:#0d2b5e;border-left:3px solid #f5c518;}
-.ch.bos .ct{color:#f5c518;}
+.ch.bos{background:#0d2b5e;border-left:3px solid #c49a4a;}
+.ch.bos .ct{color:#f0c84a;}
 .ch.bos .cb{color:#a8b8d0;opacity:.9;}
-.card.bos-card{background:#081a3a;border-color:#1a3a6a;}
-.card.bos-card a.ni{border-bottom:1px solid #1a3a6a;}
-.card.bos-card a.ni:hover{background:#0f2550;}
-.card.bos-card .ni-src{color:#f5c518;}
-.card.bos-card .ni-title{color:#d0dcee;}
-.comm-card{display:flex;flex-direction:column;gap:3px;padding:8px 9px;border-right:1px solid #0d2b5e;border-bottom:1px solid #0d2b5e;background:#081a3a;min-height:82px;text-decoration:none;transition:background .12s;}
-.comm-card:hover{background:#0f2240;}
+.card.bos-card{background:#f2efe8;border-color:#ccc6b8;}
+.card.bos-card a.ni{border-bottom:1px solid #ccc6b8;}
+.card.bos-card a.ni:hover{background:#e8e3d8;}
+.card.bos-card .ni-src{color:#a07a20;}
+.card.bos-card .ni-title{color:#1a1814;}
+.comm-card{display:flex;flex-direction:column;gap:3px;padding:8px 9px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);min-height:82px;text-decoration:none;transition:background .12s;}
+.comm-card:hover{background:var(--bg4);}
 .comm-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1px;}
-.comm-card-src{font-size:9px;font-weight:700;letter-spacing:1px;color:#f5c518;text-transform:uppercase;}
+.comm-card-src{font-size:9px;font-weight:700;letter-spacing:1px;color:var(--accent);text-transform:uppercase;}
 .comm-card-tag{font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
-.comm-card-title{font-size:11px;font-weight:500;color:#c8d8f0;line-height:1.35;flex:1;}
-.comm-card-date{font-size:10px;color:#2a4a7a;margin-top:auto;padding-top:3px;}
-.ni-date{color:#5a7a9a;}
-.card.bos-card .empty{color:#5a7a9a;}
-.card.light-card{background:#f7f4f0;border-color:#ddd8d0;}
-.card.light-card .cbody{background:#f7f4f0;}
-.card.light-card a.ni{border-bottom:1px solid #ddd8d0;}
-.card.light-card a.ni:hover{background:#ebe7e0;}
-.card.light-card .ni-src{color:#e06c2a;}
-.card.light-card .ni-title{color:#1a1a1a;}
+.comm-card-title{font-size:11px;font-weight:500;color:var(--text);line-height:1.35;flex:1;}
+.comm-card-date{font-size:10px;color:var(--text-mute);margin-top:auto;padding-top:3px;}
+.ni-date{color:var(--text-mute);}
+.card.bos-card .empty{color:var(--text-mute);}
+.card.light-card{background:#f7f4ee;border-color:#d8d2c4;}
+.card.light-card .cbody{background:#f7f4ee;}
+.card.light-card a.ni{border-bottom:1px solid #d8d2c4;}
+.card.light-card a.ni:hover{background:#ede8dc;}
+.card.light-card .ni-src{color:#b45a2a;}
+.card.light-card .ni-title{color:#1a1814;}
 .card.light-card .ni-snippet{color:#555;font-size:12px;line-height:1.4;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .card.light-card .ni-date{color:#888;}
 .card.light-card .empty{color:#999;}
-.ct{font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:3px;color:var(--white);text-transform:uppercase;}
+.ct{font-family:var(--cond);font-size:15px;font-weight:700;letter-spacing:3px;color:var(--text);text-transform:uppercase;}
 .cb{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
 .cbody{padding:12px 14px;}
 .cbody.np{padding:0;}
 .cbody.npx{padding:0 14px;}
+
+/* ── COLLAPSE / EXPAND ── */
+.ch-controls{display:flex;align-items:center;gap:6px;flex-shrink:0;margin-left:8px;}
+.ch-collapse-btn{background:transparent;border:none;color:inherit;opacity:.55;cursor:pointer;padding:2px 4px;font-size:12px;line-height:1;font-family:var(--mono);border-radius:3px;transition:opacity .15s,background .15s;}
+.ch-collapse-btn:hover{opacity:1;background:rgba(0,0,0,.08);}
+.grid-stack-item.gs-collapsed .cbody,
+.grid-stack-item.gs-collapsed .g2,
+.grid-stack-item.gs-collapsed .g3,
+.grid-stack-item.gs-collapsed .g4,
+.grid-stack-item.gs-collapsed .uhub-col,
+.grid-stack-item.gs-collapsed #bsky-chips,
+.grid-stack-item.gs-collapsed #bsky-feed,
+.grid-stack-item.gs-collapsed #bsky-err,
+.grid-stack-item.gs-collapsed #mbtaArrGrid,
+.grid-stack-item.gs-collapsed #mbtaAlertsBody,
+.grid-stack-item.gs-collapsed #mbta-news-feed,
+.grid-stack-item.gs-collapsed #bos-list,
+.grid-stack-item.gs-collapsed #uhub-list,
+.grid-stack-item.gs-collapsed #scores-content,
+.grid-stack-item.gs-collapsed #scores-summary,
+.grid-stack-item.gs-collapsed .nyt-feed-list-wrap,
+.grid-stack-item.gs-collapsed [id$="-feed-list"],
+.grid-stack-item.gs-collapsed [id$="-body"]:not(.ch):not(.ch-controls),
+.grid-stack-item.gs-collapsed .mbta-stops-grid,
+.grid-stack-item.gs-collapsed .alrt-list,
+.grid-stack-item.gs-collapsed #bmnt-debug,
+.grid-stack-item.gs-collapsed .card > div:not(.ch):not(.gs-handle),
+.grid-stack-item.gs-collapsed .mbta-wrap > div:not(.mbta-hdr),
+.grid-stack-item.gs-collapsed #daily-reads-body,
+.grid-stack-item.gs-collapsed #media-links-body,
+.grid-stack-item.gs-collapsed #sc-panel-body,
+.grid-stack-item.gs-collapsed .revere-tv-wrap,
+.grid-stack-item.gs-collapsed .yt-grid,
+.grid-stack-item.gs-collapsed .bos-carousel-wrap,
+.grid-stack-item.gs-collapsed #countdowns-body{display:none !important;}
+.grid-stack-item.gs-collapsed .ch-collapse-btn{transform:rotate(-90deg);}
+.grid-stack-item.gs-collapsed{height:auto !important;}
+.grid-stack-item.gs-collapsed .card,
+.grid-stack-item.gs-collapsed .mbta-wrap{height:auto !important;min-height:0 !important;}
 
 /* ── SCROLL BOXES ── */
 .scroll-box{overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
@@ -249,7 +304,7 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);}
 
 /* ── WEATHER ── */
 #wx-now{display:flex;align-items:center;gap:14px;}
-#wx-temp{font-family:var(--cond);font-size:76px;font-weight:900;color:var(--white);line-height:1;flex-shrink:0;}
+#wx-temp{font-family:var(--cond);font-size:76px;font-weight:900;color:var(--text);line-height:1;flex-shrink:0;}
 #wx-temp sup{font-size:30px;color:var(--text-dim);vertical-align:super;}
 .wx-r{display:flex;gap:8px;margin-top:5px;}
 .wx-k{color:var(--text-mute);min-width:72px;}
@@ -263,7 +318,7 @@ a#wx-forecast-link{display:block;margin-top:10px;font-size:12px;color:var(--acce
 .hb.now{border-color:var(--accent);background:var(--bg4);}
 .hb-time{font-size:10px;color:var(--text-mute);font-family:var(--mono);}
 .hb-time.now{color:var(--accent);font-weight:600;}
-.hb-temp{font-family:var(--cond);font-size:19px;font-weight:700;color:var(--white);line-height:1;}
+.hb-temp{font-family:var(--cond);font-size:19px;font-weight:700;color:var(--text);line-height:1;}
 .hb-icon{font-size:15px;}
 .hb-pct{font-size:10px;color:var(--blue);font-family:var(--mono);}
 .hb-pct.none{color:var(--text-mute);}
@@ -274,7 +329,7 @@ a#wx-forecast-link{display:block;margin-top:10px;font-size:12px;color:var(--acce
 .dc-name{font-family:var(--cond);font-size:13px;font-weight:700;color:var(--text-dim);letter-spacing:1px;}
 .dc-icon{font-size:22px;}
 .dc-temps{display:flex;gap:6px;align-items:baseline;justify-content:center;}
-.dc-hi{font-family:var(--cond);font-size:22px;font-weight:700;color:var(--white);line-height:1;}
+.dc-hi{font-family:var(--cond);font-size:22px;font-weight:700;color:var(--text);line-height:1;}
 .dc-lo{font-family:var(--cond);font-size:15px;color:var(--text-mute);}
 .dc-pct{font-size:11px;color:var(--blue);font-weight:600;}
 .dc-pct.none{color:var(--text-mute);}
@@ -294,13 +349,13 @@ a#wx-forecast-link{display:block;margin-top:10px;font-size:12px;color:var(--acce
 .tide-arr.H{color:var(--accent);}
 .tide-arr.L{color:var(--text-mute);}
 .tide-info{flex:1;}
-.tide-time{font-family:var(--cond);font-size:14px;font-weight:700;color:var(--white);}
+.tide-time{font-family:var(--cond);font-size:14px;font-weight:700;color:var(--text);}
 .tide-lbl{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
 .tide-ft{font-family:var(--cond);font-size:15px;font-weight:700;color:var(--orange);}
-.tide-next{font-size:9px;background:rgba(106,176,255,.15);color:var(--accent);border:1px solid rgba(106,176,255,.3);border-radius:3px;padding:1px 5px;}
+.tide-next{font-size:9px;background:rgba(29,74,128,.12);color:var(--accent);border:1px solid rgba(29,74,128,.3);border-radius:3px;padding:1px 5px;}
 .l-ind{display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid;border-radius:4px;margin-bottom:8px;}
-.l-ind.ok{border-color:var(--green);background:rgba(88,216,136,.07);}
-.l-ind.delay{border-color:var(--orange);background:rgba(240,128,80,.07);}
+.l-ind.ok{border-color:var(--green);background:rgba(45,122,74,.08);}
+.l-ind.delay{border-color:var(--orange);background:rgba(180,90,42,.1);}
 .l-dot{width:10px;height:10px;border-radius:50%;animation:pulse 2s ease-in-out infinite;}
 .l-dot.ok{background:var(--green);}
 .l-dot.delay{background:var(--orange);}
@@ -311,6 +366,21 @@ a#wx-forecast-link{display:block;margin-top:10px;font-size:12px;color:var(--acce
 .l-det{font-size:13px;color:var(--text-dim);padding:4px 0;border-bottom:1px solid var(--border);line-height:1.4;}
 .l-det:last-child{border-bottom:none;}
 .l-det strong{color:var(--orange);font-weight:600;}
+/* Logan section — ATC links + scanner / cancellations */
+.l-section{margin-top:10px;padding-top:8px;border-top:1px solid var(--border);}
+.l-section-label{font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.l-link-row{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+a.l-link{display:flex;align-items:center;gap:6px;padding:6px 8px;background:var(--bg3);border:1px solid var(--border);border-radius:3px;color:var(--text);text-decoration:none;font-size:11px;font-family:var(--cond);font-weight:600;letter-spacing:.5px;transition:all .12s;}
+a.l-link:hover{background:var(--bg4);border-color:var(--accent);color:var(--accent);}
+.l-link-ico{font-size:12px;}
+.l-flight-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px;}
+.l-flight-row:last-child{border-bottom:none;}
+.l-flight-code{font-family:var(--mono);font-weight:700;color:var(--text);min-width:60px;}
+.l-flight-desc{flex:1;color:var(--text-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.l-flight-status{font-family:var(--cond);font-weight:700;font-size:10px;letter-spacing:1px;padding:1px 5px;border-radius:3px;flex-shrink:0;}
+.l-flight-status.cancelled{background:rgba(184,56,56,.12);color:var(--red);border:1px solid rgba(184,56,56,.3);}
+.l-flight-status.delayed{background:rgba(180,90,42,.12);color:var(--orange);border:1px solid rgba(180,90,42,.3);}
+.l-flight-status.on-time{background:rgba(45,122,74,.1);color:var(--green);border:1px solid rgba(45,122,74,.3);}
 
 /* ── PRIORITIES ── */
 .pri-wrap{display:flex;flex-direction:column;gap:9px;}
@@ -333,21 +403,21 @@ a.cal-btn:hover{background:var(--bg4);}
 
 /* ── NEWS ── */
 .news-feed{display:flex;flex-direction:column;}
-a.ni{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
+a.ni{display:flex;flex-direction:column;gap:3px;padding:10px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
 a.ni:last-child{border-bottom:none;}
-a.ni:hover{background:rgba(255,255,255,.04);margin:0 -14px;padding-left:14px;padding-right:14px;}
+a.ni:hover{background:rgba(0,0,0,.03);margin:0 -14px;padding-left:14px;padding-right:14px;}
 .ni-src{font-size:10px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);}
 .ni-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.35;}
-a.ni:hover .ni-title{color:var(--white);}
+a.ni:hover .ni-title{color:var(--accent);}
 .ni-date{font-size:11px;color:var(--text-mute);}
-.ni-snippet{font-size:11px;color:var(--text-mute);line-height:1.4;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.comm-card-snippet{font-size:10px;color:#5a7a9a;line-height:1.35;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.comm-tag{display:inline-block;background:rgba(106,176,255,.1);color:var(--accent);border:1px solid rgba(106,176,255,.2);border-radius:3px;font-size:10px;padding:1px 5px;margin-right:4px;text-transform:uppercase;}
+.ni-snippet{font-size:11px;color:var(--text-dim);line-height:1.4;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.comm-card-snippet{font-size:10px;color:var(--text-dim);line-height:1.35;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.comm-tag{display:inline-block;background:rgba(29,74,128,.1);color:var(--accent);border:1px solid rgba(29,74,128,.25);border-radius:3px;font-size:10px;padding:1px 5px;margin-right:4px;text-transform:uppercase;}
 
 /* ── REDDIT ── */
-a.rp{display:flex;flex-direction:column;gap:2px;padding:7px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
+a.rp{display:flex;flex-direction:column;gap:3px;padding:10px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
 a.rp:last-child{border-bottom:none;}
-a.rp:hover{background:rgba(255,255,255,.04);margin:0 -14px;padding-left:14px;padding-right:14px;}
+a.rp:hover{background:rgba(0,0,0,.03);margin:0 -14px;padding-left:14px;padding-right:14px;}
 .rp-meta{display:flex;align-items:center;gap:7px;}
 .rp-score{font-family:var(--cond);font-size:14px;font-weight:700;color:var(--reddit);}
 .rp-flair{font-size:10px;color:var(--text-mute);background:var(--bg3);border-radius:3px;padding:1px 5px;}
@@ -375,10 +445,10 @@ a.dr:hover{background:var(--bg3);color:var(--accent);}
 a.dr .dr-arrow{font-size:10px;color:var(--text-mute);flex-shrink:0;margin-left:6px;}
 #daily-reads-body{padding:4px 6px;display:flex;flex-direction:column;gap:1px;}
 a.ml:last-child{margin-bottom:0;}
-a.ml:hover{background:var(--bg4);border-color:var(--accent);color:var(--white);}
+a.ml:hover{background:var(--bg4);border-color:var(--accent);color:var(--accent);}
 .ml-ico{font-size:16px;flex-shrink:0;}
 .ml-info{display:flex;flex-direction:column;flex:1;}
-.ml-name{font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:1px;color:var(--white);}
+.ml-name{font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:1px;color:var(--text);}
 .ml-type{font-size:10px;color:var(--text-mute);letter-spacing:1px;text-transform:uppercase;}
 .ml-ext{font-size:12px;color:var(--text-mute);}
 
@@ -390,9 +460,10 @@ a.big-btn:hover{opacity:.85;}
 
 /* ── MISC ── */
 .empty{color:var(--text-mute);font-size:13px;padding:20px;text-align:center;}
-::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar{width:6px;height:6px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--text-mute);}
 .section-divider{font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;padding:8px 0 4px;border-top:1px solid var(--border);margin-top:6px;}
 
 /* ── BOSTON CAROUSEL ── */
@@ -414,17 +485,17 @@ a.big-btn:hover{opacity:.85;}
 /* ── SPORTS SCHEDULE WIDGET ── */
 #sc-filter-scroll{display:flex;gap:4px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px;scrollbar-width:none;}
 #sc-filter-scroll::-webkit-scrollbar{display:none;}
-.sc-chip{font-size:10px;padding:2px 9px;border-radius:20px;border:.5px solid var(--border2);background:transparent;cursor:pointer;color:var(--text-mute);white-space:nowrap;flex-shrink:0;font-family:var(--cond);letter-spacing:.5px;}
+.sc-chip{font-size:10px;padding:2px 9px;border-radius:20px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-mute);white-space:nowrap;flex-shrink:0;font-family:var(--cond);letter-spacing:.5px;}
 .sc-chip.active{background:var(--bg4);color:var(--text);border-color:var(--border2);}
 .sc-nav-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
-.sc-nav-btn{font-size:11px;padding:2px 9px;border-radius:4px;border:.5px solid var(--border);background:transparent;cursor:pointer;color:var(--text-mute);font-family:var(--cond);letter-spacing:1px;}
+.sc-nav-btn{font-size:11px;padding:2px 9px;border-radius:4px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-mute);font-family:var(--cond);letter-spacing:1px;}
 .sc-nav-btn:hover{background:var(--bg3);color:var(--text);}
 .sc-nav-label{font-size:11px;color:var(--text-mute);font-family:var(--mono);}
-.sc-today-btn{font-size:10px;padding:2px 8px;border-radius:20px;border:.5px solid var(--border);background:transparent;cursor:pointer;color:var(--accent);font-family:var(--cond);}
+.sc-today-btn{font-size:10px;padding:2px 8px;border-radius:20px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--accent);font-family:var(--cond);}
 .sc-day-block{margin-bottom:10px;}
-.sc-day-label{font-size:9px;font-weight:700;color:var(--text-mute);text-transform:uppercase;letter-spacing:.08em;padding:0 0 4px;border-bottom:.5px solid var(--border);margin-bottom:4px;}
+.sc-day-label{font-size:9px;font-weight:700;color:var(--text-mute);text-transform:uppercase;letter-spacing:.08em;padding:0 0 4px;border-bottom:1px solid var(--border);margin-bottom:4px;}
 .sc-day-label.sc-today{color:var(--accent);}
-.sc-event-row{display:flex;align-items:center;gap:7px;padding:4px 0;border-bottom:.5px solid var(--border);}
+.sc-event-row{display:flex;align-items:center;gap:7px;padding:4px 0;border-bottom:1px solid var(--border);}
 .sc-event-row:last-child{border-bottom:none;}
 .sc-badge{font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;white-space:nowrap;min-width:46px;text-align:center;flex-shrink:0;font-family:var(--cond);}
 .sc-badge.sox{background:#c8102e;color:#fff;}
@@ -463,8 +534,63 @@ a.big-btn:hover{opacity:.85;}
 .sc-refresh-status{font-size:9px;color:var(--text-mute);font-family:var(--mono);}
 @keyframes sc-spin{to{transform:rotate(360deg);}}
 .sc-spinning{display:inline-block;animation:sc-spin 1s linear infinite;}
+
+/* ── LIGHT THEME OVERRIDES FOR DARK HARDCODED PANELS ── */
+/* NYT feed panel: override #111/#0d0d0d/#222 shell + its list items */
+[gs-id="nyt-feed"] .grid-stack-item-content > div{background:var(--bg2) !important;border-color:var(--border) !important;}
+[gs-id="nyt-feed"] .grid-stack-item-content > div > div:first-child{background:var(--bg3) !important;border-bottom-color:var(--border) !important;}
+[gs-id="nyt-feed"] .grid-stack-item-content > div > div:first-child > div > span:last-child{color:var(--text) !important;}
+[gs-id="nyt-feed"] #nyt-feed-meta{color:var(--text-mute) !important;}
+[gs-id="nyt-feed"] #nyt-feed-list a{background:var(--bg2) !important;border-bottom:1px solid var(--border) !important;}
+[gs-id="nyt-feed"] #nyt-feed-list a > div:nth-child(2){color:var(--text) !important;}
+[gs-id="nyt-feed"] #nyt-feed-list a > div:nth-child(3){color:var(--text-mute) !important;}
+
+/* Globe feed panel */
+[gs-id="globe-feed"] .grid-stack-item-content > div{background:var(--bg2) !important;border-color:var(--border) !important;}
+[gs-id="globe-feed"] .grid-stack-item-content > div > div:first-child{background:#0d2b5e !important;}
+[gs-id="globe-feed"] #globe-feed-list a{background:var(--bg2) !important;border-bottom:1px solid var(--border) !important;}
+[gs-id="globe-feed"] #globe-feed-list a > div:nth-child(2){color:var(--text) !important;}
+[gs-id="globe-feed"] #globe-feed-list a > div:nth-child(3){color:var(--text-mute) !important;}
+
+/* Boston News vertical list: card bg + anchors */
+.card.bos-card{background:var(--bg2) !important;border-color:var(--border) !important;}
+.card.bos-card a{background:var(--bg2) !important;border-bottom:1px solid var(--border) !important;color:var(--text) !important;}
+.card.bos-card a:hover{background:var(--bg4) !important;}
+.card.bos-card a div[style*="color:#c8d8f0"]{color:var(--text) !important;}
+.card.bos-card a div[style*="color:#5a7a9a"]{color:var(--text-mute) !important;}
+.card.bos-card a span[style*="color:#f5c518"]{color:#a07a20 !important;}
+.card.bos-card a span[style*="color:#3a5a7a"]{color:var(--text-mute) !important;}
+/* The bottom pager bar for Boston News */
+[gs-id="boston-news"] .card > div:last-child{background:var(--bg3) !important;border-top:1px solid var(--border) !important;}
+[gs-id="boston-news"] #bos-prev,[gs-id="boston-news"] #bos-next{color:var(--text) !important;border-color:var(--border) !important;}
+[gs-id="boston-news"] #bos-page-label{color:var(--text-mute) !important;}
+
+/* Scores widget: override the scoresroot dark bg + all C.bg/C.bg2/C.bg3 hardcoded values */
+[gs-id="scores-widget"] .card{background:var(--bg2) !important;border-color:var(--border) !important;}
+[gs-id="scores-widget"] #scores-root{background:var(--bg2) !important;color:var(--text) !important;}
+[gs-id="scores-widget"] #scores-root [style*="background:#181818"],
+[gs-id="scores-widget"] #scores-root [style*="background:#222"]{background:var(--bg3) !important;}
+[gs-id="scores-widget"] #scores-root [style*="color:#e8e8e8"]{color:var(--text) !important;}
+[gs-id="scores-widget"] #scores-root [style*="color:#777"]{color:var(--text-mute) !important;}
+[gs-id="scores-widget"] #scores-root [style*="border-bottom:1px solid #2a2a2a"],
+[gs-id="scores-widget"] #scores-root [style*="border-top:1px solid #2a2a2a"],
+[gs-id="scores-widget"] #scores-root [style*="border:1px solid #2a2a2a"]{border-color:var(--border) !important;}
+[gs-id="scores-widget"] #scores-root button{color:var(--text) !important;}
+
+/* r/mbta dark card override — make headers show on light theme too */
+[gs-id="r-mbta-panel"] .card{background:var(--bg2) !important;border-color:var(--border2) !important;}
+[gs-id="r-mbta-panel"] .card > .ch{background:var(--bg3) !important;border-bottom-color:var(--border) !important;}
+[gs-id="r-mbta-panel"] .card > .ch .ct{color:var(--gold) !important;}
+[gs-id="r-mbta-panel"] .card > .ch .cb{color:var(--text-mute) !important;}
+
+/* Bluesky post rows — hover color on light theme */
+.bsky-post:hover{background:var(--bg3) !important;}
+.bsky-name{color:var(--text) !important;}
+.bsky-text{color:var(--text-dim) !important;}
+.bsky-handle,.bsky-time,.bsky-stat{color:var(--text-mute) !important;}
+
+/* Markets card: the finlogix widget iframe sits inside — leave it alone */
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 </head>
 <body>
 
@@ -855,7 +981,7 @@ function renderKTN(items) {
 
   <div class="grid-stack-item" gs-id="logan" gs-x="0" gs-y="98" gs-w="6" gs-h="13">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA + METAR</div></div>
+    <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA STATUS · ATC · DELAYS</div></div>
     <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
     <div style="border-top:1px solid var(--border);padding:8px 14px 4px;">
       <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">LOGAN AIRPORT NEWS</div>
@@ -1030,7 +1156,7 @@ function renderKTN(items) {
         var name    = author.displayName || author.handle || '?';
         var handle  = author.handle || '';
         var avatar  = author.avatar
-          ? '<img src="' + author.avatar + '" onerror="this.style.display='none'">'
+          ? '<img src="' + author.avatar + '" onerror="this.style.display=\'none\'">'
           : initials(name);
         var time    = relTime(record.createdAt || (p.post && p.post.indexedAt) || new Date().toISOString());
         var likes   = (p.post && p.post.likeCount)   || 0;
@@ -1348,46 +1474,6 @@ function renderKTN(items) {
 
 
 
-  <!-- REVERE TRANSIT MAP -->
-  <div class="grid-stack-item" gs-id="revere-map" gs-x="0" gs-y="56" gs-w="6" gs-h="16">
-  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
-    <div class="ch grn" style="cursor:grab;flex-shrink:0;">
-      <div class="ct">Revere · City Map</div>
-      <div class="cb">MBTA stops · projects · click to place pins</div>
-      <button id="gis-toggle" onclick="toggleGisLayer()" style="font-size:10px;padding:2px 8px;background:#0a1510;border:1px solid #2a5a3a;border-radius:3px;color:#5a9a7a;font-family:var(--cond);letter-spacing:1px;cursor:pointer;white-space:nowrap;flex-shrink:0;">⬡ WARDS OFF</button>
-      <button id="zone-toggle" onclick="toggleZoneLayer()" style="font-size:10px;padding:2px 8px;background:#0a1510;border:1px solid #2a3a5a;border-radius:3px;color:#5a7a9a;font-family:var(--cond);letter-spacing:1px;cursor:pointer;white-space:nowrap;flex-shrink:0;">◧ ZONING OFF</button>
-    </div>
-    <div class="cbody np" style="flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;">
-      <div id="rm-toolbar" style="background:#0a1510;border-bottom:1px solid #1c2e2a;padding:6px 8px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex-shrink:0;">
-        <input id="rm-lbl" placeholder="Label..." maxlength="30" style="width:110px;font-size:11px;padding:2px 6px;height:24px;background:#0d1614;border:1px solid #1c2e2a;color:#e0e0e0;border-radius:3px;"/>
-        <select id="rm-cat" style="font-size:11px;height:24px;background:#0d1614;border:1px solid #1c2e2a;color:#e0e0e0;border-radius:3px;"></select>
-        <input id="rm-note" placeholder="Note..." maxlength="100" style="width:120px;font-size:11px;padding:2px 6px;height:24px;background:#0d1614;border:1px solid #1c2e2a;color:#e0e0e0;border-radius:3px;"/>
-        <button id="rm-add" style="font-size:11px;padding:2px 8px;height:24px;background:#0d1614;border:1px solid #1c2e2a;color:#00ddb8;border-radius:3px;cursor:pointer;white-space:nowrap;">+ Add pin</button>
-        <span id="rm-hint" style="font-size:10px;color:#3a5a52;">Click map to place</span>
-      </div>
-      <div style="background:#080e0c;border-bottom:1px solid #1c2e2a;padding:4px 8px;display:flex;align-items:center;gap:5px;flex-shrink:0;">
-        <span style="font-size:10px;color:#3a5a52;flex-shrink:0;">🔍</span>
-        <input id="rm-addr-input" placeholder="Search address in Revere…" style="flex:1;font-size:11px;padding:2px 6px;height:22px;background:#0d1614;border:1px solid #1c2e2a;color:#e0e0e0;border-radius:3px;min-width:0;"/>
-        <button id="rm-addr-btn" style="font-size:10px;padding:1px 8px;height:22px;background:#0d1614;border:1px solid #1c2e2a;color:#6ab0ff;border-radius:3px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Go</button>
-        <span id="rm-addr-status" style="font-size:10px;color:#3a5a52;white-space:nowrap;"></span>
-      </div>
-      <div id="rm-cat-bar" style="background:#080e0c;border-bottom:1px solid #1c2e2a;padding:4px 8px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex-shrink:0;">
-        <span style="font-size:10px;color:#3a5a52;letter-spacing:1px;flex-shrink:0;">CATS:</span>
-        <div id="rm-cat-pills" style="display:flex;gap:4px;flex-wrap:wrap;flex:1;"></div>
-        <input id="rm-new-cat" placeholder="New cat..." maxlength="20" style="width:80px;font-size:10px;padding:2px 5px;height:20px;background:#0d1614;border:1px solid #1c2e2a;color:#e0e0e0;border-radius:3px;"/>
-        <input id="rm-new-color" type="color" value="#7c3aed" style="width:24px;height:20px;padding:1px;cursor:pointer;border:none;background:none;"/>
-        <button id="rm-add-cat" style="font-size:10px;padding:1px 6px;height:20px;background:#0d1614;border:1px solid #1c2e2a;color:#5a7a72;border-radius:3px;cursor:pointer;">+</button>
-      </div>
-      <div id="rm-map" style="flex:1;min-height:200px;"></div>
-      <div style="border-top:1px solid #1c2e2a;flex-shrink:0;">
-        <button id="rm-list-toggle" onclick="togglePinList()" style="width:100%;background:none;border:none;border-bottom:1px solid transparent;cursor:pointer;padding:5px 8px;display:flex;align-items:center;justify-content:space-between;">
-          <span id="rm-list-label" style="font-size:10px;color:#5a7a72;letter-spacing:1.5px;text-transform:uppercase;">Pins</span>
-          <span id="rm-list-chev" style="font-size:10px;color:#5a7a72;transition:transform .2s;">▶</span>
-        </button>
-        <div id="rm-list" style="display:none;max-height:120px;overflow-y:auto;border-top:1px solid #1c2e2a;"></div>
-      </div>
-    </div>
-  </div></div></div>
 
 
   <!-- MASSDOT ROAD EVENTS PANEL -->
@@ -1409,6 +1495,15 @@ function renderKTN(items) {
     <div class="ch acc"><div class="ct">🔥 TOP STORIES RIGHT NOW</div><div class="cb">RANKED BY LOCAL IMPACT · COVERAGE · RECENCY</div></div>
     <div class="cbody np" style="overflow-y:auto;">
       <div id="top-stories-widget"><div class="empty" style="padding:14px;">Loading top stories…</div></div>
+    </div>
+  </div></div></div>
+
+  <!-- COUNTDOWNS WIDGET -->
+  <div class="grid-stack-item" gs-id="countdowns" gs-x="0" gs-y="11" gs-w="6" gs-h="5">
+  <div class="grid-stack-item-content"><div class="card">
+    <div class="ch gld"><div class="ct">⏳ COUNTDOWNS</div><div class="cb">DAYS UNTIL</div></div>
+    <div class="cbody" id="countdowns-body" style="padding:8px 10px;">
+      <div class="empty">Loading…</div>
     </div>
   </div></div></div>
 
@@ -1686,6 +1781,44 @@ document.getElementById('daily-modal').addEventListener('click',e=>{
 });
 renderDailyReads();
 
+// ── COUNTDOWNS ──
+function renderCountdowns(){
+  const el=document.getElementById('countdowns-body');
+  if(!el)return;
+  const today=new Date();today.setHours(0,0,0,0);
+  const year=today.getFullYear();
+  const bases=[
+    {label:'Lake Placid Marathon',   emoji:'🏃', month:6,  day:14, color:'var(--green)'},
+    {label:'World Cup 2026 Kickoff', emoji:'⚽', month:6,  day:11, color:'var(--accent)'},
+    {label:'College Hockey Season',  emoji:'🏒', month:10, day:2,  color:'#6b0504'},
+    {label:'BC Football Opener',     emoji:'🏈', month:9,  day:5,  color:'#6b0504'},
+    {label:'Thanksgiving',           emoji:'🦃', month:11, day:26, color:'var(--orange)'},
+  ];
+  const items=bases.map(b=>{
+    let target=new Date(year,b.month-1,b.day);target.setHours(0,0,0,0);
+    if(target<today){target=new Date(year+1,b.month-1,b.day);target.setHours(0,0,0,0);}
+    const days=Math.round((target-today)/86400000);
+    const dateStr=target.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+    return{...b,days,dateStr};
+  }).sort((a,b)=>a.days-b.days);
+  el.innerHTML=items.map(it=>{
+    const big=it.days===0?'TODAY':it.days===1?'TOMORROW':it.days;
+    const suffix=typeof big==='number'?'<span style="font-size:10px;color:var(--text-mute);letter-spacing:1px;margin-left:3px;">DAYS</span>':'';
+    return `<div style="display:flex;align-items:center;gap:10px;padding:7px 4px;border-bottom:1px solid var(--border);">
+      <span style="font-size:20px;flex-shrink:0;">${it.emoji}</span>
+      <div style="flex:1;min-width:0;">
+        <div style="font-family:var(--cond);font-size:13px;font-weight:700;letter-spacing:1.5px;color:var(--text);text-transform:uppercase;line-height:1.1;">${it.label}</div>
+        <div style="font-size:10px;color:var(--text-mute);font-family:var(--mono);margin-top:2px;">${it.dateStr}</div>
+      </div>
+      <div style="flex-shrink:0;text-align:right;">
+        <span style="font-family:var(--cond);font-size:${typeof big==='number'?'22px':'16px'};font-weight:900;color:${it.color};line-height:1;">${big}</span>${suffix}
+      </div>
+    </div>`;
+  }).join('');
+}
+renderCountdowns();
+setInterval(renderCountdowns,60000);
+
 // ── MEDIA LINKS ──
 const MEDIA_KEY = 'monitor_media_links';
 const DEFAULT_MEDIA = [
@@ -1697,6 +1830,11 @@ const DEFAULT_MEDIA = [
   "📻 98.5 The Sports Hub | RADIO · SPORTS | https://www.audacy.com/985thesportshub",
   "📻 WEEI 93.7 FM | RADIO · SPORTS | https://www.audacy.com/weei",
   "📻 GBH 89.7 FM | RADIO · PUBLIC | https://www.wgbh.org/listen-live",
+  "🚨 Revere Police | SCANNER | https://www.broadcastify.com/listen/ctid/1522",
+  "🚒 Revere Fire | SCANNER | https://www.broadcastify.com/listen/ctid/1522",
+  "🚑 Revere EMS | SCANNER | https://www.broadcastify.com/listen/ctid/1522",
+  "🚨 Boston Police | SCANNER | https://www.broadcastify.com/listen/feed/27484",
+  "🚨 MA State Police | SCANNER | https://www.broadcastify.com/listen/feed/15589",
 ].join('\n');
 
 function getMediaLinks(){return localStorage.getItem(MEDIA_KEY)||DEFAULT_MEDIA;}
@@ -1753,6 +1891,9 @@ const DEFAULT_LINKS=[
   "📊 DHCD | https://www.mass.gov/dhcd",
   "🚇 MBTA | https://www.mbta.com",
   "✈ Logan | https://www.massport.com/logan-airport",
+  "⚾ Baseball RPI Live | https://www.warrennolan.com/baseball/2026/rpi-live",
+  "🥍 W. Lacrosse RPI | https://lacrossereference.com/stats/rpi-d1-women/",
+  "🏒 M. Hockey NPI | https://www.collegehockeynews.com/ratings/npi",
 ].join('\n');
 function getLinks(){return localStorage.getItem('monitor_links')||DEFAULT_LINKS;}
 function renderLinks(){
@@ -2082,14 +2223,55 @@ function renderRoadEvents(events){
   const el=document.getElementById('road-events-feed');
   if(!el)return;
   if(!events.length){el.innerHTML='<div class="empty">No active events</div>';return;}
+  // Revere center approx — flag anything within ~5mi
+  const REVERE_LAT=42.4084, REVERE_LNG=-71.0120;
+  function milesBetween(lat1,lng1,lat2,lng2){
+    if(lat1==null||lng1==null)return Infinity;
+    const toRad=d=>d*Math.PI/180;
+    const R=3958.8;
+    const dLat=toRad(lat2-lat1),dLng=toRad(lng2-lng1);
+    const a=Math.sin(dLat/2)**2+Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLng/2)**2;
+    return 2*R*Math.asin(Math.sqrt(a));
+  }
+  // Also treat these roadway names as "near Revere" even without coords
+  const NEAR_NAMES=/(revere|chelsea|east boston|winthrop|saugus|lynn|everett|malden|medford|\bu\.?s\.?\s*1\b|rte\s*1\b|route\s*1\b|rt\.?\s*1a\b|\bi-?\s*95\b|tobin\b|sumner\b|callahan\b|ted williams\b|\br1a?\b)/i;
+  const annotated=events.map(ev=>{
+    const d=milesBetween(REVERE_LAT,REVERE_LNG,ev.lat,ev.lng);
+    const textBlob=`${ev.road||''} ${ev.location||''} ${ev.title||''}`;
+    const near = d<=5 || (d===Infinity && NEAR_NAMES.test(textBlob));
+    return {...ev, _near:near, _dist:d};
+  });
+  // Sort: near-Revere first, then by start date descending
+  annotated.sort((a,b)=>{
+    if(a._near!==b._near)return a._near?-1:1;
+    return (b.start||'').localeCompare(a.start||'');
+  });
   el.innerHTML='';
-  events.forEach(ev=>{
+  let printedNearHeader=false, printedFarHeader=false;
+  annotated.forEach(ev=>{
     const c=eventColor(ev.type);
+    // Section headers
+    if(ev._near && !printedNearHeader){
+      const h=document.createElement('div');
+      h.style.cssText='font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);padding:8px 0 4px;border-bottom:1px solid var(--border);margin-top:2px;';
+      h.textContent='📍 Near Revere';
+      el.appendChild(h);
+      printedNearHeader=true;
+    } else if(!ev._near && !printedFarHeader){
+      const h=document.createElement('div');
+      h.style.cssText='font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-mute);padding:10px 0 4px;border-top:1px solid var(--border);margin-top:6px;';
+      h.textContent='Elsewhere in Massachusetts';
+      el.appendChild(h);
+      printedFarHeader=true;
+    }
     const a=document.createElement('a');
     a.className='ni';a.href='#';a.target='_self';
     a.addEventListener('click',e=>{e.preventDefault();});
+    if(ev._near){
+      a.style.cssText='border-left:3px solid var(--red);padding-left:10px;background:rgba(184,56,56,.05);margin-left:-14px;margin-right:-14px;padding-right:14px;';
+    }
     a.innerHTML=`
-      <div class="ni-src" style="color:${c};">${ev.subtype||ev.type}${ev.road?' · '+ev.road:''}</div>
+      <div class="ni-src" style="color:${c};">${ev._near?'<span style="color:var(--red);margin-right:5px;">●</span>':''}${ev.subtype||ev.type}${ev.road?' · '+ev.road:''}</div>
       <div class="ni-title">${ev.location||ev.title}</div>
       <div class="ni-date">${ev.start}${ev.end?' → '+ev.end:''}</div>
     `;
@@ -2097,33 +2279,6 @@ function renderRoadEvents(events){
   });
 }
 
-function plotRoadEvents(events){
-  if(!window.rmMap||!window.L)return;
-  // Remove old road event markers
-  window.rmMap.eachLayer(l=>{if(l._roadEvent)window.rmMap.removeLayer(l);});
-  events.forEach(ev=>{
-    if(!ev.lat||!ev.lng)return;
-    const c=eventColor(ev.type);
-    const icon=L.divIcon({
-      className:'',
-      html:`<div style="display:flex;flex-direction:column;align-items:center;">
-        <div style="background:${c};color:#fff;font-size:8px;font-weight:700;padding:2px 4px;border-radius:3px;white-space:nowrap;max-width:90px;overflow:hidden;text-overflow:ellipsis;border:1px solid rgba(255,255,255,0.3);">${(ev.subtype||ev.type).replace('Traffic (','').replace(')','')}</div>
-        <div style="width:8px;height:8px;border-radius:50%;background:${c};border:2px solid #fff;margin-top:2px;"></div>
-        <div style="width:2px;height:5px;background:${c};opacity:0.7;"></div>
-      </div>`,
-      iconSize:[90,30],iconAnchor:[45,30],popupAnchor:[0,-32],
-    });
-    const m=L.marker([ev.lat,ev.lng],{icon,zIndexOffset:900}).addTo(window.rmMap);
-    m._roadEvent=true;
-    m.bindPopup(`<div style="min-width:180px;">
-      <div style="font-size:12px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">${ev.road||'Unknown Road'} ${ev.direction||''}</div>
-      <div style="font-size:9px;color:${c};letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;">${ev.subtype||ev.type}</div>
-      <div style="font-size:11px;color:#a0b8b0;margin-bottom:4px;">${ev.location||''}</div>
-      ${ev.lanes?`<div style="font-size:10px;color:#5a7a72;margin-bottom:4px;">${ev.lanes}</div>`:''}
-      <div style="font-size:10px;color:#5a7a72;">${ev.start}${ev.end?' → '+ev.end:''}</div>
-    </div>`,{maxWidth:240});
-  });
-}
 
 // ── PRIORITIES + PLANNER ──
 ['p1','p2','p3','p4'].forEach(id=>{
@@ -2241,23 +2396,47 @@ function renderLogan(logan){
   if(!faaDelays.length){(logan.arriveDeparDelay||[]).forEach(d=>faaDelays.push({type:d.type,reason:d.reason,avg:d.avg}));(logan.groundDelay||[]).forEach(d=>faaDelays.push({type:'Ground Delay',reason:d.reason,avg:d.avg}));}
   const hasDelay=logan.delay||faaDelays.length>0;
   const cls=hasDelay?'delay':'ok';
-  let html=`<div class="l-ind ${cls}" style="margin-bottom:4px;"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${hasDelay?'DELAYS IN EFFECT':'NORMAL OPERATIONS'}</div></div>`;
-  if(faaDelays.length){faaDelays.forEach(d=>{html+=`<div class="l-det"><strong>${d.type||'Advisory'}</strong> — ${d.reason||''}${d.avg?' · '+d.avg:''}</div>`;});}
-  else{html+='<div class="l-det" style="color:var(--text-mute);margin-bottom:4px;">No FAA delays or advisories.</div>';}
-  const metar=typeof logan.metar==='object'&&logan.metar!==null?logan.metar:null;
-  if(metar){
-    const m=metar,catColors={'VFR':'var(--green)','MVFR':'var(--blue)','IFR':'var(--red)','LIFR':'var(--red)'},catColor=catColors[m.flight_cat]||'var(--text-dim)';
-    html+=`<div style="padding-top:6px;border-top:1px solid var(--border);">
-      <div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:4px;">CURRENT CONDITIONS</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;">
-      ${m.flight_cat?`<div class="l-det" style="margin:0;"><strong>CAT</strong> <span style="color:${catColor};font-weight:700;">${m.flight_cat}</span></div>`:''}
-      ${m.wind?`<div class="l-det" style="margin:0;"><strong>WIND</strong> ${m.wind}</div>`:''}
-      ${m.visibility?`<div class="l-det" style="margin:0;"><strong>VIS</strong> ${m.visibility}</div>`:''}
-      ${m.temp_c!=null?`<div class="l-det" style="margin:0;"><strong>TEMP</strong> ${m.temp_c}°C</div>`:''}
-      </div>
-    </div>`;
+
+  // Summary stats from FAA (if our fetch.py added them)
+  const stats=logan.flight_stats||{};
+  const cancelled=stats.cancelled!=null?stats.cancelled:null;
+  const delayed=stats.delayed!=null?stats.delayed:null;
+  const onTime=stats.on_time!=null?stats.on_time:null;
+
+  let html=`<div class="l-ind ${cls}" style="margin-bottom:6px;"><div class="l-dot ${cls}"></div><div class="l-st ${cls}">${hasDelay?'DELAYS IN EFFECT':'NORMAL OPERATIONS'}</div></div>`;
+
+  // FAA advisories
+  if(faaDelays.length){
+    faaDelays.forEach(d=>{html+=`<div class="l-det"><strong>${d.type||'Advisory'}</strong> — ${d.reason||''}${d.avg?' · '+d.avg:''}</div>`;});
+  } else {
+    html+='<div class="l-det" style="color:var(--text-mute);">No FAA delays or advisories.</div>';
   }
-  if(logan.taf){html+=`<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);"><div style="font-size:10px;color:var(--text-mute);letter-spacing:2px;margin-bottom:3px;">FORECAST (TAF)</div><div style="font-family:var(--mono);font-size:10px;color:var(--text-mute);word-break:break-all;line-height:1.5;padding:4px;background:var(--bg);border-radius:3px;max-height:60px;overflow-y:auto;">${logan.taf}</div></div>`;}
+
+  // Delays / cancellations snapshot (if available)
+  if(cancelled!=null||delayed!=null){
+    html+=`<div class="l-section"><div class="l-section-label">Today's Flights — Snapshot</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">`;
+    if(cancelled!=null){html+=`<div class="l-flight-status cancelled" style="text-align:center;padding:6px;"><div style="font-family:var(--cond);font-size:22px;font-weight:900;">${cancelled}</div><div style="font-size:10px;letter-spacing:1px;">CANCELLED</div></div>`;}
+    if(delayed!=null){html+=`<div class="l-flight-status delayed" style="text-align:center;padding:6px;"><div style="font-family:var(--cond);font-size:22px;font-weight:900;">${delayed}</div><div style="font-size:10px;letter-spacing:1px;">DELAYED</div></div>`;}
+    if(onTime!=null){html+=`<div class="l-flight-status on-time" style="text-align:center;padding:6px;"><div style="font-family:var(--cond);font-size:22px;font-weight:900;">${onTime}</div><div style="font-size:10px;letter-spacing:1px;">ON TIME</div></div>`;}
+    html+=`</div></div>`;
+  }
+
+  // Official tracker links (authoritative sources, always relevant)
+  html+=`<div class="l-section"><div class="l-section-label">Live Trackers</div><div class="l-link-row">
+    <a class="l-link" href="https://www.massport.com/logan-airport/flights/flight-information/" target="_blank" rel="noopener"><span class="l-link-ico">📋</span> Massport · Flights</a>
+    <a class="l-link" href="https://nasstatus.faa.gov/" target="_blank" rel="noopener"><span class="l-link-ico">⚠️</span> FAA NAS Status</a>
+    <a class="l-link" href="https://www.flightaware.com/live/airport/KBOS" target="_blank" rel="noopener"><span class="l-link-ico">🛫</span> FlightAware · BOS</a>
+    <a class="l-link" href="https://www.flightradar24.com/data/airports/bos" target="_blank" rel="noopener"><span class="l-link-ico">📡</span> FlightRadar24 · BOS</a>
+  </div></div>`;
+
+  // LiveATC links — BOS feeds
+  html+=`<div class="l-section"><div class="l-section-label">Live ATC · KBOS</div><div class="l-link-row">
+    <a class="l-link" href="https://www.liveatc.net/hlisten.php?mount=kbos_twr&icao=kbos" target="_blank" rel="noopener"><span class="l-link-ico">🎧</span> BOS Tower</a>
+    <a class="l-link" href="https://www.liveatc.net/hlisten.php?mount=kbos_gnd&icao=kbos" target="_blank" rel="noopener"><span class="l-link-ico">🎧</span> BOS Ground</a>
+    <a class="l-link" href="https://www.liveatc.net/hlisten.php?mount=kbos_app_127_2&icao=kbos" target="_blank" rel="noopener"><span class="l-link-ico">🎧</span> BOS Approach</a>
+    <a class="l-link" href="https://www.liveatc.net/search/?icao=kbos" target="_blank" rel="noopener"><span class="l-link-ico">🎧</span> All BOS Feeds</a>
+  </div></div>`;
+
   b.innerHTML=html;
 }
 
@@ -2728,7 +2907,7 @@ async function loadData(){
   safeRender(()=>renderMaTransitNews(d.news_ma_transit||[]),'mbta-news-panel');
   safeRender(()=>renderRoadEvents(d.road_events||[]),'road-events-feed');
   // Plot road event markers on the Revere map
-  if(window.rmMap && d.road_events) plotRoadEvents(d.road_events);
+  // Road event map plotting removed along with the Revere City Map widget.
   // Sports schedule — auto-updated by fetch.py, falls back to seed data
   if(d.personal_calendar) renderPersonalCalendar(d.personal_calendar, d.revere_calendar||[]);
   if(d.sports_schedule&&d.sports_schedule.length&&window.scRender){
@@ -2756,9 +2935,9 @@ const redditFeeds=[
 ];
 redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
 // ── GRIDSTACK ──────────────────────────────────────────────────────
-const GS_KEY = 'revere_monitor_gs_v5';
+const GS_KEY = 'revere_monitor_gs_v6';
 
-const DEFAULT_LAYOUT = {"weather-unified":{"x":0,"y":0,"w":6,"h":12},"personal-calendar":{"x":0,"y":12,"w":6,"h":9},"sports-schedule":{"x":0,"y":21,"w":6,"h":9},"scores-widget":{"x":0,"y":30,"w":6,"h":11},"mbta-alerts":{"x":0,"y":41,"w":6,"h":6},"mbta-arrivals":{"x":0,"y":47,"w":6,"h":9},"revere-map":{"x":0,"y":56,"w":6,"h":16},"road-events":{"x":0,"y":72,"w":6,"h":6},"markets":{"x":0,"y":78,"w":6,"h":10},"radio":{"x":0,"y":88,"w":6,"h":5},"nyt-link":{"x":0,"y":93,"w":6,"h":5},"logan":{"x":0,"y":98,"w":6,"h":13},"mbta-news":{"x":0,"y":111,"w":6,"h":9},"reveretv":{"x":0,"y":120,"w":6,"h":8},"bc-schedule":{"x":0,"y":128,"w":6,"h":10},"top-stories":{"x":6,"y":0,"w":6,"h":7},"globe-feed":{"x":6,"y":7,"w":6,"h":13},"nyt-feed":{"x":6,"y":20,"w":6,"h":14},"boston-news":{"x":6,"y":34,"w":6,"h":12},"news-revere":{"x":6,"y":46,"w":6,"h":14},"news-comm":{"x":6,"y":60,"w":6,"h":16},"national":{"x":6,"y":76,"w":6,"h":12},"uhub-rss":{"x":6,"y":88,"w":6,"h":12},"uhub-bsky":{"x":6,"y":100,"w":6,"h":12},"substack-feed":{"x":6,"y":112,"w":6,"h":12},"r-boston-panel":{"x":6,"y":124,"w":3,"h":9},"r-mass-panel":{"x":9,"y":124,"w":3,"h":9},"r-mbta-panel":{"x":6,"y":133,"w":3,"h":9},"r-neo-panel":{"x":9,"y":133,"w":3,"h":9},"r-urban-panel":{"x":6,"y":142,"w":3,"h":9},"r-bruins-panel":{"x":9,"y":142,"w":3,"h":9},"r-nascar-panel":{"x":6,"y":151,"w":6,"h":9},"news-sports":{"x":6,"y":160,"w":6,"h":9},"espn-feed":{"x":6,"y":169,"w":6,"h":9},"news-bc":{"x":6,"y":178,"w":6,"h":14},"college-hockey":{"x":6,"y":192,"w":6,"h":14},"chn-bc":{"x":6,"y":206,"w":3,"h":10},"chn-all":{"x":9,"y":206,"w":3,"h":12}};
+const DEFAULT_LAYOUT = {"weather-unified":{"x":0,"y":0,"w":6,"h":12},"personal-calendar":{"x":0,"y":12,"w":6,"h":9},"sports-schedule":{"x":0,"y":21,"w":6,"h":9},"countdowns":{"x":0,"y":30,"w":6,"h":5},"scores-widget":{"x":0,"y":35,"w":6,"h":11},"mbta-alerts":{"x":0,"y":46,"w":6,"h":6},"mbta-arrivals":{"x":0,"y":52,"w":6,"h":9},"road-events":{"x":0,"y":61,"w":6,"h":7},"logan":{"x":0,"y":68,"w":6,"h":14},"mbta-news":{"x":0,"y":82,"w":6,"h":9},"markets":{"x":0,"y":91,"w":6,"h":10},"radio":{"x":0,"y":101,"w":6,"h":7},"nyt-link":{"x":0,"y":108,"w":6,"h":6},"reveretv":{"x":0,"y":114,"w":6,"h":8},"bc-schedule":{"x":0,"y":122,"w":6,"h":10},"top-stories":{"x":6,"y":0,"w":6,"h":7},"globe-feed":{"x":6,"y":7,"w":6,"h":13},"nyt-feed":{"x":6,"y":20,"w":6,"h":14},"boston-news":{"x":6,"y":34,"w":6,"h":12},"news-revere":{"x":6,"y":46,"w":6,"h":14},"news-comm":{"x":6,"y":60,"w":6,"h":16},"national":{"x":6,"y":76,"w":6,"h":12},"uhub-rss":{"x":6,"y":88,"w":6,"h":12},"uhub-bsky":{"x":6,"y":100,"w":6,"h":12},"substack-feed":{"x":6,"y":112,"w":6,"h":12},"r-boston-panel":{"x":6,"y":124,"w":3,"h":9},"r-mass-panel":{"x":9,"y":124,"w":3,"h":9},"r-mbta-panel":{"x":6,"y":133,"w":3,"h":9},"r-neo-panel":{"x":9,"y":133,"w":3,"h":9},"r-urban-panel":{"x":6,"y":142,"w":3,"h":9},"r-bruins-panel":{"x":9,"y":142,"w":3,"h":9},"r-nascar-panel":{"x":6,"y":151,"w":6,"h":9},"news-sports":{"x":6,"y":160,"w":6,"h":9},"espn-feed":{"x":6,"y":169,"w":6,"h":9},"news-bc":{"x":6,"y":178,"w":6,"h":14},"college-hockey":{"x":6,"y":192,"w":6,"h":14},"chn-bc":{"x":6,"y":206,"w":3,"h":10},"chn-all":{"x":9,"y":206,"w":3,"h":12}};
 
 const grid = GridStack.init({
   float: true,
@@ -2832,7 +3011,105 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
   }
 });
 
+// ── COLLAPSE / EXPAND WIRING ─────────────────────────────
+(function(){
+  const CK = 'revere_monitor_collapsed_v1';
+  // Default-EXPANDED by user preference: weather, agenda, sports schedule,
+  // KTN ticker (not a grid item — stays visible always), top stories.
+  // Everything else — allow collapse, default to expanded on first visit.
+  const NEVER_COLLAPSE = new Set([
+    // Ticker handled separately — it's not in the grid. Header + links bar also skipped.
+  ]);
+
+  function getState(){
+    try{ return JSON.parse(localStorage.getItem(CK)||'{}'); }catch(e){ return {}; }
+  }
+  function saveState(st){
+    try{ localStorage.setItem(CK, JSON.stringify(st)); }catch(e){}
+  }
+
+  function applyState(){
+    const st = getState();
+    document.querySelectorAll('.grid-stack-item').forEach(item=>{
+      const gid = item.getAttribute('gs-id');
+      if(!gid) return;
+      if(st[gid]){
+        item.classList.add('gs-collapsed');
+        // Shrink grid row so the item doesn't hold a big empty footprint
+        if(window.grid){
+          // Save original h if not saved, then collapse to h:1
+          if(!item.dataset.origH){
+            item.dataset.origH = item.getAttribute('gs-h') || '4';
+          }
+          try{ window.grid.update(item, {h:2}); }catch(e){}
+        }
+      } else {
+        item.classList.remove('gs-collapsed');
+        if(window.grid && item.dataset.origH){
+          try{ window.grid.update(item, {h:parseInt(item.dataset.origH,10)||4}); }catch(e){}
+          delete item.dataset.origH;
+        }
+      }
+    });
+  }
+
+  function toggleItem(gid){
+    if(!gid || NEVER_COLLAPSE.has(gid)) return;
+    const st = getState();
+    st[gid] = !st[gid];
+    if(!st[gid]) delete st[gid];
+    saveState(st);
+    applyState();
+  }
+
+  function injectButton(ch){
+    if(ch.querySelector('.ch-collapse-btn')) return;
+    // Find or create a controls container on the right
+    let controls = ch.querySelector('.ch-controls');
+    if(!controls){
+      controls = document.createElement('div');
+      controls.className = 'ch-controls';
+      ch.appendChild(controls);
+    }
+    const btn = document.createElement('button');
+    btn.className = 'ch-collapse-btn';
+    btn.type = 'button';
+    btn.title = 'Collapse / expand';
+    btn.innerHTML = '▾';
+    btn.addEventListener('click', e=>{
+      e.stopPropagation();
+      e.preventDefault();
+      const item = ch.closest('.grid-stack-item');
+      if(!item) return;
+      toggleItem(item.getAttribute('gs-id'));
+    });
+    controls.appendChild(btn);
+  }
+
+  function wire(){
+    // Every grid item with a .ch header gets a collapse button
+    document.querySelectorAll('.grid-stack-item .ch, .grid-stack-item .mbta-hdr').forEach(ch=>{
+      const item = ch.closest('.grid-stack-item');
+      if(!item) return;
+      const gid = item.getAttribute('gs-id');
+      if(!gid) return;
+      injectButton(ch);
+    });
+    applyState();
+  }
+
+  // Expose for layout restore timing
+  window._collapseWire = wire;
+  window._collapseApply = applyState;
+
+  // Run now + again after GridStack init
+  wire();
+  setTimeout(wire, 300);
+  setTimeout(wire, 1000);
+})();
+
 setTimeout(()=>location.reload(),30*60*1000);
+
 
 // ═══════════════════════════════════════════════════════
 // SPORTS SCHEDULE WIDGET
@@ -3149,314 +3426,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script>
-(function(){
-const MBTA='https://api-v3.mbta.com';
-const SK='revere_pins_v1';
-const CK='revere_cats_v1';
-let pins=JSON.parse(localStorage.getItem(SK)||'[]');
-let cats=JSON.parse(localStorage.getItem(CK)||'null')||[
-  {name:'Housing',color:'#003DA5'},{name:'Planning',color:'#00843D'},
-  {name:'World Cup',color:'#c2410c'},{name:'Infra',color:'#7c3aed'},{name:'Watch',color:'#b45309'},
-];
-let placing=false,map;
-function savePins(){localStorage.setItem(SK,JSON.stringify(pins));}
-function saveCats(){localStorage.setItem(CK,JSON.stringify(cats));}
-function catByName(n){return cats.find(c=>c.name===n)||{name:n,color:'#888'};}
-function minsAway(iso){if(!iso)return null;return Math.round((new Date(iso)-Date.now())/60000);}
-function fmtMins(m){if(m===null)return'–';if(m<=0)return'BRD';return m+' min';}
-function timeColor(m){if(m===null)return'#5a7a72';if(m<=0)return'#ff8040';if(m<=3)return'#f5c518';return'#00ddb8';}
-async function fetchPreds(stopId){
-  try{
-    const r=await fetch(`${MBTA}/predictions?filter[stop]=${stopId}&sort=departure_time&include=trip,route&page[limit]=5`);
-    if(!r.ok)return[];
-    const d=await r.json();
-    const hs={},rn={};
-    (d.included||[]).forEach(i=>{if(i.type==='trip')hs[i.id]=i.attributes.headsign;if(i.type==='route')rn[i.id]=i.attributes.short_name||i.id;});
-    return(d.data||[]).map(p=>({arrival:p.attributes.arrival_time||p.attributes.departure_time,headsign:hs[p.relationships?.trip?.data?.id]||'–',route:rn[p.relationships?.route?.data?.id]||''})).filter(p=>p.arrival).slice(0,4);
-  }catch(e){return[];}
-}
-function stopPopupHTML(name,color,label,preds){
-  const rows=preds.length?preds.map(p=>{const m=minsAway(p.arrival);return`<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #1c2e2a;font-size:11px;"><span style="color:#c8d8d4;">${p.headsign}${p.route?` <span style="font-size:9px;background:#1c2e2a;padding:1px 3px;border-radius:2px;">${p.route}</span>`:''}</span><span style="font-weight:700;color:${timeColor(m)};margin-left:8px;">${fmtMins(m)}</span></div>`;}).join(''):`<div style="color:#5a7a72;font-size:11px;padding:4px 0;">No predictions</div>`;
-  return`<div style="min-width:180px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;">${name}</div><div style="font-size:9px;color:${color};letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">${label}</div>${rows}</div>`;
-}
-function pinIcon(color,label){
-  const short=label.length>16?label.slice(0,15)+'…':label;
-  return L.divIcon({className:'',html:`<div style="display:flex;flex-direction:column;align-items:center;"><div style="background:${color};color:#fff;font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;white-space:nowrap;border:1px solid rgba(255,255,255,0.3);">${short}</div><div style="width:10px;height:10px;border-radius:50%;background:${color};border:2px solid #fff;margin-top:2px;"></div><div style="width:2px;height:6px;background:${color};opacity:0.7;"></div></div>`,iconSize:[100,36],iconAnchor:[50,36],popupAnchor:[0,-38]});
-}
-function stopIcon(color,size){
-  return L.divIcon({className:'',html:`<div style="width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2px solid rgba(255,255,255,0.8);"></div>`,iconSize:[size,size],iconAnchor:[size/2,size/2],popupAnchor:[0,-8]});
-}
-function addPinMarker(p,idx){
-  const color=p.color||catByName(p.cat).color;
-  const m=L.marker([p.lat,p.lng],{icon:pinIcon(color,p.label),zIndexOffset:1000}).addTo(map);
-  m.bindPopup(`<div style="min-width:160px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;">${p.label}</div><div style="font-size:9px;color:${color};letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;">${p.cat}</div>${p.note?`<div style="font-size:11px;color:#a0b8b0;line-height:1.4;margin-bottom:6px;">${p.note}</div>`:''}<button onclick="rmDeletePin(${idx})" style="font-size:11px;cursor:pointer;background:#1c2e2a;border:1px solid #2a3e36;color:#e0e0e0;padding:3px 8px;border-radius:3px;">Delete</button></div>`,{maxWidth:240});
-  m._pinIdx=idx;
-}
-window.rmDeletePin=function(idx){
-  pins.splice(idx,1);savePins();
-  map.eachLayer(l=>{if(l._pinIdx!==undefined)map.removeLayer(l);});
-  pins.forEach((p,i)=>addPinMarker(p,i));
-  renderList();
-};
-function renderCatSelect(){
-  const sel=document.getElementById('rm-cat');if(!sel)return;
-  const cur=sel.value;sel.innerHTML='';
-  cats.forEach(c=>{const o=document.createElement('option');o.value=c.name;o.textContent=c.name;if(c.name===cur)o.selected=true;sel.appendChild(o);});
-}
-function renderCatPills(){
-  const el=document.getElementById('rm-cat-pills');if(!el)return;
-  el.innerHTML='';
-  cats.forEach((c,i)=>{
-    const pill=document.createElement('span');
-    pill.style.cssText=`display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:1px 6px;border-radius:20px;background:${c.color}22;border:1px solid ${c.color}55;color:${c.color};white-space:nowrap;`;
-    pill.innerHTML=`${c.name}<button onclick="rmRemoveCat(${i})" style="background:none;border:none;cursor:pointer;font-size:10px;color:inherit;padding:0;opacity:0.6;line-height:1;">x</button>`;
-    el.appendChild(pill);
-  });
-}
-window.togglePinList=function(){
-  const list=document.getElementById('rm-list');
-  const chev=document.getElementById('rm-list-chev');
-  const open=list.style.display==='block';
-  list.style.display=open?'none':'block';
-  chev.style.transform=open?'':'rotate(90deg)';
-};
-window.rmRemoveCat=function(i){cats.splice(i,1);saveCats();renderCatSelect();renderCatPills();};
-function renderList(){
-  const el=document.getElementById('rm-list');if(!el)return;
-  const lbl=document.getElementById('rm-list-label');if(lbl)lbl.textContent=pins.length?`Pins (${pins.length})`:'Pins';
-  if(!pins.length){el.innerHTML='<div style="padding:5px 8px;font-size:11px;color:#3a5a52;">No pins yet — add one above.</div>';return;}
-  el.innerHTML='';
-  pins.forEach((p,i)=>{
-    const color=p.color||catByName(p.cat).color;
-    const row=document.createElement('div');
-    row.style.cssText='display:flex;align-items:center;gap:6px;padding:4px 8px;border-bottom:1px solid #0a1510;font-size:11px;cursor:pointer;';
-    row.onmouseover=()=>row.style.background='#0a1510';row.onmouseout=()=>row.style.background='';
-    row.innerHTML=`<div style="width:7px;height:7px;border-radius:50%;background:${color};flex-shrink:0;"></div><span style="flex:1;color:#e0e0e0;font-weight:500;">${p.label}</span><span style="font-size:10px;color:#5a7a72;">${p.cat}</span><button onclick="event.stopPropagation();rmDeletePin(${i})" style="background:none;border:none;cursor:pointer;font-size:10px;color:#3a5a52;padding:0 2px;">x</button>`;
-    row.addEventListener('click',()=>map&&map.setView([p.lat,p.lng],15));
-    el.appendChild(row);
-  });
-}
-function addLeafletPopupStyles(){
-  const s=document.createElement('style');
-  s.textContent='.leaflet-popup-content-wrapper{background:#0d1614!important;border:1px solid #1c2e2a!important;border-radius:5px!important;color:#e0e0e0!important;box-shadow:none!important;}.leaflet-popup-tip{background:#0d1614!important;}.leaflet-popup-close-button{color:#5a7a72!important;}.leaflet-popup-content{margin:10px 12px!important;}';
-  document.head.appendChild(s);
-}
-function initRevereMap(){
-  const el=document.getElementById('rm-map');
-  if(!el||!window.L)return;
-  addLeafletPopupStyles();
-  map=L.map(el,{center:[42.4084,-71.0120],zoom:14});window.rmMap=map;
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
-  Promise.all([
-    fetch(`${MBTA}/stops?filter[route]=Blue`).then(r=>r.ok?r.json():null),
-    fetch(`${MBTA}/stops?filter[route]=110,116,117,119,120,411,424,441,442,448,449,450,455&page[limit]=300`).then(r=>r.ok?r.json():null),
-  ]).then(([blue,bus])=>{
-    function addStop(stop,color,label){
-      const lat=stop.attributes?.latitude,lng=stop.attributes?.longitude;if(!lat||!lng)return;
-      const name=stop.attributes.name;
-      const m=L.marker([lat,lng],{icon:stopIcon(color,label==='Blue Line'?13:9)}).addTo(map);
-      m.bindPopup(`<div style="color:#5a7a72;font-size:11px;">Click to load departures</div>`,{maxWidth:220});
-      m.on('click',async()=>{m.getPopup().setContent(`<div style="font-size:12px;color:#5a7a72;">Loading…</div>`);const preds=await fetchPreds(stop.id);m.getPopup().setContent(stopPopupHTML(name,color,label,preds));});
-    }
-    (blue?.data||[]).forEach(s=>addStop(s,'#003DA5','Blue Line'));
-    (bus?.data||[]).forEach(s=>addStop(s,'#FFC72C','Bus Stop'));
-  });
-  map.on('click',e=>{
-    if(!placing)return;
-    const label=document.getElementById('rm-lbl').value.trim();if(!label)return;
-    const catName=document.getElementById('rm-cat').value;
-    const color=catByName(catName).color;
-    const note=document.getElementById('rm-note').value.trim();
-    const pin={label,cat:catName,color,note,lat:e.latlng.lat,lng:e.latlng.lng};
-    pins.push(pin);savePins();addPinMarker(pin,pins.length-1);renderList();
-    placing=false;el.style.cursor='';
-    document.getElementById('rm-add').textContent='+ Add pin';
-    document.getElementById('rm-add').style.color='#00ddb8';
-    document.getElementById('rm-hint').textContent='Click map to place';
-    document.getElementById('rm-lbl').value='';document.getElementById('rm-note').value='';
-  });
-  pins.forEach((p,i)=>addPinMarker(p,i));
-  [300,700,1500].forEach(d=>setTimeout(()=>map.invalidateSize(),d));
-
-  // ── GIS LAYERS + ADDRESS SEARCH ────────────────────────────────
-  // All code here is at initRevereMap scope, NOT inside any event handler.
-  const GIS='https://gis.revere.org/arcgis/rest/services/RevereMA/MapServer';
-
-  // Fetch any Revere GIS layer as GeoJSON using Esri JSON + manual conversion.
-  // Using f=json (not geojson) because group child layers sometimes reject geojson.
-  // Using outFields=* to avoid field name mismatches.
-  // NOT using resultRecordCount — not universally supported.
-  async function fetchRevereLayer(layerId){
-    const url=`${GIS}/${layerId}/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json`;
-    const r=await fetch(url);
-    if(!r.ok)throw new Error(`HTTP ${r.status}`);
-    const d=await r.json();
-    if(d.error)throw new Error(d.error.message||`Layer ${layerId} query error`);
-    if(!d.features||!d.features.length)throw new Error('No features returned');
-    return{
-      type:'FeatureCollection',
-      features:d.features.map(f=>{
-        const geom=f.geometry;
-        if(!geom||!geom.rings)return null;
-        const geo=geom.rings.length===1
-          ?{type:'Polygon',coordinates:geom.rings}
-          :{type:'MultiPolygon',coordinates:geom.rings.map(r=>[r])};
-        return{type:'Feature',properties:f.attributes||{},geometry:geo};
-      }).filter(Boolean)
-    };
-  }
-
-  // WARDS layer — using layer 7 (Wards, standalone) rather than layer 6 (Precincts,
-  // sub-layer of Voting group) which was rejecting queries.
-  const WARD_COLORS=['#4a8fdd','#e07040','#50b870','#c060c0','#d0a030','#60b8b8','#d05070','#80a050'];
-  function wardFill(w){const n=parseInt(w)||0;return WARD_COLORS[(n-1)%WARD_COLORS.length]||'#6080c0';}
-  let gisLayer=null,gisOn=false,gisLoaded=false,gisLoading=false;
-
-  async function loadGisLayer(){
-    if(gisLoading)return;gisLoading=true;
-    const btn=document.getElementById('gis-toggle');
-    if(btn){btn.textContent='⬡ Loading…';btn.style.color='#f5c518';}
-    try{
-      const gj=await fetchRevereLayer(7); // Layer 7 = Wards
-      gisLayer=L.geoJSON(gj,{
-        style:f=>{const c=wardFill(f.properties?.ward||f.properties?.WARD||'1');return{color:c,weight:2,opacity:0.9,fillColor:c,fillOpacity:0.15};},
-        onEachFeature:(f,layer)=>{
-          const p=f.properties||{};
-          const w=p.ward||p.WARD||'';
-          const c=p.councilor||p.COUNCILOR||'';
-          layer.bindPopup(`<div style="min-width:130px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:3px;">Ward ${w}</div>${c?`<div style="font-size:10px;color:#5a9a7a;">Councilor: ${c}</div>`:''}</div>`,{maxWidth:200});
-          layer.on('mouseover',function(){this.setStyle({fillOpacity:0.4,weight:3});});
-          layer.on('mouseout',function(){gisLayer.resetStyle(this);});
-        }
-      });
-      gisLoaded=true;gisLoading=false;
-      if(gisOn){gisLayer.addTo(map);if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}}
-      else{if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}}
-    }catch(err){
-      gisLoading=false;
-      if(btn){btn.textContent='⬡ Err: '+err.message.slice(0,18);btn.style.color='var(--red)';}
-      console.warn('Wards layer error:',err);
-    }
-  }
-  window.toggleGisLayer=function(){
-    const btn=document.getElementById('gis-toggle');
-    if(!gisLoaded&&!gisLoading){gisOn=true;loadGisLayer();return;}
-    if(gisLoading)return;
-    gisOn=!gisOn;
-    if(gisOn){gisLayer&&gisLayer.addTo(map);if(btn){btn.textContent='⬡ WARDS ON';btn.style.color='#00ddb8';btn.style.borderColor='#00ddb8';}}
-    else{gisLayer&&map.removeLayer(gisLayer);if(btn){btn.textContent='⬡ WARDS OFF';btn.style.color='#5a9a7a';btn.style.borderColor='#2a5a3a';}}
-  };
-
-  // ZONING layer — layer 62, standalone, already confirmed working
-  function zoneColor(z){
-    z=(z||'').toUpperCase();
-    if(z.startsWith('R'))return'#4a9a4a';
-    if(z.startsWith('B'))return'#4a7add';
-    if(z.startsWith('I'))return'#c06030';
-    if(z.includes('TOD'))return'#e0c030';
-    if(z.includes('PDD'))return'#d04090';
-    if(z.includes('OS'))return'#30a870';
-    return'#888888';
-  }
-  let zoneLayer=null,zoneOn=false,zoneLoaded=false,zoneLoading=false;
-
-  async function loadZoneLayer(){
-    if(zoneLoading)return;zoneLoading=true;
-    const btn=document.getElementById('zone-toggle');
-    if(btn){btn.textContent='◧ Loading…';btn.style.color='#f5c518';}
-    try{
-      const gj=await fetchRevereLayer(62); // Layer 62 = Zoning
-      zoneLayer=L.geoJSON(gj,{
-        style:f=>{const c=zoneColor(f.properties?.zone_name||f.properties?.ZONE_NAME||'');return{color:c,weight:1,opacity:0.7,fillColor:c,fillOpacity:0.2};},
-        onEachFeature:(f,layer)=>{
-          const p=f.properties||{};
-          const name=p.zone_name||p.ZONE_NAME||p.orig_zone||p.ORIG_ZONE||'Unknown';
-          layer.bindPopup(`<div style="min-width:120px;"><div style="font-size:13px;font-weight:700;color:#e0e0e0;margin-bottom:2px;">${name}</div></div>`,{maxWidth:180});
-          layer.on('mouseover',function(){this.setStyle({fillOpacity:0.45,weight:2});});
-          layer.on('mouseout',function(){zoneLayer.resetStyle(this);});
-        }
-      });
-      zoneLoaded=true;zoneLoading=false;
-      if(zoneOn){zoneLayer.addTo(map);if(btn){btn.textContent='◧ ZONING ON';btn.style.color='#6ab0ff';btn.style.borderColor='#3a6aaa';}}
-      else{if(btn){btn.textContent='◧ ZONING OFF';btn.style.color='#5a7a9a';btn.style.borderColor='#2a3a5a';}}
-    }catch(err){
-      zoneLoading=false;
-      if(btn){btn.textContent='◧ Zone Err';btn.style.color='var(--red)';}
-      console.warn('Zone layer error:',err);
-    }
-  }
-  window.toggleZoneLayer=function(){
-    const btn=document.getElementById('zone-toggle');
-    if(!zoneLoaded&&!zoneLoading){zoneOn=true;loadZoneLayer();return;}
-    if(zoneLoading)return;
-    zoneOn=!zoneOn;
-    if(zoneOn){zoneLayer&&zoneLayer.addTo(map);if(btn){btn.textContent='◧ ZONING ON';btn.style.color='#6ab0ff';btn.style.borderColor='#3a6aaa';}}
-    else{zoneLayer&&map.removeLayer(zoneLayer);if(btn){btn.textContent='◧ ZONING OFF';btn.style.color='#5a7a9a';btn.style.borderColor='#2a3a5a';}}
-  };
-
-  // ADDRESS SEARCH via Nominatim (OSM, no API key, biased to Revere bounding box)
-  let addrMarker=null;
-  function doSearch(){
-    const input=document.getElementById('rm-addr-input');
-    const status=document.getElementById('rm-addr-status');
-    const btn=document.getElementById('rm-addr-btn');
-    const q=(input?.value||'').trim();if(!q)return;
-    btn.textContent='…';btn.disabled=true;if(status)status.textContent='';
-    const query=/revere|,\s*MA/i.test(q)?q:`${q}, Revere, MA`;
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&limit=3&q=${encodeURIComponent(query)}&countrycodes=us&viewbox=-71.12,42.38,-70.95,42.43&bounded=1`,{headers:{'Accept-Language':'en'}})
-      .then(r=>r.json())
-      .then(results=>{
-        const hit=results.find(r=>/revere/i.test(r.display_name))||results[0];
-        if(!hit){if(status){status.textContent='Not found';status.style.color='var(--red)';}return;}
-        const lat=parseFloat(hit.lat),lng=parseFloat(hit.lon);
-        if(addrMarker)map.removeLayer(addrMarker);
-        addrMarker=L.marker([lat,lng],{
-          icon:L.divIcon({className:'',html:`<div style="display:flex;flex-direction:column;align-items:center;"><div style="background:#6ab0ff;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;border:1px solid rgba(255,255,255,0.3);">${hit.display_name.split(',')[0]}</div><div style="width:2px;height:8px;background:#6ab0ff;"></div><div style="width:8px;height:8px;border-radius:50%;background:#6ab0ff;border:2px solid #fff;"></div></div>`,iconSize:[160,34],iconAnchor:[80,34],popupAnchor:[0,-36]}),
-          zIndexOffset:2000
-        }).addTo(map);
-        window._addrMarker=addrMarker;
-        addrMarker.bindPopup(`<div style="min-width:160px;"><div style="font-size:12px;font-weight:700;color:#6ab0ff;margin-bottom:3px;">${hit.display_name.split(',').slice(0,2).join(',')}</div><div style="font-size:10px;color:#5a7a72;">${lat.toFixed(5)}, ${lng.toFixed(5)}</div><button onclick="window.rmMap&&window.rmMap.removeLayer(window._addrMarker)" style="font-size:10px;cursor:pointer;background:#1c2e2a;border:1px solid #2a3e36;color:#e0e0e0;padding:2px 6px;border-radius:3px;margin-top:5px;">Clear</button></div>`,{maxWidth:220}).openPopup();
-        map.setView([lat,lng],17);
-      })
-      .catch(err=>{console.warn('Address search:',err);if(status){status.textContent='Error';status.style.color='var(--red)';} })
-      .finally(()=>{btn.textContent='Go';btn.disabled=false;});
-  }
-  window.searchAddress=doSearch;
-  document.getElementById('rm-addr-btn')?.addEventListener('click',doSearch);
-  document.getElementById('rm-addr-input')?.addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
-  // ── END GIS / SEARCH ───────────────────────────────────────────
-  // Seed example pins if empty
-  if(!pins.length){
-    pins=[
-      {label:'Wonderland TOD',cat:'Planning',color:'#00843D',note:'RC2/TOD overlay · PDD2 zoning analysis',lat:42.4134,lng:-71.0214},
-      {label:'Beachmont Square',cat:'World Cup',color:'#c2410c',note:'FIFA 2026 public viewing — The Yard',lat:42.4067,lng:-71.0159},
-      {label:'Revere Beach',cat:'World Cup',color:'#c2410c',note:'Beach activation corridor FIFA 2026',lat:42.4084,lng:-70.9936},
-      {label:'RHBP Focus Area',cat:'Housing',color:'#003DA5',note:'Homeownership buydown program',lat:42.4050,lng:-71.0100},
-    ];
-    savePins();pins.forEach((p,i)=>addPinMarker(p,i));renderList();
-  }
-}
-// Wire up controls
-document.addEventListener('DOMContentLoaded',()=>{
-  renderCatSelect();renderCatPills();renderList();
-  document.getElementById('rm-add').addEventListener('click',()=>{
-    const label=document.getElementById('rm-lbl').value.trim();if(!label){document.getElementById('rm-lbl').focus();return;}
-    placing=true;document.getElementById('rm-map').style.cursor='crosshair';
-    document.getElementById('rm-add').textContent='Click map...';
-    document.getElementById('rm-add').style.color='#ff8040';
-    document.getElementById('rm-hint').textContent='Click the map to drop the pin';
-  });
-  document.getElementById('rm-add-cat').addEventListener('click',()=>{
-    const name=document.getElementById('rm-new-cat').value.trim();if(!name)return;
-    const color=document.getElementById('rm-new-color').value;
-    cats.push({name,color});saveCats();document.getElementById('rm-new-cat').value='';
-    renderCatSelect();renderCatPills();
-  });
-  setTimeout(initRevereMap,400);
-});
-})();
 
 // ═══════════════════════════════════════════════════════
 // NHL / MLB SCORES WIDGET
