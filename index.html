@@ -565,17 +565,9 @@ a.big-btn:hover{opacity:.85;}
 [gs-id="boston-news"] #bos-prev,[gs-id="boston-news"] #bos-next{color:var(--text) !important;border-color:var(--border) !important;}
 [gs-id="boston-news"] #bos-page-label{color:var(--text-mute) !important;}
 
-/* Scores widget: override the scoresroot dark bg + all C.bg/C.bg2/C.bg3 hardcoded values */
-[gs-id="scores-widget"] .card{background:var(--bg2) !important;border-color:var(--border) !important;}
-[gs-id="scores-widget"] #scores-root{background:var(--bg2) !important;color:var(--text) !important;}
-[gs-id="scores-widget"] #scores-root [style*="background:#181818"],
-[gs-id="scores-widget"] #scores-root [style*="background:#222"]{background:var(--bg3) !important;}
-[gs-id="scores-widget"] #scores-root [style*="color:#e8e8e8"]{color:var(--text) !important;}
-[gs-id="scores-widget"] #scores-root [style*="color:#777"]{color:var(--text-mute) !important;}
-[gs-id="scores-widget"] #scores-root [style*="border-bottom:1px solid #2a2a2a"],
-[gs-id="scores-widget"] #scores-root [style*="border-top:1px solid #2a2a2a"],
-[gs-id="scores-widget"] #scores-root [style*="border:1px solid #2a2a2a"]{border-color:var(--border) !important;}
-[gs-id="scores-widget"] #scores-root button{color:var(--text) !important;}
+/* Scores widget: now uses light-theme palette directly, no override needed.
+   The synthetic .ch header (injected by the collapse wiring) uses the default
+   .ch acc styling automatically. */
 
 /* r/mbta dark card override — make headers show on light theme too */
 [gs-id="r-mbta-panel"] .card{background:var(--bg2) !important;border-color:var(--border2) !important;}
@@ -1388,7 +1380,7 @@ function renderKTN(items) {
 
   <!-- SCORES WIDGET -->
   <div class="grid-stack-item" gs-id="scores-widget" gs-x="0" gs-y="30" gs-w="6" gs-h="11">
-  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;background:#111;border-color:#2a2a2a;">
+  <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <div id="scores-root" style="display:flex;flex-direction:column;height:100%;min-height:0;"></div>
   </div></div></div>
 
@@ -2948,6 +2940,7 @@ const grid = GridStack.init({
   animate: false,
   margin: 4,
 });
+window.grid = grid;
 
 // Save: read actual attributes GridStack sets on each element
 function saveLayout() {
@@ -3007,54 +3000,73 @@ document.getElementById('export-layout-btn').addEventListener('click', () => {
 document.getElementById('reset-layout-btn').addEventListener('click', () => {
   if (confirm('Reset all panels to default layout?')) {
     localStorage.removeItem(GS_KEY);
+    localStorage.removeItem('revere_monitor_collapsed_v2');
     location.reload();
   }
 });
 
 // ── COLLAPSE / EXPAND WIRING ─────────────────────────────
 (function(){
-  const CK = 'revere_monitor_collapsed_v1';
-  // Default-EXPANDED by user preference: weather, agenda, sports schedule,
-  // KTN ticker (not a grid item — stays visible always), top stories.
-  // Everything else — allow collapse, default to expanded on first visit.
-  const NEVER_COLLAPSE = new Set([
-    // Ticker handled separately — it's not in the grid. Header + links bar also skipped.
+  const CK = 'revere_monitor_collapsed_v2';
+
+  // Default-EXPANDED widgets on first visit. Everything else starts collapsed.
+  // (KTN breaking-news ticker is not a grid item and always stays visible.)
+  const DEFAULT_EXPANDED = new Set([
+    'weather-unified',
+    'personal-calendar',
+    'sports-schedule',
+    'top-stories',
   ]);
 
+  // Widget heights when collapsed (just tall enough to show the header)
+  const COLLAPSED_H = 2;
+
   function getState(){
-    try{ return JSON.parse(localStorage.getItem(CK)||'{}'); }catch(e){ return {}; }
+    try{
+      const raw = localStorage.getItem(CK);
+      if(raw) return JSON.parse(raw);
+    }catch(e){}
+    // First-visit default: everything collapsed EXCEPT the set above
+    const st = {};
+    document.querySelectorAll('.grid-stack-item').forEach(item=>{
+      const gid = item.getAttribute('gs-id');
+      if(gid && !DEFAULT_EXPANDED.has(gid)) st[gid] = true;
+    });
+    try{ localStorage.setItem(CK, JSON.stringify(st)); }catch(e){}
+    return st;
   }
   function saveState(st){
     try{ localStorage.setItem(CK, JSON.stringify(st)); }catch(e){}
   }
 
   function applyState(){
+    if(!window.grid) return;
     const st = getState();
+    window.grid.batchUpdate(true);
     document.querySelectorAll('.grid-stack-item').forEach(item=>{
       const gid = item.getAttribute('gs-id');
       if(!gid) return;
-      if(st[gid]){
+      const shouldCollapse = !!st[gid];
+      const isCollapsed = item.classList.contains('gs-collapsed');
+      if(shouldCollapse && !isCollapsed){
+        // Remember original height, shrink row
+        if(!item.dataset.origH){
+          item.dataset.origH = item.getAttribute('gs-h') || '4';
+        }
         item.classList.add('gs-collapsed');
-        // Shrink grid row so the item doesn't hold a big empty footprint
-        if(window.grid){
-          // Save original h if not saved, then collapse to h:1
-          if(!item.dataset.origH){
-            item.dataset.origH = item.getAttribute('gs-h') || '4';
-          }
-          try{ window.grid.update(item, {h:2}); }catch(e){}
-        }
-      } else {
+        try{ window.grid.update(item, {h:COLLAPSED_H, noResize:true}); }catch(e){}
+      } else if(!shouldCollapse && isCollapsed){
         item.classList.remove('gs-collapsed');
-        if(window.grid && item.dataset.origH){
-          try{ window.grid.update(item, {h:parseInt(item.dataset.origH,10)||4}); }catch(e){}
-          delete item.dataset.origH;
-        }
+        const h = parseInt(item.dataset.origH||'4',10)||4;
+        try{ window.grid.update(item, {h:h, noResize:false}); }catch(e){}
+        delete item.dataset.origH;
       }
     });
+    window.grid.batchUpdate(false);
   }
 
   function toggleItem(gid){
-    if(!gid || NEVER_COLLAPSE.has(gid)) return;
+    if(!gid) return;
     const st = getState();
     st[gid] = !st[gid];
     if(!st[gid]) delete st[gid];
@@ -3064,7 +3076,6 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
 
   function injectButton(ch){
     if(ch.querySelector('.ch-collapse-btn')) return;
-    // Find or create a controls container on the right
     let controls = ch.querySelector('.ch-controls');
     if(!controls){
       controls = document.createElement('div');
@@ -3087,7 +3098,19 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
   }
 
   function wire(){
-    // Every grid item with a .ch header gets a collapse button
+    // Scores widget has no .ch — give it one synthetic header for collapse control.
+    const scoresItem = document.querySelector('[gs-id="scores-widget"]');
+    if(scoresItem && !scoresItem.querySelector('.ch-synthetic')){
+      const card = scoresItem.querySelector('.card');
+      if(card){
+        const synth = document.createElement('div');
+        synth.className = 'ch ch-synthetic acc';
+        synth.style.cssText = 'flex-shrink:0;';
+        synth.innerHTML = '<div class="ct">SCORES</div><div class="cb">NHL · MLB</div>';
+        card.insertBefore(synth, card.firstChild);
+      }
+    }
+
     document.querySelectorAll('.grid-stack-item .ch, .grid-stack-item .mbta-hdr').forEach(ch=>{
       const item = ch.closest('.grid-stack-item');
       if(!item) return;
@@ -3435,9 +3458,17 @@ document.addEventListener('DOMContentLoaded',()=>{
   if (!ROOT) return;
 
   const C = {
-    bg:'#111', bg2:'#181818', bg3:'#222', border:'#2a2a2a',
-    text:'#e8e8e8', dim:'#777', gold:'#f0c060', green:'#58d888',
-    red:'#f06060', blue:'#6ab0ff', accent:'#f5c518',
+    bg:'#f4f1ea',      /* cream — matches --bg2 */
+    bg2:'#dcd7cc',     /* toolbar bg — matches --bg3 */
+    bg3:'#cec8bb',     /* active element — matches --bg4 */
+    border:'#b8b2a4',  /* matches --border */
+    text:'#1f1c16',    /* near-black ink */
+    dim:'#706954',     /* readable muted gray */
+    gold:'#a07a20',    /* matches --gold */
+    green:'#2d7a4a',   /* matches --green */
+    red:'#b83838',     /* matches --red */
+    blue:'#1d4a80',    /* matches --accent */
+    accent:'#a07a20',  /* gold accent for active tabs */
   };
 
   let league = 'nhl', dayOff = 0, view = 'scores', cache = {};
