@@ -113,7 +113,8 @@ def fetch_logan():
     result = {
         "name": "Boston Logan (KBOS)",
         "delay": False, "status": "ok",
-        "metar": None, "taf": None, "faa_delays": [],
+        "metar": None, "faa_delays": [],
+        "flight_stats": {},
     }
     try:
         r = requests.get(
@@ -130,6 +131,8 @@ def fetch_logan():
                 result["faa_delays"].append({"type": "Ground Stop", "reason": x.get("Reason", ""), "avg": x.get("EndTime", "")})
     except Exception as e:
         print(f"    FAA API skipped: {e}")
+    # METAR and TAF are no longer used by the UI, but we keep METAR fetch
+    # for backward compatibility in data.json (small cost).
     try:
         r2 = requests.get(
             "https://aviationweather.gov/api/data/metar?ids=KBOS&format=json&hours=1",
@@ -138,32 +141,46 @@ def fetch_logan():
             md = r2.json()
             if md:
                 m = md[0]
-                wdir = m.get("wdir", "")
-                wspd = m.get("wspd", "")
-                wgst = m.get("wgst", "")
-                wind_str = f"{wdir}° @ {wspd} kts"
-                if wgst:
-                    wind_str += f" gusting {wgst} kts"
                 result["metar"] = {
-                    "raw": m.get("rawOb", ""), "wind": wind_str,
-                    "visibility": f"{m.get('visib', '')} SM",
-                    "sky": m.get("skyCondition", ""),
-                    "temp_c": m.get("temp", ""), "dewpoint": m.get("dewp", ""),
-                    "altimeter": m.get("altim", ""), "wx": m.get("wxString", ""),
-                    "obs_time": m.get("obsTime", ""), "flight_cat": m.get("flightCategory", ""),
+                    "raw": m.get("rawOb", ""),
+                    "flight_cat": m.get("flightCategory", ""),
                 }
     except Exception as e:
         print(f"    METAR fetch failed: {e}")
+    # Flight cancellations / delays snapshot via FlightAware scrape.
+    # Free, public page — best-effort. Counts displayed on their airport overview.
     try:
         r3 = requests.get(
-            "https://aviationweather.gov/api/data/taf?ids=KBOS&format=json",
-            timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
+            "https://www.flightaware.com/live/airport/KBOS/delays",
+            timeout=12,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; RevereMonitor/6.0)"},
+        )
         if r3.status_code == 200:
-            td = r3.json()
-            if td:
-                result["taf"] = td[0].get("rawTAF", "")
+            txt = r3.text
+            # Very defensive scraping — look for "Cancelled Flights" and the nearest integer after it
+            # and similarly for "Delayed Flights" / "On Time"
+            def grab(label):
+                m = re.search(rf'{label}[^<]*?</[^>]+>\s*<[^>]+>\s*([0-9,]+)', txt, flags=re.I)
+                if not m:
+                    m = re.search(rf'{label}[^0-9]{{0,60}}([0-9,]+)', txt, flags=re.I)
+                if m:
+                    try:
+                        return int(m.group(1).replace(',',''))
+                    except Exception:
+                        return None
+                return None
+            cancelled = grab(r'cancell?ed')
+            delayed = grab(r'delayed')
+            if cancelled is not None:
+                result["flight_stats"]["cancelled"] = cancelled
+            if delayed is not None:
+                result["flight_stats"]["delayed"] = delayed
+            if cancelled is not None or delayed is not None:
+                print(f"    ✓ FlightAware scrape: cancelled={cancelled} delayed={delayed}")
+            else:
+                print(f"    ⚠ FlightAware scrape: no numeric values matched")
     except Exception as e:
-        print(f"    TAF fetch failed: {e}")
+        print(f"    FlightAware scrape failed: {e}")
     return result
 
 # ── MBTA ALL LINES ────────────────────────────────────
