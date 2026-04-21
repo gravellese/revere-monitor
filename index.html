@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>REVERE MONITOR</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/10.3.1/gridstack.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/10.3.1/gridstack-all.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -139,68 +137,47 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 .arb-red{background:#DA291C;color:#fff;} .arb-cr{background:#80276C;color:#fff;}
 .arb-bus{background:#FFC72C;color:#000;} .arb-other{background:#444;color:#ccc;}
 
-/* ── GRIDSTACK ── */
-.grid-stack{max-width:1900px;margin:0 auto;padding:10px 14px;background:transparent !important;}
-.grid-stack-item-content{overflow:hidden;border-radius:5px;background:transparent;}
-/* Drag handle strip — thin bar at top of every grid item */
-.gs-handle {
-  background: var(--bg3);
-  border-bottom: 1px solid var(--border);
-  padding: 3px 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: grab;
-  user-select: none;
-  font-size: 10px;
-  color: var(--text-mute);
-  letter-spacing: 1px;
-  flex-shrink: 0;
-  border-radius: 5px 5px 0 0;
-}
-.gs-handle:active { cursor: grabbing; }
-.gs-handle-dots { font-size: 14px; color: var(--border2); letter-spacing: -2px; }
-/* Cards inside grid items — no double top border */
-.grid-stack-item-content > .gs-handle + .card { border-top: none; border-radius: 0 0 5px 5px; }
-.grid-stack-item-content > .gs-handle + .g2,
-.grid-stack-item-content > .gs-handle + .g3,
-.grid-stack-item-content > .gs-handle + .g4,
-.grid-stack-item-content > .gs-handle + .uhub-col { height: calc(100% - 24px); }
-/* Single-card items — .ch IS the handle, hide extra strip */
-.grid-stack-item-content > .card > .ch { cursor: grab; }
-.grid-stack-item-content > .card > .ch:active { cursor: grabbing; }
-/* Resize handle */
-.grid-stack-item>.ui-resizable-se{background:#1e4a80;width:14px;height:14px;right:2px;bottom:2px;border-radius:2px;opacity:.4;transition:opacity .2s;}
-.grid-stack-item:hover>.ui-resizable-se{opacity:1;}
-/* Cards fill cell height and scroll when content overflows */
-.grid-stack-item-content>.card,
-.grid-stack-item-content>.g2,
-.grid-stack-item-content>.g3,
-.grid-stack-item-content>.g4,
-.grid-stack-item-content>div.uhub-col {
-  height:100%;
-  overflow:hidden;
-}
-.grid-stack-item-content .card {
-  display:flex;
-  flex-direction:column;
-  height:100%;
-  overflow:hidden;
-}
-/* g2/g3/g4 inside items - children also need height */
-.grid-stack-item-content .g2>.card,
-.grid-stack-item-content .g3>.card,
-.grid-stack-item-content .g4>.card { height:100%; }
-/* cbody fills remaining space and scrolls */
+/* ── GRID LAYOUT (CSS columns, no GridStack) ── */
+.grid-stack{max-width:1900px;margin:0 auto;padding:10px 14px;background:transparent;column-count:2;column-gap:14px;}
+/* Each widget: avoid splitting across column break, small bottom gap */
+.grid-stack-item{display:block;break-inside:avoid;page-break-inside:avoid;margin-bottom:14px;}
+.grid-stack-item-content{border-radius:5px;background:transparent;overflow:hidden;}
+/* Reddit panels that used to be w:3 (half-width) — still respected by not adding overrides */
+/* Cards fill naturally based on content */
+.grid-stack-item-content .card{display:flex;flex-direction:column;overflow:hidden;}
+/* Default max-heights so news lists don't run to 5000px. Users can still override. */
 .grid-stack-item-content .cbody,
 .grid-stack-item-content .cbody.npx,
-.grid-stack-item-content .cbody.np { flex:1; overflow-y:auto; min-height:0; }
-/* Remove fixed max-heights — cell height controls visible area */
-.grid-stack-item-content .h-news,
-.grid-stack-item-content .h-reddit,
-.grid-stack-item-content .h-nat { max-height:none !important; height:100%; }
-/* Reset/save buttons */
+.grid-stack-item-content .cbody.np{overflow-y:auto;}
+.grid-stack-item-content .h-news{max-height:480px;}
+.grid-stack-item-content .h-reddit{max-height:420px;}
+.grid-stack-item-content .h-nat{max-height:520px;}
+/* Specific widget heights — some need explicit sizing since they have no scroll inside */
+[gs-id="weather-unified"] .card{height:640px;}
+[gs-id="personal-calendar"] .card{height:520px;}
+[gs-id="sports-schedule"] .card{height:560px;}
+[gs-id="countdowns"] .card{max-height:340px;}
+[gs-id="scores-widget"] .card{height:560px;}
+[gs-id="top-stories"] .card{height:440px;}
+[gs-id="globe-feed"] > .grid-stack-item-content > div,
+[gs-id="nyt-feed"] > .grid-stack-item-content > div{height:560px;}
+[gs-id="boston-news"] .card{height:540px;}
+[gs-id="logan"] .card{max-height:700px;}
+[gs-id="markets"] .card{max-height:480px;}
+[gs-id="reveretv"] .card{max-height:420px;}
+[gs-id="bc-schedule"] .card{height:520px;}
+[gs-id="road-events"] .card{max-height:380px;}
+[gs-id="radio"] .card,[gs-id="nyt-link"] .card{max-height:none;}
+[gs-id="mbta-arrivals"] .mbta-wrap,
+[gs-id="mbta-alerts"] .mbta-wrap,
+[gs-id="mbta-news"] .mbta-wrap{max-height:480px;}
+[gs-id="reddit-feeds"] .card{height:480px;}
+/* Reset buttons */
 #gs-buttons{display:flex;gap:6px;}
+/* Mobile — single column */
+@media (max-width:900px){
+  .grid-stack{column-count:1;}
+}
 /* Hidden placeholder — keeps old CSS ref valid */
 #page,#col-left,#col-right{display:contents;}
 
@@ -570,11 +547,7 @@ a.big-btn:hover{opacity:.85;}
    The synthetic .ch header (injected by the collapse wiring) uses the default
    .ch acc styling automatically. */
 
-/* r/mbta dark card override — make headers show on light theme too */
-[gs-id="r-mbta-panel"] .card{background:var(--bg2) !important;border-color:var(--border2) !important;}
-[gs-id="r-mbta-panel"] .card > .ch{background:var(--bg3) !important;border-bottom-color:var(--border) !important;}
-[gs-id="r-mbta-panel"] .card > .ch .ct{color:var(--gold) !important;}
-[gs-id="r-mbta-panel"] .card > .ch .cb{color:var(--text-mute) !important;}
+/* r-mbta-panel is now merged into the reddit-feeds tabbed widget — no overrides needed */
 
 /* Bluesky post rows — hover color on light theme */
 .bsky-post:hover{background:var(--bg3) !important;}
@@ -641,9 +614,11 @@ a.big-btn:hover{opacity:.85;}
 <div id="links-bar-wrap">
   <div id="links-bar"></div>
   <div id="gs-buttons">
-    <button class="hdr-btn" id="export-layout-btn" title="Copy current layout to clipboard">⬆ EXPORT LAYOUT</button>
-    <button class="hdr-btn" id="reset-layout-btn" title="Reset layout to default">↺ RESET</button>
-    <button class="hdr-btn" id="edit-links-btn">✏ EDIT LINKS</button>
+    <button class="hdr-btn" id="collapse-all-btn" title="Collapse all widgets">▾ ALL</button>
+    <button class="hdr-btn" id="expand-all-btn" title="Expand all widgets">▸ ALL</button>
+    <button class="hdr-btn" id="edit-order-btn" title="Reorder widgets">⇅ ORDER</button>
+    <button class="hdr-btn" id="reset-layout-btn" title="Reset layout, order, and collapse state">↺ RESET</button>
+    <button class="hdr-btn" id="edit-links-btn">✏ LINKS</button>
   </div>
 </div>
 
@@ -890,7 +865,7 @@ function renderKTN(items) {
 
 
   <!-- PERSONAL CALENDAR AGENDA -->
-  <div class="grid-stack-item" gs-id="personal-calendar" gs-x="0" gs-y="12" gs-w="6" gs-h="9">
+  <div class="grid-stack-item" gs-id="personal-calendar">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <div class="ch acc" style="flex-shrink:0;">
       <div class="ct">AGENDA</div>
@@ -901,7 +876,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-    <div class="grid-stack-item" gs-id="weather-unified" gs-x="0" gs-y="0" gs-w="6" gs-h="12">
+    <div class="grid-stack-item" gs-id="weather-unified">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <!-- WEATHER HEADER -->
     <div class="ch acc" style="flex-shrink:0;">
@@ -949,7 +924,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="markets" gs-x="0" gs-y="78" gs-w="6" gs-h="10">
+  <div class="grid-stack-item" gs-id="markets">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch acc"><div class="ct">MARKETS</div><div class="cb">LIVE PRICES</div></div>
     <div class="cbody np">
@@ -959,7 +934,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="radio" gs-x="0" gs-y="88" gs-w="6" gs-h="5">
+  <div class="grid-stack-item" gs-id="radio">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch acc" style="justify-content:space-between;padding:5px 10px;">
       <div class="ct" style="font-size:12px;letter-spacing:2px;">LIVE TV &amp; RADIO</div>
@@ -972,7 +947,7 @@ function renderKTN(items) {
 
 
 
-  <div class="grid-stack-item" gs-id="logan" gs-x="0" gs-y="98" gs-w="6" gs-h="13">
+  <div class="grid-stack-item" gs-id="logan">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch ora"><div class="ct">LOGAN · BOS</div><div class="cb">FAA STATUS · ATC · DELAYS</div></div>
     <div class="cbody"><div id="logan-body"><div class="empty">Loading…</div></div></div>
@@ -989,7 +964,7 @@ function renderKTN(items) {
 
   <!-- NYT + GLOBE FEED (GridStack) -->
   <!-- NYT FEED -->
-  <div class="grid-stack-item" gs-id="nyt-feed" gs-x="6" gs-y="20" gs-w="6" gs-h="14">
+  <div class="grid-stack-item" gs-id="nyt-feed">
   <div class="grid-stack-item-content" style="overflow:hidden;">
   <div style="height:100%;display:flex;flex-direction:column;background:#111;border:1px solid #222;border-radius:5px;">
     <div style="background:#0d0d0d;border-bottom:1px solid #222;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
@@ -1006,7 +981,7 @@ function renderKTN(items) {
   </div></div>
 
   <!-- GLOBE FEED -->
-  <div class="grid-stack-item" gs-id="globe-feed" gs-x="6" gs-y="7" gs-w="6" gs-h="13">
+  <div class="grid-stack-item" gs-id="globe-feed">
   <div class="grid-stack-item-content" style="overflow:hidden;">
   <div style="height:100%;display:flex;flex-direction:column;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;">
     <div style="background:#0d2b5e;border-bottom:1px solid #1a3a6a;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
@@ -1021,7 +996,7 @@ function renderKTN(items) {
     </div>
   </div>
   </div></div>
-  <div class="grid-stack-item" gs-id="boston-news" gs-x="6" gs-y="34" gs-w="6" gs-h="12">
+  <div class="grid-stack-item" gs-id="boston-news">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <div class="ch bos" style="flex-shrink:0;">
       <div><div class="ct">BOSTON NEWS</div><div class="cb">30 MOST RECENT STORIES</div></div>
@@ -1037,7 +1012,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="uhub-rss" gs-x="6" gs-y="88" gs-w="6" gs-h="12">
+  <div class="grid-stack-item" gs-id="uhub-rss">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <div class="ch ora" style="flex-shrink:0;">
       <div class="ct">UNIVERSAL HUB</div>
@@ -1054,7 +1029,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="uhub-bsky" gs-x="6" gs-y="100" gs-w="6" gs-h="12">
+  <div class="grid-stack-item" gs-id="uhub-bsky">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <div class="ch ora" style="flex-shrink:0;justify-content:space-between;">
       <div><div class="ct">BLUESKY</div><div class="cb" id="bsky-hdr-sub">MULTI-FEED</div></div>
@@ -1214,7 +1189,7 @@ function renderKTN(items) {
   })();
   </script>
 
-  <div class="grid-stack-item" gs-id="bc-schedule" gs-x="0" gs-y="128" gs-w="6" gs-h="10">
+  <div class="grid-stack-item" gs-id="bc-schedule">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch bc">
       <div class="ct">BC EAGLES SCHEDULE</div><div class="cb">BCEAGLES.COM · ALL SPORTS</div>
@@ -1227,7 +1202,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="nyt-link" gs-x="0" gs-y="93" gs-w="6" gs-h="5">
+  <div class="grid-stack-item" gs-id="nyt-link">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch acc" style="justify-content:space-between;padding:5px 10px;">
       <div class="ct" style="font-size:12px;letter-spacing:2px;">DAILY READS</div>
@@ -1236,7 +1211,7 @@ function renderKTN(items) {
     <div id="daily-reads-body"></div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="news-revere" gs-x="6" gs-y="46" gs-w="6" gs-h="14">
+  <div class="grid-stack-item" gs-id="news-revere">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch local"><div class="ct">REVERE</div><div class="cb">JOURNAL · REVERE.ORG · ADVOCATE · NBC · GOOGLE NEWS</div></div>
     <div class="cbody npx">
@@ -1244,7 +1219,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="news-comm" gs-x="6" gs-y="60" gs-w="6" gs-h="16">
+  <div class="grid-stack-item" gs-id="news-comm">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch local"><div class="ct">SURROUNDING COMMUNITIES</div><div class="cb">CHELSEA · EASTIE · LYNN · SALEM · MORE</div></div>
     <div class="cbody npx">
@@ -1252,49 +1227,19 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="r-boston-panel" gs-x="6" gs-y="124" gs-w="3" gs-h="9">
+  <!-- REDDIT FEEDS (tabbed) -->
+  <div class="grid-stack-item" gs-id="reddit-feeds">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch red"><div class="ct">r/boston</div><div class="cb">HOT</div></div>
-    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-boston"><div class="empty">Loading…</div></div></div>
+    <div class="ch red">
+      <div><div class="ct">REDDIT</div><div class="cb">r/boston · r/massachusetts · MORE</div></div>
+    </div>
+    <div id="reddit-tabs" style="display:flex;gap:3px;padding:6px 8px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;flex-shrink:0;"></div>
+    <div class="cbody npx" style="max-height:420px;overflow-y:auto;">
+      <div id="reddit-panel-body"><div class="empty">Loading…</div></div>
+    </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="r-mass-panel" gs-x="9" gs-y="124" gs-w="3" gs-h="9">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch red"><div class="ct">r/massachusetts</div><div class="cb">HOT</div></div>
-    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mass"><div class="empty">Loading…</div></div></div>
-  </div></div></div>
-
-  <div class="grid-stack-item" gs-id="r-mbta-panel" gs-x="6" gs-y="133" gs-w="3" gs-h="9">
-  <div class="grid-stack-item-content" style="overflow:visible;"><div class="card" style="border:2px solid #f5c518;background:#0d1614;">
-    <div class="ch" style="background:#0a1210;border-bottom:1px solid #2a2010;border-left:none;cursor:grab;"><div class="ct" style="color:#f5c518;font-family:var(--cond);letter-spacing:3px;">r/mbta</div><div class="cb" style="color:#3a5a52;">HOT POSTS</div></div>
-    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-mbta"><div class="empty">Loading…</div></div></div>
-  </div></div></div>
-
-  <div class="grid-stack-item" gs-id="r-nascar-panel" gs-x="6" gs-y="151" gs-w="6" gs-h="9">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch red"><div class="ct">r/nascar</div><div class="cb">HOT</div></div>
-    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-nascar"><div class="empty">Loading…</div></div></div>
-  </div></div></div>
-
-  <div class="grid-stack-item" gs-id="r-neo-panel" gs-x="9" gs-y="133" gs-w="3" gs-h="9">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch red"><div class="ct">r/neoliberal</div><div class="cb">HOT</div></div>
-    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-neo"><div class="empty">Loading…</div></div></div>
-  </div></div></div>
-
-  <div class="grid-stack-item" gs-id="r-bruins-panel" gs-x="9" gs-y="142" gs-w="3" gs-h="9">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch red"><div class="ct">r/bostonbruins</div><div class="cb">HOT</div></div>
-    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-bruins"><div class="empty">Loading…</div></div></div>
-  </div></div></div>
-
-  <div class="grid-stack-item" gs-id="r-urban-panel" gs-x="6" gs-y="142" gs-w="3" gs-h="9">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch red"><div class="ct">r/urbanplanning</div><div class="cb">HOT</div></div>
-    <div class="cbody npx"><div class="scroll-box h-reddit" id="r-urban"><div class="empty">Loading…</div></div></div>
-  </div></div></div>
-
-  <div class="grid-stack-item" gs-id="news-sports" gs-x="6" gs-y="160" gs-w="6" gs-h="9">
+  <div class="grid-stack-item" gs-id="news-sports">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch ora"><div class="ct">MY SPORTS NEWS</div><div class="cb">COMBINED FEED</div></div>
     <div class="cbody npx">
@@ -1303,14 +1248,14 @@ function renderKTN(items) {
   </div></div></div>
 
   <!-- ESPN FEED -->
-  <div class="grid-stack-item" gs-id="espn-feed" gs-x="6" gs-y="169" gs-w="6" gs-h="9">
+  <div class="grid-stack-item" gs-id="espn-feed">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch ora"><div class="ct">ESPN FEED</div><div class="cb">ESPN.COM · RSS</div></div>
     <div class="cbody npx">
       <div class="news-feed scroll-box h-news" id="news-espn"><div class="empty">Loading…</div></div>
     </div>
   </div></div></div>
-  <div class="grid-stack-item" gs-id="sports-schedule" gs-x="0" gs-y="21" gs-w="6" gs-h="9">
+  <div class="grid-stack-item" gs-id="sports-schedule">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch ora"><div class="ct">SPORTS SCHEDULE</div><div class="cb">GCAL · LIVE REFRESH</div></div>
     <div class="cbody" id="sc-panel-body" style="padding:8px 10px;overflow-y:auto;">
@@ -1354,7 +1299,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="news-bc" gs-x="6" gs-y="178" gs-w="6" gs-h="14">
+  <div class="grid-stack-item" gs-id="news-bc">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch bc"><div class="ct">BOSTON COLLEGE</div><div class="cb">HEIGHTS · BC INTERRUPTION · MORE</div></div>
     <div class="cbody npx">
@@ -1362,7 +1307,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="college-hockey" gs-x="6" gs-y="192" gs-w="6" gs-h="14">
+  <div class="grid-stack-item" gs-id="college-hockey">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch bc"><div class="ct">COLLEGE HOCKEY</div><div class="cb">USCHO · CHN · CHI · BC HOCKEY BLOG</div></div>
     <div class="cbody npx">
@@ -1371,7 +1316,7 @@ function renderKTN(items) {
   </div></div></div>
 
   <!-- CHN · BC Hockey — Google News -->
-  <div class="grid-stack-item" gs-id="chn-bc" gs-x="6" gs-y="206" gs-w="3" gs-h="10">
+  <div class="grid-stack-item" gs-id="chn-bc">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch bc"><div class="ct">BC HOCKEY NEWS</div><div class="cb">GOOGLE NEWS · 7 DAYS</div></div>
     <div class="cbody npx">
@@ -1380,13 +1325,13 @@ function renderKTN(items) {
   </div></div></div>
 
   <!-- SCORES WIDGET -->
-  <div class="grid-stack-item" gs-id="scores-widget" gs-x="0" gs-y="30" gs-w="6" gs-h="11">
+  <div class="grid-stack-item" gs-id="scores-widget">
   <div class="grid-stack-item-content"><div class="card" style="display:flex;flex-direction:column;height:100%;">
     <div id="scores-root" style="display:flex;flex-direction:column;height:100%;min-height:0;"></div>
   </div></div></div>
 
   <!-- CHN · All College Hockey -->
-  <div class="grid-stack-item" gs-id="chn-all" gs-x="9" gs-y="206" gs-w="3" gs-h="12">
+  <div class="grid-stack-item" gs-id="chn-all">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch bc"><div class="ct">HOCKEY EAST</div><div class="cb">GOOGLE NEWS</div></div>
     <div class="cbody npx">
@@ -1394,7 +1339,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="national" gs-x="6" gs-y="76" gs-w="6" gs-h="12">
+  <div class="grid-stack-item" gs-id="national">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch acc"><div class="ct">NATIONAL HEADLINES</div><div class="cb">NPR · NYT · CNN · BBC · AP · HILL · WAPO</div></div>
     <div class="cbody npx">
@@ -1402,7 +1347,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="reveretv" gs-x="0" gs-y="120" gs-w="6" gs-h="8">
+  <div class="grid-stack-item" gs-id="reveretv">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch grn"><div class="ct">REVERE TV</div><div class="cb">LATEST VIDEOS</div></div>
     <div class="cbody">
@@ -1413,7 +1358,7 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="substack-feed" gs-x="6" gs-y="112" gs-w="6" gs-h="12">
+  <div class="grid-stack-item" gs-id="substack-feed">
   <div class="grid-stack-item-content"><div class="card light-card">
     <div class="ch sub"><div class="ct">SUBSTACK READING LIST</div><div class="cb">COMBINED SUBSCRIPTIONS</div></div>
     <div class="cbody npx">
@@ -1422,7 +1367,7 @@ function renderKTN(items) {
   </div></div></div>
 
   <!-- MBTA ARRIVALS PANEL -->
-  <div class="grid-stack-item" gs-id="mbta-arrivals" gs-x="0" gs-y="47" gs-w="6" gs-h="9">
+  <div class="grid-stack-item" gs-id="mbta-arrivals">
   <div class="grid-stack-item-content" style="overflow:visible;">
     <div class="mbta-wrap">
       <div class="mbta-hdr ch">
@@ -1438,7 +1383,7 @@ function renderKTN(items) {
   </div></div>
 
   <!-- MBTA ALERTS PANEL -->
-  <div class="grid-stack-item" gs-id="mbta-alerts" gs-x="0" gs-y="41" gs-w="6" gs-h="6">
+  <div class="grid-stack-item" gs-id="mbta-alerts">
   <div class="grid-stack-item-content" style="overflow:visible;">
     <div class="mbta-wrap">
       <div class="mbta-hdr ch">
@@ -1453,7 +1398,7 @@ function renderKTN(items) {
   </div></div>
 
   <!-- MBTA GOOGLE NEWS PANEL -->
-  <div class="grid-stack-item" gs-id="mbta-news" gs-x="0" gs-y="111" gs-w="6" gs-h="9">
+  <div class="grid-stack-item" gs-id="mbta-news">
   <div class="grid-stack-item-content" style="overflow:visible;">
     <div class="mbta-wrap" style="height:100%;display:flex;flex-direction:column;">
       <div class="mbta-hdr ch" style="flex-shrink:0;">
@@ -1470,7 +1415,7 @@ function renderKTN(items) {
 
 
   <!-- MASSDOT ROAD EVENTS PANEL -->
-  <div class="grid-stack-item" gs-id="road-events" gs-x="0" gs-y="72" gs-w="6" gs-h="6">
+  <div class="grid-stack-item" gs-id="road-events">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch ora">
       <div class="ct">MassDOT · Road Events</div>
@@ -1483,7 +1428,7 @@ function renderKTN(items) {
 
 
   <!-- TOP STORIES WIDGET -->
-  <div class="grid-stack-item" gs-id="top-stories" gs-x="6" gs-y="0" gs-w="6" gs-h="7">
+  <div class="grid-stack-item" gs-id="top-stories">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch acc"><div class="ct">🔥 TOP STORIES RIGHT NOW</div><div class="cb">RANKED BY LOCAL IMPACT · COVERAGE · RECENCY</div></div>
     <div class="cbody np" style="overflow-y:auto;">
@@ -1492,7 +1437,7 @@ function renderKTN(items) {
   </div></div></div>
 
   <!-- COUNTDOWNS WIDGET -->
-  <div class="grid-stack-item" gs-id="countdowns" gs-x="0" gs-y="11" gs-w="6" gs-h="5">
+  <div class="grid-stack-item" gs-id="countdowns">
   <div class="grid-stack-item-content"><div class="card">
     <div class="ch gld"><div class="ct">⏳ COUNTDOWNS</div><div class="cb">DAYS UNTIL</div></div>
     <div class="cbody" id="countdowns-body" style="padding:8px 10px;">
@@ -2916,102 +2861,77 @@ async function loadData(){
 // ── INIT ──
 loadData();
 
-const redditFeeds=[
-  {sub:'boston',id:'r-boston'},
-  {sub:'massachusetts',id:'r-mass'},
-  {sub:'mbta',id:'r-mbta'},
-  {sub:'NASCAR',id:'r-nascar'},
-  {sub:'neoliberal',id:'r-neo'},
-  {sub:'bostonbruins',id:'r-bruins'},
-  {sub:'urbanplanning',id:'r-urban'},
-  {sub:'aviation',id:'r-aviation'},
+// ── REDDIT (single tabbed widget) ──
+const REDDIT_SUBS = [
+  {sub:'boston',        label:'r/boston'},
+  {sub:'massachusetts', label:'r/mass'},
+  {sub:'mbta',          label:'r/mbta'},
+  {sub:'NASCAR',        label:'r/nascar'},
+  {sub:'neoliberal',    label:'r/neoliberal'},
+  {sub:'bostonbruins',  label:'r/bruins'},
+  {sub:'urbanplanning', label:'r/urban'},
 ];
-redditFeeds.forEach(({sub,id},i)=>setTimeout(()=>fetchReddit(sub,id),i*800));
-// ── GRIDSTACK ──────────────────────────────────────────────────────
-const GS_KEY = 'revere_monitor_gs_v6';
+let redditActiveSub = localStorage.getItem('monitor_reddit_active')||'boston';
+const redditCache = {}; // sub -> rendered HTML string
 
-const DEFAULT_LAYOUT = {"weather-unified":{"x":0,"y":0,"w":6,"h":12},"personal-calendar":{"x":0,"y":12,"w":6,"h":9},"sports-schedule":{"x":0,"y":21,"w":6,"h":9},"countdowns":{"x":0,"y":30,"w":6,"h":5},"scores-widget":{"x":0,"y":35,"w":6,"h":11},"mbta-alerts":{"x":0,"y":46,"w":6,"h":6},"mbta-arrivals":{"x":0,"y":52,"w":6,"h":9},"road-events":{"x":0,"y":61,"w":6,"h":7},"logan":{"x":0,"y":68,"w":6,"h":14},"mbta-news":{"x":0,"y":82,"w":6,"h":9},"markets":{"x":0,"y":91,"w":6,"h":10},"radio":{"x":0,"y":101,"w":6,"h":7},"nyt-link":{"x":0,"y":108,"w":6,"h":6},"reveretv":{"x":0,"y":114,"w":6,"h":8},"bc-schedule":{"x":0,"y":122,"w":6,"h":10},"top-stories":{"x":6,"y":0,"w":6,"h":7},"globe-feed":{"x":6,"y":7,"w":6,"h":13},"nyt-feed":{"x":6,"y":20,"w":6,"h":14},"boston-news":{"x":6,"y":34,"w":6,"h":12},"news-revere":{"x":6,"y":46,"w":6,"h":14},"news-comm":{"x":6,"y":60,"w":6,"h":16},"national":{"x":6,"y":76,"w":6,"h":12},"uhub-rss":{"x":6,"y":88,"w":6,"h":12},"uhub-bsky":{"x":6,"y":100,"w":6,"h":12},"substack-feed":{"x":6,"y":112,"w":6,"h":12},"r-boston-panel":{"x":6,"y":124,"w":3,"h":9},"r-mass-panel":{"x":9,"y":124,"w":3,"h":9},"r-mbta-panel":{"x":6,"y":133,"w":3,"h":9},"r-neo-panel":{"x":9,"y":133,"w":3,"h":9},"r-urban-panel":{"x":6,"y":142,"w":3,"h":9},"r-bruins-panel":{"x":9,"y":142,"w":3,"h":9},"r-nascar-panel":{"x":6,"y":151,"w":6,"h":9},"news-sports":{"x":6,"y":160,"w":6,"h":9},"espn-feed":{"x":6,"y":169,"w":6,"h":9},"news-bc":{"x":6,"y":178,"w":6,"h":14},"college-hockey":{"x":6,"y":192,"w":6,"h":14},"chn-bc":{"x":6,"y":206,"w":3,"h":10},"chn-all":{"x":9,"y":206,"w":3,"h":12}};
-
-const grid = GridStack.init({
-  float: false,
-  cellHeight: 32,
-  column: 12,
-  handle: '.ch',   // every panel now has exactly one .ch card header
-  resizable: { handles: 'se,s,e' },
-  animate: false,
-  margin: 4,
-});
-window.grid = grid;
-
-// Save: read actual attributes GridStack sets on each element
-function saveLayout() {
-  const layout = {};
-  document.querySelectorAll('.grid-stack-item').forEach(el => {
-    const id = el.getAttribute('gs-id');
-    if (!id) return;
-    layout[id] = {
-      x: +el.getAttribute('gs-x') || 0,
-      y: +el.getAttribute('gs-y') || 0,
-      w: +el.getAttribute('gs-w') || 3,
-      h: +el.getAttribute('gs-h') || 4,
-    };
+function renderRedditTabs(){
+  const el = document.getElementById('reddit-tabs');
+  if(!el) return;
+  el.innerHTML = REDDIT_SUBS.map(s=>{
+    const active = s.sub === redditActiveSub;
+    return `<button class="reddit-tab${active?' active':''}" data-sub="${s.sub}" style="font-size:11px;padding:3px 9px;border-radius:4px;border:1px solid ${active?'var(--reddit)':'var(--border)'};background:${active?'rgba(199,74,26,.1)':'transparent'};color:${active?'var(--reddit)':'var(--text-mute)'};font-family:var(--cond);letter-spacing:.5px;cursor:pointer;white-space:nowrap;flex-shrink:0;">${s.label}</button>`;
+  }).join('');
+  el.querySelectorAll('.reddit-tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      redditActiveSub = btn.dataset.sub;
+      localStorage.setItem('monitor_reddit_active', redditActiveSub);
+      renderRedditTabs();
+      showRedditSub(redditActiveSub);
+    });
   });
-  try { localStorage.setItem(GS_KEY, JSON.stringify(layout)); } catch(e) {}
 }
 
-// Restore: update each item by gs-id after a tick
-function restoreLayout() {
-  let saved;
-  try { saved = JSON.parse(localStorage.getItem(GS_KEY) || 'null'); } catch(e) {}
-  const layout = saved || DEFAULT_LAYOUT;
-  grid.batchUpdate(true);
-  document.querySelectorAll('.grid-stack-item').forEach(el => {
-    const id = el.getAttribute('gs-id');
-    if (!id || !layout[id]) return;
-    grid.update(el, layout[id]);
-  });
-  grid.batchUpdate(false);
-}
-
-// Wait 200ms so GridStack finishes its own init before we restore
-restoreLayout();
-grid.setAnimation(true);
-
-// Save on every drag/resize
-grid.on('change', saveLayout);
-grid.on('resizestop', saveLayout);
-grid.on('dragstop', saveLayout);
-
-// Export layout — copies current positions to clipboard so they can be baked in as defaults
-document.getElementById('export-layout-btn').addEventListener('click', () => {
-  const saved = localStorage.getItem(GS_KEY);
-  if (!saved) {
-    alert('No saved layout found. Move or resize some panels first, then export.');
+async function showRedditSub(sub){
+  const body = document.getElementById('reddit-panel-body');
+  if(!body) return;
+  if(redditCache[sub]){
+    body.innerHTML = redditCache[sub];
     return;
   }
-  navigator.clipboard.writeText(saved).then(() => {
-    alert('Layout copied to clipboard! Send it to Claude and ask to "bake this in as the default layout".');
-  }).catch(() => {
-    // Fallback: show in a prompt box to copy manually
-    window.prompt('Copy this layout JSON and send it to Claude:', saved);
-  });
-});
-
-// Reset layout
-document.getElementById('reset-layout-btn').addEventListener('click', () => {
-  if (confirm('Reset all panels to default layout?')) {
-    localStorage.removeItem(GS_KEY);
-    localStorage.removeItem('revere_monitor_collapsed_v2');
-    location.reload();
+  body.innerHTML = '<div class="empty">Loading r/'+sub+'…</div>';
+  try{
+    const r = await fetch(`https://www.reddit.com/r/${sub}/hot.json?limit=10&raw_json=1`, {headers:{Accept:'application/json'},cache:'no-cache'});
+    if(r.status===429){
+      body.innerHTML = `<div class="rp-err">Rate limited. <a href="https://www.reddit.com/r/${sub}/hot" target="_blank" rel="noopener">Open on Reddit →</a></div>`;
+      return;
+    }
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const data = await r.json();
+    const posts = (data?.data?.children||[]).filter(p=>!p.data.stickied);
+    if(!posts.length){ body.innerHTML = '<div class="rp-err">No posts</div>'; return; }
+    const html = posts.slice(0,10).map(p=>{
+      const d = p.data;
+      return `<a class="rp" href="https://www.reddit.com${d.permalink}" target="_blank" rel="noopener"><div class="rp-meta"><span class="rp-score">${fmtScore(d.score||0)} ↑</span>${d.link_flair_text?`<span class="rp-flair">${d.link_flair_text}</span>`:''}</div><div class="rp-title">${d.title}</div><div class="rp-auth">u/${d.author} · ${d.num_comments} comments</div></a>`;
+    }).join('');
+    redditCache[sub] = html;
+    body.innerHTML = html;
+  }catch(e){
+    body.innerHTML = `<div class="rp-err">Could not load r/${sub}. <a href="https://www.reddit.com/r/${sub}/hot" target="_blank" rel="noopener">Open on Reddit →</a></div>`;
   }
-});
+}
+renderRedditTabs();
+showRedditSub(redditActiveSub);
+// r/aviation (used inside the Logan widget) — keep its own fetch
+fetchReddit('aviation','r-aviation');
 
-// ── COLLAPSE / EXPAND WIRING ─────────────────────────────
+
+// ── ORDER & COLLAPSE SYSTEM (CSS columns) ──────────────────
 (function(){
-  const CK = 'revere_monitor_collapsed_v2';
+  const ORDER_KEY = 'revere_monitor_order_v1';
+  const COLLAPSE_KEY = 'revere_monitor_collapsed_v3';
 
-  // Default-EXPANDED widgets on first visit. Everything else starts collapsed.
-  // (KTN breaking-news ticker is not a grid item and always stays visible.)
+  // Widgets that start EXPANDED on first visit. Everything else starts collapsed.
+  // (KTN breaking-news ticker is not a grid item — always visible.)
   const DEFAULT_EXPANDED = new Set([
     'weather-unified',
     'personal-calendar',
@@ -3019,64 +2939,99 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
     'top-stories',
   ]);
 
-  // Widget heights when collapsed (just tall enough to show the header)
-  const COLLAPSED_H = 2;
-
-  function getState(){
+  // ── Default DOM order (source order when no custom order is saved) ──
+  function currentDomOrder(){
+    return Array.from(document.querySelectorAll('.grid-stack-item'))
+      .map(el=>el.getAttribute('gs-id'))
+      .filter(Boolean);
+  }
+  function getSavedOrder(){
     try{
-      const raw = localStorage.getItem(CK);
+      const raw = localStorage.getItem(ORDER_KEY);
       if(raw) return JSON.parse(raw);
     }catch(e){}
-    // First-visit default: everything collapsed EXCEPT the set above
+    return null;
+  }
+  function saveOrder(order){
+    try{ localStorage.setItem(ORDER_KEY, JSON.stringify(order)); }catch(e){}
+  }
+
+  function applyOrder(){
+    const saved = getSavedOrder();
+    if(!saved || !Array.isArray(saved)) return;
+    const grid = document.getElementById('gs-grid');
+    if(!grid) return;
+    // Build lookup of current items by gs-id
+    const itemsById = {};
+    document.querySelectorAll('.grid-stack-item').forEach(el=>{
+      const id = el.getAttribute('gs-id');
+      if(id) itemsById[id] = el;
+    });
+    // Re-append in saved order; any items not in saved order go at the end (preserving their current order)
+    const handled = new Set();
+    saved.forEach(id=>{
+      if(itemsById[id]){
+        grid.appendChild(itemsById[id]);
+        handled.add(id);
+      }
+    });
+    Object.keys(itemsById).forEach(id=>{
+      if(!handled.has(id)){
+        grid.appendChild(itemsById[id]);
+      }
+    });
+  }
+
+  // ── Collapse state ──
+  function getCollapseState(){
+    try{
+      const raw = localStorage.getItem(COLLAPSE_KEY);
+      if(raw) return JSON.parse(raw);
+    }catch(e){}
+    // First-visit default: everything collapsed EXCEPT the expanded set
     const st = {};
     document.querySelectorAll('.grid-stack-item').forEach(item=>{
       const gid = item.getAttribute('gs-id');
       if(gid && !DEFAULT_EXPANDED.has(gid)) st[gid] = true;
     });
-    try{ localStorage.setItem(CK, JSON.stringify(st)); }catch(e){}
+    try{ localStorage.setItem(COLLAPSE_KEY, JSON.stringify(st)); }catch(e){}
     return st;
   }
-  function saveState(st){
-    try{ localStorage.setItem(CK, JSON.stringify(st)); }catch(e){}
+  function saveCollapseState(st){
+    try{ localStorage.setItem(COLLAPSE_KEY, JSON.stringify(st)); }catch(e){}
   }
-
-  function applyState(){
-    if(!window.grid) return;
-    const st = getState();
-    window.grid.batchUpdate(true);
+  function applyCollapseState(){
+    const st = getCollapseState();
     document.querySelectorAll('.grid-stack-item').forEach(item=>{
       const gid = item.getAttribute('gs-id');
       if(!gid) return;
-      const shouldCollapse = !!st[gid];
-      const isCollapsed = item.classList.contains('gs-collapsed');
-      if(shouldCollapse && !isCollapsed){
-        // Remember original height, shrink row
-        if(!item.dataset.origH){
-          item.dataset.origH = item.getAttribute('gs-h') || '4';
-        }
-        item.classList.add('gs-collapsed');
-        try{ window.grid.update(item, {h:COLLAPSED_H, noResize:true}); }catch(e){}
-      } else if(!shouldCollapse && isCollapsed){
-        item.classList.remove('gs-collapsed');
-        const h = parseInt(item.dataset.origH||'4',10)||4;
-        try{ window.grid.update(item, {h:h, noResize:false}); }catch(e){}
-        delete item.dataset.origH;
-      }
+      if(st[gid]) item.classList.add('gs-collapsed');
+      else item.classList.remove('gs-collapsed');
     });
-    window.grid.batchUpdate(false);
-    // After collapsing/expanding, pull all items upward to close any gaps
-    try{ window.grid.compact(); }catch(e){}
   }
-
-  function toggleItem(gid){
+  function toggleCollapse(gid){
     if(!gid) return;
-    const st = getState();
+    const st = getCollapseState();
     st[gid] = !st[gid];
     if(!st[gid]) delete st[gid];
-    saveState(st);
-    applyState();
+    saveCollapseState(st);
+    applyCollapseState();
+  }
+  function collapseAll(){
+    const st = {};
+    document.querySelectorAll('.grid-stack-item').forEach(item=>{
+      const gid = item.getAttribute('gs-id');
+      if(gid) st[gid] = true;
+    });
+    saveCollapseState(st);
+    applyCollapseState();
+  }
+  function expandAll(){
+    saveCollapseState({});
+    applyCollapseState();
   }
 
+  // ── Chevron buttons ──
   function injectButton(ch){
     if(ch.querySelector('.ch-collapse-btn')) return;
     let controls = ch.querySelector('.ch-controls');
@@ -3095,13 +3050,12 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
       e.preventDefault();
       const item = ch.closest('.grid-stack-item');
       if(!item) return;
-      toggleItem(item.getAttribute('gs-id'));
+      toggleCollapse(item.getAttribute('gs-id'));
     });
     controls.appendChild(btn);
   }
-
-  function wire(){
-    // Scores widget has no .ch — give it one synthetic header for collapse control.
+  function wireButtons(){
+    // Scores widget has no .ch — give it one synthetic header
     const scoresItem = document.querySelector('[gs-id="scores-widget"]');
     if(scoresItem && !scoresItem.querySelector('.ch-synthetic')){
       const card = scoresItem.querySelector('.card');
@@ -3113,25 +3067,110 @@ document.getElementById('reset-layout-btn').addEventListener('click', () => {
         card.insertBefore(synth, card.firstChild);
       }
     }
-
     document.querySelectorAll('.grid-stack-item .ch, .grid-stack-item .mbta-hdr').forEach(ch=>{
       const item = ch.closest('.grid-stack-item');
       if(!item) return;
-      const gid = item.getAttribute('gs-id');
-      if(!gid) return;
+      if(!item.getAttribute('gs-id')) return;
       injectButton(ch);
     });
-    applyState();
   }
 
-  // Expose for layout restore timing
-  window._collapseWire = wire;
-  window._collapseApply = applyState;
+  // ── Reset ──
+  function reset(){
+    if(confirm('Reset layout, order, and collapse state to defaults?')){
+      localStorage.removeItem(ORDER_KEY);
+      localStorage.removeItem(COLLAPSE_KEY);
+      location.reload();
+    }
+  }
 
-  // Run now + again after GridStack init
-  wire();
-  setTimeout(wire, 300);
-  setTimeout(wire, 1000);
+  // ── Order editor modal ──
+  function widgetLabel(gid){
+    const item = document.querySelector(`[gs-id="${gid}"]`);
+    if(!item) return gid;
+    const ct = item.querySelector('.ct, .mbta-hdr-title');
+    return ct ? (ct.textContent || gid).trim() : gid;
+  }
+  function openOrderModal(){
+    const current = currentDomOrder();
+    // Build modal DOM
+    let modal = document.getElementById('order-modal');
+    if(!modal){
+      modal = document.createElement('div');
+      modal.id = 'order-modal';
+      modal.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:2000;align-items:center;justify-content:center;';
+      modal.innerHTML = `
+        <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:20px;width:540px;max-width:95vw;max-height:85vh;display:flex;flex-direction:column;">
+          <h3 style="font-family:var(--cond);font-size:17px;letter-spacing:2px;color:var(--text);margin-bottom:6px;">EDIT WIDGET ORDER</h3>
+          <p style="font-size:12px;color:var(--text-mute);margin-bottom:12px;">Use ↑ ↓ to reorder. Widgets flow top-to-bottom across both columns.</p>
+          <div id="order-list" style="flex:1;overflow-y:auto;border:1px solid var(--border);border-radius:4px;background:var(--bg);"></div>
+          <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;align-items:center;">
+            <button id="order-restore-default" style="padding:6px 16px;background:transparent;color:var(--text-mute);border:1px solid var(--border2);border-radius:4px;font-family:var(--cond);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:1px;">RESTORE DEFAULT ORDER</button>
+            <div style="display:flex;gap:8px;">
+              <button id="order-cancel" style="padding:6px 16px;background:var(--bg3);color:var(--text-dim);border:1px solid var(--border2);border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">CANCEL</button>
+              <button id="order-save" style="padding:6px 16px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">SAVE</button>
+            </div>
+          </div>
+        </div>`;
+      document.body.appendChild(modal);
+      modal.addEventListener('click', e=>{ if(e.target===modal) closeOrderModal(); });
+    }
+    // Working copy of the order
+    let workingOrder = [...current];
+    function renderList(){
+      const list = document.getElementById('order-list');
+      list.innerHTML = workingOrder.map((gid,i)=>{
+        const label = widgetLabel(gid);
+        return `<div class="order-row" data-idx="${i}" style="display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid var(--border);">
+          <span style="flex:1;font-size:13px;color:var(--text);">${label}</span>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--text-mute);margin-right:6px;">${gid}</span>
+          <button class="ord-up" data-idx="${i}" style="width:24px;height:24px;background:var(--bg3);border:1px solid var(--border);border-radius:3px;color:var(--text);cursor:pointer;font-size:12px;${i===0?'opacity:.3;':''}" ${i===0?'disabled':''}>▲</button>
+          <button class="ord-dn" data-idx="${i}" style="width:24px;height:24px;background:var(--bg3);border:1px solid var(--border);border-radius:3px;color:var(--text);cursor:pointer;font-size:12px;${i===workingOrder.length-1?'opacity:.3;':''}" ${i===workingOrder.length-1?'disabled':''}>▼</button>
+        </div>`;
+      }).join('');
+      list.querySelectorAll('.ord-up').forEach(b=>b.addEventListener('click', ()=>{
+        const i = +b.dataset.idx;
+        if(i>0){ [workingOrder[i-1],workingOrder[i]]=[workingOrder[i],workingOrder[i-1]]; renderList(); }
+      }));
+      list.querySelectorAll('.ord-dn').forEach(b=>b.addEventListener('click', ()=>{
+        const i = +b.dataset.idx;
+        if(i<workingOrder.length-1){ [workingOrder[i+1],workingOrder[i]]=[workingOrder[i],workingOrder[i+1]]; renderList(); }
+      }));
+    }
+    renderList();
+    modal.style.display = 'flex';
+    document.getElementById('order-cancel').onclick = closeOrderModal;
+    document.getElementById('order-restore-default').onclick = ()=>{
+      if(confirm('Restore default order?')){
+        localStorage.removeItem(ORDER_KEY);
+        location.reload();
+      }
+    };
+    document.getElementById('order-save').onclick = ()=>{
+      saveOrder(workingOrder);
+      closeOrderModal();
+      location.reload();  // reload to re-apply the order cleanly
+    };
+  }
+  function closeOrderModal(){
+    const modal = document.getElementById('order-modal');
+    if(modal) modal.style.display = 'none';
+  }
+
+  // ── Init ──
+  applyOrder();
+  applyCollapseState();
+  wireButtons();
+
+  // Wire toolbar buttons
+  document.getElementById('edit-order-btn')?.addEventListener('click', openOrderModal);
+  document.getElementById('reset-layout-btn')?.addEventListener('click', reset);
+  document.getElementById('collapse-all-btn')?.addEventListener('click', collapseAll);
+  document.getElementById('expand-all-btn')?.addEventListener('click', expandAll);
+
+  // Expose for callers
+  window._monitorApplyCollapse = applyCollapseState;
+  window._monitorToggle = toggleCollapse;
 })();
 
 setTimeout(()=>location.reload(),30*60*1000);
