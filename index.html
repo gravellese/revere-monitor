@@ -43,7 +43,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 #hs{flex:1;}
 #sun-hdr{display:flex;gap:12px;font-size:12px;color:#d4ccbe;margin-right:14px;}
 #sun-hdr .sv{color:#c49a4a;font-weight:600;}
-#upd-hdr{font-size:11px;color:#8a8474;border-left:1px solid #3a3630;padding-left:14px;}
+#upd-hdr{font-size:11px;color:#b8b0a0;border-left:1px solid #3a3630;padding-left:14px;}
 
 /* ── HEADER TIDE SLOTS ── */
 .tide-slot{display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px 7px;border-radius:4px;background:rgba(255,255,255,.06);border:1px solid #3a3630;min-width:54px;}
@@ -153,25 +153,25 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 .grid-stack-item-content .h-reddit{max-height:420px;}
 .grid-stack-item-content .h-nat{max-height:520px;}
 /* Specific widget heights — some need explicit sizing since they have no scroll inside */
-[gs-id="weather-unified"] .card{height:640px;}
-[gs-id="personal-calendar"] .card{height:520px;}
-[gs-id="sports-schedule"] .card{height:560px;}
-[gs-id="countdowns"] .card{max-height:340px;}
-[gs-id="scores-widget"] .card{height:560px;}
-[gs-id="top-stories"] .card{height:440px;}
+[gs-id="weather-unified"] .card{height:640px !important;}
+[gs-id="personal-calendar"] .card{height:520px !important;}
+[gs-id="sports-schedule"] .card{height:560px !important;}
+[gs-id="countdowns"] .card{max-height:420px;}
+[gs-id="scores-widget"] .card{height:560px !important;}
+[gs-id="top-stories"] .card{height:440px !important;}
 [gs-id="globe-feed"] > .grid-stack-item-content > div,
-[gs-id="nyt-feed"] > .grid-stack-item-content > div{height:560px;}
-[gs-id="boston-news"] .card{height:540px;}
+[gs-id="nyt-feed"] > .grid-stack-item-content > div{height:560px !important;}
+[gs-id="boston-news"] .card{height:540px !important;}
 [gs-id="logan"] .card{max-height:700px;}
 [gs-id="markets"] .card{max-height:480px;}
 [gs-id="reveretv"] .card{max-height:420px;}
-[gs-id="bc-schedule"] .card{height:520px;}
+[gs-id="bc-schedule"] .card{height:520px !important;}
 [gs-id="road-events"] .card{max-height:380px;}
 [gs-id="radio"] .card,[gs-id="nyt-link"] .card{max-height:none;}
 [gs-id="mbta-arrivals"] .mbta-wrap,
 [gs-id="mbta-alerts"] .mbta-wrap,
 [gs-id="mbta-news"] .mbta-wrap{max-height:480px;}
-[gs-id="reddit-feeds"] .card{height:480px;}
+[gs-id="reddit-feeds"] .card{height:480px !important;}
 /* Reset buttons */
 #gs-buttons{display:flex;gap:6px;}
 /* Mobile — single column */
@@ -273,6 +273,8 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 .grid-stack-item.gs-collapsed{height:auto !important;}
 .grid-stack-item.gs-collapsed .card,
 .grid-stack-item.gs-collapsed .mbta-wrap{height:auto !important;min-height:0 !important;}
+/* NYT and Globe feed wrappers use fixed height — override when collapsed */
+.grid-stack-item.gs-collapsed > .grid-stack-item-content > div{height:auto !important;}
 
 /* ── SCROLL BOXES ── */
 .scroll-box{overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
@@ -567,8 +569,8 @@ a.big-btn:hover{opacity:.85;}
 
   <!-- CLOCK + DATE inline -->
   <div style="display:flex;align-items:baseline;gap:12px;flex-shrink:0;">
-    <div id="clock" style="font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);letter-spacing:1px;line-height:1;">--:--:-- --</div>
-    <div id="datestamp" style="font-family:var(--cond);font-size:16px;font-weight:700;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase;"></div>
+    <div id="clock" style="font-family:var(--mono);font-size:22px;font-weight:600;color:#e8d5a0;letter-spacing:1px;line-height:1;">--:--:-- --</div>
+    <div id="datestamp" style="font-family:var(--cond);font-size:16px;font-weight:700;color:#f0ebdd;letter-spacing:1.5px;text-transform:uppercase;"></div>
   </div>
 
   <div id="hs"></div>
@@ -658,6 +660,24 @@ a.big-btn:hover{opacity:.85;}
     <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end;">
       <button onclick="closeDailyModal()" style="padding:6px 16px;background:var(--bg3);color:var(--text-dim);border:1px solid #555;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">CANCEL</button>
       <button onclick="saveDailyReads()" style="padding:6px 16px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">SAVE</button>
+    </div>
+  </div>
+</div>
+
+<!-- COUNTDOWNS MODAL -->
+<div id="countdowns-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;">
+  <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:20px;width:560px;max-width:95vw;max-height:85vh;overflow-y:auto;">
+    <h3 style="font-family:var(--cond);font-size:17px;letter-spacing:2px;color:var(--white);margin-bottom:6px;">EDIT COUNTDOWNS</h3>
+    <p style="font-size:12px;color:var(--text-mute);margin-bottom:4px;">One per line, pipe-separated:</p>
+    <p style="font-size:12px;color:var(--text-mute);margin-bottom:12px;font-family:var(--mono);"><strong>Label | YYYY-MM-DD | Emoji | Color</strong> (color optional)</p>
+    <p style="font-size:11px;color:var(--text-mute);margin-bottom:10px;">Examples: <code style="background:var(--bg);padding:1px 5px;border-radius:2px;font-size:11px;">Thanksgiving | 2026-11-26 | 🦃 | orange</code><br>Date past? Rolls to next year automatically. Color can be a name (green/orange/red/blue/gold) or hex (#6b0504).</p>
+    <textarea id="countdowns-ta" style="width:100%;height:240px;background:var(--bg);border:1px solid var(--border2);border-radius:4px;color:var(--text);font-family:var(--mono);font-size:12px;padding:8px;resize:vertical;outline:none;"></textarea>
+    <div style="display:flex;gap:8px;margin-top:10px;justify-content:space-between;align-items:center;">
+      <button onclick="restoreDefaultCountdowns()" style="padding:6px 14px;background:transparent;color:var(--text-mute);border:1px solid var(--border2);border-radius:4px;font-family:var(--cond);font-size:12px;font-weight:700;cursor:pointer;letter-spacing:1px;">RESTORE DEFAULTS</button>
+      <div style="display:flex;gap:8px;">
+        <button onclick="closeCountdownsModal()" style="padding:6px 16px;background:var(--bg3);color:var(--text-dim);border:1px solid #555;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">CANCEL</button>
+        <button onclick="saveCountdowns()" style="padding:6px 16px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-family:var(--cond);font-size:13px;font-weight:700;cursor:pointer;">SAVE</button>
+      </div>
     </div>
   </div>
 </div>
@@ -967,7 +987,7 @@ function renderKTN(items) {
   <div class="grid-stack-item" gs-id="nyt-feed">
   <div class="grid-stack-item-content" style="overflow:hidden;">
   <div style="height:100%;display:flex;flex-direction:column;background:#111;border:1px solid #222;border-radius:5px;">
-    <div style="background:#0d0d0d;border-bottom:1px solid #222;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+    <div class="feed-hdr" style="background:#0d0d0d;border-bottom:1px solid #222;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="background:#cc0000;color:#fff;font-size:12px;font-weight:900;letter-spacing:2px;padding:3px 9px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;">NYT</span>
         <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#e0e0e0;text-transform:uppercase;">Latest</span>
@@ -984,7 +1004,7 @@ function renderKTN(items) {
   <div class="grid-stack-item" gs-id="globe-feed">
   <div class="grid-stack-item-content" style="overflow:hidden;">
   <div style="height:100%;display:flex;flex-direction:column;background:#081a3a;border:1px solid #1a3a6a;border-radius:5px;">
-    <div style="background:#0d2b5e;border-bottom:1px solid #1a3a6a;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+    <div class="feed-hdr" style="background:#0d2b5e;border-bottom:1px solid #1a3a6a;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="background:#0d2b5e;color:#f5c518;border:1px solid #f5c518;font-size:12px;font-weight:900;letter-spacing:2px;padding:3px 9px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;">GLOBE</span>
         <span style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:3px;color:#c8d8f0;text-transform:uppercase;">Latest</span>
@@ -1439,7 +1459,10 @@ function renderKTN(items) {
   <!-- COUNTDOWNS WIDGET -->
   <div class="grid-stack-item" gs-id="countdowns">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch gld"><div class="ct">⏳ COUNTDOWNS</div><div class="cb">DAYS UNTIL</div></div>
+    <div class="ch gld" style="justify-content:space-between;">
+      <div><div class="ct">⏳ COUNTDOWNS</div><div class="cb">DAYS UNTIL</div></div>
+      <button onclick="openCountdownsModal()" style="background:transparent;border:1px solid var(--border2);border-radius:3px;color:var(--text-mute);font-size:10px;font-family:var(--cond);letter-spacing:1px;padding:2px 7px;cursor:pointer;" title="Edit countdowns">✏</button>
+    </div>
     <div class="cbody" id="countdowns-body" style="padding:8px 10px;">
       <div class="empty">Loading…</div>
     </div>
@@ -1720,28 +1743,72 @@ document.getElementById('daily-modal').addEventListener('click',e=>{
 renderDailyReads();
 
 // ── COUNTDOWNS ──
+const COUNTDOWNS_KEY = 'monitor_countdowns';
+const DEFAULT_COUNTDOWNS = [
+  "Lake Placid Marathon | 2026-06-14 | 🏃 | green",
+  "World Cup 2026 Kickoff | 2026-06-11 | ⚽ | blue",
+  "College Hockey Season | 2026-10-02 | 🏒 | #6b0504",
+  "BC Football Opener | 2026-09-05 | 🏈 | #6b0504",
+  "Thanksgiving | 2026-11-26 | 🦃 | orange",
+].join('\n');
+
+function getCountdowns(){ return localStorage.getItem(COUNTDOWNS_KEY) || DEFAULT_COUNTDOWNS; }
+
+function countdownColor(name){
+  if(!name) return 'var(--accent)';
+  const n = name.trim().toLowerCase();
+  const map = {
+    green:'var(--green)', orange:'var(--orange)', red:'var(--red)',
+    blue:'var(--accent)', gold:'var(--gold)', accent:'var(--accent)',
+    navy:'var(--accent)', maroon:'#6b0504',
+  };
+  if(map[n]) return map[n];
+  if(n.startsWith('#') || n.startsWith('var(')) return name.trim();
+  return 'var(--accent)';
+}
+
+function parseCountdowns(raw){
+  const out = [];
+  (raw||'').split('\n').forEach(line=>{
+    line = line.trim();
+    if(!line || line.startsWith('#')) return;
+    const parts = line.split('|').map(s=>s.trim());
+    if(parts.length < 2) return;
+    const label = parts[0];
+    const dateStr = parts[1];
+    const emoji = parts[2] || '📅';
+    const colorRaw = parts[3] || '';
+    // Parse YYYY-MM-DD
+    const m = dateStr.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if(!m) return;
+    const [_, y, mo, d] = m;
+    out.push({label, year:+y, month:+mo, day:+d, emoji, color: countdownColor(colorRaw)});
+  });
+  return out;
+}
+
 function renderCountdowns(){
   const el=document.getElementById('countdowns-body');
   if(!el)return;
   const today=new Date();today.setHours(0,0,0,0);
-  const year=today.getFullYear();
-  const bases=[
-    {label:'Lake Placid Marathon',   emoji:'🏃', month:6,  day:14, color:'var(--green)'},
-    {label:'World Cup 2026 Kickoff', emoji:'⚽', month:6,  day:11, color:'var(--accent)'},
-    {label:'College Hockey Season',  emoji:'🏒', month:10, day:2,  color:'#6b0504'},
-    {label:'BC Football Opener',     emoji:'🏈', month:9,  day:5,  color:'#6b0504'},
-    {label:'Thanksgiving',           emoji:'🦃', month:11, day:26, color:'var(--orange)'},
-  ];
-  const items=bases.map(b=>{
-    let target=new Date(year,b.month-1,b.day);target.setHours(0,0,0,0);
-    if(target<today){target=new Date(year+1,b.month-1,b.day);target.setHours(0,0,0,0);}
-    const days=Math.round((target-today)/86400000);
-    const dateStr=target.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-    return{...b,days,dateStr};
+  const parsed = parseCountdowns(getCountdowns());
+  if(!parsed.length){
+    el.innerHTML = '<div class="empty">No countdowns. Click the ✏ to add some.</div>';
+    return;
+  }
+  const items = parsed.map(b=>{
+    // If the specified date is past, roll forward year-by-year until it's in the future
+    let target = new Date(b.year, b.month-1, b.day); target.setHours(0,0,0,0);
+    while(target < today){
+      target.setFullYear(target.getFullYear()+1);
+    }
+    const days = Math.round((target-today)/86400000);
+    const dateStr = target.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+    return {...b, days, dateStr};
   }).sort((a,b)=>a.days-b.days);
-  el.innerHTML=items.map(it=>{
-    const big=it.days===0?'TODAY':it.days===1?'TOMORROW':it.days;
-    const suffix=typeof big==='number'?'<span style="font-size:10px;color:var(--text-mute);letter-spacing:1px;margin-left:3px;">DAYS</span>':'';
+  el.innerHTML = items.map(it=>{
+    const big = it.days===0?'TODAY':it.days===1?'TOMORROW':it.days;
+    const suffix = typeof big==='number'?'<span style="font-size:10px;color:var(--text-mute);letter-spacing:1px;margin-left:3px;">DAYS</span>':'';
     return `<div style="display:flex;align-items:center;gap:10px;padding:7px 4px;border-bottom:1px solid var(--border);">
       <span style="font-size:20px;flex-shrink:0;">${it.emoji}</span>
       <div style="flex:1;min-width:0;">
@@ -1754,6 +1821,29 @@ function renderCountdowns(){
     </div>`;
   }).join('');
 }
+
+function openCountdownsModal(){
+  document.getElementById('countdowns-ta').value = getCountdowns();
+  document.getElementById('countdowns-modal').style.display = 'flex';
+}
+function closeCountdownsModal(){ document.getElementById('countdowns-modal').style.display = 'none'; }
+function saveCountdowns(){
+  localStorage.setItem(COUNTDOWNS_KEY, document.getElementById('countdowns-ta').value);
+  closeCountdownsModal();
+  renderCountdowns();
+}
+function restoreDefaultCountdowns(){
+  if(confirm('Restore the default countdowns? Your current list will be replaced.')){
+    document.getElementById('countdowns-ta').value = DEFAULT_COUNTDOWNS;
+  }
+}
+window.openCountdownsModal = openCountdownsModal;
+window.closeCountdownsModal = closeCountdownsModal;
+window.saveCountdowns = saveCountdowns;
+window.restoreDefaultCountdowns = restoreDefaultCountdowns;
+document.getElementById('countdowns-modal').addEventListener('click', e=>{
+  if(e.target === document.getElementById('countdowns-modal')) closeCountdownsModal();
+});
 renderCountdowns();
 setInterval(renderCountdowns,60000);
 
@@ -3067,7 +3157,7 @@ fetchReddit('aviation','r-aviation');
         card.insertBefore(synth, card.firstChild);
       }
     }
-    document.querySelectorAll('.grid-stack-item .ch, .grid-stack-item .mbta-hdr').forEach(ch=>{
+    document.querySelectorAll('.grid-stack-item .ch, .grid-stack-item .mbta-hdr, .grid-stack-item .feed-hdr').forEach(ch=>{
       const item = ch.closest('.grid-stack-item');
       if(!item) return;
       if(!item.getAttribute('gs-id')) return;
