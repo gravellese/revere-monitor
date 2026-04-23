@@ -162,6 +162,8 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 [gs-id="globe-feed"] > .grid-stack-item-content > div,
 [gs-id="nyt-feed"] > .grid-stack-item-content > div{height:560px !important;}
 [gs-id="boston-news"] .card{height:540px !important;}
+[gs-id="uhub-rss"] .card{height:540px !important;}
+[gs-id="uhub-bsky"] .card{height:540px !important;}
 [gs-id="logan"] .card{max-height:700px;}
 [gs-id="markets"] .card{max-height:480px;}
 [gs-id="reveretv"] .card{max-height:420px;}
@@ -172,6 +174,17 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 [gs-id="mbta-alerts"] .mbta-wrap,
 [gs-id="mbta-news"] .mbta-wrap{max-height:480px;}
 [gs-id="reddit-feeds"] .card{height:480px !important;}
+/* News widgets that use .h-news inside — cap the card too so they don't run tall */
+[gs-id="news-revere"] .card,
+[gs-id="news-comm"] .card,
+[gs-id="news-sports"] .card,
+[gs-id="espn-feed"] .card,
+[gs-id="news-bc"] .card,
+[gs-id="college-hockey"] .card,
+[gs-id="chn-bc"] .card,
+[gs-id="chn-all"] .card,
+[gs-id="national"] .card,
+[gs-id="substack-feed"] .card{max-height:560px;}
 /* Reset buttons */
 #gs-buttons{display:flex;gap:6px;}
 /* Mobile — single column */
