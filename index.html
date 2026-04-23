@@ -85,6 +85,9 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 .grid-stack-item-content>.mbta-wrap{height:100%;overflow:hidden;border-radius:4px;}
 .mbta-wrap .mbta-stops-grid,.mbta-wrap #mbtaAlertsBody{overflow-y:auto;flex:1;}
 .mbta-hdr{background:#0f1a17;border-bottom:1px solid #2a2010;padding:7px 14px;display:flex;align-items:center;justify-content:space-between;cursor:grab;flex-shrink:0;}
+/* When a .mbta-hdr element also has the .ch class (for collapse wiring),
+   the .ch default gray bg would win. Force the dark MBTA theme back. */
+.grid-stack-item .mbta-hdr.ch{background:#0f1a17 !important;border-bottom:1px solid #2a2010 !important;border-left:none !important;}
 .mbta-hdr-title{font-size:12px;font-weight:700;letter-spacing:3px;color:#f5c518;text-transform:uppercase;font-family:var(--cond);}
 .mbta-hdr-meta{font-size:10px;color:#7a9a90;letter-spacing:1px;}
 .mbta-ctrl-btn{font-size:10px;color:#9aaa9a;background:none;border:1px solid #3a2a14;border-radius:3px;padding:2px 8px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;}
@@ -153,7 +156,7 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 .grid-stack-item-content .h-reddit{max-height:420px;}
 .grid-stack-item-content .h-nat{max-height:520px;}
 /* Specific widget heights — some need explicit sizing since they have no scroll inside */
-[gs-id="weather-unified"] .card{height:640px !important;}
+[gs-id="weather-unified"] .card{height:560px !important;}
 [gs-id="personal-calendar"] .card{height:520px !important;}
 [gs-id="sports-schedule"] .card{height:560px !important;}
 [gs-id="countdowns"] .card{max-height:420px;}
@@ -164,6 +167,14 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 [gs-id="boston-news"] .card{height:540px !important;}
 [gs-id="uhub-rss"] .card{height:540px !important;}
 [gs-id="uhub-bsky"] .card{height:540px !important;}
+/* Bluesky header — brand-accurate light blue with dark blue text */
+[gs-id="uhub-bsky"] > .grid-stack-item-content > .card > .ch{
+  background:#cfe8fb !important;
+  border-bottom:1px solid #8ec0e8 !important;
+  border-left:3px solid #1185fe !important;
+}
+[gs-id="uhub-bsky"] > .grid-stack-item-content > .card > .ch .ct{color:#0a2540 !important;}
+[gs-id="uhub-bsky"] > .grid-stack-item-content > .card > .ch .cb{color:#1d4a80 !important;opacity:.95;}
 [gs-id="logan"] .card{max-height:700px;}
 [gs-id="markets"] .card{max-height:480px;}
 [gs-id="reveretv"] .card{max-height:420px;}
@@ -177,14 +188,35 @@ button.hdr-btn:hover{color:var(--accent);border-color:var(--accent);background:v
 /* News widgets that use .h-news inside — cap the card too so they don't run tall */
 [gs-id="news-revere"] .card,
 [gs-id="news-comm"] .card,
-[gs-id="news-sports"] .card,
-[gs-id="espn-feed"] .card,
+[gs-id="sports-news-combo"] .card,
 [gs-id="news-bc"] .card,
 [gs-id="college-hockey"] .card,
 [gs-id="chn-bc"] .card,
 [gs-id="chn-all"] .card,
 [gs-id="national"] .card,
 [gs-id="substack-feed"] .card{max-height:560px;}
+
+/* ── REVERE NEWS — SKY BLUE THEME ── */
+[gs-id="news-revere"] .card{
+  background:#e6f2fb !important;
+  border:1px solid #a8c8e0 !important;
+}
+[gs-id="news-revere"] .card > .ch{
+  background:#c9e2f5 !important;
+  border-bottom:1px solid #8eb8d8 !important;
+  border-left:3px solid #0d3d75 !important;
+}
+[gs-id="news-revere"] .card > .ch .ct{color:#0a2540 !important;}
+[gs-id="news-revere"] .card > .ch .cb{color:#2a5580 !important;opacity:.95;}
+[gs-id="news-revere"] .cbody{background:#e6f2fb !important;}
+[gs-id="news-revere"] a.ni{border-bottom:1px solid #a8c8e0 !important;}
+[gs-id="news-revere"] a.ni:hover{background:rgba(13,61,117,.07) !important;}
+[gs-id="news-revere"] .ni-src{color:#0d3d75 !important;}
+[gs-id="news-revere"] .ni-title{color:#0a2540 !important;}
+[gs-id="news-revere"] a.ni:hover .ni-title{color:#1e6bb8 !important;}
+[gs-id="news-revere"] .ni-snippet{color:#2a4560 !important;}
+[gs-id="news-revere"] .ni-date{color:#5a7aa0 !important;}
+[gs-id="news-revere"] .empty{color:#5a7aa0 !important;}
 /* Reset buttons */
 #gs-buttons{display:flex;gap:6px;}
 /* Mobile — single column */
@@ -529,19 +561,24 @@ a.big-btn:hover{opacity:.85;}
 .sc-spinning{display:inline-block;animation:sc-spin 1s linear infinite;}
 
 /* ── LIGHT THEME OVERRIDES FOR DARK HARDCODED PANELS ── */
-/* NYT feed panel: override #111/#0d0d0d/#222 shell + its list items */
+/* NYT feed panel: override #111/#0d0d0d/#222 shell + its list items.
+   Story rows use a darker newsprint gray for that newspaper-column feel. */
 [gs-id="nyt-feed"] .grid-stack-item-content > div{background:var(--bg2) !important;border-color:var(--border) !important;}
 [gs-id="nyt-feed"] .grid-stack-item-content > div > div:first-child{background:var(--bg3) !important;border-bottom-color:var(--border) !important;}
 [gs-id="nyt-feed"] .grid-stack-item-content > div > div:first-child > div > span:last-child{color:var(--text) !important;}
 [gs-id="nyt-feed"] #nyt-feed-meta{color:var(--text-mute) !important;}
-[gs-id="nyt-feed"] #nyt-feed-list a{background:var(--bg2) !important;border-bottom:1px solid var(--border) !important;}
+[gs-id="nyt-feed"] #nyt-feed-list{background:#d4d0c6 !important;}
+[gs-id="nyt-feed"] #nyt-feed-list a{background:#d4d0c6 !important;border-bottom:1px solid #b8b2a4 !important;}
+[gs-id="nyt-feed"] #nyt-feed-list a:hover{background:#c8c3b6 !important;}
 [gs-id="nyt-feed"] #nyt-feed-list a > div:nth-child(2){color:var(--text) !important;}
 [gs-id="nyt-feed"] #nyt-feed-list a > div:nth-child(3){color:var(--text-mute) !important;}
 
 /* Globe feed panel */
 [gs-id="globe-feed"] .grid-stack-item-content > div{background:var(--bg2) !important;border-color:var(--border) !important;}
 [gs-id="globe-feed"] .grid-stack-item-content > div > div:first-child{background:#0d2b5e !important;}
-[gs-id="globe-feed"] #globe-feed-list a{background:var(--bg2) !important;border-bottom:1px solid var(--border) !important;}
+[gs-id="globe-feed"] #globe-feed-list{background:#d4d0c6 !important;}
+[gs-id="globe-feed"] #globe-feed-list a{background:#d4d0c6 !important;border-bottom:1px solid #b8b2a4 !important;}
+[gs-id="globe-feed"] #globe-feed-list a:hover{background:#c8c3b6 !important;}
 [gs-id="globe-feed"] #globe-feed-list a > div:nth-child(2){color:var(--text) !important;}
 [gs-id="globe-feed"] #globe-feed-list a > div:nth-child(3){color:var(--text-mute) !important;}
 
@@ -1272,20 +1309,17 @@ function renderKTN(items) {
     </div>
   </div></div></div>
 
-  <div class="grid-stack-item" gs-id="news-sports">
+  <!-- SPORTS NEWS (tabbed: MY SPORTS | ESPN) -->
+  <div class="grid-stack-item" gs-id="sports-news-combo">
   <div class="grid-stack-item-content"><div class="card">
-    <div class="ch ora"><div class="ct">MY SPORTS NEWS</div><div class="cb">COMBINED FEED</div></div>
-    <div class="cbody npx">
-      <div class="news-feed scroll-box h-news" id="news-sports"><div class="empty">Loading…</div></div>
+    <div class="ch ora"><div class="ct">SPORTS NEWS</div><div class="cb">MY FEED · ESPN</div></div>
+    <div id="sports-news-tabs" style="display:flex;gap:3px;padding:6px 8px;border-bottom:1px solid var(--border);flex-shrink:0;">
+      <button class="sn-tab active" data-tab="mine" style="font-size:11px;padding:3px 11px;border-radius:4px;border:1px solid var(--orange);background:rgba(180,90,42,.12);color:var(--orange);font-family:var(--cond);letter-spacing:.5px;cursor:pointer;white-space:nowrap;font-weight:700;">MY SPORTS</button>
+      <button class="sn-tab" data-tab="espn" style="font-size:11px;padding:3px 11px;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text-mute);font-family:var(--cond);letter-spacing:.5px;cursor:pointer;white-space:nowrap;">ESPN</button>
     </div>
-  </div></div></div>
-
-  <!-- ESPN FEED -->
-  <div class="grid-stack-item" gs-id="espn-feed">
-  <div class="grid-stack-item-content"><div class="card">
-    <div class="ch ora"><div class="ct">ESPN FEED</div><div class="cb">ESPN.COM · RSS</div></div>
     <div class="cbody npx">
-      <div class="news-feed scroll-box h-news" id="news-espn"><div class="empty">Loading…</div></div>
+      <div class="news-feed scroll-box h-news" id="news-sports" style="display:block;"><div class="empty">Loading…</div></div>
+      <div class="news-feed scroll-box h-news" id="news-espn" style="display:none;"><div class="empty">Loading…</div></div>
     </div>
   </div></div></div>
   <div class="grid-stack-item" gs-id="sports-schedule">
@@ -3026,6 +3060,42 @@ renderRedditTabs();
 showRedditSub(redditActiveSub);
 // r/aviation (used inside the Logan widget) — keep its own fetch
 fetchReddit('aviation','r-aviation');
+
+
+// ── SPORTS NEWS TAB SWITCHER (MY SPORTS / ESPN) ──
+(function(){
+  const SPORTS_ACTIVE_KEY = 'monitor_sports_active';
+  let active = localStorage.getItem(SPORTS_ACTIVE_KEY) || 'mine';
+  const tabs = document.querySelectorAll('#sports-news-tabs .sn-tab');
+  const feedMine = document.getElementById('news-sports');
+  const feedEspn = document.getElementById('news-espn');
+
+  function setActive(which){
+    active = which;
+    localStorage.setItem(SPORTS_ACTIVE_KEY, which);
+    tabs.forEach(t => {
+      const isActive = t.dataset.tab === which;
+      if(isActive){
+        t.style.border = '1px solid var(--orange)';
+        t.style.background = 'rgba(180,90,42,.12)';
+        t.style.color = 'var(--orange)';
+        t.style.fontWeight = '700';
+        t.classList.add('active');
+      } else {
+        t.style.border = '1px solid var(--border)';
+        t.style.background = 'transparent';
+        t.style.color = 'var(--text-mute)';
+        t.style.fontWeight = '';
+        t.classList.remove('active');
+      }
+    });
+    if(feedMine) feedMine.style.display = which === 'mine' ? 'block' : 'none';
+    if(feedEspn) feedEspn.style.display = which === 'espn' ? 'block' : 'none';
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => setActive(t.dataset.tab)));
+  setActive(active);
+})();
 
 
 // ── ORDER & COLLAPSE SYSTEM (CSS columns) ──────────────────
