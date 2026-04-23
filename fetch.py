@@ -757,13 +757,34 @@ def main():
             i["_alert"] = label  # keep the trigger label for possible UI use
         revere_gnews_items.extend(items)
 
-    # ── MERGE + DEDUP + 7-DAY FILTER ───────────────────────────────────────
-    import time
+    # ── MERGE + DEDUP + 7-DAY FILTER + OBIT FILTER ─────────────────────────
+    import time, re
     now = int(time.time())
     cutoff_7d = now - (7 * 86400)
 
+    # Obituary detection — Revere Journal, Advocate, and Google News all surface
+    # obits regularly. Patterns handle the common shapes:
+    #   "Obituary: John Smith" | "In Memoriam" | "John Smith, 82" | "Jane Doe, 82, of Revere"
+    #   "Funeral services", "Memorial service", "passed away", etc.
+    OBIT_PATTERNS = [
+        re.compile(r'\bobituar', re.I),
+        re.compile(r'\bin memoriam\b', re.I),
+        re.compile(r'\bpassed away\b', re.I),
+        re.compile(r'\bfuneral (services|mass|arrangements)\b', re.I),
+        re.compile(r'\bmemorial service\b', re.I),
+        re.compile(r'\bdied (at the age|peacefully|on|at home|at\b)', re.I),
+        # "Name, AGE" or "Name, AGE, of Somewhere" — the tell-tale headline format
+        re.compile(r'^[A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:\s+[A-Z][a-z\'\-]+){1,3},\s+\d{2,3}(?:,|\s*$)'),
+    ]
+
+    def is_obituary(item):
+        blob = (item.get("title","") + " " + item.get("summary","") + " " +
+                item.get("description","") + " " + item.get("link",""))
+        return any(p.search(blob) for p in OBIT_PATTERNS)
+
     seen_rev = set()
     revere_all = []
+    obit_skipped = 0
 
     def _norm_title(s):
         # Dedup key that ignores punctuation/case — Google News often returns
@@ -779,6 +800,11 @@ def main():
         link = item.get("link", "")
         title_key = _norm_title(item.get("title", ""))
         ts = item.get("ts", 0) or 0
+
+        # Skip obituaries
+        if is_obituary(item):
+            obit_skipped += 1
+            continue
 
         # Skip items older than 7 days (but allow ts==0 through since local
         # feeds sometimes fail to parse dates and we don't want to drop them)
@@ -805,7 +831,7 @@ def main():
     print(f"  → Revere total: {len(revere_all)} items "
           f"(official:{len(revere_official)} journal:{len(revere_journal)} "
           f"advocate:{len(revere_advocate)} nbc:{len(revere_nbc)} "
-          f"gnews:{len(revere_gnews_items)})")
+          f"gnews:{len(revere_gnews_items)}; obits filtered: {obit_skipped})")
 
     # ── COMMUNITIES ─────────────────────────────────────────────────────────
     comm_rss = [
