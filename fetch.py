@@ -720,31 +720,92 @@ def main():
     revere_nbc = safe(lambda: fetch_feed("https://www.nbcboston.com/tag/revere/feed/", 10), "NBC Boston/Revere") or []
     for i in revere_nbc: i["source"] = "NBC Boston"
 
-    revere_gnews1 = safe(lambda: fetch_feed(
-        "https://news.google.com/rss/search?q=%22Revere%2C+MA%22&hl=en-US&gl=US&ceid=US:en", 15), "Google News: Revere, MA") or []
-    for i in revere_gnews1: i["source"] = "Google News"
+    # ── GOOGLE NEWS ALERTS ─────────────────────────────────────────────────
+    # Each tuple: (label_shown_in_source, search_query, max_items_to_fetch)
+    # The label is what users see in the feed — keep it short & readable.
+    # Queries are plain text; URL-encoding happens below.
+    # All results are filtered to last 7 days to keep the feed fresh.
+    REVERE_GNEWS_ALERTS = [
+        # Broad Revere queries (kept from original set)
+        ("Revere, MA",          '"Revere, MA"',                    15),
+        ("Revere Massachusetts",'"Revere Massachusetts"',          15),
+        ("City of Revere",      '"City of Revere"',                10),
+        # User-requested alerts
+        ("Suffolk Downs",       '"Suffolk Downs"',                 10),
+        ("HYM Investment",      '"HYM Investment"',                10),
+        ("Mayor Keefe",         '"Patrick Keefe" Revere',          10),
+        ("Blue Line · MBTA",    '"Blue Line" MBTA',                10),
+        ("Beachmont",           'Beachmont',                       10),
+        # Claude-suggested additions
+        ("Revere Beach",        '"Revere Beach"',                  10),
+        ("Revere City Council", '"Revere City Council"',            8),
+        ("Revere Schools",      '"Revere Public Schools"',          8),
+        ("Revere Police",       '"Revere Police"',                  8),
+        ("Route 1A",            '"Route 1A" Revere',                8),
+        ("Revere Journal",      '"Revere Journal"',                 8),
+        ("Tom Skwierawski",     '"Tom Skwierawski"',                8),
+    ]
 
-    revere_gnews2 = safe(lambda: fetch_feed(
-        "https://news.google.com/rss/search?q=%22Revere+Massachusetts%22&hl=en-US&gl=US&ceid=US:en", 15), "Google News: Revere Massachusetts") or []
-    for i in revere_gnews2: i["source"] = "Google News"
+    revere_gnews_items = []
+    for label, query, limit in REVERE_GNEWS_ALERTS:
+        import urllib.parse
+        encoded = urllib.parse.quote_plus(query)
+        url = f"https://news.google.com/rss/search?q={encoded}&hl=en-US&gl=US&ceid=US:en"
+        items = safe(lambda u=url, lbl=label: fetch_feed(u, limit), f"Google News: {label}") or []
+        for i in items:
+            i["source"] = f"Google News · {label}"
+            i["_alert"] = label  # keep the trigger label for possible UI use
+        revere_gnews_items.extend(items)
 
-    revere_gnews3 = safe(lambda: fetch_feed(
-        "https://news.google.com/rss/search?q=%22City+of+Revere%22&hl=en-US&gl=US&ceid=US:en", 10), "Google News: City of Revere") or []
-    for i in revere_gnews3: i["source"] = "Google News"
+    # ── MERGE + DEDUP + 7-DAY FILTER ───────────────────────────────────────
+    import time
+    now = int(time.time())
+    cutoff_7d = now - (7 * 86400)
 
     seen_rev = set()
     revere_all = []
+
+    def _norm_title(s):
+        # Dedup key that ignores punctuation/case — Google News often returns
+        # the same story under slightly different titles across alerts.
+        s = (s or "").lower()
+        s = "".join(c for c in s if c.isalnum() or c == " ")
+        return " ".join(s.split())[:120]
+
+    seen_titles = set()
+
     for item in (revere_official + revere_journal + revere_advocate +
-                 revere_nbc + revere_gnews1 + revere_gnews2 + revere_gnews3):
+                 revere_nbc + revere_gnews_items):
         link = item.get("link", "")
-        if link and link not in seen_rev:
+        title_key = _norm_title(item.get("title", ""))
+        ts = item.get("ts", 0) or 0
+
+        # Skip items older than 7 days (but allow ts==0 through since local
+        # feeds sometimes fail to parse dates and we don't want to drop them)
+        if ts and ts < cutoff_7d:
+            continue
+
+        # Dedup on link first, then on normalized title
+        if link and link in seen_rev:
+            continue
+        if title_key and title_key in seen_titles:
+            continue
+
+        if link:
             seen_rev.add(link)
-            revere_all.append(item)
+        if title_key:
+            seen_titles.add(title_key)
+        revere_all.append(item)
+
+    # Sort newest first; cap at 50 to keep the feed manageable
+    revere_all.sort(key=lambda x: x.get("ts", 0) or 0, reverse=True)
+    revere_all = revere_all[:50]
+
     data["news_revere"] = revere_all
     print(f"  → Revere total: {len(revere_all)} items "
           f"(official:{len(revere_official)} journal:{len(revere_journal)} "
           f"advocate:{len(revere_advocate)} nbc:{len(revere_nbc)} "
-          f"gnews:{len(revere_gnews1)+len(revere_gnews2)+len(revere_gnews3)})")
+          f"gnews:{len(revere_gnews_items)})")
 
     # ── COMMUNITIES ─────────────────────────────────────────────────────────
     comm_rss = [
