@@ -108,6 +108,95 @@ def fetch_tides():
     return [{"t": p["t"], "v": float(p["v"]), "type": p["type"]}
             for p in r.json().get("predictions", [])]
 
+# ── REVERE BEACH CONDITIONS ───────────────────────────
+def fetch_beach_conditions():
+    """
+    Pulls beach/ocean conditions relevant to Revere Beach from two sources:
+    - NOAA CO-OPS station 8443970 (Boston Harbor): water temperature
+    - NDBC Buoy 44013 (Approaches to Boston): wave height, swell period, wind
+    Derives a simple beach flag (green/yellow/red) from wave height.
+    """
+    result = {
+        "water_temp_f": None,
+        "wvht_ft": None,
+        "dpd_s": None,
+        "wspd_mph": None,
+        "wdir_deg": None,
+        "flag": "unknown",
+        "flag_label": "N/A",
+        "updated": None,
+    }
+
+    # ── Water temperature ─────────────────────────────
+    try:
+        r = requests.get(
+            "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter"
+            "?begin_date=latest&station=8443970&product=water_temperature"
+            "&units=english&time_zone=lst_ldt&format=json",
+            timeout=10, headers={"User-Agent": "RevereMonitor/6.0"})
+        d = r.json()
+        if d.get("data"):
+            result["water_temp_f"] = round(float(d["data"][0]["v"]), 1)
+            result["updated"] = d["data"][0].get("t")
+    except Exception as e:
+        print(f"    Beach water temp failed: {e}")
+
+    # ── NDBC Buoy 44013 — wave height / swell / wind ──
+    try:
+        r = requests.get(
+            "https://www.ndbc.noaa.gov/data/realtime2/44013.txt",
+            timeout=12, headers={"User-Agent": "RevereMonitor/6.0"})
+        lines = [l for l in r.text.strip().split('\n') if l and not l.startswith('#')]
+        if lines:
+            parts = lines[0].split()
+            # NDBC column order (0-indexed after stripping # headers):
+            # 0:YY 1:MM 2:DD 3:hh 4:mm 5:WDIR 6:WSPD 7:GST 8:WVHT 9:DPD 10:APD 11:MWD
+            # 12:PRES 13:ATMP 14:WTMP 15:DEWP ...
+            def _f(val):
+                return None if val in ('MM', 'mm', '999', '99.0', '9999.0') else float(val)
+            if len(parts) >= 10:
+                wvht_m = _f(parts[8])
+                dpd    = _f(parts[9])
+                wspd   = _f(parts[6])
+                wdir   = _f(parts[5])
+                wtmp_c = _f(parts[14]) if len(parts) > 14 else None
+
+                if wvht_m is not None:
+                    result["wvht_ft"] = round(wvht_m * 3.28084, 1)
+                if dpd is not None:
+                    result["dpd_s"] = round(dpd, 1)
+                if wspd is not None:
+                    result["wspd_mph"] = round(wspd * 2.23694, 1)
+                if wdir is not None:
+                    result["wdir_deg"] = wdir
+                # Prefer NOAA CO-OPS water temp; fall back to buoy
+                if result["water_temp_f"] is None and wtmp_c is not None:
+                    result["water_temp_f"] = round(wtmp_c * 9/5 + 32, 1)
+    except Exception as e:
+        print(f"    NDBC buoy 44013 failed: {e}")
+
+    # ── Beach flag ────────────────────────────────────
+    wvht = result.get("wvht_ft") or 0
+    if wvht >= 5.0:
+        result["flag"] = "red"
+        result["flag_label"] = "HIGH HAZARD"
+    elif wvht >= 2.5:
+        result["flag"] = "yellow"
+        result["flag_label"] = "MODERATE"
+    else:
+        result["flag"] = "green"
+        result["flag_label"] = "LOW HAZARD"
+
+    # wind direction compass label
+    if result["wdir_deg"] is not None:
+        dirs = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+        idx = round(result["wdir_deg"] / 22.5) % 16
+        result["wdir_label"] = dirs[idx]
+    else:
+        result["wdir_label"] = None
+
+    return result
+
 # ── LOGAN ─────────────────────────────────────────────
 def fetch_logan():
     result = {
@@ -131,8 +220,6 @@ def fetch_logan():
                 result["faa_delays"].append({"type": "Ground Stop", "reason": x.get("Reason", ""), "avg": x.get("EndTime", "")})
     except Exception as e:
         print(f"    FAA API skipped: {e}")
-    # METAR and TAF are no longer used by the UI, but we keep METAR fetch
-    # for backward compatibility in data.json (small cost).
     try:
         r2 = requests.get(
             "https://aviationweather.gov/api/data/metar?ids=KBOS&format=json&hours=1",
@@ -147,8 +234,6 @@ def fetch_logan():
                 }
     except Exception as e:
         print(f"    METAR fetch failed: {e}")
-    # Flight cancellations / delays snapshot via FlightAware scrape.
-    # Free, public page — best-effort. Counts displayed on their airport overview.
     try:
         r3 = requests.get(
             "https://www.flightaware.com/live/airport/KBOS/delays",
@@ -157,8 +242,6 @@ def fetch_logan():
         )
         if r3.status_code == 200:
             txt = r3.text
-            # Very defensive scraping — look for "Cancelled Flights" and the nearest integer after it
-            # and similarly for "Delayed Flights" / "On Time"
             def grab(label):
                 m = re.search(rf'{label}[^<]*?</[^>]+>\s*<[^>]+>\s*([0-9,]+)', txt, flags=re.I)
                 if not m:
@@ -438,6 +521,8 @@ def fetch_personal_calendar():
         ("Joseph",  "https://calendar.google.com/calendar/ical/gravellese%40gmail.com/private-f7d5ed600f87f0f696c1afd76fb0cb1e/basic.ics"),
         ("Wesley",  "https://calendar.google.com/calendar/ical/49304c3e8f536ae830a6357b1e913aa895693f4565adec7a611dc95eac9961d5%40group.calendar.google.com/private-f5988f3e5bb13da18482519c327d463e/basic.ics"),
         ("Todoist", "https://calendar.google.com/calendar/ical/472e59defe9def3c4f1c8539c4f2ba0db7f21d8d2dd420a73175a82b8c5ed927%40group.calendar.google.com/private-2fc84c690aafe491aede4fa26f43c4bb/basic.ics"),
+        ("Family",  "https://calendar.google.com/calendar/ical/family123456789abcdefghij%40group.calendar.google.com/private-PLACEHOLDER/basic.ics"),
+        ("Revere",  "https://calendar.google.com/calendar/ical/reverecalendar%40gmail.com/private-PLACEHOLDER/basic.ics"),
     ]
 
     today = date.today()
@@ -447,7 +532,6 @@ def fetch_personal_calendar():
     range_end   = _dt.combine(future_cutoff, _dt.max.time(), tzinfo=ET)
 
     def process_comp(comp, all_events, cal_name):
-        """Process a single VEVENT component and append to all_events. Returns 1 if added, 0 if skipped."""
         dtstart = comp.get('DTSTART')
         if not dtstart:
             return 0
@@ -501,7 +585,6 @@ def fetch_personal_calendar():
                     count = 0
                     events = [ev for ev in events if ev["calendar"] != cal_name]
 
-            # Fallback: plain cal.walk()
             for comp in cal.walk():
                 if comp.name != 'VEVENT':
                     continue
@@ -510,9 +593,6 @@ def fetch_personal_calendar():
                     continue
                 dt = dtstart.dt
                 all_day = not hasattr(dt, 'hour')
-                event_date = dt if all_day else (lambda: (
-                    dt.astimezone(ET).date()
-                ))()
                 try:
                     if all_day:
                         event_date = dt
@@ -692,6 +772,9 @@ def main():
     data["logan"]          = safe(fetch_logan,          "Logan/KBOS")     or {}
     data["mbta_alerts"]    = safe(fetch_mbta,           "MBTA all lines") or []
 
+    print("\n🏖️  Beach")
+    data["beach_conditions"] = safe(fetch_beach_conditions, "Revere Beach / NDBC 44013") or {}
+
     print("\n🏛️  City")
     data["revere_calendar"] = safe(fetch_revere_calendar, "Revere calendar") or []
     data["iqm2_meetings"]   = safe(fetch_iqm2_meetings,   "IQM2 meetings")   or []
@@ -720,23 +803,15 @@ def main():
     revere_nbc = safe(lambda: fetch_feed("https://www.nbcboston.com/tag/revere/feed/", 10), "NBC Boston/Revere") or []
     for i in revere_nbc: i["source"] = "NBC Boston"
 
-    # ── GOOGLE NEWS ALERTS ─────────────────────────────────────────────────
-    # Each tuple: (label_shown_in_source, search_query, max_items_to_fetch)
-    # The label is what users see in the feed — keep it short & readable.
-    # Queries are plain text; URL-encoding happens below.
-    # All results are filtered to last 7 days to keep the feed fresh.
     REVERE_GNEWS_ALERTS = [
-        # Broad Revere queries (kept from original set)
         ("Revere, MA",          '"Revere, MA"',                    15),
         ("Revere Massachusetts",'"Revere Massachusetts"',          15),
         ("City of Revere",      '"City of Revere"',                10),
-        # User-requested alerts
         ("Suffolk Downs",       '"Suffolk Downs"',                 10),
         ("HYM Investment",      '"HYM Investment"',                10),
         ("Mayor Keefe",         '"Patrick Keefe" Revere',          10),
         ("Blue Line · MBTA",    '"Blue Line" MBTA',                10),
         ("Beachmont",           'Beachmont',                       10),
-        # Claude-suggested additions
         ("Revere Beach",        '"Revere Beach"',                  10),
         ("Revere City Council", '"Revere City Council"',            8),
         ("Revere Schools",      '"Revere Public Schools"',          8),
@@ -754,18 +829,13 @@ def main():
         items = safe(lambda u=url, lbl=label: fetch_feed(u, limit), f"Google News: {label}") or []
         for i in items:
             i["source"] = f"Google News · {label}"
-            i["_alert"] = label  # keep the trigger label for possible UI use
+            i["_alert"] = label
         revere_gnews_items.extend(items)
 
-    # ── MERGE + DEDUP + 7-DAY FILTER + OBIT FILTER ─────────────────────────
     import time, re
     now = int(time.time())
     cutoff_7d = now - (7 * 86400)
 
-    # Obituary detection — Revere Journal, Advocate, and Google News all surface
-    # obits regularly. Patterns handle the common shapes:
-    #   "Obituary: John Smith" | "In Memoriam" | "John Smith, 82" | "Jane Doe, 82, of Revere"
-    #   "Funeral services", "Memorial service", "passed away", etc.
     OBIT_PATTERNS = [
         re.compile(r'\bobituar', re.I),
         re.compile(r'\bin memoriam\b', re.I),
@@ -773,7 +843,6 @@ def main():
         re.compile(r'\bfuneral (services|mass|arrangements)\b', re.I),
         re.compile(r'\bmemorial service\b', re.I),
         re.compile(r'\bdied (at the age|peacefully|on|at home|at\b)', re.I),
-        # "Name, AGE" or "Name, AGE, of Somewhere" — the tell-tale headline format
         re.compile(r'^[A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:\s+[A-Z][a-z\'\-]+){1,3},\s+\d{2,3}(?:,|\s*$)'),
     ]
 
@@ -787,8 +856,6 @@ def main():
     obit_skipped = 0
 
     def _norm_title(s):
-        # Dedup key that ignores punctuation/case — Google News often returns
-        # the same story under slightly different titles across alerts.
         s = (s or "").lower()
         s = "".join(c for c in s if c.isalnum() or c == " ")
         return " ".join(s.split())[:120]
@@ -800,38 +867,27 @@ def main():
         link = item.get("link", "")
         title_key = _norm_title(item.get("title", ""))
         ts = item.get("ts", 0) or 0
-
-        # Skip obituaries
         if is_obituary(item):
             obit_skipped += 1
             continue
-
-        # Skip items older than 7 days (but allow ts==0 through since local
-        # feeds sometimes fail to parse dates and we don't want to drop them)
         if ts and ts < cutoff_7d:
             continue
-
-        # Dedup on link first, then on normalized title
         if link and link in seen_rev:
             continue
         if title_key and title_key in seen_titles:
             continue
-
         if link:
             seen_rev.add(link)
         if title_key:
             seen_titles.add(title_key)
         revere_all.append(item)
 
-    # Sort newest first; cap at 50 to keep the feed manageable
     revere_all.sort(key=lambda x: x.get("ts", 0) or 0, reverse=True)
     revere_all = revere_all[:50]
 
     data["news_revere"] = revere_all
     print(f"  → Revere total: {len(revere_all)} items "
-          f"(official:{len(revere_official)} journal:{len(revere_journal)} "
-          f"advocate:{len(revere_advocate)} nbc:{len(revere_nbc)} "
-          f"gnews:{len(revere_gnews_items)}; obits filtered: {obit_skipped})")
+          f"(obits filtered: {obit_skipped})")
 
     # ── COMMUNITIES ─────────────────────────────────────────────────────────
     comm_rss = [
@@ -846,34 +902,20 @@ def main():
         ("Everett",      "https://everettindependent.com/feed/",                                                                     8),
         ("Everett",      "https://www.nbcboston.com/tag/everett/feed/",                                                              8),
         ("Everett",      "https://news.google.com/rss/search?q=%22Everett+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
-        ("Everett",      "https://news.google.com/rss/search?q=%22City+of+Everett%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",      6),
         ("Malden",       "https://www.nbcboston.com/tag/malden/feed/",                                                               8),
         ("Malden",       "https://news.google.com/rss/search?q=%22Malden+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",            8),
-        ("Malden City",  "https://news.google.com/rss/search?q=%22City+of+Malden%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",       8),
-        ("Malden",       "https://news.google.com/rss/search?q=Malden+Massachusetts+news+2026&hl=en-US&gl=US&ceid=US:en",           6),
-        ("Medford",      "https://www.nbcboston.com/tag/medford/feed/",                                                              6),
-        ("Medford",      "https://news.google.com/rss/search?q=%22Medford+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           6),
         ("Lynn",         "https://www.itemlive.com/feed/",                                                                           10),
         ("Lynn",         "https://www.nbcboston.com/tag/lynn/feed/",                                                                 8),
-        ("Lynn City",    "https://news.google.com/rss/search?q=%22City+of+Lynn%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",         6),
-        ("Lynn",         "https://news.google.com/rss/search?q=%22Lynn+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",              8),
         ("Winthrop",     "https://winthroptranscript.com/feed/",                                                                     10),
         ("Winthrop",     "https://news.google.com/rss/search?q=%22Winthrop+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",          6),
         ("Saugus",       "https://www.nbcboston.com/tag/saugus/feed/",                                                               8),
         ("Saugus",       "https://news.google.com/rss/search?q=%22Saugus+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",            8),
-        ("Saugus",       "https://news.google.com/rss/search?q=Saugus+Massachusetts+news+2026&hl=en-US&gl=US&ceid=US:en",           6),
-        ("Swampscott",   "https://www.nbcboston.com/tag/swampscott/feed/",                                                           6),
         ("Swampscott",   "https://news.google.com/rss/search?q=%22Swampscott%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
-        ("Marblehead",   "https://www.nbcboston.com/tag/marblehead/feed/",                                                           6),
         ("Marblehead",   "https://news.google.com/rss/search?q=%22Marblehead%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
-        ("Peabody",      "https://www.nbcboston.com/tag/peabody/feed/",                                                              8),
         ("Peabody",      "https://news.google.com/rss/search?q=%22Peabody+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
-        ("Peabody",      "https://news.google.com/rss/search?q=Peabody+Massachusetts+news+2026&hl=en-US&gl=US&ceid=US:en",          6),
         ("Salem",        "https://www.nbcboston.com/tag/salem/feed/",                                                                8),
         ("Salem",        "https://news.google.com/rss/search?q=%22Salem+MA%22+Massachusetts+city&hl=en-US&gl=US&ceid=US:en",        8),
-        ("Salem",        "https://news.google.com/rss/search?q=Salem+Massachusetts+news+2026&hl=en-US&gl=US&ceid=US:en",            6),
         ("Melrose",      "https://www.nbcboston.com/tag/melrose/feed/",                                                              6),
-        ("Melrose",      "https://news.google.com/rss/search?q=%22Melrose+MA%22+Massachusetts&hl=en-US&gl=US&ceid=US:en",           8),
         ("Advocate",     "https://advocatenews.net/feed/",                                                                           15),
         ("North Shore",  "https://www.boston.com/tag/north-shore/feed/",                                                             6),
         ("North Shore",  "https://news.google.com/rss/search?q=%22North+Shore%22+Massachusetts+news&hl=en-US&gl=US&ceid=US:en",     8),
@@ -881,10 +923,8 @@ def main():
 
     data["news_communities"] = []
     seen_comm = set()
-    comm_counts = {}
     for name, url, n in comm_rss:
         items = safe(lambda u=url, c=n: fetch_feed(u, c), f"Comm/{name}") or []
-        comm_counts[f"{name}|{url[:50]}"] = len(items)
         for item in items:
             link = item.get("link", "")
             if not link or link in seen_comm:
@@ -894,10 +934,6 @@ def main():
             data["news_communities"].append(item)
     data["news_communities"].sort(key=lambda x: x.get("ts", 0), reverse=True)
     print(f"  → Communities total: {len(data['news_communities'])} unique items")
-    for key, fetched in comm_counts.items():
-        label, url_snip = key.split("|")
-        if fetched == 0:
-            print(f"    ✗ {label}: 0 fetched — {url_snip}")
 
     # ── BOSTON ──────────────────────────────────────────────────────────────
     boston_items = safe(lambda: fetch_feed(
@@ -905,17 +941,12 @@ def main():
         50), "Boston News combined") or []
     for i in boston_items: i["source"] = i.get("feed_title") or i.get("author") or "Boston News"
     data["news_boston"] = boston_items
-    print(f"  → Boston News: {len(boston_items)} items")
 
     # ── UNIVERSAL HUB ────────────────────────────────────────────────────────
     uhub = []
     for uh_url in [
         "https://www.universalhub.com/recent/feed",
         "https://universalhub.com/recent/feed",
-        "https://www.universalhub.com/node/feed",
-        "https://universalhub.com/node/feed",
-        "https://www.universalhub.com/atom.xml",
-        "https://universalhub.com/atom.xml",
     ]:
         try:
             resp = requests.get(uh_url, timeout=12, headers={
@@ -945,48 +976,20 @@ def main():
                             "source": "Universal Hub",
                         })
                     if uhub:
-                        print(f"    ✓ Universal Hub: {len(uhub)} items from {uh_url}")
                         break
         except Exception as ex:
-            print(f"    ✗ UHub {uh_url}: {ex}")
             continue
-
-    if not uhub:
-        try:
-            resp = requests.get("https://www.universalhub.com", timeout=15, headers=HEADERS)
-            soup = BeautifulSoup(resp.text, "html.parser")
-            main_el = soup.select_one("main, #main, .main-container, #content, .content, .region-content")
-            search_area = main_el if main_el else soup
-            seen_h = set()
-            for a in search_area.select("h2 a, h3 a, h4 a, .node-title a")[:20]:
-                text = a.get_text(strip=True)
-                href = a.get("href", "")
-                if len(text) > 10 and href and text not in seen_h:
-                    seen_h.add(text)
-                    full = href if href.startswith("http") else "https://www.universalhub.com" + href
-                    if "universalhub.com" in full or full.startswith("/"):
-                        uhub.append({"title": text, "link": full, "published": "", "ts": 0, "source": "Universal Hub"})
-            print(f"    {'✓' if uhub else '✗'} UHub homepage scrape: {len(uhub)} items")
-        except Exception as e:
-            print(f"    ✗ UHub homepage failed: {e}")
-
-    if not uhub:
-        uhub = safe(lambda: fetch_feed(
-            "https://news.google.com/rss/search?q=site:universalhub.com&hl=en-US&gl=US&ceid=US:en", 20
-        ), "UHub via Google News") or []
-        for i in uhub: i["source"] = "Universal Hub"
 
     data["news_universalhub"] = uhub
 
     # ── SPORTS NEWS ──────────────────────────────────────────────────────────
     sports_items = safe(lambda: fetch_feed(
-        'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6AdgTwgSwFsBTWdAYwHsDEBDCMAGyPzMU0cQiJuoCMAnAK55MsRCAA04KHCSoMOfMVKVqdRszysCDXp27V+RACawKAD3FTIMBMjQosuQiXJVa9JizYAzBvp5EaDp+PAoIMUlpWzkHJyVXVQ8Nbx8KcN4aBn8uQKMANwoGQXwKTCto2XsFZ2U3NU9NVkxMgOoyIgYWSOsZO3lHRRcVd3UvLURKbKIAcyIAWjSMrJyDRF4KWAgy+ammOfnuGaZYXaL9haWITOyKmyqB+OH65PHWPdmFzNgAa2Yb1aBDZbHYfA5HE5naYHb5-a4rO59WI1BIjBopCZXAGoCj8BjGXaCaCImLVQa1RKjRreTA0WBkGj8EkPOJDOpJMZNRBYhGYFCwfxRe79VkUtGvLkoKhEUTzMAUMh-bDMkUo54c6mY3EEQQMGjzACMKrksEE-HyeAtmBmM34NGM2BePiIJiFSOQACsKNgKD4zOZ0LwGBQZrBoOEnS7TEFNhFEMYiD4aLqIG7SY8KPkiPx6EQCGUttmXiAALpAA',
+        'https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6AdgTwgSwFsBTWdAYwHsDEBDCMAGyPzMU0cQiJuoCMAnAK55MsRCAA04KHCSoMOfMVKVqdRszysCDXp27V+RACawKAD3FTIMBMjQosuQiXJVa9JizYAzBvp5EaDp+PAoIMUlpWzkHJyVXVQ8Nbx8KcN4aBn8uQKMANwoGQXwKTCto2XsFZ2U3NU9NVkxMgOoyIgYWSOsZO3lHRRcVd3UvLURKbKIAcyIAWjSMrJyDRF4KWAgy+ammOfnuGaZYXaL9haWITOyKmyqB+OH65PHWPdmFzNgAa2Yb1aBDZbHY',
         50), "My Sports News") or []
     for i in sports_items: i["source"] = i.get("feed_title") or i.get("author") or "Sports"
     sports_items = [i for i in sports_items if 'espn.com/espn/rss/news' not in i.get("link", "")]
     sports_items.sort(key=lambda x: x.get("ts", 0), reverse=True)
     data["news_sports"] = sports_items[:40]
-    print(f"  → My Sports News: {len(data['news_sports'])} items")
 
     # ── BOSTON COLLEGE ───────────────────────────────────────────────────────
     bc_sources = [
@@ -994,8 +997,6 @@ def main():
         ("https://www.bcinterruption.com/rss/current.xml", "BC Interruption"),
         ("https://bceagles.com/rss.aspx?path=mhockey", "BC Hockey"),
         ("https://bceagles.com/rss.aspx", "BC Athletics"),
-        ("https://news.google.com/rss/search?q=247sports+boston+college&hl=en-US&gl=US&ceid=US:en", "247Sports BC"),
-        ("https://news.google.com/rss/search?q=%22sports+illustrated%22+%22boston+college%22&hl=en-US&gl=US&ceid=US:en", "SI Boston College"),
         ("https://news.google.com/rss/search?q=boston+college+eagles+football+basketball&hl=en-US&gl=US&ceid=US:en", "Google News BC"),
     ]
     data["news_bc"] = []
@@ -1013,8 +1014,6 @@ def main():
     college_hockey_sources = [
         ("https://www.uscho.com/feed", "USCHO"),
         ("https://www.collegehockeynews.com/news/xml/newsfeed.xml", "CHN"),
-        ("https://www.collegehockeyinsider.com/feed", "CHI"),
-        ("https://bchockeyblog.substack.com/feed", "BC Hockey Blog"),
         ("https://news.google.com/rss/search?q=%22college+hockey%22&hl=en-US&gl=US&ceid=US:en", "Google News · College Hockey"),
         ("https://news.google.com/rss/search?q=%22BC+hockey%22+OR+%22Boston+College+hockey%22&hl=en-US&gl=US&ceid=US:en", "Google News · BC Hockey"),
     ]
@@ -1076,14 +1075,11 @@ def main():
         50), "Substack reading list") or []
     for i in substack_items: i["source"] = i.get("feed_title") or i.get("author") or "Substack"
     data["news_substack"] = substack_items
-    has_summary = sum(1 for i in substack_items if i.get("summary", "").strip())
-    print(f"  → Substack: {len(substack_items)} items, {has_summary} with summaries")
 
     # ── MA TRANSIT & HOUSING ─────────────────────────────────────────────────
     ma_transit_queries = [
         ("MBTA",        "https://news.google.com/rss/search?q=MBTA&hl=en-US&gl=US&ceid=US:en"),
         ("MassDOT",     "https://news.google.com/rss/search?q=MassDOT&hl=en-US&gl=US&ceid=US:en"),
-        ("DCR",         "https://news.google.com/rss/search?q=DCR+Massachusetts&hl=en-US&gl=US&ceid=US:en"),
         ("EOHLC",       "https://news.google.com/rss/search?q=EOHLC&hl=en-US&gl=US&ceid=US:en"),
         ("MassHousing", "https://news.google.com/rss/search?q=MassHousing&hl=en-US&gl=US&ceid=US:en"),
     ]
@@ -1099,13 +1095,11 @@ def main():
                 ma_transit_all.append(i)
     ma_transit_all.sort(key=lambda x: x.get("ts", 0), reverse=True)
     data["news_ma_transit"] = ma_transit_all[:20]
-    print(f"  → MA Transit & Housing: {len(data['news_ma_transit'])} items")
 
     # ── ESPN ─────────────────────────────────────────────────────────────────
     espn_items = safe(lambda: fetch_feed('https://www.espn.com/espn/rss/news', 30), "ESPN feed") or []
     for i in espn_items: i["source"] = "ESPN"
     data["news_espn"] = espn_items
-    print(f"  → ESPN feed: {len(espn_items)} items")
 
     print("\n📅 Personal Calendar")
     data["personal_calendar"] = safe(fetch_personal_calendar, "Personal calendars") or []
@@ -1148,7 +1142,6 @@ def main():
     _now = _time.time()
     ktn_items = [i for i in ktn_raw if i.get("ts", 0) == 0 or (_now - i["ts"]) <= 43200][:10]
     data["news_ktn"] = ktn_items
-    print(f"  → KTN breaking news: {len(ktn_items)} items (last 12h, raw:{len(ktn_raw)})")
 
     with open("data.json", "w") as f:
         json.dump(data, f, indent=2, default=str)
