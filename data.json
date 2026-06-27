@@ -1,33 +1,17 @@
 {
-  "updated": "2026-06-27T14:51:20.503134+00:00",
-  "updated_local": "June 27, 2026 at 2:51 PM",
+  "updated": "2026-06-27T16:15:49.740565+00:00",
+  "updated_local": "June 27, 2026 at 4:15 PM",
   "weather_current": {
-    "temp": 74,
+    "temp": 79,
     "unit": "F",
-    "wind": "3 mph",
+    "wind": "5 mph",
     "windDir": "NE",
     "shortForecast": "Mostly Sunny",
     "detailedForecast": "Isolated rain showers after 1pm. Mostly sunny, with a high near 82. East wind around 5 mph. Chance of precipitation is 20%.",
-    "humidity": 66,
-    "precip": 4
+    "humidity": 56,
+    "precip": 12
   },
   "weather_hourly": [
-    {
-      "time": "2026-06-27T10:00:00-04:00",
-      "temp": 74,
-      "unit": "F",
-      "shortForecast": "Mostly Sunny",
-      "wind": "3 mph",
-      "precip": 4
-    },
-    {
-      "time": "2026-06-27T11:00:00-04:00",
-      "temp": 77,
-      "unit": "F",
-      "shortForecast": "Mostly Sunny",
-      "wind": "5 mph",
-      "precip": 7
-    },
     {
       "time": "2026-06-27T12:00:00-04:00",
       "temp": 79,
@@ -203,15 +187,31 @@
       "shortForecast": "Mostly Cloudy",
       "wind": "3 mph",
       "precip": 5
+    },
+    {
+      "time": "2026-06-28T10:00:00-04:00",
+      "temp": 70,
+      "unit": "F",
+      "shortForecast": "Mostly Cloudy",
+      "wind": "3 mph",
+      "precip": 7
+    },
+    {
+      "time": "2026-06-28T11:00:00-04:00",
+      "temp": 73,
+      "unit": "F",
+      "shortForecast": "Partly Sunny",
+      "wind": "5 mph",
+      "precip": 13
     }
   ],
   "weather_daily": [
     {
-      "name": "Today",
-      "date": "2026-06-27T10:00:00-04:00",
+      "name": "This Afternoon",
+      "date": "2026-06-27T12:00:00-04:00",
       "high": 82,
       "low": 61,
-      "shortForecast": "Mostly Sunny then Isolated Rain Showers",
+      "shortForecast": "Isolated Rain Showers",
       "detailedForecast": "Isolated rain showers after 1pm. Mostly sunny, with a high near 82. East wind around 5 mph. Chance of precipitation is 20%.",
       "precip": 22
     },
@@ -278,65 +278,39 @@
     "dawn": "2026-06-27T08:34:25+00:00",
     "dusk": "2026-06-28T00:59:58+00:00"
   },
-  "tides": [
-    {
-      "t": "2026-06-27 04:22",
-      "v": 0.888,
-      "type": "L"
-    },
-    {
-      "t": "2026-06-27 10:35",
-      "v": 8.469,
-      "type": "H"
-    },
-    {
-      "t": "2026-06-27 16:20",
-      "v": 1.892,
-      "type": "L"
-    },
-    {
-      "t": "2026-06-27 22:36",
-      "v": 9.884,
-      "type": "H"
-    },
-    {
-      "t": "2026-06-28 05:05",
-      "v": 0.764,
-      "type": "L"
-    },
-    {
-      "t": "2026-06-28 11:18",
-      "v": 8.522,
-      "type": "H"
-    },
-    {
-      "t": "2026-06-28 17:03",
-      "v": 1.827,
-      "type": "L"
-    },
-    {
-      "t": "2026-06-28 23:18",
-      "v": 9.966,
-      "type": "H"
-    }
-  ],
+  "tides": [],
   "logan": {
     "name": "Boston Logan (KBOS)",
     "delay": false,
     "status": "ok",
     "metar": {
-      "raw": "SPECI KBOS 271427Z 10007KT 1 1/2SM R04R/3000VP6000FT BR OVC002 18/17 A3007 RMK AO2 VIS NE-SE 1 T01830167",
+      "raw": "SPECI KBOS 271605Z 10008KT 1/2SM R04R/P6000FT BR FEW002 BKN005 BKN035 BKN250 19/17 A3006 RMK AO2 SFC VIS 2 VIS HYR W-N T01940167",
       "flight_cat": ""
     },
     "faa_delays": [],
     "flight_stats": {
-      "cancelled": 24
+      "cancelled": 2
     }
   },
   "mbta_alerts": [
     {
       "header": "The platform at Jackson Square is undergoing renovations to improve safety and accessibility. Sections of the platform are unlevel, which may make it difficult for some riders to board and exit trains.",
       "effect": "STATION_ISSUE",
+      "routes": []
+    },
+    {
+      "header": "Fitchburg Line Train 5418 (10:25 AM from Wachusett) is operating 5-15 minutes behind schedule between Littleton/Route 495 and North Station.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "On Mon, Jun 29, Franklin/Foxboro Line service will be suspended. Shuttle bus replaces service between Forge Park/495 and Walpole to connect with Providence Line service at Canton Junction. There will be no regular train service to Foxboro.",
+      "effect": "SUSPENSION",
+      "routes": []
+    },
+    {
+      "header": "Rockport Line Train 5033 (10:30 AM from North Station) is operating 5-15 minutes behind schedule between Montserrat and Rockport.",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -360,7 +334,7 @@
       "routes": []
     },
     {
-      "header": "Lowell Line Train 5328 (9:30 AM from North Billerica) is operating 20-30 minutes behind schedule between Wedgemere and North Station due to a mechanical issue.",
+      "header": "Worcester Line Train 5533 (11:00 AM from South Station) is operating 25-35 minutes behind schedule between Auburndale and Worcester due to an earlier medical emergency.",
       "effect": "DELAY",
       "routes": []
     },
@@ -375,18 +349,18 @@
       "routes": []
     },
     {
+      "header": "Newburyport Line Train 5136 (11:07 AM from Newburyport) remains stopped at Swampscott and is 25-35 minutes behind schedule due to police activity.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
       "header": "To accommodate renovations at Providence Station, construction barriers have been installed and the southern stairwell to Track 1 is out of service. Staircase access is available to Track 3 and Track 5.",
       "effect": "STATION_ISSUE",
       "routes": []
     },
     {
-      "header": "Fairmount Line Train 6625 (9:47 AM from South Station) is operating 10-20 minutes behind schedule between Four Corners/Geneva and Readville.",
+      "header": "Greenbush Line Train 6065 (11:18 AM from South Station) is operating 5-15 minutes behind schedule between Cohasset and Greenbush.",
       "effect": "DELAY",
-      "routes": []
-    },
-    {
-      "header": "Please board Fall River Line Train 6911 (9:35 AM from South Station) on the inbound platform (Track 2) at Montello today.",
-      "effect": "TRACK_CHANGE",
       "routes": []
     },
     {
@@ -410,36 +384,26 @@
       "routes": []
     },
     {
-      "header": "Fall River Line Train 6911 (9:35 AM from South Station) is operating 20-30 minutes behind schedule between South Station and Fall River.",
-      "effect": "DELAY",
-      "routes": []
-    },
-    {
       "header": "Please board all Fairmount Line trains on the outbound platform (Track 1 ) at Talbot Ave, Morton Street, and Fairmount until further notice. \r\n\r\n",
       "effect": "TRACK_CHANGE",
       "routes": []
     },
     {
-      "header": "The Riverside Ave entrance at Campello Station is currently closed. Passengers may continue to use the Plain St entrance.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "Blue Line: All trains will operate on the outbound/eastbound track between Wonderland and Revere Beach from Jun 27 \u2013 Jun 28, for switch work.",
-      "effect": "DELAY",
+      "header": "On Mon, Jun 29, a World Cup Match Schedule will be in effect for all South Station Commuter Rail Lines.",
+      "effect": "SCHEDULE_CHANGE",
       "routes": []
     }
   ],
   "beach_conditions": {
-    "water_temp_f": 61.9,
-    "wvht_ft": 1.0,
-    "dpd_s": 11.0,
-    "wspd_mph": 8.9,
-    "wdir_deg": 20.0,
+    "water_temp_f": 62.4,
+    "wvht_ft": null,
+    "dpd_s": null,
+    "wspd_mph": 6.7,
+    "wdir_deg": 10.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
-    "wdir_label": "NNE"
+    "wdir_label": "N"
   },
   "revere_calendar": [
     {
@@ -1419,6 +1383,26 @@
   ],
   "news_communities": [
     {
+      "title": "Senator Edwards and Representative Madaro celebrate Inaugural Commonwealth Pride Awardees",
+      "link": "https://eastboston.com/senator-edwards-and-representative-madaro-celebrate-inaugural-commonwealth-pride-awardees/?utm_source=rss&utm_medium=rss&utm_campaign=senator-edwards-and-representative-madaro-celebrate-inaugural-commonwealth-pride-awardees",
+      "published": "Sat, 27 Jun 2026 15:28:21 +0000",
+      "ts": 1782574101,
+      "author": "admin",
+      "feed_title": "",
+      "summary": "<p><strong>(Boston, June 26, 2026) </strong>Today, Senator Lydia Edwards and Representative Adrian Madaro celebrated with an inaugural Commonwealth Pride Award, a newly-founded annual event that celebrates the rich accomplishments and talents of Massachusetts\u2019 LGBTQ+ community.</p>\n\n\n\n<p>&#8220;I&#8217;m excited to see East Boston well-represented at the State House for the inaugural Commonwealth Pride Awards!&#8221; said <strong><a href=\"https://malegislature.gov/Legislators/Profile/ACM1\" title=\"\">Representative Adrian C. Madaro (D-East Boston)</a></strong>. &#8220;These new awards celebrate the lives and achievements of LGBTQ+ individuals in communities across the Commonwealth. East Boston is proud to have Debbie and Bryan representing our neighborhood! A lifelong Eastie resident and trailblazer and a dedicated educator respectively, they are role models for generations of Eastie residents!&#8221;</p>\n\n\n\n<p><strong>Debbie Baker</strong> is a lifelong member of the East Boston community. Born in the North End, Debbie grew up in the Maverick housing development in East Boston, a complex known for tough \u201cold school\u201d working-class people. Those who knew her recall Debbie being open about her identity for as long as they can remember. From the 1970s, a time when a lot of people continued to mask their sexual orientation for fear of stigma, Debbie was open about her sexuality, which made it easier for other people in the community to have the confidence to be open about themselves too.</p>\n\n\n\n<p>Debbie\u2019s pride in her identity was met with widespread acceptance from people in the neighborhood. In the late 1970s, Debbie and her partner were among the first to have a same-sex marriage ceremony. In attendance were many of the same working-class neighbors that Debbie had grown up with.</p>\n\n\n\n<p>Debbie would go on to be a marshal in many early gay pride parades. Still an East Boston resident, she was the guest of honor at East Boston\u2019s inaugural Pride Flag raising. Debbie was a pioneer for her time, someone who not only led the way in expressing her identity but also served as a role model for subsequent generations to follow in her path. East Boston is proud to claim Debbie as one of our own, celebrating her identity and those of the LGBTQ+ community in the neighborhood.</p>\n\n\n\n<p><strong>Bryan Bigelow </strong>grew up in Bridgeport, Connecticut, and came to Boston in 2002 to attend Berklee College of Music. He has been an elementary school music teacher for 20 years, the last 12 of which he spent at the Donald McKay K-8 in East Boston. He has helped build a thriving music education program and worked with Disney to begin an annual musical theater program.</p>\n\n\n\n<p>In addition to teaching, Bryan is also a Nutrition and CrossFit Coach at EastieFit, where he works with people in the community to improve their habits, fitness, and longevity.</p>\n\n\n\n<p>Bryan&#8217;s impact reaches far beyond the classroom and the gym. Through his unwavering commitment to his community, his clients, and his students, he empowers others to grow in confidence, pursue their passions, and lead healthier, fuller lives. \u201cThese awards honor the extraordinary contributions and achievements of LGBTQ+ individuals across the Commonwealth, and East Boston is proud to have Debbie and Bryan representing our community,\u201d said <strong><a href=\"https://malegislature.gov/Legislators/Profile/LME0\" title=\"\">Senator Lydia Edwards (D-East Boston)</a></strong>. \u201cBryan has left his mark on East Boston from the classroom to the gym, dedicating himself to uplifting our neighbors and creating spaces where young people can learn, grow, and thrive. Alongside Debbie, whose lifelong advocacy and trailblazing leadership have strengthened our community, they exemplify the compassion, service, and pride that make East Boston so special.\u201d</p>\n\n\n\n<div class=\"wp-block-spacer\" style=\"height: 65px;\"></div>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"\" class=\"wp-image-16162\" height=\"450\" src=\"https://eastboston.com/wp-content/uploads/2025/07/AngelButtonsFORReview1.png\" width=\"450\" /></figure>\n</div>\n\n\n<div class=\"wp-block-spacer\" style=\"height: 66px;\"></div>\n\n\n\n<p></p><p>The post <a href=\"https://eastboston.com/senator-edwards-and-representative-madaro-celebrate-inaugural-commonwealth-pride-awardees/\">Senator Edwards and Representative Madaro celebrate Inaugural Commonwealth Pride Awardees</a> first appeared on <a href=\"https://eastboston.com\">EastBoston.com</a>.</p>",
+      "source": "East Boston"
+    },
+    {
+      "title": "Latinos for Education Honors Brooke Charter School Multilingual Learner Coordinator Lesley Pe\u00f1a",
+      "link": "https://eastboston.com/latinos-for-education-honors-brooke-charter-school-multilingual-learner-coordinator-lesley-pena/?utm_source=rss&utm_medium=rss&utm_campaign=latinos-for-education-honors-brooke-charter-school-multilingual-learner-coordinator-lesley-pena",
+      "published": "Sat, 27 Jun 2026 15:16:56 +0000",
+      "ts": 1782573416,
+      "author": "admin",
+      "feed_title": "",
+      "summary": "<p><em>Pe\u00f1a was nominated by State Representative Adrian Madaro</em></p>\n\n\n\n<p><strong>Boston, MA \u2013 June 24, 2026 \u2013 </strong>Latinos for Education hosted its fifth annual Latino Educators Shine Awards at the MCLE Conference Center on Tuesday, honoring Lesley Pe\u00f1a, Multilingual Learner Coordinator at <a href=\"https://www.ebrooke.org/ourschools/our-campuses/brooke-east-boston/\" title=\"\">Brooke East Boston</a>. This year, over 50 Latino educators from across the Commonwealth were honored by state legislators for the trailblazing work they do in the classroom every day.</p>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"\" class=\"wp-image-19299\" height=\"710\" src=\"https://eastboston.com/wp-content/uploads/2026/06/Courtesyphoto-MassachusettsCharterPublicSchool-Associ2026-0624-PIC3.jpg\" width=\"949\" /><figcaption class=\"wp-element-caption\">Educators and legislators come together for a group photo at the 2026 Latino Educators SHINE Awards ceremony.</figcaption></figure>\n</div>\n\n\n<p>Lesley was recognized by State Representative Adrian Madaro for her dedication and commitment as an educator, as well as for the incredible positive impact she has on students, families, and the broader community. Lesley was one of 15 charter public school teachers from across the state to be recognized.</p>\n\n\n\n<p>Senator Liz Miranda (Democrat &#8211; 2nd Suffolk) and Representative Michael P. Kushmerek (Democrat &#8211; 3rd Worcester) were also honored at this year\u2019s award ceremony for their legislative work in advancing educator diversity and retention. The ceremony featured remarks from Miranda, Kushmerek, and Dr. Regina Robinson, Special Assistant to the Commissioner. Also speaking were key leaders from Latinos for Education, including Amanda Fernandez, CEO and Founder, Jacqueline Monterroso, Director of Policy and Advocacy, and Migdalia Diaz, COO and Massachusetts Interim Executive Director.</p>\n\n\n\n<p>Lesley Pe\u00f1a joined Brooke East Boston in 2024 as an Associate Teacher, participating in Brooke\u2019s year-long teacher residency program designed to prepare educators to become lead teachers through professional development, classroom observations, mentorship, and coaching. Before joining Brooke, Ms. Pe\u00f1a interned in an AP Spanish classroom at Revere High School. She earned her bachelor&#8217;s degree from Salem State University and is currently pursuing her master&#8217;s degree.</p>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"alignleft size-full\"><img alt=\"\" class=\"wp-image-19297\" height=\"243\" src=\"https://eastboston.com/wp-content/uploads/2026/06/Courtesyphoto-MassachusettsCharterPublicSchool-Associ2026-0624.jpg\" width=\"181\" /><figcaption class=\"wp-element-caption\">Lesley Pe\u00f1a poses with her award at the 2026 Latino Educators SHINE Awards ceremony.</figcaption></figure>\n</div>\n\n\n<p>&#8220;We are incredibly proud to celebrate Lesley Pena&#8217;s recognition at the 2026 Latino Educators SHINE Awards,\u201d said Brooke East Boston Principal Elza Mathieu. \u201cLesley is a passionate advocate for multilingual learners and a dedicated leader whose work helps ensure every student feels seen, supported, and empowered to succeed. This honor reflects the profound impact she has on our school community each day, and we are thrilled to see her commitment to educational excellence recognized by Latinos for Education.&#8221;</p>\n\n\n\n<p><strong>About Brooke Charter School</strong> Founded in 2002, Brooke Charter Schools is a network of high-performing public charter schools serving more than 2,200 students in grades K-12 across Boston and Chelsea. Named in honor of Senator Edward W. Brooke, the first African American popularly elected to the U.S. Senate, Brooke is committed to providing an academically rigorous education that prepares every student to succeed in college and beyond. Through exceptional teaching, high expectations, and a strong culture of achievement, Brooke empowers scholars to reach their full</p>\n\n\n\n<div class=\"wp-block-spacer\" style=\"height: 80px;\"></div>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"\" class=\"wp-image-16163\" height=\"512\" src=\"https://eastboston.com/wp-content/uploads/2025/07/cropped-AngelButtonsFORReview1.png\" width=\"512\" /></figure>\n</div>\n\n\n<div class=\"wp-block-spacer\" style=\"height: 73px;\"></div><p>The post <a href=\"https://eastboston.com/latinos-for-education-honors-brooke-charter-school-multilingual-learner-coordinator-lesley-pena/\">Latinos for Education Honors Brooke Charter School Multilingual Learner Coordinator Lesley Pe\u00f1a</a> first appeared on <a href=\"https://eastboston.com\">EastBoston.com</a>.</p>",
+      "source": "East Boston"
+    },
+    {
       "title": "Today\u2019s Page 1: June 27, 2026",
       "link": "https://itemlive.com/2026/06/26/todays-page-1-june-27-2026/",
       "published": "Sat, 27 Jun 2026 01:27:38 +0000",
@@ -1556,26 +1540,6 @@
       "author": "",
       "feed_title": "Salem, MA (.gov)",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE1HaEtQc1YxN1FqRVgyQ3VkYXlBQVZKWmd2eGdvYlJSZG1kS2RIcVdYMkdXWW5TYl9QdjdIRUpKb0NJSXB4ZWxVX1cycHJWOFV3dF94dW5jLXpscnVz?oc=5\" target=\"_blank\">City of Salem to host Living Green Expo</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA (.gov)</font>",
-      "source": "Salem"
-    },
-    {
-      "title": "Join Friends of Forten Park TONIGHT for a World Cup Watch Party! - Salem, MA (.gov)",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9uNGhGbTJ5M1NtTHFKQk92aWpyUjV5S2N1M2V4c1lRNFhGU3haV0xudk5rck9Sc1FsRWpoSV9DdUU2eU02enFIVy1aUFJKbmR4MDNncDR5bFJFNk5l?oc=5",
-      "published": "Fri, 26 Jun 2026 19:51:48 GMT",
-      "ts": 1782503508,
-      "author": "",
-      "feed_title": "Salem, MA (.gov)",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE9uNGhGbTJ5M1NtTHFKQk92aWpyUjV5S2N1M2V4c1lRNFhGU3haV0xudk5rck9Sc1FsRWpoSV9DdUU2eU02enFIVy1aUFJKbmR4MDNncDR5bFJFNk5l?oc=5\" target=\"_blank\">Join Friends of Forten Park TONIGHT for a World Cup Watch Party!</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA (.gov)</font>",
-      "source": "Salem"
-    },
-    {
-      "title": "Salem 400+ Heritage Days Parade Registration Nears Capacity Ahead of August 1st Celebration - Salem, MA (.gov)",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE95SVNETlhNZXlPMjNvZVh1RURZUUFWcDBFWlB3OEozTzF5ejhienZucUhGNXFRRWZlMEM4czZhVjlGc3BaT19kXzdPbHFJWTdBOW1qck1keWtZcXB0?oc=5",
-      "published": "Fri, 26 Jun 2026 19:51:48 GMT",
-      "ts": 1782503508,
-      "author": "",
-      "feed_title": "Salem, MA (.gov)",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE95SVNETlhNZXlPMjNvZVh1RURZUUFWcDBFWlB3OEozTzF5ejhienZucUhGNXFRRWZlMEM4czZhVjlGc3BaT19kXzdPbHFJWTdBOW1qck1keWtZcXB0?oc=5\" target=\"_blank\">Salem 400+ Heritage Days Parade Registration Nears Capacity Ahead of August 1st Celebration</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA (.gov)</font>",
       "source": "Salem"
     },
     {
@@ -2039,16 +2003,6 @@
       "source": "North Shore"
     },
     {
-      "title": "Carmine Jacob LaRocca Obituary | SALVATORE Rocco & Sons Funeral Homes Inc. | Everett, MA - Tribute Archive",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVTRoS2w4ZUxsTTZfeDFzemxENFhiQnlHcGthOGdGaHlMNndzQmh1XzM0bElZbGhzN0pEcWhnWlh5Q3F5d3NYeThaV2tKYWllWGc2aXZocElwM09SQ1FLcmtlVnhVcU1LdnVkRmxjQWtSbDJRMDhJUmEzMUdMWl9XUlRKMXNrVDNoR2JZTE9ENUtWUXpaRTVPeHJEU0dOaGNxMnFXREpDeGpRb3FOc0tfenBXVXFmZ210ZjNJZXFpX2NvMlAyeGpUZg?oc=5",
-      "published": "Tue, 23 Jun 2026 10:35:08 GMT",
-      "ts": 1782210908,
-      "author": "",
-      "feed_title": "Tribute Archive",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVTRoS2w4ZUxsTTZfeDFzemxENFhiQnlHcGthOGdGaHlMNndzQmh1XzM0bElZbGhzN0pEcWhnWlh5Q3F5d3NYeThaV2tKYWllWGc2aXZocElwM09SQ1FLcmtlVnhVcU1LdnVkRmxjQWtSbDJRMDhJUmEzMUdMWl9XUlRKMXNrVDNoR2JZTE9ENUtWUXpaRTVPeHJEU0dOaGNxMnFXREpDeGpRb3FOc0tfenBXVXFmZ210ZjNJZXFpX2NvMlAyeGpUZg?oc=5\" target=\"_blank\">Carmine Jacob LaRocca Obituary | SALVATORE Rocco & Sons Funeral Homes Inc. | Everett, MA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Tribute Archive</font>",
-      "source": "Everett"
-    },
-    {
       "title": "Jeffrey Best Obituary - Marblehead, MA - Dignity Memorial",
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxORWxfTGZtMWJNMGUteExZSDRCQ1FUcGd4eEY0WUt0dC1EbjlwNDFQdGR6cjZMRWZNLUx0ankySHBLSkdFVkVzWmhwNXNrb01FRVRlUHhydmdtcFJqR0tOWjRuN1NEV0s5aGQtZTg1aHJRMFNoRkRaMUROb05mRmF5MTV0b2U?oc=5",
       "published": "Tue, 23 Jun 2026 07:00:00 GMT",
@@ -2067,6 +2021,16 @@
       "feed_title": "",
       "summary": "<p>(<strong>BOSTON, MA</strong>, <strong>June 22, 2026</strong>)\u2014 Excel Academy Charter High School graduated its Class of 2026 last week \u2014 a group of students who leave not just with diplomas, but with championship titles, college credits, professional certifications, and a clear sense of who they are and where they&#8217;re headed.</p>\n\n\n\n<p>As a class, they captained 23 sports teams and won 11 athletic championships across flag football, soccer, track, step, and cross country \u2014 including the school&#8217;s first MIAA state wrestling champion. They starred in 7 plays, displayed work in 4 school-wide art shows, led affinity groups, and won 21 awards across 16 Model United Nations conferences. Ninety-one percent held jobs while in high school. Together, they logged more than 2,500 hours of community service, 500 more than any class before them.</p>\n\n\n\n<p>In the classroom, they took 883 AP courses and passed 337 AP exams, earning college credit along the way. Nineteen students graduated with a 4.0 GPA or above. Their collective work helped earn <a href=\"https://eastboston.com/excel-academy-charter-high-school-named-to-advanced-placement-school-honor-roll/\" title=\"Excel Academy Charter High School named to Advanced Placement School Honor Roll\">Excel Academy a Platinum School</a> designation from the College Board \u2014 the organization&#8217;s highest recognition for an inclusive and successful Advanced Placement program.</p>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"alignleft size-full is-resized\"><img alt=\"\" class=\"wp-image-19208\" height=\"949\" src=\"https://eastboston.com/wp-content/uploads/2026/06/CourtesyPhoto-Excel-2026-0622-MortarToss949-graduation_image2.jpg\" style=\"width: 477px; height: auto;\" width=\"711\" /><figcaption class=\"wp-element-caption\">Excel Academy Charter High School graduates throw their caps in the air to signal the end of their high school careers.  (Courtesy Photograph)</figcaption></figure>\n</div>\n\n\n<p>Among the class&#8217;s most distinctive achievements: they are the first Excel graduating class to include students who completed a certificate in medical interpretation in Spanish. The year-long program qualifies graduates to work as medical interpreters in Massachusetts, and more than 30 members of the class were recognized at the ceremony. It&#8217;s a credential that captures something true about this group \u2014 bilingual, oriented toward service, and already thinking concretely about how to show up for their communities.</p>\n\n\n\n<p>No one embodies that more fully than Leslie, who will attend <a href=\"https://www.northeastern.edu/\" title=\"\">Northeastern University</a> this fall to study Health Science on a path toward becoming an OB-GYN. For four years, a pediatrician dismissed the severe pain that cost her more than 30 school days, while her mother&#8217;s concerns went unheard because she relied on Leslie to translate them into English before a doctor would engage. Those experiences shaped her goals: she wants to become the kind of physician who takes young women&#8217;s pain seriously and ensures Spanish-speaking families can advocate for the people they love. Her medical interpretation certificate, earned while still in high school, alongside her work as cheer captain, NHS officer, and student council member is, in that sense, entirely in character.</p>\n\n\n\n<p>At the ceremony, senior Safiyyah addressed her classmates with words that seemed to speak for all of them:</p>\n\n\n\n<p><em>&#8220;As I look at the Class of 2026 sitting before me, I see a library too, one full of stories that deserve to be read. Many people judge a book by its cover. Many of us have been judged by labels: low-income, first-generation, under-resourced, underprivileged. Our stories often go unread because the &#8216;cover&#8217; we&#8217;re given doesn&#8217;t look super impressive to the world. But a label never stopped this class. A word never defined us. And a stereotype never held us back. Our backgrounds, our experiences and who we are are gifts, and taking a chance on us is the best choice they could ever make.&#8221;</em></p>\n\n\n\n<p>Graduates earned more than $3 million in scholarships and will matriculate to 31 four-year colleges and universities \u2014 including Dartmouth College, Northwestern University, Pomona College, Tufts University, Wesleyan University, and Boston College \u2014 as well as two-year colleges, career development programs, and one branch of the military. Eighty percent are heading to college, most as the first in their families to do so, outpacing national peers and reversing pandemic-era declines in college-going.</p>\n\n\n\n<p>&#8220;The Class of 2026 has shown us, again, what is possible when students are truly seen and supported,&#8221; said Owen Stearns, CEO of Excel Academy Charter Schools. &#8220;These graduates are heading into the world with the skills, the confidence, and the drive to make a real difference. We couldn&#8217;t be more proud.&#8221;</p>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-large\"><img alt=\"Graduate wearing cap and gown speaks from a stage to a large outdoor audience under a white tent.\" class=\"wp-image-19206\" height=\"683\" src=\"https://eastboston.com/wp-content/uploads/2026/06/CourtesyPhoto-Excel-2026-0622-Wide1200-IMG_8854-1024x683.jpg\" width=\"1024\" /><figcaption class=\"wp-element-caption\">Excel Academy Charter High School graduate Safiyyah speaks to her graduating class. </figcaption></figure>\n</div>\n\n\n<p><strong>About Excel Academy Charter Schools</strong></p>\n\n\n\n<p><a href=\"https://www.excelacademy.org/massachusetts-schools-east-boston/\" title=\"Excel Academy Charter Schools\">Excel Academy Charter Schools</a> prepares students to succeed in high school and college, apply their learning to solve relevant problems, and engage productively in their communities. A network of public charter schools in Boston, Chelsea, and Rhode Island, Excel&#8217;s College Access and Secondary Success (CAPS) program supports students for up to six years after graduation through college counseling, one-on-one financial aid advising, and ongoing guidance.</p>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"Excel Graduation 2026\" class=\"wp-image-19210\" height=\"966\" src=\"https://eastboston.com/wp-content/uploads/2026/06/CourtesyPhoto-Excel-2026-0622-FamilyShotGraduation.jpg\" width=\"949\" /><figcaption class=\"wp-element-caption\">Excel Academy Charter High School graduate Diana Caballer-Galdamez with her siblings Kevin and Michelle, also Excel alumni.</figcaption></figure>\n</div>\n\n\n<div class=\"wp-block-spacer\" style=\"height: 69px;\"></div>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"\" class=\"wp-image-16162\" height=\"450\" src=\"https://eastboston.com/wp-content/uploads/2025/07/AngelButtonsFORReview1.png\" width=\"450\" /></figure>\n</div>\n\n\n<div class=\"wp-block-spacer\" style=\"height: 56px;\"></div>\n\n\n\n<p></p><p>The post <a href=\"https://eastboston.com/excel-academy-charter-high-school-celebrates-class-of-2026-graduation/\">Excel Academy Charter High School celebrates Class of 2026 graduation</a> first appeared on <a href=\"https://eastboston.com\">EastBoston.com</a>.</p>",
       "source": "East Boston"
+    },
+    {
+      "title": "Peabody Families Get Free Admission To North Shore Childrens Museum - Patch",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPT0FMbWloOGFRcGR4V2FyUFVOaUkzbVd0U0JXX1YxRzJ6Mi12eXZlcnF3YlZNcGRIQm50OExWcXhFV1l3VnRUeGVZeV9KdWJMRWhUSTMxYmM0Ty11Q195d3pzVnJkWnZtc3l6WG9WYndKQTdIanU0QXdfbGw0aVQzY2RpNHkzSXA5Qi0wRTVZcTNHODZJN1pmMDFteGxzV2MzQ20wSnd2MNIBvAFBVV95cUxNQU81dVpUa2ZCdm5Xekh0V2tneVB3SlFYNlFPWmZ6Y0xkTm1mWDhZd3NVQVJ0SmhMQjhSclVqenZCREswb0NYU0JIUk5pcER6bTZyMW04QllmX1JKbmF0UTFjdkVaUDZ2cWRhSnVua0lHUmxUeTVaRUZkMHdRZDN5Ml9wNUNvNVVCNk9JLXNFOHo3d3J4Wkx3MlpxMDVCMUV5SmtULUdMaGRubzhIbi1jQkdXZzBSbjY0RlJ4Ug?oc=5",
+      "published": "Mon, 22 Jun 2026 17:02:34 GMT",
+      "ts": 1782147754,
+      "author": "",
+      "feed_title": "Patch",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxPT0FMbWloOGFRcGR4V2FyUFVOaUkzbVd0U0JXX1YxRzJ6Mi12eXZlcnF3YlZNcGRIQm50OExWcXhFV1l3VnRUeGVZeV9KdWJMRWhUSTMxYmM0Ty11Q195d3pzVnJkWnZtc3l6WG9WYndKQTdIanU0QXdfbGw0aVQzY2RpNHkzSXA5Qi0wRTVZcTNHODZJN1pmMDFteGxzV2MzQ20wSnd2MNIBvAFBVV95cUxNQU81dVpUa2ZCdm5Xekh0V2tneVB3SlFYNlFPWmZ6Y0xkTm1mWDhZd3NVQVJ0SmhMQjhSclVqenZCREswb0NYU0JIUk5pcER6bTZyMW04QllmX1JKbmF0UTFjdkVaUDZ2cWRhSnVua0lHUmxUeTVaRUZkMHdRZDN5Ml9wNUNvNVVCNk9JLXNFOHo3d3J4Wkx3MlpxMDVCMUV5SmtULUdMaGRubzhIbi1jQkdXZzBSbjY0RlJ4Ug?oc=5\" target=\"_blank\">Peabody Families Get Free Admission To North Shore Childrens Museum</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
+      "source": "Peabody"
     },
     {
       "title": "Newly obtained video from Boston 25 News shows the suspect in a fatal crash and carjacking pulling a woman from her vehicle before driving erratically out of a car wash parking lot. The footage also appears to show bystanders attempting to stop the suspect, - facebook.com",
@@ -2126,6 +2090,16 @@
       "author": "",
       "feed_title": "thelocalnews.news",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMijAFBVV95cUxNbmNHb2JiX2RFNExOcGQ1czMwb2NMaDd4ZlBxUko2Sk95dzZkOGpTdHVaa1dSRXpjLWVnLWczd2JKM2JmY0dHMDFsVmVXZmt1V0ZpQWxGel85RmpUakFGbkpYQUFqNHp5cHNUZWo1TVBSTGhwc0k4M243c0tjYkhMNFZQVlI4bjVaSUdwYQ?oc=5\" target=\"_blank\">MA Casino Law: What North Shore Players Must Know</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">thelocalnews.news</font>",
+      "source": "North Shore"
+    },
+    {
+      "title": "Moroccan fans rallying at North Shore watch party for huge World Cup match at Boston Stadium - Boston 25 News",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPZzBvcWJDTGdSc2x0ZEZNbFk0UzJnWUNlY2gzN1B0anZjVExwdUVnMGpMaXlUeXpmVHRvcklOYlc1eENDam9SNXpkVlRRV1Q4LUZPTjZ1TnJVZUx1aHFHS0p4aWtlb3NlWWNzME4wcUh6MXgxZ0c0UGFHa0JsLUJaU3l5YVV4cmlUM1dGQVBuREFINXlJc0dCdFU3UzRaeHUxQnRHR001RmRmX2NsVGZfaDF3ZkIzQndMZG9OVUp5WWViWGx1WGw2OUMtdVkwbWd6ZkZlcXpBeWFSaU1GWll0Z202aEzSAfgBQVVfeXFMUEJ4X1ZWOGpOUVFzUDRiaWNzMHVqRkVFcTFWd0U4a0xLd21QRl9TVlZLVy0tdHVyTXRacHVCclRvQ2tWUGlCdFVxQnJ3RWoxUUFEMW5WLU1FYVo4R21YMktnLVNWWmI0ZUxfcDFNNHAtZWdZUGdGSFJtdHhPZDBualJ1ejBJaUxDUXQ4NVJfVVlrVVdpa2tNaEJrNjdBRFBWQUZVZDVaX2JlVUxwQlBVZzROUjk1Y29PeXZlcF8tMEF3THZRUzVtSG9TX3Bxa1hVNEJTZTlHa0M0a0VmbkNjbWVISkZ0ZFBqTUl3VG4wNXllVUEzdzd2b2g?oc=5",
+      "published": "Fri, 19 Jun 2026 12:16:46 GMT",
+      "ts": 1781871406,
+      "author": "",
+      "feed_title": "Boston 25 News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi5AFBVV95cUxPZzBvcWJDTGdSc2x0ZEZNbFk0UzJnWUNlY2gzN1B0anZjVExwdUVnMGpMaXlUeXpmVHRvcklOYlc1eENDam9SNXpkVlRRV1Q4LUZPTjZ1TnJVZUx1aHFHS0p4aWtlb3NlWWNzME4wcUh6MXgxZ0c0UGFHa0JsLUJaU3l5YVV4cmlUM1dGQVBuREFINXlJc0dCdFU3UzRaeHUxQnRHR001RmRmX2NsVGZfaDF3ZkIzQndMZG9OVUp5WWViWGx1WGw2OUMtdVkwbWd6ZkZlcXpBeWFSaU1GWll0Z202aEzSAfgBQVVfeXFMUEJ4X1ZWOGpOUVFzUDRiaWNzMHVqRkVFcTFWd0U4a0xLd21QRl9TVlZLVy0tdHVyTXRacHVCclRvQ2tWUGlCdFVxQnJ3RWoxUUFEMW5WLU1FYVo4R21YMktnLVNWWmI0ZUxfcDFNNHAtZWdZUGdGSFJtdHhPZDBualJ1ejBJaUxDUXQ4NVJfVVlrVVdpa2tNaEJrNjdBRFBWQUZVZDVaX2JlVUxwQlBVZzROUjk1Y29PeXZlcF8tMEF3THZRUzVtSG9TX3Bxa1hVNEJTZTlHa0M0a0VmbkNjbWVISkZ0ZFBqTUl3VG4wNXllVUEzdzd2b2g?oc=5\" target=\"_blank\">Moroccan fans rallying at North Shore watch party for huge World Cup match at Boston Stadium</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
       "source": "North Shore"
     },
     {
@@ -2227,6 +2201,16 @@
       "feed_title": "MassLive",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxNRnJrNWd4V0NnX21YNzFuOUJMWGxBc2w2TkxUeV84OEtNME5xVUt5RFM2eS05R3cwM2RmMjhkQ3Jod3E2aU1vRnpYeHhlWXl0Y0VjUW1qTm8zUExnY2xjOW5rWTdubGJySTZtRVFiVDFTZmxRaV9XaG15dHVvd0ZvYldTMnpOaEVpUTFyYWZYZmdReFl6OEdoQTNsWmxpcExZTkZEd3ZaWmxFYjBvZWd5SjNpS2x1Ty1WdG43MGVB0gHSAUFVX3lxTE04dEY4VHJSS3JfMklIRXdmbDlpX0UwZW52bHFLNDJoM1JDTHRSbE53YzdNNVExZ2h5NFVHbGd5ZmxwN3puVnU1WlVkM2o2eV9wNkMtWHhka2RsUm1QbTU1U1V0UFRUNmlVN1lfcTBwTWRSNkVCLVJmc3l2aXRZX3phdHY1YV9MVVlqNUpMX0tGUncyMk5WXzhLeE1VNkp4YXlKdlo1U2k2dHJ6ZTVTczBMSkp2TU4tY1lBaHluUkNNZmJ2YWEyR1lLcGxuMzVPX0VJQQ?oc=5\" target=\"_blank\">Massport breaks Guinness World Record with FIFA inspired East Boston display</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
       "source": "East Boston"
+    },
+    {
+      "title": "Kathleen Marie Donato Obituary | SALVATORE Rocco & Sons Funeral Homes Inc. | Everett, MA - Tribute Archive",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1VeXFiVHBZZlR4Q1k2MmtaZmxhMWZMY2NHSjlDUUxFc181c3VTY01QRTVBakdrOV9xY0FYR0dfOUFPNEFVaG91Z0FTZmZHdDItSTEySmVDNXNqcmVtdm92Qmd1ejNzaHZIaDFsU2tzSmhiVldDY2xnTnNmR28?oc=5",
+      "published": "Wed, 17 Jun 2026 07:00:00 GMT",
+      "ts": 1781679600,
+      "author": "",
+      "feed_title": "Tribute Archive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE1VeXFiVHBZZlR4Q1k2MmtaZmxhMWZMY2NHSjlDUUxFc181c3VTY01QRTVBakdrOV9xY0FYR0dfOUFPNEFVaG91Z0FTZmZHdDItSTEySmVDNXNqcmVtdm92Qmd1ejNzaHZIaDFsU2tzSmhiVldDY2xnTnNmR28?oc=5\" target=\"_blank\">Kathleen Marie Donato Obituary | SALVATORE Rocco & Sons Funeral Homes Inc. | Everett, MA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Tribute Archive</font>",
+      "source": "Everett"
     },
     {
       "title": "A new ice cream and coffee shop just opened in Eastie \u2014 inside a caboose - Boston.com",
@@ -2349,6 +2333,16 @@
       "source": "Marblehead"
     },
     {
+      "title": "Vandals damage Marblehead High School football field, vehicle found in water - CBS News",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOZEpZY2pKVWhXTmpNWUtOYUJzeldNaktwV0xFWDFRN1h5bS1jWjZyNGJ0ekU5SC13NE92Wm5wamNaUTJvY0tkNXl5U0JXQVJyMlFaY1J3MEtJSHhUbWI5elFmS2RkazFqYTIzbjJYb2pQZkk2aDZwWGtEZThmNTJQY0tBd24yV3VrbHFqSS1aMm9JYjd5WGRUcmtSMEFwczRYYkhNXzdnVkszT3RfU1l6dG9LQQ?oc=5",
+      "published": "Wed, 10 Jun 2026 07:00:00 GMT",
+      "ts": 1781074800,
+      "author": "",
+      "feed_title": "CBS News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxOZEpZY2pKVWhXTmpNWUtOYUJzeldNaktwV0xFWDFRN1h5bS1jWjZyNGJ0ekU5SC13NE92Wm5wamNaUTJvY0tkNXl5U0JXQVJyMlFaY1J3MEtJSHhUbWI5elFmS2RkazFqYTIzbjJYb2pQZkk2aDZwWGtEZThmNTJQY0tBd24yV3VrbHFqSS1aMm9JYjd5WGRUcmtSMEFwczRYYkhNXzdnVkszT3RfU1l6dG9LQQ?oc=5\" target=\"_blank\">Vandals damage Marblehead High School football field, vehicle found in water</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "source": "Marblehead"
+    },
+    {
       "title": "Residents were forced out of their homes early Tuesday morning after a fire at a triple-decker in Chelsea. - facebook.com",
       "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOV1hxOVdWcjBJb0c1ZG1EOFRscFZXbFVpdndlcVMyVHNxQkx3UGtpbWh6UDJqUVpqNUMzMDg0Y3hUV0FGWU4yRVJQaWpQbFBCcHhWNGtZcXhaZGtuSjhDNGdUZFdtS2wxMzl0RXZOb2lLbGpXUElESElCaF9XUUFieTM0VzdxM05WNjdsSG13WV92Z0x2SnUxOHNXcjRwbkpPNU8xMk0wM1M3ejhqTlZ6RTJNc0xKeG9VeVVSdUF6cVpKeVlxSUNQS055RjFrS1ctVkZ1bUJxNXBkdw?oc=5",
       "published": "Tue, 09 Jun 2026 07:00:00 GMT",
@@ -2389,16 +2383,6 @@
       "source": "Lynn"
     },
     {
-      "title": "City of Salem Announces 2026 Juneteenth Celebrations - Salem, MA (.gov)",
-      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBjZlNRZkRXYkNCNmVqdzlYZmpjLVdOc2hGQllCY3lsYlJ4NGhxNmNtNFY0UlhrVUNzb3lfX2tRenVrcktmRU5sT3lMMGo4dnNOSDU5d3QzZw?oc=5",
-      "published": "Mon, 08 Jun 2026 23:18:53 GMT",
-      "ts": 1780960733,
-      "author": "",
-      "feed_title": "Salem, MA (.gov)",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTFBjZlNRZkRXYkNCNmVqdzlYZmpjLVdOc2hGQllCY3lsYlJ4NGhxNmNtNFY0UlhrVUNzb3lfX2tRenVrcktmRU5sT3lMMGo4dnNOSDU5d3QzZw?oc=5\" target=\"_blank\">City of Salem Announces 2026 Juneteenth Celebrations</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA (.gov)</font>",
-      "source": "Salem"
-    },
-    {
       "title": "\u2018We feel it in our pores\u2019: Latinos around East Boston are hyped for the World Cup - WGBH",
       "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQSlpxQjd4bG04czhVdmNFOXR3VndmekN2SExTeDItYnc5TWg1VkNKcnhpampzQUd1bWlCUGcxY3hwdVRySy12ODZFcmZfLW5NMGVQdzFpdW54QkdwSHE0eW5fTEwzYWF4VkpMYTd3SzJobEFvMU5KZUxfRm00V29xY3VLbXZueVZ1dXNPSjcxN0ljVTVOS1dmSWcxcS12a0xJb3RBb2phelNRM0RBcEFfR1o1TDNtOE9lR0lVLTBn?oc=5",
       "published": "Mon, 08 Jun 2026 07:00:00 GMT",
@@ -2429,16 +2413,6 @@
       "source": "East Boston"
     },
     {
-      "title": "NeighborHealth celebrates health equity; Launches new family support fund at Art of Health Care",
-      "link": "https://eastboston.com/neighborhealth-celebrates-health-equity-launches-new-family-support-fund-at-art-of-health-care/?utm_source=rss&utm_medium=rss&utm_campaign=neighborhealth-celebrates-health-equity-launches-new-family-support-fund-at-art-of-health-care",
-      "published": "Sun, 07 Jun 2026 21:01:23 +0000",
-      "ts": 1780866083,
-      "author": "admin",
-      "feed_title": "",
-      "summary": "<p><em>NeighborHealth honors Community Resource &amp; Wellness Center and announces new fund to help families facing urgent needs during annual Art of Health Care fundraiser at ICA Boston</em></p>\n\n\n\n<p><strong>BOSTON, MA (June 5, 2026)</strong> \u2013 On Wednesday, June 3, 2026, <a href=\"https://neighborhealth.com/\">NeighborHealth</a> welcomed community leaders, supporters, partners, and advocates to the Institute of Contemporary Art (ICA) Boston for its 11<sup>th</sup> annual Art of Health Care fundraising event, an evening dedicated to celebrating the power of community-centered health care and advancing health equity across Greater Boston.</p>\n\n\n\n<p>The evening brought together more than 300 attendees to support NeighborHealth&#8217;s mission of providing care beyond the clinic, ensuring the more than 120,000 individuals and families across Greater Boston served annually by the health system have access to the resources and services they need to thrive.</p>\n\n\n\n<p>&#8220;We have always been rooted in the belief that everyone deserves access to high-quality, compassionate care, regardless of their circumstances,&#8221; said <strong>Jamie Hazard, President and CEO of NeighborHealth</strong>. &#8220;As the needs of our communities continue to evolve, we remain committed to delivering care both inside and outside of our clinic walls. The Art of Health Care makes it possible for us to expand access to critical services, strengthen community partnerships, and advance health equity for the thousands of people who rely on us each year.&#8221;</p>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"NeighborHealth 2026 East Boston\" class=\"wp-image-19079\" height=\"624\" src=\"https://eastboston.com/wp-content/uploads/2026/06/Courtesy-ArtofHealthCare2026-HazardSorrento-image002.png\" width=\"949\" /><figcaption class=\"wp-element-caption\">NeighborHealth CEO Jamie Hazard and Chair of the NeighborHealth Board of Directors Rita Sorrento pose after sharing remarks at the 2026 Art of Health Care at the ICA. (Courtesy Photograph)</figcaption></figure>\n</div>\n\n\n<p>The evening kicked off with remarks from emcee <strong>Malcolm Johnson of NBC10 Boston, </strong>CEO Jamie Hazard, followed by <strong>Dr. Julio Mazul, Executive Vice President and Chief Medical Officer at NeighborHealth</strong>, presenting the second annual Advancing Health Equity Award to NeighborHealth&#8217;s Community Resource &amp; Wellness Center (CRWC) in East Boston.</p>\n\n\n\n<p>The award recognizes the CRWC&#8217;s critical role in addressing the social drivers of health by connecting community members with essential resources including food access, housing support, rental assistance, immigration services, financial and legal assistance, educational opportunities, and mental health services.</p>\n\n\n\n<p>In 2025 alone the CRWC made over 5,000 resource connections and completed over 13,400 food pantry appointments, embodying NeighborHealth\u2019s philosophy of bringing care beyond the clinic.</p>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-19080\" height=\"627\" src=\"https://eastboston.com/wp-content/uploads/2026/06/Courtesy-ArtofHealthCare2026-Mazul-image003.png\" width=\"949\" /><figcaption class=\"wp-element-caption\">Dr. Julio Mazul, Executive Vice President and Chief Medical Officer, NeighborHealth, address the crowd before presenting the Advancing Health Equity Award to the Community Resource and Wellness Center. (Courtesy Photograph)</figcaption></figure>\n\n\n\n<p>&#8220;As physicians, we see every day that health is shaped by far more than what happens in an exam room,&#8221; said <strong>Dr. Mazul</strong>. &#8220;Access to stable housing, nutritious food, behavioral health support, and trusted community resources all play a critical role in a person&#8217;s well-being. The CRWC helps bridge those gaps, ensuring our patients and neighbors have access to the support they need to live healthier lives.&#8221;</p>\n\n\n\n<p>&nbsp;Upon accepting the Advancing Health Equity Award on behalf of the Community Resource and Wellness Center, <strong>Kathy Field, Director of Health Promotion and Service Programs </strong>at NeighborHealth announced the official launch of NeighborHealth\u2019s <strong>Family Support Fund</strong>, a new fund dedicated to providing immediate assistance to those facing urgent needs, particularly for access to healthy food and other necessary household items.</p>\n\n\n\n<p>\u201cThe Community Resource and Wellness Center was created to ensure that individuals and families can access the resources they need to find stability in times of need,&#8221; said <strong>Field</strong>. &#8220;Every day, we assist people facing urgent challenges, whether it&#8217;s putting food on the table, keeping home utilities running, or recovering from a traumatic event. The new Family Support Fund will allow us to respond more quickly and directly to those needs, helping remove barriers and expanding our ability to serve even more members of our community when in crisis.&#8221;</p>\n\n\n\n<p>Hosted at the waterfront ICA Boston, the Art of Health Care highlights NeighborHealth&#8217;s longstanding commitment to integrating art into health care as a tool for healing, connection, and well-being. For more than two decades, NeighborHealth has incorporated arts and cultural programming across its East Boston and South End campuses, transforming clinical spaces into welcoming, culturally resonant environments and offering programs that include expressive arts therapy, music, yoga, and other community-based practices. This approach reflects NeighborHealth&#8217;s belief that health extends beyond medical treatment alone and that creative expression can play a meaningful role in supporting physical, emotional, and mental well-being.</p>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"NeighborHealth 2026 East Boston\" class=\"wp-image-19082\" height=\"623\" src=\"https://eastboston.com/wp-content/uploads/2026/06/Courtesy-ArtofHealthCare2026-HempBethancourtFieldKeithline-image04.png\" width=\"949\" /><figcaption class=\"wp-element-caption\">(From left to right) Catharine Hemp, Melanie Bethancourt Fajardo, Kathy Field and Margaret Keithline of the Community Resource and Wellness Center pose with the Advancing Health Equity Award.</figcaption></figure>\n</div>\n\n\n<p>In addition to NeighborHealth leadership, staff and supporters, attendees included <strong>State Representative Adrian Madaro</strong>,Stephan Marin of City Councilor Coletta Zapata\u2019s office, as well as healthcare leaders <strong>Alastair Bell</strong>, CEO, Boston Medical Center Health System (BMCHS), <strong>Michael Curry</strong>, CEO of the MassLeague, <strong>Juan Fernando Lopera</strong>, Chief Community and Health Impact Officer, Beth Israel Lahey Health (BILH), and <strong>Sue Chapman Moss</strong>, President of Beth Israel Lahey Health Performance Network.</p>\n\n\n\n<p>The evening was made possible through a collaboration with ICA Boston and dozens of generous sponsors, including the Hilb Group.</p>\n\n\n\n<p>Funds raised through the event will help NeighborHealth continue delivering comprehensive care and expanding programs that address health inequities and strengthen communities throughout Greater Boston.</p>\n\n\n\n<p>For those that would like to support NeighborHealth&#8217;s mission, donations can be made at <a href=\"http://www.neighborhealth.com/donate\">www.neighborhealth.com/donate</a>.</p>\n\n\n\n<div class=\"wp-block-spacer\" style=\"height: 69px;\"></div>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"\" class=\"wp-image-16162\" height=\"450\" src=\"https://eastboston.com/wp-content/uploads/2025/07/AngelButtonsFORReview1.png\" width=\"450\" /></figure>\n</div>\n\n\n<div class=\"wp-block-spacer\" style=\"height: 39px;\"></div><p>The post <a href=\"https://eastboston.com/neighborhealth-celebrates-health-equity-launches-new-family-support-fund-at-art-of-health-care/\">NeighborHealth celebrates health equity; Launches new family support fund at Art of Health Care</a> first appeared on <a href=\"https://eastboston.com\">EastBoston.com</a>.</p>",
-      "source": "East Boston"
-    },
-    {
       "title": "\u2018Sky\u2019 Francois Blanchet Obituary (2026) - Peabody, MA - F. S. Roberts & Son Funeral Home - Legacy obituary",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPMjJabXhlUkUyZjNGSy00cnNLZGRSNGk4Q1NDVHRaWkQzY1ZPWDRXMndMdllwUFhPLUhPaTk2ZzllNGRFVW54ZlZ4TzE5RkxlT1FjUWx3ZGswMlAwUUZ6d1ZFRE5sNExSTDhLdW15N0JtczdkQmV0cmVSN1phaWs0ZzJR?oc=5",
       "published": "Sat, 06 Jun 2026 07:00:00 GMT",
@@ -2447,16 +2421,6 @@
       "feed_title": "Legacy obituary",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiggFBVV95cUxPMjJabXhlUkUyZjNGSy00cnNLZGRSNGk4Q1NDVHRaWkQzY1ZPWDRXMndMdllwUFhPLUhPaTk2ZzllNGRFVW54ZlZ4TzE5RkxlT1FjUWx3ZGswMlAwUUZ6d1ZFRE5sNExSTDhLdW15N0JtczdkQmV0cmVSN1phaWs0ZzJR?oc=5\" target=\"_blank\">\u2018Sky\u2019 Francois Blanchet Obituary (2026) - Peabody, MA - F. S. Roberts & Son Funeral Home</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Legacy obituary</font>",
       "source": "Peabody"
-    },
-    {
-      "title": "Constitution Beach receives a 93% water quality rating according to Save the Harbor",
-      "link": "https://eastboston.com/constitution-beach-receives-a-93-water-quality-rating-according-to-save-the-harbor/?utm_source=rss&utm_medium=rss&utm_campaign=constitution-beach-receives-a-93-water-quality-rating-according-to-save-the-harbor",
-      "published": "Sat, 06 Jun 2026 01:31:57 +0000",
-      "ts": 1780709517,
-      "author": "admin",
-      "feed_title": "",
-      "summary": "<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"\" class=\"wp-image-19066\" height=\"526\" src=\"https://eastboston.com/wp-content/uploads/2026/06/CourtesyRankingBeachinsSaveHSaveB-20260604-image001.png\" width=\"936\" /><figcaption class=\"wp-element-caption\"><em>Save the Harbor/Save the Bay releases an annual Water Quality Report Card\u00a0that uses data collected by the Department of Conservation and Recreation (DCR) to assess water quality at public beaches from Nahant to Nantasket, including Lynn, Nahant, Revere, Winthrop, East Boston, South Boston, Dorchester, Quincy, and Hull.</em></figcaption></figure>\n</div>\n\n\n<p><em>All Public Beaches from Nahant to Nantasket Receive a&nbsp;Water&nbsp;Quality&nbsp;Score Above 80% According to Save the Harbor/Save the Bay\u2019s Water Quality Report Card</em></p>\n\n\n\n<p><strong>(BOSTON, MA)&nbsp;JUNE 1,&nbsp;2026</strong>&nbsp;\u2013&nbsp;For the first time in its testing history, Save the Harbor/Save the Bay has reported that every metropolitan beach from Nahant to Nantasket scored above 80% in its annual Water Quality Report Card.&nbsp;This is a historic achievement that reflects Save the Harbor\u2019s 40 years of persistent advocacy, public investment in water infrastructure, and rigorous testing.</p>\n\n\n\n<p>The&nbsp;Water Quality Report Card uses data collected by the&nbsp;Department of Conservation and Recreation (DCR)&nbsp;to assess water quality at public beaches from Nahant to Nantasket, including Lynn, Nahant, Revere, Winthrop, East Boston, South Boston, Dorchester, Quincy, and Hull (see table below).&nbsp;Water samples are&nbsp;tested for the number of colony forming units of enterococci bacteria; this is the standard unit used to&nbsp;determine&nbsp;safe swimming&nbsp;conditions,&nbsp;according to the US Environmental Protection Agency&nbsp;(EPA).&nbsp;</p>\n\n\n\n<p>South Boston&#8217;s beaches continue to lead the way. City Point&nbsp;maintained&nbsp;a perfect 100% water quality rating for another consecutive year. M Street Beach and Carson Beach&nbsp;posted a 94% and 95%&nbsp;rating respectively, continuing the region&#8217;s tradition of excellence. In addition, Nantasket Beach also scored very well last year, up from 92% in 2024 to 100% in 2025.</p>\n\n\n\n<p>&#8220;It is gratifying to once again see so many of our spectacular urban beaches consistently testing at safe bacteria levels,&#8221; said Save the Harbor/Save the Bay\u2019s Executive Director,&nbsp;Chris Mancini. &#8220;The region-wide scores above 80% are a testament to what sustained investment and scientific rigor can achieve. As we mark our 40th anniversary this year, we are as committed as ever to ensuring anyone can confidently get into or out on the water without worrying about bacteria and other pollution.&#8221;</p>\n\n\n\n<p>Several beaches\u2019 water quality ratings made remarkable comebacks. Nahant Beach rebounded to a 95% rating after four years of hovering around 80%. Meanwhile, Savin Hill Beach, Dorchester jumped to 100% after its dramatic drop to 68% last year.</p>\n\n\n\n<p>\u201cWe\u2019re proud that Massachusetts continues to have some of the cleanest urban beaches in the country,\u201d said DCR Commissioner Nicole LaChapelle. \u201cThese results reflect decades of collaboration and stewardship focused on protecting and improving our public waterfronts, and&nbsp;we\u2019re&nbsp;grateful for our partnership with Save the Harbor/Save the Bay in helping make that possible. It makes a real difference in how people experience our beaches and waterfronts. Clean water is essential, and access to it for recreation is a matter of equity. We&nbsp;remain&nbsp;committed to ensuring these coastal spaces stay resilient, accessible, and welcoming for generations to come.\u201d&nbsp;</p>\n\n\n\n<p>Meanwhile, Kings Beach in Lynn had the largest jump in its rating, receiving a 90% water quality rating. This is a significant jump over the six-year average of 69% and 2023\u2019s record low of 55%.&nbsp;The&nbsp;pilot UV treatment program&nbsp;is one factor that contributed to the beach\u2019s water quality improvement.&nbsp;Other factors include the dry summer weather and the improvement to the sewage pipes over the years.</p>\n\n\n\n<p>\u201cThe Water Quality Report Card by Save the Harbor/Save the Bay remains one of our most valuable tools for evaluating water quality trends and identifying where additional investment and attention are needed for the communities that rely on these beaches,\u201d said Adrian Madaro, Co-Chair of the MBC. \u201cIt\u2019s encouraging to see the continued progress at beaches across the region, while maintaining a strong focus on the beaches that still need additional attention and investment.\u201d</p>\n\n\n\n<p>Currently the beaches use a posting and flagging system to alert the public to high bacteria levels. Unfortunately, the best technology available takes 24 hours to return results, meaning by the time the posting goes up, the information is already out of date.&nbsp;Save the Harbor recommends people get familiar with their beach\u2019s individual characteristics by using&nbsp;the Department&nbsp;of Public Health\u2019s interactive beach water quality dashboard and&nbsp;to&nbsp;not&nbsp;swim&nbsp;24 hours after a heavy rain fall event (0.3inches/hr).</p>\n\n\n\n<p>Save the Harbor/Save the Bay thanks Dr. Judy Pederson, former Chair of their Beaches Science Advisory Committee, Bruce Berman, former Director of Strategy &amp; Communications at Save the Harbor/Save the Bay, and Kelly Coughlin of&nbsp;Cornell University&nbsp;for their guidance in developing the&nbsp;methodology&nbsp;used in this report.&nbsp;&nbsp;&nbsp;<br />&nbsp;<br />Additionally, Save the Harbor&nbsp;&nbsp;commends Senate President Karen Spilka and House Speaker Ron Mariano, Metropolitan Beaches Commission Co-Chairs Senator Brendan Crighton of Lynn and Rep. Adrian Madaro of East Boston, and each of the legislative and community members of the Commission for their commitment to clean water and the region\u2019s public beaches from Nahant to Nantasket.&nbsp;<br />&nbsp;<br />Finally, Save the Harbor&nbsp;also thanks the Healey-Driscoll Administration, the Massachusetts Water Resources Authority, The Massachusetts Executive Office of Energy and Environmental Affairs, the Massachusetts Department of Conservation &amp; Recreation, the Massachusetts Department of Environmental Protection, and the Massachusetts Department of Public Health.</p>\n\n\n\n<p>This work is supported by&nbsp;Barr Foundation, Bay State Cruise Company, Blue Cross Blue Shield of Massachusetts, BXP (Boston Properties), The Coca-Cola Company, Department of Conservation and Recreation, JetBlue, Liberty Mutual Insurance, Massachusetts Bay Lines, Massachusetts Department of Environmental Protection, National Grid, and New England Revolution, the Richard M. Saltonstall Charitable Foundation, along with over 100 additional corporate, foundation and individual donors.&nbsp;</p>\n\n\n\n<p><strong>About Save the Harbor/Save the Bay</strong></p>\n\n\n\n<p>Save the Harbor/Save the Bay is the region\u2019s leading voice for clean water and continued public investment in Boston Harbor, the region\u2019s public beaches, and the Boston Harbor Islands. Since 1986, our mission has been to restore and protect Boston Harbor, Massachusetts Bay, and the marine environment, and share them with the public for everyone to enjoy.</p>\n\n\n\n<p>Save the Harbor is committed to making Boston Harbor, the Islands, our beaches, and our programs inclusive,&nbsp;equitable, diverse, and accessible to everyone and anyone. We provide free programs, events and create opportunities for people to experience Boston Harbor and our spectacular urban natural resources first-hand, with an emphasis on breaking down barriers of race, language,&nbsp;income&nbsp;and ability.</p>\n\n\n\n<p><strong>About the Metropolitan Beaches Commission</strong></p>\n\n\n\n<p>The Metropolitan Beaches Commission (MBC) was created in 2006 by the Massachusetts Legislature to take an in-depth look at the Boston metropolitan region&#8217;s 15 public beaches in Nahant, Lynn, Revere, Winthrop, East Boston, South Boston, Dorchester, Quincy, and Hull which are managed by the Department of Conservation and Recreation (DCR).</p>\n\n\n\n<p>The MBC is&nbsp;comprised&nbsp;of elected officials and community leaders from Boston and the metropolitan region&#8217;s waterfront neighborhoods and beachfront communities. Its work is&nbsp;facilitated&nbsp;by Save the Harbor/Save the Bay, which has served as lead consultant to the Commission since its&nbsp;inception.</p>\n\n\n\n<p>The MBC is charged with making findings and recommendations to the Legislature and DCR on ways to improve the metropolitan region&#8217;s public beaches. Senator Brendan Crighton of Lynn and Representative Adrian Madaro of East Boston are the MBC\u2019s Co-Chairs.</p>\n\n\n\n<div class=\"wp-block-spacer\" style=\"height: 78px;\"></div>\n\n\n<div class=\"wp-block-image\">\n<figure class=\"aligncenter size-full\"><img alt=\"\" class=\"wp-image-16163\" height=\"512\" src=\"https://eastboston.com/wp-content/uploads/2025/07/cropped-AngelButtonsFORReview1.png\" width=\"512\" /></figure>\n</div>\n\n\n<div class=\"wp-block-spacer\" style=\"height: 76px;\"></div><p>The post <a href=\"https://eastboston.com/constitution-beach-receives-a-93-water-quality-rating-according-to-save-the-harbor/\">Constitution Beach receives a 93% water quality rating according to Save the Harbor\u00a0</a> first appeared on <a href=\"https://eastboston.com\">EastBoston.com</a>.</p>",
-      "source": "East Boston"
     },
     {
       "title": "Truck kills cyclist at busy Lynn intersection",
@@ -2539,6 +2503,16 @@
       "source": "Chelsea"
     },
     {
+      "title": "City of Salem Announces 2026 Juneteenth Celebrations - Salem, MA (.gov)",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBjZlNRZkRXYkNCNmVqdzlYZmpjLVdOc2hGQllCY3lsYlJ4NGhxNmNtNFY0UlhrVUNzb3lfX2tRenVrcktmRU5sT3lMMGo4dnNOSDU5d3QzZw?oc=5",
+      "published": "Wed, 03 Jun 2026 07:00:00 GMT",
+      "ts": 1780470000,
+      "author": "",
+      "feed_title": "Salem, MA (.gov)",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTFBjZlNRZkRXYkNCNmVqdzlYZmpjLVdOc2hGQllCY3lsYlJ4NGhxNmNtNFY0UlhrVUNzb3lfX2tRenVrcktmRU5sT3lMMGo4dnNOSDU5d3QzZw?oc=5\" target=\"_blank\">City of Salem Announces 2026 Juneteenth Celebrations</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA (.gov)</font>",
+      "source": "Salem"
+    },
+    {
       "title": "2 arrested after car, foot chase in Winthrop, police say - NBC Boston",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNYVNaeGo5M2stN2p5dGdteGluSjhaX2luT2J0VEVNVUw4a2FCNG9hc1VJaERXVzNsQlZMWFU5bnBtWGhqVE1tSks4YlBHLUpiOWRDMjJSWjVwdEV2MEp2UTJvcTh2QVczQU9HT2NHSzh4UnlpOTlsUDdma01YMGo3MEdn0gGKAUFVX3lxTE5ENEhUTjNyM2Y2QXlKTjJnc0NMb0xVSFRkZ3VGLS1OenRrOHBwR09XaTB1T3BGMWFabUdfTVBoUkV6NVRiMklmREpycHNPalAtZkk0eU8wbWVQVkp1aHVkX3d1V1FtOURMRnVVQnIxY1NBb191bjlfT1dXUTA5S29mbnJNYTd2dzBZdw?oc=5",
       "published": "Tue, 02 Jun 2026 07:00:00 GMT",
@@ -2587,6 +2561,16 @@
       "feed_title": "",
       "summary": "<p>Battery storage facilities are rapidly expanding across Massachusetts as the state pushes toward cleaner, more reliable energy.</p>\n\n\n\n<p>But as these projects move closer to neighborhoods, they\u2019re also raising concerns about safety and community input.</p>\n\n\n\n<p><strong>What is battery storage, and why is it growing?</strong></p>\n\n\n\n<p>Battery energy storage systems are designed to store electricity and release it when demand is high, acting like a backup power source for the grid.</p>\n\n\n\n<p>\u201cThat\u2019s a really key technology for unlocking a lot of savings for customers,\u201d said Massachusetts Undersecretary of Energy Mike Judge. \u201cIt helps reduce peak demand and avoid building new, costly infrastructure.\u201d</p>\n\n\n\n<p>The state has already deployed thousands of smaller battery systems. Now, developers are proposing larger, utility-scale projects \u2014 some capable of storing hundreds of megawatts of power \u2014 to support renewable energy sources like wind and solar.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"A file image of a lithium battery storage facility.\" class=\"wp-image-11305416\" height=\"1080\" src=\"https://media.nbcboston.com/2026/05/lithium-battery-storage.jpg?quality=85&#038;strip=all&#038;w=1920&#038;resize=1920%2C1080\" width=\"1920\" /><figcaption class=\"wp-element-caption\">A file image of a lithium battery storage facility.</figcaption></figure>\n\n\n\n<p><strong>A massive project in an industrial area</strong></p>\n\n\n\n<p>In Everett, one project by Jupiter Power is about to become the largest battery storage facility in Massachusetts, and possibly all of New England.</p>\n\n\n\n<p>\u201cThis used to be an area dominated by fossil fuels,\u201d said John Walkey, director of climate justice at GreenRoots. \u201cNow we\u2019re talking about clean energy that makes the grid more reliable and more affordable over time.\u201d</p>\n\n\n\n<p>The proposed facility will be split across two parcels in an industrial zone, one reason some residents see it as an appropriate location. Still, concerns remain \u2014 even in industrial areas.</p>\n\n\n\n<p>\u201cPeople do have concerns in terms of fires, explosions, things like that,\u201d Walkey said.</p>\n\n\n\n<p><strong>Safety: What the data shows</strong></p>\n\n\n\n<p>Battery fires have made headlines here and in other parts of the country, raising questions about whether large-scale storage facilities are safe.</p>\n\n\n\n<p>But researchers say the technology has improved significantly.</p>\n\n\n\n<p>\u201cWe\u2019ve calculated about a 99% reduction in failure rate over the last seven years,\u201d said Lakshmi Srinivasan, a battery safety researcher with the Electric Power Research Institute.</p>\n\n\n<div></div>\n\n\n<p>Experts say that improvement is due to stronger safety standards, better system design and lessons learned from early incidents.</p>\n\n\n\n<p>\u201cThere\u2019s really an ecosystem of codes, standards and design practices,\u201d Srinivasan said, \u201call focused on reducing both the likelihood and severity of failures.\u201d</p>\n\n\n\n<p><strong>Why batteries matter for clean energy</strong></p>\n\n\n\n<p>Battery storage plays a critical role in the transition to renewable energy.</p>\n\n\n\n<p>Solar panels only produce power during the day, and wind energy can fluctuate. Batteries store that energy so it can be used later \u2014 especially during peak demand, like hot summer evenings.</p>\n\n\n\n<p>\u201cWhen the sun\u2019s not shining or the wind\u2019s not blowing, that stored energy is there,\u201d Walkey said.</p>\n\n\n\n<p>Battery storage offers a cleaner alternative, reducing emissions and potentially lowering long-term energy costs.</p>\n\n\n\n<p><strong>Concerns in residential areas</strong></p>\n\n\n\n<p>While projects in industrial zones have seen comparatively less pushback, proposed battery facilities near residential neighborhoods are facing stronger opposition.</p>\n\n\n\n<p>On the Saugus-Revere line, one project would place dozens of battery units, each roughly the size of a tractor-trailer, near homes and a local park.</p>\n\n\n\n<p>\u201cI have concerns about what\u2019s going to happen here 15 or 20 years from now,\u201d said Saugus resident and Town Meeting Member Robert Camuso.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More renewable energy news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/boston-business-journal/judge-blocks-trump-renewable-energy-freeze/3937636/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2022/08/offshore-wind-turbine900xx6000-4000-8-0.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/boston-business-journal/\">Boston Business Journal</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tApr 21\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/boston-business-journal/judge-blocks-trump-renewable-energy-freeze/3937636/\">\n\t\t\t\t\t\t\t\t\t\tJudge blocks Trump renewable energy freeze\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/olympics/2026-milan-cortina/winter-games-made-clean-energy-a-priority/3903524/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/02/olympics-clean-energy.png?quality=85&#038;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/2026-milan-cortina-olympics/\">2026 Milan Cortina Olympics</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tFeb 21\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/olympics/2026-milan-cortina/winter-games-made-clean-energy-a-priority/3903524/\">\n\t\t\t\t\t\t\t\t\t\tOrganizers of the Winter Games made clean energy a priority. Here&#039;s how they did it\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p>Among his biggest worries: safety, long-term health impacts and lack of information.</p>\n\n\n\n<p>\u201cNot knowing the health impacts is a concern,\u201d Camuso said. \u201cIf something tragic happens, it\u2019s happening right here.\u201d</p>\n\n\n\n<p><strong>Emergency response concerns</strong></p>\n\n\n\n<p>Battery fires differ significantly from typical structure fires, requiring specialized training and equipment.</p>\n\n\n\n<p>\u201cIt\u2019s not just dumping water on it,\u201d Walkey explained. \u201cThere are chemical reactions, there are gases \u2014 and you need trained responders.\u201d</p>\n\n\n\n<p><strong>Community input and environmental justice</strong></p>\n\n\n\n<p>Advocates say one of the biggest issues isn\u2019t just safety, it\u2019s process.</p>\n\n\n\n<p>\u201cOur biggest concern is making sure people are informed and have a voice,\u201d Walkey said. \u201cIf something is coming into your neighborhood, you should be part of that conversation.\u201d</p>\n\n\n\n<p>Residents in Saugus say they want more transparency before projects move forward.</p>\n\n\n\n<p>\u201cI\u2019d like to see more independent information,\u201d Camuso said. \u201cSomething that tells us it\u2019s safe before it\u2019s built.\u201d</p>\n\n\n\n<p><strong>What Happens Next</strong></p>\n\n\n\n<p>Many of these battery projects \u2014 including the one on the Revere-Saugus line \u2014 are still in early stages and require extensive local and state approvals.</p>\n\n\n\n<p>That includes environmental reviews, fire safety planning and public input. Officials say the process can take years, and no final decisions have been made.</p>",
       "source": "Everett"
+    },
+    {
+      "title": "City of Salem Secures $7.2 Million Grant for Decarbonization of Horace Mann Laboratory School - Salem, MA (.gov)",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5sR095N1EzazExQ2pkUElzTXNTd2pnN3R3RXlpMzhnQ1lPenF6YzB4eVgwNnVURGtnOFdCNDRMdW1CeV8wNmFHSEVidDR5N2doeHFNbENMQkJzSnBR?oc=5",
+      "published": "Wed, 27 May 2026 07:00:00 GMT",
+      "ts": 1779865200,
+      "author": "",
+      "feed_title": "Salem, MA (.gov)",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE5sR095N1EzazExQ2pkUElzTXNTd2pnN3R3RXlpMzhnQ1lPenF6YzB4eVgwNnVURGtnOFdCNDRMdW1CeV8wNmFHSEVidDR5N2doeHFNbENMQkJzSnBR?oc=5\" target=\"_blank\">City of Salem Secures $7.2 Million Grant for Decarbonization of Horace Mann Laboratory School</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA (.gov)</font>",
+      "source": "Salem"
     },
     {
       "title": "Couple accused of racist assault at East Boston restaurant",
@@ -2939,16 +2923,6 @@
       "source": "Saugus"
     },
     {
-      "title": "Familiar National Retail Name Makes Comeback With 3 New MA Stores - Patch",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPNGN5UDVwbVF0X2JiRjlIMFFNVDdZNzFuVFktQzZlYVhwaDg3Snc4NmxzZVF1Q252aWZRQm5vYk9WVU11ZHVfdkFoTF9id0VpU2JvQmJ2N21YV1ZxU0RobmM3SmRIaDcwRG9GSjBodXc1TFIxWE5MZDBPWWVvdjRzbGpXQU1MdDVoTG42aW4tOVJZckRLN0NIaFEtekN1YVU?oc=5",
-      "published": "Mon, 04 May 2026 07:00:00 GMT",
-      "ts": 1777878000,
-      "author": "",
-      "feed_title": "Patch",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxPNGN5UDVwbVF0X2JiRjlIMFFNVDdZNzFuVFktQzZlYVhwaDg3Snc4NmxzZVF1Q252aWZRQm5vYk9WVU11ZHVfdkFoTF9id0VpU2JvQmJ2N21YV1ZxU0RobmM3SmRIaDcwRG9GSjBodXc1TFIxWE5MZDBPWWVvdjRzbGpXQU1MdDVoTG42aW4tOVJZckRLN0NIaFEtekN1YVU?oc=5\" target=\"_blank\">Familiar National Retail Name Makes Comeback With 3 New MA Stores</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
-      "source": "Peabody"
-    },
-    {
       "title": "3 hurt after tree falls outside Melrose school",
       "link": "https://www.nbcboston.com/news/local/3-hurt-after-tree-falls-outside-melrose-school/3944631/",
       "published": "Mon, May 04 2026 05:14:19 PM",
@@ -3279,16 +3253,6 @@
       "source": "Lynn"
     },
     {
-      "title": "Marblehead, Massachusetts could lose its public library amid $7 million budget deficit - CBS News",
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSDZJMGJJV0djMWFRTVhkX0hhWjdlMi13NUlQYkF1MEx0eFRHZHRodU9xWmtrVVgwc2pPTzdnWFBnZkw3OW5BY3I3elVKdkY0QmJPNEllNjlITV9SaHoycVNha0dRN0xfT1Rpc1ZENDBpMkl3dlcySi00bHppMVllc0F6OXJRZVU?oc=5",
-      "published": "Thu, 12 Mar 2026 07:00:00 GMT",
-      "ts": 1773298800,
-      "author": "",
-      "feed_title": "CBS News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxPSDZJMGJJV0djMWFRTVhkX0hhWjdlMi13NUlQYkF1MEx0eFRHZHRodU9xWmtrVVgwc2pPTzdnWFBnZkw3OW5BY3I3elVKdkY0QmJPNEllNjlITV9SaHoycVNha0dRN0xfT1Rpc1ZENDBpMkl3dlcySi00bHppMVllc0F6OXJRZVU?oc=5\" target=\"_blank\">Marblehead, Massachusetts could lose its public library amid $7 million budget deficit</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
-      "source": "Marblehead"
-    },
-    {
       "title": "Falling bricks from Chelsea triple decker left vacant after fire",
       "link": "https://www.nbcboston.com/news/local/falling-bricks-from-chelsea-triple-decker-left-vacant-after-fire/3913367/",
       "published": "Tue, Mar 10 2026 09:47:04 AM",
@@ -3399,6 +3363,16 @@
       "source": "East Boston"
     },
     {
+      "title": "City of Salem Announces 2026 Black History Month Celebrations - Salem, MA (.gov)",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9GMWYzaXZGU1JTVFEwX1FYZHZYX2VhUXM5VFp1YlpCZ1liWGpkUTdVRVl6R2hueENwdnY1M21yaDNmNzl1WEVmRW1rc3ZrSWhlS3hDMnpNNnBRcXlN?oc=5",
+      "published": "Fri, 23 Jan 2026 08:00:00 GMT",
+      "ts": 1769155200,
+      "author": "",
+      "feed_title": "Salem, MA (.gov)",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE9GMWYzaXZGU1JTVFEwX1FYZHZYX2VhUXM5VFp1YlpCZ1liWGpkUTdVRVl6R2hueENwdnY1M21yaDNmNzl1WEVmRW1rc3ZrSWhlS3hDMnpNNnBRcXlN?oc=5\" target=\"_blank\">City of Salem Announces 2026 Black History Month Celebrations</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA (.gov)</font>",
+      "source": "Salem"
+    },
+    {
       "title": "New England Revolution - revolutionsoccer.net",
       "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE50a0NLLVh3eklDck9DbnA2QzhOcTIzWk90VEZ4bHhFWmJWNDFMWDE1LWs4OEp0QWRHZU5fcENYejRVdy0tcUkwNE1wMHEtSGFVQk1UMnNZSzRoRnh6?oc=5",
       "published": "Thu, 18 Dec 2025 16:03:42 GMT",
@@ -3437,16 +3411,6 @@
       "feed_title": "",
       "summary": "<p>Firefighters rescued a teen girl who had fallen through the ice into the frigid water of a pond in Malden, Massachusetts, on Wednesday afternoon.</p>\n\n\n\n<p>It happened around 2 p.m. at Fellsmere Pond, fire officials said. Firefighters in water rescue suits went in to find the girl holding onto the edge of the ice, according to the Malden Fire Department. She was pulled from the water in under 30 seconds.</p>\n\n\n\n<p>\u201cI don\u2019t even think the engine stopped,&#8221; Malden Fire Captain Roy Tribble said. &#8220;I jumped up, I sprinted down here, pretty much just jumped right into the water.&#8221;</p>\n\n\n\n<p>The 14-year-old girl was conscious and alert when she was brought to a Boston hospital for treatment.</p>\n\n\n\n<p>Tribble said the water was about 30 feet deep.</p>\n\n\n\n<p>&#8220;A life was saved. It was a young girl who fell through the ice,&#8221; added Captain Bob Hegarty.</p>\n\n\n\n<p>He warned everyone to stay off thin ice.</p>\n\n\n\n<p>&#8220;A warning to everybody out there that ice, if it&#8217;s not thick enough, you&#8217;re going to fall through, and if you fall through, you&#8217;re not going to be able to get yourself out,&#8221; Hegarty said. &#8220;So stay off the ice until it&#8217;s very thick, which &#8212; who can tell when it&#8217;s very thick?&#8221;</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"First responders at the scene of a water rescue in Malden, Massachusetts, on Wednesday, Dec. 10, 2205.\" class=\"wp-image-10961620\" height=\"809\" src=\"https://media.nbcboston.com/2025/12/713185DB-7DEA-4FEE-B205-C81D6226C159.jpg?quality=85&#038;strip=all&#038;w=1349&#038;resize=1349%2C809\" width=\"1349\" /><figcaption class=\"wp-element-caption\">First responders at the scene of a water rescue in Malden, Massachusetts, on Wednesday, Dec. 10, 2205.</figcaption></figure>",
       "source": "Malden"
-    },
-    {
-      "title": "Shooting at North Shore rest stop under investigation - Boston 25 News",
-      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQaElEbmJOekIzSVNnRDViMFEydTJ4a2FvMmxPTDYxRGE3YXRCazZYeEoxRmNmQnZPdURveThoU1lSRXJVSmUyOFpjUVRRdnlpZE1XMC0xcENwWjFDNm50QUlfZ0JyVnllRkNoanUzMTdUWmdGbEg4anhtaWo2Z0dvNDBFQUZ1ZVlmcTZpemlqS1J6M3J5SzhkU3ExVUJ2aFkwVHRwMTQ3eWdPS3lmck1nWENPaXhSTGl3M0HSAc4BQVVfeXFMTnQ2QW45OGUtSVhWV1ZhQUtoRXotaksyQlNiZHBIbnNZRlJvZ1VkRlBGZzJVX29wQnh1X1lKNVFVdW9HU2VvYjRMYjV2bXg1VEJvR2lmY3lpTjhkUUpheW1nY0p3Y1pEajRoYzZSLWdTZVVZNG12REtBTWN3dDBjOVpvVlRSV29NNG1neXZ1bkVPVmkyYURVRWtpQjhQWXcwN0FWc0tldDlEVlNSeHkxdy1FY3c2TFBOX2pkQmIweHJ3MDU3RlM0TjRYQ213b1E?oc=5",
-      "published": "Mon, 08 Dec 2025 08:00:00 GMT",
-      "ts": 1765180800,
-      "author": "",
-      "feed_title": "Boston 25 News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxQaElEbmJOekIzSVNnRDViMFEydTJ4a2FvMmxPTDYxRGE3YXRCazZYeEoxRmNmQnZPdURveThoU1lSRXJVSmUyOFpjUVRRdnlpZE1XMC0xcENwWjFDNm50QUlfZ0JyVnllRkNoanUzMTdUWmdGbEg4anhtaWo2Z0dvNDBFQUZ1ZVlmcTZpemlqS1J6M3J5SzhkU3ExVUJ2aFkwVHRwMTQ3eWdPS3lmck1nWENPaXhSTGl3M0HSAc4BQVVfeXFMTnQ2QW45OGUtSVhWV1ZhQUtoRXotaksyQlNiZHBIbnNZRlJvZ1VkRlBGZzJVX29wQnh1X1lKNVFVdW9HU2VvYjRMYjV2bXg1VEJvR2lmY3lpTjhkUUpheW1nY0p3Y1pEajRoYzZSLWdTZVVZNG12REtBTWN3dDBjOVpvVlRSV29NNG1neXZ1bkVPVmkyYURVRWtpQjhQWXcwN0FWc0tldDlEVlNSeHkxdy1FY3c2TFBOX2pkQmIweHJ3MDU3RlM0TjRYQ213b1E?oc=5\" target=\"_blank\">Shooting at North Shore rest stop under investigation</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
-      "source": "North Shore"
     },
     {
       "title": "Man shot dead in East Boston",
@@ -3591,6 +3555,76 @@
   ],
   "news_boston": [
     {
+      "title": "Iranian drones attack Bahrain and a ship is struck in the strait after US airstrikes",
+      "link": "https://www.wcvb.com/article/bahrain-iran-drone-attack-targeting-island-kingdom/71752073",
+      "published": "Sat, 27 Jun 2026 16:03:00 GMT",
+      "ts": 1782576180,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Iran launched a drone assault targeting Bahrain, while a ship in the Strait of Hormuz separately came under attack Saturday.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Prime Day is over, but secret savings remain. Here's what we found",
+      "link": "https://www.wcvb.com/article/post-prime-day-deals-2026/71752636",
+      "published": "Sat, 27 Jun 2026 15:56:00 GMT",
+      "ts": 1782575760,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Amazon Prime Day is over, but there are Prime Day deals hidden in plain sight. Here's how you can spot them if you missed out on the four-day sale. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Drone nearly hits United Airlines plane landing in Newark, pilot says",
+      "link": "https://www.wcvb.com/article/drone-nearly-hits-united-plane-landing-newark/71754577",
+      "published": "Sat, 27 Jun 2026 15:37:00 GMT",
+      "ts": 1782574620,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A United Airlines passenger jet nearly collided with a drone as it was coming in to land in New Jersey, its pilot said.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Senator Edwards and Representative Madaro celebrate Inaugural Commonwealth Pride Awardees",
+      "link": "https://eastboston.com/senator-edwards-and-representative-madaro-celebrate-inaugural-commonwealth-pride-awardees/?utm_source=rss&utm_medium=rss&utm_campaign=senator-edwards-and-representative-madaro-celebrate-inaugural-commonwealth-pride-awardees",
+      "published": "Sat, 27 Jun 2026 15:28:21 +0000",
+      "ts": 1782574101,
+      "author": "admin",
+      "feed_title": "EastBoston.com",
+      "summary": "<p>(Boston, June 26, 2026) Today, Senator Lydia Edwards and Representative Adrian Madaro celebrated with an inaugural Commonwealth Pride Award, a newly-founded annual event that celebrates the rich accomplishments and talents of Massachusetts\u2019 LGBTQ+ community. &#8220;I&#8217;m excited to see East Boston well-represented at the State House for the inaugural Commonwealth Pride Awards!&#8221; said Representative Adrian C. [&#8230;]</p>\n<p>The post <a href=\"https://eastboston.com/senator-edwards-and-representative-madaro-celebrate-inaugural-commonwealth-pride-awardees/\">Senator Edwards and Representative Madaro celebrate Inaugural Commonwealth Pride Awardees</a> first appeared on <a href=\"https://eastboston.com\">EastBoston.com</a>.</p>",
+      "source": "EastBoston.com"
+    },
+    {
+      "title": "Latinos for Education Honors Brooke Charter School Multilingual Learner Coordinator Lesley Pe\u00f1a",
+      "link": "https://eastboston.com/latinos-for-education-honors-brooke-charter-school-multilingual-learner-coordinator-lesley-pena/?utm_source=rss&utm_medium=rss&utm_campaign=latinos-for-education-honors-brooke-charter-school-multilingual-learner-coordinator-lesley-pena",
+      "published": "Sat, 27 Jun 2026 15:16:56 +0000",
+      "ts": 1782573416,
+      "author": "admin",
+      "feed_title": "EastBoston.com",
+      "summary": "<p>Pe\u00f1a was nominated by State Representative Adrian Madaro Boston, MA \u2013 June 24, 2026 \u2013 Latinos for Education hosted its fifth annual Latino Educators Shine Awards at the MCLE Conference Center on Tuesday, honoring Lesley Pe\u00f1a, Multilingual Learner Coordinator at Brooke East Boston. This year, over 50 Latino educators from across the Commonwealth were honored [&#8230;]</p>\n<p>The post <a href=\"https://eastboston.com/latinos-for-education-honors-brooke-charter-school-multilingual-learner-coordinator-lesley-pena/\">Latinos for Education Honors Brooke Charter School Multilingual Learner Coordinator Lesley Pe\u00f1a</a> first appeared on <a href=\"https://eastboston.com\">EastBoston.com</a>.</p>",
+      "source": "EastBoston.com"
+    },
+    {
+      "title": "Thunderstorm triggers two major sewer line breaks in Haverhill, mayor says",
+      "link": "https://www.wcvb.com/article/sewer-line-breaks-in-haverhill/71755316",
+      "published": "Sat, 27 Jun 2026 15:15:00 GMT",
+      "ts": 1782573300,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Residents advised to avoid contact with Merrimack River; Drinking water unaffected</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Scratching that bug bite might feel good at first but science explains why it\u2019s a bad idea",
+      "link": "https://www.boston.com/news/health/2026/06/27/scratching-that-bug-bite-might-feel-good-at-first-but-science-explains-why-its-a-bad-idea/",
+      "published": "Sat, 27 Jun 2026 14:51:43 +0000",
+      "ts": 1782571903,
+      "author": "Associated Press",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
+      "summary": "<p>Now researchers better understand why even a mildly annoying itch could put you on an itch-and-scratch cycle if you give in.</p>\n<p>The post <a href=\"https://www.boston.com/news/health/2026/06/27/scratching-that-bug-bite-might-feel-good-at-first-but-science-explains-why-its-a-bad-idea/\">Scratching that bug bite might feel good at first but science explains why it&#8217;s a bad idea</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
+    },
+    {
       "title": "Round of 32 to be finalized after final 6 matches of group play",
       "link": "https://whdh.com/sports/round-of-32-to-be-finalized-after-final-6-matches-of-group-play/",
       "published": "Sat, 27 Jun 2026 14:48:19 +0000",
@@ -3616,19 +3650,9 @@
       "published": "Sat, 27 Jun 2026 14:33:44 +0000",
       "ts": 1782570824,
       "author": "Associated Press",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>The fair kicked off this week and is run by Freedom 250, an organization created by President Donald Trump to run his administration's official events. </p>\n<p>The post <a href=\"https://www.boston.com/news/national-news/2026/06/27/at-the-great-american-state-fair-you-can-find-a-dinosaurs-rib-cage-unity-is-another-matter/\">At the Great American State Fair, you can find a dinosaur&#8217;s rib cage. Unity is another matter.</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
-    },
-    {
-      "title": "Iranian drones attack Bahrain and a ship is struck in the strait after US airstrikes",
-      "link": "https://www.wcvb.com/article/bahrain-iran-drone-attack-targeting-island-kingdom/71752073",
-      "published": "Sat, 27 Jun 2026 14:12:00 GMT",
-      "ts": 1782569520,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Iran launched a drone assault targeting Bahrain, while a ship in the Strait of Hormuz separately came under attack Saturday.</p>",
-      "source": "Top Stories"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
     },
     {
       "title": "Crucial window for rescuing survivors narrows in Venezuela after deadly quakes",
@@ -3656,9 +3680,9 @@
       "published": "Sat, 27 Jun 2026 14:01:47 +0000",
       "ts": 1782568907,
       "author": "Associated Press",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>Nothing has been publicly confirmed by the couple.</p>\n<p>The post <a href=\"https://www.boston.com/culture/entertainment/2026/06/27/are-taylor-swift-and-travis-kelce-getting-married-at-madison-square-garden-what-we-know/\">Are Taylor Swift and Travis Kelce getting married at Madison Square Garden? What we know.</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
     },
     {
       "title": "Iranian drones attack Bahrain, ship is struck in the Strait of Hormuz",
@@ -3666,9 +3690,9 @@
       "published": "Sat, 27 Jun 2026 13:54:23 +0000",
       "ts": 1782568463,
       "author": "Associated Press",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>The attacks across the Persian Gulf show the danger of the Iran war again spinning out of control.</p>\n<p>The post <a href=\"https://www.boston.com/news/world-news/2026/06/27/iranian-drones-attack-bahrain-ship-is-struck-in-the-strait-of-hormuz/\">Iranian drones attack Bahrain, ship is struck in the Strait of Hormuz</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
     },
     {
       "title": "Cape DA investigating alleged threats at Sandwich Middle High",
@@ -3676,9 +3700,9 @@
       "published": "Sat, 27 Jun 2026 13:15:06 +0000",
       "ts": 1782566106,
       "author": "Rosemary Ford",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>Officials say a school safety app alerted administrators, prompting a police investigation.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/06/27/cape-da-investigating-alleged-threats-at-sandwich-middle-high/\">Cape DA investigating alleged threats at Sandwich Middle High</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
     },
     {
       "title": "Small plane crashes into Beijing skyscraper, killing the pilot and injuring 13",
@@ -3706,9 +3730,9 @@
       "published": "Sat, 27 Jun 2026 12:52:41 +0000",
       "ts": 1782564761,
       "author": "Rosemary Ford",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>Victor Arrington, 40, faces a life sentence in the 2015 Dorchester home invasion murder after a jury found him guilty at a retrial.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/06/27/man-convicted-after-breaking-into-the-wrong-boston-apartment-and-murdering-resident/\">Man convicted after breaking into the wrong Boston apartment and murdering resident</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
     },
     {
       "title": "Shooting at gathering in Brockton following World Cup match leaves 4 hospitalized",
@@ -3766,9 +3790,9 @@
       "published": "Sat, 27 Jun 2026 12:12:16 +0000",
       "ts": 1782562336,
       "author": "Peter Chianca",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>Massachusetts has become a hotbed of Ninja talent. </p>\n<p>The post <a href=\"https://www.boston.com/culture/tv/2026/06/27/some-20-new-englanders-are-on-american-ninja-warrior-this-season-heres-your-in-depth-preview/\">Some 20 New Englanders are on &#8216;American Ninja Warrior&#8217; this season. Here&#8217;s your in-depth preview.</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
     },
     {
       "title": "Scotland came to Boston. Did romance follow?",
@@ -3776,9 +3800,9 @@
       "published": "Sat, 27 Jun 2026 12:00:00 +0000",
       "ts": 1782561600,
       "author": "Meredith Goldstein",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>The Scots may have charmed Boston in more ways than one.</p>\n<p>The post <a href=\"https://www.boston.com/love-letters/relationships/2026/06/27/scotland-came-to-boston-did-romance-follow/\">Scotland came to Boston. Did romance follow?</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
     },
     {
       "title": "4 of the weirdest, most absurd soccer movies streaming now",
@@ -3786,9 +3810,9 @@
       "published": "Sat, 27 Jun 2026 12:00:00 +0000",
       "ts": 1782561600,
       "author": "Kevin Slane",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>These soccer films are the best medicine for anyone with World Cup fever.</p>\n<p>The post <a href=\"https://www.boston.com/culture/the-queue/2026/06/27/the-queue-movies-streaming-soccer-world-cup-avatar/\">4 of the weirdest, most absurd soccer movies streaming now</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
     },
     {
       "title": "Is the Trump administration on the verge of further endangering North Atlantic right whales?",
@@ -3796,9 +3820,19 @@
       "published": "Sat, 27 Jun 2026 11:38:48 +0000",
       "ts": 1782560328,
       "author": "Ross Cristantiello",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "feed_title": "Scratching that bug bite might feel good at first but science explains why it's a bad idea",
       "summary": "<p>Experts say maritime slow zones protect the whales, but a major rollback of these rules could be on the horizon. </p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/06/27/is-the-trump-administration-on-the-verge-of-further-endangering-north-atlantic-right-whales/\">Is the Trump administration on the verge of further endangering North Atlantic right whales?</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
+      "source": "Scratching that bug bite might feel good at first but science explains why it's a bad idea"
+    },
+    {
+      "title": "Heavy rains cause 2 sewer main breaks in Haverhill, sewage now flowing into Merrimack River",
+      "link": "https://www.nbcboston.com/news/local/heavy-rains-cause-2-sewer-main-breaks-in-haverhill-sewage-now-flowing-into-merrimack-river/3972234/",
+      "published": "Sat, Jun 27 2026 11:31:31 AM",
+      "ts": 1782559891,
+      "author": "Marc Fortier",
+      "feed_title": "NBC Boston",
+      "summary": "<p>Heavy rains overnight caused two separate sewer main breaks in Haverhill, Massachusetts, that are causing sewage to flow into the Merrimack River.</p>\n\n\n\n<p>The mayor&#8217;s office said in a Facebook post that around 9 p.m. Friday during torrential rains, the city experienced a break in a 42-inch sewer main near its main pumping station. The heavy rainfall caused wastewater flows to increase rapidly, placing &#8220;significantly greater demand&#8221; on the pipeline.</p>\n\n\n\n<p>The Department of Public Works has been working continuously since Friday night, the mayor&#8217;s office said. As they were investigating the damage on Saturday, they discovered a second sewer main break, which requires additional assessment to determine the needed repairs.</p>\n\n\n\n<p>They said the discovery of the second break means the damaged area is larger than originally believed.</p>\n\n\n\n<p>&#8220;The City&#8217;s priorities are to protect public health, stop the discharge into the Merrimack River as quickly as possible, maintain sewer service to the community, and complete a safe and permanent repair,&#8221; the mayor&#8217;s office added.</p>\n\n\n\n\n\n\n\n<p>Because of the two breaks, untreated wastewater is being discharged into the Merrimack River downstream of Haverhill&#8217;s downtown area instead of reaching the city&#8217;s wastewater treatment plant. The city&#8217;s sewer system remains fully operational, with no interruption anticipated. The city&#8217;s drinking water system is separate from the sewer system and is also unaffected.</p>\n\n\n\n<p>The city said it has notified the Massachusetts Department of Environmental Protection, the U.S. Environmental Protection Agency and other required regulatory agencies.</p>\n\n\n\n<p>The public is being advised to avoid contact with the Merrimack River in the immediate area and downstream of the discharge until repairs have been completed.</p>\n\n\n\n<p>&#8220;The City&#8217;s immediate objective is to stop the discharge into the Merrimack River while maintaining sewer service throughout the community,&#8221; the mayor&#8217;s office said. &#8220;Because this is one of the City&#8217;s largest and most critical wastewater pipelines, the repair must be completed carefully and correctly. Simply shutting down the pumping station is not an option because it serves thousands of homes and businesses. Doing so would potentially cause wastewater to back up into the collection system, potentially resulting in sewer backups and additional overflows elsewhere in the City.&#8221;</p>\n\n\n\n<p>The exact cause of the failures remains under investigation.</p>",
+      "source": "NBC Boston"
     },
     {
       "title": "People aren\u2019t the only ones hit by heat. What to do if you see wildlife overheating",
@@ -3869,16 +3903,6 @@
       "feed_title": "NBC Boston",
       "summary": "<p>One person was killed and four others were hospitalized following a shooting overnight in Boston&#8217;s Mattapan neighborhood.</p>\n\n\n\n<p>Boston police responded to the area of 1460 Blue Hill Avenue for a report of a person shot around 1:45 a.m. and arrived on scene to find five people with gunshot wounds.</p>\n\n\n\n<p>All five were taken to local hospitals, where one was pronounced dead from their injuries, according to police, who said it appears all victims are adult males.</p>\n\n\n\n<p>There was no word on the conditions of the other four victims. </p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11362951\" height=\"1080\" src=\"https://media.nbcboston.com/2026/06/062726-raw-broll-mattapan-fatal-shooting_locke.mxf_.00_00_16_16.Still001.png?w=1920&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>It&#8217;s also unclear what led to the shooting. No arrests have been announced, and police haven&#8217;t said if they believe there was more than one shooter.</p>\n\n\n\n<p>This is a very active investigation, police noted, and more information will be provided when it&#8217;s available.</p>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "Payton Tolle gets standing ovation after tossing seven scoreless innings vs. Yankees",
-      "link": "https://www.boston.com/sports/boston-red-sox/2026/06/27/payton-tolle-red-sox-yankees-perfect-game-bid/",
-      "published": "Sat, 27 Jun 2026 04:03:24 +0000",
-      "ts": 1782533004,
-      "author": "Colin McCarthy",
-      "feed_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
-      "summary": "<p>Tolle said postgame he was battling an illness prior to his outstanding start Friday.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/06/27/payton-tolle-red-sox-yankees-perfect-game-bid/\">Payton Tolle gets standing ovation after tossing seven scoreless innings vs. Yankees</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter"
     },
     {
       "title": "Crucial window for rescuing survivors narrows as Venezuela enters third day after deadly twin quakes",
@@ -4011,26 +4035,6 @@
       "source": "NBC Boston"
     },
     {
-      "title": "France routs Norway 4-1 in lively FIFA Foxborough match",
-      "link": "https://www.wcvb.com/article/france-defeats-norway-boston-group-stage-matchup/71744886",
-      "published": "Fri, 26 Jun 2026 22:48:00 GMT",
-      "ts": 1782514080,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>France beat Norway 4-1 in Foxborough, with a hat trick and a lively crowd adding to the atmosphere.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Sewage-contaminated water can make you sick \u2014 What to watch for after swimming",
-      "link": "https://www.wcvb.com/article/sewage-contaminated-water-can-make-you-sick/71749674",
-      "published": "Fri, 26 Jun 2026 22:46:00 GMT",
-      "ts": 1782513960,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Sewage-contaminated water can make swimmers sick \u2014 and experts say it can also cause skin rashes and eye infections.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "2 arrested in 15-year-old's fatal shooting in Allston",
       "link": "https://www.nbcboston.com/news/local/2-arrested-in-15-year-olds-fatal-shooting-in-allston/3971812/",
       "published": "Fri, Jun 26 2026 10:30:47 PM",
@@ -4041,16 +4045,6 @@
       "source": "NBC Boston"
     },
     {
-      "title": "Slippery, painful and unforgettable: Gloucester's annual Greasy Pole contest",
-      "link": "https://www.wcvb.com/article/gloucester-massachusetts-2026-greasy-pole-contest/71743754",
-      "published": "Fri, 26 Jun 2026 22:17:00 GMT",
-      "ts": 1782512220,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>The annual Greasy Pole contest during St. Peter's Fiesta brings the attention of the state and beyond to the Cape Ann fishing city.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "For the first time Mass. colleges will offer three-year degrees",
       "link": "https://www.wbur.org/news/2026/06/26/degree-mass-colleges-bachelor-offer-three-year-university",
       "published": "Fri, 26 Jun 2026 17:45:43 -0400",
@@ -4059,36 +4053,6 @@
       "feed_title": "WBUR News",
       "summary": "<p>At Suffolk University and Merrimack College students can get a compressed college experience in a handful of majors in just three years</p>",
       "source": "WBUR News"
-    },
-    {
-      "title": "France overpowers Norway in 4-1 win at World Cup match in Foxborough",
-      "link": "https://www.wgbh.org/news/local/2026-06-26/france-overpowers-norway-in-4-1-win-at-world-cup-match-in-foxborough",
-      "published": "Fri, 26 Jun 2026 21:44:32 GMT",
-      "ts": 1782510272,
-      "author": "",
-      "feed_title": "GBH News",
-      "summary": "France forward Ousmane Demb\u00e9l\u00e9 dazzles with a first-half hat trick.",
-      "source": "GBH News"
-    },
-    {
-      "title": "Boston police seek missing 17-year-old from Roxbury",
-      "link": "https://www.nbcboston.com/news/local/boston-police-seek-missing-17-year-old-from-roxbury/3972102/",
-      "published": "Fri, Jun 26 2026 09:37:55 PM",
-      "ts": 1782466675,
-      "author": "",
-      "feed_title": "NBC Boston",
-      "summary": "<p>Police are searching for a missing teenager from Boston&#8217;s Roxbury neighborhood.</p>\n\n\n\n<p>Authorities said Friday that 17-year-old Melissa Leon Guzman was reported missing on Saturday, June 13.</p>\n\n\n\n<p>Guzman is described as being about 5&#8217;2 and 94 pounds with brown eyes and dark brown hair worn short.</p>\n\n\n\n<p>Anyone with information is asked to call 617-343-4712. Anonymous tips can also be left by calling 1-800-494-8477, by texting &#8220;TIP&#8221; to 27463, or by visiting <a href=\"https://police.boston.gov/crimestoppers/\" rel=\"noreferrer noopener\" target=\"_blank\">this website</a>.</p>",
-      "source": "NBC Boston"
-    },
-    {
-      "title": "Their cat went missing. After a day, he turned up in the strangest place.",
-      "link": "https://www.nbcboston.com/news/local/missing-cat-found-needham-massachusetts/3972071/",
-      "published": "Fri, Jun 26 2026 08:44:38 PM",
-      "ts": 1782463478,
-      "author": "Brianna Borghi",
-      "feed_title": "NBC Boston",
-      "summary": "<p>For an agonizing 30 hours, the Kirby family&#8217;s cat, Fluffy, was nowhere to be found.</p>\n\n\n\n<p>Contractors had been at the Needham, Massachusetts, house to do work on the bathroom, so they figured he&#8217;d snuck out the front door. They went to bed fearing the worst and headed to Staples early the next morning to make missing cat posters.</p>\n\n\n\n<p>&#8220;I never thought I was going to see him again,&#8221; Melissa Kirby said.</p>\n\n\n\n<p>They even brought in a pet retrieval specialist with a German shepherd to look around the neighborhood for Fluffy, but the search came up empty.</p>\n\n\n\n<p>&#8220;I was upstairs crying and I heard a little meow,&#8221; Melissa said. &#8220;I thought at that point I was hallucinating.&#8221;</p>\n\n\n\n<p>She wasn&#8217;t. Fluffy was in fact inside the house \u2014 underneath the bathtub. Melissa saw &#8220;a little paw sticking out of a hole&#8221; that a tub had been installed on top of.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"Fluffy the cat inside a hole in his Needham, Massachusetts, family's home.\" class=\"wp-image-11362425\" height=\"4032\" src=\"https://media.nbcboston.com/2026/06/fluffy-missing-cat-needham-mass.jpg?quality=85&#038;strip=all&#038;w=3024&#038;resize=3024%2C4032\" width=\"3024\" /><figcaption class=\"wp-element-caption\">Fluffy the cat inside a hole in his Needham, Massachusetts, family&#8217;s home.</figcaption></figure>\n\n\n\n<p>Ed Kirby called the after-hours plumber right away. He recalled the conversation going like this:</p>\n\n\n\n<p><em>Is this an emergency?<br />Yes this is an emergency. It&#8217;s not a leak. Our cat is trapped under our tub.</em></p>\n\n\n\n<p>Fluffy made it out within the hour, unhurt and apparently unbothered, especially with some extra attention from his family. But the Kirbys aren&#8217;t taking chances anymore, putting an AirTag tracking device on the him immediately.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More cat news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/clear-the-shelters/knicks-og-anunoby-shelter-cats/3967140/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/06/image-45-5.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/nba/\">NBA</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJun 18\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/clear-the-shelters/knicks-og-anunoby-shelter-cats/3967140/\">\n\t\t\t\t\t\t\t\t\t\tHow Knicks&#039; OG Anunoby is helping NYC shelter cats find their forever homes\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/politics/president-trump/vance-cat-ladies-comment-dumbest-things-book/3965747/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/06/VANCE-COMMUNION.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/politics/\">politics</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJun 15\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/politics/president-trump/vance-cat-ladies-comment-dumbest-things-book/3965747/\">\n\t\t\t\t\t\t\t\t\t\tVance calls his \u2018childless cat ladies&#039; comment \u2018one of the dumbest things I ever said&#039;\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/rhode-island-rabies-stray-cat/3954482/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/02/46142970076-1080pnbcstations.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/animals-and-wildlife/\">Animals and Wildlife</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 23\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/rhode-island-rabies-stray-cat/3954482/\">\n\t\t\t\t\t\t\t\t\t\tStray cat with rabies bites person in Rhode Island\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
-      "source": "NBC Boston"
     }
   ],
   "news_universalhub": [],
@@ -4171,7 +4135,7 @@
       "ts": 1779400013,
       "author": "Elizabeth Maher",
       "feed_title": "",
-      "summary": "<p><span style=\"font-weight: 400;\">When Ned Hall, BC \u201924, arrived on Boston College\u2019s campus his freshman year, he never expected to live in Boston College Recovery Housing (BCRH).</span></p>\n<p><span style=\"font-weight: 400;\">But after experiencing struggles with substance abuse, </span><a href=\"https://www.bc.edu/bc-web/offices/studentaffairs/sites/health-wellness/center-for-student-wellness/programs-services/alcohol-drug/recover-sobriety-support.html#recovery_housing\"><span style=\"font-weight: 400;\">BCRH</span></a><span style=\"font-weight: 400;\">\u2014a residential community for BC students who have committed to long-term sobriety and recovery\u2014became more than just a place where Hall lived.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cIt really did give me my life back, probably even, like, a better life than I had,\u201d Hall </span><a href=\"https://bcheights.com/eagle-eye-podcast/\"><span style=\"font-weight: 400;\">said</span></a><span style=\"font-weight: 400;\"> in an interview on \u201cEagle Eye,\u201d </span><i><span style=\"font-weight: 400;\">The Heights</span></i><span style=\"font-weight: 400;\">\u2019 podcast. \u201cSo yeah, it truly has changed everything for me.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">Through its structured and substance-free environment, holistic approach to recovery, and supportive community, BCRH aims to help students who have experienced addiction not only recover but thrive, explained </span><span style=\"font-weight: 400;\">Jeannine Kremer, director of the Murray Center for Student Wellness and BCRH program supervisor.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cKnowing that this house was here sometimes just becomes a lifeline for students,\u201d Kremer said.</span></p>\n<h3><b>\u201cAllow For Them To Thrive\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">According to Kremer, the BCRH community began in 2014. Then, students and a graduate assistant lived on a floor in Edmonds Hall, a former residence hall located where the Plex currently stands.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cIn 2017, they moved to the house where they are now,\u201d Kremer said. \u201cAnd we&#8217;ve kind of watched the program take off ever since.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">The house, which has a capacity for six to seven residents who have met the requirement of achieving 60 days of sobriety, was originally a part of Residential Life. About four years ago, it was incorporated under the Murray Center for Student Wellness, according to Kremer.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cOne key piece of our office functional area is actually our substance use prevention and education programming,\u201d Kremer said. \u201cAnd so it just made sense to me that the recovery house and the work being done would also be done by this office.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">With this transition, Kremer sought to find a person to manage the program\u2019s day-to-day needs and grow BC\u2019s recovery community. Judy Oxford, the now associate director of the Murray Center and fellow program supervisor, filled this role.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI knew she&#8217;d be the perfect person to actually oversee this community and grow our collegiate recovery community here at BC,\u201d Kremer said.</span></p>\n<p><span style=\"font-weight: 400;\">Kremer and Oxford work in close collaboration with Hall, who now serves as the program\u2019s graduate assistant.</span></p>\n<p><span style=\"font-weight: 400;\">They explained that all their work is done with one goal in mind: to help residents flourish at BC and beyond.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThe goals of the recovery community are to support students who are in recovery and allow for them to thrive, to have a typical, fulfilling college experience with the support of recovery resources,\u201d Oxford said.</span></p>\n<h3><b>\u201cI Knew It Was the Place For Me\u201d</b></h3>\n<p><i><span style=\"font-weight: 400;\">Editor\u2019s note: </span></i><span style=\"font-weight: 400;\">The Heights </span><i><span style=\"font-weight: 400;\">has given current BCRH residents fake names in order to protect their privacy</span></i><span style=\"font-weight: 400;\">.</span><i><span style=\"font-weight: 400;\">\u00a0</span></i></p>\n<p><span style=\"font-weight: 400;\">Hall joined the house after temporarily leaving BC after his first semester. After he spent time in rehab and took community college classes close to home, Hall felt ready to get back to the Heights.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI really wanted to get back out here,\u201d Hall said. \u201cYou know, there was some trepidation\u2014my parents were worried about me. And my dad said, \u2018I think there\u2019s hope for you at BC, but to go back there, you&#8217;ve got to live in this house.\u2019\u201d</span></p>\n<aside>\n    <div class=\"pullquote sno-pullquote-6a3fe397e7d6d sno-animate\">\n                <div class=\"quotebody\">\n                        <div class=\"largequote\">&ldquo;</div>\n                                    <p class=\"pullquotetext\">And my dad said, \u2018I think there\u2019s hope for you at BC, but to go back there, you&#8217;ve got to live in this house.\u2019</p>\n                            <p class=\"quotespeaker\">&mdash; Ned Hall</p>\n                        <div class=\"clear\"></div>\n        </div>\n    </div>\n</aside>\n\n\n<p><span style=\"font-weight: 400;\">Hall said he entered BCRH with reluctance, but he soon realized the program was perfect for him.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cAlmost since, like, the day I got in there, I knew it was the place for me,\u201d Hall said.</span></p>\n<p><span style=\"font-weight: 400;\">As the program\u2019s graduate assistant, Hall now works to support its current residents, including Michael and Chris.</span></p>\n<p><span style=\"font-weight: 400;\">Michael began college at a different university, but his struggles with substance abuse put his education on pause. While in recovery, he decided he wanted to return to college and began his search for schools on the </span><a href=\"https://collegiaterecovery.org/\"><span style=\"font-weight: 400;\">Association of Recovery in Higher Education\u2019s website</span></a><span style=\"font-weight: 400;\">.</span></p>\n<p><span style=\"font-weight: 400;\">Out of the website\u2019s list of colleges and universities with accredited recovery programs, BC stood out.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cIt&#8217;s very rare [for a recovery program] to have its own separate housing units,\u201d Michael said. \u201cSo that was a big draw for me, because I knew if I wanted to go back to school, I wanted to have the support of a collegiate recovery program.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">In fact, BC\u2019s program is the only one of its kind in Massachusetts to provide recovery housing for participants, according to Oxford.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThere are a lot of recovery communities, collegiate recovery communities, and so we have some other ones that are in the Boston area and all through Massachusetts,\u201d Oxford said. \u201cBut when it comes to recovery housing, Boston College is unique to Massachusetts, at least.\u201d\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">Chris also chose to transfer to BC because of its recovery housing program.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cMy whole life, just, like, wasn&#8217;t coming together the way I had envisioned it, or my parents had envisioned it would, when I was in high school and when I was growing up,\u201d Chris said.</span></p>\n<p><span style=\"font-weight: 400;\">After being arrested for a DUI, Chris went to rehab. While there, he decided that he wanted to pursue long-term sobriety and continue his education in a supportive environment.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI just like, couldn&#8217;t really imagine myself going back to living in a regular dorm and staying sober and making friends and being social, that sort of thing,\u201d Chris said. \u201cSo I think the recovery housing seemed like the only, or at least like the easiest path forward for me to have a pretty regular college experience and stay sober.\u201d</span></p>\n<h3><b>\u201cYour Recovery is Your Own\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">According to Oxford, the process of living in BCRH begins when an interested student contacts the Murray Center.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cWe would talk to them, and there are expectations that we lay out for students, so they&#8217;re, they&#8217;re fully aware of everything that is required in living in the house before they even set foot in it, and they agree to it,\u201d Oxford said. \u201cSo it&#8217;s done with a lot of thought and planning.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">In addition to abstinence from all substances, one of the house requirements is attendance at three Alcoholics Anonymous meetings a week, according to Kremer.</span></p>\n<p><span style=\"font-weight: 400;\">It also involves participation in the 12-Step Program, a framework to help individuals overcome addiction and other dysfunctional behaviors.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThe steps provide, they&#8217;re kind of a, I would say, like a powerful tool in someone&#8217;s recovery,\u201d Kremer said. \u201cAnd so you can repeat steps as well. Sometimes you need to repeat steps and things like that.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">Although BCRH provides structure in the recovery process, Michael emphasized that each individual\u2019s journey is unique.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI&#8217;m a big believer in, you know, your recovery is your own,\u201d Michael said. \u201cYou have to find what works for you, because it&#8217;s certainly not a one-size-fits-all type of deal. And you know, you&#8217;re able to alter it as your needs change.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">Residents share a weekly dinner, as well as a monthly dinner that brings together program directors and community members in both the men\u2019s and women\u2019s recovery programs. They also engage in community service each semester.</span></p>\n<p><span style=\"font-weight: 400;\">Hall said that the tools and support provided by BCRH can be transformative.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI almost didn&#8217;t graduate,\u201d Hall said. \u201cI almost never came back here. And now I&#8217;m gonna be finishing up two master&#8217;s degrees in the next year, and in, like, a very concrete sense, that&#8217;s changed my life.\u201d</span></p>\n<h3><b>\u201cI\u2019ve Met My Best Lifelong Friends In This House\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">For many of its residents, BCRH\u2019s supportive community is what makes the house feel like home.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cNo one understands, kind of, like, the feelings and struggles you might have, just like another alcoholic,\u201d Michael said. \u201cThey just are able to get it on a different level. Or addict, you know, someone that struggles with that same type of thing, they&#8217;re able to get it on another level.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">The residents\u2019 shared experiences and goals help keep them accountable, according to Chris.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cIt helps you keep yourself accountable, knowing you&#8217;re going back to a place where there are a bunch of other people who care about their sobriety,\u201d Chris said. \u201cAnd it will help you grow in your recovery, and it&#8217;s also going to help you grow and become, like, a better version of yourself.\u201d\u00a0</span></p>\n<aside>\n    <div class=\"pullquote sno-pullquote-6a3fe397e84ae sno-animate\">\n                <div class=\"quotebody\">\n                        <div class=\"largequote\">&ldquo;</div>\n                                    <p class=\"pullquotetext\">It helps you keep yourself accountable, knowing you&#8217;re going back to a place where there are a bunch of other people who care about their sobriety.</p>\n                            <p class=\"quotespeaker\">&mdash; Chris</p>\n                        <div class=\"clear\"></div>\n        </div>\n    </div>\n</aside>\n\n\n<p><span style=\"font-weight: 400;\">Chris explained that many of the residents have fostered meaningful friendships within the house.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI&#8217;ve met my best lifelong friends in this house, some of my best friends, which has just made the whole process of being in college and being sober so much easier for me,\u201d Chris said.</span></p>\n<p><span style=\"font-weight: 400;\">Whether they\u2019re watching a football game or playing cornhole in the yard, Michael stressed that their day-to-day experiences look the same as those of non-BCRH students.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cAll of us, I mean, are just typical college students,\u201d Michael said.</span></p>\n<p><span style=\"font-weight: 400;\">The community\u2019s support doesn\u2019t end when a participant moves out. Those who have graduated often return to offer advice and encouragement to current residents, Michael explained.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cWe&#8217;ll have past graduates come back for those dinners sometimes,\u201d Michael said. \u201cJust stop by, things like that. So you&#8217;re always, like, kind of still tied to the community, even if you don&#8217;t live in the house anymore.\u201d</span></p>\n<h3><b>\u201cAlways Looking To Help Others\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">Because of the support BCRH has given them, residents work to pay it forward, Kremer said.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cNed and the guys love to host game nights, and that&#8217;s for the whole collegiate recovery community,\u201d Kremer said. \u201cSo not just students at BC, but they expanded to students from Tufts and, you know, Harvard, and any other schools that have students in recovery, but those schools don&#8217;t quite have programs for them yet.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">Oxford emphasized that, despite the busy schedules of being a college student, residents are eager to help others in recovery.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cA lot of other universities and campuses call us because they may have a student that&#8217;s in recovery and is looking for some kind of fellowship or some connection,\u201d Oxford said. \u201cAnd our students\u2014just like the Jesuit value, where we&#8217;re always looking to help others\u2014they immediately respond, taking someone, meeting them for coffee, or driving them to a meeting, or, you know, going for a walk with them.\u201d</span></p>\n<aside>\n    <div class=\"pullquote sno-pullquote-6a3fe397e8b17 sno-animate\">\n                <div class=\"quotebody\">\n                        <div class=\"largequote\">&ldquo;</div>\n                                    <p class=\"pullquotetext\">A lot of other universities and campuses call us because they may have a student that&#8217;s in recovery and is looking for some kind of fellowship or some connection.</p>\n                            <p class=\"quotespeaker\">&mdash; Judy Oxford</p>\n                        <div class=\"clear\"></div>\n        </div>\n    </div>\n</aside>\n\n\n<p><span style=\"font-weight: 400;\">BCRH also collaborates with other collegiate recovery organizations around the country.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThey actually hosted Notre Dame for a tailgate this year,\u201d Kremer said. \u201cTheir plan is to host Rutgers for the Rutgers game that&#8217;s going to be this fall.\u201d\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">Working with other universities allows BCRH to guide schools that, like Notre Dame, do not yet have a recovery housing program. It is also an opportunity for BCRH to improve its own services, according to Hall.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cBy meeting with these other schools, we can learn from them,\u201d Hall said.</span></p>\n<h3><b>\u201cThis House Has Been a Gift\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">BC\u2019s recovery program can be a valuable resource for any student struggling with substance use, according to Michael.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI know there&#8217;s plenty of people that struggle with it, and the thing is, they might not realize it yet, and they might not be ready for any change yet,\u201d Michael said. \u201cBut I know there are people that can be helped by the program.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">At its core, BCRH\u2019s mission is to help students succeed, Hall emphasized.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI never want a student who could succeed, who needed help, not be able to get it,\u201d Hall said.</span></p>\n<p><span style=\"font-weight: 400;\">Kremer explained that for its residents, BCRH has given them more than just a roof over their heads\u2014it has provided them with resources and support that will enable them to thrive at BC and beyond.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThe house has been a gift for so many students,\u201d Kremer said.</span></p>\n<p>The post <a href=\"https://bcheights.com/231794/features/for-boston-college-students-in-recovery-bcrh-offers-more-than-just-a-place-to-live/\">For Boston College Students in Recovery, BCRH Offers More Than Just A Place To Live</a> appeared first on <a href=\"https://bcheights.com\">The Heights</a>.</p>",
+      "summary": "<p><span style=\"font-weight: 400;\">When Ned Hall, BC \u201924, arrived on Boston College\u2019s campus his freshman year, he never expected to live in Boston College Recovery Housing (BCRH).</span></p>\n<p><span style=\"font-weight: 400;\">But after experiencing struggles with substance abuse, </span><a href=\"https://www.bc.edu/bc-web/offices/studentaffairs/sites/health-wellness/center-for-student-wellness/programs-services/alcohol-drug/recover-sobriety-support.html#recovery_housing\"><span style=\"font-weight: 400;\">BCRH</span></a><span style=\"font-weight: 400;\">\u2014a residential community for BC students who have committed to long-term sobriety and recovery\u2014became more than just a place where Hall lived.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cIt really did give me my life back, probably even, like, a better life than I had,\u201d Hall </span><a href=\"https://bcheights.com/eagle-eye-podcast/\"><span style=\"font-weight: 400;\">said</span></a><span style=\"font-weight: 400;\"> in an interview on \u201cEagle Eye,\u201d </span><i><span style=\"font-weight: 400;\">The Heights</span></i><span style=\"font-weight: 400;\">\u2019 podcast. \u201cSo yeah, it truly has changed everything for me.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">Through its structured and substance-free environment, holistic approach to recovery, and supportive community, BCRH aims to help students who have experienced addiction not only recover but thrive, explained </span><span style=\"font-weight: 400;\">Jeannine Kremer, director of the Murray Center for Student Wellness and BCRH program supervisor.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cKnowing that this house was here sometimes just becomes a lifeline for students,\u201d Kremer said.</span></p>\n<h3><b>\u201cAllow For Them To Thrive\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">According to Kremer, the BCRH community began in 2014. Then, students and a graduate assistant lived on a floor in Edmonds Hall, a former residence hall located where the Plex currently stands.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cIn 2017, they moved to the house where they are now,\u201d Kremer said. \u201cAnd we&#8217;ve kind of watched the program take off ever since.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">The house, which has a capacity for six to seven residents who have met the requirement of achieving 60 days of sobriety, was originally a part of Residential Life. About four years ago, it was incorporated under the Murray Center for Student Wellness, according to Kremer.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cOne key piece of our office functional area is actually our substance use prevention and education programming,\u201d Kremer said. \u201cAnd so it just made sense to me that the recovery house and the work being done would also be done by this office.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">With this transition, Kremer sought to find a person to manage the program\u2019s day-to-day needs and grow BC\u2019s recovery community. Judy Oxford, the now associate director of the Murray Center and fellow program supervisor, filled this role.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI knew she&#8217;d be the perfect person to actually oversee this community and grow our collegiate recovery community here at BC,\u201d Kremer said.</span></p>\n<p><span style=\"font-weight: 400;\">Kremer and Oxford work in close collaboration with Hall, who now serves as the program\u2019s graduate assistant.</span></p>\n<p><span style=\"font-weight: 400;\">They explained that all their work is done with one goal in mind: to help residents flourish at BC and beyond.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThe goals of the recovery community are to support students who are in recovery and allow for them to thrive, to have a typical, fulfilling college experience with the support of recovery resources,\u201d Oxford said.</span></p>\n<h3><b>\u201cI Knew It Was the Place For Me\u201d</b></h3>\n<p><i><span style=\"font-weight: 400;\">Editor\u2019s note: </span></i><span style=\"font-weight: 400;\">The Heights </span><i><span style=\"font-weight: 400;\">has given current BCRH residents fake names in order to protect their privacy</span></i><span style=\"font-weight: 400;\">.</span><i><span style=\"font-weight: 400;\">\u00a0</span></i></p>\n<p><span style=\"font-weight: 400;\">Hall joined the house after temporarily leaving BC after his first semester. After he spent time in rehab and took community college classes close to home, Hall felt ready to get back to the Heights.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI really wanted to get back out here,\u201d Hall said. \u201cYou know, there was some trepidation\u2014my parents were worried about me. And my dad said, \u2018I think there\u2019s hope for you at BC, but to go back there, you&#8217;ve got to live in this house.\u2019\u201d</span></p>\n<aside>\n    <div class=\"pullquote sno-pullquote-6a3ff78a201f4 sno-animate\">\n                <div class=\"quotebody\">\n                        <div class=\"largequote\">&ldquo;</div>\n                                    <p class=\"pullquotetext\">And my dad said, \u2018I think there\u2019s hope for you at BC, but to go back there, you&#8217;ve got to live in this house.\u2019</p>\n                            <p class=\"quotespeaker\">&mdash; Ned Hall</p>\n                        <div class=\"clear\"></div>\n        </div>\n    </div>\n</aside>\n\n\n<p><span style=\"font-weight: 400;\">Hall said he entered BCRH with reluctance, but he soon realized the program was perfect for him.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cAlmost since, like, the day I got in there, I knew it was the place for me,\u201d Hall said.</span></p>\n<p><span style=\"font-weight: 400;\">As the program\u2019s graduate assistant, Hall now works to support its current residents, including Michael and Chris.</span></p>\n<p><span style=\"font-weight: 400;\">Michael began college at a different university, but his struggles with substance abuse put his education on pause. While in recovery, he decided he wanted to return to college and began his search for schools on the </span><a href=\"https://collegiaterecovery.org/\"><span style=\"font-weight: 400;\">Association of Recovery in Higher Education\u2019s website</span></a><span style=\"font-weight: 400;\">.</span></p>\n<p><span style=\"font-weight: 400;\">Out of the website\u2019s list of colleges and universities with accredited recovery programs, BC stood out.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cIt&#8217;s very rare [for a recovery program] to have its own separate housing units,\u201d Michael said. \u201cSo that was a big draw for me, because I knew if I wanted to go back to school, I wanted to have the support of a collegiate recovery program.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">In fact, BC\u2019s program is the only one of its kind in Massachusetts to provide recovery housing for participants, according to Oxford.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThere are a lot of recovery communities, collegiate recovery communities, and so we have some other ones that are in the Boston area and all through Massachusetts,\u201d Oxford said. \u201cBut when it comes to recovery housing, Boston College is unique to Massachusetts, at least.\u201d\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">Chris also chose to transfer to BC because of its recovery housing program.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cMy whole life, just, like, wasn&#8217;t coming together the way I had envisioned it, or my parents had envisioned it would, when I was in high school and when I was growing up,\u201d Chris said.</span></p>\n<p><span style=\"font-weight: 400;\">After being arrested for a DUI, Chris went to rehab. While there, he decided that he wanted to pursue long-term sobriety and continue his education in a supportive environment.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI just like, couldn&#8217;t really imagine myself going back to living in a regular dorm and staying sober and making friends and being social, that sort of thing,\u201d Chris said. \u201cSo I think the recovery housing seemed like the only, or at least like the easiest path forward for me to have a pretty regular college experience and stay sober.\u201d</span></p>\n<h3><b>\u201cYour Recovery is Your Own\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">According to Oxford, the process of living in BCRH begins when an interested student contacts the Murray Center.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cWe would talk to them, and there are expectations that we lay out for students, so they&#8217;re, they&#8217;re fully aware of everything that is required in living in the house before they even set foot in it, and they agree to it,\u201d Oxford said. \u201cSo it&#8217;s done with a lot of thought and planning.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">In addition to abstinence from all substances, one of the house requirements is attendance at three Alcoholics Anonymous meetings a week, according to Kremer.</span></p>\n<p><span style=\"font-weight: 400;\">It also involves participation in the 12-Step Program, a framework to help individuals overcome addiction and other dysfunctional behaviors.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThe steps provide, they&#8217;re kind of a, I would say, like a powerful tool in someone&#8217;s recovery,\u201d Kremer said. \u201cAnd so you can repeat steps as well. Sometimes you need to repeat steps and things like that.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">Although BCRH provides structure in the recovery process, Michael emphasized that each individual\u2019s journey is unique.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI&#8217;m a big believer in, you know, your recovery is your own,\u201d Michael said. \u201cYou have to find what works for you, because it&#8217;s certainly not a one-size-fits-all type of deal. And you know, you&#8217;re able to alter it as your needs change.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">Residents share a weekly dinner, as well as a monthly dinner that brings together program directors and community members in both the men\u2019s and women\u2019s recovery programs. They also engage in community service each semester.</span></p>\n<p><span style=\"font-weight: 400;\">Hall said that the tools and support provided by BCRH can be transformative.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI almost didn&#8217;t graduate,\u201d Hall said. \u201cI almost never came back here. And now I&#8217;m gonna be finishing up two master&#8217;s degrees in the next year, and in, like, a very concrete sense, that&#8217;s changed my life.\u201d</span></p>\n<h3><b>\u201cI\u2019ve Met My Best Lifelong Friends In This House\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">For many of its residents, BCRH\u2019s supportive community is what makes the house feel like home.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cNo one understands, kind of, like, the feelings and struggles you might have, just like another alcoholic,\u201d Michael said. \u201cThey just are able to get it on a different level. Or addict, you know, someone that struggles with that same type of thing, they&#8217;re able to get it on another level.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">The residents\u2019 shared experiences and goals help keep them accountable, according to Chris.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cIt helps you keep yourself accountable, knowing you&#8217;re going back to a place where there are a bunch of other people who care about their sobriety,\u201d Chris said. \u201cAnd it will help you grow in your recovery, and it&#8217;s also going to help you grow and become, like, a better version of yourself.\u201d\u00a0</span></p>\n<aside>\n    <div class=\"pullquote sno-pullquote-6a3ff78a20883 sno-animate\">\n                <div class=\"quotebody\">\n                        <div class=\"largequote\">&ldquo;</div>\n                                    <p class=\"pullquotetext\">It helps you keep yourself accountable, knowing you&#8217;re going back to a place where there are a bunch of other people who care about their sobriety.</p>\n                            <p class=\"quotespeaker\">&mdash; Chris</p>\n                        <div class=\"clear\"></div>\n        </div>\n    </div>\n</aside>\n\n\n<p><span style=\"font-weight: 400;\">Chris explained that many of the residents have fostered meaningful friendships within the house.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI&#8217;ve met my best lifelong friends in this house, some of my best friends, which has just made the whole process of being in college and being sober so much easier for me,\u201d Chris said.</span></p>\n<p><span style=\"font-weight: 400;\">Whether they\u2019re watching a football game or playing cornhole in the yard, Michael stressed that their day-to-day experiences look the same as those of non-BCRH students.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cAll of us, I mean, are just typical college students,\u201d Michael said.</span></p>\n<p><span style=\"font-weight: 400;\">The community\u2019s support doesn\u2019t end when a participant moves out. Those who have graduated often return to offer advice and encouragement to current residents, Michael explained.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cWe&#8217;ll have past graduates come back for those dinners sometimes,\u201d Michael said. \u201cJust stop by, things like that. So you&#8217;re always, like, kind of still tied to the community, even if you don&#8217;t live in the house anymore.\u201d</span></p>\n<h3><b>\u201cAlways Looking To Help Others\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">Because of the support BCRH has given them, residents work to pay it forward, Kremer said.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cNed and the guys love to host game nights, and that&#8217;s for the whole collegiate recovery community,\u201d Kremer said. \u201cSo not just students at BC, but they expanded to students from Tufts and, you know, Harvard, and any other schools that have students in recovery, but those schools don&#8217;t quite have programs for them yet.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">Oxford emphasized that, despite the busy schedules of being a college student, residents are eager to help others in recovery.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cA lot of other universities and campuses call us because they may have a student that&#8217;s in recovery and is looking for some kind of fellowship or some connection,\u201d Oxford said. \u201cAnd our students\u2014just like the Jesuit value, where we&#8217;re always looking to help others\u2014they immediately respond, taking someone, meeting them for coffee, or driving them to a meeting, or, you know, going for a walk with them.\u201d</span></p>\n<aside>\n    <div class=\"pullquote sno-pullquote-6a3ff78a20ea0 sno-animate\">\n                <div class=\"quotebody\">\n                        <div class=\"largequote\">&ldquo;</div>\n                                    <p class=\"pullquotetext\">A lot of other universities and campuses call us because they may have a student that&#8217;s in recovery and is looking for some kind of fellowship or some connection.</p>\n                            <p class=\"quotespeaker\">&mdash; Judy Oxford</p>\n                        <div class=\"clear\"></div>\n        </div>\n    </div>\n</aside>\n\n\n<p><span style=\"font-weight: 400;\">BCRH also collaborates with other collegiate recovery organizations around the country.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThey actually hosted Notre Dame for a tailgate this year,\u201d Kremer said. \u201cTheir plan is to host Rutgers for the Rutgers game that&#8217;s going to be this fall.\u201d\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">Working with other universities allows BCRH to guide schools that, like Notre Dame, do not yet have a recovery housing program. It is also an opportunity for BCRH to improve its own services, according to Hall.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cBy meeting with these other schools, we can learn from them,\u201d Hall said.</span></p>\n<h3><b>\u201cThis House Has Been a Gift\u201d</b></h3>\n<p><span style=\"font-weight: 400;\">BC\u2019s recovery program can be a valuable resource for any student struggling with substance use, according to Michael.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI know there&#8217;s plenty of people that struggle with it, and the thing is, they might not realize it yet, and they might not be ready for any change yet,\u201d Michael said. \u201cBut I know there are people that can be helped by the program.\u201d</span></p>\n<p><span style=\"font-weight: 400;\">At its core, BCRH\u2019s mission is to help students succeed, Hall emphasized.\u00a0</span></p>\n<p><span style=\"font-weight: 400;\">\u201cI never want a student who could succeed, who needed help, not be able to get it,\u201d Hall said.</span></p>\n<p><span style=\"font-weight: 400;\">Kremer explained that for its residents, BCRH has given them more than just a roof over their heads\u2014it has provided them with resources and support that will enable them to thrive at BC and beyond.</span></p>\n<p><span style=\"font-weight: 400;\">\u201cThe house has been a gift for so many students,\u201d Kremer said.</span></p>\n<p>The post <a href=\"https://bcheights.com/231794/features/for-boston-college-students-in-recovery-bcrh-offers-more-than-just-a-place-to-live/\">For Boston College Students in Recovery, BCRH Offers More Than Just A Place To Live</a> appeared first on <a href=\"https://bcheights.com\">The Heights</a>.</p>",
       "source": "The Heights"
     },
     {
@@ -4285,16 +4249,6 @@
       "source": "Google News BC"
     },
     {
-      "title": "College Players, Commitments Dominate First Round of the 2026 NHL Draft - Sports Illustrated",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQbl80dXYtRkRSeUl2cjB4dHg2SEV6MDNKR3dBc3AxYTRCbS04T2JVbWt3dy02eW80dVNZMWZmSjFYTUhVQ3ZPUEwxeEpsekFaZUFUR0hfa2FIYnY1Rm9xdXJYX1U3V2lCQW5JWUJUc1VldDVmU05ySFoxaHB5M2dJdk15WTUzYThSZlpwZ1BwZGctWk1UY0FsN3lBdGlHRHhCNVpZUGJyUktCMUpUNGtqUm4zcE84VUJySy1zcnN6MA?oc=5",
-      "published": "Sat, 27 Jun 2026 09:00:01 GMT",
-      "ts": 1782550801,
-      "author": "",
-      "feed_title": "Sports Illustrated",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxQbl80dXYtRkRSeUl2cjB4dHg2SEV6MDNKR3dBc3AxYTRCbS04T2JVbWt3dy02eW80dVNZMWZmSjFYTUhVQ3ZPUEwxeEpsekFaZUFUR0hfa2FIYnY1Rm9xdXJYX1U3V2lCQW5JWUJUc1VldDVmU05ySFoxaHB5M2dJdk15WTUzYThSZlpwZ1BwZGctWk1UY0FsN3lBdGlHRHhCNVpZUGJyUktCMUpUNGtqUm4zcE84VUJySy1zcnN6MA?oc=5\" target=\"_blank\">College Players, Commitments Dominate First Round of the 2026 NHL Draft</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
-      "source": "Google News BC"
-    },
-    {
       "title": "Wake Forest Travels To Boston College For Midweek Matchup with Eagles - Wake Forest University Athletics",
       "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORjdWX2UtOEw5bmIwWDVxdi1CTjdVX2o5b2xJT0FZVWJ6Tlo4N0pGMlZMQnNQM3VaWlZ1cUFLSDBqN01SdWw0cFgtWUJYSV8tUnFEbTN3UkpXYllqb3g5U1VMb19henZ0X081WnI3NnN1SG03YmlsdEc5ZUJIQmJRMEhGWFRCMnBFbWhJM0xHZ0FIaHpBaXhQU2tPcUxhQjFibG9fZVV3bzctYkpMZ0o1dXRKcDlhZWJNMVYwMQ?oc=5",
       "published": "Tue, 24 Feb 2026 08:00:00 GMT",
@@ -4302,6 +4256,16 @@
       "author": "",
       "feed_title": "Wake Forest University Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxORjdWX2UtOEw5bmIwWDVxdi1CTjdVX2o5b2xJT0FZVWJ6Tlo4N0pGMlZMQnNQM3VaWlZ1cUFLSDBqN01SdWw0cFgtWUJYSV8tUnFEbTN3UkpXYllqb3g5U1VMb19henZ0X081WnI3NnN1SG03YmlsdEc5ZUJIQmJRMEhGWFRCMnBFbWhJM0xHZ0FIaHpBaXhQU2tPcUxhQjFibG9fZVV3bzctYkpMZ0o1dXRKcDlhZWJNMVYwMQ?oc=5\" target=\"_blank\">Wake Forest Travels To Boston College For Midweek Matchup with Eagles</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Wake Forest University Athletics</font>",
+      "source": "Google News BC"
+    },
+    {
+      "title": "College Players, Commitments Dominate First Round of the 2026 NHL Draft - Sports Illustrated",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQbl80dXYtRkRSeUl2cjB4dHg2SEV6MDNKR3dBc3AxYTRCbS04T2JVbWt3dy02eW80dVNZMWZmSjFYTUhVQ3ZPUEwxeEpsekFaZUFUR0hfa2FIYnY1Rm9xdXJYX1U3V2lCQW5JWUJUc1VldDVmU05ySFoxaHB5M2dJdk15WTUzYThSZlpwZ1BwZGctWk1UY0FsN3lBdGlHRHhCNVpZUGJyUktCMUpUNGtqUm4zcE84VUJySy1zcnN6MA?oc=5",
+      "published": "Sat, 27 Jun 2026 09:00:01 GMT",
+      "ts": 1782550801,
+      "author": "",
+      "feed_title": "Sports Illustrated",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxQbl80dXYtRkRSeUl2cjB4dHg2SEV6MDNKR3dBc3AxYTRCbS04T2JVbWt3dy02eW80dVNZMWZmSjFYTUhVQ3ZPUEwxeEpsekFaZUFUR0hfa2FIYnY1Rm9xdXJYX1U3V2lCQW5JWUJUc1VldDVmU05ySFoxaHB5M2dJdk15WTUzYThSZlpwZ1BwZGctWk1UY0FsN3lBdGlHRHhCNVpZUGJyUktCMUpUNGtqUm4zcE84VUJySy1zcnN6MA?oc=5\" target=\"_blank\">College Players, Commitments Dominate First Round of the 2026 NHL Draft</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
       "source": "Google News BC"
     },
     {
@@ -4607,6 +4571,16 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
+      "title": "Hockey Community Rallies Around NCAA Counter-Proposal - College Hockey News",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQNElESjJrU1NLaUZmd3h1VXhlYTRIbDl4NEVuTlNoUlRsZzg1WDhGODBvOG1qMHlBYnpMSmowZnZ3bjZYWlZvazdmZTc4VTNtWENBSGxCTDFRTVV5M3BrQUxzczR1WU5wbnJvUHh1Nkh1R0I1dUdBbzBBWDFKbzhvMURUR0NvQQ?oc=5",
+      "published": "Wed, 20 May 2026 07:00:00 GMT",
+      "ts": 1779260400,
+      "author": "",
+      "feed_title": "College Hockey News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihgFBVV95cUxQNElESjJrU1NLaUZmd3h1VXhlYTRIbDl4NEVuTlNoUlRsZzg1WDhGODBvOG1qMHlBYnpMSmowZnZ3bjZYWlZvazdmZTc4VTNtWENBSGxCTDFRTVV5M3BrQUxzczR1WU5wbnJvUHh1Nkh1R0I1dUdBbzBBWDFKbzhvMURUR0NvQQ?oc=5\" target=\"_blank\">Hockey Community Rallies Around NCAA Counter-Proposal</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">College Hockey News</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
       "title": "NHL Draft: DU Pioneers likely to have two first-round picks on Friday night, a first in school history - The Denver Post",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQU291UkpwZ3NlWlpGTjY5MDBaVWluWXFjN3NXaXQ3aXVYZzZ6MjB6bURMS01ZTldsNVBlbktyWXZLVXpad0hjQXJJTUtWR0trbkNEV1JIc29YWDB4YWFDRWl0UTFCLWxGdVJsY3dTRENlUlIycVlWZFktUkNjX2R1YjJwZFM0c2Ns?oc=5",
       "published": "Fri, 26 Jun 2026 00:00:31 GMT",
@@ -4624,16 +4598,6 @@
       "author": "",
       "feed_title": "Sports Illustrated",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxQbl80dXYtRkRSeUl2cjB4dHg2SEV6MDNKR3dBc3AxYTRCbS04T2JVbWt3dy02eW80dVNZMWZmSjFYTUhVQ3ZPUEwxeEpsekFaZUFUR0hfa2FIYnY1Rm9xdXJYX1U3V2lCQW5JWUJUc1VldDVmU05ySFoxaHB5M2dJdk15WTUzYThSZlpwZ1BwZGctWk1UY0FsN3lBdGlHRHhCNVpZUGJyUktCMUpUNGtqUm4zcE84VUJySy1zcnN6MA?oc=5\" target=\"_blank\">College Players, Commitments Dominate First Round of the 2026 NHL Draft</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
-      "title": "NCAA proposal changes eligibility clock for hockey players - USCHO.com",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObVY2UjVnWjVaSjVJU19ZVmx6eV9TeV91X3lGMGJ1TmI2cURIeXBPd01oUEFzQW5NbUFQUTNSaGNEMW5ucTFXUmZXU285ODZFLTlHT05fZzk4TTNWT2pDVW5HbXJ6MVMwRlY4WjRSS1BjQXBVWkZmRF9vSEU1VFMtYUh6Y2ZoZ3VOLWgyVDFJWDNwd1dDYVlN?oc=5",
-      "published": "Wed, 24 Jun 2026 17:15:10 GMT",
-      "ts": 1782321310,
-      "author": "",
-      "feed_title": "USCHO.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxObVY2UjVnWjVaSjVJU19ZVmx6eV9TeV91X3lGMGJ1TmI2cURIeXBPd01oUEFzQW5NbUFQUTNSaGNEMW5ucTFXUmZXU285ODZFLTlHT05fZzk4TTNWT2pDVW5HbXJ6MVMwRlY4WjRSS1BjQXBVWkZmRF9vSEU1VFMtYUh6Y2ZoZ3VOLWgyVDFJWDNwd1dDYVlN?oc=5\" target=\"_blank\">NCAA proposal changes eligibility clock for hockey players</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">USCHO.com</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4951,16 +4915,6 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "River Hawks Unveil 2026-27 Schedule - UMass Lowell Athletics",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQeEt0d0dkZ2EwSUFXNFZwYmZiRlg0RjEzdTZhUW5Nd3JyenBsZnRrMjhuaDN4S3kzTnZVNkVoR0JGOC1HYUNiNWx4RF9vNldCNDNFRUk0NDF2LTE4WHBfenBNNE5NMXFkOUJMZ3U4Z2JIcjMwTm91eFJqM215dU5tUG8zNGtmNmt0MG5wbkJPeEdKTTJ2cUtObHQxSTc?oc=5",
-      "published": "Thu, 25 Jun 2026 15:28:15 GMT",
-      "ts": 1782401295,
-      "author": "",
-      "feed_title": "UMass Lowell Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxQeEt0d0dkZ2EwSUFXNFZwYmZiRlg0RjEzdTZhUW5Nd3JyenBsZnRrMjhuaDN4S3kzTnZVNkVoR0JGOC1HYUNiNWx4RF9vNldCNDNFRUk0NDF2LTE4WHBfenBNNE5NMXFkOUJMZ3U4Z2JIcjMwTm91eFJqM215dU5tUG8zNGtmNmt0MG5wbkJPeEdKTTJ2cUtObHQxSTc?oc=5\" target=\"_blank\">River Hawks Unveil 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UMass Lowell Athletics</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
       "title": "Men\u2019s Hockey Announces 2026-27 Non-Conference Schedule - Boston College Athletics",
       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQOTlUUkw5ZzlJbDJ5RU55TmZpd05GZkJwMkZqYUxfYm05M2JIZFZhY1ZxVkhkTWtTNm9hcURKRDhkOTU1bDd3dUlSdjJyM3pDUW5hMzhCSGhROTJJaUI1cnNYZU5nSzFHQUJ6OGZXLS03X0JMcnN3bUNUR3RITXZDRGZsWFJ3QnMwbnRVbkNuTGZSRmM?oc=5",
       "published": "Tue, 23 Jun 2026 18:06:54 GMT",
@@ -4968,6 +4922,16 @@
       "author": "",
       "feed_title": "Boston College Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxQOTlUUkw5ZzlJbDJ5RU55TmZpd05GZkJwMkZqYUxfYm05M2JIZFZhY1ZxVkhkTWtTNm9hcURKRDhkOTU1bDd3dUlSdjJyM3pDUW5hMzhCSGhROTJJaUI1cnNYZU5nSzFHQUJ6OGZXLS03X0JMcnN3bUNUR3RITXZDRGZsWFJ3QnMwbnRVbkNuTGZSRmM?oc=5\" target=\"_blank\">Men\u2019s Hockey Announces 2026-27 Non-Conference Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston College Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "Maine Men's Hockey Kicks Off 2026 Season Against Holy Cross In Worcester - 92.9 The Ticket",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBuNGdqVWowR2xsZXlXUmloYTlPY0ZjaS13QmtkSklyZTV3aFlkcW9jQXA5OGU3NENXWnVaRzhkRlNJZ0hYelJwUm9sd2wxRlN1RGp5UzdkY3hzMEd3clJON2lR?oc=5",
+      "published": "Sat, 27 Jun 2026 10:41:50 GMT",
+      "ts": 1782556910,
+      "author": "",
+      "feed_title": "92.9 The Ticket",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiYkFVX3lxTFBuNGdqVWowR2xsZXlXUmloYTlPY0ZjaS13QmtkSklyZTV3aFlkcW9jQXA5OGU3NENXWnVaRzhkRlNJZ0hYelJwUm9sd2wxRlN1RGp5UzdkY3hzMEd3clJON2lR?oc=5\" target=\"_blank\">Maine Men's Hockey Kicks Off 2026 Season Against Holy Cross In Worcester</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">92.9 The Ticket</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -5041,16 +5005,6 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "\u2018A dream come true\u2019: East Haven\u2019s Constantinople goes pro with PWHL - WTNH.com",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSnNqS3hQQzFrZFM4ZkVhSUN6Y0RxZjRtRUF4YzRTbXZob1RLOFNob2d3YlZXbWZiWVVOMHdqZGZaMThVdVZFSU93RFVhSnJSS3RuNWc0Q2lpZlhVdElhX3NtTVBxNUxSQURaQURwN2NzSTNKaHlINHJ1RUJKMkE5SEVWMEQxWFMyWHNPa2FMVTdyU2ZEdktZeExSOFk2ek1pMW9GaFNEWV_SAa4BQVVfeXFMT3ZIem9Za215Q0ZJaVFXWFcxVkllTVlyTnBKdjZBQ3pNUTQ0SGVFZmRyVGJOTzRQZUgwaWxfenlUaWRqeThrMEpscXZub0V3QmxBS0JpbWswWEFGQ3kxUXdQYUlBYy15SXppTXY5SHNma2tuMGZ0eEhoNWNHR05CZmw3ekxGQ2QwNzYxdm02Y2otSWsxZFNkUzlsWEtTZldVTFh1Y3IzM3Z4aHkzR3Bn?oc=5",
-      "published": "Wed, 24 Jun 2026 00:29:43 GMT",
-      "ts": 1782260983,
-      "author": "",
-      "feed_title": "WTNH.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSnNqS3hQQzFrZFM4ZkVhSUN6Y0RxZjRtRUF4YzRTbXZob1RLOFNob2d3YlZXbWZiWVVOMHdqZGZaMThVdVZFSU93RFVhSnJSS3RuNWc0Q2lpZlhVdElhX3NtTVBxNUxSQURaQURwN2NzSTNKaHlINHJ1RUJKMkE5SEVWMEQxWFMyWHNPa2FMVTdyU2ZEdktZeExSOFk2ek1pMW9GaFNEWV_SAa4BQVVfeXFMT3ZIem9Za215Q0ZJaVFXWFcxVkllTVlyTnBKdjZBQ3pNUTQ0SGVFZmRyVGJOTzRQZUgwaWxfenlUaWRqeThrMEpscXZub0V3QmxBS0JpbWswWEFGQ3kxUXdQYUlBYy15SXppTXY5SHNma2tuMGZ0eEhoNWNHR05CZmw3ekxGQ2QwNzYxdm02Y2otSWsxZFNkUzlsWEtTZldVTFh1Y3IzM3Z4aHkzR3Bn?oc=5\" target=\"_blank\">\u2018A dream come true\u2019: East Haven\u2019s Constantinople goes pro with PWHL</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WTNH.com</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
       "title": "UNH Men\u2019s Hockey Concludes Season vs. Northeastern in Hockey East Opening Round - University of New Hampshire Athletics",
       "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOQ0tmZnpEYUZPSVFRWm9zMkVZYmw1MG53bVhOLVlPc3N1V20ybXFLV2IxQkNIOFhfQjF5b0FzWXlJTWRVdDNxSDZqcE5sdGY3OW9aSGY5OG02aUtWYmVXRWdKYVNQdW5lQUxZRUpqbTRxMnJVSTJtbFhOWDF4VXp2VEZSdk50SDdEaXc5TWZfUUE0b2JZcVMwTVcyd2VwUHQ1eDc4SUpRRFBEbHBkVWZrMlJZSzYyWGFiUnN5dEtBTUV6RmU4eFJuQTlYRkM?oc=5",
       "published": "Wed, 11 Mar 2026 07:00:00 GMT",
@@ -5058,6 +5012,16 @@
       "author": "",
       "feed_title": "University of New Hampshire Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxOQ0tmZnpEYUZPSVFRWm9zMkVZYmw1MG53bVhOLVlPc3N1V20ybXFLV2IxQkNIOFhfQjF5b0FzWXlJTWRVdDNxSDZqcE5sdGY3OW9aSGY5OG02aUtWYmVXRWdKYVNQdW5lQUxZRUpqbTRxMnJVSTJtbFhOWDF4VXp2VEZSdk50SDdEaXc5TWZfUUE0b2JZcVMwTVcyd2VwUHQ1eDc4SUpRRFBEbHBkVWZrMlJZSzYyWGFiUnN5dEtBTUV6RmU4eFJuQTlYRkM?oc=5\" target=\"_blank\">UNH Men\u2019s Hockey Concludes Season vs. Northeastern in Hockey East Opening Round</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of New Hampshire Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "\u2018A dream come true\u2019: East Haven\u2019s Constantinople goes pro with PWHL - WTNH.com",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSnNqS3hQQzFrZFM4ZkVhSUN6Y0RxZjRtRUF4YzRTbXZob1RLOFNob2d3YlZXbWZiWVVOMHdqZGZaMThVdVZFSU93RFVhSnJSS3RuNWc0Q2lpZlhVdElhX3NtTVBxNUxSQURaQURwN2NzSTNKaHlINHJ1RUJKMkE5SEVWMEQxWFMyWHNPa2FMVTdyU2ZEdktZeExSOFk2ek1pMW9GaFNEWV_SAa4BQVVfeXFMT3ZIem9Za215Q0ZJaVFXWFcxVkllTVlyTnBKdjZBQ3pNUTQ0SGVFZmRyVGJOTzRQZUgwaWxfenlUaWRqeThrMEpscXZub0V3QmxBS0JpbWswWEFGQ3kxUXdQYUlBYy15SXppTXY5SHNma2tuMGZ0eEhoNWNHR05CZmw3ekxGQ2QwNzYxdm02Y2otSWsxZFNkUzlsWEtTZldVTFh1Y3IzM3Z4aHkzR3Bn?oc=5",
+      "published": "Wed, 24 Jun 2026 00:29:43 GMT",
+      "ts": 1782260983,
+      "author": "",
+      "feed_title": "WTNH.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSnNqS3hQQzFrZFM4ZkVhSUN6Y0RxZjRtRUF4YzRTbXZob1RLOFNob2d3YlZXbWZiWVVOMHdqZGZaMThVdVZFSU93RFVhSnJSS3RuNWc0Q2lpZlhVdElhX3NtTVBxNUxSQURaQURwN2NzSTNKaHlINHJ1RUJKMkE5SEVWMEQxWFMyWHNPa2FMVTdyU2ZEdktZeExSOFk2ek1pMW9GaFNEWV_SAa4BQVVfeXFMT3ZIem9Za215Q0ZJaVFXWFcxVkllTVlyTnBKdjZBQ3pNUTQ0SGVFZmRyVGJOTzRQZUgwaWxfenlUaWRqeThrMEpscXZub0V3QmxBS0JpbWswWEFGQ3kxUXdQYUlBYy15SXppTXY5SHNma2tuMGZ0eEhoNWNHR05CZmw3ekxGQ2QwNzYxdm02Y2otSWsxZFNkUzlsWEtTZldVTFh1Y3IzM3Z4aHkzR3Bn?oc=5\" target=\"_blank\">\u2018A dream come true\u2019: East Haven\u2019s Constantinople goes pro with PWHL</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WTNH.com</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -5071,16 +5035,6 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "Ryan Tattle Named Hockey East Community Champion - University of Connecticut Athletics",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQa21uMHlhSzdHZ1YwYWV0ajliLUlfaDQ4WHpMa3FhNTQzYzUxb0Q2SWUwaGxTeGNGSDBrSlhTemVUWGV1a2kwNXZtU3pIN2tMektLalY5U21YNkVPdGVRSVFacWd6bXFtWlliYmdTcjNBc25fV0JLa2t3UjVwZGhxcDZKejZKWXJSMWxxWnh6NkRVQXB4Vko4aGt0UkM4Y1E2NWhDbV9TOA?oc=5",
-      "published": "Wed, 15 Apr 2026 07:00:00 GMT",
-      "ts": 1776236400,
-      "author": "",
-      "feed_title": "University of Connecticut Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQa21uMHlhSzdHZ1YwYWV0ajliLUlfaDQ4WHpMa3FhNTQzYzUxb0Q2SWUwaGxTeGNGSDBrSlhTemVUWGV1a2kwNXZtU3pIN2tMektLalY5U21YNkVPdGVRSVFacWd6bXFtWlliYmdTcjNBc25fV0JLa2t3UjVwZGhxcDZKejZKWXJSMWxxWnh6NkRVQXB4Vko4aGt0UkM4Y1E2NWhDbV9TOA?oc=5\" target=\"_blank\">Ryan Tattle Named Hockey East Community Champion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Connecticut Athletics</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
       "title": "Men's Ice Hockey Heads to UConn Saturday for Hockey East Quarterfinal on ESPN+, NESN+ - Boston University Athletics",
       "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWGJzbzVJOVQ2OWNWeERMS2VRREVnby1CUnU3QXE1TVZ0TlpycEYzVWNqU3QzM0hCTmNUcC1INElCQVJmZjhkQkZxWGNWRERFc1dsZmVFQkVYZUtqVmUxaTM3Q0NJRWE2Qk1GRmdTNVNfU1JFWkZMdEFWY2xsakFlMncxOUdPQW0yVl92X1dCc2plN1N4RFlFNHFkLUdYN1VYelJPRUZocjlEOFBLN3VqaWV2a2thMF9pLWM0UGo4OXducWVhd09ISndibGhUZ2hz?oc=5",
       "published": "Fri, 13 Mar 2026 07:00:00 GMT",
@@ -5088,6 +5042,16 @@
       "author": "",
       "feed_title": "Boston University Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWGJzbzVJOVQ2OWNWeERMS2VRREVnby1CUnU3QXE1TVZ0TlpycEYzVWNqU3QzM0hCTmNUcC1INElCQVJmZjhkQkZxWGNWRERFc1dsZmVFQkVYZUtqVmUxaTM3Q0NJRWE2Qk1GRmdTNVNfU1JFWkZMdEFWY2xsakFlMncxOUdPQW0yVl92X1dCc2plN1N4RFlFNHFkLUdYN1VYelJPRUZocjlEOFBLN3VqaWV2a2thMF9pLWM0UGo4OXducWVhd09ISndibGhUZ2hz?oc=5\" target=\"_blank\">Men's Ice Hockey Heads to UConn Saturday for Hockey East Quarterfinal on ESPN+, NESN+</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston University Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "BC Hosts Maine in Hockey East Quarterfinals - Boston College Athletics",
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOaF9iMHhLTU10QmVsVGFUdE5nRUNscW9xMjhzVklRRmlOTTZ2MTVOclVxck9jMThLckh5M1RHbGhocW4zenBKRDFaZlctLWZnOElCS0dwNmY3eTJBbTFxNWcwTlFoekZGMkczVXF3TjVZSWpSekJhc2o1MmphMkJlTXJwcFpwX18xdTJGRFNXTVdxc0Z2NEE?oc=5",
+      "published": "Thu, 12 Mar 2026 07:00:00 GMT",
+      "ts": 1773298800,
+      "author": "",
+      "feed_title": "Boston College Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxOaF9iMHhLTU10QmVsVGFUdE5nRUNscW9xMjhzVklRRmlOTTZ2MTVOclVxck9jMThLckh5M1RHbGhocW4zenBKRDFaZlctLWZnOElCS0dwNmY3eTJBbTFxNWcwTlFoekZGMkczVXF3TjVZSWpSekJhc2o1MmphMkJlTXJwcFpwX18xdTJGRFNXTVdxc0Z2NEE?oc=5\" target=\"_blank\">BC Hosts Maine in Hockey East Quarterfinals</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston College Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
     }
   ],
@@ -5163,7 +5127,17 @@
       "source": "NPR"
     },
     {
-      "title": "4 ways to get creative with your leftovers (and save money on food)",
+      "title": "What would George Washington say? It's a busy year for people who portray him",
+      "link": "https://www.npr.org/2026/06/27/nx-s1-5816415/america-250-george-washington-reenactors",
+      "published": "Sat, 27 Jun 2026 05:00:00 -0400",
+      "ts": 1782550800,
+      "author": "Jennifer Ludden",
+      "feed_title": "",
+      "summary": "<img alt=\"Reenactor John Koopman III, playing George Washington, waves to attendees at the Thomas Baird Homestead in Millstone Township, N.J., on May 30.  The event re-created a Revolutionary War encampment to celebrate America\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4500x3000+0+0/resize/4500x3000!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F81%2F5c%2F34afecca4a7c8c2e3542e8971b53%2Fgustason-gwreenactors-048.jpg\" /><p>America's 250th birthday has brought more events and new crowds for Revolutionary reenactors and interpreters. They say Washington's life holds important lessons for our current political divide.</p><p>(Image credit: Michelle Gustafson for NPR)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5816415\" />",
+      "source": "NPR"
+    },
+    {
+      "title": "This mindset shift can help you get better at using up your leftovers",
       "link": "https://www.npr.org/2026/06/27/nx-s1-5786564/4-ways-get-creative-with-your-leftovers-save-money-on-food",
       "published": "Sat, 27 Jun 2026 05:00:00 -0400",
       "ts": 1782550800,
@@ -5179,47 +5153,27 @@
       "ts": 1782550800,
       "author": "Manuel Rueda",
       "feed_title": "",
-      "summary": "<img alt=\"People unload donated goods from a car marked &quot;For Venezuela&quot; as humanitarian aid to be sent to Venezuela following deadly earthquakes, in Bogota on June 26, 2026.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/1024x683+0+0/resize/1024x683!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fa4%2F57%2Fa52822734c63b244d77de75e3655%2Fgettyimages-2282977127.jpg\" /><p>Aid efforts are intensifying after twin earthquakes killed nearly 1,000 in Venezuela, with international teams arriving but a slow government response hampering relief on the ground.</p><p>(Image credit: Esteban Vega La-Rotta)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5872951\" />",
+      "summary": "<img alt=\"Outside a community center in Bogota, volunteers load boxes with clothes and food onto a truck that will take supplies to victims of Venezuela\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4608x3072+0+0/resize/4608x3072!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F04%2F12%2F74cce608491693c6a8d1f80e0dd7%2F12.JPG\" /><p>Aid efforts are intensifying after twin earthquakes killed nearly 1,000 in Venezuela, with international teams arriving but a slow government response hampering relief on the ground.</p><p>(Image credit: Manuel Reda for NPR)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5872951\" />",
       "source": "NPR"
     },
     {
-      "title": "What would George Washington say? It's a busy year for people who portray him",
-      "link": "https://www.npr.org/2026/06/27/nx-s1-5816415/america-250-george-washington-reenactors",
-      "published": "Sat, 27 Jun 2026 05:00:00 -0400",
-      "ts": 1782550800,
-      "author": "Jennifer Ludden",
-      "feed_title": "",
-      "summary": "<img alt=\"Reenactor John Koopman III, playing George Washington, waves to attendees at the Thomas Baird Homestead in Millstone Township, N.J., on May 30.  The event re-created a Revolutionary War encampment to celebrate America\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4500x3000+0+0/resize/4500x3000!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F81%2F5c%2F34afecca4a7c8c2e3542e8971b53%2Fgustason-gwreenactors-048.jpg\" /><p>America's 250th birthday has brought more events and new crowds for Revolutionary reenactors and interpreters. They say Washington's life holds important lessons for our current political divide.</p><p>(Image credit: Michelle Gustafson for NPR)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5816415\" />",
-      "source": "NPR"
-    },
-    {
-      "title": "Renewed Strikes Threaten Setback to Shipping Recovery in Persian Gulf",
+      "title": "Renewed Strikes Threaten to Set Back Shipping Recovery in Persian Gulf",
       "link": "https://www.nytimes.com/2026/06/27/business/strait-of-hormuz-shipping-iran.html",
-      "published": "Sat, 27 Jun 2026 14:09:27 +0000",
-      "ts": 1782569367,
+      "published": "Sat, 27 Jun 2026 15:28:08 +0000",
+      "ts": 1782574088,
       "author": "Peter Eavis and Jenny Gross",
       "feed_title": "",
       "summary": "Iran has tried to establish formal control over shipping in the Strait of Hormuz, something it did not have before.",
       "source": "NY Times"
     },
     {
-      "title": "After New York Elections, Israelis Fear Further Rupture in U.S.-Israeli Relationship",
-      "link": "https://www.nytimes.com/2026/06/27/world/middleeast/israel-new-york-iran-war-mamdani.html",
-      "published": "Sat, 27 Jun 2026 09:02:30 +0000",
-      "ts": 1782550950,
-      "author": "David M. Halbfinger",
+      "title": "U.S.-Iran Deal\u2019s Vague Language Comes Back to Haunt Peace Efforts",
+      "link": "https://www.nytimes.com/2026/06/27/world/middleeast/us-iran-deal-vague-language.html",
+      "published": "Sat, 27 Jun 2026 13:30:59 +0000",
+      "ts": 1782567059,
+      "author": "Yeganeh Torbati",
       "feed_title": "",
-      "summary": "Mayor Zohran Mamdani of New York, center, in Manhattan on Tuesday. Three pro-Palestinian candidates backed by Mr. Mamdani, an ardent critic of Israel, defeated moderates in Democratic congressional primaries this week.",
-      "source": "NY Times"
-    },
-    {
-      "title": "Deal With Israel Divides Lebanese, Fueling Protests in Beirut",
-      "link": "https://www.nytimes.com/2026/06/27/world/middleeast/lebanon-israel-deal-divisions-protests-beirut.html",
-      "published": "Sat, 27 Jun 2026 14:33:58 +0000",
-      "ts": 1782570838,
-      "author": "Abdi Latif Dahir",
-      "feed_title": "",
-      "summary": "People in Beirut protesting against the agreement that was signed late Friday between Israel, Lebanon and the United States.",
+      "summary": "Vessels in the Strait of Hormuz, as seen from Oman. Iran on Thursday struck a container ship passing through the waterway.",
       "source": "NY Times"
     },
     {
@@ -5243,10 +5197,10 @@
       "source": "NY Times"
     },
     {
-      "title": "Trump-Backed Tribute to States on the Mall Features Extra Tinges of Red",
+      "title": "Trump-Backed Great American State Fair Features Extra Tinges of Red",
       "link": "https://www.nytimes.com/2026/06/27/us/great-american-fair-mall.html",
-      "published": "Sat, 27 Jun 2026 09:02:08 +0000",
-      "ts": 1782550928,
+      "published": "Sat, 27 Jun 2026 09:02:09 +0000",
+      "ts": 1782550929,
       "author": "Clyde McGrady and Jennifer Schuessler",
       "feed_title": "",
       "summary": "The opening day of the Great American State Fair on the National Mall.",
@@ -5265,8 +5219,8 @@
     {
       "title": "Riding Into 2028: On the Midterms Trail, Andy Beshear Eyes a Bigger Prize",
       "link": "https://www.nytimes.com/2026/06/27/us/politics/andy-beshear-kentucky-midterms-2028.html",
-      "published": "Sat, 27 Jun 2026 09:01:00 +0000",
-      "ts": 1782550860,
+      "published": "Sat, 27 Jun 2026 16:09:06 +0000",
+      "ts": 1782576546,
       "author": "Elisabeth Bumiller",
       "feed_title": "",
       "summary": "Gov. Andy Beshear of Kentucky has positioned himself for an expected presidential run in 2028.",
@@ -5290,6 +5244,16 @@
       "author": "Nick Corasaniti",
       "feed_title": "",
       "summary": "Democrats have been waiting for more than 50 days for the Colorado Supreme Court to rule on the validity of their ballot measures to redraw the state\u2019s district maps in time for the 2028 congressional elections.",
+      "source": "NY Times"
+    },
+    {
+      "title": "What to Watch in Louisiana\u2019s Republican Senate Runoff",
+      "link": "https://www.nytimes.com/2026/06/27/us/politics/louisiana-senate-republican-runoff.html",
+      "published": "Sat, 27 Jun 2026 09:02:14 +0000",
+      "ts": 1782550934,
+      "author": "Tim Balk",
+      "feed_title": "",
+      "summary": "Julia Letlow and John Fleming.",
       "source": "NY Times"
     },
     {
@@ -5333,13 +5297,13 @@
       "source": "BBC"
     },
     {
-      "title": "US strikes Iran after attack on cargo ship",
-      "link": "https://www.bbc.co.uk/news/articles/ckg590wqxwpo?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 27 Jun 2026 10:40:38 GMT",
-      "ts": 1782556838,
+      "title": "They quit the West for Russia's traditional values. It wasn't what they expected",
+      "link": "https://www.bbc.co.uk/news/articles/cn075j04pnyo?at_medium=RSS&at_campaign=rss",
+      "published": "Fri, 26 Jun 2026 23:02:05 GMT",
+      "ts": 1782514925,
       "author": "",
       "feed_title": "",
-      "summary": "Iran accuses the US of violating their deal and says it struck targets linked to American forces in response.",
+      "summary": "The BBC asks Westerners who moved to Russia if life there lives up to expectations.",
       "source": "BBC"
     },
     {
@@ -5393,6 +5357,66 @@
       "source": "BBC"
     },
     {
+      "title": "Thanks, Mamdani:\u00a04 reasons the\u00a0\u2018dirtbag left\u2019\u00a0will keep winning",
+      "link": "https://thehill.com/opinion/campaign/5942938-socialist-uprising-democrat-party/",
+      "published": "Sat, 27 Jun 2026 16:00:00 +0000",
+      "ts": 1782576000,
+      "author": "Douglas MacKinnon, opinion contributor",
+      "feed_title": "",
+      "summary": "Like lemmings marching off a cliff, a certain percentage of voters,\u00a0most especially the disenfranchised,\u00a0will always vote for the candidate promising a \u201cchicken in every pot.\u201d",
+      "source": "The Hill"
+    },
+    {
+      "title": "Erdo\u011fan cashes in on Trump relationship for Turkey",
+      "link": "https://thehill.com/policy/international/5942725-turkey-military-sales-boost/",
+      "published": "Sat, 27 Jun 2026 16:00:00 +0000",
+      "ts": 1782576000,
+      "author": "Laura Kelly",
+      "feed_title": "",
+      "summary": "Turkish President Recep Tayyip Erdo\u011fan is cashing in on his relationship with President Trump, scoring benefits from sanctions relief to dropped court cases ahead of a high-stakes NATO summit in Ankara next month.&#160; Trump\u2019s decision to greenlight a more than $700 million military sales package to Turkey this week \u2014 despite a pushback from some&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Vance defends Iran strategy amid peace negotiations: \u2018America wins either way\u2019",
+      "link": "https://thehill.com/homenews/administration/5943855-jd-vance-iran-strategy-strikes-peace-negotiations/",
+      "published": "Sat, 27 Jun 2026 15:55:02 +0000",
+      "ts": 1782575702,
+      "author": "Finya Swai",
+      "feed_title": "",
+      "summary": "Vice President Vance stood by the administration\u2019s Iran strategy Friday, saying the U.S. will come out on top regardless of whether peace negotiations with Tehran produce a deal. \u201cIf we make the final deal, then great. If we don\u2019t make the deal, their nuclear program is still destroyed. They\u2019re still much weaker as a country,\u201d&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "CBC pushes back on Slotkin\u2019s call for \u2018new leadership\u2019 among Democrats",
+      "link": "https://thehill.com/homenews/house/5943837-congressional-black-caucus-elissa-slotkin-democratic-party-rhetoric/",
+      "published": "Sat, 27 Jun 2026 15:32:49 +0000",
+      "ts": 1782574369,
+      "author": "Sarah Davis",
+      "feed_title": "",
+      "summary": "The Congressional Black Caucus (CBC) expressed its support for House Minority Leader Hakeem Jeffries (D-N.Y.) on Friday evening in response to Sen. Elissa Slotkin\u2019s (D-Mich.) call for \u201cnew leadership\u201d in the Democratic Party.&#160; \u201cThe Congressional Black Caucus and House Democrats are united behind Leader Jeffries and remain focused on lowering costs for working families, defending&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Weinstein loses bid to overturn California rape conviction",
+      "link": "https://thehill.com/regulation/court-battles/5943814-harvey-weinstein-california-appeals-court-upholds-rape-conviction/",
+      "published": "Sat, 27 Jun 2026 15:12:16 +0000",
+      "ts": 1782573136,
+      "author": "Finya Swai",
+      "feed_title": "",
+      "summary": "A California appeals court on Friday upheld ex-Hollywood movie mogul Harvey Weinstein\u2019s 2022 rape and sexual assault conviction in the state but ordered that the trial judge who gave him 16 years in prison resentence him. A unanimous three-judge panel from California\u2019s 2nd District Court of Appeals rejected Weinstein\u2019s efforts to overturn the guilty verdicts,&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "More than sympathy, Fostering the Future Accounts offer hope",
+      "link": "https://thehill.com/opinion/finance/5942511-savings-accounts-children-foster-care/",
+      "published": "Sat, 27 Jun 2026 15:00:00 +0000",
+      "ts": 1782572400,
+      "author": "Darcy Olsen, opinion contributor",
+      "feed_title": "",
+      "summary": "Here's why this seemingly modest change is a watershed moment for America\u2019s abused and neglected children.",
+      "source": "The Hill"
+    },
+    {
       "title": "Utah judge finds prosecutor in Charlie Kirk assassination case in contempt",
       "link": "https://thehill.com/regulation/court-battles/5943783-utah-judge-charlie-kirk-shooting-tyler-robinson-prosecutor-contempt/",
       "published": "Sat, 27 Jun 2026 14:39:25 +0000",
@@ -5413,16 +5437,6 @@
       "source": "The Hill"
     },
     {
-      "title": "How to claim part of $2.25 million Bank of America ATM fees settlement",
-      "link": "https://thehill.com/business/5934294-how-to-claim-part-of-2-25-million-bank-of-america-atm-fees-settlement/",
-      "published": "Sat, 27 Jun 2026 14:00:00 +0000",
-      "ts": 1782568800,
-      "author": "Addy Bink",
-      "feed_title": "",
-      "summary": "The deadline to apply is fast-approaching.",
-      "source": "The Hill"
-    },
-    {
       "title": "\u2018You\u2019re next!\u2019 Democrats discover the mob has a mind of its own.",
       "link": "https://thehill.com/opinion/campaign/5943132-rage-republic-democratic-downfall/",
       "published": "Sat, 27 Jun 2026 14:00:00 +0000",
@@ -5433,63 +5447,13 @@
       "source": "The Hill"
     },
     {
-      "title": "Maher challenges Vance on Trump election fraud claims: \u2018That s\u2014 has to stop\u2019",
-      "link": "https://thehill.com/homenews/administration/5943740-bill-maher-jd-vance-donald-trump-election-fraud-claims/",
-      "published": "Sat, 27 Jun 2026 13:15:51 +0000",
-      "ts": 1782566151,
-      "author": "Finya Swai",
+      "title": "How to claim part of $2.25 million Bank of America ATM fees settlement",
+      "link": "https://thehill.com/business/5934294-how-to-claim-part-of-2-25-million-bank-of-america-atm-fees-settlement/",
+      "published": "Sat, 27 Jun 2026 14:00:00 +0000",
+      "ts": 1782568800,
+      "author": "Addy Bink",
       "feed_title": "",
-      "summary": "Comedian Bill Maher on Friday challenged Vice President Vance over President Trump\u2019s false claims of election fraud, saying the GOP must stop insisting they were \u201ccheated\u201d by losses and return to a place where candidates concede defeat. \u201cUnder Trump, you guys have two outcomes an election can be: Either we win, or they cheated. That&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "An airport is being renamed for Trump. How many US airports are named for presidents?",
-      "link": "https://thehill.com/homenews/5938360-an-airport-is-being-renamed-for-trump-how-many-us-airports-are-named-for-presidents/",
-      "published": "Sat, 27 Jun 2026 13:00:00 +0000",
-      "ts": 1782565200,
-      "author": "Michael Bartiromo",
-      "feed_title": "",
-      "summary": "Trump is far from the first president to get his name on an airport.",
-      "source": "The Hill"
-    },
-    {
-      "title": "The federal government has no business\u00a0in online sports gambling",
-      "link": "https://thehill.com/opinion/congress-blog/economy-budget/5938540-federal-regulation-sports-gambling/",
-      "published": "Sat, 27 Jun 2026 13:00:00 +0000",
-      "ts": 1782565200,
-      "author": "David B.\u00a0McGarry, opinion contributor",
-      "feed_title": "",
-      "summary": ". State governments are competent to regulate these matters, and the Constitution\u2019s federalist architecture cannot tolerate further encroachments from the banks of the Potomac River.",
-      "source": "The Hill"
-    },
-    {
-      "title": "SNAP recipient\u2019s benefits slashed: \u2018Who lives on $24 a month?\u2019",
-      "link": "https://thehill.com/homenews/administration/5943372-snap-recipient-benefits-slashed-trump-administration-new-york/",
-      "published": "Sat, 27 Jun 2026 12:47:53 +0000",
-      "ts": 1782564473,
-      "author": "Jay Dow and Alix Martichoux",
-      "feed_title": "",
-      "summary": "Shiela Boyd, an 81-year-old New York resident, had her benefits suddenly cut from $298 a month to just $24.",
-      "source": "The Hill"
-    },
-    {
-      "title": "Iran launches retaliatory strikes on Bahrain after latest US attacks",
-      "link": "https://thehill.com/policy/international/5943693-iran-retaliatory-strikes-bahrain-us-attacks/",
-      "published": "Sat, 27 Jun 2026 12:17:52 +0000",
-      "ts": 1782562672,
-      "author": "Finya Swai",
-      "feed_title": "",
-      "summary": "Iran launched a drone attack against Bahrain early Saturday, hours after the U.S. military carried out strikes on Iranian military sites. Bahrain, which hosts the U.S. Navy\u2019s Fifth Fleet, said it was attacked by a number of Iranian drones and condemned the latest strikes as a blatant violation of its sovereignty. It accused Tehran of&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Oil is nearing prewar prices. Why hasn\u2019t gasoline followed suit?",
-      "link": "https://thehill.com/policy/energy-environment/5943348-gasoline-prices-remain-high/",
-      "published": "Sat, 27 Jun 2026 10:00:00 +0000",
-      "ts": 1782554400,
-      "author": "Rachel Frazin",
-      "feed_title": "",
-      "summary": "Oil is nearing its prewar price after the U.S. and Iran agreed to a memorandum of understanding (MOU) intended to end the conflict, but gasoline prices remain significantly elevated.&#160; While President Trump has blamed Big Oil for price \u201cgouging,\u201d analysts say it\u2019s individual gas station owners that are slow to lower fuel prices. \u201cThe public&#8230;",
+      "summary": "The deadline to apply is fast-approaching.",
       "source": "The Hill"
     },
     {
@@ -5581,16 +5545,6 @@
       "feed_title": "",
       "summary": "The decision caps rent on about 40 percent of the New York\u2019s housing stock for up to two years.",
       "source": "Washington Post"
-    },
-    {
-      "title": "Why the South is the only U.S. region growing across every age group",
-      "link": "https://www.washingtonpost.com/nation/2026/06/25/unlike-rest-us-south-is-growing-its-youth-population/",
-      "published": "Thu, 25 Jun 2026 15:21:43 +0000",
-      "ts": 1782400903,
-      "author": "Brady Dennis, Chris Hacker",
-      "feed_title": "",
-      "summary": "Population across the region grew across all age groups between 2020 and 2025. But it was the only region with growing numbers of people under 18.",
-      "source": "Washington Post"
     }
   ],
   "news_logan": [
@@ -5617,8 +5571,8 @@
     {
       "title": "How bad was Saturday\u2019s close call at Logan? \u2018Pretty bad,\u2019 according to one expert. - The Boston Globe",
       "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQM0ZacHA3d0poT2lyVmRsSWF2X3JJd1h2VWdVVWVwNUtITWdqYjlZM2k0d3c2NEU4U2xWb08wN1VKZGJaMWdaN0pPS2xINVY2NHNhR1ctOHBJQWJSY1ZSdjR3WFBUZTZmOGNCWHF6amtTVFVwdWlqb3Z6c1YzOTE2RTBPaXhIRkE?oc=5",
-      "published": "Fri, 26 Jun 2026 04:02:44 GMT",
-      "ts": 1782446564,
+      "published": "Fri, 26 Jun 2026 00:01:00 GMT",
+      "ts": 1782432060,
       "author": "",
       "feed_title": "The Boston Globe",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxQM0ZacHA3d0poT2lyVmRsSWF2X3JJd1h2VWdVVWVwNUtITWdqYjlZM2k0d3c2NEU4U2xWb08wN1VKZGJaMWdaN0pPS2xINVY2NHNhR1ctOHBJQWJSY1ZSdjR3WFBUZTZmOGNCWHF6amtTVFVwdWlqb3Z6c1YzOTE2RTBPaXhIRkE?oc=5\" target=\"_blank\">How bad was Saturday\u2019s close call at Logan? \u2018Pretty bad,\u2019 according to one expert.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Boston Globe</font>",
@@ -6010,7 +5964,7 @@
       "date": "2026-06-29",
       "time": null,
       "all_day": true,
-      "summary": "Loudon gameplan",
+      "summary": "follow up on plan to promote the working group",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6026,7 +5980,15 @@
       "date": "2026-06-29",
       "time": null,
       "all_day": true,
-      "summary": "follow up on plan to promote the working group",
+      "summary": "Loudon gameplan",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-06-29",
+      "time": null,
+      "all_day": true,
+      "summary": "Senior Repairs Round 2 work/assessment",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6043,14 +6005,6 @@
       "time": null,
       "all_day": true,
       "summary": "Hitchborn RFP redraft conversation",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-06-29",
-      "time": null,
-      "all_day": true,
-      "summary": "Senior Repairs Round 2 work/assessment",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6114,7 +6068,7 @@
       "date": "2026-06-30",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "Using Predictive, Interactive Digital Twins to Plan Mobility, Growth, and Urban Change - SCMC Webinar",
+      "summary": "Canceled: Using Predictive, Interactive Digital Twins to Plan Mobility, Growth, and Urban Change  - Webinar",
       "location": "Microsoft Teams Meeting",
       "calendar": "Joseph"
     },
@@ -6122,7 +6076,7 @@
       "date": "2026-06-30",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "Canceled: Using Predictive, Interactive Digital Twins to Plan Mobility, Growth, and Urban Change  - Webinar",
+      "summary": "Using Predictive, Interactive Digital Twins to Plan Mobility, Growth, and Urban Change - SCMC Webinar",
       "location": "Microsoft Teams Meeting",
       "calendar": "Joseph"
     },
@@ -6131,14 +6085,6 @@
       "time": "3:00 PM",
       "all_day": false,
       "summary": "finances checkin",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-01",
-      "time": null,
-      "all_day": true,
-      "summary": "APA membership",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6162,6 +6108,14 @@
       "date": "2026-07-01",
       "time": null,
       "all_day": true,
+      "summary": "APA membership",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-01",
+      "time": null,
+      "all_day": true,
       "summary": "rha board research",
       "location": null,
       "calendar": "Todoist"
@@ -6178,16 +6132,16 @@
       "date": "2026-07-01",
       "time": "1:00 PM",
       "all_day": false,
-      "summary": "CONF (ls) Wonderland Marketplace/Wonderland MBTA Parking master plan",
-      "location": "City Hall - Mayor's Office",
+      "summary": "Wonderland Master Plan Final Presentation (in person)",
+      "location": "Revere City Hall",
       "calendar": "Joseph"
     },
     {
       "date": "2026-07-01",
       "time": "1:00 PM",
       "all_day": false,
-      "summary": "Wonderland Master Plan Final Presentation (in person)",
-      "location": "Revere City Hall",
+      "summary": "CONF (ls) Wonderland Marketplace/Wonderland MBTA Parking master plan",
+      "location": "City Hall - Mayor's Office",
       "calendar": "Joseph"
     },
     {
@@ -6242,7 +6196,7 @@
       "date": "2026-07-02",
       "time": null,
       "all_day": true,
-      "summary": "desk cleanup and organizing",
+      "summary": "release as RFP",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6250,7 +6204,7 @@
       "date": "2026-07-02",
       "time": null,
       "all_day": true,
-      "summary": "release as RFP",
+      "summary": "desk cleanup and organizing",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6346,7 +6300,7 @@
       "date": "2026-07-06",
       "time": null,
       "all_day": true,
-      "summary": "join the library board",
+      "summary": "Race signups",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6354,7 +6308,7 @@
       "date": "2026-07-06",
       "time": null,
       "all_day": true,
-      "summary": "followup/confirm nothing further is needed from Julissa",
+      "summary": "customink order?",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6370,14 +6324,6 @@
       "date": "2026-07-06",
       "time": null,
       "all_day": true,
-      "summary": "Race signups",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-06",
-      "time": null,
-      "all_day": true,
       "summary": "Denver trip booking ideas",
       "location": null,
       "calendar": "Todoist"
@@ -6386,7 +6332,15 @@
       "date": "2026-07-06",
       "time": null,
       "all_day": true,
-      "summary": "customink order?",
+      "summary": "join the library board",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-06",
+      "time": null,
+      "all_day": true,
+      "summary": "followup/confirm nothing further is needed from Julissa",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6394,16 +6348,16 @@
       "date": "2026-07-06",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "TND + Revere",
-      "location": null,
+      "summary": "Watch Party Organizers Check-In",
+      "location": "Microsoft Teams Meeting",
       "calendar": "Joseph"
     },
     {
       "date": "2026-07-06",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "Watch Party Organizers Check-In",
-      "location": "Microsoft Teams Meeting",
+      "summary": "TND + Revere",
+      "location": null,
       "calendar": "Joseph"
     },
     {
@@ -6466,22 +6420,6 @@
       "date": "2026-07-08",
       "time": null,
       "all_day": true,
-      "summary": "schedule a board game",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-08",
-      "time": null,
-      "all_day": true,
-      "summary": "Ocean Mac site on Shirley Ave",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-08",
-      "time": null,
-      "all_day": true,
       "summary": "watch repair",
       "location": null,
       "calendar": "Todoist"
@@ -6498,7 +6436,23 @@
       "date": "2026-07-08",
       "time": null,
       "all_day": true,
+      "summary": "Ocean Mac site on Shirley Ave",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-08",
+      "time": null,
+      "all_day": true,
       "summary": "Reading sessions",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-08",
+      "time": null,
+      "all_day": true,
+      "summary": "schedule a board game",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6546,7 +6500,7 @@
       "date": "2026-07-08",
       "time": "6:30 PM",
       "all_day": false,
-      "summary": "Canceled: Affordable Housing Trust Fund Board (monthly)",
+      "summary": "Affordable Housing Trust Fund (MONTHLY)",
       "location": "City Hall Council Chambers",
       "calendar": "Joseph"
     },
@@ -6554,7 +6508,7 @@
       "date": "2026-07-08",
       "time": "6:30 PM",
       "all_day": false,
-      "summary": "Affordable Housing Trust Fund (MONTHLY)",
+      "summary": "Canceled: Affordable Housing Trust Fund Board (monthly)",
       "location": "City Hall Council Chambers",
       "calendar": "Joseph"
     },
@@ -7859,21 +7813,21 @@
     {
       "date": "2026-06-26",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Uruguay 0, Spain 1",
-      "time": "8:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "Estadio Akron, Guadalajara, Jalisco, Mexico",
-      "special": null
-    },
-    {
-      "date": "2026-06-26",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Cape Verde 0, Saudi Arabia 0",
       "time": "8:00 PM",
       "result": null,
       "score": null,
       "venue": "NRG Stadium, Houston, Texas, United States",
+      "special": null
+    },
+    {
+      "date": "2026-06-26",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Uruguay 0, Spain 1",
+      "time": "8:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "Estadio Akron, Guadalajara, Jalisco, Mexico",
       "special": null
     },
     {
@@ -7969,21 +7923,21 @@
     {
       "date": "2026-06-27",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Democratic Republic of Congo vs Uzbekistan, Group K, FS1, Telemundo, Peacock.",
-      "time": "7:30 PM",
-      "result": null,
-      "score": null,
-      "venue": "Mercedes-Benz Stadium, Atlanta, Georgia, Unit",
-      "special": null
-    },
-    {
-      "date": "2026-06-27",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Colombia vs Portugal, Group K, FOX, Telemundo, Peacock.",
       "time": "7:30 PM",
       "result": null,
       "score": null,
       "venue": "Hard Rock Stadium, Miami Gardens, Florida, Un",
+      "special": null
+    },
+    {
+      "date": "2026-06-27",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Democratic Republic of Congo vs Uzbekistan, Group K, FS1, Telemundo, Peacock.",
+      "time": "7:30 PM",
+      "result": null,
+      "score": null,
+      "venue": "Mercedes-Benz Stadium, Atlanta, Georgia, Unit",
       "special": null
     },
     {
@@ -9648,7 +9602,7 @@
     },
     {
       "date": "2026-08-14",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Richmond",
       "time": "7:30 PM",
       "result": null,
@@ -9658,7 +9612,7 @@
     },
     {
       "date": "2026-08-14",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Richmond",
       "time": "7:30 PM",
       "result": null,
@@ -9971,6 +9925,22 @@
       "lat": 42.33043478780327,
       "lng": -71.12424189264057,
       "updated": "2026-06-24T07:33:16"
+    },
+    {
+      "id": "2600758927175289",
+      "title": "Traffic (Drawbridge) \u2014 Chelsea Street Bridge NB and SB",
+      "type": "Traffic Incidents",
+      "subtype": "Traffic (Drawbridge)",
+      "road": "Chelsea Street Bridge",
+      "direction": "NB and SB",
+      "start": "",
+      "end": "",
+      "status": "Open",
+      "location": "Chelsea Street Bridge NB and SB Exit",
+      "lanes": "Travel Lane(s) Affected: 4 of 4 (SELECT ONLY IF All Lanes are Closed) Lane(s) Affected Description:",
+      "lat": 42.386327484221326,
+      "lng": -71.02272025458812,
+      "updated": "2026-06-27T11:13:11"
     },
     {
       "id": "2593474662675704",
