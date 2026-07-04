@@ -1,33 +1,17 @@
 {
-  "updated": "2026-07-04T09:28:47.417675+00:00",
-  "updated_local": "July 4, 2026 at 9:28 AM",
+  "updated": "2026-07-04T11:41:40.803037+00:00",
+  "updated_local": "July 4, 2026 at 11:41 AM",
   "weather_current": {
-    "temp": 73,
+    "temp": 76,
     "unit": "F",
-    "wind": "3 mph",
+    "wind": "6 mph",
     "windDir": "W",
-    "shortForecast": "Mostly Clear",
-    "detailedForecast": "A slight chance of rain showers between 1pm and 2pm, then a chance of showers and thunderstorms between 2pm and 5pm, then a chance of showers and thunderstorms. Mostly sunny, with a high near 94. Heat index values as high as 97. West wind 5 to 12 mph, with gusts as high as 23 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible.",
-    "humidity": 84,
+    "shortForecast": "Sunny",
+    "detailedForecast": "A slight chance of rain showers between 1pm and 2pm, then a chance of showers and thunderstorms between 2pm and 5pm, then a chance of showers and thunderstorms. Mostly sunny, with a high near 94. Heat index values as high as 97. West wind 6 to 12 mph, with gusts as high as 23 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible.",
+    "humidity": 82,
     "precip": 3
   },
   "weather_hourly": [
-    {
-      "time": "2026-07-04T05:00:00-04:00",
-      "temp": 73,
-      "unit": "F",
-      "shortForecast": "Mostly Clear",
-      "wind": "3 mph",
-      "precip": 3
-    },
-    {
-      "time": "2026-07-04T06:00:00-04:00",
-      "temp": 74,
-      "unit": "F",
-      "shortForecast": "Mostly Sunny",
-      "wind": "5 mph",
-      "precip": 3
-    },
     {
       "time": "2026-07-04T07:00:00-04:00",
       "temp": 76,
@@ -203,16 +187,32 @@
       "shortForecast": "Mostly Cloudy",
       "wind": "5 mph",
       "precip": 10
+    },
+    {
+      "time": "2026-07-05T05:00:00-04:00",
+      "temp": 68,
+      "unit": "F",
+      "shortForecast": "Mostly Cloudy",
+      "wind": "5 mph",
+      "precip": 7
+    },
+    {
+      "time": "2026-07-05T06:00:00-04:00",
+      "temp": 68,
+      "unit": "F",
+      "shortForecast": "Partly Sunny",
+      "wind": "5 mph",
+      "precip": 6
     }
   ],
   "weather_daily": [
     {
       "name": "Independence Day",
-      "date": "2026-07-04T06:00:00-04:00",
+      "date": "2026-07-04T07:00:00-04:00",
       "high": 94,
       "low": 67,
       "shortForecast": "Mostly Sunny then Chance Showers And Thunderstorms",
-      "detailedForecast": "A slight chance of rain showers between 1pm and 2pm, then a chance of showers and thunderstorms between 2pm and 5pm, then a chance of showers and thunderstorms. Mostly sunny, with a high near 94. Heat index values as high as 97. West wind 5 to 12 mph, with gusts as high as 23 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible.",
+      "detailedForecast": "A slight chance of rain showers between 1pm and 2pm, then a chance of showers and thunderstorms between 2pm and 5pm, then a chance of showers and thunderstorms. Mostly sunny, with a high near 94. Heat index values as high as 97. West wind 6 to 12 mph, with gusts as high as 23 mph. Chance of precipitation is 30%. New rainfall amounts less than a tenth of an inch possible.",
       "precip": 32
     },
     {
@@ -264,9 +264,9 @@
       "name": "Friday",
       "date": "2026-07-10T06:00:00-04:00",
       "high": 88,
-      "low": null,
+      "low": 61,
       "shortForecast": "Chance Rain Showers",
-      "detailedForecast": "A chance of rain showers before 2pm, then a chance of showers and thunderstorms. Partly sunny, with a high near 88. Southwest wind 5 to 8 mph.",
+      "detailedForecast": "A chance of rain showers before 2pm, then a chance of showers and thunderstorms. Partly sunny, with a high near 88. Southwest wind 5 to 8 mph. Chance of precipitation is 50%.",
       "precip": 48
     }
   ],
@@ -325,12 +325,12 @@
     "delay": false,
     "status": "ok",
     "metar": {
-      "raw": "METAR KBOS 040854Z 29009KT 10SM FEW250 27/20 A2982 RMK AO2 SLP099 T02720200 50001 $",
+      "raw": "METAR KBOS 041054Z 29010KT 10SM FEW090 FEW220 SCT250 27/21 A2984 RMK AO2 SLP103 T02720206 $",
       "flight_cat": ""
     },
     "faa_delays": [],
     "flight_stats": {
-      "cancelled": 2
+      "cancelled": 24
     }
   },
   "mbta_alerts": [
@@ -362,6 +362,11 @@
     {
       "header": "There is no accessible path connecting the inbound and outbound platforms at Wellesley Square Station. The existing path includes steep slopes and is long. Designs are underway to provide for a fully compliant pathway.",
       "effect": "STATION_ISSUE",
+      "routes": []
+    },
+    {
+      "header": "Greenbush Line Train 6057 (7:10 AM from South Station) has departed South Station and  is operating about 10-20 minutes behind schedule between JFK/UMass and Greenbush.",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -405,6 +410,11 @@
       "routes": []
     },
     {
+      "header": "New Bedford Line Train 7005 (6:25 AM from South Station) has departed South Station and is operating 15-25 minutes behind schedule due to a mechanical issue.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
       "header": "The Riverside Ave entrance at Campello Station is currently closed. Passengers may continue to use the Plain St entrance.",
       "effect": "STATION_ISSUE",
       "routes": []
@@ -420,7 +430,7 @@
     "wvht_ft": null,
     "dpd_s": null,
     "wspd_mph": 8.9,
-    "wdir_deg": 270.0,
+    "wdir_deg": 260.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
@@ -1101,12 +1111,12 @@
   "news_revere": [
     {
       "title": "117 Morris St, Revere, MA 02151 - Realtor.com",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPLTBGOHRUckpzaFYwZXNoREV2X0tmYnphb0hZbTBXMUszUjZDMUpGOXRMV0Q5U0VQZTV6VHFKdTR0bHJZZWdmRlN4X2tlOVBYS2lLUWxuNDlGOEIzU1F6MGNDSHVoZURENkF3aWhKY2hyd0JGcHlreWpERUVoMUw4TENMV2pzSUpWN0E?oc=5",
-      "published": "Fri, 03 Jul 2026 23:06:35 GMT",
-      "ts": 1783119995,
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPMUVTQ0MzR0Z6QzlrUWRoVTBYVDN4bkptQjNvQXpicFRSMUxjS05EeTVZaHFwTkJyamhDV29SaEV4NU1QZDJudjJ1ZUFMcHJCUk0yZlVlRk5ES252TUR5cWxCMi1fMDJEZ0RKZnRCWklwQVpBMUVaUnpIZlBZQkI2aXRJWnJrTEtKQWlReW5USWhjVFZRMEp6V2o1WEJUYjBuOHI0?oc=5",
+      "published": "Fri, 03 Jul 2026 21:06:50 GMT",
+      "ts": 1783112810,
       "author": "",
       "feed_title": "Realtor.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxPLTBGOHRUckpzaFYwZXNoREV2X0tmYnphb0hZbTBXMUszUjZDMUpGOXRMV0Q5U0VQZTV6VHFKdTR0bHJZZWdmRlN4X2tlOVBYS2lLUWxuNDlGOEIzU1F6MGNDSHVoZURENkF3aWhKY2hyd0JGcHlreWpERUVoMUw4TENMV2pzSUpWN0E?oc=5\" target=\"_blank\">117 Morris St, Revere, MA 02151</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Realtor.com</font>",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxPMUVTQ0MzR0Z6QzlrUWRoVTBYVDN4bkptQjNvQXpicFRSMUxjS05EeTVZaHFwTkJyamhDV29SaEV4NU1QZDJudjJ1ZUFMcHJCUk0yZlVlRk5ES252TUR5cWxCMi1fMDJEZ0RKZnRCWklwQVpBMUVaUnpIZlBZQkI2aXRJWnJrTEtKQWlReW5USWhjVFZRMEp6V2o1WEJUYjBuOHI0?oc=5\" target=\"_blank\">117 Morris St, Revere, MA 02151</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Realtor.com</font>",
       "source": "Google News \u00b7 Revere, MA",
       "_alert": "Revere, MA"
     },
@@ -1825,16 +1835,6 @@
       "source": "Marblehead"
     },
     {
-      "title": "Police investigate after body found in East Boston - NBC Boston",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQbFdMWnQ0UGZVWEpacGRLdjl2enAyZExmcVFiWXR4WDFPRGxTTWNxOEpvaV9Xcmd3UmJnWllBT3pmNjBnUjhNdDdZVlMxNW42S1haTGVRTGhEbGhvckdOa1RYZE5SQl9LZTQzZ0NtSVZmQ0ZRUkRFUXBHNkhkUEN6ck5KMEZOWTRMZFNoRUp2cUVuV3pIeVpzSng3Y2_SAaQBQVVfeXFMTmJaOUNTeXFnanlObnV5alItc0F5a3MxQ3NKUm5jNnRkZHRYZGRBbzZCMXBPV0M2ZU0xSUp1a1ZaUkc0RmtfeDdoRmhhYURUNndsS1daVXg1cHpKMVRKSXZuTkVKQWpxNS16aG1JTVhOVjFOR0FoeWtiYmxsWmxwWTdvTnBqYmI5OERVNDk5c0haQU9YNFh2TjVwbk13YndWNE81S2Y?oc=5",
-      "published": "Wed, 01 Jul 2026 23:36:42 GMT",
-      "ts": 1782949002,
-      "author": "",
-      "feed_title": "NBC Boston",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxQbFdMWnQ0UGZVWEpacGRLdjl2enAyZExmcVFiWXR4WDFPRGxTTWNxOEpvaV9Xcmd3UmJnWllBT3pmNjBnUjhNdDdZVlMxNW42S1haTGVRTGhEbGhvckdOa1RYZE5SQl9LZTQzZ0NtSVZmQ0ZRUkRFUXBHNkhkUEN6ck5KMEZOWTRMZFNoRUp2cUVuV3pIeVpzSng3Y2_SAaQBQVVfeXFMTmJaOUNTeXFnanlObnV5alItc0F5a3MxQ3NKUm5jNnRkZHRYZGRBbzZCMXBPV0M2ZU0xSUp1a1ZaUkc0RmtfeDdoRmhhYURUNndsS1daVXg1cHpKMVRKSXZuTkVKQWpxNS16aG1JTVhOVjFOR0FoeWtiYmxsWmxwWTdvTnBqYmI5OERVNDk5c0haQU9YNFh2TjVwbk13YndWNE81S2Y?oc=5\" target=\"_blank\">Police investigate after body found in East Boston</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NBC Boston</font>",
-      "source": "East Boston"
-    },
-    {
       "title": "Sewage overflow issue in Merrimack River is resolved, officials say, although some beaches are still closed",
       "link": "https://www.boston.com/news/local-news/2026/07/01/sewage-overflow-issue-in-merrimack-river-is-resolved-officials-say-although-some-beaches-are-still-closed/",
       "published": "Wed, 01 Jul 2026 22:28:09 +0000",
@@ -2025,16 +2025,6 @@
       "source": "North Shore"
     },
     {
-      "title": "3 New Restaurants To Open At Peabodys Northshore Mall - Patch",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPei1wNDJmNi1nZmlaWkxTMWkyU0N3eFh6ZVJKVXpDcDhZWHFYS1ZxQVN0LXZldUZRRWw3ZGkzUVN0Tk5RZlA3YVpITDhkUG9mLS1UN2FKMU1xRXAwRG9ubWRxNlJkN3NETEFraldHVVd0eUtHc0tMVXE3NXpUTjd2ZFZydk8zajAtWDh4dDdB0gGnAUFVX3lxTE9zaWxaNzhGYjctWjNKejg0dGdOQnlteXBUa1FfVUFBTGhTYWxMeXhNR19rSmZpcm1LYktSZThjeUYyUmNrbU5wOGkxRkMtLVgyYng4SEtLMkxibXZKblltYmQyMGN1Z0hibjVXUndtblVIVEhMVHg5b0RpejBTdUxoYmdZOWRya0dmeERCbkljaURLb3Ixak1BNmU1V0IyNXBCVWtWbGNN?oc=5",
-      "published": "Tue, 30 Jun 2026 18:42:28 GMT",
-      "ts": 1782844948,
-      "author": "",
-      "feed_title": "Patch",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxPei1wNDJmNi1nZmlaWkxTMWkyU0N3eFh6ZVJKVXpDcDhZWHFYS1ZxQVN0LXZldUZRRWw3ZGkzUVN0Tk5RZlA3YVpITDhkUG9mLS1UN2FKMU1xRXAwRG9ubWRxNlJkN3NETEFraldHVVd0eUtHc0tMVXE3NXpUTjd2ZFZydk8zajAtWDh4dDdB0gGnAUFVX3lxTE9zaWxaNzhGYjctWjNKejg0dGdOQnlteXBUa1FfVUFBTGhTYWxMeXhNR19rSmZpcm1LYktSZThjeUYyUmNrbU5wOGkxRkMtLVgyYng4SEtLMkxibXZKblltYmQyMGN1Z0hibjVXUndtblVIVEhMVHg5b0RpejBTdUxoYmdZOWRya0dmeERCbkljaURLb3Ixak1BNmU1V0IyNXBCVWtWbGNN?oc=5\" target=\"_blank\">3 New Restaurants To Open At Peabodys Northshore Mall</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
-      "source": "Peabody"
-    },
-    {
       "title": "JOSEPH POWERS Obituary (1951 - 2026-06-27) - Winthrop, MA - Boston Globe - Legacy obituary",
       "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNYjBLdWFKanA1WVlPd1dSN29vVi12Z0JfZUtzUzJXREdWTm5CR2RjV1dJalFkYVJESDJRVTBySmFzVnJEaTAwUURtWU92cDVqblljaWNwN0NERkVtakEza25iQTAtc2s2cGo5RzQ2WGhPWGNPUXRUVkl6bTdobE8xb1hleDFJVFBsN2tWU1hSZk9CQQ?oc=5",
       "published": "Tue, 30 Jun 2026 18:35:55 GMT",
@@ -2123,16 +2113,6 @@
       "feed_title": "CBS News",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVE9QZHUxUTBoVjFOWi1henJvOTFHdm1VNFhkV05BcGNibnJScWlDaGkyVkpaM2xHYnFLR1BsbkdZUFNyTlNYelhtakYzVTRFa0RiaC1uRVZPU0FUZ2dSVGxjV2F3MXhodFkzT2JxendRZy11ekZuNHV2VjBHMnpEQ2NMdVJvdDBOQ0JsMnI0MTNkblMtR0hWNXpLd0pqM24zdVFlQnZjQmhBSlVhc1o2YjlIWWhXc21W?oc=5\" target=\"_blank\">Chelsea, Massachusetts World Cup festivities \"like having a block party every day\"</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
       "source": "Chelsea City"
-    },
-    {
-      "title": "The Westcott Swampscott - Realtor.com",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQS2Q1RkZnYkZMb3FHWXVVUS0ybURCNjNqaGNuWndnaGZPdkhwbHo4Q3M2clBPc1hYMzc3VjAzWmlKS3JDcEFwSlBES1QyOTczSDV4QzJHalRqdFRZaVhITGlCVmhQZTRQSlBqV3ktejhtWnhESGNSa1RHNFdueml2M3lFMEdqd093VFE?oc=5",
-      "published": "Sun, 28 Jun 2026 13:28:59 GMT",
-      "ts": 1782653339,
-      "author": "",
-      "feed_title": "Realtor.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxQS2Q1RkZnYkZMb3FHWXVVUS0ybURCNjNqaGNuWndnaGZPdkhwbHo4Q3M2clBPc1hYMzc3VjAzWmlKS3JDcEFwSlBES1QyOTczSDV4QzJHalRqdFRZaVhITGlCVmhQZTRQSlBqV3ktejhtWnhESGNSa1RHNFdueml2M3lFMEdqd093VFE?oc=5\" target=\"_blank\">The Westcott Swampscott</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Realtor.com</font>",
-      "source": "Swampscott"
     },
     {
       "title": "Scenes from the Columbia v. Portugal watch party at East Boston Stadium",
@@ -2267,8 +2247,8 @@
     {
       "title": "Schedule - Everett Crimson Tide (Everett, MA) Football 26-27 - MaxPreps",
       "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPRElaM09USFhwb3hnaXAtM3dITEVwcFBDdk5pLXM5MVRtWmlUQXhQcEszZTF6bHhTMUF5TElMLXd0VDU2blJQVTdmWUw1Yzd2N2ZSc21FbUYyRTRzTGpYTkt3M2JITnJiZ3J6Nk5XMGxPaWE5WWNyT1dfVnk5VDlXUw?oc=5",
-      "published": "Tue, 23 Jun 2026 09:52:29 GMT",
-      "ts": 1782208349,
+      "published": "Tue, 23 Jun 2026 07:00:00 GMT",
+      "ts": 1782198000,
       "author": "",
       "feed_title": "MaxPreps",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxPRElaM09USFhwb3hnaXAtM3dITEVwcFBDdk5pLXM5MVRtWmlUQXhQcEszZTF6bHhTMUF5TElMLXd0VDU2blJQVTdmWUw1Yzd2N2ZSc21FbUYyRTRzTGpYTkt3M2JITnJiZ3J6Nk5XMGxPaWE5WWNyT1dfVnk5VDlXUw?oc=5\" target=\"_blank\">Schedule - Everett Crimson Tide (Everett, MA) Football 26-27</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MaxPreps</font>",
@@ -2455,6 +2435,36 @@
       "source": "Lynn"
     },
     {
+      "title": "Eugene \"Gene\" Pinkham Obituary (2026) - Malden, MA - A. J. Spadafora Funeral Home - Legacy obituary",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPQ0o2WnhyVDZRUXVLaDMxaXdIV2VPRUxRdlhOVklfckRRX3pyc1BhcEI2QjNheVU3dlVNaGw5WFBENGRGNzE1TzdycUlpU1JqaTRUS1VQcnQzVkNpZWxNSTBDSEQ1WEMwenVlUlhRQl85Mm1QVnhaei1wTE5ZZ09nVzhGbw?oc=5",
+      "published": "Tue, 09 Jun 2026 02:04:33 GMT",
+      "ts": 1780970673,
+      "author": "",
+      "feed_title": "Legacy obituary",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxPQ0o2WnhyVDZRUXVLaDMxaXdIV2VPRUxRdlhOVklfckRRX3pyc1BhcEI2QjNheVU3dlVNaGw5WFBENGRGNzE1TzdycUlpU1JqaTRUS1VQcnQzVkNpZWxNSTBDSEQ1WEMwenVlUlhRQl85Mm1QVnhaei1wTE5ZZ09nVzhGbw?oc=5\" target=\"_blank\">Eugene \"Gene\" Pinkham Obituary (2026) - Malden, MA - A. J. Spadafora Funeral Home</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Legacy obituary</font>",
+      "source": "Malden"
+    },
+    {
+      "title": "\u2018We feel it in our pores\u2019: Latinos around East Boston are hyped for the World Cup - WGBH",
+      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQSlpxQjd4bG04czhVdmNFOXR3VndmekN2SExTeDItYnc5TWg1VkNKcnhpampzQUd1bWlCUGcxY3hwdVRySy12ODZFcmZfLW5NMGVQdzFpdW54QkdwSHE0eW5fTEwzYWF4VkpMYTd3SzJobEFvMU5KZUxfRm00V29xY3VLbXZueVZ1dXNPSjcxN0ljVTVOS1dmSWcxcS12a0xJb3RBb2phelNRM0RBcEFfR1o1TDNtOE9lR0lVLTBn?oc=5",
+      "published": "Mon, 08 Jun 2026 07:00:00 GMT",
+      "ts": 1780902000,
+      "author": "",
+      "feed_title": "WGBH",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxQSlpxQjd4bG04czhVdmNFOXR3VndmekN2SExTeDItYnc5TWg1VkNKcnhpampzQUd1bWlCUGcxY3hwdVRySy12ODZFcmZfLW5NMGVQdzFpdW54QkdwSHE0eW5fTEwzYWF4VkpMYTd3SzJobEFvMU5KZUxfRm00V29xY3VLbXZueVZ1dXNPSjcxN0ljVTVOS1dmSWcxcS12a0xJb3RBb2phelNRM0RBcEFfR1o1TDNtOE9lR0lVLTBn?oc=5\" target=\"_blank\">\u2018We feel it in our pores\u2019: Latinos around East Boston are hyped for the World Cup</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WGBH</font>",
+      "source": "East Boston"
+    },
+    {
+      "title": "Malden Police Find Large Amount Of Drugs After Vehicle Stop - Patch",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQYnRSSm9PdmVEZXI2VUlqOHBNR3M2aldKMFVsT1FVRmpDWVVfbTFqV1ZQSUtLdnptQkNiaUpLcklkQWhycnRfZC1pY29aLXhBUUxWV2NFNGhoMWhiT0RfT1FMZTVzSWlsLXVnbFhabWdsTnctUG4yeXlCWmRrY2NsNGptZ2J1R0pfM0F2M29EWnhWVGpyeDA3emJEWQ?oc=5",
+      "published": "Mon, 08 Jun 2026 07:00:00 GMT",
+      "ts": 1780902000,
+      "author": "",
+      "feed_title": "Patch",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxQYnRSSm9PdmVEZXI2VUlqOHBNR3M2aldKMFVsT1FVRmpDWVVfbTFqV1ZQSUtLdnptQkNiaUpLcklkQWhycnRfZC1pY29aLXhBUUxWV2NFNGhoMWhiT0RfT1FMZTVzSWlsLXVnbFhabWdsTnctUG4yeXlCWmRrY2NsNGptZ2J1R0pfM0F2M29EWnhWVGpyeDA3emJEWQ?oc=5\" target=\"_blank\">Malden Police Find Large Amount Of Drugs After Vehicle Stop</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
+      "source": "Malden"
+    },
+    {
       "title": "\u2018Sky\u2019 Francois Blanchet Obituary (2026) - Peabody, MA - F. S. Roberts & Son Funeral Home - Legacy obituary",
       "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPMjJabXhlUkUyZjNGSy00cnNLZGRSNGk4Q1NDVHRaWkQzY1ZPWDRXMndMdllwUFhPLUhPaTk2ZzllNGRFVW54ZlZ4TzE5RkxlT1FjUWx3ZGswMlAwUUZ6d1ZFRE5sNExSTDhLdW15N0JtczdkQmV0cmVSN1phaWs0ZzJR?oc=5",
       "published": "Sat, 06 Jun 2026 07:00:00 GMT",
@@ -2493,6 +2503,16 @@
       "feed_title": "Tribute Archive",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTE1tMHVJTTd5UWhNSnRjempTMXMzZllVdGNwWjRqTFlyR2EwaDZPdThyVEZrRFlwaFFLby1uQWhCekdSM2s1NlFOTUtTRDhSSVNGMkdldDQzS19ZY1hQU3pJVjNWVXloOExWbk1fTHJoZi00emc?oc=5\" target=\"_blank\">Edward D Poste Obituary | SALVATORE Rocco & Sons Funeral Homes Inc. | Everett, MA</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Tribute Archive</font>",
       "source": "Everett"
+    },
+    {
+      "title": "Arrests, Drugs, And Break-ins: Malden Police Log - Patch",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOeklPZUxiNDhSQ0Mzb0EzQlJoN1YxenpvS0toVnBjZE55djBaZVI4SkJ6VXVuUFQ2SlFBb1BEZEd6dTlkaFJTcXB2TWhFaVJBbXR3V0RXRVhBRE1IZTAzcTA2UzVVS1EtbjJLa2xmZGVoT3hVTFpzd3ZHUDJweUpEQTVlMDMwdTE0RUE?oc=5",
+      "published": "Fri, 05 Jun 2026 07:00:00 GMT",
+      "ts": 1780642800,
+      "author": "",
+      "feed_title": "Patch",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxOeklPZUxiNDhSQ0Mzb0EzQlJoN1YxenpvS0toVnBjZE55djBaZVI4SkJ6VXVuUFQ2SlFBb1BEZEd6dTlkaFJTcXB2TWhFaVJBbXR3V0RXRVhBRE1IZTAzcTA2UzVVS1EtbjJLa2xmZGVoT3hVTFpzd3ZHUDJweUpEQTVlMDMwdTE0RUE?oc=5\" target=\"_blank\">Arrests, Drugs, And Break-ins: Malden Police Log</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
+      "source": "Malden"
     },
     {
       "title": "VIDEO: Massachusetts yacht club suffers massive blaze destroying boats - Wicked Local",
@@ -2655,6 +2675,26 @@
       "source": "Melrose"
     },
     {
+      "title": "Donald F. Fitzgerald Obituary May 25, 2026 - mcdonaldfs.com",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBSMmFjM2RCNEVJNDVjREVwUmlSZm9mM1Y3Mlc2QlVwbkF5Rm9OWFI3LUxJendSLXBmQ3Z1M3Iwa2stdkt5MlRrdk5mVzFfN2ZldjFTV1BQTnctajlZZEt4ajhuWS1nUQ?oc=5",
+      "published": "Mon, 25 May 2026 07:00:00 GMT",
+      "ts": 1779692400,
+      "author": "",
+      "feed_title": "mcdonaldfs.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTFBSMmFjM2RCNEVJNDVjREVwUmlSZm9mM1Y3Mlc2QlVwbkF5Rm9OWFI3LUxJendSLXBmQ3Z1M3Iwa2stdkt5MlRrdk5mVzFfN2ZldjFTV1BQTnctajlZZEt4ajhuWS1nUQ?oc=5\" target=\"_blank\">Donald F. Fitzgerald Obituary May 25, 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">mcdonaldfs.com</font>",
+      "source": "Peabody"
+    },
+    {
+      "title": "Salem\u2019s Role in the American Revolution to be Highlighted at Dedication of Liberty Tree - Salem, MA | Official Website (.gov)",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBENXV5a0E4MFM3SFJVeTZ1SHhuZmU0TGRNRzFNRE1NMUxzRjRmb2ZISE9DSEtyc214TU5hMmJjQ0xSNHJLbnlVODd6bl9CNkMxR2RaVUFn?oc=5",
+      "published": "Sat, 23 May 2026 22:42:33 GMT",
+      "ts": 1779576153,
+      "author": "",
+      "feed_title": "Salem, MA | Official Website (.gov)",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTFBENXV5a0E4MFM3SFJVeTZ1SHhuZmU0TGRNRzFNRE1NMUxzRjRmb2ZISE9DSEtyc214TU5hMmJjQ0xSNHJLbnlVODd6bl9CNkMxR2RaVUFn?oc=5\" target=\"_blank\">Salem\u2019s Role in the American Revolution to be Highlighted at Dedication of Liberty Tree</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA | Official Website (.gov)</font>",
+      "source": "Salem"
+    },
+    {
       "title": "Chelsea plans '39-day party' for World Cup, but still awaits FIFA license",
       "link": "https://www.nbcboston.com/news/local/chelsea-plans-39-day-party-for-world-cup-but-still-awaits-fifa-license/3954300/",
       "published": "Fri, May 22 2026 05:13:47 PM",
@@ -2663,6 +2703,16 @@
       "feed_title": "",
       "summary": "<p><em><strong>UPDATE (Tuesday, May 26, 2026): </strong>The city tells NBC10 Boston that its FIFA license has been approved.</em></p>\n\n\n\n<p>With 20 days remaining before the start of the 2026 FIFA World Cup, the city of Chelsea, Massachusetts, moved ahead with plans for a 39-day celebration despite still waiting for approval to show tournament matches publicly.</p>\n\n\n\n<p>City officials launched promotional campaigns for watch parties, soccer events and family activities planned throughout the tournament. Leaders said they expected the World Cup festivities to bring tourism dollars to local businesses while encouraging residents to gather in public again.</p>\n\n\n\n<p>Chelsea City Manager Fidel Maltez noted 70% of the city is comprised of a Latino population, and 53% are foreign-born. He said <a href=\"https://www.nbcboston.com/tag/immigration/\" rel=\"noreferrer noopener\" target=\"_blank\">immigration</a> enforcement activity over the last year had hurt businesses and kept many residents from spending time downtown.</p>\n\n\n\n<p>&#8220;We walked our streets in fear. We felt like we couldn&#8217;t come outside. Our business owners complained about how our downtown was decimated,&#8221; he said.</p>\n\n\n<div></div>\n\n\n<p>Maltez said the city hoped large public gatherings and increased local police presence would help residents feel safe during the tournament.</p>\n\n\n\n<p>&#8220;Anytime that there was a large gathering, [ICE] shied away from it,&#8221; he said.</p>\n\n\n\n<p>The city has planned several English and Spanish watch parties in Chelsea Square and other activities tied to the World Cup.</p>\n\n\n\n<p>Beginning June 11, Chelsea Square will be transformed into an outdoor gathering space for the tournament. Visitors can expect an outdoor large-screen viewing experience, local food vendors, music and community programming showcasing the cultures and traditions of the city&#8217;s diverse community.</p>\n\n\n<div></div>\n\n\n<p>Chelsea Sports Tourism Director Charlie Giuffrida said officials wanted to create opportunities for local families and youth soccer players during the tournament.</p>\n\n\n\n<p>&#8220;We want to make sure our youth soccer ecosystem and all of our community has some amazing things to do to capitalize on what&#8217;s going to be, probably, one of the best summers North America&#8217;s seen in a long time,&#8221; said Giuffrida.</p>\n\n\n\n<p>Maltez said the city allocated nearly $500,000 in combined state and local funding for the celebrations.</p>\n\n\n\n<p>However, organizers said they still had not received FIFA licensing approval to broadcast matches during public watch parties.</p>\n\n\n\n<p>&#8220;It&#8217;s definitely scary that we&#8217;re weeks away and we don&#8217;t have a license yet,&#8221; said the city&#8217;s civic designer, Omar Miranda, who applied for a license several months ago.</p>\n\n\n\n<p>Several other cities and towns hosting World Cup watch parties were also still waiting for FIFA approval, including Worcester, Brockton, Everett and Lexington.</p>\n\n\n\n<p>Even if the license does not arrive in time, organizers said the city still planned to move forward with festivities.</p>\n\n\n\n<p>&#8220;They&#8217;re going to watch it in our businesses if they have to. We&#8217;re just going to have a space for them to have fun and enjoy the celebrations,&#8221; said Miranda. &#8220;Licenses or not, we&#8217;re going to have a 38-, 39-day party here at Chelsea Square.&#8221;</p>\n\n\n\n<p>The City of Chelsea <a href=\"https://www.discoverchelseama.com/fiesta-futbol\" rel=\"noreferrer noopener\" target=\"_blank\">posted a watch party calendar</a> on its website and is kicking off &#8220;Fiesta F\u00fatbol&#8221; on Saturday with other public activities to follow:</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Adult Soccer Tournament: 10:30 a.m. Saturday, May 23, at Highland Park, 45 Willow Street, Chelsea<br /></strong>The City is accepting 16 teams for an 8v8 double-elimination tournament. Teams are encouraged to play as their home or favorite nations \u2014 including Honduras, El Salvador, the United States, Mexico, and others \u2014 and wear culturally-themed gear. Pre-registration is required at <a href=\"https://recreation.chelseama.gov/\" rel=\"noreferrer noopener\" target=\"_blank\">recreation.chelseama.gov</a>.</li>\n\n\n\n<li><strong>Soccer Field Day \u2014 Youth Soccer Community: 10:30 a.m. \u2013 2:30 p.m. Saturday, June 6 at Highland Park, 45 Willow Street, Chelsea</strong><br />Open to the entire Chelsea Youth Soccer Community, Soccer Field Day will feature mini soccer matches, a skills competition, inflatables, local vendors, and more. Families can learn about local soccer programs and register on-site. No pre-registration required.</li>\n\n\n\n<li><strong>Alumni Soccer Game: 10 a.m. Saturday, June 27 at Veterans Stadium, 299 Everett Ave, Chelsea<br /></strong>Chelsea soccer alumni ages 18 and older are invited back to the field for a friendly competition and a celebration of community pride. All are welcome, including those who attended private, vocational, or other schools. Players register by graduating year or decade and are grouped accordingly. Games are continuous 7-v-7 format beginning at 10 a.m.</li>\n</ul>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More on the World Cup</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/world-cup/boston-world-cup-soccer-origin-story/3953883/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/oneida-football-club-soccer-boston.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/boston-common/\">Boston Common</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 21\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/world-cup/boston-world-cup-soccer-origin-story/3953883/\">\n\t\t\t\t\t\t\t\t\t\tBoston and the story of \u2018the first organized football club in the U.S.&#039;\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/whats-happening-in-and-around-boston-during-the-world-cup/3953533/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2019/09/Boston_Pops_Fireworks_Spectacular-1.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/boston/\">Boston</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 21\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/whats-happening-in-and-around-boston-during-the-world-cup/3953533/\">\n\t\t\t\t\t\t\t\t\t\tWhat&#039;s happening in and around Boston during the World Cup\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/world-cup/fifa-world-cup-experiment-too-much/3953554/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/GettyImages-2266908049.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/world-cup/\">World Cup</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 21\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/world-cup/fifa-world-cup-experiment-too-much/3953554/\">\n\t\t\t\t\t\t\t\t\t\tToo much World Cup? How FIFA may have made the event too big for its own good\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
       "source": "Chelsea"
+    },
+    {
+      "title": "Obituary information for Joan Sawyer - Solimine Funeral Home",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1DWjRuYnExTEdJTHh5RFNGTUpaY196RzBYRExMSFYtSmNTMmY4akpKUUU0WEpHNjkySjgyTElTUmI3bndkZ2NJQk5TeEM0VkJSV19DZ2NTOWlrNlctZGlLUlEtZUNWYTJNdEZVRDln?oc=5",
+      "published": "Thu, 21 May 2026 14:26:38 GMT",
+      "ts": 1779373598,
+      "author": "",
+      "feed_title": "Solimine Funeral Home",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMibkFVX3lxTE1DWjRuYnExTEdJTHh5RFNGTUpaY196RzBYRExMSFYtSmNTMmY4akpKUUU0WEpHNjkySjgyTElTUmI3bndkZ2NJQk5TeEM0VkJSV19DZ2NTOWlrNlctZGlLUlEtZUNWYTJNdEZVRDln?oc=5\" target=\"_blank\">Obituary information for Joan Sawyer</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Solimine Funeral Home</font>",
+      "source": "Swampscott"
     },
     {
       "title": "Annabelle is moving to Salem",
@@ -2722,16 +2772,6 @@
       "author": "",
       "feed_title": "Salem, MA | Official Website (.gov)",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE5zLURIOWxvbWtpRWlCMjQ5cldDX0YwYXJQR1ZNUF8xcnZ5RnZNcnoyTU1DVHNhbGdkcmR2bU9DVnVhNUJvd3puTDBSMlJWRjJaOFBqZmdRUQ?oc=5\" target=\"_blank\">City of Salem emergency parking ban - Thursday, March 5, 4:00pm</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA | Official Website (.gov)</font>",
-      "source": "Salem"
-    },
-    {
-      "title": "City of Salem Announces Restoration of Historic George Washington Portrait Ahead of Salem 400th Anni - Salem, MA | Official Website (.gov)",
-      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5xR1FmR2s5ZUdIWUsydEZwVmY3bThpclNKejNaeWNxOE1BSjVQOUFkWnBYcTRTQmlwSVFJUFIxSWZaNVFDR2VKaUN0M204ZmFhUnN1aFlfWQ?oc=5",
-      "published": "Sat, 16 May 2026 11:07:05 GMT",
-      "ts": 1778929625,
-      "author": "",
-      "feed_title": "Salem, MA | Official Website (.gov)",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE5xR1FmR2s5ZUdIWUsydEZwVmY3bThpclNKejNaeWNxOE1BSjVQOUFkWnBYcTRTQmlwSVFJUFIxSWZaNVFDR2VKaUN0M204ZmFhUnN1aFlfWQ?oc=5\" target=\"_blank\">City of Salem Announces Restoration of Historic George Washington Portrait Ahead of Salem 400th Anni</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA | Official Website (.gov)</font>",
       "source": "Salem"
     },
     {
@@ -3095,16 +3135,6 @@
       "source": "Saugus"
     },
     {
-      "title": "Obituary for Roy J Griffin at George L Doherty Funeral Service, Inc - George L Doherty Funeral Service, Inc",
-      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE84Zm1IT0dqN3VmQTk4Sk02ZUJQSWV5M2tCb0c4WjBFVVVXTjlUWFAwYXZrRmZZX1dvMUY0U181cEJWSUJLWW1nd1NLdG5GOUZMTERQRDNodlRaUkFKaFV0VVN1YzZvdmFBakE?oc=5",
-      "published": "Sat, 18 Apr 2026 07:00:00 GMT",
-      "ts": 1776495600,
-      "author": "",
-      "feed_title": "George L Doherty Funeral Service, Inc",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiakFVX3lxTE84Zm1IT0dqN3VmQTk4Sk02ZUJQSWV5M2tCb0c4WjBFVVVXTjlUWFAwYXZrRmZZX1dvMUY0U181cEJWSUJLWW1nd1NLdG5GOUZMTERQRDNodlRaUkFKaFV0VVN1YzZvdmFBakE?oc=5\" target=\"_blank\">Obituary for Roy J Griffin at George L Doherty Funeral Service, Inc</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">George L Doherty Funeral Service, Inc</font>",
-      "source": "Malden"
-    },
-    {
       "title": "Donald Casey Obituary (2026) - EVERETT, MA - J. F. Ward Funeral Home - Everett - Post and Courier",
       "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQnNFQlJTY3p3dDlxU013S25jNEF6SW9JX043aDd0ZWE3dldwSk9FaWE2Q0ZQWFZ0VTdud05NUjBZZERyNnc2US0wYzBTbVpSNmR4VWxXemMzQjBsd0kyWXg4Yko5UE8zWjFlQVQ1bmtiSFhJVXdVUzVodGU3VGxtWXIybHc3VmdpZW1KYXdVYVRnRDNPeGRtaDZIbw?oc=5",
       "published": "Tue, 14 Apr 2026 07:00:00 GMT",
@@ -3195,16 +3225,6 @@
       "source": "Malden"
     },
     {
-      "title": "'No Kings' Rally Making A Return To Malden - Patch",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1VY2xBUjJGVGh1NTZZZUhyekxKS2lHUldHbHZ6dEpLYmVtdi1NanNVM0NvMDRQMi1tZnI5TTRZeXFOTGFvbTl3aVQ1VXdyNXB2WExwMzV3TWNNT2wwNWktaUtoN1VlcGVYNW9IM3ZCY3FvVTlmUXhnZ0ZjMlNjTm8?oc=5",
-      "published": "Thu, 26 Mar 2026 07:00:00 GMT",
-      "ts": 1774508400,
-      "author": "",
-      "feed_title": "Patch",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTE1VY2xBUjJGVGh1NTZZZUhyekxKS2lHUldHbHZ6dEpLYmVtdi1NanNVM0NvMDRQMi1tZnI5TTRZeXFOTGFvbTl3aVQ1VXdyNXB2WExwMzV3TWNNT2wwNWktaUtoN1VlcGVYNW9IM3ZCY3FvVTlmUXhnZ0ZjMlNjTm8?oc=5\" target=\"_blank\">'No Kings' Rally Making A Return To Malden</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
-      "source": "Malden"
-    },
-    {
       "title": "News | DUO preserves public housing, adds 330 eco-friendly homes in Chelsea, Massachusetts - CoStar",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxObWp4YldZc2EwV2xSMDFfS0dTVUQ3M245c0hpaDNNY3VRcHdZNXc2ckUtTVlHUUVxN2hNTXQzVmRPVVY1VDhnNndUbnRIVXdqZm1fRDZvVjE4aEl5LUxtUE5OaWszZ05tM21OUnBYWnBGdW5NYnZvMmNIREdaaFVfTl95MlltZkVTeHhJUlByWTk3OWFQLW5JX29lX3l0Tm0xNGtKWmQ1dmd5WVNjM1U1YmVuLUZIajYxd3B3QUhxYUU?oc=5",
       "published": "Wed, 25 Mar 2026 07:00:00 GMT",
@@ -3233,16 +3253,6 @@
       "feed_title": "",
       "summary": "<p>Police in Chelsea, Massachusetts, said multiple people were injured in stabbings Thursday evening.</p>\n\n\n\n<p>Officers responded to the intersection of Chestnut Street and Everett Avenue around 6:45 p.m.</p>\n\n\n\n<p>While the Chelsea Police Department did not say how many people were stabbed, it confirmed all those hurt were hospitalized, including one person who is in serious condition with potentially life-threatening injuries.</p>\n\n\n\n<p>Authorities did not say whether anyone had been arrested.</p>\n\n\n\n<p>&#8220;It was kind of scary, I&#8217;m not going to lie. You still see the remnants of blood on the floor,&#8221; said neighbor Shauniece White. &#8220;It&#8217;s extremely concerning. As you see, it&#8217;s only been one nice day so far. If it&#8217;s already happening now, I can only imagine what the summer has in store for us. I&#8217;m hopeful that the police will come out and do due diligence to keep the community safe, but wishful thinking in a time like this.&#8221;</p>\n\n\n\n<p>Massachusetts State Police are investigating alongside the city&#8217;s department.</p>\n\n\n\n<p>&#8220;Chelsea Detectives and Mass State Police Detectives are currently working this very serious incident and we are ready to utilize any and all of our resources to give our community the peace of mind our citizens deserve,&#8221; Chelsea Police Chief Keith Houghton said in a statement.</p>\n\n\n\n<p>Anyone with information is asked to call 617-466-4800. Anonymous tips can also be left by calling 617-466-4880.</p>",
       "source": "Chelsea"
-    },
-    {
-      "title": "Jacqueline \"Jackie\" Vita Obituary (2026) - Malden, MA - Boston Cremation - Malden Care Center - Legacy obituary",
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNaTJIeTFwQ2Z4LXJlenZ2LTE2Q3Q3VWhOdmFicWpraGM4R1lRZmVpaWlxbmg4NkJlZHdWSTlrN3JtTXVpUk5UWThyLTFMRlFJemN5bEh2TkdHbkVlVUVRbzBNQVdaOVc4TnQtTExmYXgtWkNQU3EyOVpFX2FCbURHamxmbkc?oc=5",
-      "published": "Thu, 19 Mar 2026 07:00:00 GMT",
-      "ts": 1773903600,
-      "author": "",
-      "feed_title": "Legacy obituary",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxNaTJIeTFwQ2Z4LXJlenZ2LTE2Q3Q3VWhOdmFicWpraGM4R1lRZmVpaWlxbmg4NkJlZHdWSTlrN3JtTXVpUk5UWThyLTFMRlFJemN5bEh2TkdHbkVlVUVRbzBNQVdaOVc4TnQtTExmYXgtWkNQU3EyOVpFX2FCbURHamxmbkc?oc=5\" target=\"_blank\">Jacqueline \"Jackie\" Vita Obituary (2026) - Malden, MA - Boston Cremation - Malden Care Center</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Legacy obituary</font>",
-      "source": "Malden"
     },
     {
       "title": "\u2018Horrific tragedy': New details in case of high school student charged with murdering Danvers woman",
@@ -3557,14 +3567,114 @@
   ],
   "news_boston": [
     {
+      "title": "US will face Belgium in Round of 16. Here's how much tickets are going for",
+      "link": "https://www.wcvb.com/article/world-cup-usa-belgium-seattle-tickets/71807718",
+      "published": "Sat, 04 Jul 2026 11:33:00 GMT",
+      "ts": 1783164780,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>The U.S. Men's National Team will be in the Round of 16. Here's how much tickets to the game are going for on the secondary market.  </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Heatin\u2019 up for the 4th of July!",
+      "link": "https://whdh.com/weather-blog/heatin-up-for-the-4th-of-july/",
+      "published": "Sat, 04 Jul 2026 11:11:50 +0000",
+      "ts": 1783163510,
+      "author": "Kshalhoup",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "Good morning and happy 4th! There&#8217;s a lot going on today, so let&#8217;s talk about planning around both heat and storms today. We&#8217;ll start with...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "Trump pardons former Abramoff partner, 9 people convicted of violating Clean Air Act",
+      "link": "https://www.wcvb.com/article/trump-pardons-abramoff-partner-violator-vehicle-emissions/71821944",
+      "published": "Sat, 04 Jul 2026 11:07:00 GMT",
+      "ts": 1783163220,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Trump pardoned 11 people, including a former partner of Jack Abramoff and nine others who helped people bypass emissions control systems on vehicles.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Weather Alert: One more hot day, chance of evening storms",
+      "link": "https://www.wcvb.com/article/weather-alert-dangerous-heat-boston-massachusetts/71768983",
+      "published": "Sat, 04 Jul 2026 10:48:00 GMT",
+      "ts": 1783162080,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A StormTeam 5 weather alert remains through Saturday because of the heat, humidity and a risk of evening storms.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Fireworks forecast: Chance of storms could interfere with July 4 celebrations",
+      "link": "https://www.wcvb.com/article/massachusetts-fireworks-forecast-july-3-2026/71817565",
+      "published": "Sat, 04 Jul 2026 10:42:00 GMT",
+      "ts": 1783161720,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Fireworks forecast for Massachusetts: There is a slight chance of storms after sunset Friday, but StormTeam 5 said the concern is greater for Saturday celebrations. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Brockton's citywide curfew lifted Saturday morning after Cape Verde's loss to Argentina",
+      "link": "https://www.wcvb.com/article/brockton-world-cup-curfew-july-3-cape-verde/71817763",
+      "published": "Sat, 04 Jul 2026 10:36:00 GMT",
+      "ts": 1783161360,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Brockton clamped down on World Cup celebrations overnight, with limits on local businesses and a citywide curfew. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Reading, and reflecting, on the Declaration of Independence",
+      "link": "https://www.wcvb.com/article/reading-declaration-of-independence-mass-historical-society-july-4-2026/71821967",
+      "published": "Sat, 04 Jul 2026 10:23:00 GMT",
+      "ts": 1783160580,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>The Massachusetts Historical Society brings to life the days surrounding the Declaration of Independence with events including a reading from our very own Maria Stephanos. Photojournalist Jimmy Celaya takes us there.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Video: One more day of heat wave, ending with evening storms",
+      "link": "https://www.wcvb.com/article/video-one-more-day-of-heat-wave-ending-with-evening-storms/71821966",
+      "published": "Sat, 04 Jul 2026 10:18:00 GMT",
+      "ts": 1783160280,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Saturday will be a few degrees cooler, but still hot enough to stretch our heat wave into a fourth day. In the evening, a chance of showers and storms could impact July 4 plans.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "What to know about Taylor Swift and Travis Kelce's wedding",
+      "link": "https://www.wcvb.com/article/taylor-swift-travis-kelce-married-what-to-know-wedding/71821880",
+      "published": "Sat, 04 Jul 2026 10:03:00 GMT",
+      "ts": 1783159380,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Here is what we know about Taylor Swift and Travis Kelce's wedding at Madison Square Garden.</p>",
+      "source": "Top Stories"
+    },
+    {
       "title": "Iran begins dayslong funeral for late supreme leader killed in war",
       "link": "https://www.wcvb.com/article/iran-funeral-supreme-leader-ayatollah-ali-khamenei-war/71821820",
-      "published": "Sat, 04 Jul 2026 09:20:00 GMT",
-      "ts": 1783156800,
+      "published": "Sat, 04 Jul 2026 09:27:00 GMT",
+      "ts": 1783157220,
       "author": "",
       "feed_title": "Top Stories",
       "summary": "<p>Iran began a dayslong funeral Saturday for late Supreme Leader Ayatollah Ali Khamenei after an airstrike killed him at the start of the war. </p>",
       "source": "Top Stories"
+    },
+    {
+      "title": "First Alert: Hot and humid Fourth of July, thunderstorms possible in afternoon",
+      "link": "https://www.nbcboston.com/news/local/weather-boston-fourth-of-july-heat-advisory-humid-thunderstorms-live-radar/3975965/",
+      "published": "Sat, Jul 04 2026 07:38:44 AM",
+      "ts": 1783150724,
+      "author": "Pete Bouchard",
+      "feed_title": "NBC Boston",
+      "summary": "<p>Happy Fourth! </p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11375575\" height=\"1080\" src=\"https://media.nbcboston.com/2026/07/LKS_2DAY_WEEKEND_BOSTON.png?w=1920&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>We\u2019ve passed through <a href=\"https://www.nbcboston.com/weather/stories-weather/first-alert-its-officially-a-heat-wave-and-were-on-track-for-near-record-temps/3975704/\" rel=\"noreferrer noopener\" target=\"_blank\">the hottest temperatures and highest humidity</a>, but it\u2019s still a sizzling celebration of our country\u2019s 250th birthday. </p>\n\n\n\n<p><a href=\"https://www.nbcboston.com/weather/\" rel=\"noreferrer noopener\" target=\"_blank\">Highs will quickly soar to the mid-90s</a> with heat indices running around 100-105. </p>\n\n\n\n<p>Heat advisories remain in effect across New England. <a href=\"https://www.nbcboston.com/weather/severe-weather-alerts/\" rel=\"noreferrer noopener\" target=\"_blank\">Click here for active weather alerts.</a></p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11375579\" height=\"1080\" src=\"https://media.nbcboston.com/2026/07/LKS_HOURLY_HEAT_INDEX_1a5be3.png?w=1920&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>We\u2019re also watching the thunderstorm threat after noontime. While we aren\u2019t seeing an outbreak of severe weather, some storms may be strong into the late afternoon or early evening \u2013 predominately south of the Massachusetts Turnpike.</p>\n\n\n\n<p>We\u2019re thinking most of the storms will have cleared Greater Boston by 7 p.m. tonight \u2013 great news for the fireworks extravaganza! </p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11375576\" height=\"1080\" src=\"https://media.nbcboston.com/2026/07/LKS_4TH_OF_JULY_3PART_FIREWORKS_01a8a7.png?w=1920&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11375581\" height=\"1080\" src=\"https://media.nbcboston.com/2026/07/LKS_SFC-MAP.png?w=1920&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n<div style=\"height: 520px;\"></div>\n\n\n\n<p>Humidity will drop towards midnight, and noticeably less humid air will be in place by Sunday morning. </p>\n\n\n\n<p>Temps drop, too. Highs on Sunday will be in the more tolerable mid-80s, with a blend of sun and clouds.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11375577\" height=\"1080\" src=\"https://media.nbcboston.com/2026/07/LKS_FCST_DEWPOINT_HOUR_BY_HOUR_BOSDMA_abaa41.png?w=1920&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>Rain inches toward us on Monday, eventually swarming over the Commonwealth and giving us a soaking into Tuesday. </p>\n\n\n\n<p>This is an areawide rainfall, not selective thunderstorms. </p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11375578\" height=\"1080\" src=\"https://media.nbcboston.com/2026/07/LKS_GRAPH_POP_7DAY_BOSTON_ICAST_b29230.png?w=1920&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>This slow-moving weather system will douse some towns and cities with over an inch (in some cases 2+) of badly needed rain. </p>\n\n\n\n<p>Temps sink back to the 70s, then recover to the 80s by midweek.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11375580\" height=\"1080\" src=\"https://media.nbcboston.com/2026/07/LKS_PRECIP_FCST_BOSDMA2-_PETE.png?w=1920&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>Stay cool, be safe, and enjoy the holiday weekend!</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More heat stories</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/extreme-heat-wave-indoor-fan-temperature/3975761/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/GettyImages-2185688436.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/extreme-weather/\">Extreme Weather</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t17 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/extreme-heat-wave-indoor-fan-temperature/3975761/\">\n\t\t\t\t\t\t\t\t\t\tAmid extreme heat wave, don&#039;t use fans indoors if it&#039;s above this temperature, experts warn\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/fourth-of-july-boston-fireworks-spectacular-delayed-entry-extreme-heat/3975636/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/hatchshell.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/boston/\">Boston</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJul 3\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/fourth-of-july-boston-fireworks-spectacular-delayed-entry-extreme-heat/3975636/\">\n\t\t\t\t\t\t\t\t\t\tHeat forces change to the Boston Pops Fourth of July Spectacular\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/extreme-heat-ways-to-stay-cool-beaches-splash-pads-community-pools-boston-massachusetts/3975663/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/splash-pad.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t22 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/extreme-heat-ways-to-stay-cool-beaches-splash-pads-community-pools-boston-massachusetts/3975663/\">\n\t\t\t\t\t\t\t\t\t\tFrom the beach to splash pads, people are trying to stay cool amid brutal heat\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/hvac-repair-calls-spike-in-extreme-heat-pro-tips-to-keep-your-ac-running/3975575/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/HVAC-repair-0702226.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/extreme-heat/\">EXTREME HEAT</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJul 2\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/hvac-repair-calls-spike-in-extreme-heat-pro-tips-to-keep-your-ac-running/3975575/\">\n\t\t\t\t\t\t\t\t\t\tHVAC repair calls spike in extreme heat: Pro tips to keep your AC running\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
+      "source": "NBC Boston"
     },
     {
       "title": "Trump heads to Mount Rushmore as heat bears down on America 250 celebrations in DC",
@@ -3717,16 +3827,6 @@
       "source": "Top Stories"
     },
     {
-      "title": "Roadblocks deployed as Brockton clamps down on World Cup celebrations",
-      "link": "https://www.wcvb.com/article/brockton-world-cup-curfew-july-3-cape-verde/71817763",
-      "published": "Fri, 03 Jul 2026 22:07:00 GMT",
-      "ts": 1783116420,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Brockton is clamping down on World Cup celebrations, with limits on local businesses and a citywide curfew. </p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Unique summer considerations for GLP-1 patients",
       "link": "https://www.wcvb.com/article/unique-summer-considerations-for-glp-1-patients/71820316",
       "published": "Fri, 03 Jul 2026 22:05:00 GMT",
@@ -3817,76 +3917,6 @@
       "source": "Top Stories"
     },
     {
-      "title": "Police investigate a shopping mall shooting that left 2 dead in suburban Detroit",
-      "link": "https://www.wcvb.com/article/mall-dearborn-michigan-shooting/71819164",
-      "published": "Fri, 03 Jul 2026 21:07:00 GMT",
-      "ts": 1783112820,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Three people were shot and two of them died after a fight between two groups of young people at a shopping mall in the city of Dearborn, Michigan.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Weather Alert: One more day to go in Boston's sweltering heat wave",
-      "link": "https://www.wcvb.com/article/weather-alert-dangerous-heat-boston-massachusetts/71768983",
-      "published": "Fri, 03 Jul 2026 21:05:00 GMT",
-      "ts": 1783112700,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>A StormTeam 5 weather alert remains through Saturday because of the heat, humidity and a risk of evening storms.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Video: Skydiver crashes near crowd during California rodeo event",
-      "link": "https://www.wcvb.com/article/folsom-parachute-skydiver-crash-pro-rodeo/71817954",
-      "published": "Fri, 03 Jul 2026 21:00:00 GMT",
-      "ts": 1783112400,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Dramatic video shows a skydiver crashing next to a crowd of hundreds on the opening night of a California rodeo.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Video: One more day of heat wave before a big change",
-      "link": "https://www.wcvb.com/article/video-one-more-day-of-heat-wave-before-a-big-change/71819755",
-      "published": "Fri, 03 Jul 2026 20:59:00 GMT",
-      "ts": 1783112340,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Boston hit 100 degrees Friday, only the second time in recorded history that the city hit that mark on two consecutive days. Hot conditions will continue into the fourth day of the heat wave on Saturday.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Fireworks forecast: Chance of storms could interfere with July 4 celebrations",
-      "link": "https://www.wcvb.com/article/massachusetts-fireworks-forecast-july-3-2026/71817565",
-      "published": "Fri, 03 Jul 2026 20:57:00 GMT",
-      "ts": 1783112220,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Fireworks forecast for Massachusetts: There is a slight chance of storms after sunset Friday, but StormTeam 5 said the concern is greater for Saturday celebrations. </p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "US soldier from Lynn returns home for holiday weekend through nonprofit providing free flights",
-      "link": "https://whdh.com/news/us-soldier-from-lynn-returns-home-for-holiday-weekend-through-nonprofit-providing-free-flights/",
-      "published": "Fri, 03 Jul 2026 20:53:32 +0000",
-      "ts": 1783112012,
-      "author": "Maria D'Agostino",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "A United States Army Specialist stationed in Texas was able to come home to Massachusetts for the holiday weekend with the help of a nonprofit...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Video shows safety system alert wrong-way driver on I-95 ramp",
-      "link": "https://www.wcvb.com/article/wrong-way-burlington-video-june-2026/71819045",
-      "published": "Fri, 03 Jul 2026 20:48:00 GMT",
-      "ts": 1783111680,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Video obtained by NewsCenter 5 shows the flashing lights of a warning system alerting a driver who was entering the on-ramp for Interstate 95 in the wrong direction last month.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Taylor Swift and Travis Kelce marry in front of famous friends at Madison Square Garden",
       "link": "https://www.boston.com/culture/entertainment/2026/07/03/taylor-swift-and-travis-kelces-madison-square-garden-wedding-starts-soon/",
       "published": "Fri, 03 Jul 2026 20:42:59 +0000",
@@ -3905,16 +3935,6 @@
       "feed_title": "NBC Boston",
       "summary": "<p>No matter what Mohamed Salah decides about his future with Egyptian soccer \u2014 more World Cups or not \u2014 the star striker can say he was the captain for the country&#8217;s first victory in the knockout round.</p>\n\n\n\n<p>Hossam Abdelmaguid scored the deciding goal in a shootout, and Egypt won its debut in the elimination round of the&nbsp;<a href=\"https://www.nbcboston.com/tag/world-cup/\">World Cup</a>&nbsp;by beating Australia 4-2 on penalty kicks after a 1-1 draw Friday.</p>\n\n\n\n<p>Australia goalkeeper Mathew Ryan didn&#8217;t stop any of Egypt&#8217;s four shots after replacing starter Patrick Beach late in extra time.</p>\n\n\n\n<p>The victory comes in Egypt&#8217;s fourth World Cup, the first one with an expanded field of 48. Australia is now 0-3 in the knockout round.</p>\n\n\n\n<p>Egypt will next face defending champion Argentina in the round of 16 on Tuesday in Atlanta.</p>\n\n\n\n<p>\u201cMe feeling today is that it&#8217;s incredible,\u201d said Salah, the 34-year-old former Liverpool player who is one behind national team coach Hossam Hassan&#8217;s Egyptian record of 69 international goals. \u201cI always like seeing the boys happy and enjoying the moment. Nothing can match that. So today was one of the best days of my life.\u201d</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/world-cup/usa-bosnia-herzegovina-most-watched-soccer-telecast-english-language-history/3975507/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/GettyImages-2283721004-e1783039911748.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/2026-world-cup/\">2026 World Cup</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJul 2\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/world-cup/usa-bosnia-herzegovina-most-watched-soccer-telecast-english-language-history/3975507/\">\n\t\t\t\t\t\t\t\t\t\tUS win over Bosnia-Herzegovina most-watched soccer telecast in English language history\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/world-cup/switzerland-moves-on-world-cup-with-2-0-win-over-algeria/3975609/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/AP26184140465096.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/2026-world-cup/\">2026 World Cup</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJul 3\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/world-cup/switzerland-moves-on-world-cup-with-2-0-win-over-algeria/3975609/\">\n\t\t\t\t\t\t\t\t\t\tEmbolo, Ndoye score and Switzerland moves on at the World Cup with a 2-0 win over Algeria\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/world-cup/round-of-16-teams-schedule-bracket/3973349/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/06/hakimi-vini-haaland-getty-63026.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/2026-world-cup/\">2026 World Cup</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJun 30\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/world-cup/round-of-16-teams-schedule-bracket/3973349/\">\n\t\t\t\t\t\t\t\t\t\tWhat we know about the World Cup Round of 16 qualified teams, schedule so far\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p>Harry Souttar opened the shootout by missing high for Australia, and 18-year-old Lucas Herrington hit the crossbar with the fourth attempt to set up Abdelmaguid\u2019s clincher for the Pharoahs.</p>\n\n\n\n<p>The 25-year-old Abdelmaguid, who doesn&#8217;t have an international goal in 15 appearances, went low left as Ryan dived to the defender&#8217;s right, setting off a raucous celebration among 70,244 fans at the sold-out home of the Dallas Cowboys, plenty of them wearing Egyptian red.</p>\n\n\n\n<p>Egypt didn&#8217;t even have a victory in the World Cup before beating New Zealand 3-1 in the group stage less than two weeks ago.</p>\n\n\n\n<p>\u201cI was only thinking about the Egyptian fans,\u201d Hassan said through a translator. \u201cDuring the entire time and during the penalty shootout, I was just praying, \u2018God, please make the Egyptian people happy.\u2019 Even before the penalty shootout, to be honest.\u201d</p>\n\n\n\n<p>Egypt\u2019s other penalty shootout scorers were Mahmoud Saber, Ramy Rabia and Salah, who started and played every minute of regulation and extra time despite a hamstring injury sustained in the team&#8217;s group finale.</p>\n\n\n\n<p>Jackson Irvine and Awer Mabil scored in the shootout for Australia.</p>\n\n\n\n<p>\u201cWhen I went to the players and talked to them, I wanted to take some pressure off,\u201d Hassan said. \u201cDo not look at the pressure. Just let everything out, don\u2019t think about anything. Think about your penalty kick. Don\u2019t even think about the goalkeeper. Just think about your kick.\u201d</p>\n\n\n\n<p>Emam Ashour gave Egypt the lead in regulation by scoring in the 13th minute with a header that beat Beach just inside the near post. Australia evened the match in the 55th when Egypt defender Mohamed Hany became the first player to score two own-goals in the same World Cup.</p>\n\n\n\n<p>The own-goal came when Aiden O\u2019Neill took a free kick from left of the penalty area and Hany headed the ball past goalkeeper Mostafa Shoubir for a spot in World Cup infamy. His other own-goal came in a 1-1 draw with Belgium in the group stage.</p>\n\n\n\n<p>Less than 10 minutes earlier, Hany was down near the same spot after colliding with Connor Metcalfe on the Australia midfielder\u2019s header attempt. Medical personnel tended to Hany with a stretcher waiting nearby, but he was helped up and stayed on after what appeared to be a concussion check.</p>\n\n\n\n<div class=\"wp-block-nbc-html-block html-block\"></div>\n\n\n\n<p>Australia\u2019s only scoring in World Cup knockout rounds has been two own-goals. The Socceroos lost to Italy 1-0 in 2006 and lost to Argentina 2-1 four years ago in Qatar. The goal against Argentina was an own-goal.</p>\n\n\n\n<p>\u201cIt hurts when you get that close,\u201d Australia coach Tony Popovic said. \u201cUnfortunately, we bow out in a penalty shootout, so it\u2019s difficult to take right now.\u201d</p>\n\n\n\n<p>Omar Marmoush had a great chance to give Egypt a two-goal lead in the opening seconds of the second half, but he sent a shot wide.</p>\n\n\n\n<p>The late goalkeeper switch to the 34-year-old Ryan, for his 105th international appearance, came despite several strong saves from the 22-year-old Beach, who was playing in only his sixth game for the Socceroos.</p>\n\n\n\n<p>Beach made a sprawling save on a header from Rabia in the waning moments of regulation, and seconds later had a much easier stop on Salah\u2019s shot.</p>\n\n\n\n<p>Egypt had one more chance before the end of regulation, but Haissem Hassan was turned away by Souttar, who deflected the shot with his knee.</p>\n\n\n<div></div>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "Consumer Reports offers top picks for playing music this summer",
-      "link": "https://www.wcvb.com/article/consumer-reports-offers-top-picks-for-playing-music-this-summer/71817253",
-      "published": "Fri, 03 Jul 2026 20:36:00 GMT",
-      "ts": 1783110960,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Experts say the best summer speakers combine good sound, durability and easy portability. See the top-ranked models.</p>",
-      "source": "Top Stories"
     },
     {
       "title": "Taylor Swift and Travis Kelce married in elaborate Madison Square Garden ceremony",
@@ -4045,16 +4065,6 @@
       "feed_title": "GBH News",
       "summary": "Evan Greer of Boston-based digital privacy group Fight for the Future joins GBH's Morning Edition to discuss a newly-released social media ban bill from the State Senate.",
       "source": "GBH News"
-    },
-    {
-      "title": "Avon park closed due to sightings of apparently quite thirsty bear",
-      "link": "https://www.nbcboston.com/news/local/avon-park-closed-due-to-bear-sightings/3975751/",
-      "published": "Fri, Jul 03 2026 01:19:57 PM",
-      "ts": 1783041597,
-      "author": "Thea DiGiammerino and Bianca Beltr\u00e1n",
-      "feed_title": "NBC Boston",
-      "summary": "<p>A popular park in Avon, Massachusetts, is closed due to bear sightings, local police announced on Friday.</p>\n\n\n\n<p>The gates at D.W. Field Park were closed on South Street and the public was asked to avoid the area while wildlife authorities handle the situation.</p>\n\n\n\n<p>Animal control officials said that several residents reported a black bear near the Avon/Randolph line on Thursday night. There have been at least two sightings by police near DW Field and DeMarco Park.</p>\n\n\n\n<p>&#8220;Animal Control is asking residents in the area to use caution,&#8221; officials wrote in a Facebook post.  &#8220;If seen do not try to approach or follow the bear. Also keep a close watch on pets, secure trash barrels, chicken coops, and remove bird feeders until the bear moves through the area.&#8221;</p>\n\n\n\n<p>They shared an image of a bear sipping from a bird-feeder in the area.</p>\n\n\n\n\n\n\n\n<p>Massachusetts Environmental Police and MassWildlife confirmed they were aware of the Avon sightings and said there is no threat to the public.</p>\n\n\n\n<p>Still, the bear had some people spooked . </p>\n\n\n\n<p>&#8220;I\u2019m not gonna lie, when you showed me [the photo] I thought it was AI, because what is bear doing in Brockton?&#8221; said Quincy Plumer, a Brockton resident who was about to go for a run. </p>\n\n\n\n<p>&#8220;I\u2019m about to go home, I don\u2019t want no parts of that bear, no parts,&#8221; he added.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More bear news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/video-bear-worcester-mass/3956833/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/BlackBearWorcester_01.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/animals-and-wildlife/\">Animals and Wildlife</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 28\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/video-bear-worcester-mass/3956833/\">\n\t\t\t\t\t\t\t\t\t\tVIDEO: Bear spotted roaming near Worcester school\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/black-bear-sightings-grafton-millbury-massachusetts/3947905/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/MILLBURY-BLACK-BEAR-16x9-1.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/animals-and-wildlife/\">Animals and Wildlife</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 11\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/black-bear-sightings-grafton-millbury-massachusetts/3947905/\">\n\t\t\t\t\t\t\t\t\t\tThe bears are back! Here&#039;s what to know if you encounter one\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p><a href=\"https://www.nbcboston.com/news/local/black-bear-population-in-mass-is-thriving-experts-say/3302996/\">Black bears are common in western and central Massachusetts</a>, and sightings have been increasing in eastern Massachusetts in recent years. They are generally wary of people and not aggressive, but may attack pets or livestock.</p>\n\n\n\n<p>If you run into a bear in nature, experts advise that you speak in a calm voice and try to back away slowly. Make yourself appear bigger by raising your arms, and make noise to try to scare it off. If the bear charges &#8211; which is rare &#8211; fight back with anything you have.</p>\n\n\n\n<p>If you see a bear in a populated area you can report it to the environmental Police Radio Room at\u00a01-800-632-8075.</p>\n\n\n\n<p>For more information from the&nbsp;<a href=\"https://www.mass.gov/orgs/division-of-fisheries-and-wildlife\">Division of Fisheries and Wildlife</a>,&nbsp;<a href=\"https://www.mass.gov/info-details/frequently-asked-questions-about-black-bears\">click here.</a></p>",
-      "source": "NBC Boston"
     }
   ],
   "news_universalhub": [],
@@ -4141,16 +4151,6 @@
       "source": "The Heights"
     },
     {
-      "title": "Boston College Football: QB\u2019s and WR\u2019s Preview",
-      "link": "https://www.bcinterruption.com/boston-college-football/52062/boston-college-football-qbs-and-wrs-preview",
-      "published": "2026-07-03T08:21:53-04:00",
-      "ts": 1783081313,
-      "author": "Joseph Celia",
-      "feed_title": "",
-      "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.bcinterruption.com/wp-content/uploads/sites/25/2026/07/gettyimages-2265416526.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"wp-block-paragraph\">One of the big headlines heading into the Boston College Football season is how the offense will look. For all the mistakes and blunders from last year, it\u2019s time to turn the page and start off 2026-27 with a clean slate.&nbsp;</p>\n\n<p class=\"wp-block-paragraph\">An area that looks to be the most different on offense comes from their QB and WR room. Tons of changes have happened, and it\u2019s important to examine exactly how each of those positional groups will fare out.&nbsp;</p>\n\n<p class=\"wp-block-paragraph\"><strong>Quarterbacks</strong></p>\n\n<p class=\"wp-block-paragraph\">Based on multiple reports, QB Mason McKenzie appears to be the leading candidate to take the QB1 spot this year, with Grayson Wilson as the backup. McKenzie, a redshirt junior, has never played a snap in Division I Football. Despite his inexperience, he\u2019s clearly shown some ability where HC Bill O\u2019Brien believes in him leading the charge.&nbsp;</p>\n\n<p class=\"wp-block-paragraph\">In an early March workout, McKenzie showcased his raw ability. He\u2019s on the smaller side (6\u20191\u201d), but utilized his strengths to the best of his ability: his arm, and mobility. These skills will fit into O\u2019Brien\u2019s offensive scheme like a glove, where QB\u2019s rely on RPO\u2019s, decision making, and reading defense\u2019s on the go. He\u2019s received a ton of praise from past and current coaches, who all believe he\u2019s capable of taking the next step at the highest level of college football.&nbsp;</p>\n\n<p class=\"wp-block-paragraph\">Wilson, like McKenzie, hasn\u2019t played a snap of Division I Football. He comes from Arkansas, where he was a three star recruit out of high school. He has good size (6\u20193\u201d) and solid mobility skills, there just isn\u2019t a lot of experience there post high school. Wilson likely is the backup, but if things goes south for McKenzie, don\u2019t be shocked if changes are made.</p>\n\n<p class=\"wp-block-paragraph\">Overall, the QB\u2019s look to add a different element of mobility and quick decision making for 2026-27.&nbsp;</p>\n\n<p class=\"wp-block-paragraph\"><strong>Wide Receivers</strong></p>\n\n<p class=\"wp-block-paragraph\">The receivers group in 2026-27 is underwhelming at the moment. While they added a few names from the transfer portal, no current receiver on the Eagles roster eclipsed 200 receiving yards in 2025-2026. Granted, it\u2019s unfair to judge them solely on yards, as some were lower on depth charts, but this is an inexperienced and unproven group.&nbsp;</p>\n\n<p class=\"wp-block-paragraph\">Javarius Green, Jaedn Skeete, and Dawson Pough are looking to cover the X, Z, and Slot spots. Outside of those three, the Eagles feature VJ Wilkins, Jackson Wade, Reed Swanson, Nedrick Boldin Jr, and Landon Wright. There\u2019s talent there, but none that defenses are gameplanning against. That is of course, none of the WR\u2019s break out, but it could very well happen. Then again, it may not.&nbsp;</p>\n\n<p class=\"wp-block-paragraph\">Offensively this group should excel with McKenzie at the helm, given this group relies on speed and contested catches. It all remains to be seen.&nbsp;</p>",
-      "source": "BC Interruption"
-    },
-    {
       "title": "BC Football Summer Preview: Running Backs",
       "link": "https://www.bcinterruption.com/boston-college-football/52058/bc-football-summer-preview-running-backs",
       "published": "2026-07-02T13:23:13-04:00",
@@ -4218,6 +4218,16 @@
       "author": "Curtis Flannery",
       "feed_title": "",
       "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.bcinterruption.com/wp-content/uploads/sites/25/2026/06/gettyimages-1659337587.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tCHESTNUT HILL, MA - SEPTEMBER 09: Boston College Eagles fans during the college football game between Holy Cross Crusaders and Boston College Eagles on September 9, 2023, at Alumni Stadium in Chestnut Hill, MA. (Photo by M. Anthony Nesmith/Icon Sportswire via Getty Images) | Icon Sportswire via Getty Images\t</figcaption>\n</figure>\n<p class=\"has-text-align-none wp-block-paragraph\">BC Interruption is looking for new staff writers! Applicants for this position should have a passion for Boston College sports and an interest in covering the football, basketball, and/or hockey teams.</p>\n\n<p class=\"has-text-align-none wp-block-paragraph\">This position will be responsible for providing team coverage throughout the year with the potential to focus in on an individual sport of your choosing. This includes, but is not limited to:</p>\n\n<ul class=\"wp-block-list\">\n<li>Recruiting updates</li>\n\n\n\n<li>Gameday coverage (including medias credentials if desired)</li>\n\n\n\n<li>Post-game analysis</li>\n\n\n\n<li>Breaking news</li>\n\n\n\n<li>Opinion columns</li>\n\n\n\n<li>Social media engagement</li>\n</ul>\n\n<p class=\"has-text-align-none wp-block-paragraph\">We are more than willing to accept applicants who do not have any previous professional writing or blogging experience. There is plenty of room in this position for new creative ideas! Plus opportunities to write passionately about <em>all </em>of BC\u2019s athletic programs. We would also love to bring a writer aboard who is active on social media and wants to increase BCI\u2019s engagement on Instagram, X, or other platforms. This position is a great launch point if you\u2019ve always wanted to bring your content creation passion to a larger audience.</p>\n\n<p class=\"has-text-align-none wp-block-paragraph\">This position does not require in-person attendance, but it does require the ability to access streams for the majority of games to provide live coverage for BC Interruption if not available in-person. Qualified applicants must also have an awareness of the major Boston College and NCAA basketball and football websites/social media accounts in order to be prepared to track breaking news and recruitment information.</p>\n\n<p class=\"has-text-align-none wp-block-paragraph\">Staff writers will join a small team who split coverage duties over the course of the season. We offer a lot of flexibility when it comes to personal scheduling conflicts and work as a team to cover all of the games and latest news. Compensation for this position is comprised of a small monthly stipend. Writers are also able to obtain media credentials through BC Interruption for games if desired.</p>\n\n<p class=\"has-text-align-none wp-block-paragraph\"><strong>To Apply: </strong>To apply for this position, please email Curtis at bcinterruption@gmail.com with a cover letter explaining your interest in the position, and a sports-focused writing sample. Your writing sample can be previous work or something you wrote specifically for this application. Live coverage on social media is an important part of this position, so please also include links to your public social media account(s) if you have them. Strong activity on social media will be considered an advantage as BCI looks for new writers who want to increase our engagement across platforms. <em><strong>Applications must be submitted by Sunday June 28th, 2026 in order to be considered.</strong></em></p>",
+      "source": "BC Interruption"
+    },
+    {
+      "title": "Boston College Baseball\u2019s Season Comes to an End With 8-3 Loss to Liberty",
+      "link": "https://www.bcinterruption.com/boston-college-baseball/52002/boston-college-baseballs-season-comes-to-an-end-with-8-3-loss-to-liberty",
+      "published": "2026-05-31T15:33:07-04:00",
+      "ts": 1780255987,
+      "author": "Curran Schestag",
+      "feed_title": "",
+      "summary": "<p class=\"has-text-align-none wp-block-paragraph\">Arguably the best season in Boston College Baseball\u2019s recent history has come to a close. In a rematch of Friday\u2019s regional opener against Liberty, the Eagles fell 8-3. After jumping out ahead 2-0 in the first inning, Boston College struggled for the next eight innings to generate any consistent offense. Liberty, meanwhile, broke through in the third and cruised to the win.</p>\n\n<p class=\"has-text-align-none wp-block-paragraph\">The afternoon actually started positively for Birdball. Ty Mainolfi blasted a 393-foot homer out of the 2-spot to give BC an early 1-0 lead, while a single to left field off the bat of Gunnar Johnson brought home Luke Gallo to make it 2-0 in the second. On the mound, Brady Anderson breezed through his first two innings of work, picking up four Ks without allowing a baserunner. </p>\n\n<p class=\"has-text-align-none wp-block-paragraph\">Then the wheels fell off. Julio Solier yanked his throw to first on a routine groundout, gifting Liberty a runner to lead off the third inning. Miller induced a pop fly from Kyle Hvidsten, but then proceeded to load the bases via a hit batter and a walk. Riley DeCandido hit a single to plate two, before Miller threw the ball away on a pick-off attempt and allowed a third run to score. A triple and double scored two more runs, giving Liberty a 5-2 edge and completely flipping the game. </p>\n\n<p class=\"has-text-align-none wp-block-paragraph\">Liberty tacked on solo shots in the fourth and the fifth innings and added a further RBI in the seventh, and Birdball was not able to meaningfully respond. Despite a consolation run in the ninth, Boston College went on to lose 8-3, bringing their season to a close.</p>\n\n<p class=\"has-text-align-none wp-block-paragraph\">Despite the unfortunate manner in which their season came to a close, Birdball still had an excellent season. From projected last-place team in the ACC to battling to host a regional down the stretch of the season, Coach Interdonato did an excellent job with this group. Birdball will be back!</p>\n\n<p class=\"has-text-align-none wp-block-paragraph\"></p>",
       "source": "BC Interruption"
     },
     {
@@ -4503,16 +4513,6 @@
       "source": "CHN"
     },
     {
-      "title": "How college hockey rivalries are changing Nashville Predators development camp - The Tennessean",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPeWttcm5KTHlTUm5MNlBoaDREWHpPN2RWZnVocFdZdnpRT0RZdDU1OFNfQkVWQ05LWl9NT3psb1JqQXExbHE0azdwZk5COExUTHJNZHBxT3pBR2NpaTVId0ZOamo2MmNnTGd5T1pBdEstR2RQb3J6cW92cVRQX2lGcjNnYk90LXV3LTBNX053QnBkNnZFTEVodWFyakVnU0JLb1Z2WWNLWGZndS1JLXl2ajJMc2pwQmo4UFdDcGJvcUh4eTRlSEtESg?oc=5",
-      "published": "Fri, 03 Jul 2026 14:49:00 GMT",
-      "ts": 1783090140,
-      "author": "",
-      "feed_title": "The Tennessean",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxPeWttcm5KTHlTUm5MNlBoaDREWHpPN2RWZnVocFdZdnpRT0RZdDU1OFNfQkVWQ05LWl9NT3psb1JqQXExbHE0azdwZk5COExUTHJNZHBxT3pBR2NpaTVId0ZOamo2MmNnTGd5T1pBdEstR2RQb3J6cW92cVRQX2lGcjNnYk90LXV3LTBNX053QnBkNnZFTEVodWFyakVnU0JLb1Z2WWNLWGZndS1JLXl2ajJMc2pwQmo4UFdDcGJvcUh4eTRlSEtESg?oc=5\" target=\"_blank\">How college hockey rivalries are changing Nashville Predators development camp</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Tennessean</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
       "title": "RinkWise podcast: Northeastern coach Jerry Keefe on the path to college hockey - New England Hockey Journal",
       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQSFdUTTB6RHduX2xHZTRfajRzWUl4Zm5uWFpSR1RMSVdIZjdCQmdNd1dGOU8wbzVOaVpQTllaMUlILXgyR3dpVm5KbHc2NEJUdTZ5ZUlZb3Z4emRPSDdTNm56Mm9xdUlWQzVaalNkZEt3TU5HMC1XN2tsNGIwV0ZfeS16RU9IR05McFVhalV3VGJUenY1OWR3N1JSTnVtcUZBaDEybXNYd3BoZjlB?oc=5",
       "published": "Thu, 02 Jul 2026 21:17:08 GMT",
@@ -4520,6 +4520,16 @@
       "author": "",
       "feed_title": "New England Hockey Journal",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMirAFBVV95cUxQSFdUTTB6RHduX2xHZTRfajRzWUl4Zm5uWFpSR1RMSVdIZjdCQmdNd1dGOU8wbzVOaVpQTllaMUlILXgyR3dpVm5KbHc2NEJUdTZ5ZUlZb3Z4emRPSDdTNm56Mm9xdUlWQzVaalNkZEt3TU5HMC1XN2tsNGIwV0ZfeS16RU9IR05McFVhalV3VGJUenY1OWR3N1JSTnVtcUZBaDEybXNYd3BoZjlB?oc=5\" target=\"_blank\">RinkWise podcast: Northeastern coach Jerry Keefe on the path to college hockey</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">New England Hockey Journal</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "How college hockey rivalries are changing Nashville Predators development camp - The Tennessean",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPeWttcm5KTHlTUm5MNlBoaDREWHpPN2RWZnVocFdZdnpRT0RZdDU1OFNfQkVWQ05LWl9NT3psb1JqQXExbHE0azdwZk5COExUTHJNZHBxT3pBR2NpaTVId0ZOamo2MmNnTGd5T1pBdEstR2RQb3J6cW92cVRQX2lGcjNnYk90LXV3LTBNX053QnBkNnZFTEVodWFyakVnU0JLb1Z2WWNLWGZndS1JLXl2ajJMc2pwQmo4UFdDcGJvcUh4eTRlSEtESg?oc=5",
+      "published": "Fri, 03 Jul 2026 14:49:00 GMT",
+      "ts": 1783090140,
+      "author": "",
+      "feed_title": "The Tennessean",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxPeWttcm5KTHlTUm5MNlBoaDREWHpPN2RWZnVocFdZdnpRT0RZdDU1OFNfQkVWQ05LWl9NT3psb1JqQXExbHE0azdwZk5COExUTHJNZHBxT3pBR2NpaTVId0ZOamo2MmNnTGd5T1pBdEstR2RQb3J6cW92cVRQX2lGcjNnYk90LXV3LTBNX053QnBkNnZFTEVodWFyakVnU0JLb1Z2WWNLWGZndS1JLXl2ajJMc2pwQmo4UFdDcGJvcUh4eTRlSEtESg?oc=5\" target=\"_blank\">How college hockey rivalries are changing Nashville Predators development camp</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Tennessean</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4553,16 +4563,6 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "McKenna signs entry-level contract with Maple Leafs - NHL.com",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQVkZrQjFOekFYYnlKdWxNQk1qYnhEczV5aWpRMlg1eGNVOXNiaWFEemlRSUxQYjdZQWVVcDEyN2YwZHBmOTZkLXB2N3JwM0hWbm82SnlJeE1oOEQxaDJOY2NaZWU2czJ3aG5kWEsxOG9qbVJSaU1oVGlQNEFfUmI1ZVlnMlJOSGgweEhjWm9fYkdFSFZ3?oc=5",
-      "published": "Sat, 04 Jul 2026 00:52:11 GMT",
-      "ts": 1783126331,
-      "author": "",
-      "feed_title": "NHL.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxQVkZrQjFOekFYYnlKdWxNQk1qYnhEczV5aWpRMlg1eGNVOXNiaWFEemlRSUxQYjdZQWVVcDEyN2YwZHBmOTZkLXB2N3JwM0hWbm82SnlJeE1oOEQxaDJOY2NaZWU2czJ3aG5kWEsxOG9qbVJSaU1oVGlQNEFfUmI1ZVlnMlJOSGgweEhjWm9fYkdFSFZ3?oc=5\" target=\"_blank\">McKenna signs entry-level contract with Maple Leafs</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NHL.com</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
       "title": "College Hockey Enjoys Record-Setting NHL Draft - College Hockey, Inc.",
       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPNXN4SUtzQWdwd3F4MVA1dDFfTmdqNk1TQ3FKTnYtWVAtd05TZWFTYTBSd3RhcXk5X0dzbUtwQUgyX045cVJMZy0tdFd3NWVtbHdId3JJdTh5UlljWk9zd2dvUzdrZjJUNUZCQkpIUHhTVWo1N2lTdUdWbXZJSmNyUWtmckluMUZsS255YzFJRjU?oc=5",
       "published": "Sun, 28 Jun 2026 01:09:28 GMT",
@@ -4570,6 +4570,16 @@
       "author": "",
       "feed_title": "College Hockey, Inc.",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxPNXN4SUtzQWdwd3F4MVA1dDFfTmdqNk1TQ3FKTnYtWVAtd05TZWFTYTBSd3RhcXk5X0dzbUtwQUgyX045cVJMZy0tdFd3NWVtbHdId3JJdTh5UlljWk9zd2dvUzdrZjJUNUZCQkpIUHhTVWo1N2lTdUdWbXZJSmNyUWtmckluMUZsS255YzFJRjU?oc=5\" target=\"_blank\">College Hockey Enjoys Record-Setting NHL Draft</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">College Hockey, Inc.</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "McKenna signs entry-level contract with Maple Leafs - NHL.com",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQVkZrQjFOekFYYnlKdWxNQk1qYnhEczV5aWpRMlg1eGNVOXNiaWFEemlRSUxQYjdZQWVVcDEyN2YwZHBmOTZkLXB2N3JwM0hWbm82SnlJeE1oOEQxaDJOY2NaZWU2czJ3aG5kWEsxOG9qbVJSaU1oVGlQNEFfUmI1ZVlnMlJOSGgweEhjWm9fYkdFSFZ3?oc=5",
+      "published": "Sat, 04 Jul 2026 00:52:11 GMT",
+      "ts": 1783126331,
+      "author": "",
+      "feed_title": "NHL.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxQVkZrQjFOekFYYnlKdWxNQk1qYnhEczV5aWpRMlg1eGNVOXNiaWFEemlRSUxQYjdZQWVVcDEyN2YwZHBmOTZkLXB2N3JwM0hWbm82SnlJeE1oOEQxaDJOY2NaZWU2czJ3aG5kWEsxOG9qbVJSaU1oVGlQNEFfUmI1ZVlnMlJOSGgweEhjWm9fYkdFSFZ3?oc=5\" target=\"_blank\">McKenna signs entry-level contract with Maple Leafs</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NHL.com</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4603,16 +4613,6 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "B.C. hockey league targets Alberta expansion, Canmore Eagles committed to AJHL - Rocky Mountain Outlook",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQSjBHemFrRGluVUx6cjY4cE1mRVZ0bWVTSVNBdDVhcHE0N2hGOTY4ZEZ6eVppWk0tajdvaTVvMElOYmdYYTdZOUJTNTVpVkUtR0lMeFdBY2lIMl9fUm9lTEkzbkcyN1JwNFgtY0dtT3NrXzJTWWk2Z28tZjA1NEJOdjJGYU9QQWF2em5VOTBFNzRGNUZ2ekR0YTVyNWhyUjNiR2lYRk50Q2FTTkU1OC04RnlYRzMxNTFYVl9wLTJIdlU?oc=5",
-      "published": "Tue, 30 Jun 2026 20:30:00 GMT",
-      "ts": 1782851400,
-      "author": "",
-      "feed_title": "Rocky Mountain Outlook",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxQSjBHemFrRGluVUx6cjY4cE1mRVZ0bWVTSVNBdDVhcHE0N2hGOTY4ZEZ6eVppWk0tajdvaTVvMElOYmdYYTdZOUJTNTVpVkUtR0lMeFdBY2lIMl9fUm9lTEkzbkcyN1JwNFgtY0dtT3NrXzJTWWk2Z28tZjA1NEJOdjJGYU9QQWF2em5VOTBFNzRGNUZ2ekR0YTVyNWhyUjNiR2lYRk50Q2FTTkU1OC04RnlYRzMxNTFYVl9wLTJIdlU?oc=5\" target=\"_blank\">B.C. hockey league targets Alberta expansion, Canmore Eagles committed to AJHL</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Rocky Mountain Outlook</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
       "title": "The Death of BC Hockey: What Really Killed the Eagles\u2019 2026 Title Hopes - bcheights.com",
       "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE83TkRMTW1LN0JXZ1p2TnJJMHpPMDEzYmplS0h1QlRKWFZxR2ZfSXpiTkdaeDR3WGJzRzd2aWJsZ2VGTTVmS0tSeUVjSDE1RG9DOFN6S1p4QnNXSGUzd2U2WTN5MG8tVVBEOW5J?oc=5",
       "published": "Sun, 29 Mar 2026 07:00:00 GMT",
@@ -4623,23 +4623,13 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Belmont\u2019s Kara Goulding on Final Stretch of BC Hockey Career - The Belmont Voice",
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOZXhWUEpRdW1PbEY0c1BoYUhpZGMxaGt1UVpsV1I4MndyaHJOLWZiTzdXSk5yNkxMa3RRaDlSZHB2U0phVDVnWGhFMzJzSXlXblJ6UWotdEVDZnhLNHRyWnRpVHl2NlBtX3RnSjlPMlNuSXFpdm11MXFMZzlrcjVwTjA0Wjk3Tm1hbUNxbldn?oc=5",
-      "published": "Wed, 07 Jan 2026 08:00:00 GMT",
-      "ts": 1767772800,
+      "title": "B.C. hockey league targets Alberta expansion, Canmore Eagles committed to AJHL - Rocky Mountain Outlook",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQSjBHemFrRGluVUx6cjY4cE1mRVZ0bWVTSVNBdDVhcHE0N2hGOTY4ZEZ6eVppWk0tajdvaTVvMElOYmdYYTdZOUJTNTVpVkUtR0lMeFdBY2lIMl9fUm9lTEkzbkcyN1JwNFgtY0dtT3NrXzJTWWk2Z28tZjA1NEJOdjJGYU9QQWF2em5VOTBFNzRGNUZ2ekR0YTVyNWhyUjNiR2lYRk50Q2FTTkU1OC04RnlYRzMxNTFYVl9wLTJIdlU?oc=5",
+      "published": "Tue, 30 Jun 2026 20:30:00 GMT",
+      "ts": 1782851400,
       "author": "",
-      "feed_title": "The Belmont Voice",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxOZXhWUEpRdW1PbEY0c1BoYUhpZGMxaGt1UVpsV1I4MndyaHJOLWZiTzdXSk5yNkxMa3RRaDlSZHB2U0phVDVnWGhFMzJzSXlXblJ6UWotdEVDZnhLNHRyWnRpVHl2NlBtX3RnSjlPMlNuSXFpdm11MXFMZzlrcjVwTjA0Wjk3Tm1hbUNxbldn?oc=5\" target=\"_blank\">Belmont\u2019s Kara Goulding on Final Stretch of BC Hockey Career</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Belmont Voice</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
-      "title": "BC Hockey Hall of Fame will welcome new additions in a ceremony in Penticton this summer - Castanet",
-      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQMTgybWxuUm9RSWstZU1kZUZqbTdTZGU2YkcwR2NXMTdhdUpHR0JGY2xFaERBT0plRlZSQWxIMUJ3Tjc5VllOMTdTUVZidldMZWh6VXI0Ymo4d2FtQWNIcW8wNE9zZHkxLWd1VUZHNmluME9KTHFTTnU0Z3VsSXV4Tk44M2dmaUg4Sm53ZTNuaUVFS2Z2X0cyVWtVWllyX2dPSnh4anFqVmJhbnN2R3Y1bHZoRFhsQlIxT3pQZzd0Z21VbnhNNlBaVnBwTU0?oc=5",
-      "published": "Sun, 28 Jun 2026 00:00:00 GMT",
-      "ts": 1782604800,
-      "author": "",
-      "feed_title": "Castanet",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxQMTgybWxuUm9RSWstZU1kZUZqbTdTZGU2YkcwR2NXMTdhdUpHR0JGY2xFaERBT0plRlZSQWxIMUJ3Tjc5VllOMTdTUVZidldMZWh6VXI0Ymo4d2FtQWNIcW8wNE9zZHkxLWd1VUZHNmluME9KTHFTTnU0Z3VsSXV4Tk44M2dmaUg4Sm53ZTNuaUVFS2Z2X0cyVWtVWllyX2dPSnh4anFqVmJhbnN2R3Y1bHZoRFhsQlIxT3pQZzd0Z21VbnhNNlBaVnBwTU0?oc=5\" target=\"_blank\">BC Hockey Hall of Fame will welcome new additions in a ceremony in Penticton this summer</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Castanet</font>",
+      "feed_title": "Rocky Mountain Outlook",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxQSjBHemFrRGluVUx6cjY4cE1mRVZ0bWVTSVNBdDVhcHE0N2hGOTY4ZEZ6eVppWk0tajdvaTVvMElOYmdYYTdZOUJTNTVpVkUtR0lMeFdBY2lIMl9fUm9lTEkzbkcyN1JwNFgtY0dtT3NrXzJTWWk2Z28tZjA1NEJOdjJGYU9QQWF2em5VOTBFNzRGNUZ2ekR0YTVyNWhyUjNiR2lYRk50Q2FTTkU1OC04RnlYRzMxNTFYVl9wLTJIdlU?oc=5\" target=\"_blank\">B.C. hockey league targets Alberta expansion, Canmore Eagles committed to AJHL</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Rocky Mountain Outlook</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
@@ -4653,6 +4643,16 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
+      "title": "Belmont\u2019s Kara Goulding on Final Stretch of BC Hockey Career - The Belmont Voice",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOZXhWUEpRdW1PbEY0c1BoYUhpZGMxaGt1UVpsV1I4MndyaHJOLWZiTzdXSk5yNkxMa3RRaDlSZHB2U0phVDVnWGhFMzJzSXlXblJ6UWotdEVDZnhLNHRyWnRpVHl2NlBtX3RnSjlPMlNuSXFpdm11MXFMZzlrcjVwTjA0Wjk3Tm1hbUNxbldn?oc=5",
+      "published": "Wed, 07 Jan 2026 08:00:00 GMT",
+      "ts": 1767772800,
+      "author": "",
+      "feed_title": "The Belmont Voice",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxOZXhWUEpRdW1PbEY0c1BoYUhpZGMxaGt1UVpsV1I4MndyaHJOLWZiTzdXSk5yNkxMa3RRaDlSZHB2U0phVDVnWGhFMzJzSXlXblJ6UWotdEVDZnhLNHRyWnRpVHl2NlBtX3RnSjlPMlNuSXFpdm11MXFMZzlrcjVwTjA0Wjk3Tm1hbUNxbldn?oc=5\" target=\"_blank\">Belmont\u2019s Kara Goulding on Final Stretch of BC Hockey Career</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Belmont Voice</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
+    {
       "title": "Six Numbers that Tell the Story of Boston College Hockey\u2019s Season Ending Loss - Sports Illustrated",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNOWVPRkdDbE1pRzd3SHJYTWtHc1ZmQTJfUkZxZDdncHNreXVEUHVTS3pJYXdjOVFXRUN0a2xRZFREUEtwNzM2S1o3ZmRwRk1XSXdHVXNZUFljNXhVeWcyZWZNSGZKSGtYU0JTbzlSNUJIYW1jaGRncl9kVFFCZEtHMWZCLWVxSmtfMzBsaEtBMHcyOWo1WTRvUTBuY2xObXk2LV9XNGJzTE5XS2JIeG0xN3J0NFFjOFNzWHRuUUQ5bUY?oc=5",
       "published": "Sat, 21 Mar 2026 07:00:00 GMT",
@@ -4660,6 +4660,16 @@
       "author": "",
       "feed_title": "Sports Illustrated",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxNOWVPRkdDbE1pRzd3SHJYTWtHc1ZmQTJfUkZxZDdncHNreXVEUHVTS3pJYXdjOVFXRUN0a2xRZFREUEtwNzM2S1o3ZmRwRk1XSXdHVXNZUFljNXhVeWcyZWZNSGZKSGtYU0JTbzlSNUJIYW1jaGRncl9kVFFCZEtHMWZCLWVxSmtfMzBsaEtBMHcyOWo1WTRvUTBuY2xObXk2LV9XNGJzTE5XS2JIeG0xN3J0NFFjOFNzWHRuUUQ5bUY?oc=5\" target=\"_blank\">Six Numbers that Tell the Story of Boston College Hockey\u2019s Season Ending Loss</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
+    {
+      "title": "BC Hockey Hall of Fame will welcome new additions in a ceremony in Penticton this summer - Castanet",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQMTgybWxuUm9RSWstZU1kZUZqbTdTZGU2YkcwR2NXMTdhdUpHR0JGY2xFaERBT0plRlZSQWxIMUJ3Tjc5VllOMTdTUVZidldMZWh6VXI0Ymo4d2FtQWNIcW8wNE9zZHkxLWd1VUZHNmluME9KTHFTTnU0Z3VsSXV4Tk44M2dmaUg4Sm53ZTNuaUVFS2Z2X0cyVWtVWllyX2dPSnh4anFqVmJhbnN2R3Y1bHZoRFhsQlIxT3pQZzd0Z21VbnhNNlBaVnBwTU0?oc=5",
+      "published": "Sun, 28 Jun 2026 00:00:00 GMT",
+      "ts": 1782604800,
+      "author": "",
+      "feed_title": "Castanet",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxQMTgybWxuUm9RSWstZU1kZUZqbTdTZGU2YkcwR2NXMTdhdUpHR0JGY2xFaERBT0plRlZSQWxIMUJ3Tjc5VllOMTdTUVZidldMZWh6VXI0Ymo4d2FtQWNIcW8wNE9zZHkxLWd1VUZHNmluME9KTHFTTnU0Z3VsSXV4Tk44M2dmaUg4Sm53ZTNuaUVFS2Z2X0cyVWtVWllyX2dPSnh4anFqVmJhbnN2R3Y1bHZoRFhsQlIxT3pQZzd0Z21VbnhNNlBaVnBwTU0?oc=5\" target=\"_blank\">BC Hockey Hall of Fame will welcome new additions in a ceremony in Penticton this summer</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Castanet</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
@@ -4693,13 +4703,13 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "B.C. hockey icon\u2019s story garners honours on both sides of border - Vancouver Island Free Daily",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYVNncWdRc2w2YWEtZUVXb1pUZHQtanNMY09kNm1QMDZNVDVzV3ZnNUZDeFZpVERMMHBvaDhtZjZvTlNFQTRITmxtdURNSk5qc2FMNUg0VzJkUU9rWVRaY0RYYkJrbkZabWhfTjNMbmhJazlsazFpQTB2dXkzMTNLVi1PMmtlQWJKUHNsX1ZPZDhwTjhSSlI1QzZDUFAwa2dHWXBMMmVQUUtESGpKN0JVbw?oc=5",
-      "published": "Fri, 05 Jun 2026 03:04:33 GMT",
-      "ts": 1780628673,
+      "title": "Early power play goals lead Boston College hockey to 7-3 win over UMaine - Bangor Daily News",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5",
+      "published": "Fri, 21 Nov 2025 08:00:00 GMT",
+      "ts": 1763712000,
       "author": "",
-      "feed_title": "Vancouver Island Free Daily",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNYVNncWdRc2w2YWEtZUVXb1pUZHQtanNMY09kNm1QMDZNVDVzV3ZnNUZDeFZpVERMMHBvaDhtZjZvTlNFQTRITmxtdURNSk5qc2FMNUg0VzJkUU9rWVRaY0RYYkJrbkZabWhfTjNMbmhJazlsazFpQTB2dXkzMTNLVi1PMmtlQWJKUHNsX1ZPZDhwTjhSSlI1QzZDUFAwa2dHWXBMMmVQUUtESGpKN0JVbw?oc=5\" target=\"_blank\">B.C. hockey icon\u2019s story garners honours on both sides of border</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Vancouver Island Free Daily</font>",
+      "feed_title": "Bangor Daily News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5\" target=\"_blank\">Early power play goals lead Boston College hockey to 7-3 win over UMaine</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Bangor Daily News</font>",
       "source": "Google News \u00b7 BC Hockey"
     }
   ],
@@ -4927,16 +4937,6 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "Massachusetts Hockey Reveals 2026-27 Schedule - University of Massachusetts Athletics",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPMW9pOW1EWDhXR0NnQkE5aEJKUkxjbFdoNlR6OUF4WUhvLWhNamMtTF9zaWVHcnNZazI1MG80ZFVsaUdWb1RtZTFxM05Dc3BDeUloSVVpX3RjSi13UTBnQ2ZDN2JHc1RFNnNrRGxVZHJLMUtsYm9ZNS12V2FTSXl4Uy1iUTZKMVB5dElBRHk4Zw?oc=5",
-      "published": "Mon, 08 Jun 2026 07:00:00 GMT",
-      "ts": 1780902000,
-      "author": "",
-      "feed_title": "University of Massachusetts Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxPMW9pOW1EWDhXR0NnQkE5aEJKUkxjbFdoNlR6OUF4WUhvLWhNamMtTF9zaWVHcnNZazI1MG80ZFVsaUdWb1RtZTFxM05Dc3BDeUloSVVpX3RjSi13UTBnQ2ZDN2JHc1RFNnNrRGxVZHJLMUtsYm9ZNS12V2FTSXl4Uy1iUTZKMVB5dElBRHk4Zw?oc=5\" target=\"_blank\">Massachusetts Hockey Reveals 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Massachusetts Athletics</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
       "title": "Maine men's hockey unveils 2026-27 schedule - University of Maine Athletics",
       "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOWUgxLUZJcTRvYUU4c0hDakctSTYzcldGQXg2WHBwcklKd1hJZ1p6M19rQmJhOEVjRDRROEpTUTgtQTRqWENYZUFKWjJ3QnVzc1V6SU9tM0xLQWNfS3psZ1UxMDgtcXRaeFMxaXFOYmVUd2ZqclZqSmJlc3pIV0tuMEpRODZ0VUllWWxNTjhMeVpHZU5aakZsNFA5cXJ0WEREWTJvZFRn?oc=5",
       "published": "Fri, 26 Jun 2026 15:17:03 GMT",
@@ -4944,6 +4944,16 @@
       "author": "",
       "feed_title": "University of Maine Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMipgFBVV95cUxOWUgxLUZJcTRvYUU4c0hDakctSTYzcldGQXg2WHBwcklKd1hJZ1p6M19rQmJhOEVjRDRROEpTUTgtQTRqWENYZUFKWjJ3QnVzc1V6SU9tM0xLQWNfS3psZ1UxMDgtcXRaeFMxaXFOYmVUd2ZqclZqSmJlc3pIV0tuMEpRODZ0VUllWWxNTjhMeVpHZU5aakZsNFA5cXJ0WEREWTJvZFRn?oc=5\" target=\"_blank\">Maine men's hockey unveils 2026-27 schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Maine Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "Massachusetts Hockey Reveals 2026-27 Schedule - University of Massachusetts Athletics",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPMW9pOW1EWDhXR0NnQkE5aEJKUkxjbFdoNlR6OUF4WUhvLWhNamMtTF9zaWVHcnNZazI1MG80ZFVsaUdWb1RtZTFxM05Dc3BDeUloSVVpX3RjSi13UTBnQ2ZDN2JHc1RFNnNrRGxVZHJLMUtsYm9ZNS12V2FTSXl4Uy1iUTZKMVB5dElBRHk4Zw?oc=5",
+      "published": "Mon, 08 Jun 2026 07:00:00 GMT",
+      "ts": 1780902000,
+      "author": "",
+      "feed_title": "University of Massachusetts Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxPMW9pOW1EWDhXR0NnQkE5aEJKUkxjbFdoNlR6OUF4WUhvLWhNamMtTF9zaWVHcnNZazI1MG80ZFVsaUdWb1RtZTFxM05Dc3BDeUloSVVpX3RjSi13UTBnQ2ZDN2JHc1RFNnNrRGxVZHJLMUtsYm9ZNS12V2FTSXl4Uy1iUTZKMVB5dElBRHk4Zw?oc=5\" target=\"_blank\">Massachusetts Hockey Reveals 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Massachusetts Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -4957,16 +4967,6 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "League Tabs 44 Selections in 2026 NHL Draft - USHL",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNUDF0cGgwdzk1S0E3Sm96ZFI3dUVUXzAtUjRSZkJONi1QYjZ4YWZET0Vpc0huNVl2YkpxbFdpWjJ5b0c5QmkzS1preXdId090MnA3ZUZnUDlsNkxiV1EyU3cxczhoN2E2NnNQZUtGbDR3X0NPSVAyWXY0WWlJQURyN0lnY3FaelpEZVpVWDdDb1JBWE5tZjNIM1J3?oc=5",
-      "published": "Sat, 27 Jun 2026 22:24:38 GMT",
-      "ts": 1782599078,
-      "author": "",
-      "feed_title": "USHL",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNUDF0cGgwdzk1S0E3Sm96ZFI3dUVUXzAtUjRSZkJONi1QYjZ4YWZET0Vpc0huNVl2YkpxbFdpWjJ5b0c5QmkzS1preXdId090MnA3ZUZnUDlsNkxiV1EyU3cxczhoN2E2NnNQZUtGbDR3X0NPSVAyWXY0WWlJQURyN0lnY3FaelpEZVpVWDdDb1JBWE5tZjNIM1J3?oc=5\" target=\"_blank\">League Tabs 44 Selections in 2026 NHL Draft</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">USHL</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
       "title": "Huskies Advance to Hockey East Championship - University of Connecticut Athletics",
       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQVEt0a2hpRjl4NkhuV20yc1ZTa3pWVW4wMXo5dXdpYzl6cS1sNzZGeG9UNW9RMWFYWUY0LUliTVRob0pKRzBObVFzc3dXbFhMM2FWRmpSakFnQVp6aGtjejVLQ2N0c3VOUy04NTBqNjJVWGZrRWlWM2c1WjZfWXU5ZzMyVUl5S1VGU2Eyd21scV9VREJOSGtROWNJZ2JOZXVW?oc=5",
       "published": "Fri, 20 Mar 2026 07:00:00 GMT",
@@ -4974,6 +4974,16 @@
       "author": "",
       "feed_title": "University of Connecticut Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxQVEt0a2hpRjl4NkhuV20yc1ZTa3pWVW4wMXo5dXdpYzl6cS1sNzZGeG9UNW9RMWFYWUY0LUliTVRob0pKRzBObVFzc3dXbFhMM2FWRmpSakFnQVp6aGtjejVLQ2N0c3VOUy04NTBqNjJVWGZrRWlWM2c1WjZfWXU5ZzMyVUl5S1VGU2Eyd21scV9VREJOSGtROWNJZ2JOZXVW?oc=5\" target=\"_blank\">Huskies Advance to Hockey East Championship</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Connecticut Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "League Tabs 44 Selections in 2026 NHL Draft - USHL",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNUDF0cGgwdzk1S0E3Sm96ZFI3dUVUXzAtUjRSZkJONi1QYjZ4YWZET0Vpc0huNVl2YkpxbFdpWjJ5b0c5QmkzS1preXdId090MnA3ZUZnUDlsNkxiV1EyU3cxczhoN2E2NnNQZUtGbDR3X0NPSVAyWXY0WWlJQURyN0lnY3FaelpEZVpVWDdDb1JBWE5tZjNIM1J3?oc=5",
+      "published": "Sat, 27 Jun 2026 22:24:38 GMT",
+      "ts": 1782599078,
+      "author": "",
+      "feed_title": "USHL",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNUDF0cGgwdzk1S0E3Sm96ZFI3dUVUXzAtUjRSZkJONi1QYjZ4YWZET0Vpc0huNVl2YkpxbFdpWjJ5b0c5QmkzS1preXdId090MnA3ZUZnUDlsNkxiV1EyU3cxczhoN2E2NnNQZUtGbDR3X0NPSVAyWXY0WWlJQURyN0lnY3FaelpEZVpVWDdDb1JBWE5tZjNIM1J3?oc=5\" target=\"_blank\">League Tabs 44 Selections in 2026 NHL Draft</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">USHL</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -5159,13 +5169,13 @@
       "source": "NPR"
     },
     {
-      "title": "Trump Targets Not Just Georgia\u2019s Vote, but Also Trust in Elections",
-      "link": "https://www.nytimes.com/2026/07/03/us/politics/trump-georgia-doubt-election-integrity.html",
-      "published": "Fri, 03 Jul 2026 23:31:32 +0000",
-      "ts": 1783121492,
-      "author": "Zolan Kanno-Youngs",
+      "title": "How Do You Celebrate America\u2019s 250-Year Experiment? However You Want.",
+      "link": "https://www.nytimes.com/2026/07/04/us/america-250-us-independence-day-celebrations.html",
+      "published": "Sat, 04 Jul 2026 09:00:58 +0000",
+      "ts": 1783155658,
+      "author": "Richard Fausset",
       "feed_title": "",
-      "summary": "An F.B.I. agent entering the Fulton County elections office in Union City, Ga., in January.",
+      "summary": "A crowd recreated the shape of the Liberty Bell on Independence Mall in Philadelphia on Thursday.",
       "source": "NY Times"
     },
     {
@@ -5179,84 +5189,94 @@
       "source": "NY Times"
     },
     {
-      "title": "Trump Pardons Violators of the Clean Air Act and a Major Donor",
-      "link": "https://www.nytimes.com/2026/07/03/us/politics/trump-pardon-clean-air-act.html",
-      "published": "Sat, 04 Jul 2026 02:06:23 +0000",
-      "ts": 1783130783,
-      "author": "Kenneth P. Vogel and Karen Zraick",
+      "title": "Momentary Unity at a Funeral Masks Deep Divisions Among Iran\u2019s Leaders",
+      "link": "https://www.nytimes.com/2026/07/04/world/middleeast/iran-supreme-leader-funeral-divisions.html",
+      "published": "Sat, 04 Jul 2026 09:01:35 +0000",
+      "ts": 1783155695,
+      "author": "Farnaz Fassihi",
       "feed_title": "",
-      "summary": "One of the pardoned men was Mackenzie Spurlock, of Wasilla, Alaska, who had been charged with removing emissions controls from vehicles.",
+      "summary": "Iranian officials standing next to the coffin of Ayatollah Ali Khamenei, who was killed on the first day of the U.S.-Israeli war against Iran.",
       "source": "NY Times"
     },
     {
-      "title": "Parents Will Be Able to Enroll Newborns in Trump Accounts at the Hospital",
-      "link": "https://www.nytimes.com/2026/07/03/your-money/trump-accounts-newborns-social-security-numbers.html",
-      "published": "Fri, 03 Jul 2026 22:39:44 +0000",
-      "ts": 1783118384,
-      "author": "Tara Siegel Bernard",
+      "title": "Iran Projects Unity to the World While Pursuing a Crackdown at Home",
+      "link": "https://www.nytimes.com/2026/07/04/world/middleeast/iran-dissidents-crackdown.html",
+      "published": "Sat, 04 Jul 2026 10:33:34 +0000",
+      "ts": 1783161214,
+      "author": "Sanam Mahoozi and Yeganeh Torbati",
       "feed_title": "",
-      "summary": "Frank J. Bisignano, the Social Security Administration commissioner, said parents would be able to take advantage of the Trump accounts \u201cfrom the day a child is born.\u201d",
+      "summary": "The country\u2019s security service has continued to target civil society and dissidents, including thousands of arrests since the launch of the U.S.-Israeli war in February.",
       "source": "NY Times"
     },
     {
-      "title": "Once the Centerpiece of Celebration, a Faded Declaration Recedes",
-      "link": "https://www.nytimes.com/2026/07/03/us/politics/once-the-centerpiece-of-celebration-a-faded-declaration-recedes.html",
-      "published": "Fri, 03 Jul 2026 22:35:05 +0000",
-      "ts": 1783118105,
-      "author": "David E. Sanger",
+      "title": "Trump Targets Not Just Georgia\u2019s Vote, but Also Trust in Elections",
+      "link": "https://www.nytimes.com/2026/07/03/us/politics/trump-georgia-doubt-election-integrity.html",
+      "published": "Fri, 03 Jul 2026 23:31:32 +0000",
+      "ts": 1783121492,
+      "author": "Zolan Kanno-Youngs",
       "feed_title": "",
-      "summary": "Sunlight and abuse have taken a toll on the document, encased in bulletproof glass. But the Trump administration \u201chasn\u2019t put much emphasis on it,\u201d a former archivist notes.",
+      "summary": "An F.B.I. agent entering the Fulton County elections office in Union City, Ga., in January.",
       "source": "NY Times"
     },
     {
-      "title": "Celebrating America\u2019s 250th Anniversary Across the Country",
-      "link": "https://www.nytimes.com/2026/07/03/us/july-4-250-photos-videos.html",
-      "published": "Sat, 04 Jul 2026 03:54:52 +0000",
-      "ts": 1783137292,
+      "title": "Trump Takes Stock of Other Presidencies, Shedding Light on His Own",
+      "link": "https://www.nytimes.com/2026/07/03/us/politics/trump-takes-stock-of-other-presidencies-shedding-light-on-his-own.html",
+      "published": "Sat, 04 Jul 2026 09:02:27 +0000",
+      "ts": 1783155747,
+      "author": "Aishvarya Kavi",
+      "feed_title": "",
+      "summary": "A new painting of President Trump in the cabinet room of the White House.",
+      "source": "NY Times"
+    },
+    {
+      "title": "What to Know About Taylor Swift and Travis Kelce\u2019s Wedding Festivities",
+      "link": "https://www.nytimes.com/2026/07/04/style/taylor-swift-travis-kelce-wedding-recap.html",
+      "published": "Sat, 04 Jul 2026 08:34:04 +0000",
+      "ts": 1783154044,
+      "author": "Matt Stevens, Jesse McKinley and Madison Malone Kircher",
+      "feed_title": "",
+      "summary": "A \u201cJUST&T MARRIED!\u201d sign on a video screen outside the wedding venue Friday evening.",
+      "source": "NY Times"
+    },
+    {
+      "title": "Photos: See Outside Taylor Swift and Travis Kelce\u2019s Wedding at MSG",
+      "link": "https://www.nytimes.com/2026/07/03/style/taylor-swift-wedding-photos-msg.html",
+      "published": "Sat, 04 Jul 2026 02:41:31 +0000",
+      "ts": 1783132891,
       "author": "The New York Times",
       "feed_title": "",
-      "summary": "Families watching a fireworks display in Mansfield, Texas, on Thursday.",
+      "summary": "The couple\u2019s private celebration created a public spectacle outside Madison Square Garden.",
       "source": "NY Times"
     },
     {
-      "title": "Making a Cake for America\u2019s 250th Birthday",
-      "link": "https://www.nytimes.com/2026/07/03/dining/america-250-birthday-cake-grace-pak.html",
-      "published": "Fri, 03 Jul 2026 19:29:28 +0000",
-      "ts": 1783106968,
-      "author": "Kim Severson",
+      "title": "Taylor Swift and Travis Kelce\u2019s American Royal Wedding",
+      "link": "https://www.nytimes.com/2026/07/04/style/taylor-swift-travis-kelce-american-royal-wedding.html",
+      "published": "Sat, 04 Jul 2026 09:01:28 +0000",
+      "ts": 1783155688,
+      "author": "Amanda Hess",
       "feed_title": "",
-      "summary": "In her quest to mark the nation\u2019s 250th with a unifying dessert, Grace Pak had to navigate the pitfalls of a polarized Washington.",
+      "summary": "Taylor Swift and Travis Kelce celebrated their marriage, and the culmination of a very public courtship, with a star-studded event at Madison Square Garden.",
       "source": "NY Times"
     },
     {
-      "title": "Burger vs. Bratwurst: A Climate Guide to Your July 4 Cookout",
-      "link": "https://www.nytimes.com/2026/07/03/upshot/hamburger-beef-july4-climate-guide.html",
-      "published": "Fri, 03 Jul 2026 09:01:35 +0000",
-      "ts": 1783069295,
-      "author": "Francesca Paris",
+      "title": "Putin Visits Battlefield and Vows to Take More of Ukraine",
+      "link": "https://www.nytimes.com/2026/07/03/world/europe/putin-ukraine-donbas-battlefield-visit.html",
+      "published": "Sat, 04 Jul 2026 00:24:33 +0000",
+      "ts": 1783124673,
+      "author": "Paul Sonne",
       "feed_title": "",
-      "summary": "Beef is far worse for greenhouse gas emissions compared with other meat.",
+      "summary": "Black smoke rose above residential buildings in Moscow last month following a drone attack from Ukraine.",
       "source": "NY Times"
     },
     {
-      "title": "Taylor Swift Wears Dior Dress by Jonathan Anderson for MSG Wedding",
-      "link": "https://www.nytimes.com/2026/07/03/style/taylor-swift-wedding-dress-dior.html",
-      "published": "Sat, 04 Jul 2026 00:00:13 +0000",
-      "ts": 1783123213,
-      "author": "Vanessa Friedman",
+      "title": "Pubs and police brace for England-Mexico 1am kick-off after Fifa U-turn",
+      "link": "https://www.bbc.co.uk/news/articles/cy9r2x4pz1wo?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 04 Jul 2026 10:06:43 GMT",
+      "ts": 1783159603,
+      "author": "",
       "feed_title": "",
-      "summary": "Jonathan Anderson, who joined Dior just last year, has been charged with revitalizing its global profile.",
-      "source": "NY Times"
-    },
-    {
-      "title": "With Its Celebrity Guests, Taylor Swift\u2019s Wedding Rivals the Met Gala",
-      "link": "https://www.nytimes.com/2026/07/03/style/taylor-swift-wedding-celebrity-guests.html",
-      "published": "Sat, 04 Jul 2026 01:04:10 +0000",
-      "ts": 1783127050,
-      "author": "Vanessa Friedman",
-      "feed_title": "",
-      "summary": "Top-secret celebrity guest lists! No cell phones! Big fashion moments! S.U.V.s galore! New York usually gets only one party like this a year.",
-      "source": "NY Times"
+      "summary": "England's last-16 World Cup tie will kick off at 01:00BST on Monday, after Fifa reconsidered bringing it forward.",
+      "source": "BBC"
     },
     {
       "title": "Starmer tells of 'intensely personal' decision to quit and warns Burnham in first interview since resigning",
@@ -5266,16 +5286,6 @@
       "author": "",
       "feed_title": "",
       "summary": "In an untypically candid interview, the outgoing PM tells the BBC it was \"really tough\" to accept his political career was over.",
-      "source": "BBC"
-    },
-    {
-      "title": "England-Mexico kick-off unchanged at 1am after Fifa u-turn",
-      "link": "https://www.bbc.co.uk/sport/football/articles/cvgmz3jyq9qo?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 04 Jul 2026 00:16:26 GMT",
-      "ts": 1783124186,
-      "author": "",
-      "feed_title": "",
-      "summary": "England's World Cup last-16 tie against Mexico will kick off as scheduled at 01:00 BST on Monday.",
       "source": "BBC"
     },
     {
@@ -5299,6 +5309,16 @@
       "source": "BBC"
     },
     {
+      "title": "The massive scramble behind the scenes before the new PM arrives",
+      "link": "https://www.bbc.co.uk/news/articles/cj4g0n0p15xo?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 04 Jul 2026 09:22:20 GMT",
+      "ts": 1783156940,
+      "author": "",
+      "feed_title": "",
+      "summary": "As Starmer gets ready to pack his bags, there's a \"bunfight for jobs\" in Whitehall, one MP tells Laura Kuenssberg.",
+      "source": "BBC"
+    },
+    {
       "title": "Fireworks, flyovers and a 'really long' Trump speech ahead as US celebrates 250th",
       "link": "https://www.bbc.co.uk/news/articles/cp36l4e6v9po?at_medium=RSS&at_campaign=rss",
       "published": "Sat, 04 Jul 2026 06:54:54 GMT",
@@ -5309,23 +5329,13 @@
       "source": "BBC"
     },
     {
-      "title": "UK temperatures forecast to exceed 30C as another heatwave imminent",
-      "link": "https://www.bbc.co.uk/weather/articles/c621j44jwe1o?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 04 Jul 2026 00:23:47 GMT",
-      "ts": 1783124627,
+      "title": "Mini-marts linked to convicted people smuggler closed after BBC investigation",
+      "link": "https://www.bbc.co.uk/news/articles/cjwgp00l84qo?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 04 Jul 2026 01:54:31 GMT",
+      "ts": 1783130071,
       "author": "",
       "feed_title": "",
-      "summary": "Another heatwave is on its way and set to last significantly longer as Stav Danaos explains.",
-      "source": "BBC"
-    },
-    {
-      "title": "How to walk 30 minutes a day - your tips after NHS reward scheme announced",
-      "link": "https://www.bbc.co.uk/news/articles/c20y2lkgz13o?at_medium=RSS&at_campaign=rss",
-      "published": "Fri, 03 Jul 2026 21:31:05 GMT",
-      "ts": 1783114265,
-      "author": "",
-      "feed_title": "",
-      "summary": "From walking the dog before breakfast to getting off the bus a stop early, readers share their tips for building a daily walking habit.",
+      "summary": "We traced Twana Jamal, once the \"the godfather\" of French migrant camps, to two shops in Leicestershire.",
       "source": "BBC"
     },
     {
@@ -5335,7 +5345,7 @@
       "ts": 1783126625,
       "author": "",
       "feed_title": "",
-      "summary": "Temperature records have tumbled across the UK and Europe as scientists warn it is a sign of things to come.",
+      "summary": "Temperature records were smashed in June - and scientists warn this is a sign of things to come.",
       "source": "BBC"
     },
     {
@@ -5357,6 +5367,46 @@
       "feed_title": "",
       "summary": "Some schools are opting to open late, arguing they are striking the right balance, and many parents have backed the decision.",
       "source": "BBC"
+    },
+    {
+      "title": "Happy Independence Day, America: Your revolution inspired ours",
+      "link": "https://thehill.com/opinion/international/5951225-happy-independence-day-america-your-revolution-inspired-ours/",
+      "published": "Sat, 04 Jul 2026 11:00:00 +0000",
+      "ts": 1783162800,
+      "author": "Michael Martin, opinion contributor",
+      "feed_title": "",
+      "summary": "Robert Emmet, the Irish republican leader. said he wished to secure for Ireland \u201cthe guarantee which Washington procured for America.\"",
+      "source": "The Hill"
+    },
+    {
+      "title": "5 cities missing out on\u00a0hosting\u00a0FIFA\u00a0World Cup matches\u00a0in 2026",
+      "link": "https://thehill.com/policy/sports-gaming/5951879-world-cup-boost-us-cities/",
+      "published": "Sat, 04 Jul 2026 10:00:00 +0000",
+      "ts": 1783159200,
+      "author": "Dominick Mastrangelo",
+      "feed_title": "",
+      "summary": "Some major&#160;U.S. cities are getting&#160;an&#160;economic boost from the World Cup,&#160;with places like&#160;Los Angeles,&#160;Miami&#160;and Dallas&#160;flooded with thousands of&#160;overseas&#160;tourists&#160;attending matches to cheer&#160;on their home countries and packing bars&#160;to&#160;take in the action on the pitch. &#160; Economists and tourism experts have said the impact of the event on local economies&#160;might not be felt for&#160;weeks and&#160;is&#160;best measured&#160;on a city-by-city&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "\u2018It is a crisis\u2019: Putin under increasing pressure from Ukraine war",
+      "link": "https://thehill.com/policy/international/5953000-putin-russia-ukraine-war-pressure/",
+      "published": "Sat, 04 Jul 2026 10:00:00 +0000",
+      "ts": 1783159200,
+      "author": "Laura Kelly",
+      "feed_title": "",
+      "summary": "Russian President Vladimir Putin is coming under rare public criticism at home, a significant signal of how the pressures from the more than four-year war in Ukraine&#160;are&#160;hurting the country.&#160; Fuel shortages and rising inflation, high-profile attacks against Russian energy infrastructure and cities, and mounting military casualties are prompting prominent figures to start pinning the blame&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Kean\u2019s depression disclosure prompts questions about mental health stigma",
+      "link": "https://thehill.com/policy/healthcare/5950576-rep-tom-kean-jr-depression-disclosure/",
+      "published": "Sat, 04 Jul 2026 10:00:00 +0000",
+      "ts": 1783159200,
+      "author": "Nathaniel Weixel",
+      "feed_title": "",
+      "summary": "When Rep. Tom Kean Jr. (R-N.J.) disclosed that his monthslong disappearance from the House was due to depression, he opened a delicate but difficult conversation: How much information about their personal health are politicians expected to share? &#160; After vanishing from public life for more than 100 days and offering almost no details, Kean returned&#8230;",
+      "source": "The Hill"
     },
     {
       "title": "Trump at Mount Rushmore warns of Communist \u2018enemy\u2019 in \u2018optimistic\u2019 speech celebrating America\u2019s birthday",
@@ -5419,46 +5469,6 @@
       "source": "The Hill"
     },
     {
-      "title": "Trump joins Usha Vance\u2019s \u2018Storytime\u2019 podcast, reading on presidents and sports",
-      "link": "https://thehill.com/homenews/administration/5953051-trump-joins-usha-vances-storytime-podcast-reading-on-presidents-and-sports/",
-      "published": "Fri, 03 Jul 2026 20:26:33 +0000",
-      "ts": 1783110393,
-      "author": "Finya Swai",
-      "feed_title": "",
-      "summary": "President Trump made a guest appearance on second lady Usha Vance\u2019s children\u2019s podcast, where he read a picture book about U.S. presidents while offering unscripted commentary on his presidential predecessors and life in the White House. In Friday\u2019s prerecorded episode of \u201cStorytime with the Second Lady,\u201d Trump read the children\u2019s book \u201cPresidents Play,\u201d which was&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Trump may weigh pardon for Diddy while granting clemency to pollution violators",
-      "link": "https://thehill.com/homenews/administration/5953040-trump-may-weigh-pardon-for-diddy-while-granting-clemency-to-pollution-violators/",
-      "published": "Fri, 03 Jul 2026 20:12:43 +0000",
-      "ts": 1783109563,
-      "author": "Finya Swai",
-      "feed_title": "",
-      "summary": "President Trump announced Friday that he has pardoned several people convicted in federal vehicle emissions cases and is reportedly considering pardons for celebrities, including for rapper Sean \u201cDiddy\u201d Combs. The president has not made a decision on Combs or other high-profile clemency requests, but he has discussed them privately in recent days, sources familiar with&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Bessent brushes off critics of Trump\u2019s crypto haul",
-      "link": "https://thehill.com/homenews/administration/5953033-treasury-secretary-defends-trump-crypto/",
-      "published": "Fri, 03 Jul 2026 20:03:43 +0000",
-      "ts": 1783109023,
-      "author": "Sophie Brams",
-      "feed_title": "",
-      "summary": "Treasury Secretary Scott Bessent is brushing off criticism against President Trump for raking in more than $1 billion in cryptocurrency profits while in the White House. \u201cI don\u2019t think there\u2019s an appearance problem,\u201d Bessent told CBS News anchor Kelly O\u2019Grady in an exclusive interview Thursday, after being asked about the optics. \u201cThis is an innovation&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Wes Moore: Trump on July 4 has \u2018tried to make this moment about him\u2019",
-      "link": "https://thehill.com/homenews/state-watch/5953021-maryland-gov-criticizes-trump-rally/",
-      "published": "Fri, 03 Jul 2026 19:53:37 +0000",
-      "ts": 1783108417,
-      "author": "Sarah Davis",
-      "feed_title": "",
-      "summary": "Maryland Gov. Wes Moore (D) on Friday criticized President Trump\u2019s decision to hold a July Fourth rally on the National Mall during a heat wave\u00a0in the Washington, D.C., metropolitan area.\u00a0 \u201cI think that we should never ask our people to sacrifice in order to hear a speech,\u201d he told The Hill\u2019s Judy Kurtz and Hillary&#8230;",
-      "source": "The Hill"
-    },
-    {
       "title": "Beyond Camp Mystic, survivors of Texas floods struggle to move forward",
       "link": "https://www.washingtonpost.com/nation/2026/07/04/far-camp-mystic-survivors-texas-floods-struggle-move-forward/",
       "published": "Sat, 04 Jul 2026 09:00:00 +0000",
@@ -5496,16 +5506,6 @@
       "author": "Ben Noll",
       "feed_title": "",
       "summary": "See where a \u201cring of fire\u201d weather pattern could produce disruptive thunderstorms.",
-      "source": "Washington Post"
-    },
-    {
-      "title": "How Philadelphia turned a deadly heat wave into protections that could help millions",
-      "link": "https://www.washingtonpost.com/nation/2026/07/02/how-philadelphias-past-tragedy-prepared-city-todays-extreme-heat/",
-      "published": "Thu, 02 Jul 2026 10:00:01 +0000",
-      "ts": 1782986401,
-      "author": "Brady Dennis",
-      "feed_title": "",
-      "summary": "A deadly 1993 heat wave led to a pioneering program that scientists say continues to save lives.",
       "source": "Washington Post"
     }
   ],
@@ -5631,6 +5631,16 @@
       "source": "Google News"
     },
     {
+      "title": "FAA investigating 2nd near-miss in 2 days involving plane landing at Logan - NBC Boston",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeE9qTXY2RXlsTzFUUmEydF9QQkxramg2cUw2UVU0U2lITUdxYm5BSUw3SS15MVFtQkxCZlJYY3A3UHI2bm5MWGdfTkJfS0pTM0JUdENDQjdZNmlPWWJfMDlYaTlCUzNpRUFfdDFCUXJGMTZPMzJ5UGFFRzhxZmNmX3lONjRDN1dJUWtHc0hrSDdGX19FVnhlUlRSRjVSV2U3cnZCVEFhY184YzVfRTJVeEVUekhaeVNpR1ZuSXhyckVQdTFLSS1v0gHPAUFVX3lxTE5LNTBKX3hoZGtGVUY1a3NNZUJXNmxETFNYU2dtVjdhZjBLT2NtYk1aMExGWmtHOXlnZHdDMThHWW1RQnpiekxsZkFiLWozcE40TFA3N29KQmlObklGRlJhRHBMMU1RTW12amcwMGdLNWVTMG9kUkdEQ0hZOEFEN3BXRXZaTFljM0ZwM0RKeUY2SFVXeHZweXlDNlRMaWctZEtmV09UeHJlalI5ZUVaY0tOMjY1dlJ1dnQwOVB6SUtNX3FnVW0tWHlJdHJpamQ0RQ?oc=5",
+      "published": "Wed, 24 Jun 2026 07:00:00 GMT",
+      "ts": 1782284400,
+      "author": "",
+      "feed_title": "NBC Boston",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxQeE9qTXY2RXlsTzFUUmEydF9QQkxramg2cUw2UVU0U2lITUdxYm5BSUw3SS15MVFtQkxCZlJYY3A3UHI2bm5MWGdfTkJfS0pTM0JUdENDQjdZNmlPWWJfMDlYaTlCUzNpRUFfdDFCUXJGMTZPMzJ5UGFFRzhxZmNmX3lONjRDN1dJUWtHc0hrSDdGX19FVnhlUlRSRjVSV2U3cnZCVEFhY184YzVfRTJVeEVUekhaeVNpR1ZuSXhyckVQdTFLSS1v0gHPAUFVX3lxTE5LNTBKX3hoZGtGVUY1a3NNZUJXNmxETFNYU2dtVjdhZjBLT2NtYk1aMExGWmtHOXlnZHdDMThHWW1RQnpiekxsZkFiLWozcE40TFA3N29KQmlObklGRlJhRHBMMU1RTW12amcwMGdLNWVTMG9kUkdEQ0hZOEFEN3BXRXZaTFljM0ZwM0RKeUY2SFVXeHZweXlDNlRMaWctZEtmV09UeHJlalI5ZUVaY0tOMjY1dlJ1dnQwOVB6SUtNX3FnVW0tWHlJdHJpamQ0RQ?oc=5\" target=\"_blank\">FAA investigating 2nd near-miss in 2 days involving plane landing at Logan</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NBC Boston</font>",
+      "source": "Google News"
+    },
+    {
       "title": "Sleek spaces and signature scents: Logan airport's $30 million bathroom makeover - WBUR",
       "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNUVMyUlloeERoWFdUWkxGWDhJejRrZmdyWGtvYXpGUy1XV21vLUp6cmt1ampwR0twb3h5TGF4R1BHR25OM0ZleEllTE5GUGs5aWtwdE1EM1ZzZ0dtc3RkcU82ZkhEUUFUQW1md240ZlR4a0lUd1NEUk5Sa0xaTUJnN3otSnoxakk?oc=5",
       "published": "Wed, 17 Jun 2026 07:00:00 GMT",
@@ -5648,16 +5658,6 @@
       "author": "",
       "feed_title": "The Boston Globe",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxNOWV5NGRjcTNNdEE4Njh6d3J0cHp2SzloZVJPQms3Rjc5SGNWcWNBSXhrcmVIbEpoQ1FESkpuS2JESTFJUWN4aGJrbmNSM3lUZWR5SXYtajMxaGhiY2U5QkdSNjRfc0lQTG5oQUNjcjRpdVY1YVRfSUNLd0ZKYzV3VFdMbFFzQVk?oc=5\" target=\"_blank\">One day after close call at Logan Airport, a second flight aborts landing to avoid plane on runway</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Boston Globe</font>",
-      "source": "Google News"
-    },
-    {
-      "title": "25 Investigates: Several Delta flights abort landing at Boston Logan Airport in two days - Boston 25 News",
-      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQci1CSVZIdTdaMndCRXdyUjVvQ3lrRnZzN2tCNmlhSFBqSU5pdjB4VkNBNVJKNy1lRDVfbU4xLVktUG4xLVFHeGVQamFjeVYyR2wwTTcxTUhzWHlhclJnVTduS2h4NV9Yb181Z2FOTm10S2V2YUZfZ3pveGRPUWNwY29zR2JvbDhYT3hHbW93c0FWRnY0a0p4Ukt1SGxIdlU5aUk0T0NWWUE1WnZqRG42WTJJNjVqWXRncFpZRFZnSlRCZW94RXc0enVWcTNUWEdqTjRVX0U0M0RtY3FfRUZLSEdPNNIB9wFBVV95cUxPaWZwX0hINkxIeUJqbHJiYkxleWNhVUVERlBhcG9WMWR4VkNJYkFpNkFWY05FUUlQVHJLVU1qSllXblg3Wi00NnRPUE9Ca0JiZE9VOGdwUVA2eTN5bjN1MzhvMlQ3eTFwQjZuMDY3VnM3UGlPc0tiOVZLRFNhVktWdnZtY1VkS3pVOXc0RWVKYy1JTXZvRnU5eEthVkNRZlVnelIxVVJTaklyTWVjaVFjQmRiOWx1UlllalZDeWxnYjF2NEpWX2dKaTJralk2bEZCbGtwU3ZHTFNKTWluclJhNjNRbUs3Rl9wN0J6RlpYS0l1eXRJaVl3?oc=5",
-      "published": "Wed, 24 Jun 2026 07:00:00 GMT",
-      "ts": 1782284400,
-      "author": "",
-      "feed_title": "Boston 25 News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxQci1CSVZIdTdaMndCRXdyUjVvQ3lrRnZzN2tCNmlhSFBqSU5pdjB4VkNBNVJKNy1lRDVfbU4xLVktUG4xLVFHeGVQamFjeVYyR2wwTTcxTUhzWHlhclJnVTduS2h4NV9Yb181Z2FOTm10S2V2YUZfZ3pveGRPUWNwY29zR2JvbDhYT3hHbW93c0FWRnY0a0p4Ukt1SGxIdlU5aUk0T0NWWUE1WnZqRG42WTJJNjVqWXRncFpZRFZnSlRCZW94RXc0enVWcTNUWEdqTjRVX0U0M0RtY3FfRUZLSEdPNNIB9wFBVV95cUxPaWZwX0hINkxIeUJqbHJiYkxleWNhVUVERlBhcG9WMWR4VkNJYkFpNkFWY05FUUlQVHJLVU1qSllXblg3Wi00NnRPUE9Ca0JiZE9VOGdwUVA2eTN5bjN1MzhvMlQ3eTFwQjZuMDY3VnM3UGlPc0tiOVZLRFNhVktWdnZtY1VkS3pVOXc0RWVKYy1JTXZvRnU5eEthVkNRZlVnelIxVVJTaklyTWVjaVFjQmRiOWx1UlllalZDeWxnYjF2NEpWX2dKaTJralk2bEZCbGtwU3ZHTFNKTWluclJhNjNRbUs3Rl9wN0J6RlpYS0l1eXRJaVl3?oc=5\" target=\"_blank\">25 Investigates: Several Delta flights abort landing at Boston Logan Airport in two days</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
       "source": "Google News"
     }
   ],
@@ -5824,6 +5824,16 @@
       "source": "MassDOT"
     },
     {
+      "title": "25 Investigates: Another resignation, criminal referral latest in MassDOT OT scandal - Boston 25 News",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOa2pCbUx4ZXg2eG1UTU9uM0dyZVJ0Skt6QldYV0JTRFFoRlBKUFRQcXM0a0wtR1dyMzVrY0Zra1ZaRmcxZTVCZG1tMUFKWWNqaDFtV1RmRlNnb21wNHlldS1faUhISE10LVR2UGo3VWZvWGpMcnNFNl9ZazFiNEV4SDktTkYyMHhEOXktNW5PemJxeHhJTTdmTjdHa3hvSjQ3VXd2RWNUVEhNUTA4X05WMXBNZDNuT2tsanRKSEVWREowV29yQzZhSVlOOTJfSVJSQjAya0xTUll3UllCQ2VvZdIB9AFBVV95cUxQODdoQjF0M3lUazFncGFrbUtKbk9pM056a0ttdTc5SmdTZFlIV1k2d3lfT19Sem1fTmVabjgtZ1JGSEp4TEI4MmNNdWFPN0lTc3owMWpzUFRSaFQwTGl3Mkd4eGhleEx3R3ZycVZXX1loMUNBQ19yMjM0REl1Q3djdHB0VFczWGwxbDAzTVQxOEk1cUNwSTR6aUN0NUtXeE0zaEhkQmVWZllxOGF1RVNPZ2x4S3JsLVNzcjB6V1VBajdlLWUzRi1Dd05BSGhKVVNRc2JuWkwwa2RSSmV0clhoUEZzYUFEYnBrbEJHU3NranlDTkRO?oc=5",
+      "published": "Mon, 22 Jun 2026 07:00:00 GMT",
+      "ts": 1782111600,
+      "author": "",
+      "feed_title": "Boston 25 News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxOa2pCbUx4ZXg2eG1UTU9uM0dyZVJ0Skt6QldYV0JTRFFoRlBKUFRQcXM0a0wtR1dyMzVrY0Zra1ZaRmcxZTVCZG1tMUFKWWNqaDFtV1RmRlNnb21wNHlldS1faUhISE10LVR2UGo3VWZvWGpMcnNFNl9ZazFiNEV4SDktTkYyMHhEOXktNW5PemJxeHhJTTdmTjdHa3hvSjQ3VXd2RWNUVEhNUTA4X05WMXBNZDNuT2tsanRKSEVWREowV29yQzZhSVlOOTJfSVJSQjAya0xTUll3UllCQ2VvZdIB9AFBVV95cUxQODdoQjF0M3lUazFncGFrbUtKbk9pM056a0ttdTc5SmdTZFlIV1k2d3lfT19Sem1fTmVabjgtZ1JGSEp4TEI4MmNNdWFPN0lTc3owMWpzUFRSaFQwTGl3Mkd4eGhleEx3R3ZycVZXX1loMUNBQ19yMjM0REl1Q3djdHB0VFczWGwxbDAzTVQxOEk1cUNwSTR6aUN0NUtXeE0zaEhkQmVWZllxOGF1RVNPZ2x4S3JsLVNzcjB6V1VBajdlLWUzRi1Dd05BSGhKVVNRc2JuWkwwa2RSSmV0clhoUEZzYUFEYnBrbEJHU3NranlDTkRO?oc=5\" target=\"_blank\">25 Investigates: Another resignation, criminal referral latest in MassDOT OT scandal</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
+      "source": "MassDOT"
+    },
+    {
       "title": "MassDOT: Road Work Means Road Closures in Bourne, Sandwich - CapeNews.net",
       "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPT3RtVDAwX2toTG9tMkJHR0k5azRCM01TVDhwNktMeS1MaU1xWHk4R09VTTFZZ3IyTXF4dktBaDVMUE9KdFI3TDROT2JWclNiTHI0Q1BRVWlwNXRPajZ0eXduQ0c3TXpPaW81RGhKdl82RFF0YXgzQ1I2WjlYR1ljMXRPYmExMTdIWXUyTWFKUXdheWs4ekx1azhYWENzUUlZX0dQWnZHUGo0VGdzUFVxdC1OVF9xa2drQ0Q4ZVNwcXNQeEN5MEhwZEdtUzVxOWFmNHdscEVobHp0Mjg?oc=5",
       "published": "Tue, 16 Jun 2026 07:00:00 GMT",
@@ -5844,16 +5854,6 @@
       "source": "MassDOT"
     },
     {
-      "title": "Six MassDOT employees resign amid overtime fraud investigation - MassLive",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMjdaT29JS2pRWlRIcFZlSHpHVnJXMTBZc19WVURxY09OOFZoRzJEOHRhdG1meW5KODAtcVdhbF9OeTl0VHB1ZVUtUGlWa1RZMEU2LVM4WkFiNGtDclpGMWdzdEl3clExS0RZcTZ4bUo5UUdETXloSXNzOHJyWVY5U01ta2YzT2pMZWdJLVBHWmZVWlc4c2pXamxzUU0wdjZPdzhvU1ZHWDAxRnPSAb8BQVVfeXFMUEZFOS1sSWpyUXM1cm44SlNHWW9VLXJTSmNLQkdxaWdnckNFdEg2YWRyYjZRdk9PbGJnTXBKM2pQQ0lrN0xoVWQxeW1qbGM1dExYajIyM0xWbWZGaVcyRlJNWUVyS0tDZHpJUFcyUlNOckdTMS16SW5YMG1hSVpTZ2Z4OWNNNXZTYk5vSHZBb2RrekhOZTk5QmdJdHB6dnVVNmZnaEhGYjlOT0JJcUIyNFAyZTdMVUhLdkM4OTlzTjA?oc=5",
-      "published": "Mon, 01 Jun 2026 07:00:00 GMT",
-      "ts": 1780297200,
-      "author": "",
-      "feed_title": "MassLive",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMjdaT29JS2pRWlRIcFZlSHpHVnJXMTBZc19WVURxY09OOFZoRzJEOHRhdG1meW5KODAtcVdhbF9OeTl0VHB1ZVUtUGlWa1RZMEU2LVM4WkFiNGtDclpGMWdzdEl3clExS0RZcTZ4bUo5UUdETXloSXNzOHJyWVY5U01ta2YzT2pMZWdJLVBHWmZVWlc4c2pXamxzUU0wdjZPdzhvU1ZHWDAxRnPSAb8BQVVfeXFMUEZFOS1sSWpyUXM1cm44SlNHWW9VLXJTSmNLQkdxaWdnckNFdEg2YWRyYjZRdk9PbGJnTXBKM2pQQ0lrN0xoVWQxeW1qbGM1dExYajIyM0xWbWZGaVcyRlJNWUVyS0tDZHpJUFcyUlNOckdTMS16SW5YMG1hSVpTZ2Z4OWNNNXZTYk5vSHZBb2RrekhOZTk5QmdJdHB6dnVVNmZnaEhGYjlOT0JJcUIyNFAyZTdMVUhLdkM4OTlzTjA?oc=5\" target=\"_blank\">Six MassDOT employees resign amid overtime fraud investigation</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
-      "source": "MassDOT"
-    },
-    {
       "title": "MassHousing Funds Three Boston Affordable Condo Projects - Connect CRE",
       "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQb3FMSmhfcDZtNDJaRXhUMXhKVXk0Y3IzLXZKT2x6bW1LaGYyVk9tYXJGb21pZlNqTk1ZcW8zT2RtLXZRRG9uNkkxOGpXQ2JjZTR5ZmE3cUpTejlxNEoyTzB3cFB1ZWhlMnlFcEZNZkNPakxjQ2pWNzQ4OUowTEtWT09WNlJjdW45b255dkowYnphU280U0hj?oc=5",
       "published": "Tue, 26 May 2026 07:00:00 GMT",
@@ -5864,308 +5864,7 @@
       "source": "MassHousing"
     }
   ],
-  "news_espn": [
-    {
-      "title": "How Messi, Argentina saved themselves from humilia...",
-      "link": "https://www.espn.com/soccer/story/_/id/49262637/messi-argentina-nearly-suffered-historic-world-cup-upset-cape-verde",
-      "published": "Sat, 4 Jul 2026 03:01:10 EST",
-      "ts": 1783152070,
-      "author": "Rob Dawson and Lizzy Becherano",
-      "feed_title": "",
-      "summary": "No one could've predicted Argentina would nearly be bounced from the World Cup by Cape Verde, but the round of 32 gave us an instant classic.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Agent: LeBron eyeing Heat, Cavs, Sixers, others",
-      "link": "https://www.espn.com/nba/story/_/id/49259789/agent-lebron-eyeing-host-teams-including-heat-cavs-76ers",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "Dave McMenamin",
-      "feed_title": "",
-      "summary": "Rich Paul, LeBron James' agent, said his client is considering a host of teams for his next destination, including the Heat, Cavaliers and 76ers.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Chiefs' Kelce, Swift marry in ceremony at MSG",
-      "link": "https://www.espn.com/nfl/story/_/id/49188085/taylor-swift-travis-kelce-wedding-marriage-kansas-city-chiefs",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "Tory Barron",
-      "feed_title": "",
-      "summary": "Jennifer Lawrence, Ed Sheeran, Matthew Stafford, Ethan Hawke, Zo\u00eb Kravitz and more celebrities were in attendance for the wedding festivities.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Mexico ups security, caps crowds after fan deaths",
-      "link": "https://www.espn.com/soccer/story/_/id/49264397/mexico-city-security-crowds-england-fan-deaths",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "ESPN News Services",
-      "feed_title": "",
-      "summary": "Mexico will double security and limit capacity at the monument known as the \"Angel of Independence\" and at the fan festival in Mexico City's main square for Sunday's Mexico-England World Cup match.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Messi: Argentina have 'many' things to correct",
-      "link": "https://www.espn.com/soccer/story/_/id/49263953/lionel-messi-argentina-many-bad-things-correct",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "Lizzy Becherano",
-      "feed_title": "",
-      "summary": "Lionel Messi said Argentina have \"many\" things to improve after a nail-biting 3-2 win over Cape Verde in extra time Friday night at Hard Rock Stadium in Miami Gardens, Florida, pointing out his team's shortcomings in the round-of-32 victory.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Sources: Drummond to Knicks after Robinson exit",
-      "link": "https://www.espn.com/nba/story/_/id/49262566/andre-drummond-reaches-1-year-deal-new-york-knicks",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "Vincent Goodwill",
-      "feed_title": "",
-      "summary": "After the departure of Mitchell Robinson, the Knicks on Friday reached a one-year, $3.9 million deal with veteran center Andre Drummond, sources told ESPN's Shams Charania.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Chapman sets all-time record for K's by reliever",
-      "link": "https://www.espn.com/mlb/story/_/id/49265593/boston-chapman-sets-all-record-strikeouts-reliever",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "",
-      "feed_title": "",
-      "summary": "Red Sox lefty Aroldis Chapman passed Hoyt Wilhelm as the major leagues' all-time leader in strikeouts by a reliever Friday night, reaching 1,364 for his career.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Dodgers to hold Ohtani (bicep) out Sat. after exit...",
-      "link": "https://www.espn.com/mlb/story/_/id/49265557/dodgers-shohei-ohtani-exits-early-vs-padres-bicep-issue-held-lineup-saturday",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "Alden Gonzalez",
-      "feed_title": "",
-      "summary": "Dodgers star Shohei Ohtani threw a season-high 110 pitches Friday against the Padres before exiting in the seventh inning when his right biceps tightened up on a swing. He will be held out of the lineup Saturday to afford him some extra recovery time.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Colombia see off Ghana to set up clash with Swiss",
-      "link": "https://www.espn.com/soccer/story/_/id/49264513/colombia-ghana-fifa-world-cup-2026-round-32",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "ESPN News Services",
-      "feed_title": "",
-      "summary": "Colombia controlled Ghana on a sweltering night at Arrowhead Stadium, allowing Los Cafeteros to advance to the round of 16 at the World Cup with a 1-0 victory Friday night.",
-      "source": "ESPN"
-    },
-    {
-      "title": "\ud83d\udcda Books that hooked NFL players this summer",
-      "link": "https://www.espn.com/nfl/story/_/id/49177706/nfl-players-read-books-2026-summer-offseason",
-      "published": "Sat, 4 Jul 2026 02:24:55 EST",
-      "ts": 1783149895,
-      "author": "Sarah Barshop",
-      "feed_title": "",
-      "summary": "The break between minicamp and training camp is some of the last focused time players have to read.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Baker Mayfield, Ed Sheeran and more celebrities br...",
-      "link": "https://www.espn.com/nfl/story/_/id/49262198/taylor-swift-travis-kelce-wedding-madison-square-garden-celebrities",
-      "published": "Sat, 4 Jul 2026 01:45:22 EST",
-      "ts": 1783147522,
-      "author": "Kalan Hooks",
-      "feed_title": "",
-      "summary": "A-list celebrities arrived in style to the couple's Madison Square Garden wedding festivities.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Windhorst: NBA execs on the Brown trade, big-money...",
-      "link": "https://www.espn.com/nba/story/_/id/49254909/what-nba-execs-buzzing-jaylen-brown-celtics-sixers-walker-kessler-los-angeles-lakers-big-money-bigs-salary-cap",
-      "published": "Sat, 4 Jul 2026 00:31:45 EST",
-      "ts": 1783143105,
-      "author": "Brian Windhorst",
-      "feed_title": "",
-      "summary": "After the Jaylen Brown trade, hundreds of millions spent on centers and a shocking cap development, here's the latest NBA buzz as we enter Week 2 of free agency.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Grades for the Deandre Ayton trade (and more): Whi...",
-      "link": "https://www.espn.com/nba/story/_/id/49135150/2026-nba-offseason-trade-grades-contracts-new-deals-rosters-teams",
-      "published": "Sat, 4 Jul 2026 00:31:45 EST",
-      "ts": 1783143105,
-      "author": "Zach Kram",
-      "feed_title": "",
-      "summary": "We're grading the biggest trades of the offseason, including the deal that sent Walker Kessler to the Lakers.",
-      "source": "ESPN"
-    },
-    {
-      "title": "World Cup history for Salah's Egypt with penalty s...",
-      "link": "https://www.espn.com/soccer/story/_/id/49261423/world-cup-history-mohamed-salah-egypt-penalty-shootout-australia",
-      "published": "Sat, 4 Jul 2026 00:05:34 EST",
-      "ts": 1783141534,
-      "author": "Beth Lindop",
-      "feed_title": "",
-      "summary": "Mohamed Salah has been at the heart of everything in Egypt's World Cup campaign, including their first knockout stage win after beating Australia in a penalty shootout.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Penalty heartbreak for Australia vs. Egypt as Worl...",
-      "link": "https://www.espn.com/soccer/story/_/id/49260415/penalty-heartbreak-australia-vs-egypt-world-cup-knockout-win-eludes-socceroos",
-      "published": "Sat, 4 Jul 2026 00:05:34 EST",
-      "ts": 1783141534,
-      "author": "Joey Lynch",
-      "feed_title": "",
-      "summary": "Australia had the chance to make a big leap forward. Instead, another World Cup ends with questions.",
-      "source": "ESPN"
-    },
-    {
-      "title": "The American Lens: A panel of experts selects the ...",
-      "link": "https://www.espn.com/espn/feature/story/_/id/48940923/america-250-most-impactful-sports-photos",
-      "published": "Sat, 4 Jul 2026 00:06:03 EST",
-      "ts": 1783141563,
-      "author": "",
-      "feed_title": "",
-      "summary": "ESPN asked a panel of athletes, photojournalists and others from across the sports world to define the most impactful sports photos in American history",
-      "source": "ESPN"
-    },
-    {
-      "title": "USMNT coach Pochettino latest World Cup star to th...",
-      "link": "https://www.espn.com/soccer/story/_/id/49261996/usmnt-coach-mauricio-pochettino-latest-world-cup-star-throw-first-pitch-mlb",
-      "published": "Sat, 4 Jul 2026 02:21:27 EST",
-      "ts": 1783149687,
-      "author": "ESPN",
-      "feed_title": "",
-      "summary": "U.S. coach Mauricio Pochettino was the latest soccer star to throw the first pitch at an MLB game this summer. How did he and he fellow footballers do?",
-      "source": "ESPN"
-    },
-    {
-      "title": "Redrafting the 2023-25 MLB drafts in one 60-pick m...",
-      "link": "https://www.espn.com/mlb/story/_/id/49248782/2026-mlb-draft-redraft-2023-2024-2025-classes-skenes-kurtz-griffin-mcgonigle",
-      "published": "Fri, 3 Jul 2026 17:18:39 EST",
-      "ts": 1783117119,
-      "author": "Kiley McDaniel and Jeff Passan and David Schoenfield",
-      "feed_title": "",
-      "summary": "We combine three years' worth of superstar prospects and play GM for all 30 MLB teams.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Midseason rankings for MLB's biggest awards: Can P...",
-      "link": "https://www.espn.com/mlb/story/_/id/49236409/2026-mlb-awards-watch-mvp-cy-young-al-nl-ohtani-witt-crow-armstrong-pca",
-      "published": "Fri, 3 Jul 2026 17:18:39 EST",
-      "ts": 1783117119,
-      "author": "Bradford Doolittle",
-      "feed_title": "",
-      "summary": "With the All-Star break approaching, it's time to look at the leaders for MVP, Cy Young and more.",
-      "source": "ESPN"
-    },
-    {
-      "title": "How will the USMNT cope without suspended star str...",
-      "link": "https://www.espn.com/soccer/story/_/id/49256530/how-usmnt-cope-red-card-striker-folarin-balogun-world-cup-round-16-belgium",
-      "published": "Sat, 4 Jul 2026 00:15:29 EST",
-      "ts": 1783142129,
-      "author": "Jeff Carlisle",
-      "feed_title": "",
-      "summary": "With Folarin Balogun controversially suspended for the USMNT's World Cup round-of-16 clash with Belgium, it's time to weigh options on how to replace him.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Can Naomi Osaka defeat Aryna Sabalenka at Wimbledo...",
-      "link": "https://www.espn.com/tennis/story/_/id/49260567/wimbledon-naomi-osaka-aryna-sabalenka-daria-kasatkina",
-      "published": "Sat, 4 Jul 2026 00:06:51 EST",
-      "ts": 1783141611,
-      "author": "D'Arcy Maine",
-      "feed_title": "",
-      "summary": "Naomi Osaka has been on a hot streak at Wimbledon and has yet to drop a set. Up next: world No. 1 Aryna Sabalenka.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Are the Wimbledon titles more up for grabs than ev...",
-      "link": "https://www.espn.com/tennis/story/_/id/49252190/wimbledon-title-sinner-djokovic-gauff-sabalenka-swiatek",
-      "published": "Sat, 4 Jul 2026 00:06:51 EST",
-      "ts": 1783141611,
-      "author": "Simon Cambers",
-      "feed_title": "",
-      "summary": "Sinner, Gauff, Swiatek and others faltered at the French Open. But none look like favorites at Wimbledon.",
-      "source": "ESPN"
-    },
-    {
-      "title": "How the Capitals won the offseason -- and Ovechkin...",
-      "link": "https://www.espn.com/nhl/story/_/id/49258006/nhl-2026-washington-capitals-alex-ovechkin-free-agency-trades-kyrou-tuch-jenner",
-      "published": "Fri, 3 Jul 2026 14:21:45 EST",
-      "ts": 1783106505,
-      "author": "Greg Wyshynski",
-      "feed_title": "",
-      "summary": "A three-word social media video signaled the Great 8's return. But the Caps had been quite busy well before that.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Live NHL free agency tracker: Contract details for...",
-      "link": "https://www.espn.com/nhl/story/_/id/49235590/nhl-free-agency-tracker-2026-contracts-teams-analysis-updates",
-      "published": "Fri, 3 Jul 2026 14:21:45 EST",
-      "ts": 1783106505,
-      "author": "ESPN Staff",
-      "feed_title": "",
-      "summary": "Get up to speed on all the latest veteran additions teams are making beginning on June 30.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Six huge questions after the Lakers' 35-minute flu...",
-      "link": "https://www.espn.com/nba/story/_/id/49239780/los-angeles-lakers-overall-biggest-questions-lebron-james-luka-doncic-walker-kessler-nba-free-agency-offseason",
-      "published": "Fri, 3 Jul 2026 14:22:12 EST",
-      "ts": 1783106532,
-      "author": "Dave McMenamin",
-      "feed_title": "",
-      "summary": "After LeBron James announced Monday he was leaving the Lakers, the team reset its entire operation in about half an hour on Tuesday -- this time around Luka Doncic.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Ranking the 50 best players in the WNBA",
-      "link": "https://www.espn.com/wnba/story/_/id/49221564/wnba-2026-top-50-player-rankings-wilson-plum-clark-bueckers-stewart-miles",
-      "published": "Fri, 3 Jul 2026 07:25:19 EST",
-      "ts": 1783081519,
-      "author": "Michael Voepel and Kendra Andrews and Kareem Copeland and Alexa Philippou",
-      "feed_title": "",
-      "summary": "From former MVPs such as A'ja Wilson to five rookies, these are the best players eight weeks into the WNBA season.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Joey Chestnut's hot dog dominance by the numbers",
-      "link": "https://www.espn.com/sportsnation/story/_/id/37940564/joey-chestnut-nathan-hot-dog-dominance",
-      "published": "Sat, 4 Jul 2026 00:34:27 EST",
-      "ts": 1783143267,
-      "author": "Tim Kavanagh and Jeremy Willis",
-      "feed_title": "",
-      "summary": "Chestnut is going for his 18th Mustard Belt on Friday, and his eating excellence has made for a staggering number of wins and calories.",
-      "source": "ESPN"
-    },
-    {
-      "title": "What are MLB ballparks serving up for the Fourth o...",
-      "link": "https://www.espn.com/mlb/story/_/id/49251256/major-league-baseball-fourth-july-notable-top-ballpark-foods",
-      "published": "Sat, 4 Jul 2026 00:34:27 EST",
-      "ts": 1783143267,
-      "author": "Anthony Gharib",
-      "feed_title": "",
-      "summary": "From the Dodgers to the Nationals, here's a look at some of the notable ballpark foods for the Fourth of July.",
-      "source": "ESPN"
-    },
-    {
-      "title": "Best fighter, fight, KO, prospect and more",
-      "link": "https://www.espn.com/boxing/story/_/id/49165821/midyear-boxing-awards-best-fighter-fight-ko-usyk-shakur-dubois-more",
-      "published": "Fri, 3 Jul 2026 07:32:37 EST",
-      "ts": 1783081957,
-      "author": "Andreas Hale and Nick Parkinson",
-      "feed_title": "",
-      "summary": "Andreas Hale and Nick Parkinson share their picks for the best of boxing through the first half of 2026.",
-      "source": "ESPN"
-    },
-    {
-      "title": "'We're counting on him': After down year, Dolphins...",
-      "link": "https://www.espn.com/nfl/story/_/id/49251110/dolphins-chop-robinson-2026-defense-training-camp-sacks-pass-rusher",
-      "published": "Fri, 3 Jul 2026 11:22:13 EST",
-      "ts": 1783095733,
-      "author": "Marcel Louis-Jacques",
-      "feed_title": "",
-      "summary": "There are high expectations, and then there are the Miami Dolphins' expectations for Chop Robinson in 2026.",
-      "source": "ESPN"
-    }
-  ],
+  "news_espn": [],
   "personal_calendar": [
     {
       "date": "2026-07-04",
@@ -6203,7 +5902,39 @@
       "date": "2026-07-06",
       "time": null,
       "all_day": true,
+      "summary": "join the library board",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-06",
+      "time": null,
+      "all_day": true,
+      "summary": "Race signups",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-06",
+      "time": null,
+      "all_day": true,
       "summary": "paypal",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-06",
+      "time": null,
+      "all_day": true,
+      "summary": "closing of Glendale",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-06",
+      "time": null,
+      "all_day": true,
+      "summary": "update MA ID with new address",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6227,22 +5958,6 @@
       "date": "2026-07-06",
       "time": null,
       "all_day": true,
-      "summary": "closing of Glendale",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-06",
-      "time": null,
-      "all_day": true,
-      "summary": "Race signups",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-06",
-      "time": null,
-      "all_day": true,
       "summary": "Denver trip booking ideas",
       "location": null,
       "calendar": "Todoist"
@@ -6252,22 +5967,6 @@
       "time": null,
       "all_day": true,
       "summary": "customink order?",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-06",
-      "time": null,
-      "all_day": true,
-      "summary": "join the library board",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-06",
-      "time": null,
-      "all_day": true,
-      "summary": "update MA ID with new address",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6307,7 +6006,7 @@
       "date": "2026-07-07",
       "time": null,
       "all_day": true,
-      "summary": "Send phonebooth ideas to group",
+      "summary": "cancel globe subscription/ renegotiate",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6323,7 +6022,7 @@
       "date": "2026-07-07",
       "time": null,
       "all_day": true,
-      "summary": "cancel globe subscription/ renegotiate",
+      "summary": "Send phonebooth ideas to group",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6379,7 +6078,7 @@
       "date": "2026-07-08",
       "time": null,
       "all_day": true,
-      "summary": "Reading sessions",
+      "summary": "Use table tweaks for legacy/neighbothood businesses",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6387,7 +6086,7 @@
       "date": "2026-07-08",
       "time": null,
       "all_day": true,
-      "summary": "watch repair",
+      "summary": "Reading sessions",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6403,6 +6102,14 @@
       "date": "2026-07-08",
       "time": null,
       "all_day": true,
+      "summary": "Hitchborn RFP redraft conversation",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-08",
+      "time": null,
+      "all_day": true,
       "summary": "schedule a board game",
       "location": null,
       "calendar": "Todoist"
@@ -6411,7 +6118,7 @@
       "date": "2026-07-08",
       "time": null,
       "all_day": true,
-      "summary": "Ocean Mac site on Shirley Ave",
+      "summary": "watch repair",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6419,7 +6126,7 @@
       "date": "2026-07-08",
       "time": null,
       "all_day": true,
-      "summary": "Hitchborn RFP redraft conversation",
+      "summary": "library chess competition idea",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6435,15 +6142,7 @@
       "date": "2026-07-08",
       "time": null,
       "all_day": true,
-      "summary": "Use table tweaks for legacy/neighbothood businesses",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-08",
-      "time": null,
-      "all_day": true,
-      "summary": "library chess competition idea",
+      "summary": "Ocean Mac site on Shirley Ave",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6491,7 +6190,7 @@
       "date": "2026-07-08",
       "time": "6:30 PM",
       "all_day": false,
-      "summary": "Canceled: Affordable Housing Trust Fund Board (monthly)",
+      "summary": "Affordable Housing Trust Fund (MONTHLY)",
       "location": "City Hall Council Chambers",
       "calendar": "Joseph"
     },
@@ -6499,7 +6198,7 @@
       "date": "2026-07-08",
       "time": "6:30 PM",
       "all_day": false,
-      "summary": "Affordable Housing Trust Fund (MONTHLY)",
+      "summary": "Canceled: Affordable Housing Trust Fund Board (monthly)",
       "location": "City Hall Council Chambers",
       "calendar": "Joseph"
     },
@@ -6523,7 +6222,7 @@
       "date": "2026-07-09",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "Consult travel spreadsheet to work on plans",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6531,7 +6230,7 @@
       "date": "2026-07-09",
       "time": null,
       "all_day": true,
-      "summary": "Consult travel spreadsheet to work on plans",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6635,23 +6334,7 @@
       "date": "2026-07-13",
       "time": null,
       "all_day": true,
-      "summary": "book an appointment with HIMS to discuss hair regrowth",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-13",
-      "time": null,
-      "all_day": true,
       "summary": "check w Tom about Habitat/affordability concept",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-13",
-      "time": null,
-      "all_day": true,
-      "summary": "Preseason Q+A event check-in",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6667,7 +6350,23 @@
       "date": "2026-07-13",
       "time": null,
       "all_day": true,
+      "summary": "book an appointment with HIMS to discuss hair regrowth",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-13",
+      "time": null,
+      "all_day": true,
       "summary": "Alumni Appreciation Football Tailgate concept checkin",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-13",
+      "time": null,
+      "all_day": true,
+      "summary": "Preseason Q+A event check-in",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6699,7 +6398,7 @@
       "date": "2026-07-13",
       "time": "8:00 AM",
       "all_day": false,
-      "summary": "AHTF Minutes Posted",
+      "summary": "Joe - Court / OOO",
       "location": null,
       "calendar": "Joseph"
     },
@@ -6707,7 +6406,7 @@
       "date": "2026-07-13",
       "time": "8:00 AM",
       "all_day": false,
-      "summary": "Joe - Court / OOO",
+      "summary": "AHTF Minutes Posted",
       "location": null,
       "calendar": "Joseph"
     },
@@ -6755,6 +6454,14 @@
       "date": "2026-07-15",
       "time": null,
       "all_day": true,
+      "summary": "Consult travel spreadsheet to work on plans",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-15",
+      "time": null,
+      "all_day": true,
       "summary": "discuss court installation",
       "location": null,
       "calendar": "Todoist"
@@ -6779,14 +6486,6 @@
       "date": "2026-07-15",
       "time": null,
       "all_day": true,
-      "summary": "Consult travel spreadsheet to work on plans",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-15",
-      "time": null,
-      "all_day": true,
       "summary": "Therapist/meds",
       "location": null,
       "calendar": "Todoist"
@@ -6795,7 +6494,7 @@
       "date": "2026-07-15",
       "time": null,
       "all_day": true,
-      "summary": "Dentist",
+      "summary": "GI doctor",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6803,7 +6502,7 @@
       "date": "2026-07-15",
       "time": null,
       "all_day": true,
-      "summary": "GI doctor",
+      "summary": "Dentist",
       "location": null,
       "calendar": "Todoist"
     },
@@ -7678,21 +7377,21 @@
     {
       "date": "2026-06-24",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Bosnia and Herzegovina 3, Qatar 1",
-      "time": "3:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "Lumen Field, Seattle, Washington, United Stat",
-      "special": null
-    },
-    {
-      "date": "2026-06-24",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Switzerland 2, Canada 1",
       "time": "3:00 PM",
       "result": null,
       "score": null,
       "venue": "BC Place, Vancouver, British Columbia, Canada",
+      "special": null
+    },
+    {
+      "date": "2026-06-24",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Bosnia and Herzegovina 3, Qatar 1",
+      "time": "3:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "Lumen Field, Seattle, Washington, United Stat",
       "special": null
     },
     {
@@ -7708,21 +7407,21 @@
     {
       "date": "2026-06-24",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Scotland 0, Brazil 3",
-      "time": "6:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "Hard Rock Stadium, Miami Gardens, Florida, Un",
-      "special": null
-    },
-    {
-      "date": "2026-06-24",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Morocco 4, Haiti 2",
       "time": "6:00 PM",
       "result": null,
       "score": null,
       "venue": "Mercedes-Benz Stadium, Atlanta, Georgia, Unit",
+      "special": null
+    },
+    {
+      "date": "2026-06-24",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Scotland 0, Brazil 3",
+      "time": "6:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "Hard Rock Stadium, Miami Gardens, Florida, Un",
       "special": null
     },
     {
@@ -7758,21 +7457,21 @@
     {
       "date": "2026-06-25",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Paraguay 0, Australia 0",
-      "time": "10:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "Levi's Stadium, Santa Clara, California, Unit",
-      "special": null
-    },
-    {
-      "date": "2026-06-25",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Turkiye 3, United States 2",
       "time": "10:00 PM",
       "result": null,
       "score": null,
       "venue": "SoFi Stadium, Inglewood, California, United S",
+      "special": null
+    },
+    {
+      "date": "2026-06-25",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Paraguay 0, Australia 0",
+      "time": "10:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "Levi's Stadium, Santa Clara, California, Unit",
       "special": null
     },
     {
@@ -7818,21 +7517,21 @@
     {
       "date": "2026-06-25",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Japan 1, Sweden 1",
-      "time": "7:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "AT&T Stadium, Arlington, Texas, United States",
-      "special": null
-    },
-    {
-      "date": "2026-06-25",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Tunisia 1, Netherlands 3",
       "time": "7:00 PM",
       "result": null,
       "score": null,
       "venue": "GEHA Field at Arrowhead Stadium, Kansas City,",
+      "special": null
+    },
+    {
+      "date": "2026-06-25",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Japan 1, Sweden 1",
+      "time": "7:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "AT&T Stadium, Arlington, Texas, United States",
       "special": null
     },
     {
@@ -7908,21 +7607,21 @@
     {
       "date": "2026-06-26",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Uruguay 0, Spain 1",
-      "time": "8:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "Estadio Akron, Guadalajara, Jalisco, Mexico",
-      "special": null
-    },
-    {
-      "date": "2026-06-26",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Cape Verde 0, Saudi Arabia 0",
       "time": "8:00 PM",
       "result": null,
       "score": null,
       "venue": "NRG Stadium, Houston, Texas, United States",
+      "special": null
+    },
+    {
+      "date": "2026-06-26",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Uruguay 0, Spain 1",
+      "time": "8:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "Estadio Akron, Guadalajara, Jalisco, Mexico",
       "special": null
     },
     {
@@ -7968,21 +7667,21 @@
     {
       "date": "2026-06-27",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Panama 0, England 2",
-      "time": "5:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "MetLife Stadium, East Rutherford, New Jersey,",
-      "special": null
-    },
-    {
-      "date": "2026-06-27",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Croatia 2, Ghana 1",
       "time": "5:00 PM",
       "result": null,
       "score": null,
       "venue": "Lincoln Financial Field, Philadelphia, Pennsy",
+      "special": null
+    },
+    {
+      "date": "2026-06-27",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Panama 0, England 2",
+      "time": "5:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "MetLife Stadium, East Rutherford, New Jersey,",
       "special": null
     },
     {
@@ -9537,7 +9236,7 @@
     },
     {
       "date": "2026-08-14",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Richmond",
       "time": "7:30 PM",
       "result": null,
@@ -9547,7 +9246,7 @@
     },
     {
       "date": "2026-08-14",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Richmond",
       "time": "7:30 PM",
       "result": null,
@@ -9938,36 +9637,20 @@
   ],
   "road_events": [
     {
-      "id": "2593474662853827",
-      "title": "Traffic (DMV/Crash) \u2014 US-1 SB",
+      "id": "2600758927371268",
+      "title": "Traffic (Roadway Obstruction) \u2014 STORROW DR WB",
       "type": "Traffic Incidents",
-      "subtype": "Traffic (DMV/Crash)",
-      "road": "US-1",
-      "direction": "SB",
-      "start": "",
-      "end": "",
-      "status": "Open",
-      "location": "US-1 SB Exit Prior to the Tobin Bridge",
-      "lanes": "Travel Lane(s) Affected: 1 of 2 Lane(s) Affected Description: Left 1 lane closed",
-      "lat": 42.39374933916746,
-      "lng": -71.03589493036273,
-      "updated": "2026-07-04T05:21:01"
-    },
-    {
-      "id": "2593509022595265",
-      "title": "Traffic (DMV/Crash) \u2014 SUMNER WB",
-      "type": "Traffic Incidents",
-      "subtype": "Traffic (DMV/Crash)",
-      "road": "SUMNER",
+      "subtype": "Traffic (Roadway Obstruction)",
+      "road": "STORROW DR",
       "direction": "WB",
       "start": "",
       "end": "",
       "status": "Open",
-      "location": "SUMNER WB Exit Ramp to North Washington Street",
-      "lanes": "Travel Lane(s) Affected: 1 of 2 Lane(s) Affected Description: Left 1 lane closed",
-      "lat": 42.36232372882498,
-      "lng": -71.05564403533937,
-      "updated": "2026-07-04T04:43:43"
+      "location": "STORROW DR WB Exit Station Tunnel under Leverett Circle.",
+      "lanes": "Travel Lane(s) Affected:  Lane(s) Affected Description: 1 direction closed",
+      "lat": null,
+      "lng": null,
+      "updated": "2026-07-04T07:35:53"
     }
   ],
   "news_ktn": [
