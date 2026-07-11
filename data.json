@@ -1,25 +1,17 @@
 {
-  "updated": "2026-07-11T10:22:03.143753+00:00",
-  "updated_local": "July 11, 2026 at 10:22 AM",
+  "updated": "2026-07-11T11:59:55.433162+00:00",
+  "updated_local": "July 11, 2026 at 11:59 AM",
   "weather_current": {
-    "temp": 65,
+    "temp": 67,
     "unit": "F",
     "wind": "3 mph",
     "windDir": "N",
     "shortForecast": "Mostly Cloudy",
     "detailedForecast": "Mostly sunny, with a high near 83. Northeast wind around 5 mph.",
-    "humidity": 84,
-    "precip": 0
+    "humidity": 81,
+    "precip": 1
   },
   "weather_hourly": [
-    {
-      "time": "2026-07-11T06:00:00-04:00",
-      "temp": 65,
-      "unit": "F",
-      "shortForecast": "Mostly Cloudy",
-      "wind": "3 mph",
-      "precip": 0
-    },
     {
       "time": "2026-07-11T07:00:00-04:00",
       "temp": 67,
@@ -203,12 +195,20 @@
       "shortForecast": "Mostly Clear",
       "wind": "3 mph",
       "precip": 0
+    },
+    {
+      "time": "2026-07-12T06:00:00-04:00",
+      "temp": 61,
+      "unit": "F",
+      "shortForecast": "Sunny",
+      "wind": "3 mph",
+      "precip": 0
     }
   ],
   "weather_daily": [
     {
       "name": "Today",
-      "date": "2026-07-11T06:00:00-04:00",
+      "date": "2026-07-11T07:00:00-04:00",
       "high": 83,
       "low": 59,
       "shortForecast": "Mostly Sunny",
@@ -325,12 +325,13 @@
     "delay": false,
     "status": "ok",
     "metar": {
-      "raw": "METAR KBOS 110954Z 31005KT 10SM SCT100 SCT250 22/14 A2994 RMK AO2 SLP138 T02170139",
+      "raw": "METAR KBOS 111154Z 35005KT 10SM FEW100 SCT250 23/13 A2995 RMK AO2 SLP143 T02330133 10239 20217 51009",
       "flight_cat": ""
     },
     "faa_delays": [],
     "flight_stats": {
-      "cancelled": 24
+      "cancelled": 24,
+      "delayed": 52
     }
   },
   "mbta_alerts": [
@@ -342,6 +343,26 @@
     {
       "header": "On Mon, Jul 13, all Commuter Rail lines will return to the normal Spring/Summer schedule.",
       "effect": "SCHEDULE_CHANGE",
+      "routes": []
+    },
+    {
+      "header": "New Bedford Line Train 7005 (6:25 AM from South Station) has departed South Station and is operating 20-30 minutes behind schedule.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Please board all Franklin Line trains on the inbound platform (Track 2) at Newmarket, Uphams Corner, and Four Corners/Geneva today.",
+      "effect": "TRACK_CHANGE",
+      "routes": []
+    },
+    {
+      "header": "Worcester Line Train 5520 (7:10 AM from Worcester) is operating 5-15 minutes behind schedule between Framingham and South Station.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Please board all Haverhill Line trains on the outbound platform (Track 1) at Wyoming Hill, Melrose/Cedar Park, and Melrose Highlands today.",
+      "effect": "TRACK_CHANGE",
       "routes": []
     },
     {
@@ -370,8 +391,13 @@
       "routes": []
     },
     {
-      "header": "Fitchburg Line Train 5402 (5:00 AM from Wachusett) is operating 10-20 minutes behind schedule between Brandeis/Roberts and North Station.",
+      "header": "Fitchburg Line Train 5402 (5:00 AM from Wachusett) is terminated at Brandeis/Roberts and is 1hour and 10 minutes behind schedule due to a mechanical issue. An Extra train is assisting passengers into North Station.",
       "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "An Extra Train is assisting passengers from disabled Train 5402 (5:00 AM from Wachusett) making all stops between Brandeis/Roberts and North Station.",
+      "effect": "EXTRA_SERVICE",
       "routes": []
     },
     {
@@ -400,6 +426,11 @@
       "routes": []
     },
     {
+      "header": "Franklin Line Train 5715 (6:47 AM from South Station) is operating 5-15 minutes behind schedule between Uphams Corner and Forge Park/495.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
       "header": "The Riverside Ave entrance at Campello Station is currently closed. Passengers may continue to use the Plain St entrance.",
       "effect": "STATION_ISSUE",
       "routes": []
@@ -407,10 +438,10 @@
   ],
   "beach_conditions": {
     "water_temp_f": 68.2,
-    "wvht_ft": 1.3,
-    "dpd_s": 8.0,
-    "wspd_mph": 4.5,
-    "wdir_deg": 330.0,
+    "wvht_ft": null,
+    "dpd_s": null,
+    "wspd_mph": 6.7,
+    "wdir_deg": 340.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
@@ -3665,6 +3696,86 @@
   ],
   "news_boston": [
     {
+      "title": "History in motion: USS Constitution will lead Parade of Sail",
+      "link": "https://www.wcvb.com/article/uss-constitution-sail-boston-old-ironsides-parade/71882649",
+      "published": "Sat, 11 Jul 2026 11:53:00 GMT",
+      "ts": 1783770780,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Old Ironsides is heading out again. The USS Constitution will hoist a sail for Sail Boston, giving fans a rare look at history in motion.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "What you can, cannot bring to Sail Boston",
+      "link": "https://www.wcvb.com/article/sail-boston-prohibited-items-2026/71412734",
+      "published": "Sat, 11 Jul 2026 11:45:00 GMT",
+      "ts": 1783770300,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Millions are expected at Sail Boston, where security will be stadium-like and bags will be searched at checkpoints. Here's what you can bring, and what you cannot. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Parade of Sail LIVE coverage & guide: Tips for attending, what to expect, how to watch",
+      "link": "https://www.wcvb.com/article/sail-boston-parade-of-sail-july-11-2026/71905252",
+      "published": "Sat, 11 Jul 2026 11:43:00 GMT",
+      "ts": 1783770180,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Millions of people are gathering around Boston's waterfront for the Parade of Sail, celebrating the arrival of dozens of ships from around the world and the start of Sail Boston 2026. Here's your guide to the big day. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Sail Boston forecast: Sunny skies, light winds for Boston\u2019s Parade of Sail",
+      "link": "https://www.wcvb.com/article/boston-parade-of-sail-weather-forecast-sail-boston/71896528",
+      "published": "Sat, 11 Jul 2026 11:33:00 GMT",
+      "ts": 1783769580,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Expect comfortable weather for Sail Boston 2026's Parade of Sail. StormTeam 5 is forecasting a bright day with just a few clouds.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Video: Gorgeous day for Parade of Sail",
+      "link": "https://www.wcvb.com/article/video-gorgeous-day-for-parade-of-sail/71905429",
+      "published": "Sat, 11 Jul 2026 11:33:00 GMT",
+      "ts": 1783769580,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Saturday will bring comfortable weather for the Sail Boston Parade of Sail across Massachusetts, and StormTeam 5 is forecasting a bright day with just a few clouds.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Judge grants Trump admin\u2019s request to dismiss Jan. 6 case against Proud Boys",
+      "link": "https://www.wcvb.com/article/judge-grants-trump-request-dismiss-january-6-case-proud-boys/71905342",
+      "published": "Sat, 11 Jul 2026 11:28:00 GMT",
+      "ts": 1783769280,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A federal judge Friday dismissed the seditious conspiracy case against several Proud Boys members.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Trump threatens Iran after Ayatollah\u2019s funeral saw open calls for his killing",
+      "link": "https://www.boston.com/news/world-news/2026/07/11/trump-threatens-iran-after-ayatollahs-funeral-saw-open-calls-for-his-killing/",
+      "published": "Sat, 11 Jul 2026 11:23:44 +0000",
+      "ts": 1783769024,
+      "author": "Associated Press",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
+      "summary": "<p>On Truth Social on Friday, Trump declared the ceasefire over but said the U.S. would continue negotiations. </p>\n<p>The post <a href=\"https://www.boston.com/news/world-news/2026/07/11/trump-threatens-iran-after-ayatollahs-funeral-saw-open-calls-for-his-killing/\">Trump threatens Iran after Ayatollah&#8217;s funeral saw open calls for his killing</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
+    },
+    {
+      "title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
+      "link": "https://www.wcvb.com/article/trump-threatens-iran-ayatollah-ali-khameneis-funeral/71902211",
+      "published": "Sat, 11 Jul 2026 10:23:00 GMT",
+      "ts": 1783765380,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>President Trump has threatened Iran after the funeral of Supreme Leader Ayatollah Ali Khamenei saw open calls for his killing.</p>",
+      "source": "Top Stories"
+    },
+    {
       "title": "Multiple New York Times journalists issued subpoenas over Air Force One reporting",
       "link": "https://www.wcvb.com/article/new-york-times-reporters-subpoenas-air-force-one-report/71905170",
       "published": "Sat, 11 Jul 2026 10:14:00 GMT",
@@ -3685,14 +3796,14 @@
       "source": "Top Stories"
     },
     {
-      "title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
-      "link": "https://www.wcvb.com/article/trump-threatens-iran-ayatollah-ali-khameneis-funeral/71902211",
-      "published": "Sat, 11 Jul 2026 08:45:00 GMT",
-      "ts": 1783759500,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>President Trump has threatened Iran after the funeral of Supreme Leader Ayatollah Ali Khamenei saw open calls for his killing.</p>",
-      "source": "Top Stories"
+      "title": "Small businesses bet big on Tall Ships crowds",
+      "link": "https://www.nbcboston.com/boston-business-journal/boston-tall-ships-festival-businesses/3979562/",
+      "published": "Sat, Jul 11 2026 06:45:00 AM",
+      "ts": 1783752300,
+      "author": "Aashna Miharia | Boston Business Journal",
+      "feed_title": "NBC Boston",
+      "summary": "<p><span style=\"background-color: transparent;\">As dozens of international ships float into Boston Harbor this weekend, small local businesses spanning cultures and services are coming together for a citywide street festival.&nbsp;</span></p>\n\n\n\n<p><span style=\"background-color: transparent;\">Starting Saturday, </span><a href=\"https://www.bizjournals.com/boston/news/2026/04/15/black-and-minority-leaders-passed-by-summer-2026.html\" style=\"background-color: transparent;\">Boston Harbor Bites</a><span style=\"background-color: transparent;\"> will bring food vendors, merchandise and crafts to streets near the harbor in three neighborhoods f</span><span>rom July 11 to 15</span><span style=\"background-color: transparent;\">: the downtown waterfront, the Charlestown, and the South Boston waterfront and Seaport. </span></p>\n\n\n\n<p><a href=\"https://www.bizjournals.com/boston/news/2026/07/10/boston-harbor-bites-social-butterflies-sail-boston.html?utm_source=sy&amp;utm_medium=lsyp&amp;utm_campaign=nbcboston&amp;utm_content=nbcboston\">More on this story from Boston Business Journal</a></p>",
+      "source": "NBC Boston"
     },
     {
       "title": "Red Sox win 7th straight game just hours after landing in New York",
@@ -3700,9 +3811,9 @@
       "published": "Sat, 11 Jul 2026 04:00:55 +0000",
       "ts": 1783742455,
       "author": "Kaley Brown",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>Sonny Gray once again led the way on the bump for Boston.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/07/11/red-sox-mets-sonny-gray/\">Red Sox win 7th straight game just hours after landing in New York</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "Investigation underway after 2 people killed in crash on Route 6 in Dartmouth",
@@ -3770,9 +3881,9 @@
       "published": "Sat, 11 Jul 2026 01:23:03 +0000",
       "ts": 1783732983,
       "author": "Associated Press",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>\u201cI seek to further the movement we have built together and the future we believe in,\u201d he went on, without detailing what that meant.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/07/10/graham-platner-withdraws-from-maine-senate-race-kicking-off-democrats-quest-for-nominee/\">Graham Platner withdraws from Maine Senate race, kicking off Democrats&rsquo; quest for nominee</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "Christian Gonzalez responds to report that he isn\u2019t physical enough for Patriots",
@@ -3780,19 +3891,9 @@
       "published": "Sat, 11 Jul 2026 01:20:26 +0000",
       "ts": 1783732826,
       "author": "Colin McCarthy",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>Gonzalez directly called out the reporter, Greg Bedard, on social media Friday.</p>\n<p>The post <a href=\"https://www.boston.com/sports/new-england-patriots/2026/07/10/nfl-christian-gonzalez-responds-physical-report/\">Christian Gonzalez responds to report that he isn&#8217;t physical enough for Patriots</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "History in motion: USS Constitution will lead Parade of Sail",
-      "link": "https://www.wcvb.com/article/uss-constitution-sail-boston-old-ironsides-parade/71882649",
-      "published": "Sat, 11 Jul 2026 01:08:00 GMT",
-      "ts": 1783732080,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Old Ironsides is heading out again. The USS Constitution will hoist a sail for Sail Boston, giving fans a rare look at history in motion.</p>",
-      "source": "Top Stories"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "Stad Amsterdam returning to Boston with crew from several nations",
@@ -3840,9 +3941,9 @@
       "published": "Sat, 11 Jul 2026 00:44:32 +0000",
       "ts": 1783730672,
       "author": "Kaley Brown",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>Experts have differing opinions on which position the Red Sox could target on Day 1 of the Draft.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/07/10/red-sox-2026-mlb-draft/\">Here\u2019s who experts have the Red Sox selecting with the No. 20 pick in the 2026 MLB Draft</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "Schooner Ardelle showcases maritime heritage at Sail Boston",
@@ -3885,16 +3986,6 @@
       "source": "Top Stories"
     },
     {
-      "title": "Leave your drones at home during Sail Boston or risk having them seized",
-      "link": "https://www.wcvb.com/article/sail-boston-drone-restrictions-law-enforcement/71900420",
-      "published": "Sat, 11 Jul 2026 00:22:00 GMT",
-      "ts": 1783729320,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Officials are stepping up drone detection and enforcement as Sail Boston draws crowds to the waterfront.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Red Sox arrive 2 hours before scheduled game vs. Mets after team plane problems in Chicago",
       "link": "https://whdh.com/sports/red-sox-arrive-2-hours-before-scheduled-game-vs-mets-after-team-plane-problems-in-chicago/",
       "published": "Sat, 11 Jul 2026 00:21:07 +0000",
@@ -3910,19 +4001,9 @@
       "published": "Sat, 11 Jul 2026 00:01:51 +0000",
       "ts": 1783728111,
       "author": "Associated Press",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>Israel Katz, Israel's defense minister, also renewed threats that his nation stood ready to confront Iran if needed.</p>\n<p>The post <a href=\"https://www.boston.com/news/world-news/2026/07/10/us-demands-iran-publicly-state-that-strait-of-hormuz-is-open-and-tehran-wont-attack-ships-anymore/\">US demands Iran publicly state that Strait of Hormuz is open and Tehran won&#8217;t attack ships anymore</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Planets, meteor shower, and a Buck Moon: Astronomical events for July 2026",
-      "link": "https://www.wcvb.com/article/planets-meteor-shower-and-a-buck-moon-astronomical-events-for-july-2026-stargazing-astronomy-night-sky-summer/71901124",
-      "published": "Fri, 10 Jul 2026 23:57:00 GMT",
-      "ts": 1783727820,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Hopefully, the heat won't keep you from getting a look at a few astronomical events this summer.</p>",
-      "source": "Top Stories"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "2 killed in crash on Route 6 in Dartmouth",
@@ -3931,7 +4012,7 @@
       "ts": 1783683155,
       "author": "Mike Pescaro",
       "feed_title": "NBC Boston",
-      "summary": "<p>Two people are dead after a crash Friday evening in Dartmouth, Massachusetts.</p>\n\n\n\n<p>Police responded to the crash on Route 6 near the Westport line, the Bristol County District Attorney&#8217;s Office said.</p>\n\n\n\n<p>Two vehicles were involved in the crash. A male driver and female passenger in one vehicle were taken to an area hospital, where they were pronounced dead. Two people in the other vehicle suffered non-life-threatening injuries.</p>\n\n\n\n<p>Police said Route 6 was closed westbound at Route 177 and eastbound at Highland Avenue.</p>\n\n\n\n<p>The cause of the crash is under investigation by Westport police and Massachusetts State Police assigned to the district attorney&#8217;s office.</p>",
+      "summary": "<p>Two people are dead after a crash Friday evening in Dartmouth, Massachusetts, that left Route 6 completely impassable for several hours.</p>\n\n\n\n<p>Police responded to 911 calls about the crash on Route 6 near the Westport line, the Bristol County District Attorney&#8217;s Office said.</p>\n\n\n\n<p>Two vehicles were involved in the crash. A male driver and female passenger in one vehicle were taken to an area hospital, where they were pronounced dead. Their car suffered catastrophic damage in the wreck.</p>\n\n\n\n<p>Two people in the other vehicle suffered non-life-threatening injuries, officials added.</p>\n\n\n\n<p>Route 6 was closed westbound at Route 177 and eastbound at Highland Avenue. Police warned drivers to avoid the area, seek alternate routes, and expect significant traffic delays.</p>\n\n\n\n<p>The victims names haven&#8217;t been released at this time.</p>\n\n\n\n<p>The cause of the crash is under investigation by Dartmouth police, Westport police and Massachusetts State Police assigned to the district attorney&#8217;s office.</p>",
       "source": "NBC Boston"
     },
     {
@@ -3965,36 +4046,6 @@
       "source": "Boston News, Weather, Sports | WHDH 7News"
     },
     {
-      "title": "Jet fuel costs have plunged. Here's why Delta says cheaper flights aren't on the way",
-      "link": "https://www.wcvb.com/article/jet-fuel-costs-flight-prices/71896273",
-      "published": "Fri, 10 Jul 2026 22:31:00 GMT",
-      "ts": 1783722660,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Air fares aren\u2019t coming down, Delta Air Lines said Friday, even though the cost of jet fuel has fallen sharply.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Prosecutors expand case involving former, current MBTA employees",
-      "link": "https://www.wcvb.com/article/cabot-yard-new-indictment-july-10-2026/71900794",
-      "published": "Fri, 10 Jul 2026 22:29:00 GMT",
-      "ts": 1783722540,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Federal prosecutors announced a new indictment Friday against six former MBTA employees and one former employee accused of conspiring to falsify Red Line track inspection reports and commit overtime fraud.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Special boating rules in effect for Boston Harbor around Sail Boston",
-      "link": "https://www.wcvb.com/article/sail-boston-parade-boston-harbor-boating-guidelines/71899883",
-      "published": "Fri, 10 Jul 2026 22:10:00 GMT",
-      "ts": 1783721400,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Boston Harbor will host Sail Boston\u2019s Parade of Sail Saturday, with safety zones and special boating rules in place around the historic ships.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Union, Merrimack Valley Transit Authority reach deal to end bus driver strike",
       "link": "https://www.nbcboston.com/news/local/union-merrimack-valley-transit-authority-reach-deal-to-end-bus-driver-strike/3979597/",
       "published": "Fri, Jul 10 2026 10:07:05 PM",
@@ -4010,9 +4061,9 @@
       "published": "Fri, 10 Jul 2026 22:03:12 +0000",
       "ts": 1783720992,
       "author": "Kevin Slane",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>The best of what's new streaming on Netflix, Hulu, HBO Max, Disney Plus, and more.</p>\n<p>The post <a href=\"https://www.boston.com/culture/streaming/2026/07/10/new-movies-tv-shows-watch-streaming-now-july-10-2026/\">5 must-watch movies &amp; TV shows streaming right now</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "A 4th Red Sox player has been named a 2026 MLB All-Star",
@@ -4020,9 +4071,9 @@
       "published": "Fri, 10 Jul 2026 22:01:23 +0000",
       "ts": 1783720883,
       "author": "Kaley Brown",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>Ceddanne Rafaela was selected to the squad to replace the injured Aaron Judge.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/07/10/ceddanne-rafaela-mlb-all-star-red-sox/\">A 4th Red Sox player has been named a 2026 MLB All-Star</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "Mikel Merino stars again as Spain edges Belgium 2-1 in the World Cup quarterfinals",
@@ -4040,9 +4091,9 @@
       "published": "Fri, 10 Jul 2026 21:24:45 +0000",
       "ts": 1783718685,
       "author": "Madison Lucchesi",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>The world\u2019s top-ranked competitive eater will battle Massachusetts native Geoff Esper and other competitors over Kowloon\u2019s signature chicken wings.</p>\n<p>The post <a href=\"https://www.boston.com/food/food-news/2026/07/10/joey-chestnut-to-compete-in-inaugural-saugus-wing-eating-championship/\">Joey Chestnut to compete in inaugural Saugus Wing Eating Championship</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "\u2018We know that these are preventable\u2019: Friends mourn bike advocate Louisa Gag, killed by driver",
@@ -4060,19 +4111,9 @@
       "published": "Fri, 10 Jul 2026 21:06:26 +0000",
       "ts": 1783717586,
       "author": "Kevin Slane",
-      "feed_title": "Boston.com",
+      "feed_title": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing",
       "summary": "<p>Things could not have gone much better for the city of Boston during its one month hosting the 2026 World Cup.</p>\n<p>The post <a href=\"https://www.boston.com/sports/world-cup/2026/07/10/world-cup-2026-boston-farewell/\">France-Morocco was a fitting end to a spectacular World Cup in Boston</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Gloucester woman accused of plotting to kill childhood friend using WD-40",
-      "link": "https://www.boston.com/news/crime/2026/07/10/gloucester-woman-allegedly-attacked-friend-wd40-rag/",
-      "published": "Fri, 10 Jul 2026 20:49:58 +0000",
-      "ts": 1783716598,
-      "author": "Abby Patkin",
-      "feed_title": "Boston.com",
-      "summary": "<p>Phyllis Palazzola allegedly told her friend she wanted to drive them both off a bridge, adding, \u201cI was gonna kill us both.\u201d</p>\n<p>The post <a href=\"https://www.boston.com/news/crime/2026/07/10/gloucester-woman-allegedly-attacked-friend-wd40-rag/\">Gloucester woman accused of plotting to kill childhood friend using WD-40</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "Trump threatens Iran after Ayatollah Ali Khamenei's funeral saw open calls for his killing"
     },
     {
       "title": "\u2018Devastating': Community, leaders mourn cyclist killed in Boston crash",
@@ -4153,16 +4194,6 @@
       "feed_title": "GBH News",
       "summary": "Under the Radar speaks with the co-curators of the annual City of Boston summer mixtape, which highlights local talent across a variety of musical genres.",
       "source": "GBH News"
-    },
-    {
-      "title": "Insider tips for navigating the Brimfield Antique Flea Market",
-      "link": "https://www.wbur.org/news/2026/07/10/brimfield-antique-flea-market-massachusetts-insider-shopping-tips",
-      "published": "Fri, 10 Jul 2026 13:40:38 -0400",
-      "ts": 1783705238,
-      "author": "WBUR",
-      "feed_title": "WBUR News",
-      "summary": "<p>The upcoming July 14-19 run marks the second of the Brimfield Antique Flea Market's three yearly runs. The event boasts \u201cthousands\u201d of vendors and attracts more shoppers than organizers can even count, according to Lori Faxon, owner of the Brimfield Antiques Center. Faxon shared tips on how to make the most of your time there.</p>",
-      "source": "WBUR News"
     }
   ],
   "news_universalhub": [],
@@ -4611,13 +4642,13 @@
       "source": "CHN"
     },
     {
-      "title": "Best college hockey rivalries: #3 - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQbkVfcTRTa2lVTTRWVGZzZjlfbHNOSHJpRnNibTdmZFZ4aDY0dlV0YkItdHlQSlVINmowdExYLXc2V0NEZDJRNUJTbEpPUXlORnZzY19nemt1SWJPb20zd2FFcW15MS1VVE93VzBMMXVvRjdZVXkwd1NnWUtISjRrVWdYSkN3aFI4Z0R3eFhEQWVsa0hsa25ha1FialBTc2VfSkFFS0gtX1U0RTdIaG1yUlNyN3RJbEpGX0RQQzVkZw?oc=5",
-      "published": "Fri, 10 Jul 2026 16:21:18 GMT",
-      "ts": 1783700478,
+      "title": "'Off Campus' review: This college hockey romance is really pucking fun - Mashable",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5QdDhuak1zZDBVZk5kQTR4RnJURjNlVVNkVVBuSmpnWFVsWURCMllSU1BSTHRLM09DaVgtQUlDN2IwZmhndXgzN2VjaVNQSExNbklwcDFIQVQ4RHljcUZaOGlzcEJCMkt6Z1E?oc=5",
+      "published": "Sat, 11 Jul 2026 04:00:00 GMT",
+      "ts": 1783742400,
       "author": "",
-      "feed_title": "Yahoo Sports",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxQbkVfcTRTa2lVTTRWVGZzZjlfbHNOSHJpRnNibTdmZFZ4aDY0dlV0YkItdHlQSlVINmowdExYLXc2V0NEZDJRNUJTbEpPUXlORnZzY19nemt1SWJPb20zd2FFcW15MS1VVE93VzBMMXVvRjdZVXkwd1NnWUtISjRrVWdYSkN3aFI4Z0R3eFhEQWVsa0hsa25ha1FialBTc2VfSkFFS0gtX1U0RTdIaG1yUlNyN3RJbEpGX0RQQzVkZw?oc=5\" target=\"_blank\">Best college hockey rivalries: #3</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo Sports</font>",
+      "feed_title": "Mashable",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiakFVX3lxTE5QdDhuak1zZDBVZk5kQTR4RnJURjNlVVNkVVBuSmpnWFVsWURCMllSU1BSTHRLM09DaVgtQUlDN2IwZmhndXgzN2VjaVNQSExNbklwcDFIQVQ4RHljcUZaOGlzcEJCMkt6Z1E?oc=5\" target=\"_blank\">'Off Campus' review: This college hockey romance is really pucking fun</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Mashable</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4628,6 +4659,16 @@
       "author": "",
       "feed_title": "New England Hockey Journal",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxOMERjNThiaDktUDY5V3JZVTdab0h3YWxyWWwtMDBsXzRDUURReWRicFNZM1NMTjY5cjYzLVFaU1QxUURxcXplaW1qREFuWmFwdnNRV01iRVVRUU9rRk5JMG1HNUVQbTNuOHgxNllpbFVnYkppVDk2UjI2X3gtbTY0T0ZPWExVLWRPOXYzb211MWhZTnc0S2VGSTlhWkZKRkl1dFVwOTZTSVlJUQ?oc=5\" target=\"_blank\">How will NCAA\u2019s new age-based eligibility model impact prep? Coaches weigh in</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">New England Hockey Journal</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "Best college hockey rivalries: #3 - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQbkVfcTRTa2lVTTRWVGZzZjlfbHNOSHJpRnNibTdmZFZ4aDY0dlV0YkItdHlQSlVINmowdExYLXc2V0NEZDJRNUJTbEpPUXlORnZzY19nemt1SWJPb20zd2FFcW15MS1VVE93VzBMMXVvRjdZVXkwd1NnWUtISjRrVWdYSkN3aFI4Z0R3eFhEQWVsa0hsa25ha1FialBTc2VfSkFFS0gtX1U0RTdIaG1yUlNyN3RJbEpGX0RQQzVkZw?oc=5",
+      "published": "Fri, 10 Jul 2026 16:21:18 GMT",
+      "ts": 1783700478,
+      "author": "",
+      "feed_title": "Yahoo Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxQbkVfcTRTa2lVTTRWVGZzZjlfbHNOSHJpRnNibTdmZFZ4aDY0dlV0YkItdHlQSlVINmowdExYLXc2V0NEZDJRNUJTbEpPUXlORnZzY19nemt1SWJPb20zd2FFcW15MS1VVE93VzBMMXVvRjdZVXkwd1NnWUtISjRrVWdYSkN3aFI4Z0R3eFhEQWVsa0hsa25ha1FialBTc2VfSkFFS0gtX1U0RTdIaG1yUlNyN3RJbEpGX0RQQzVkZw?oc=5\" target=\"_blank\">Best college hockey rivalries: #3</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo Sports</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4651,16 +4692,6 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "Age-Based Eligibility Model Approved for NCAA DI - College Hockey, Inc.",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOVUhfSHhuVUlycjdVV3dLamRCVURsSTk0QnlMeDJiei1KLXhRaGtwWDlsWnJKQlRaX1dNUnZqNlVvOHpQejlGRU5TODVyUXl6QXRsNTZ0eGE1RUxuOGdHbHBJcENkNWpJSUE0YlZRMHQza29IOHlXZ1pYNE8waTNDTWF4bjRkOUNMSmgwNC1QRlBFNkpI?oc=5",
-      "published": "Tue, 23 Jun 2026 07:00:00 GMT",
-      "ts": 1782198000,
-      "author": "",
-      "feed_title": "College Hockey, Inc.",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxOVUhfSHhuVUlycjdVV3dLamRCVURsSTk0QnlMeDJiei1KLXhRaGtwWDlsWnJKQlRaX1dNUnZqNlVvOHpQejlGRU5TODVyUXl6QXRsNTZ0eGE1RUxuOGdHbHBJcENkNWpJSUE0YlZRMHQza29IOHlXZ1pYNE8waTNDTWF4bjRkOUNMSmgwNC1QRlBFNkpI?oc=5\" target=\"_blank\">Age-Based Eligibility Model Approved for NCAA DI</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">College Hockey, Inc.</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
       "title": "NCAA Approves Change to Age Eligibility Rules - College Hockey News",
       "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQlhtd3FzZFZ0QWdMZnNKV3JkZzBfR3g5NkFzcTBRbkNST0FQdW8wRnkzSmVkZkloR2pmbXNMamotLUxKT0dpaDZoQ2dxLTczYUk5X01zcFZmUmRKdklEVUVGYmxNLUxXbW8yWi1GOVVSQmtwbVZ0S1dtbjZQajg2Z0JVTXoyQUNrb0VTT3ZhSE8?oc=5",
       "published": "Tue, 23 Jun 2026 07:00:00 GMT",
@@ -4668,6 +4699,16 @@
       "author": "",
       "feed_title": "College Hockey News",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxNQlhtd3FzZFZ0QWdMZnNKV3JkZzBfR3g5NkFzcTBRbkNST0FQdW8wRnkzSmVkZkloR2pmbXNMamotLUxKT0dpaDZoQ2dxLTczYUk5X01zcFZmUmRKdklEVUVGYmxNLUxXbW8yWi1GOVVSQmtwbVZ0S1dtbjZQajg2Z0JVTXoyQUNrb0VTT3ZhSE8?oc=5\" target=\"_blank\">NCAA Approves Change to Age Eligibility Rules</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">College Hockey News</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "Age-Based Eligibility Model Approved for NCAA DI - College Hockey, Inc.",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOVUhfSHhuVUlycjdVV3dLamRCVURsSTk0QnlMeDJiei1KLXhRaGtwWDlsWnJKQlRaX1dNUnZqNlVvOHpQejlGRU5TODVyUXl6QXRsNTZ0eGE1RUxuOGdHbHBJcENkNWpJSUE0YlZRMHQza29IOHlXZ1pYNE8waTNDTWF4bjRkOUNMSmgwNC1QRlBFNkpI?oc=5",
+      "published": "Tue, 23 Jun 2026 07:00:00 GMT",
+      "ts": 1782198000,
+      "author": "",
+      "feed_title": "College Hockey, Inc.",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxOVUhfSHhuVUlycjdVV3dLamRCVURsSTk0QnlMeDJiei1KLXhRaGtwWDlsWnJKQlRaX1dNUnZqNlVvOHpQejlGRU5TODVyUXl6QXRsNTZ0eGE1RUxuOGdHbHBJcENkNWpJSUE0YlZRMHQza29IOHlXZ1pYNE8waTNDTWF4bjRkOUNMSmgwNC1QRlBFNkpI?oc=5\" target=\"_blank\">Age-Based Eligibility Model Approved for NCAA DI</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">College Hockey, Inc.</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4698,16 +4739,6 @@
       "author": "",
       "feed_title": "National Collegiate Hockey Conference",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxNMmJUNEcyWU50RDh3OHAweHlfN1lOWHFZcHJHTG1ac1BDaEd3TlhMZElSeVM1VV9OR2dlV0ZzaXRtcTVfUUpPT1g2TFA0Q2dTbFF0WHZaVmRCQTFpeVBXNUZSbDU2VHhqUFlyOGxDcDBxNnBHMHpGeVd0WHdsVHdwOUlLYnRsZnN2Z3RRc2EyV2FBeFFhcWVIQUxKRWhFajlzMzBQU1ZLTExCd1VKb1NFX1RyY2tILXFQWTU1cUR2M0Z4TVZzNnc?oc=5\" target=\"_blank\">Decade of Dominance: How the National Captured College Hockey\u2019s Throne</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">National Collegiate Hockey Conference</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
-      "title": "How college hockey got the NCAA eligibility rule victory it was searching for - The Boston Globe",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPNklqMG5BV05fRVh1ejZtSnhhZnEzRTVIcTlsSVBJMnlSbGVPUGlhSHZMMVhUc3VnYWFRYXdQVWJUTldTeWNpVzRNVHd5OWI4Q2oyV0dIaWsydldpbV9DZUlqbnNUV3Awa0xGT0VLMWpQNFFWY3piYXV5LVkzV3ZLOENnWktHQ2labDJr?oc=5",
-      "published": "Tue, 16 Jun 2026 07:00:00 GMT",
-      "ts": 1781593200,
-      "author": "",
-      "feed_title": "The Boston Globe",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxPNklqMG5BV05fRVh1ejZtSnhhZnEzRTVIcTlsSVBJMnlSbGVPUGlhSHZMMVhUc3VnYWFRYXdQVWJUTldTeWNpVzRNVHd5OWI4Q2oyV0dIaWsydldpbV9DZUlqbnNUV3Awa0xGT0VLMWpQNFFWY3piYXV5LVkzV3ZLOENnWktHQ2labDJr?oc=5\" target=\"_blank\">How college hockey got the NCAA eligibility rule victory it was searching for</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Boston Globe</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -5167,6 +5198,16 @@
   ],
   "news_national": [
     {
+      "title": "Most people who need glasses don't have them. Can the post office change that?",
+      "link": "https://www.npr.org/2026/07/11/nx-s1-5887653/reading-glasses-post-office-india",
+      "published": "Sat, 11 Jul 2026 07:49:47 -0400",
+      "ts": 1783770587,
+      "author": "Gabrielle Emanuel",
+      "feed_title": "",
+      "summary": "<img alt=\"Mirjahan Choudhury receives a free eye screening at the Rangia Post office in India.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5568x3712+0+0/resize/5568x3712!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Ff6%2F3a%2F2b7ae267443fb28f38919fb0d0b8%2Findia-post-office-eye-exam-11.jpg\" /><p>In some towns in India, a visitor to the post office who's squinting at fine print might be asked: Do you want an eye test? </p><p>(Image credit: Subhamoy Bhattacharjee for NPR)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5887653\" />",
+      "source": "NPR"
+    },
+    {
       "title": "Minnesota is pulling troops early from D.C., as pressure grows on Michigan",
       "link": "https://www.npr.org/2026/07/11/nx-s1-5887666/national-guard-dc-trump-michigan-minnesota",
       "published": "Sat, 11 Jul 2026 06:00:00 -0400",
@@ -5177,16 +5218,6 @@
       "source": "NPR"
     },
     {
-      "title": "With the white nationalist group Patriot Front, what you see is not what you get",
-      "link": "https://www.npr.org/2026/07/11/nx-s1-5888571/patriot-front-washington-dc",
-      "published": "Sat, 11 Jul 2026 05:00:00 -0400",
-      "ts": 1783760400,
-      "author": "Odette Yousef",
-      "feed_title": "",
-      "summary": "<img alt=\"Members of the group Patriot Front ride the subway as a commuter looks on, in Washington, D.C., on July 4.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5999x3999+0+0/resize/5999x3999!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F8b%2F3b%2Fbd333b7640178d633a46d2900deb%2F2026-07-04t174823z-806138528-rc217ma8zg2b-rtrmadp-3-usa-250-washingtondc.JPG\" /><p>Hundreds of masked white nationalists marched in the nation's capital on July Fourth. Who were they and where does their funding come from?</p><p>(Image credit: Cheney Orr)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5888571\" />",
-      "source": "NPR"
-    },
-    {
       "title": "Shy on the dance floor? Virtual reality 'partners' aim to help you find your groove",
       "link": "https://www.npr.org/2026/07/11/nx-s1-5882228/dance-virtual-reality-vr-app-augmented-world-expo-weddings",
       "published": "Sat, 11 Jul 2026 05:00:00 -0400",
@@ -5194,6 +5225,16 @@
       "author": "Chloe Veltman",
       "feed_title": "",
       "summary": "<img alt=\"Entrepreneur David Huang tests out a VR headset while conducting demonstrations of the social dance lesson app Dance Guru at the Augmented World Expo in Long Beach, Calif., June 17, 2026.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5712x3535+0+749/resize/5712x3535!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F4e%2F6d%2F2588c6b64ee3904c2dbe5dd9a7cf%2Fimg-2181.jpeg\" /><p>VR dance lesson apps like Dance Guru and Trip the Light offer a judgment-free way to learn partner dancing.</p><p>(Image credit: Chloe Veltman)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5882228\" />",
+      "source": "NPR"
+    },
+    {
+      "title": "With the white nationalist group Patriot Front, what you see is not what you get",
+      "link": "https://www.npr.org/2026/07/11/nx-s1-5888571/patriot-front-washington-dc",
+      "published": "Sat, 11 Jul 2026 05:00:00 -0400",
+      "ts": 1783760400,
+      "author": "Odette Yousef",
+      "feed_title": "",
+      "summary": "<img alt=\"Members of the group Patriot Front ride the subway as a commuter looks on, in Washington, D.C., on July 4.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5999x3999+0+0/resize/5999x3999!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F8b%2F3b%2Fbd333b7640178d633a46d2900deb%2F2026-07-04t174823z-806138528-rc217ma8zg2b-rtrmadp-3-usa-250-washingtondc.JPG\" /><p>Hundreds of masked white nationalists marched in the nation's capital on July Fourth. Who were they and where does their funding come from?</p><p>(Image credit: Cheney Orr)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5888571\" />",
       "source": "NPR"
     },
     {
@@ -5257,16 +5298,6 @@
       "source": "NPR"
     },
     {
-      "title": "Largest housing affordability bill in decades becomes law without Trump's signature",
-      "link": "https://www.npr.org/2026/07/10/nx-s1-5885027/housing-bill-without-trump-signature",
-      "published": "Fri, 10 Jul 2026 10:55:21 -0400",
-      "ts": 1783695321,
-      "author": "Stephan Bisaha",
-      "feed_title": "",
-      "summary": "<img alt=\"President Donald Trump points during a media conference at the NATO summit in Ankara, Turkey, Wednesday, July 8, 2026.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5616x3744+0+0/resize/5616x3744!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F31%2F5a%2Fd52a0ad643c2b70dd41a15b6052e%2Fap26189621107845.jpg\" /><p>President Trump refused to sign the bill without Congress first passing his sweeping voter ID bill.</p><p>(Image credit: Francisco Seco)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5885027\" />",
-      "source": "NPR"
-    },
-    {
       "title": "How Marco Rubio is Running Venezuela From Afar",
       "link": "https://www.nytimes.com/2026/07/11/us/politics/how-marco-rubio-runs-venezuela.html",
       "published": "Sat, 11 Jul 2026 09:01:46 +0000",
@@ -5317,13 +5348,13 @@
       "source": "NY Times"
     },
     {
-      "title": "Kansans Will Vote on an Elected Supreme Court. The Target: Abortion.",
-      "link": "https://www.nytimes.com/2026/07/11/us/elections/kansas-supreme-court-justices-election-abortion.html",
-      "published": "Sat, 11 Jul 2026 09:00:29 +0000",
-      "ts": 1783760429,
-      "author": "Kate Zernike",
+      "title": "An American Politician is Blocked by Israeli Settlers in the West Bank",
+      "link": "https://www.nytimes.com/2026/07/11/us/politics/ro-khanna-west-bank.html",
+      "published": "Sat, 11 Jul 2026 10:41:51 +0000",
+      "ts": 1783766511,
+      "author": "Lisa Lerer",
       "feed_title": "",
-      "summary": "A doctor entering an exam room to consult with a patient at a Planned Parenthood clinic in Kansas City, Kan., in 2022. Voters supported a state ballot measure supporting abortion rights that year.",
+      "summary": "Representative Ro Khanna was barred from leaving for 90 minutes. Where past U.S. leaders toured the region to show support for Israel, today\u2019s Democratic presidential aspirants are going to bolster their credentials as critics.",
       "source": "NY Times"
     },
     {
@@ -5337,13 +5368,13 @@
       "source": "NY Times"
     },
     {
-      "title": "Strait of Hormuz Will Soon Be Declared Open to All Traffic, U.S. Officials Say",
-      "link": "https://www.nytimes.com/2026/07/10/us/politics/strait-hormuz-safe-passage.html",
-      "published": "Fri, 10 Jul 2026 22:32:14 +0000",
-      "ts": 1783722734,
-      "author": "David E. Sanger",
+      "title": "Iran\u2019s Top Diplomat in Oman for Talks on Strait of Hormuz",
+      "link": "https://www.nytimes.com/2026/07/11/world/middleeast/iran-araghchi-oman-iran-strait-of-hormuz.html",
+      "published": "Sat, 11 Jul 2026 10:49:53 +0000",
+      "ts": 1783766993,
+      "author": "Aaron Boxerman",
       "feed_title": "",
-      "summary": "Oil tankers and cargo vessels anchored off the coast of Oman, just outside the Strait of Hormuz, last month.",
+      "summary": "Vessels in the Strait of Hormuz as seen from Musandam, Oman, this month.",
       "source": "NY Times"
     },
     {
@@ -5367,33 +5398,33 @@
       "source": "NY Times"
     },
     {
-      "title": "Pugnacious, charismatic and she always answered the question - Chris Mason on Ann Widdecombe",
-      "link": "https://www.bbc.co.uk/news/articles/czrxdnmlk5no?at_medium=RSS&at_campaign=rss",
-      "published": "Fri, 10 Jul 2026 21:27:28 GMT",
-      "ts": 1783718848,
+      "title": "TV presenter Dermot Murnaghan dies aged 68",
+      "link": "https://www.bbc.co.uk/news/articles/c20yvg13nqpo?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 11 Jul 2026 11:32:53 GMT",
+      "ts": 1783769573,
       "author": "",
       "feed_title": "",
-      "summary": "Plenty in Westminster who knew her, whether they agreed with her or not, found her immensely likeable.",
+      "summary": "The former BBC, ITV and Sky News journalist has died after revealing he had stage four prostate cancer.",
       "source": "BBC"
     },
     {
       "title": "US wants Iran to pledge to stop shooting at ships in Strait of Hormuz",
       "link": "https://www.bbc.co.uk/news/articles/crelyq79x71o?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 11 Jul 2026 04:56:33 GMT",
-      "ts": 1783745793,
+      "published": "Sat, 11 Jul 2026 11:42:46 GMT",
+      "ts": 1783770166,
       "author": "",
       "feed_title": "",
       "summary": "Vice-President JD Vance is among US officials expected to take part in negotiations resuming on Saturday in Oman.",
       "source": "BBC"
     },
     {
-      "title": "Spain battles to contain one of its deadliest wildfires as at least 12 killed",
-      "link": "https://www.bbc.co.uk/news/articles/c1wyv383j2xo?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 11 Jul 2026 09:01:15 GMT",
-      "ts": 1783760475,
+      "title": "Watch: 'We escaped Spanish wildfire, but our friends lost their lives'",
+      "link": "https://www.bbc.co.uk/news/videos/c07y357zvl1o?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 11 Jul 2026 11:45:55 GMT",
+      "ts": 1783770355,
       "author": "",
       "feed_title": "",
-      "summary": "At least four Britons are believed to be among the victims of the blaze, which left another 23 people missing.",
+      "summary": "Hundreds of firefighters in Spain have been battling a deadly wildfire in the south of the country.",
       "source": "BBC"
     },
     {
@@ -5417,16 +5448,6 @@
       "source": "BBC"
     },
     {
-      "title": "Hey Jude: Bellingham's return to England indispensability",
-      "link": "https://www.bbc.co.uk/sport/football/articles/ckg47l8nl7jo?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 11 Jul 2026 07:54:32 GMT",
-      "ts": 1783756472,
-      "author": "",
-      "feed_title": "",
-      "summary": "Senior football correspondent Sami Mokbel charts Jude Bellingham's remarkable  resurgence with England at the World Cup.",
-      "source": "BBC"
-    },
-    {
       "title": "Is it time to give record-breaker Pickford the credit he deserves?",
       "link": "https://www.bbc.co.uk/sport/football/articles/cj9gknxm91vo?at_medium=RSS&at_campaign=rss",
       "published": "Sat, 11 Jul 2026 05:55:32 GMT",
@@ -5434,6 +5455,26 @@
       "author": "",
       "feed_title": "",
       "summary": "Is it time to finally give England keeper Jordan Pickford the credit he deserves as he enters the World Cup history books, asks chief football writer Phil McNulty.",
+      "source": "BBC"
+    },
+    {
+      "title": "Pubs can stay open for full Norway game - even if kick-off delayed",
+      "link": "https://www.bbc.co.uk/news/articles/cm204lgrv10o?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 11 Jul 2026 10:38:18 GMT",
+      "ts": 1783766298,
+      "author": "",
+      "feed_title": "",
+      "summary": "The extended hours means fans can watch the entire game, even if the start is delayed.",
+      "source": "BBC"
+    },
+    {
+      "title": "Hey Jude: Bellingham's return to England indispensability",
+      "link": "https://www.bbc.co.uk/sport/football/articles/ckg47l8nl7jo?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 11 Jul 2026 07:54:32 GMT",
+      "ts": 1783756472,
+      "author": "",
+      "feed_title": "",
+      "summary": "Senior football correspondent Sami Mokbel charts Jude Bellingham's remarkable  resurgence with England at the World Cup.",
       "source": "BBC"
     },
     {
@@ -5447,33 +5488,33 @@
       "source": "BBC"
     },
     {
-      "title": "All the goals from England's 2026 World Cup campaign so far",
-      "link": "https://www.bbc.co.uk/sport/videos/cewqex0vl85o?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 11 Jul 2026 05:13:35 GMT",
-      "ts": 1783746815,
+      "title": "Should Argentina take Messi off penalties?",
+      "link": "https://www.bbc.co.uk/sport/football/articles/c6214y2dlgno?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 11 Jul 2026 10:51:33 GMT",
+      "ts": 1783767093,
       "author": "",
       "feed_title": "",
-      "summary": "As England gear up to face Norway at the Miami Stadium for the World Cup quarter-finals, re-live all the goals that got Thomas Tuchel's side there.",
+      "summary": "Lionel Messi keeps rewriting World Cup history, but after his latest miss from the spot, should Argentina hand penalty duties to someone else?",
       "source": "BBC"
     },
     {
-      "title": "Artificial turf & coaching revolution - how Norway shaped golden generation",
-      "link": "https://www.bbc.co.uk/sport/football/articles/cvge7299ygwo?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 11 Jul 2026 05:31:12 GMT",
-      "ts": 1783747872,
-      "author": "",
+      "title": "Remember, as midterm season heats up, politics and business just don\u2019t mix",
+      "link": "https://thehill.com/opinion/campaign/5961752-mixing-politics-business-fiasco/",
+      "published": "Sat, 11 Jul 2026 11:00:00 +0000",
+      "ts": 1783767600,
+      "author": "Gene Marks, opinion contributor",
       "feed_title": "",
-      "summary": "Artificial turf, investment from gambling and a coaching revolution based on collaboration over egos help Norway build a golden generation of players.",
-      "source": "BBC"
+      "summary": "Leave your politics at the door \u2014 it rarely works out well.",
+      "source": "The Hill"
     },
     {
-      "title": "Trump election\u00a0commission\u00a0firings spark interference concerns ahead of midterms",
-      "link": "https://thehill.com/homenews/campaign/5963244-trump-fires-election-commissioners-interference-fears/",
+      "title": "The Memo: Houston killing reignites controversy over Trump\u2019s ICE enforcement",
+      "link": "https://thehill.com/homenews/5963536-ice-shooting-houston-salgado-araujo-trump/",
       "published": "Sat, 11 Jul 2026 10:00:00 +0000",
       "ts": 1783764000,
-      "author": "Rebecca Beitsch",
+      "author": "Niall Stanage",
       "feed_title": "",
-      "summary": "President Trump\u2019s decision to fire multiple members of a bipartisan\u00a0election administration-focused commission is sparking concerns\u00a0that the White House\u00a0is looking to meddle ahead of\u00a0the November midterms. \u00a0 Trump fired the remaining two Democratic members on the\u00a0U.S.\u00a0Election Assistance Commission\u00a0(EAC),\u00a0while allowing a separate Republican member to resign on Thursday\u00a0\u2014 just a little more than a week\u00a0after the Supreme&#8230;",
+      "summary": "The killing of a man in Houston at the hands of an Immigration and Customs Enforcement (ICE) agent has reignited the controversy over President Trump\u2019s hardline policies, which critics contend are gratuitously aggressive and open the door to abuses. Lorenzo Salgado Araujo, an unauthorized migrant from Mexico and a father of three U.S. citizens, was&#8230;",
       "source": "The Hill"
     },
     {
@@ -5487,13 +5528,13 @@
       "source": "The Hill"
     },
     {
-      "title": "The Memo: Houston killing reignites controversy over Trump\u2019s ICE enforcement",
-      "link": "https://thehill.com/homenews/5963536-ice-shooting-houston-salgado-araujo-trump/",
+      "title": "Trump election\u00a0commission\u00a0firings spark interference concerns ahead of midterms",
+      "link": "https://thehill.com/homenews/campaign/5963244-trump-fires-election-commissioners-interference-fears/",
       "published": "Sat, 11 Jul 2026 10:00:00 +0000",
       "ts": 1783764000,
-      "author": "Niall Stanage",
+      "author": "Rebecca Beitsch",
       "feed_title": "",
-      "summary": "The killing of a man in Houston at the hands of an Immigration and Customs Enforcement (ICE) agent has reignited the controversy over President Trump\u2019s hardline policies, which critics contend are gratuitously aggressive and open the door to abuses. Lorenzo Salgado Araujo, an unauthorized migrant from Mexico and a father of three U.S. citizens, was&#8230;",
+      "summary": "President Trump\u2019s decision to fire multiple members of a bipartisan\u00a0election administration-focused commission is sparking concerns\u00a0that the White House\u00a0is looking to meddle ahead of\u00a0the November midterms. \u00a0 Trump fired the remaining two Democratic members on the\u00a0U.S.\u00a0Election Assistance Commission\u00a0(EAC),\u00a0while allowing a separate Republican member to resign on Thursday\u00a0\u2014 just a little more than a week\u00a0after the Supreme&#8230;",
       "source": "The Hill"
     },
     {
@@ -5557,23 +5598,13 @@
       "source": "The Hill"
     },
     {
-      "title": "Platner officially withdraws from Maine Senate race",
-      "link": "https://thehill.com/homenews/campaign/5963366-platner-officially-withdraws-from-maine-senate-race/",
-      "published": "Fri, 10 Jul 2026 20:57:57 +0000",
-      "ts": 1783717077,
-      "author": "Caroline Vakil",
-      "feed_title": "",
-      "summary": "Democrat Graham Platner has formally withdrawn from the Maine Senate race, allowing members of the party to choose their new nominee this month. &#8220;I write to formally withdraw my candidacy for United States Senate,&#8221; the progressive oyster farmer wrote in a letter posted to social media Friday, later adding that &#8220;my name may have been&#8230;",
-      "source": "The Hill"
-    },
-    {
       "title": "\u2018Teen takeovers\u2019 confound cities struggling to define the problem \u2014 and find solutions",
       "link": "https://www.washingtonpost.com/nation/2026/07/11/teen-takeovers-confound-cities-struggling-define-problem-find-solutions/",
       "published": "Sat, 11 Jul 2026 10:00:00 +0000",
       "ts": 1783764000,
       "author": "Brady Dennis, Cole Reynolds, N. Kirkpatrick, Chris Hacker",
       "feed_title": "",
-      "summary": "Viral videos of unruly gatherings of young people are pushing city officials to deal with a problem they are having trouble defining, much less solve.",
+      "summary": "Viral videos of unruly gatherings of young people are pushing city officials to deal with a problem they are having trouble defining, much less solving.",
       "source": "Washington Post"
     },
     {
@@ -5789,13 +5820,13 @@
       "source": "Google News"
     },
     {
-      "title": "Rideshare passenger says driver attacked them before arrival at Boston Logan Airport - Boston 25 News",
-      "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPQTlmVTlreHdtMGJvbVJ6cGcwSFBWLXZpX0oyZWJSZmFkdTBKcmxnUmhfWkEzVWZMaG1Rd1NQdlpLZHFvallHUnp3c1J0OVpxdEN2SzdZcy1sQWY3VVlPMDAxNlQ1eXl0UTJDeWhZMjBZcGVoWWkzTGplQTNiZFhfZTVYbzRvbVo2R1dVa1Q1NkhRSnk5SWlWejlPaElLN2ZTeEV2R2pCX0h1Ujc0RnZDYnNXVHN5a1hDVmJQVWlKUXBQdmN0YXE0N2Exa2VTWUowZjN2WllpVU1QRWJzc0c2MENCUEtDWHEz?oc=5",
-      "published": "Fri, 10 Jul 2026 13:13:59 GMT",
-      "ts": 1783689239,
+      "title": "FAA issues ground stop at Logan Airport due to fueling issue - Boston 25 News",
+      "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPSjJpVVdWaTBRN1Y4ejlONWE3c2Q3ZXJTYnFaZl9yX1RjMTZRNFd5bzN5VzdjbkloY19jNDloMEMwNmVha0VzTk9Ia1hCT2NCV19ob1J1eEREUnM3cVhHYXlmcWhqWW5qbXZzTS01VVhra1lwVGZZcWRKVkNTc1RidS1HM214dndpR3JVMzlvMFVDdEI0cTNWcm9fTTZrM3cyNERsS0FUUm8tN3VuaERvaWdJejdEZ0RNUjZaejNqVjJxelZ3?oc=5",
+      "published": "Mon, 06 Jul 2026 02:55:57 GMT",
+      "ts": 1783306557,
       "author": "",
       "feed_title": "Boston 25 News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6AFBVV95cUxPQTlmVTlreHdtMGJvbVJ6cGcwSFBWLXZpX0oyZWJSZmFkdTBKcmxnUmhfWkEzVWZMaG1Rd1NQdlpLZHFvallHUnp3c1J0OVpxdEN2SzdZcy1sQWY3VVlPMDAxNlQ1eXl0UTJDeWhZMjBZcGVoWWkzTGplQTNiZFhfZTVYbzRvbVo2R1dVa1Q1NkhRSnk5SWlWejlPaElLN2ZTeEV2R2pCX0h1Ujc0RnZDYnNXVHN5a1hDVmJQVWlKUXBQdmN0YXE0N2Exa2VTWUowZjN2WllpVU1QRWJzc0c2MENCUEtDWHEz?oc=5\" target=\"_blank\">Rideshare passenger says driver attacked them before arrival at Boston Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixAFBVV95cUxPSjJpVVdWaTBRN1Y4ejlONWE3c2Q3ZXJTYnFaZl9yX1RjMTZRNFd5bzN5VzdjbkloY19jNDloMEMwNmVha0VzTk9Ia1hCT2NCV19ob1J1eEREUnM3cVhHYXlmcWhqWW5qbXZzTS01VVhra1lwVGZZcWRKVkNTc1RidS1HM214dndpR3JVMzlvMFVDdEI0cTNWcm9fTTZrM3cyNERsS0FUUm8tN3VuaERvaWdJejdEZ0RNUjZaejNqVjJxelZ3?oc=5\" target=\"_blank\">FAA issues ground stop at Logan Airport due to fueling issue</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
       "source": "Google News"
     }
   ],
@@ -5862,13 +5893,13 @@
       "source": "MassDOT"
     },
     {
-      "title": "Prosecutors expand case involving former, current MBTA employees - WCVB",
-      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOb1JfYmNNV1FWTmpmLUVHdWNKbXBPY0dHdW93c3F4TzdfYlVKcGZLU2tkMmFZVVdGcGNFdkdrNHEteVd4dHBQNGNkT1NrS1lzUTRNVGFhQjV4U3l0c21laWppWjljeE5pcElJNXNQeEllRTBoUVF0MHdsbG9nNk82T0RR?oc=5",
-      "published": "Fri, 10 Jul 2026 22:29:00 GMT",
-      "ts": 1783722540,
+      "title": "MBTA employees charged with falsifying inspection reports for fraudulent overtime pay - Boston 25 News",
+      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQQWMtRDJKeWd6cUhiYnh6QXRZSTI3OFlNV0tMOUFuWnc4dEprYVRseG5NUGRfT3RHTHJRdGxReE15ckl3cnc1MVNUVzJWVnFSRTNtN1JwSDRRQTI3N2NnZEQxZXVkbmZ1LTBGcnJqOUNlV1BMUFdjVlo3RWRvYzFKWGw5REZQeE85Tkt1TlVtc2tqR3owVUd5TnhZYXY5eTRBZnVQLV9qM0xGR0RneXUyWHhSaUNsLXdUYnVDVnA5bUFYZWswazBrN1VxaXhtM0NVRzBEMU9oZzNBbXNFcHRLUEdzWdIB9wFBVV95cUxNaUd5NHRQZktwU3RyR1RxRnlob1E4MzNSejI4VVFDbWhYQlNhemFFQ01SWVJaLWFWRnNwT2NCRm9GNkNEdHhCeHEwT3QzdzBBZExhQXdTWFNVMmxjMDJPM2t2TF9HMHZRLVZaWmlhZjAyTTZvazlHMXd0aE1nQkYxUUF4cW9jc1hfb3Utd2RNX1Z4TnJQMTd5UTdhME1EZHpqSzBieFpKNW9jOE80cVlPREFaa0FueG82aXpNWFR0aWRHVncxekhYZ3hCelhMb01lNnAzSGhNdHdyOGFfVWsxYm50elJGb2RNUFZ5REJTbnFNa3ExOGNz?oc=5",
+      "published": "Fri, 10 Jul 2026 21:47:50 GMT",
+      "ts": 1783720070,
       "author": "",
-      "feed_title": "WCVB",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiggFBVV95cUxOb1JfYmNNV1FWTmpmLUVHdWNKbXBPY0dHdW93c3F4TzdfYlVKcGZLU2tkMmFZVVdGcGNFdkdrNHEteVd4dHBQNGNkT1NrS1lzUTRNVGFhQjV4U3l0c21laWppWjljeE5pcElJNXNQeEllRTBoUVF0MHdsbG9nNk82T0RR?oc=5\" target=\"_blank\">Prosecutors expand case involving former, current MBTA employees</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WCVB</font>",
+      "feed_title": "Boston 25 News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxQQWMtRDJKeWd6cUhiYnh6QXRZSTI3OFlNV0tMOUFuWnc4dEprYVRseG5NUGRfT3RHTHJRdGxReE15ckl3cnc1MVNUVzJWVnFSRTNtN1JwSDRRQTI3N2NnZEQxZXVkbmZ1LTBGcnJqOUNlV1BMUFdjVlo3RWRvYzFKWGw5REZQeE85Tkt1TlVtc2tqR3owVUd5TnhZYXY5eTRBZnVQLV9qM0xGR0RneXUyWHhSaUNsLXdUYnVDVnA5bUFYZWswazBrN1VxaXhtM0NVRzBEMU9oZzNBbXNFcHRLUEdzWdIB9wFBVV95cUxNaUd5NHRQZktwU3RyR1RxRnlob1E4MzNSejI4VVFDbWhYQlNhemFFQ01SWVJaLWFWRnNwT2NCRm9GNkNEdHhCeHEwT3QzdzBBZExhQXdTWFNVMmxjMDJPM2t2TF9HMHZRLVZaWmlhZjAyTTZvazlHMXd0aE1nQkYxUUF4cW9jc1hfb3Utd2RNX1Z4TnJQMTd5UTdhME1EZHpqSzBieFpKNW9jOE80cVlPREFaa0FueG82aXpNWFR0aWRHVncxekhYZ3hCelhMb01lNnAzSGhNdHdyOGFfVWsxYm50elJGb2RNUFZ5REJTbnFNa3ExOGNz?oc=5\" target=\"_blank\">MBTA employees charged with falsifying inspection reports for fraudulent overtime pay</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
       "source": "MBTA"
     },
     {
@@ -5912,16 +5943,6 @@
       "source": "MBTA"
     },
     {
-      "title": "Boston man arraigned, accused of making homemade explosives, threats on MBTA commuter rail - WHDH",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPRUMzMFphTF9MUUtuby1hTFh6YUpmb1RDSTQtRXB5SWFQSm5vNTlKYlQzSEdoc2htUHEwVUpRZ00wLUpoQkRkNWxLQWVQRTdnb0dvNjJoaWRvX1FPb0Z0Wkh2U2UzVlA3YlVkbzMxaEl5cXZYaWJ2TkFPNEVfTEJOVk03ajR2QWFLSW1rVG1kWnFqYS1qbk9ZTll5ZHZJZjlpU3J4NXNCb2xtSVFSZGpLRg?oc=5",
-      "published": "Thu, 09 Jul 2026 19:13:04 GMT",
-      "ts": 1783624384,
-      "author": "",
-      "feed_title": "WHDH",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPRUMzMFphTF9MUUtuby1hTFh6YUpmb1RDSTQtRXB5SWFQSm5vNTlKYlQzSEdoc2htUHEwVUpRZ00wLUpoQkRkNWxLQWVQRTdnb0dvNjJoaWRvX1FPb0Z0Wkh2U2UzVlA3YlVkbzMxaEl5cXZYaWJ2TkFPNEVfTEJOVk03ajR2QWFLSW1rVG1kWnFqYS1qbk9ZTll5ZHZJZjlpU3J4NXNCb2xtSVFSZGpLRg?oc=5\" target=\"_blank\">Boston man arraigned, accused of making homemade explosives, threats on MBTA commuter rail</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WHDH</font>",
-      "source": "MBTA"
-    },
-    {
       "title": "Boston man accused of bringing explosives, making bomb threats on MBTA commuter rail train - WHDH",
       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNN3VldDNMcjFRYjJJcHdsc3MzVmpzd082VFpERGtxQnJSWWlWMlVNSU1HdlBiX2xOX3JZU18yeUdyQ1gxTEJiRFpzc3RoOURreWR1dzUzTm0tcHNLczRCMnd3NkU1bUZubW5VWVV0UV9KTVFYQWFGazl6RDY1TUduSEtSTG9BZzIxM3RUVVgyNUxBeDhHb0s3NnV4SVJKM0Z2YTZZMEN5OTJ0b1VqUzdHTjZR?oc=5",
       "published": "Thu, 09 Jul 2026 19:13:04 GMT",
@@ -5929,6 +5950,16 @@
       "author": "",
       "feed_title": "WHDH",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxNN3VldDNMcjFRYjJJcHdsc3MzVmpzd082VFpERGtxQnJSWWlWMlVNSU1HdlBiX2xOX3JZU18yeUdyQ1gxTEJiRFpzc3RoOURreWR1dzUzTm0tcHNLczRCMnd3NkU1bUZubW5VWVV0UV9KTVFYQWFGazl6RDY1TUduSEtSTG9BZzIxM3RUVVgyNUxBeDhHb0s3NnV4SVJKM0Z2YTZZMEN5OTJ0b1VqUzdHTjZR?oc=5\" target=\"_blank\">Boston man accused of bringing explosives, making bomb threats on MBTA commuter rail train</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WHDH</font>",
+      "source": "MBTA"
+    },
+    {
+      "title": "Boston man arraigned, accused of making homemade explosives, threats on MBTA commuter rail - WHDH",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPRUMzMFphTF9MUUtuby1hTFh6YUpmb1RDSTQtRXB5SWFQSm5vNTlKYlQzSEdoc2htUHEwVUpRZ00wLUpoQkRkNWxLQWVQRTdnb0dvNjJoaWRvX1FPb0Z0Wkh2U2UzVlA3YlVkbzMxaEl5cXZYaWJ2TkFPNEVfTEJOVk03ajR2QWFLSW1rVG1kWnFqYS1qbk9ZTll5ZHZJZjlpU3J4NXNCb2xtSVFSZGpLRg?oc=5",
+      "published": "Thu, 09 Jul 2026 19:13:04 GMT",
+      "ts": 1783624384,
+      "author": "",
+      "feed_title": "WHDH",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPRUMzMFphTF9MUUtuby1hTFh6YUpmb1RDSTQtRXB5SWFQSm5vNTlKYlQzSEdoc2htUHEwVUpRZ00wLUpoQkRkNWxLQWVQRTdnb0dvNjJoaWRvX1FPb0Z0Wkh2U2UzVlA3YlVkbzMxaEl5cXZYaWJ2TkFPNEVfTEJOVk03ajR2QWFLSW1rVG1kWnFqYS1qbk9ZTll5ZHZJZjlpU3J4NXNCb2xtSVFSZGpLRg?oc=5\" target=\"_blank\">Boston man arraigned, accused of making homemade explosives, threats on MBTA commuter rail</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WHDH</font>",
       "source": "MBTA"
     },
     {
@@ -6048,7 +6079,7 @@
       "date": "2026-07-13",
       "time": null,
       "all_day": true,
-      "summary": "Check in with Tom - next steps re: property",
+      "summary": "Preseason Q+A event check-in",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6064,7 +6095,15 @@
       "date": "2026-07-13",
       "time": null,
       "all_day": true,
-      "summary": "Preseason Q+A event check-in",
+      "summary": "check w Tom about Habitat/affordability concept",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-13",
+      "time": null,
+      "all_day": true,
+      "summary": "Check in with Tom - next steps re: property",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6073,14 +6112,6 @@
       "time": null,
       "all_day": true,
       "summary": "book an appointment with HIMS to discuss hair regrowth",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-13",
-      "time": null,
-      "all_day": true,
-      "summary": "check w Tom about Habitat/affordability concept",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6136,7 +6167,7 @@
       "date": "2026-07-13",
       "time": "8:00 AM",
       "all_day": false,
-      "summary": "Joe - Court / OOO",
+      "summary": "AHTF Minutes Posted",
       "location": null,
       "calendar": "Joseph"
     },
@@ -6144,7 +6175,7 @@
       "date": "2026-07-13",
       "time": "8:00 AM",
       "all_day": false,
-      "summary": "AHTF Minutes Posted",
+      "summary": "Joe - Court / OOO",
       "location": null,
       "calendar": "Joseph"
     },
@@ -6192,47 +6223,7 @@
       "date": "2026-07-15",
       "time": null,
       "all_day": true,
-      "summary": "Check in on progress toward the plan and identify projects/action items",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-15",
-      "time": null,
-      "all_day": true,
-      "summary": "GI doctor",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-15",
-      "time": null,
-      "all_day": true,
-      "summary": "Consult travel spreadsheet to work on plans",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-15",
-      "time": null,
-      "all_day": true,
-      "summary": "Therapist/meds",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-15",
-      "time": null,
-      "all_day": true,
       "summary": "Do laundry",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-15",
-      "time": null,
-      "all_day": true,
-      "summary": "PCP appointment",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6248,7 +6239,47 @@
       "date": "2026-07-15",
       "time": null,
       "all_day": true,
+      "summary": "PCP appointment",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-15",
+      "time": null,
+      "all_day": true,
+      "summary": "Therapist/meds",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-15",
+      "time": null,
+      "all_day": true,
+      "summary": "GI doctor",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-15",
+      "time": null,
+      "all_day": true,
       "summary": "Dentist",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-15",
+      "time": null,
+      "all_day": true,
+      "summary": "Consult travel spreadsheet to work on plans",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-15",
+      "time": null,
+      "all_day": true,
+      "summary": "Check in on progress toward the plan and identify projects/action items",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6304,14 +6335,6 @@
       "date": "2026-07-16",
       "time": null,
       "all_day": true,
-      "summary": "Preapproved plans for infill",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-16",
-      "time": null,
-      "all_day": true,
       "summary": "marianne mcfarlane memorial ideas",
       "location": null,
       "calendar": "Todoist"
@@ -6321,6 +6344,14 @@
       "time": null,
       "all_day": true,
       "summary": "Reading sessions",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-16",
+      "time": null,
+      "all_day": true,
+      "summary": "Preapproved plans for infill",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6472,14 +6503,6 @@
       "date": "2026-07-21",
       "time": null,
       "all_day": true,
-      "summary": "Consult travel spreadsheet to work on plans",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-21",
-      "time": null,
-      "all_day": true,
       "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
@@ -6489,6 +6512,14 @@
       "time": null,
       "all_day": true,
       "summary": "Legalizing infill/starter homes plan of action",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-21",
+      "time": null,
+      "all_day": true,
+      "summary": "Consult travel spreadsheet to work on plans",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6903,21 +6934,21 @@
     {
       "date": "2026-06-24",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Bosnia and Herzegovina 3, Qatar 1",
-      "time": "3:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "Lumen Field, Seattle, Washington, United Stat",
-      "special": null
-    },
-    {
-      "date": "2026-06-24",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Switzerland 2, Canada 1",
       "time": "3:00 PM",
       "result": null,
       "score": null,
       "venue": "BC Place, Vancouver, British Columbia, Canada",
+      "special": null
+    },
+    {
+      "date": "2026-06-24",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Bosnia and Herzegovina 3, Qatar 1",
+      "time": "3:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "Lumen Field, Seattle, Washington, United Stat",
       "special": null
     },
     {
@@ -6963,21 +6994,21 @@
     {
       "date": "2026-06-24",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Czechia 0, Mexico 3",
-      "time": "9:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "Estadio Banorte, Mexico City, Mexico City, Me",
-      "special": null
-    },
-    {
-      "date": "2026-06-24",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f South Africa 1, South Korea 0",
       "time": "9:00 PM",
       "result": null,
       "score": null,
       "venue": "Estadio BBVA, Guadalupe, Nuevo Leon, Mexico",
+      "special": null
+    },
+    {
+      "date": "2026-06-24",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Czechia 0, Mexico 3",
+      "time": "9:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "Estadio Banorte, Mexico City, Mexico City, Me",
       "special": null
     },
     {
@@ -7043,21 +7074,21 @@
     {
       "date": "2026-06-25",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Japan 1, Sweden 1",
-      "time": "7:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "AT&T Stadium, Arlington, Texas, United States",
-      "special": null
-    },
-    {
-      "date": "2026-06-25",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Tunisia 1, Netherlands 3",
       "time": "7:00 PM",
       "result": null,
       "score": null,
       "venue": "GEHA Field at Arrowhead Stadium, Kansas City,",
+      "special": null
+    },
+    {
+      "date": "2026-06-25",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Japan 1, Sweden 1",
+      "time": "7:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "AT&T Stadium, Arlington, Texas, United States",
       "special": null
     },
     {
@@ -7093,21 +7124,21 @@
     {
       "date": "2026-06-26",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Senegal 5, Iraq 0",
-      "time": "3:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "BMO Field, Toronto, Ontario, Canada",
-      "special": null
-    },
-    {
-      "date": "2026-06-26",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Norway 1, France 4",
       "time": "3:00 PM",
       "result": null,
       "score": null,
       "venue": "Gillette Stadium, Foxborough, Massachusetts, ",
+      "special": null
+    },
+    {
+      "date": "2026-06-26",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Senegal 5, Iraq 0",
+      "time": "3:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "BMO Field, Toronto, Ontario, Canada",
       "special": null
     },
     {
@@ -7153,21 +7184,21 @@
     {
       "date": "2026-06-27",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Jordan 1, Argentina 3",
-      "time": "10:00 PM",
-      "result": null,
-      "score": null,
-      "venue": "AT&T Stadium, Arlington, Texas, United States",
-      "special": null
-    },
-    {
-      "date": "2026-06-27",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Algeria 3, Austria 3",
       "time": "10:00 PM",
       "result": null,
       "score": null,
       "venue": "GEHA Field at Arrowhead Stadium, Kansas City,",
+      "special": null
+    },
+    {
+      "date": "2026-06-27",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Jordan 1, Argentina 3",
+      "time": "10:00 PM",
+      "result": null,
+      "score": null,
+      "venue": "AT&T Stadium, Arlington, Texas, United States",
       "special": null
     },
     {
@@ -7243,21 +7274,21 @@
     {
       "date": "2026-06-27",
       "team": "worldcup",
-      "title": "\u26bd\ufe0f Colombia 0, Portugal 0",
-      "time": "7:30 PM",
-      "result": null,
-      "score": null,
-      "venue": "Hard Rock Stadium, Miami Gardens, Florida, Un",
-      "special": null
-    },
-    {
-      "date": "2026-06-27",
-      "team": "worldcup",
       "title": "\u26bd\ufe0f Democratic Republic of Congo 3, Uzbekistan 1",
       "time": "7:30 PM",
       "result": null,
       "score": null,
       "venue": "Mercedes-Benz Stadium, Atlanta, Georgia, Unit",
+      "special": null
+    },
+    {
+      "date": "2026-06-27",
+      "team": "worldcup",
+      "title": "\u26bd\ufe0f Colombia 0, Portugal 0",
+      "time": "7:30 PM",
+      "result": null,
+      "score": null,
+      "venue": "Hard Rock Stadium, Miami Gardens, Florida, Un",
       "special": null
     },
     {
@@ -8702,7 +8733,7 @@
     },
     {
       "date": "2026-08-14",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Richmond",
       "time": "7:30 PM",
       "result": null,
@@ -8712,7 +8743,7 @@
     },
     {
       "date": "2026-08-14",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Richmond",
       "time": "7:30 PM",
       "result": null,
@@ -9298,24 +9329,18 @@
       "lanes": "Travel Lane(s) Affected: 2 of 2 (SELECT ONLY IF All Lanes are Closed) Lane(s) Affected Description: Right 2 lanes closed",
       "lat": 42.27333491176391,
       "lng": -71.05049170423507,
-      "updated": "2026-07-11T06:20:35"
-    },
-    {
-      "id": "2616976723762785",
-      "title": "Traffic (DMV/Crash) \u2014 I-91 NB",
-      "type": "Traffic Incidents",
-      "subtype": "Traffic (DMV/Crash)",
-      "road": "I-91",
-      "direction": "NB",
-      "start": "",
-      "end": "",
-      "status": "Open",
-      "location": "I-91 NB Exit 7.2",
-      "lanes": "Travel Lane(s) Affected: 3 of 3 (SELECT ONLY IF) All Lanes are Closed) Lane(s) Affected Description: 1 direction closed",
-      "lat": 42.135470936000125,
-      "lng": -72.61139955581535,
-      "updated": "2026-07-11T05:47:33"
+      "updated": "2026-07-11T07:33:59"
     }
   ],
-  "news_ktn": []
+  "news_ktn": [
+    {
+      "title": "Crash that killed Boston transit planner sparks furor over road safety efforts",
+      "link": "https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv/entries/l5f289n6bv7ra34ikoyn.html",
+      "published": "2026-07-11T00:03:32.320Z",
+      "ts": 1783728212,
+      "author": "bounce-mc.us11_45982397.506811-6a2fc20c81@mail60.atl18.mcdlv.net (bounce-mc.us11_45982397.506811-6a2fc20c81@mail60.atl18.mcdlv.net)",
+      "feed_title": "",
+      "summary": "<!-- NAME: 1:2:1 COLUMN -->\n        <!--[if gte mso 15]>\n        <xml>\n            <o:OfficeDocumentSettings>\n            <o:AllowPNG></o:AllowPNG>\n            <o:PixelsPerInch>96</o:PixelsPerInch>\n            </o:OfficeDocumentSettings>\n        </xml>\n        <![endif]-->\n        \n        \n        \n        Crash that killed Boston transit planner sparks furor over road safety efforts\n\n    \n    \n        <!--\n-->\n        <!--[if !gte mso 9]><!----><span class=\"mcnPreviewText\" style=\"display: none; font-size: 0px; line-height: 0px; overflow: hidden;\">Advocates and residents want City Hall to act quickly to fix the intersection of Tremont and Parker street.</span><!--<![endif]-->\n        <!--\n-->\n        <center>\n            <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"100%\" id=\"bodyTable\" width=\"100%\">\n                <tr>\n                    <td align=\"center\" id=\"bodyCell\" valign=\"top\">\n                        <!-- BEGIN TEMPLATE // -->\n                        <!--[if (gte mso 9)|(IE)]>\n                        <table align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:600px;\">\n                        <tr>\n                        <td align=\"center\" valign=\"top\" width=\"600\" style=\"width:600px;\">\n                        <![endif]-->\n                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"templateContainer\" width=\"100%\">\n                            <tr>\n                                <td id=\"templatePreheader\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnCodeBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"6\" width=\"40\"><tbody><tr><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902100&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=pixel\" width=\"2\" /></td><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902101&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=pixel\" width=\"2\" /></td><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902102&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=pixel\" width=\"2\" /></td><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902103&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=pixel\" width=\"2\" /></td><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902104&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=pixel\" width=\"2\" /></td></tr></tbody></table>\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnCodeBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n                <div>\n  <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n    <tbody><tr><td align=\"center\" colspan=\"2\">\n      <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097633&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=static\" /></td></tr>\n    <tr class=\"lihide\"><td colspan=\"2\"><br />\n      <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=4309ed5601&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n        <img border=\"0\" class=\"lihide\" src=\"https://sli.bostonglobe.com/imp?s=1097629&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=default&amp;li_coord=desktop&amp;collapse_width=564\" width=\"564\" /></a></td></tr>\n    <!--[if !mso]>-->\n    <tr class=\"lishow\" style=\"display: none;\">\n      <td colspan=\"2\">\n        <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=59c1900ac4&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n          <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097629&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=default&amp;li_coord=mobile&amp;collapse_width=480\" width=\"480\" /></a></td></tr>\n    <!--<![endif]-->\n    <tr><td align=\"left\">\n      <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=6b9cd58ec2&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n        <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097630&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=static\" /></a></td>\n      <td align=\"right\">\n        <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=95b684e349&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n          <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097632&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=static\" /></a></td></tr>\n  </tbody></table>\n</div>\n            </td>\n        </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateHeader\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerBlock\" width=\"100%\">\n    <tbody class=\"mcnDividerBlockOuter\">\n        <tr>\n            <td class=\"mcnDividerBlockInner\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerContent\" width=\"100%\">\n                    <tbody><tr>\n                        <td>\n                            <span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n<!--\n                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\n                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\n-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnImageBlock\" width=\"100%\">\n    <tbody class=\"mcnImageBlockOuter\">\n            <tr>\n                <td class=\"mcnImageBlockInner\" valign=\"top\">\n                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnImageContentContainer\" width=\"100%\">\n                        <tbody><tr>\n                            <td class=\"mcnImageContent\" valign=\"top\">\n\n                                    <a class=\"\" href=\"https://us.list-manage.com/xrACLWMMzEQ?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\" title=\"\">\n                                        <img align=\"center\" alt=\"\" class=\"mcnImage\" src=\"https://mcusercontent.com/90f9e490a860897c7155feca1/images/e6d20b2c-84a5-f183-1372-3698abb50950.png\" width=\"564\" />\n                                    </a>\n\n                            </td>\n                        </tr>\n                    </tbody></table>\n                </td>\n            </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnImageBlock\" width=\"100%\">\n    <tbody class=\"mcnImageBlockOuter\">\n            <tr>\n                <td class=\"mcnImageBlockInner\" valign=\"top\">\n                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnImageContentContainer\" width=\"100%\">\n                        <tbody><tr>\n                            <td class=\"mcnImageContent\" valign=\"top\">\n\n                                    <a class=\"\" href=\"https://us.list-manage.com/BPCkiaWbxIo?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\" title=\"\">\n                                        <img align=\"center\" alt=\"\" class=\"mcnImage\" src=\"https://mcusercontent.com/90f9e490a860897c7155feca1/images/99c6fe1e-b135-1adf-3723-093c5c31117d.jpg\" width=\"564\" />\n                                    </a>\n\n                            </td>\n                        </tr>\n                    </tbody></table>\n                </td>\n            </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateUpperBody\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n              \t<!--[if mso]>\n\t\t\t\t<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\n\t\t\t\t<tr>\n\t\t\t\t<![endif]-->\n\t\t\t\n\t\t\t\t<!--[if mso]>\n\t\t\t\t<td valign=\"top\" width=\"600\" style=\"width:600px;\">\n\t\t\t\t<![endif]-->\n                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextContentContainer\" width=\"100%\">\n                    <tbody><tr>\n\n                        <td class=\"mcnTextContent\" valign=\"top\">\n\n                            <div style=\"text-align: center;\"><span style=\"font-size: 22px;\"><span style=\"font-family: helvetica neue,helvetica,arial,verdana,sans-serif;\"><strong>Crash that killed Boston transit planner sparks furor over road safety efforts</strong></span></span></div>\n\n                        </td>\n                    </tr>\n                </tbody></table>\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</td>\n\t\t\t\t<![endif]-->\n\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<![endif]-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n              \t<!--[if mso]>\n\t\t\t\t<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\n\t\t\t\t<tr>\n\t\t\t\t<![endif]-->\n\t\t\t\n\t\t\t\t<!--[if mso]>\n\t\t\t\t<td valign=\"top\" width=\"600\" style=\"width:600px;\">\n\t\t\t\t<![endif]-->\n                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextContentContainer\" width=\"100%\">\n                    <tbody><tr>\n\n                        <td class=\"mcnTextContent\" valign=\"top\">\n\n                            <span style=\"font-family: georgia,times,times new roman,serif;\"><span style=\"font-size: 16px;\"><a href=\"https://us.list-manage.com/pUW8XgueoqS?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Read the full story.</a></span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</td>\n\t\t\t\t<![endif]-->\n\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<![endif]-->\n            </td>\n        </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateColumns\" valign=\"top\">\n                                    <!--[if (gte mso 9)|(IE)]>\n                                    <table align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:600px;\">\n                                    <tr>\n                                    <td align=\"center\" valign=\"top\" width=\"300\" style=\"width:300px;\">\n                                    <![endif]-->\n                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"columnWrapper\" width=\"300\">\n                                        <tr>\n                                            <td class=\"columnContainer\" valign=\"top\"></td>\n                                        </tr>\n                                    </table>\n                                    <!--[if (gte mso 9)|(IE)]>\n                                    </td>\n                                    <td align=\"center\" valign=\"top\" width=\"300\" style=\"width:300px;\">\n                                    <![endif]-->\n                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"columnWrapper\" width=\"300\">\n                                        <tr>\n                                            <td class=\"columnContainer\" valign=\"top\"></td>\n                                        </tr>\n                                    </table>\n                                    <!--[if (gte mso 9)|(IE)]>\n                                    </td>\n                                    </tr>\n                                    </table>\n                                    <![endif]-->\n                                </td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateLowerBody\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerBlock\" width=\"100%\">\n    <tbody class=\"mcnDividerBlockOuter\">\n        <tr>\n            <td class=\"mcnDividerBlockInner\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerContent\" width=\"100%\">\n                    <tbody><tr>\n                        <td>\n                            <span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n<!--\n                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\n                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\n-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnCodeBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n                <div>\n  <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n    <tbody><tr><td align=\"center\" colspan=\"2\">\n      <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097638&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=static\" /></td></tr>\n    <tr class=\"lihide\"><td colspan=\"2\"><br />\n      <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=08b7f78bfc&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n        <img border=\"0\" class=\"lihide\" src=\"https://sli.bostonglobe.com/imp?s=1097634&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=default&amp;li_coord=desktop&amp;collapse_width=564\" width=\"564\" /></a></td></tr>\n    <!--[if !mso]>-->\n    <tr class=\"lishow\" style=\"display: none;\">\n      <td colspan=\"2\">\n        <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=ff22227012&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n          <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097634&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=default&amp;li_coord=mobile&amp;collapse_width=480\" width=\"480\" /></a></td></tr>\n    <!--<![endif]-->\n    <tr><td align=\"left\">\n      <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=021afe9ddd&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n        <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097635&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=static\" /></a></td>\n      <td align=\"right\">\n        <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=a2bf1c60d7&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n          <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097637&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=445aa05069&amp;stpe=static\" /></a></td></tr>\n  </tbody></table>\n</div>\n            </td>\n        </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateFooter\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnCodeBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n                <img height=\"0\" src=\"https://beacon.krxd.net/event.gif?event_id=NNIGa6_4&amp;event_type=email_open\" width=\"0\" />\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerBlock\" width=\"100%\">\n    <tbody class=\"mcnDividerBlockOuter\">\n        <tr>\n            <td class=\"mcnDividerBlockInner\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerContent\" width=\"100%\">\n                    <tbody><tr>\n                        <td>\n                            <span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n<!--\n                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\n                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\n-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n              \t<!--[if mso]>\n\t\t\t\t<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\n\t\t\t\t<tr>\n\t\t\t\t<![endif]-->\n\t\t\t\n\t\t\t\t<!--[if mso]>\n\t\t\t\t<td valign=\"top\" width=\"600\" style=\"width:600px;\">\n\t\t\t\t<![endif]-->\n                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextContentContainer\" width=\"100%\">\n                    <tbody><tr>\n\n                        <td class=\"mcnTextContent\" valign=\"top\">\n\n                            <div style=\"text-align: left;\"><span style=\"font-size: 16px;\"><span style=\"font-family: georgia,times,times new roman,serif;\"><em>Browse <a href=\"https://us.list-manage.com/14Pp5eZn39g?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">all newsletters and email alerts</a> from The Boston Globe.</em></span></span></div>\n\n                        </td>\n                    </tr>\n                </tbody></table>\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</td>\n\t\t\t\t<![endif]-->\n\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<![endif]-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerBlock\" width=\"100%\">\n    <tbody class=\"mcnDividerBlockOuter\">\n        <tr>\n            <td class=\"mcnDividerBlockInner\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerContent\" width=\"100%\">\n                    <tbody><tr>\n                        <td>\n                            <span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n<!--\n                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\n                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\n-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonBlock\" width=\"100%\">\n    <tbody class=\"mcnButtonBlockOuter\">\n        <tr>\n            <td align=\"left\" class=\"mcnButtonBlockInner\" valign=\"top\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonContentContainer\">\n                    <tbody>\n                        <tr>\n                            <td align=\"center\" class=\"mcnButtonContent\" valign=\"middle\">\n                                <a class=\"mcnButton \" href=\"https://us.list-manage.com/TNmnNCKLhcx?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\" title=\"SUBSCRIBE TO THE GLOBE\">SUBSCRIBE TO THE GLOBE</a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n              \t<!--[if mso]>\n\t\t\t\t<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\n\t\t\t\t<tr>\n\t\t\t\t<![endif]-->\n\t\t\t\n\t\t\t\t<!--[if mso]>\n\t\t\t\t<td valign=\"top\" width=\"600\" style=\"width:600px;\">\n\t\t\t\t<![endif]-->\n                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextContentContainer\" width=\"100%\">\n                    <tbody><tr>\n\n                        <td class=\"mcnTextContent\" valign=\"top\">\n\n                            <div style=\"text-align: left;\"><span style=\"font-size: 12px;\"><span style=\"font-family: arial,helvetica neue,helvetica,sans-serif;\">You received this message because you signed up for Breaking News Alerts.<br />\n<br />\n<a href=\"https://bostonglobe.us11.list-manage.com/unsubscribe?u=90f9e490a860897c7155feca1&amp;id=5ab5b28599&amp;t=b&amp;e=6a2fc20c81&amp;c=445aa05069\">Unsubscribe from this list</a><br />\n<br />\nCopyright \u00a9 2026 The Boston Globe, All rights reserved.<br />\n<br />\n<div class=\"vcard\"><span class=\"org fn\">The Boston Globe</span><div class=\"adr\"><div class=\"street-address\">1 Exchange Place Suite 201</div><span class=\"locality\">Boston</span>, <span class=\"region\">MA</span> <span class=\"postal-code\">02109-2132</span></div><br /><a class=\"hcard-download\" href=\"https://bostonglobe.us11.list-manage.com/vcard?u=90f9e490a860897c7155feca1&amp;id=5ab5b28599\">Add us to your address book</a></div> </span><br />\n<br />\n<a href=\"https://mailchi.mp/bostonglobe.com/crash-that-killed-boston-transit-planner-sparks-furor-over-road-safety-efforts?e=6a2fc20c81\" target=\"_blank\">View in Browser</a>&nbsp;|<span style=\"font-family: arial,helvetica neue,helvetica,sans-serif;\">&nbsp;<a href=\"https://us.list-manage.com/GilPiGc5SeO?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Manage Your Account</a>&nbsp;|&nbsp;<a href=\"https://us.list-manage.com/vSqghheNaD_?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Terms of Service</a>&nbsp;|&nbsp;<a href=\"https://us.list-manage.com/155CSpVbkVL?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Privacy Policy</a>&nbsp;|&nbsp;<a href=\"https://us.list-manage.com/_Zt0z7AtoAD?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Help Center</a>&nbsp;|&nbsp;<a href=\"https://us.list-manage.com/FwUi3EOYi5I?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Advertise</a></span></span></div>\n\n                        </td>\n                    </tr>\n                </tbody></table>\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</td>\n\t\t\t\t<![endif]-->\n\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<![endif]-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowBlock\" width=\"100%\">\n    <tbody class=\"mcnFollowBlockOuter\">\n        <tr>\n            <td align=\"center\" class=\"mcnFollowBlockInner\" valign=\"top\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContentContainer\" width=\"100%\">\n    <tbody><tr>\n        <td align=\"left\">\n            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContent\" width=\"100%\">\n                <tbody><tr>\n                    <td align=\"left\" valign=\"top\">\n                        <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n                            <tbody><tr>\n                                <td align=\"left\" valign=\"top\">\n                                    <!--[if mso]>\n                                    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n                                    <tr>\n                                    <![endif]-->\n\n                                        <!--[if mso]>\n                                        <td align=\"center\" valign=\"top\">\n                                        <![endif]-->\n\n\n                                            <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnBlockFloatLeft\">\n                                                <tbody><tr>\n                                                    <td class=\"mcnFollowContentItemContainer\" valign=\"top\">\n                                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContentItem\" width=\"100%\">\n                                                            <tbody><tr>\n                                                                <td align=\"left\" valign=\"middle\">\n                                                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"\">\n                                                                        <tbody><tr>\n\n                                                                                <td align=\"center\" class=\"mcnFollowIconContent\" valign=\"middle\" width=\"24\">\n                                                                                    <a href=\"https://us.list-manage.com/qqfziJ3PK7_?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\"><img alt=\"Facebook\" class=\"\" height=\"24\" src=\"https://cdn-images.mailchimp.com/icons/social-block-v2/light-facebook-48.png\" width=\"24\" /></a>\n                                                                                </td>\n\n\n                                                                        </tr>\n                                                                    </tbody></table>\n                                                                </td>\n                                                            </tr>\n                                                        </tbody></table>\n                                                    </td>\n                                                </tr>\n                                            </tbody></table>\n\n                                        <!--[if mso]>\n                                        </td>\n                                        <![endif]-->\n\n                                        <!--[if mso]>\n                                        <td align=\"center\" valign=\"top\">\n                                        <![endif]-->\n\n\n                                            <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnBlockFloatLeft\">\n                                                <tbody><tr>\n                                                    <td class=\"mcnFollowContentItemContainer\" valign=\"top\">\n                                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContentItem\" width=\"100%\">\n                                                            <tbody><tr>\n                                                                <td align=\"left\" valign=\"middle\">\n                                                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"\">\n                                                                        <tbody><tr>\n\n                                                                                <td align=\"center\" class=\"mcnFollowIconContent\" valign=\"middle\" width=\"24\">\n                                                                                    <a href=\"https://us.list-manage.com/N_79YBQBFHz?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\"><img alt=\"Twitter\" class=\"\" height=\"24\" src=\"https://cdn-images.mailchimp.com/icons/social-block-v2/light-twitter-48.png\" width=\"24\" /></a>\n                                                                                </td>\n\n\n                                                                        </tr>\n                                                                    </tbody></table>\n                                                                </td>\n                                                            </tr>\n                                                        </tbody></table>\n                                                    </td>\n                                                </tr>\n                                            </tbody></table>\n\n                                        <!--[if mso]>\n                                        </td>\n                                        <![endif]-->\n\n                                        <!--[if mso]>\n                                        <td align=\"center\" valign=\"top\">\n                                        <![endif]-->\n\n\n                                            <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnBlockFloatLeft\">\n                                                <tbody><tr>\n                                                    <td class=\"mcnFollowContentItemContainer\" valign=\"top\">\n                                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContentItem\" width=\"100%\">\n                                                            <tbody><tr>\n                                                                <td align=\"left\" valign=\"middle\">\n                                                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"\">\n                                                                        <tbody><tr>\n\n                                                                                <td align=\"center\" class=\"mcnFollowIconContent\" valign=\"middle\" width=\"24\">\n                                                                                    <a href=\"https://us.list-manage.com/124O4c1AYZL?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\"><img alt=\"Link\" class=\"\" height=\"24\" src=\"https://cdn-images.mailchimp.com/icons/social-block-v2/light-instagram-48.png\" width=\"24\" /></a>\n                                                                                </td>\n\n\n                                                                        </tr>\n                                                                    </tbody></table>\n                                                                </td>\n                                                            </tr>\n                                                        </tbody></table>\n                                                    </td>\n                                                </tr>\n                                            </tbody></table>\n\n                                        <!--[if mso]>\n                                        </td>\n                                        <![endif]-->\n\n                                    <!--[if mso]>\n                                    </tr>\n                                    </table>\n                                    <![endif]-->\n                                </td>\n                            </tr>\n                        </tbody></table>\n                    </td>\n                </tr>\n            </tbody></table>\n        </td>\n    </tr>\n</tbody></table>\n\n            </td>\n        </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                        </table>\n                        <!--[if (gte mso 9)|(IE)]>\n                        </td>\n                        </tr>\n                        </table>\n                        <![endif]-->\n                        <!-- // END TEMPLATE -->\n                    </td>\n                </tr>\n            </table>\n        </center>\n    <div style=\"display: none;\"><img alt=\"\" height=\"1\" src=\"https://us.list-manage.com/IbJoOHqJ23nEsWJRS_qdKg?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" style=\"display: none;\" width=\"1\" /></div>\n\n              \n                <hr />\n                <p>\n                  <small>\n                    <a href=\"https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv\">Kill the Newsletter! feed settings</a>\n                  </small>\n                </p>"
+    }
+  ]
 }
