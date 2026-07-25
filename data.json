@@ -1,33 +1,17 @@
 {
-  "updated": "2026-07-25T13:55:25.458458+00:00",
-  "updated_local": "July 25, 2026 at 1:55 PM",
+  "updated": "2026-07-25T15:13:28.509264+00:00",
+  "updated_local": "July 25, 2026 at 3:13 PM",
   "weather_current": {
-    "temp": 69,
+    "temp": 75,
     "unit": "F",
-    "wind": "1 mph",
-    "windDir": "NE",
+    "wind": "3 mph",
+    "windDir": "E",
     "shortForecast": "Sunny",
-    "detailedForecast": "Sunny, with a high near 81. East wind 1 to 7 mph.",
-    "humidity": 66,
+    "detailedForecast": "Sunny, with a high near 81. East wind 3 to 7 mph.",
+    "humidity": 50,
     "precip": 0
   },
   "weather_hourly": [
-    {
-      "time": "2026-07-25T09:00:00-04:00",
-      "temp": 69,
-      "unit": "F",
-      "shortForecast": "Sunny",
-      "wind": "1 mph",
-      "precip": 0
-    },
-    {
-      "time": "2026-07-25T10:00:00-04:00",
-      "temp": 72,
-      "unit": "F",
-      "shortForecast": "Sunny",
-      "wind": "2 mph",
-      "precip": 0
-    },
     {
       "time": "2026-07-25T11:00:00-04:00",
       "temp": 75,
@@ -203,6 +187,22 @@
       "shortForecast": "Mostly Sunny",
       "wind": "5 mph",
       "precip": 1
+    },
+    {
+      "time": "2026-07-26T09:00:00-04:00",
+      "temp": 67,
+      "unit": "F",
+      "shortForecast": "Mostly Sunny",
+      "wind": "6 mph",
+      "precip": 1
+    },
+    {
+      "time": "2026-07-26T10:00:00-04:00",
+      "temp": 70,
+      "unit": "F",
+      "shortForecast": "Sunny",
+      "wind": "7 mph",
+      "precip": 1
     }
   ],
   "weather_daily": [
@@ -324,7 +324,10 @@
     "name": "Boston Logan (KBOS)",
     "delay": false,
     "status": "ok",
-    "metar": null,
+    "metar": {
+      "raw": "METAR KBOS 251454Z 13008KT 10SM FEW045 FEW250 24/08 A3016 RMK AO2 SLP211 T02390078 58002",
+      "flight_cat": ""
+    },
     "faa_delays": [],
     "flight_stats": {
       "cancelled": 24
@@ -339,6 +342,16 @@
     {
       "header": "Fare gates at Ruggles Station will begin operating on Monday, August 3. Riders will be required to tap or scan their tickets or passes to enter and exit at Ruggles.",
       "effect": "NOTICE",
+      "routes": []
+    },
+    {
+      "header": "Worcester Line Train 5530 (9:10 AM from Worcester) is operating 20-30 minutes behind schedule between Wellesley Farms and South Station.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Blue Line: Delays of about 20 minutes due to a disabled train at Orient Heights. Trains may stand by at stations. Passengers may consider the SL3 bus between Airport and South Station for alternate service.",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -362,16 +375,6 @@
       "routes": []
     },
     {
-      "header": "Fitchburg Line Train 5412 (8:00 AM from Wachusett) is operating 5-15 minutes behind schedule between Fitchburg and North Station.",
-      "effect": "DELAY",
-      "routes": []
-    },
-    {
-      "header": "Fitchburg Line Train 5407 (7:45 AM from North Station) is operating 5-15 minutes behind schedule between Ayer and Wachusett.",
-      "effect": "DELAY",
-      "routes": []
-    },
-    {
       "header": "Green Line: No trains between North Station & Babcock St (B), Kenmore (C+D), & Heath St (E) on August 1 - 2. Use buses between Babcock, Kenmore, Heath St (Rt 39) & Copley/Back Bay. Use Orange Line between North Station & Back Bay. ",
       "effect": "SUSPENSION",
       "routes": []
@@ -389,6 +392,11 @@
     {
       "header": "Littleton/Route 495 passengers can expect occasional traffic and detours when accessing the station due to the Foster Street reconstruction work.",
       "effect": "STATION_ISSUE",
+      "routes": []
+    },
+    {
+      "header": "Please board all Worcester Line trains on the inbound platform (Track 2) at Westborough and Grafton today.",
+      "effect": "TRACK_CHANGE",
       "routes": []
     },
     {
@@ -412,11 +420,6 @@
       "routes": []
     },
     {
-      "header": "Please board all Framingham/Worcester Line trains on the outbound platform (Track 1) at West Natick through Wellesley Farms until further notice today. ",
-      "effect": "TRACK_CHANGE",
-      "routes": []
-    },
-    {
       "header": "Please board all Framingham/Worcester Line on the outbound platform (Track 1) at Framingham until further notice today.",
       "effect": "TRACK_CHANGE",
       "routes": []
@@ -433,15 +436,15 @@
     }
   ],
   "beach_conditions": {
-    "water_temp_f": 63.5,
-    "wvht_ft": 1.3,
-    "dpd_s": 8.0,
-    "wspd_mph": 6.7,
-    "wdir_deg": 160.0,
+    "water_temp_f": 64.4,
+    "wvht_ft": null,
+    "dpd_s": null,
+    "wspd_mph": 4.5,
+    "wdir_deg": 140.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
-    "wdir_label": "SSE"
+    "wdir_label": "SE"
   },
   "revere_calendar": [
     {
@@ -1706,7 +1709,7 @@
       "author": "",
       "feed_title": "Patch",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxQM3Y4d2RheGJMZ1JFcVlVU052dTB5MGVqbkp0NDlGV0NOR244Ykdib3g5NGhENDF1cEVhTk5GeFdlT3MwOVhtWE8xTkVTejUzMUttRllxTTRRd3BKSXlIdlBOQ0lHWnZhWnRBeC1qY29saEdUQXVpeTgwQjlKM3NuVEw4OE1fREVNUXZrV1I5RVY1ck9FbTNDYmxkZ21DM3BBZ1hoX2dPN2E4QkRWQnfSAb8BQVVfeXFMTUR3ZkN6aENFOURWSlJzQm94RmtDdFV1ci0yNFkyTnh0alRqTU14M1NPVHNfZ3R4RFJlazYxZnRCa283UlBDS0xka2wzMDdyclBpd0xNZVFnajNiNDhBclpSVU9RX04wNWRKNkdIV0FFS2dFejRDbVNPNjVfYWd2dW5qaDRpR0xSMV8tb1U4azN0N0dDbFYtN2U0djZYbmF5ZzUtdlpnSGRsaVVDbTlMOTlHSG9PTmtzaEJwWG5EaWM?oc=5\" target=\"_blank\">North Shore Man Wins $1 Million Powerball Prize During Pizza Pickup</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
-      "source": "Marblehead"
+      "source": "North Shore"
     },
     {
       "title": "Maverick Landing Community Services launches Grab & Go produce market, expanding affordable fresh food access across East Boston",
@@ -1729,16 +1732,6 @@
       "source": "East Boston"
     },
     {
-      "title": "Obituary information for Thomas E. Beatrice - Solimine Funeral Home",
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE45QTRzbzM1a0RkRTlhWHNZamZFT1FoU3plbGkyNmtSUUpUd1drNVp1VHRrYVJiRGJfemhrYVpDUkhsY2YwejZ5OERzbWpsZnZQeFBXSVRHLTZieHRKU2JGcUJ3c1d5SEJKbl9zRGpyTDM?oc=5",
-      "published": "Fri, 24 Jul 2026 03:47:10 GMT",
-      "ts": 1784864830,
-      "author": "",
-      "feed_title": "Solimine Funeral Home",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTE45QTRzbzM1a0RkRTlhWHNZamZFT1FoU3plbGkyNmtSUUpUd1drNVp1VHRrYVJiRGJfemhrYVpDUkhsY2YwejZ5OERzbWpsZnZQeFBXSVRHLTZieHRKU2JGcUJ3c1d5SEJKbl9zRGpyTDM?oc=5\" target=\"_blank\">Obituary information for Thomas E. Beatrice</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Solimine Funeral Home</font>",
-      "source": "Swampscott"
-    },
-    {
       "title": "C. Cashman Obituary (2026) - Swampscott, MA - Daily Item - Legacy | Obituary Search",
       "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZnZJMkZWaVNmdTJ5cVUtMGtsNER4SENUOG0zdE42UHk3eGw4ZndXaS1jRTVDUlhKOVlIdTZnUjJVQlZYZ2x2Z0l0YlBLNVY0LU9QVjNuX1ZPV2IxdHE0VW1fT0o4UWowa2FIOXZTdjBISzBkRWE0aU5GWlBPa21UeWhVSGRCc2M1?oc=5",
       "published": "Fri, 24 Jul 2026 02:10:50 GMT",
@@ -1747,6 +1740,16 @@
       "feed_title": "Legacy | Obituary Search",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZnZJMkZWaVNmdTJ5cVUtMGtsNER4SENUOG0zdE42UHk3eGw4ZndXaS1jRTVDUlhKOVlIdTZnUjJVQlZYZ2x2Z0l0YlBLNVY0LU9QVjNuX1ZPV2IxdHE0VW1fT0o4UWowa2FIOXZTdjBISzBkRWE0aU5GWlBPa21UeWhVSGRCc2M1?oc=5\" target=\"_blank\">C. Cashman Obituary (2026) - Swampscott, MA - Daily Item</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Legacy | Obituary Search</font>",
       "source": "Swampscott"
+    },
+    {
+      "title": "Marblehead Beach Closed To Swimming For High Bacteria - Patch",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQVW1yOGpTMmVxSkxIbWdqaWJvbUVuUGZjU2gyZ0xqM2lNUFhsNmRyclFaQWRQdnJwdUh6ajVHNjNLNnRQNG5BTTVwdmNnaTFKd2tzVVpNdXYtc29VdEVCVm1oWU1pT0RFaWZubHdZZDRSb0NzU3FvZG42Y1N5UWRkTk9KTWM0eHRYUXU0RHIxazVRd2fSAa4BQVVfeXFMTmVWNjN1T0VQUHF5bllYQWEyNVRLSDBsQk4zNkF6U21qZjlHSkVDUnhuR19OWlB4U2VTVWV1ZUllMjJQeERfa3hYSHBxRVlBcFN0aDFxc05TcGxZc3ZyU25NbnpQMzZsa2hobWNPenRSTDdkNVRkVnVnWlA3TmlFaUEyNEp2NHFzbXdvTGo0RDNYbmxiNXQ2dVYxRXlqWmEzSHpOeGRUS3kyWWlucWhB?oc=5",
+      "published": "Thu, 23 Jul 2026 20:58:17 GMT",
+      "ts": 1784840297,
+      "author": "",
+      "feed_title": "Patch",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxQVW1yOGpTMmVxSkxIbWdqaWJvbUVuUGZjU2gyZ0xqM2lNUFhsNmRyclFaQWRQdnJwdUh6ajVHNjNLNnRQNG5BTTVwdmNnaTFKd2tzVVpNdXYtc29VdEVCVm1oWU1pT0RFaWZubHdZZDRSb0NzU3FvZG42Y1N5UWRkTk9KTWM0eHRYUXU0RHIxazVRd2fSAa4BQVVfeXFMTmVWNjN1T0VQUHF5bllYQWEyNVRLSDBsQk4zNkF6U21qZjlHSkVDUnhuR19OWlB4U2VTVWV1ZUllMjJQeERfa3hYSHBxRVlBcFN0aDFxc05TcGxZc3ZyU25NbnpQMzZsa2hobWNPenRSTDdkNVRkVnVnWlA3TmlFaUEyNEp2NHFzbXdvTGo0RDNYbmxiNXQ2dVYxRXlqWmEzSHpOeGRUS3kyWWlucWhB?oc=5\" target=\"_blank\">Marblehead Beach Closed To Swimming For High Bacteria</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
+      "source": "Marblehead"
     },
     {
       "title": "Saugus Print Editions \u2013 07/24/2026",
@@ -1867,6 +1870,16 @@
       "feed_title": "",
       "summary": "<p>The mother rushed into action after spotting the driver panicking as their SUV sank into the water off Rocky Neck Avenue on Wednesday.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/07/23/gloucester-woman-helps-rescue-young-driver-from-submerged-car/\">Gloucester woman helps rescue young driver from submerged car</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
       "source": "North Shore"
+    },
+    {
+      "title": "Obituary information for Tony Lena - Solimine Funeral Home",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9kd0l6UjQya2poVHFrOG53b0xUQXZzNFlvazRGX0NQOFMyYzZDMkd6NExFZ1VvRjg3TWVSX19jc0EwYTBzc29TZmFEcWE4QUZ0S1YySm0xNTFrNTgwZ2JJY2xLWmlYYUlmTmpv?oc=5",
+      "published": "Thu, 23 Jul 2026 13:09:22 GMT",
+      "ts": 1784812162,
+      "author": "",
+      "feed_title": "Solimine Funeral Home",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMia0FVX3lxTE9kd0l6UjQya2poVHFrOG53b0xUQXZzNFlvazRGX0NQOFMyYzZDMkd6NExFZ1VvRjg3TWVSX19jc0EwYTBzc29TZmFEcWE4QUZ0S1YySm0xNTFrNTgwZ2JJY2xLWmlYYUlmTmpv?oc=5\" target=\"_blank\">Obituary information for Tony Lena</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Solimine Funeral Home</font>",
+      "source": "Swampscott"
     },
     {
       "title": "Tuscan Village seeks approval to scrap 1.2M square feet of labs",
@@ -3691,6 +3704,96 @@
   ],
   "news_boston": [
     {
+      "title": "Car crashes into South Shore beauty salon",
+      "link": "https://www.wcvb.com/article/cohasset-salon-car-crash-king-street/73262429",
+      "published": "Sat, 25 Jul 2026 15:10:00 GMT",
+      "ts": 1784992200,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A car crashed into a Cohasset salon Friday afternoon, causing major damage but no injuries, police said.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Punch the monkey gets thousands of birthday messages as he turns 1 on Sunday",
+      "link": "https://www.wcvb.com/article/punch-the-monkey-japan-thousands-birthday-messages/73262413",
+      "published": "Sat, 25 Jul 2026 15:06:00 GMT",
+      "ts": 1784991960,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Punch, the orphaned monkey who stole many people's hearts by clinging to an orangutan plushie, is about to mark his first birthday.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Maine Democrats to pick new Senate nominee to face Sen. Susan Collins",
+      "link": "https://www.wcvb.com/article/maine-democrats-pick-new-senate-nominee-replace-platner/73261854",
+      "published": "Sat, 25 Jul 2026 14:37:00 GMT",
+      "ts": 1784990220,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Maine Democrats on Saturday will choose a new U.S. Senate nominee to face longtime Republican Sen. Susan Collins.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Mike Vrabel opens Patriots camp ahead of first public practice",
+      "link": "https://www.wcvb.com/article/patriots-2026-training-camp-schedule/73259355",
+      "published": "Sat, 25 Jul 2026 14:37:00 GMT",
+      "ts": 1784990220,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>The Patriots will open camp with 13 free public practices, including joint sessions with the Colts and Eagles.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "More than 250,000 people flee their homes as wildfires burn in France and Spain",
+      "link": "https://www.wcvb.com/article/france-spain-wildfires-burn-quarter-million-people-evacuate/73262160",
+      "published": "Sat, 25 Jul 2026 14:31:00 GMT",
+      "ts": 1784989860,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Wildfires in southern Europe this week have displaced more than a quarter of a million people.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Doctor shares injury prevention tips as Patriots begin camp",
+      "link": "https://www.wcvb.com/article/doctor-shares-injury-prevention-tips-as-patriots-begin-camp/73262354",
+      "published": "Sat, 25 Jul 2026 14:22:00 GMT",
+      "ts": 1784989320,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>As Patriots camp opens, Dr. Miho Tanaka shares simple advice on avoiding common injuries when easing back into exercise.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "'We can do it in a more rapid fashion': Trump signals more strikes against Iran could be looming",
+      "link": "https://www.wcvb.com/article/trump-signals-more-strikes-against-iran-looming/73261934",
+      "published": "Sat, 25 Jul 2026 14:20:00 GMT",
+      "ts": 1784989200,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>President Donald Trump is discussing military and diplomatic options for resolving the war with Iran as gas prices rise and tensions escalate following attacks in the Red Sea.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Trump orders signs be installed outside Smithsonian warning of \u2018inaccurate information\u2019",
+      "link": "https://www.wcvb.com/article/trump-orders-signs-smithsonian-inaccurate-information/73262303",
+      "published": "Sat, 25 Jul 2026 14:10:00 GMT",
+      "ts": 1784988600,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Trump on Friday ordered signs to be installed near the Smithsonian\u2019s National Museum of American History warning of \"inaccurate information.\"</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Video: Sunny, coolest near the coast",
+      "link": "https://www.wcvb.com/article/video-sunny-coolest-near-the-coast/73262324",
+      "published": "Sat, 25 Jul 2026 14:05:00 GMT",
+      "ts": 1784988300,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Saturday brings sunny skies across the Boston area and Massachusetts, with coastal temperatures near seasonal levels.</p>",
+      "source": "Top Stories"
+    },
+    {
       "title": "AI \u2018Alpha Schools\u2019 with no teachers are coming to Greater Boston. Here\u2019s what to know.",
       "link": "https://www.boston.com/news/local-news/2026/07/25/ai-alpha-schools-with-no-teachers-are-coming-to-greater-boston-heres-what-to-know/",
       "published": "Sat, 25 Jul 2026 13:45:22 +0000",
@@ -3701,26 +3804,6 @@
       "source": "Boston.com"
     },
     {
-      "title": "Mike Vrabel opens Patriots camp ahead of first public practice",
-      "link": "https://www.wcvb.com/article/patriots-2026-training-camp-schedule/73259355",
-      "published": "Sat, 25 Jul 2026 13:44:00 GMT",
-      "ts": 1784987040,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>The Patriots will open camp with 13 free public practices, including joint sessions with the Colts and Eagles.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Maine Democrats to pick new Senate nominee to face Sen. Susan Collins",
-      "link": "https://www.wcvb.com/article/maine-democrats-pick-new-senate-nominee-replace-platner/73261854",
-      "published": "Sat, 25 Jul 2026 13:43:00 GMT",
-      "ts": 1784986980,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Maine Democrats on Saturday will choose a new U.S. Senate nominee to face longtime Republican Sen. Susan Collins.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "The \u2018rockets and feathers\u2019 effect: Inflation eases but grocery bills do not",
       "link": "https://whdh.com/news/the-rockets-and-feathers-effect-inflation-eases-but-grocery-bills-do-not/",
       "published": "Sat, 25 Jul 2026 13:40:07 +0000",
@@ -3729,16 +3812,6 @@
       "feed_title": "Boston News, Weather, Sports | WHDH 7News",
       "summary": "Economics has a term for what&#160;U.S. grocery prices&#160;have done in recent years: rockets and feathers. Rockets, because the cost of food eaten at home zoomed...",
       "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "More than 250,000 people flee their homes as wildfires burn in France and Spain",
-      "link": "https://www.wcvb.com/article/france-spain-wildfires-burn-quarter-million-people-evacuate/73262160",
-      "published": "Sat, 25 Jul 2026 13:34:00 GMT",
-      "ts": 1784986440,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Wildfires in southern Europe this week have displaced more than a quarter of a million people.</p>",
-      "source": "Top Stories"
     },
     {
       "title": "Maine Democrats are meeting to pick a new Senate nominee to face Republican Sen. Susan Collins",
@@ -4001,74 +4074,14 @@
       "source": "Top Stories"
     },
     {
-      "title": "US military says it fired on another merchant vessel trying to breach its blockade of Iranian ports",
-      "link": "https://www.wcvb.com/article/us-military-fire-merchant-vessel-blockade-iran/73260833",
-      "published": "Sat, 25 Jul 2026 00:16:00 GMT",
-      "ts": 1784938560,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>The U.S. military said Friday that it fired on another merchant vessel that was trying to breach its blockade of Iranian ports, while Iran targeted American strongholds around the Persian Gulf.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Trump administration admits grants for clean energy were canceled based on politics",
       "link": "https://www.nbcboston.com/news/politics/trump-administration-clean-energy-grants-canceled-politics/3986793/",
       "published": "Fri, Jul 24 2026 11:46:53 PM",
       "ts": 1784893613,
       "author": "Matthew Daly | The Associated Press",
       "feed_title": "NBC Boston",
-      "summary": "<p>The <a href=\"https://www.nbcboston.com/tag/trump-administration/\" rel=\"noreferrer noopener\" target=\"_blank\">Trump administration</a> has acknowledged in court documents that it canceled $7.6 billion in grants for hundreds of <a href=\"https://www.nbcboston.com/tag/energy/\" rel=\"noreferrer noopener\" target=\"_blank\">clean energy</a> projects \u201cbased solely on the political identity of the grant recipient\u2019s state&#8221; \u2014 in this case, 16 states that voted for Democrat Kamala Harris in the 2024 presidential election.</p>\n\n\n\n<p>The statement contradicts repeated assertions by Energy Secretary Chris Wright and other officials that the projects were canceled because they did not adequately advance the nation\u2019s energy needs or had other problems that made them a poor investment of taxpayer dollars.</p>\n\n\n\n<p><a href=\"https://www.nbcboston.com/tag/democrats/\" rel=\"noreferrer noopener\" target=\"_blank\">Democrats</a> and environmental groups seized on the court filing Friday, saying the administration had \u201cweaponized\u201d the federal government to kill good jobs and punish working families because of their political views.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Democrats say what was \u2018obvious\u2019 has now been acknowledged</h2>\n\n\n\n<p>\u201cThis administration has now admitted in court what has long been obvious: it terminated nearly 300 cost-cutting energy projects for no reason other than the fact that the states they were in did not vote for the president in the 2024 election,\u201d said Rep. Marcy Kaptur of Ohio and Sen. Patty Murray of Washington state. Both are high-ranking Democrats on the House and Senate Appropriations committees, respectively.</p>\n\n\n\n<p>\u201cWeaponizing the federal government like this is outright un-American, and it\u2019s hardworking families already struggling with sky-high costs who are suffering the consequences of this corrupt abuse of power,\u201d Kaptur and Murray said.</p>\n\n\n\n<p>They called on congressional Republicans to join them in holding the Trump administration &#8220;accountable for the President\u2019s failure to look out for all Americans.\u201d</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/trump-smithsonian-signs-inaccurate-exhibits/3986764/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/White-House-Report-Claims-Extreme-Political-Activi-2285084845-Getty-e1784941289811.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/trump-administration/\">Trump Administration</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t12 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/trump-smithsonian-signs-inaccurate-exhibits/3986764/\">\n\t\t\t\t\t\t\t\t\t\tTrump orders signs outside Smithsonian saying some exhibits are inaccurate\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/white-house-correspondents-dinner-rescheduled-trump-remarks/3986567/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/GettyImages-2287532841.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/trump-administration/\">Trump Administration</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t17 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/white-house-correspondents-dinner-rescheduled-trump-remarks/3986567/\">\n\t\t\t\t\t\t\t\t\t\tTrump returns to correspondents&#039; dinner for a rambling, insult-filled speech 3 months after shooting\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p>The Energy Department announced last October that 321 funding awards across 223 projects were terminated, saying that after review, they \u201cdid not adequately advance the nation\u2019s energy needs or were not economically viable.&#8221;</p>\n\n\n\n<p>The cuts, part of broader attacks from <a href=\"https://www.nbcboston.com/tag/donald-trump/\" rel=\"noreferrer noopener\" target=\"_blank\">President Donald Trump</a> on climate programs and clean energy funding, slashed federal support for projects to build battery plants, develop hydrogen technology, upgrade the electric grid and capture carbon dioxide emissions.</p>\n\n\n\n<p>Russell Vought, the White House budget director, highlighted the cutbacks in a social media post, saying money \u201cto fuel the Left\u2019s climate agenda is being cancelled.\u201d</p>\n\n\n\n<p>The Energy Department did not immediately respond to a request for comment.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Projects from many states were cut</h2>\n\n\n\n<p>Projects that were cut were located in California, Colorado, Connecticut, Delaware, Hawaii, Illinois, Maryland, Massachusetts, Minnesota, New Hampshire, New Jersey, New Mexico, New York, Oregon, Vermont and Washington state. All 16 targeted states supported Harris, but Wright said the cuts were \u201cbusiness decisions&#8221; based on whether the projects were a good use of taxpayer money or not.</p>\n\n\n\n<p>The cuts were immediately challenged in court, and more than two dozen Democratic members of Congress, led by California Sens. Adam Schiff and Alex Padilla and Rep. Zoe Lofgren, wrote a letter to the Energy Department&#8217;s acting inspector general requesting a formal investigation. The department&#8217;s internal watchdog launched an investigation in December.</p>\n\n\n\n<p>Government lawyers had previously confirmed in a court filing late last year that the selection of grants in fact \u201cwas influenced by whether a grantee\u2019s address was located in a State that tends to elect &#8230; Democratic candidates in state and national elections (so-called \u201cBlue States\u201d).\u201d</p>\n\n\n\n<p>That filing came in a separate suit filed by clean energy groups and the city of St. Paul, Minnesota, over the canceled funding. The most recent admission came in a case called Thakur v. Trump that\u2019s been ongoing since last spring. Federal lawyers acknowledged that they used keywords related to diversity, gender, vaccine hesitancy and COVID-19 to screen for projects that ran afoul of the Trump administration\u2019s priorities.</p>\n\n\n\n<p>Holly Bender, chief program officer for the Sierra Club, said the latest court filing shows \u201cthe Trump administration is brazenly admitting to a vindictive approach to cancelling much-needed energy infrastructure that ignores the job losses, air pollution and increasing bills that people are experiencing everywhere.\u201d</p>\n\n\n\n<p>Instead of \u201cbuilding the energy projects we desperately need,\u201d billions of American taxpayer dollars are \u201cgoing to line the pockets of a small handful of fossil fuel company CEOs,\u201d Bender said, citing nearly $3 billion pledged by the Trump administration to cancel offshore wind projects in favor of fossil fuel projects such as natural gas and coal.</p>\n\n\n<div></div>",
+      "summary": "<p>The <a href=\"https://www.nbcboston.com/tag/trump-administration/\" rel=\"noreferrer noopener\" target=\"_blank\">Trump administration</a> has acknowledged in court documents that it canceled $7.6 billion in grants for hundreds of <a href=\"https://www.nbcboston.com/tag/energy/\" rel=\"noreferrer noopener\" target=\"_blank\">clean energy</a> projects \u201cbased solely on the political identity of the grant recipient\u2019s state&#8221; \u2014 in this case, 16 states that voted for Democrat Kamala Harris in the 2024 presidential election.</p>\n\n\n\n<p>The statement contradicts repeated assertions by Energy Secretary Chris Wright and other officials that the projects were canceled because they did not adequately advance the nation\u2019s energy needs or had other problems that made them a poor investment of taxpayer dollars.</p>\n\n\n\n<p><a href=\"https://www.nbcboston.com/tag/democrats/\" rel=\"noreferrer noopener\" target=\"_blank\">Democrats</a> and environmental groups seized on the court filing Friday, saying the administration had \u201cweaponized\u201d the federal government to kill good jobs and punish working families because of their political views.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Democrats say what was \u2018obvious\u2019 has now been acknowledged</h2>\n\n\n\n<p>\u201cThis administration has now admitted in court what has long been obvious: it terminated nearly 300 cost-cutting energy projects for no reason other than the fact that the states they were in did not vote for the president in the 2024 election,\u201d said Rep. Marcy Kaptur of Ohio and Sen. Patty Murray of Washington state. Both are high-ranking Democrats on the House and Senate Appropriations committees, respectively.</p>\n\n\n\n<p>\u201cWeaponizing the federal government like this is outright un-American, and it\u2019s hardworking families already struggling with sky-high costs who are suffering the consequences of this corrupt abuse of power,\u201d Kaptur and Murray said.</p>\n\n\n\n<p>They called on congressional Republicans to join them in holding the Trump administration &#8220;accountable for the President\u2019s failure to look out for all Americans.\u201d</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/trump-smithsonian-signs-inaccurate-exhibits/3986764/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/White-House-Report-Claims-Extreme-Political-Activi-2285084845-Getty-e1784941289811.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/trump-administration/\">Trump Administration</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t14 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/trump-smithsonian-signs-inaccurate-exhibits/3986764/\">\n\t\t\t\t\t\t\t\t\t\tTrump orders signs outside Smithsonian saying some exhibits are inaccurate\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/white-house-correspondents-dinner-rescheduled-trump-remarks/3986567/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/GettyImages-2287532841.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/trump-administration/\">Trump Administration</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t18 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/white-house-correspondents-dinner-rescheduled-trump-remarks/3986567/\">\n\t\t\t\t\t\t\t\t\t\tTrump returns to correspondents&#039; dinner for a rambling, insult-filled speech 3 months after shooting\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p>The Energy Department announced last October that 321 funding awards across 223 projects were terminated, saying that after review, they \u201cdid not adequately advance the nation\u2019s energy needs or were not economically viable.&#8221;</p>\n\n\n\n<p>The cuts, part of broader attacks from <a href=\"https://www.nbcboston.com/tag/donald-trump/\" rel=\"noreferrer noopener\" target=\"_blank\">President Donald Trump</a> on climate programs and clean energy funding, slashed federal support for projects to build battery plants, develop hydrogen technology, upgrade the electric grid and capture carbon dioxide emissions.</p>\n\n\n\n<p>Russell Vought, the White House budget director, highlighted the cutbacks in a social media post, saying money \u201cto fuel the Left\u2019s climate agenda is being cancelled.\u201d</p>\n\n\n\n<p>The Energy Department did not immediately respond to a request for comment.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Projects from many states were cut</h2>\n\n\n\n<p>Projects that were cut were located in California, Colorado, Connecticut, Delaware, Hawaii, Illinois, Maryland, Massachusetts, Minnesota, New Hampshire, New Jersey, New Mexico, New York, Oregon, Vermont and Washington state. All 16 targeted states supported Harris, but Wright said the cuts were \u201cbusiness decisions&#8221; based on whether the projects were a good use of taxpayer money or not.</p>\n\n\n\n<p>The cuts were immediately challenged in court, and more than two dozen Democratic members of Congress, led by California Sens. Adam Schiff and Alex Padilla and Rep. Zoe Lofgren, wrote a letter to the Energy Department&#8217;s acting inspector general requesting a formal investigation. The department&#8217;s internal watchdog launched an investigation in December.</p>\n\n\n\n<p>Government lawyers had previously confirmed in a court filing late last year that the selection of grants in fact \u201cwas influenced by whether a grantee\u2019s address was located in a State that tends to elect &#8230; Democratic candidates in state and national elections (so-called \u201cBlue States\u201d).\u201d</p>\n\n\n\n<p>That filing came in a separate suit filed by clean energy groups and the city of St. Paul, Minnesota, over the canceled funding. The most recent admission came in a case called Thakur v. Trump that\u2019s been ongoing since last spring. Federal lawyers acknowledged that they used keywords related to diversity, gender, vaccine hesitancy and COVID-19 to screen for projects that ran afoul of the Trump administration\u2019s priorities.</p>\n\n\n\n<p>Holly Bender, chief program officer for the Sierra Club, said the latest court filing shows \u201cthe Trump administration is brazenly admitting to a vindictive approach to cancelling much-needed energy infrastructure that ignores the job losses, air pollution and increasing bills that people are experiencing everywhere.\u201d</p>\n\n\n\n<p>Instead of \u201cbuilding the energy projects we desperately need,\u201d billions of American taxpayer dollars are \u201cgoing to line the pockets of a small handful of fossil fuel company CEOs,\u201d Bender said, citing nearly $3 billion pledged by the Trump administration to cancel offshore wind projects in favor of fossil fuel projects such as natural gas and coal.</p>\n\n\n<div></div>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "Video: Sunny weekend before showers return",
-      "link": "https://www.wcvb.com/article/video-sunny-weekend-before-showers-return/73260857",
-      "published": "Fri, 24 Jul 2026 23:39:00 GMT",
-      "ts": 1784936340,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Saturday brings sunshine with a few coastal clouds across the Boston area and Massachusetts, with seasonable warmth.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Ex-Boston Children\u2019s Hospital nurse accused of sexually assaulting 2 teen patients",
-      "link": "https://www.wcvb.com/article/former-boston-childrens-hospital-nurse-charged-in-teen-sex-assaults/73255576",
-      "published": "Fri, 24 Jul 2026 23:10:00 GMT",
-      "ts": 1784934600,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>A former Boston Children\u2019s Hospital nurse is accused of sexually assaulting two teen patients, and prosecutors say there may be more victims.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "What to know as measles cases hit new record in U.S.",
-      "link": "https://www.wcvb.com/article/what-to-know-as-measles-cases-hit-new-record-in-us/73260661",
-      "published": "Fri, 24 Jul 2026 23:08:00 GMT",
-      "ts": 1784934480,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>The CDC reports 2,318 confirmed measles cases in the U.S. this year, the highest number since the virus was declared eliminated in 2000.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Massachusetts DA: Miss Hall\u2019s School tried to bury abuse claims",
-      "link": "https://www.wcvb.com/article/5-investigates-exclusive-top-prosecutor-reveals-what-led-to-new-indictment-in-school-abuse-case/73260260",
-      "published": "Fri, 24 Jul 2026 22:59:00 GMT",
-      "ts": 1784933940,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Berkshire County DA says Miss Hall\u2019s School ignored abuse claims for years as a former headmaster faces indictment.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Sixers signing LeBron James more salt in the wound to Boston fans after Brown trade",
-      "link": "https://www.wcvb.com/article/lebron-james-joins-sixers-celtics-fans-react/73260512",
-      "published": "Fri, 24 Jul 2026 22:58:00 GMT",
-      "ts": 1784933880,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>LeBron James is headed to Philadelphia, and Celtics fans are feeling the sting as the Sixers become an instant title threat.<br /></p>",
-      "source": "Top Stories"
     },
     {
       "title": "70 years ago, one of the largest maritime rescues happened off Nantucket",
@@ -4275,6 +4288,16 @@
       "source": "The Heights"
     },
     {
+      "title": "BC Football Countdown to Kickoff 2026: Rutgers Preview",
+      "link": "https://www.bcinterruption.com/boston-college-football/52116/boston-college-bc-football-countdown-to-kickoff-2026-rutgers-preview",
+      "published": "2026-07-24T12:55:44-04:00",
+      "ts": 1784912144,
+      "author": "Niraj Patel",
+      "feed_title": "",
+      "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.bcinterruption.com/wp-content/uploads/sites/25/2025/11/gettyimages-2244520378.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tSYRACUSE, NY - NOVEMBER 29: Boston College Eagles Offensive Lineman Michael Crounse (77) lines up for a play during the College Football fame between the Boston College Eagles and the Syracuse Orange on November 29, 2025, at the JMA Wireless Dome in Syarcuse, NY. (Photo by Gregory Fisher/Icon Sportswire via Getty Images) | Icon Sportswire via Getty Images\t</figcaption>\n</figure>\n<p class=\"wp-block-paragraph\">Boston College\u2019s home opener will be against Rutgers. The game will feature as Red Bandana Game and will actually be played on the 25th anniversary of 9/11 and Welles Crowther\u2019s passing. The game will be nationally televised on ESPN2.</p>\n\n<p class=\"wp-block-paragraph\">Last season\u2019s starting quarterback Dylan Lonergan will also make his return with his new team. He started the 2025 season with such promise, but quickly faltered. He\u2019s still in a bit of quarterback competition, but will hope his third stop will see more success.</p>\n\n<h3 class=\"wp-block-heading\">Game Notes</h3>\n\n<ul class=\"wp-block-list\">\n<li><strong>Who:</strong>\u00a0Boston College vs. Rutgers</li>\n\n\n\n<li><strong>Head Coaches:</strong>\u00a0Bill O\u2019Brien, Boston College; Greg Schiano, Rutgers</li>\n\n\n\n<li><strong>When:</strong>\u00a0Friday, September 11 at 7:30pm</li>\n\n\n\n<li><strong>Where:</strong>\u00a0Chestnut Hill, MA</li>\n</ul>\n\n<h3 class=\"wp-block-heading\">Series History</h3>\n\n<p class=\"wp-block-paragraph\">The Eagle still lead their old Big East compatriots 20-7-1, with 10 wins at home and away. Rutgers did however snap an 11 game winless stretch with the most recent matchup 22-21 at Alumni Stadium to start the 2022 season. </p>\n\n<h3 class=\"wp-block-heading\">Scarlet Knights 2025 Recap</h3>\n\n<p class=\"wp-block-paragraph\">Schiano\u2019s team took a step back last season, missing out on a bowl game and going 5-7 overall and 2-7 in conference. They took care of business early, but endured some narrow losses to the likes of Iowa, Minnesota, and Penn State that put a damper on the season beyond the expected blowout losses to Oregon and Ohio State. Late-game execution and defensive breakdowns were a constant headache and not typical of a Greg Schiano team. On the positive, the offense was surprisingly explosive and the team finished fifth in the nation in fewest penalty yards. Although quarterback QB Athan Kaliakmanis was drafted in the 7th round, they still return a lot of their most productive offensive players and will try to replicate that output while cleaning up those defensive woes.</p>\n\n<h4 class=\"wp-block-heading\">Can the offense do it again?</h4>\n\n<p class=\"wp-block-paragraph\">Junior running back Antwan Raymond and 6-6 junior wideout KJ Duff are looked at among the best in the Big Ten. Raymond was the focal point of the ground game, handling the majority of carries running over 5 yards a cli. He finished nearly 1500 yards from scrimmage and a team-leading 15 touchdowns, while being named Second Team All-Conference. Duff joined Raymond on the Second Team, eclipsing 1000 yards as well to go with seven scores. Both find themselves on Preseason All-America lists for the upcoming year. These two will be a real handful.</p>\n\n<p class=\"wp-block-paragraph\">Overall offense was remarkably efficient, featuring a wide-open passing game, strong red-zone effectiveness from Raymond, and avoided turnovers. The door is open for Dylan Lonergan to take over and keep the ship afloat, but he does appear to still be in a bit of quarterback competition with redshirt sophomore AJ Surace who saw some action last season. The pieces around them are good. The team also returns a few key lineman particularly on the interior, but must replace the tackles. Pass protection left a lot to be desired, so if they can shore that up so Lonergan can keep his much-needed clean pocket, they can replicate some of their success.</p>\n\n<h4 class=\"wp-block-heading\">Will the defense turn it around?</h4>\n\n<p class=\"wp-block-paragraph\">Schiano will look to restore his defensive reputation after a disappointing campaign in which they were ranked 127th overall. He started by firing nearly the entire defensive staff and brought in South Dakota\u2019s Head Coach Travis Johansen to be his defensive coordinator.</p>\n\n<p class=\"wp-block-paragraph\">Up front, the team returns most of their interior defensive line and adds a few productive transfers to bolster the rotation. The front saw a fair amount of injuries that made things even more difficult, but among their big issues was getting to the quarterback, posting just 11 sacks with no one even getting to three sacks. Transfers Malachi Davis (Toledo) and J\u2019Dan Burnett (Tulsa) combined for 12 last season. On top of that, the run defense was dismal allowing over 210 yards per game, sixth worst in the FBS and 33 ypg worse than BC. In comes a new tackle and another back from injury, but it will take a lot to clean this up. Most of the key linebackers return and they add in a couple transfers here to make for a really deep corps.</p>\n\n<p class=\"wp-block-paragraph\">In the secondary, they found three new potential starters in the transfer portal, including an FCS All-American. Last year\u2019s team was porous and only posted 5 interceptions, and they still lost their best corner to Texas. There are still question marks here with all the new faces and a pretty open competition. Schiano\u2019s helped develop some great players over the years, and it won\u2019t take much to get back to their average output from the previous four seasons. </p>\n\n<h2 class=\"wp-block-heading\">Matchup Preview</h2>\n\n<p class=\"wp-block-paragraph\">Both teams have questions at how their quarterbacks will play, but Rutgers seems to have a lot fewer question marks than BC. With their returning output on offense, they should have the edge early in the season. You have to think Schiano\u2019s defense will make strides, but hopefully the unknown element Mason McKenzie brings to the offense can create more challenges.</p>\n\n<p class=\"wp-block-paragraph\">The Rutgers loss in 2022 was a harbinger of doom for the Eagles that year. This time we\u2019ll have our feet wet already and won\u2019t have to think ahead with Maine the following week. Rutgers meanwhile starts with UMass but has a date with USC after this one. This being the Red Bandana Game will add an extra energy. The Eagles will pick up their first win of the season here.</p>\n\n<p class=\"wp-block-paragraph\"></p>\n\n<p class=\"wp-block-paragraph\"></p>",
+      "source": "BC Interruption"
+    },
+    {
       "title": "BC Football Countdown to Kickoff 2026: Cincinnati Preview",
       "link": "https://www.bcinterruption.com/boston-college-football/52108/bc-football-countdown-to-kickoff-2026-cincinnati-preview",
       "published": "2026-07-23T15:31:23-04:00",
@@ -4342,16 +4365,6 @@
       "author": "Greg Patuto",
       "feed_title": "",
       "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.bcinterruption.com/wp-content/uploads/sites/25/2026/06/imagn-27185459.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"wp-block-paragraph\">The ACC is up next on the media days calendar.</p>\n\n<p class=\"wp-block-paragraph\">The conference will showcase its teams beginning on Wednesday from the Hilton Uptown in Charlotte. Bill O\u2019Brien and Boston College will take the podium on Thursday and there are many burning questions surrounding the Eagles.</p>\n\n<p class=\"wp-block-paragraph\">Boston College is looking to improve off a 2-10 season in 2025. There are question marks on both sides of the ball on the field along with others off the field to ponder during media days.</p>\n\n<h2 class=\"wp-block-heading\">1. Can a new offensive line gel right away?</h2>\n\n<p class=\"wp-block-paragraph\">The offensive line struggled in both passing and running situations last season. Even though there were not many losses in the transfer portal, the Eagles knew that they needed to make additions to improve the offensive line. </p>\n\n<p class=\"wp-block-paragraph\">Boston College brought in guard Kristian Phillips from Michigan State along with tackles Reggie Jackson from Jacksonville State and North Carolina Central\u2019s Trevon Humphrey. It is likely that both Phillips and Jackson will land starting spots along the offensive line. With two new starters and an entire unit that needs to improve, it will be interesting to see how the Eagles perform up front.</p>\n\n<h2 class=\"wp-block-heading\">2. Mason McKenzie: Will it work?</h2>\n\n<p class=\"wp-block-paragraph\">It was a battle under center for the Eagles but it looks as though the transfer from Saginaw Valley State will come into the season as QB1.</p>\n\n<p class=\"wp-block-paragraph\">Mason McKenzie committed to Boston College in January and was a contender to start despite his lack of Division I experience, along with Grayson Willson. The book on McKenzie is that he comes to the Eagles with a strong arm and an ability to use his legs. At just 6-foot-1, McKenzie will have to be able to move in the pocket. This fits into what Bill O\u2019Brien likes to do.</p>\n\n<p class=\"wp-block-paragraph\">The question is \u2014 can his game translate to the Division I level and find success right away?</p>\n\n<h2 class=\"wp-block-heading\">3. Will there be a run game?</h2>\n\n<p class=\"wp-block-paragraph\">The Eagles ranked 15th in the ACC last season with 103.9 rushing yards per game. This was partially because of a disastrous offensive line, but it should be no surprise that the coaching staff went to bring in some new blood. Liberty standout Evan Dickens rushed for 1,339 yards and 16 touchdowns last season. He will now lead the backfield for Boston College, giving the offense an intriguing duo of runners with McKenzie in the mix. The Eagles also loaded up with Nolan Ray transferring in from Maryland. This will be an important part of the offense in order to keep defenses on their toes.</p>\n\n<h2 class=\"wp-block-heading\">4. Can the defense take the ball away?</h2>\n\n<p class=\"wp-block-paragraph\">This one is self explanatory. The Boston College defense ranked 128th in total last season. Ted Roof came in to be the defensive coordinator and has his hands full but turnovers must be the focal point. Boston College had just six interceptions and six fumbles recovered last season. The team forced 13 fewer turnovers than it did in 2024. The pass rush needs to get better but an experience group in the secondary returns led by KP Price and Carter Davis. The Eagles must find a way to generate more turnovers.</p>\n\n<h2 class=\"wp-block-heading\">5. Will anyone get to three sacks?</h2>\n\n<p class=\"wp-block-paragraph\">This sounds like a simple feat, right? Wrong.</p>\n\n<p class=\"wp-block-paragraph\">Boston College was last in the ACC with 17 sacks last season. Sedarius McConnell led the team with 2.5 sacks. That means no Eagle reached the three-sack mark in 12 games played. </p>\n\n<p class=\"wp-block-paragraph\">The Eagles hit the portal along the defensive line as well in hopes of improving these numbers. Georgia transfer Kris Jones will get the chance to showcase himself after one year in Athens. Harvard transfer Alex DeGrieck and Buffalo transfer Demetrius Ballard also have big-time upside. </p>",
-      "source": "BC Interruption"
-    },
-    {
-      "title": "Where does Bill O\u2019Brien rank among ACC head coaches?",
-      "link": "https://www.bcinterruption.com/boston-college-football/52074/where-does-bill-obrien-rank-among-acc-head-coaches",
-      "published": "2026-07-09T13:27:06-04:00",
-      "ts": 1783618026,
-      "author": "Greg Patuto",
-      "feed_title": "",
-      "summary": "<figure>\n\n<img alt=\"\" src=\"https://platform.bcinterruption.com/wp-content/uploads/sites/25/2026/07/gettyimages-2245521248.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\tBoston, MA - November 8: Boston College head coach Bill O'Brien looks on in the second quarter. BC played SMU at Alumni Stadium on November 8, 2025. (Photo by Barry Chin/The Boston Globe via Getty Images) | Boston Globe via Getty Images\t</figcaption>\n</figure>\n<p class=\"wp-block-paragraph\">Bill O\u2019Brien is entering his third year as head coach of Boston College and his first two could not have been more different.</p>\n\n<p class=\"wp-block-paragraph\">O\u2019Brien was hired in 2024 and went 7-5 in his first season with a trip to the Pinstripe Bowl, which was a 20-15 loss to Nebraska. O\u2019Brien and the Eagles finished 2-10 in 2025.</p>\n\n<p class=\"wp-block-paragraph\">O\u2019Brien has been around college football and the NFL for a long time. He spent six full years with the Houston Texans before being fired in 2020 following an 0-4 start. He then bounced around as offensive coordinator at Alabama, Ohio State, and with the New England Patriots.</p>\n\n<p class=\"wp-block-paragraph\">O\u2019Brien has now settled into his new home at Boston College looking to improve upon what was a disastrous 2025 campaign.</p>\n\n<p class=\"wp-block-paragraph\">The itch for college football has arrived in full force. This means countless previews, predictions, and rankings about anything and everything. This includes a ranking of ACC head coaches made by <a href=\"https://www.msn.com/en-us/sports/other/acc-football-coach-rankings-move-mario-cristobal-to-front-ahead-of-dabo-swinney/ar-AA27tcEc?ocid=BingNewsSerp\">Austin Curtright of USA Today</a>.</p>\n\n<p class=\"wp-block-paragraph\">The question is, where does Bill O\u2019Brien rank? The publication ranked O\u2019Brien 16th out of 17 coaches:</p>\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p class=\"wp-block-paragraph\">\u201cO&#8217;Brien went 7-6 in his first season at Boston College, but failed to build momentum with a terrible 2-10 finish in 2025. After a successful start to his tenure with the Houston Texans, winning four AFC South titles from 2014-2019, he was fired after an 0-4 start in 2020. O&#8217;Brien then spent multiple seasons as the offensive coordinator at Alabama and then the New England Patriots in 2023 and Ohio State in 2024, winning a national title with the program. O&#8217;Brien went 15-9 in two seasons as Penn State&#8217;s head coach from 2012-13 before bouncing for the NFL, but his college head coaching career largely hasn&#8217;t been all that impressive.\u201d \u2014 Austin Curtright, USA Today</p>\n</blockquote>\n\n<p class=\"wp-block-paragraph\">The position on the list has to do with a short tenure paired with a two-win season. O\u2019Brien has a chance to improve his standing next year if the Eagles can win a few more games this fall.</p>\n\n<p class=\"wp-block-paragraph\">Check out the full list below:</p>\n\n<ol class=\"wp-block-list\">\n<li>Mario Cristobal, Miami</li>\n\n\n\n<li>Dabo Swinney, Clemson</li>\n\n\n\n<li>James Franklin, Virginia Tech</li>\n\n\n\n<li>Rhett Lashlee, SMU</li>\n\n\n\n<li>Jeff Brohm, Louisville</li>\n\n\n\n<li>Brent Key, Georgia Tech</li>\n\n\n\n<li>Manny Diaz, Duke</li>\n\n\n\n<li>Jake Dickert, Wake Forest</li>\n\n\n\n<li>Pat Narduzzi, Pitt</li>\n\n\n\n<li>Tony Elliott, Virginia</li>\n\n\n\n<li>Dave Doeren, NC State</li>\n\n\n\n<li>Fran Brown, Syracuse</li>\n\n\n\n<li>Mike Norvell, Florida State</li>\n\n\n\n<li>Tosh Lupoi, Cal</li>\n\n\n\n<li>Tavita Pritchard, Stanford</li>\n\n\n\n<li>Bill O\u2019Brien, Boston College</li>\n\n\n\n<li>Bill Belichick, North Carolina</li>\n</ol>\n\n<p class=\"wp-block-paragraph\">Do you agree with these rankings? </p>",
       "source": "BC Interruption"
     },
     {
@@ -4657,16 +4670,6 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "Men's Hockey to Face Cornell in Frozen Apple at Madison Square Garden on Nov. 28 - University of Maine Athletics - University of Maine Athletics",
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQQXV3S1dfRUwxc2dyLWZ3VVhERGNEck9EREhELV9LMFlvajJCTzZZaGRvS3hVbFB6RksyM1ZnSTVUbTdOVTliTjRJQUxHWG5Td1NlUTNjY3VnU05TX3pPT0RsanI2Mkw3aFo3M0IxeDRsaDExdFRqUjJJX3FSa08wTGNGd1dlSGZwMW9aUWVpZVpYVUFENU5zaE5wVjFvWUt5NVNzTmR3TDE4SFc1am1wT2RTMTBpMDlweHo0YloyRld5dUdCSWpUSEh3QUtOTDVraHZFVFFB?oc=5",
-      "published": "Mon, 20 Jul 2026 16:06:54 GMT",
-      "ts": 1784563614,
-      "author": "",
-      "feed_title": "University of Maine Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1gFBVV95cUxQQXV3S1dfRUwxc2dyLWZ3VVhERGNEck9EREhELV9LMFlvajJCTzZZaGRvS3hVbFB6RksyM1ZnSTVUbTdOVTliTjRJQUxHWG5Td1NlUTNjY3VnU05TX3pPT0RsanI2Mkw3aFo3M0IxeDRsaDExdFRqUjJJX3FSa08wTGNGd1dlSGZwMW9aUWVpZVpYVUFENU5zaE5wVjFvWUt5NVNzTmR3TDE4SFc1am1wT2RTMTBpMDlweHo0YloyRld5dUdCSWpUSEh3QUtOTDVraHZFVFFB?oc=5\" target=\"_blank\">Men's Hockey to Face Cornell in Frozen Apple at Madison Square Garden on Nov. 28 - University of Maine Athletics</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Maine Athletics</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
       "title": "Trapezoids, Hand Passes Among Rule Changes - College Hockey News",
       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNNldhVy1oS1MxekxwSE01cWNOYy01WGFDMjJGSXVtblR0Uy1CMlBhT0t3ckIwNWdFOVJrSTRhZUpuZnAtX2IzVWlPLXZOemw4UHZlZXVIUkwwZ1dROXpqbTlzcWxzSmRmQnltT3pJRnJHTncxZE9fajdMaHpIbTdXd0NTNEJfZGp2OFE?oc=5",
       "published": "Thu, 23 Jul 2026 20:40:12 GMT",
@@ -4729,11 +4732,21 @@
     {
       "title": "St. Cloud State hockey team gets commitment from Austin Bruins forward - St. Cloud Live",
       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQd2V6SXBmMzlDUlg5ZnVjXzdNRVdKcDhjOHlKc0dLYnBLR21GRkxpQzNVU2dfZDJXWU1SY0RIbDlpYmtjSW9MUTVxSlZiUC14TjV3SG9peDFOSG1kcFlUREt1R3NMMXc2dU9BaFAzMXFzVm5wOWpSdE5UdlVyM2YxUU8xQ1VtNFdVaWZReGRGXzFDR2NHcUhlcTBsVEZSVjQ4bVVCOUtYcXRXdm9mb2FPZ2xR?oc=5",
-      "published": "Fri, 24 Jul 2026 22:07:04 GMT",
-      "ts": 1784930824,
+      "published": "Fri, 24 Jul 2026 22:34:15 GMT",
+      "ts": 1784932455,
       "author": "",
       "feed_title": "St. Cloud Live",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxQd2V6SXBmMzlDUlg5ZnVjXzdNRVdKcDhjOHlKc0dLYnBLR21GRkxpQzNVU2dfZDJXWU1SY0RIbDlpYmtjSW9MUTVxSlZiUC14TjV3SG9peDFOSG1kcFlUREt1R3NMMXc2dU9BaFAzMXFzVm5wOWpSdE5UdlVyM2YxUU8xQ1VtNFdVaWZReGRGXzFDR2NHcUhlcTBsVEZSVjQ4bVVCOUtYcXRXdm9mb2FPZ2xR?oc=5\" target=\"_blank\">St. Cloud State hockey team gets commitment from Austin Bruins forward</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">St. Cloud Live</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "Ex-Blue Jacket Jack Johnson joins OSU women's hockey coaching staff - The Columbus Dispatch",
+      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNMGIxVHpUb0d3eEVwOEtlUnUwTlFSbkQyVk5TUTB4YW5OeEN3bWFiRUlpOHJNMXVfVkNhVFhUbjN2dG9OTU14NzBFcE8yQnlHbXNkOEtERmhCaWQzMndQVVp5S01IWTdpaGV5VzMwUTF5Qkg0WkROR0JOMk1ZVmNaeEpaZ1ZKcENqQkF6YWxPTXh2QkhWY1pTMk01RWtfLVdTZkhneExfUnFhYjVjc0pkRGJwU2RJNlkzcnJsbHQ3ZEtxTHNKeml1LUZkR1VGQ1pQcFhsSkNXVEM3YXRmWXRoQXI3clg0RU5wWkE?oc=5",
+      "published": "Thu, 23 Jul 2026 21:03:00 GMT",
+      "ts": 1784840580,
+      "author": "",
+      "feed_title": "The Columbus Dispatch",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6gFBVV95cUxNMGIxVHpUb0d3eEVwOEtlUnUwTlFSbkQyVk5TUTB4YW5OeEN3bWFiRUlpOHJNMXVfVkNhVFhUbjN2dG9OTU14NzBFcE8yQnlHbXNkOEtERmhCaWQzMndQVVp5S01IWTdpaGV5VzMwUTF5Qkg0WkROR0JOMk1ZVmNaeEpaZ1ZKcENqQkF6YWxPTXh2QkhWY1pTMk01RWtfLVdTZkhneExfUnFhYjVjc0pkRGJwU2RJNlkzcnJsbHQ3ZEtxTHNKeml1LUZkR1VGQ1pQcFhsSkNXVEM3YXRmWXRoQXI3clg0RU5wWkE?oc=5\" target=\"_blank\">Ex-Blue Jacket Jack Johnson joins OSU women's hockey coaching staff</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Columbus Dispatch</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4879,16 +4892,6 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Devils\u2019 Matias Vanhanen Commits To Boston College - Pro Hockey Rumors",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVnZiNW53cjVHUDRsdE9iOVJrOFNlSXVpb19BUHROcFFIZDBRTEdhVDBmZFBaeUZ3eG5KalhDbzc2czQtR0FsWW90TkdkcHVrMEozZDVjRWhZX2hUYzhhX0JRdmhRR3RaaS1lYUxPakV5MWJvNTFVMWJnbGpwbDQ1VmI1dm9uR3hIM3FlYzd3Zl8ycDI0dVFqNA?oc=5",
-      "published": "Thu, 23 Jul 2026 01:59:56 GMT",
-      "ts": 1784771996,
-      "author": "",
-      "feed_title": "Pro Hockey Rumors",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxOVnZiNW53cjVHUDRsdE9iOVJrOFNlSXVpb19BUHROcFFIZDBRTEdhVDBmZFBaeUZ3eG5KalhDbzc2czQtR0FsWW90TkdkcHVrMEozZDVjRWhZX2hUYzhhX0JRdmhRR3RaaS1lYUxPakV5MWJvNTFVMWJnbGpwbDQ1VmI1dm9uR3hIM3FlYzd3Zl8ycDI0dVFqNA?oc=5\" target=\"_blank\">Devils\u2019 Matias Vanhanen Commits To Boston College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pro Hockey Rumors</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
       "title": "BC Signs First WHL Player - College Hockey News",
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQRXgtcEh1THZSMFR0Qmxod1lMV1RBNlhsaF9vNktQekRWdmQycEN3aGRuVi1hTi04di1wMU1KOVl3RDNGdlZsbVBZZzNpYm96Vzl6anRsRkFXOW5YUUVqellLU1BJSkZhdVczdk83RDYwU2JBeS1iRDU2YkhSdXpVOTROOVk?oc=5",
       "published": "Thu, 23 Jul 2026 00:09:58 GMT",
@@ -5009,6 +5012,16 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
+      "title": "Top Devils prospect commits to play NCAA hockey in 2026-27 - Pucks and Pitchforks",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQX2xjcGxaMF9JZHdmZkx3NEEzRDV5VXQyZDBld2xfMVZsUWdTNENuMjl6b29tc3V3QUJaUndZdWF1TFpieldLZkZJTGdQTUdxS1RpYUFqMHhxZS1nYk0wM1hySmhlb3p6cDloQ3dxVlg1TzRfOVhrTXRvTkpSUzVDYUFSeDJMN0RuU0FSUmtWeUJ5MFBsUnBGeHRrRWplODBjSXhQTQ?oc=5",
+      "published": "Mon, 20 Jul 2026 21:42:36 GMT",
+      "ts": 1784583756,
+      "author": "",
+      "feed_title": "Pucks and Pitchforks",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQX2xjcGxaMF9JZHdmZkx3NEEzRDV5VXQyZDBld2xfMVZsUWdTNENuMjl6b29tc3V3QUJaUndZdWF1TFpieldLZkZJTGdQTUdxS1RpYUFqMHhxZS1nYk0wM1hySmhlb3p6cDloQ3dxVlg1TzRfOVhrTXRvTkpSUzVDYUFSeDJMN0RuU0FSUmtWeUJ5MFBsUnBGeHRrRWplODBjSXhQTQ?oc=5\" target=\"_blank\">Top Devils prospect commits to play NCAA hockey in 2026-27</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pucks and Pitchforks</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
+    {
       "title": "Eagles sign impact Finnish skater to bolster forward depth - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQV0NXUDE3LWRzWjY5RFpCZ1JvLXlrS09COHBSZFhJS3BEcmhUWGVBRlhzYktRdkxYYVU5dEg4VE13MmhJRmZCQjREdlZJQzhWandwYWwwb3lXN3NMSGFJejY5SlRfclpKZTBzaExRR2xBYWxNS3cyRjhNVFpqOGVqN1ptR3F3Q3M5MVdCNHV2UnB1ODBDcHF6ZDJRc2xYclhnUUhMZUpmdlExdkhNMHBhSzR6LS1kOXN3cFhub1ZENA?oc=5",
       "published": "Mon, 20 Jul 2026 15:40:00 GMT",
@@ -5030,16 +5043,6 @@
     }
   ],
   "news_hockey_east": [
-    {
-      "title": "Tickets for Maine Men's Hockey at Madison Square Garden On Sale at Noon! - University of Maine Athletics",
-      "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPNWZXZ0tMc2U5UG4tam51NjJ3QTdIOXFhN0RPd253MkN3eE1BWEU1NUxUazdiaU1RQVFxOXVhRmoxVDBkQ0s2ZWtRZFRJcXhLd1VXNEpRaUdoWHNmclhiSWt0Q2VaeDRPcEtjUmtHQ1Z5SUI3Q0dDRFROa3VyOXRhckloMUJocjRQT1Nkbmk1Rkx1MnNyaUhMYUcyY0k5RzZEWF9PSXk4OFFRdzhUMjhDcDR1b0lmMEdfTUVLTnF6R2dUZVN6NEUtdENnT0dpUQ?oc=5",
-      "published": "Wed, 22 Jul 2026 07:00:00 GMT",
-      "ts": 1784703600,
-      "author": "",
-      "feed_title": "University of Maine Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxPNWZXZ0tMc2U5UG4tam51NjJ3QTdIOXFhN0RPd253MkN3eE1BWEU1NUxUazdiaU1RQVFxOXVhRmoxVDBkQ0s2ZWtRZFRJcXhLd1VXNEpRaUdoWHNmclhiSWt0Q2VaeDRPcEtjUmtHQ1Z5SUI3Q0dDRFROa3VyOXRhckloMUJocjRQT1Nkbmk1Rkx1MnNyaUhMYUcyY0k5RzZEWF9PSXk4OFFRdzhUMjhDcDR1b0lmMEdfTUVLTnF6R2dUZVN6NEUtdENnT0dpUQ?oc=5\" target=\"_blank\">Tickets for Maine Men's Hockey at Madison Square Garden On Sale at Noon!</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Maine Athletics</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
     {
       "title": "Massachusetts Lands 21 On 2025-26 Hockey East All-Academic Team - University of Massachusetts Athletics",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOZmNsSENHaE9PemM2enlmVjd2OGoyNktaQVpMWXpKcGpfU29mOE9kdGYxVVFvaFV6QkdYQjY4Wmd2dlFld0pXdVBXbTB5bFdXU3J1dUVxUHVHdVRVMjl0d21RbHYxMFRSOVNCbmc3QXNNQWJmV0dnQ3VOMXlPcG9BVVdGWHdZdHNBTlRfSGRLTHlEREJLUVV5djgyTzBfbG1mQ0tLbUdVNmQ?oc=5",
@@ -5179,9 +5182,29 @@
       "feed_title": "Boston University Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxNc3RnWW1mZlJxeGZKNElySmYxN09sbkh5OEI4WDVISkV5dldaSjlvakJNSXVCR0ZTUE5RZGJrcEZnOElzZlVFQV9XX0VYU2xaX0g5YlhxM0tXRDlMWEVMbWtrMGNrVm1FY3pJcU5TS2swMzl6aVFQRWxjQnRvRm9lT1dOWWFNa3c?oc=5\" target=\"_blank\">Men's Ice Hockey Announces 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston University Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "BC Hosts Maine in Hockey East Quarterfinals - Boston College Athletics",
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOaF9iMHhLTU10QmVsVGFUdE5nRUNscW9xMjhzVklRRmlOTTZ2MTVOclVxck9jMThLckh5M1RHbGhocW4zenBKRDFaZlctLWZnOElCS0dwNmY3eTJBbTFxNWcwTlFoekZGMkczVXF3TjVZSWpSekJhc2o1MmphMkJlTXJwcFpwX18xdTJGRFNXTVdxc0Z2NEE?oc=5",
+      "published": "Thu, 12 Mar 2026 07:00:00 GMT",
+      "ts": 1773298800,
+      "author": "",
+      "feed_title": "Boston College Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxOaF9iMHhLTU10QmVsVGFUdE5nRUNscW9xMjhzVklRRmlOTTZ2MTVOclVxck9jMThLckh5M1RHbGhocW4zenBKRDFaZlctLWZnOElCS0dwNmY3eTJBbTFxNWcwTlFoekZGMkczVXF3TjVZSWpSekJhc2o1MmphMkJlTXJwcFpwX18xdTJGRFNXTVdxc0Z2NEE?oc=5\" target=\"_blank\">BC Hosts Maine in Hockey East Quarterfinals</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston College Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
     }
   ],
   "news_national": [
+    {
+      "title": "India's 'cockroach' movement ousts minister, but can Modi calm youth?",
+      "link": "https://www.npr.org/2026/07/25/g-s1-135483/india-cockroach-movement",
+      "published": "Sat, 25 Jul 2026 10:48:22 -0400",
+      "ts": 1784990902,
+      "author": "Diaa Hadid",
+      "feed_title": "",
+      "summary": "<img alt=\"A protester holds a placard after India\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2100x1400+0+0/resize/2100x1400!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F79%2Fa0%2F0e0990784f58ab750ab61ad12277%2Fap26206436838172.jpg\" /><p>Led by Gen-Z youth across India, the movement has become perhaps the biggest challenge to Prime Minister Narendra Modi during his 12 years in office</p><p>(Image credit: Ashish Vaishnav)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-135483\" />",
+      "source": "NPR"
+    },
     {
       "title": "COMIC: Temps are predicted to hit 106 in Egypt this week. How do people stay cool?",
       "link": "https://www.npr.org/2026/07/25/g-s1-135194/summer-heat-egypt-cairo-air-conditioning",
@@ -5203,7 +5226,7 @@
       "source": "NPR"
     },
     {
-      "title": "Sextortion: That's the threat for women who are simply trying to buy clean water",
+      "title": "Some women who can't afford water are often pressured to provide sex for it",
       "link": "https://www.npr.org/2026/07/25/g-s1-133450/sexual-violence-women-clean-water-nairobi-kenya",
       "published": "Sat, 25 Jul 2026 07:59:19 -0400",
       "ts": 1784980759,
@@ -5213,7 +5236,7 @@
       "source": "NPR"
     },
     {
-      "title": "Why these cancer patients face a lonely fight",
+      "title": "Cancer rates are rising faster here than anywhere else. Are healthcare systems ready?",
       "link": "https://www.npr.org/2026/07/25/g-s1-135365/cancer-breast-chemotherapy-nigeria",
       "published": "Sat, 25 Jul 2026 07:51:44 -0400",
       "ts": 1784980304,
@@ -5273,20 +5296,10 @@
       "source": "NPR"
     },
     {
-      "title": "ICC member states vote to remove chief prosecutor Karim Khan",
-      "link": "https://www.npr.org/2026/07/24/g-s1-135498/icc-court-prosecutor-karim-khan-vote",
-      "published": "Fri, 24 Jul 2026 17:37:37 -0400",
-      "ts": 1784929057,
-      "author": "The Associated Press",
-      "feed_title": "",
-      "summary": "<img alt=\"Karim Khan, Prosecutor of the International Criminal Court, looks up prior to a press conference in The Hague, Netherlands, July 3, 2023.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/8640x5760+0+0/resize/8640x5760!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F7d%2F9e%2F5b59850a43ffa34c5abfc57537c8%2Fap26195371020752-002.jpg\" /><p>The International Criminal Court voted to remove the global tribunal's chief prosecutor on Friday, nearly two years after sexual misconduct allegations against him first emerged, the court's oversight body announced.</p><p>(Image credit: Peter Dejong)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-135498\" />",
-      "source": "NPR"
-    },
-    {
       "title": "Inside the Rushed Effort to Get Trump His New Air Force One",
       "link": "https://www.nytimes.com/2026/07/25/us/politics/trump-air-force-one-security.html",
-      "published": "Sat, 25 Jul 2026 13:00:51 +0000",
-      "ts": 1784984451,
+      "published": "Sat, 25 Jul 2026 14:31:56 +0000",
+      "ts": 1784989916,
       "author": "Eric Lipton, Tyler Pager and Maggie Haberman",
       "feed_title": "",
       "summary": "President Trump walked off the new Air Force One at Joint Base Andrews on July 9 after attending a NATO summit in Turkey. A security threat was said to have altered his trip.",
@@ -5303,26 +5316,6 @@
       "source": "NY Times"
     },
     {
-      "title": "Iran Journey Reveals Society\u2019s Wartime Defiance and Hope",
-      "link": "https://www.nytimes.com/2026/07/25/world/middleeast/what-a-journey-through-wartime-iran-revealed.html",
-      "published": "Sat, 25 Jul 2026 12:11:26 +0000",
-      "ts": 1784981486,
-      "author": "Abdi Latif Dahir and Emile Ducke",
-      "feed_title": "",
-      "summary": "A portrait of a defiant Ayatollah Ali Khamenei looms over Tehran streets.",
-      "source": "NY Times"
-    },
-    {
-      "title": "Trump\u2019s Threatened New Front in Iran War Could Strain U.S. Forces",
-      "link": "https://www.nytimes.com/2026/07/24/us/politics/trump-new-front-iran-war.html",
-      "published": "Fri, 24 Jul 2026 21:26:23 +0000",
-      "ts": 1784928383,
-      "author": "John Ismay and Eric Schmitt",
-      "feed_title": "",
-      "summary": "Houthi security forces in Sanaa, Yemen, earlier this month.",
-      "source": "NY Times"
-    },
-    {
       "title": "Tankers Sail Through Red Sea Despite Houthi Blockade",
       "link": "https://www.nytimes.com/2026/07/25/business/energy-environment/houthi-blockade-red-sea-maps.html",
       "published": "Sat, 25 Jul 2026 09:02:10 +0000",
@@ -5330,6 +5323,26 @@
       "author": "Leanne Abraham and Jenny Gross",
       "feed_title": "",
       "summary": "Dozens of ships continued to traverse the Red Sea this week, but with scattered disruption, uncertainty about the passage grows by the hour.",
+      "source": "NY Times"
+    },
+    {
+      "title": "From Celebration to Escalation: How Trump\u2019s Iran Cease-Fire Collapsed",
+      "link": "https://www.nytimes.com/2026/07/25/us/politics/trump-iran-cease-fire-collapse.html",
+      "published": "Sat, 25 Jul 2026 13:58:49 +0000",
+      "ts": 1784987929,
+      "author": "Michael Crowley",
+      "feed_title": "",
+      "summary": "The U.S. deal with Iran signed in June initially appeared to be a success. It didn\u2019t take long to fall apart.",
+      "source": "NY Times"
+    },
+    {
+      "title": "Iran Journey Reveals Society\u2019s Wartime Defiance and Hope",
+      "link": "https://www.nytimes.com/2026/07/25/world/middleeast/what-a-journey-through-wartime-iran-revealed.html",
+      "published": "Sat, 25 Jul 2026 12:11:26 +0000",
+      "ts": 1784981486,
+      "author": "Abdi Latif Dahir and Emile Ducke",
+      "feed_title": "",
+      "summary": "A portrait of a defiant Ayatollah Ali Khamenei looms over Tehran streets.",
       "source": "NY Times"
     },
     {
@@ -5385,8 +5398,8 @@
     {
       "title": "Tourists tell BBC how their holiday turned into race to escape fires",
       "link": "https://www.bbc.co.uk/news/articles/c80ny93xlrvo?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 25 Jul 2026 13:49:52 GMT",
-      "ts": 1784987392,
+      "published": "Sat, 25 Jul 2026 14:18:32 GMT",
+      "ts": 1784989112,
       "author": "",
       "feed_title": "",
       "summary": "Families visiting France have told the BBC how their holidays have become evacuation missions.",
@@ -5433,13 +5446,13 @@
       "source": "BBC"
     },
     {
-      "title": "ADHD has rewired the workplace. This is what it means for bosses and workers",
-      "link": "https://www.bbc.co.uk/news/articles/c70gq125xweo?at_medium=RSS&at_campaign=rss",
-      "published": "Fri, 24 Jul 2026 23:23:53 GMT",
-      "ts": 1784935433,
+      "title": "How the mystery of dead animals dumped in villages led to a hidden world of illegal hunts",
+      "link": "https://www.bbc.co.uk/news/articles/cd7ldjrl2reo?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 25 Jul 2026 05:00:21 GMT",
+      "ts": 1784955621,
       "author": "",
       "feed_title": "",
-      "summary": "As ADHD diagnoses have risen, have workplaces caught up with the needs of the workforce?",
+      "summary": "Farmers describe attacks and police receive nearly 9,000 reports of banned hare coursing.",
       "source": "BBC"
     },
     {
@@ -5453,13 +5466,13 @@
       "source": "BBC"
     },
     {
-      "title": "How the mystery of dead animals dumped in villages led to a hidden world of illegal hunts",
-      "link": "https://www.bbc.co.uk/news/articles/cd7ldjrl2reo?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 25 Jul 2026 05:00:21 GMT",
-      "ts": 1784955621,
+      "title": "ADHD has rewired the workplace. This is what it means for bosses and workers",
+      "link": "https://www.bbc.co.uk/news/articles/c70gq125xweo?at_medium=RSS&at_campaign=rss",
+      "published": "Fri, 24 Jul 2026 23:23:53 GMT",
+      "ts": 1784935433,
       "author": "",
       "feed_title": "",
-      "summary": "Farmers talk of attacks as police receive nearly 9,000 reports of banned hare coursing, the BBC finds.",
+      "summary": "As ADHD diagnoses have risen, have workplaces caught up with the needs of the workforce?",
       "source": "BBC"
     },
     {
@@ -5483,6 +5496,66 @@
       "source": "BBC"
     },
     {
+      "title": "Iran-backed Houthis launch retaliatory strikes on Saudi Arabia",
+      "link": "https://thehill.com/policy/international/5990145-houthi-rebels-yemen-saudi-arabia-strikes-iran-war/",
+      "published": "Sat, 25 Jul 2026 14:42:29 +0000",
+      "ts": 1784990549,
+      "author": "Sarah Davis",
+      "feed_title": "",
+      "summary": "Iran-backed Houthi rebels announced Saturday they fired missiles and drones toward Saudi Arabia, claiming retaliation for Saudi attacks on Yemen\u2019s coastal city of Hodeida.&#160; Brig. Gen. Yahya Saree, the militant group&#8217;s spokesperson, said in a social media post that the Houthis executed two military operations \u201cin response to this blatant and criminal aggression\u201d from Saudi&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Live updates: Maine Dems vote on Senate nominee after Graham exit; Houthis strike Saudi Arabia",
+      "link": "https://thehill.com/homenews/campaign/5989977-live-updates-trump-iran-warm-maine-democrats-senate-race-whcd/",
+      "published": "Sat, 25 Jul 2026 14:27:10 +0000",
+      "ts": 1784989630,
+      "author": "The Hill Staff",
+      "feed_title": "",
+      "summary": "Maine Democrats on Saturday are poised to announce their nominee to replace Graham Platner in the race to unseat incumbent Sen. Susan Collins (R-Maine). Former state Sen. Troy Jackson is the likely pick. Platner withdrew his bid earlier this month following allegations of sexual abuse. President Trump has issued warning after warning to Iran that&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "National Guard unveils $292M plan to house service members for DC deployment",
+      "link": "https://thehill.com/policy/defense/5990065-national-guard-dc-troops-housing-contract/",
+      "published": "Sat, 25 Jul 2026 14:18:12 +0000",
+      "ts": 1784989092,
+      "author": "Mira Bhakta",
+      "feed_title": "",
+      "summary": "The National Guard announced on Thursday its $292 million plan to provide \u201cup to 2,000 apartment-style lodging units\u201d for guard members stationed in D.C. The housing contract was awarded to corporate lodging company Placemakr and is the largest interagency lodging acquisition in the National Guard\u2019s history.\u00a0Placemakr has partnered with Hilton in the past on the&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Texas DA says substances found after fatal ICE shooting were not drugs",
+      "link": "https://thehill.com/homenews/state-watch/5990063-houston-ice-shooting-substance-negative-drugs/",
+      "published": "Sat, 25 Jul 2026 14:06:13 +0000",
+      "ts": 1784988373,
+      "author": "Sarah Davis",
+      "feed_title": "",
+      "summary": "The substance that investigators discovered in the vehicle of the man fatally shot by immigration agents in Houston earlier this month was determined not to be illegal drugs, the Harris County District Attorney\u2019s Office said on Friday.&#160; \u201cWe can confirm the substance found in Lorenzo Salgado Araujo&#8217;s van tested negative for narcotics/ illicit drugs,\u201d the&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Mamdani\u2019s \u2018fair share\u2019 myth joins a growing corpus of socialist fables",
+      "link": "https://thehill.com/opinion/campaign/5989614-socialist-mythology-wealthy-taxpayers/",
+      "published": "Sat, 25 Jul 2026 14:00:00 +0000",
+      "ts": 1784988000,
+      "author": "Jonathan Turley, opinion contributor",
+      "feed_title": "",
+      "summary": "The demonization of the wealthy is one of the oldest tactics of cynical politicians seeking to empower themselves by harnessing mob rage.",
+      "source": "The Hill"
+    },
+    {
+      "title": "Your state may have unclaimed funds in your name: Here\u2019s how to file for it",
+      "link": "https://thehill.com/business/personal-finance/5981361-your-state-may-have-unclaimed-funds-in-your-name-heres-how-to-file-for-it/",
+      "published": "Sat, 25 Jul 2026 14:00:00 +0000",
+      "ts": 1784988000,
+      "author": "Addy Bink",
+      "feed_title": "",
+      "summary": "States are currently holding billions and billions in unclaimed funds. Some may even belong to you.",
+      "source": "The Hill"
+    },
+    {
       "title": "Biden backs off lawsuit over ghostwriter interview audio",
       "link": "https://thehill.com/regulation/court-battles/5990015-biden-drops-ghostwriter-recording-lawsuit/",
       "published": "Sat, 25 Jul 2026 13:12:37 +0000",
@@ -5490,16 +5563,6 @@
       "author": "Sarah Davis",
       "feed_title": "",
       "summary": "Former President Biden on Friday dropped his lawsuit to block the public release of recordings from his interviews he gave to a memoir ghostwriter several years ago.&#160; Biden\u2019s lawyers filed a notice of voluntary dismissal in the U.S. District Court in Washington, D.C., after a panel of circuit court judges rejected his petition to block&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "What California\u2019s nurse staffing law cannot measure",
-      "link": "https://thehill.com/opinion/healthcare/5983972-california-nurse-staffing-ratios-burnout/",
-      "published": "Sat, 25 Jul 2026 13:00:00 +0000",
-      "ts": 1784984400,
-      "author": "Pasha Eizadkhah, opinion contributor",
-      "feed_title": "",
-      "summary": "California is projected to face a shortage\u00a0of tens of thousands of nurses within the decade.",
       "source": "The Hill"
     },
     {
@@ -5513,6 +5576,16 @@
       "source": "The Hill"
     },
     {
+      "title": "What California\u2019s nurse staffing law cannot measure",
+      "link": "https://thehill.com/opinion/healthcare/5983972-california-nurse-staffing-ratios-burnout/",
+      "published": "Sat, 25 Jul 2026 13:00:00 +0000",
+      "ts": 1784984400,
+      "author": "Pasha Eizadkhah, opinion contributor",
+      "feed_title": "",
+      "summary": "California is projected to face a shortage\u00a0of tens of thousands of nurses within the decade.",
+      "source": "The Hill"
+    },
+    {
       "title": "Iran marks first night without US strikes in two weeks as tensions persist",
       "link": "https://thehill.com/policy/defense/5989979-iran-us-strikes-quiet-night/",
       "published": "Sat, 25 Jul 2026 12:52:16 +0000",
@@ -5520,66 +5593,6 @@
       "author": "Sarah Davis",
       "feed_title": "",
       "summary": "The U.S. and Iran militaries did not exchange fire overnight Saturday, breaking a streak of 13 consecutive days of tit-for-tat strikes over alleged violations of a ceasefire agreement signed last month.\u00a0 A spokesperson for the country\u2019s health ministry confirmed there were no new attacks in a Saturday social media post.&#160; \u201cIt seems our dear Iran&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Live updates: Maine Dems to replace Platner in Senate race; Quiet night in Iran",
-      "link": "https://thehill.com/homenews/campaign/5989977-live-updates-trump-iran-warm-maine-democrats-senate-race-whcd/",
-      "published": "Sat, 25 Jul 2026 12:30:00 +0000",
-      "ts": 1784982600,
-      "author": "The Hill Staff",
-      "feed_title": "",
-      "summary": "Maine Democrats on Saturday are poised to announce their nominee to replace Graham Platner in the race to unseat incumbent Sen. Susan Collins (R-Maine). Former state Sen. Troy Jackson is the likely pick. Platner withdrew his bid earlier this month following allegations of sexual abuse. Meanwhile, President Trump has issued warning after warning to Iran&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Khanna echoes Mamdani\u2019s calls for Netanyahu arrest",
-      "link": "https://thehill.com/homenews/house/5989969-ro-khanna-zohran-mamdani-benjamin-netanyahu-arrest-calls/",
-      "published": "Sat, 25 Jul 2026 12:13:22 +0000",
-      "ts": 1784981602,
-      "author": "Sarah Davis",
-      "feed_title": "",
-      "summary": "Rep. Ro Khanna (D-Calif.) on Friday echoed New York City Mayor Zohran Mamdani\u2019s (D) call for the arrest of Israeli Prime Minister Benjamin Netanyahu, ahead of the foreign leader\u2019s visit to the U.S. next week.\u00a0 \u201cThe American president should arrest Netanyahu or [Russian President Vladimir] Putin in accordance with international law,\u201d Khanna told MeidasTouch reporter&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "With Washington\u2019s help, humanoid robots can transform US manufacturing",
-      "link": "https://thehill.com/opinion/technology/5988461-ai-humanoid-robotics-policy/",
-      "published": "Sat, 25 Jul 2026 12:00:00 +0000",
-      "ts": 1784980800,
-      "author": "Robert Ambrose, opinion contributor",
-      "feed_title": "",
-      "summary": "With AI and automation, America has a once in a generation window of opportunity to rebuild its manufacturing base.",
-      "source": "The Hill"
-    },
-    {
-      "title": "As signals of a \u2018massive\u2019 US attack mount, experts skeptical it will break Iran",
-      "link": "https://thehill.com/policy/defense/5989841-experts-skeptical-intensified-air-strikes-iran/",
-      "published": "Sat, 25 Jul 2026 10:00:00 +0000",
-      "ts": 1784973600,
-      "author": "Filip Timotija",
-      "feed_title": "",
-      "summary": "As President Trump threatens a major escalation in Iran, signs are mounting that the U.S. military is preparing for a potential return to major military operations.&#160; But experts are skeptical that an intensified air strike campaign \u2014 even if it takes out bridges, water facilities and electricity plants \u2014 will break Tehran or force tough&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Trump takes shots at RFK Jr, Biden, CNN\u2019s Collins in WHCA dinner speech",
-      "link": "https://thehill.com/homenews/media/5989858-trump-whca-speech-biden-kennedy-collins/",
-      "published": "Sat, 25 Jul 2026 03:34:49 +0000",
-      "ts": 1784950489,
-      "author": "Sarah Davis",
-      "feed_title": "",
-      "summary": "President Trump took aim at the press, Democrats and some of his celebrity critics in a speech that received a lukewarm reception at the White House Correspondents\u2019 Association\u2019s (WHCA) dinner on Friday evening.\u00a0 Trump took the stage just months after a gunman allegedly attempted an attack on his life at the association\u2019s annual event in&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Former Trump food official calls for independent review of federal government response to Cyclospora outbreak",
-      "link": "https://thehill.com/policy/healthcare/5989772-ex-fda-criticizes-cyclospora-outbreak/",
-      "published": "Sat, 25 Jul 2026 00:22:48 +0000",
-      "ts": 1784938968,
-      "author": "Sarah Davis",
-      "feed_title": "",
-      "summary": "Former Food and Drug Administration (FDA) Deputy Commissioner Frank Yiannas, who served under both President Trump and former President Biden, criticized the federal government\u2019s handling of a Cyclospora outbreak that has impacted thousands of Americans. In an interview with Politico, Yiannas called for an independent review of the government\u2019s response to this outbreak and cited&#8230;",
       "source": "The Hill"
     },
     {
@@ -5630,16 +5643,6 @@
       "author": "Patrick Marley, Sammy Westfall",
       "feed_title": "",
       "summary": "The city\u2019s independent watchdog accused police of obstructing her inquiry into the shooting. Madison\u2019s police chief said he was \u201ccommitted to working with the independent monitor.\u201d",
-      "source": "Washington Post"
-    },
-    {
-      "title": "Protesters gather in Madison after man fatally shot by a police officer",
-      "link": "https://www.washingtonpost.com/nation/2026/07/22/man-fatally-shot-by-police-officer-madison-prompting-protest-city/",
-      "published": "Thu, 23 Jul 2026 14:47:29 +0000",
-      "ts": 1784818049,
-      "author": "Rachel Lerman, Samuel Oakford, Patrick Marley, Sammy Westfall",
-      "feed_title": "",
-      "summary": "A graphic video of the shooting during an attempted arrest in the Marquette neighborhood of Madison, Wisconsin, was quickly spread online.",
       "source": "Washington Post"
     }
   ],
@@ -5725,6 +5728,16 @@
       "source": "Google News"
     },
     {
+      "title": "Two planes nearly collided in Boston after a false alarm and a controller forgot who he cleared for takeoff, the NTSB reports - CNN",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9uOFdjRzBXSFVoZ0cwQk9CYy1IQVl1a3R1anFnSklkUkZxTzVJMV9MbThPMDdPOV9oc0l0YWNURy1pVUxSSlI2TXVrNzB1dUhFS084bkRJNkE2Ti1rUGM1T3NVbV9MVjE3YkpEdXBqdUdzQQ?oc=5",
+      "published": "Thu, 23 Jul 2026 21:38:34 GMT",
+      "ts": 1784842714,
+      "author": "",
+      "feed_title": "CNN",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTE9uOFdjRzBXSFVoZ0cwQk9CYy1IQVl1a3R1anFnSklkUkZxTzVJMV9MbThPMDdPOV9oc0l0YWNURy1pVUxSSlI2TXVrNzB1dUhFS084bkRJNkE2Ti1rUGM1T3NVbV9MVjE3YkpEdXBqdUdzQQ?oc=5\" target=\"_blank\">Two planes nearly collided in Boston after a false alarm and a controller forgot who he cleared for takeoff, the NTSB reports</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN</font>",
+      "source": "Google News"
+    },
+    {
       "title": "Uber driver charged with stabbing passenger several times at Logan Airport in Boston held without bail - CBS News",
       "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWVpZWm8wajQ1ZUxMTl9qZ1FtRU15VzdEZlk4eXY5YmR2RjVOa3VIaGxLNWo5Wk9temRONjNwN1RJa3NfR25fWFRIT2JKY0tZc1p0WEFIR2FxMnR4TTd4ZHg5TzRmQ2pTblRwWXptYm82UVptdUJqNmVzSThUZHRCNGVJb180N0ROUUY3MGRKeWFoX2Nk?oc=5",
       "published": "Tue, 14 Jul 2026 07:00:00 GMT",
@@ -5745,20 +5758,10 @@
       "source": "Google News"
     },
     {
-      "title": "Two planes nearly collided in Boston after a false alarm and a controller forgot who he cleared for takeoff, the NTSB reports - CNN",
-      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9uOFdjRzBXSFVoZ0cwQk9CYy1IQVl1a3R1anFnSklkUkZxTzVJMV9MbThPMDdPOV9oc0l0YWNURy1pVUxSSlI2TXVrNzB1dUhFS084bkRJNkE2Ti1rUGM1T3NVbV9MVjE3YkpEdXBqdUdzQQ?oc=5",
-      "published": "Thu, 23 Jul 2026 21:38:34 GMT",
-      "ts": 1784842714,
-      "author": "",
-      "feed_title": "CNN",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTE9uOFdjRzBXSFVoZ0cwQk9CYy1IQVl1a3R1anFnSklkUkZxTzVJMV9MbThPMDdPOV9oc0l0YWNURy1pVUxSSlI2TXVrNzB1dUhFS084bkRJNkE2Ti1rUGM1T3NVbV9MVjE3YkpEdXBqdUdzQQ?oc=5\" target=\"_blank\">Two planes nearly collided in Boston after a false alarm and a controller forgot who he cleared for takeoff, the NTSB reports</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN</font>",
-      "source": "Google News"
-    },
-    {
       "title": "$1B+ renovation for Logan Airport's Terminal C moves forward - NBC Boston",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUy1iYVRYbXU1bDZMZkVsVHctSEpVWF80VkhBcVZhN3Z1NFVZSVhtdHZYSjNuR2xNRHJ4SGxIYkpETmF1WGtVaDZkU3kxNTBNa0dyQ2RvSEFNUS1ZRlBObzdJeHBGanI4WnF1MWRjVTdibDZnRWwzVEo1bG5kVEUwcTJ5VEUwc2FLVXpLMXJmS1RqQUNJRWhiRms4ajY4enVjRmY3MzAzemHSAbABQVVfeXFMTzJzb0tKaFkzRGxZRUlWMmNlal9JTURxV0JHX2tjekR5cU9mOG9hQmlQbkwzaHA5VmlMSXFYTmNrM0hYU2hnWk9GNXg2Q3d3NHVvX1pOZm9kUXVnZTIyZFdEMmt2cWM3MjlBM09MNDVYRE96UU9fVUt1U3N5eThzbzdBOVlZZG5ZeTNDbnJLc1VudE1VU1dVZHoxUlVnZTMtSGU3NlNRclI4RzkzTUQyc2w?oc=5",
-      "published": "Fri, 17 Jul 2026 16:42:07 GMT",
-      "ts": 1784306527,
+      "published": "Fri, 17 Jul 2026 07:00:00 GMT",
+      "ts": 1784271600,
       "author": "",
       "feed_title": "NBC Boston",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUy1iYVRYbXU1bDZMZkVsVHctSEpVWF80VkhBcVZhN3Z1NFVZSVhtdHZYSjNuR2xNRHJ4SGxIYkpETmF1WGtVaDZkU3kxNTBNa0dyQ2RvSEFNUS1ZRlBObzdJeHBGanI4WnF1MWRjVTdibDZnRWwzVEo1bG5kVEUwcTJ5VEUwc2FLVXpLMXJmS1RqQUNJRWhiRms4ajY4enVjRmY3MzAzemHSAbABQVVfeXFMTzJzb0tKaFkzRGxZRUlWMmNlal9JTURxV0JHX2tjekR5cU9mOG9hQmlQbkwzaHA5VmlMSXFYTmNrM0hYU2hnWk9GNXg2Q3d3NHVvX1pOZm9kUXVnZTIyZFdEMmt2cWM3MjlBM09MNDVYRE96UU9fVUt1U3N5eThzbzdBOVlZZG5ZeTNDbnJLc1VudE1VU1dVZHoxUlVnZTMtSGU3NlNRclI4RzkzTUQyc2w?oc=5\" target=\"_blank\">$1B+ renovation for Logan Airport's Terminal C moves forward</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NBC Boston</font>",
@@ -5928,13 +5931,13 @@
       "source": "MassDOT"
     },
     {
-      "title": "Ruggles Station is getting Commuter Rail fare gates in August - Boston.com",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNjFoNGNFRV9SZm1QWThyZkpNTEVWYzNEMkFnRDhkZlpRSFN0LTIwM3M5bGNIUGxpcU16NWVyX004NXc2NzhONVdpeXJwRVBBRWt2SU9BT1pKRUJPN0NNRVhaYW5CdWRya3hJakwzSlZPd2Y4cU4wUm1LbE9zeFVuU05rdUNNX202MzhwYm9vTjk2REVxMjBBdDFmX3dWQVdZTUxmeUREbGxQR2RNa3VWVUVoR1QzdVE?oc=5",
-      "published": "Thu, 23 Jul 2026 02:46:24 GMT",
-      "ts": 1784774784,
+      "title": "Police ID suspect accused in Boston Common murder, separate assault - WCVB",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNX24ybG05ekJZRE85NlRUbV9MU0h3WFFUeUlHaUthWjdaQ1JldzAwMzF3RXIyX1c3RVltRTZmcEtQQm9SZnZJa1o4NGxlblJhdHhoTHVUd2dhUWt1N1A2Y2NYdjVPTkY5MDd1VEJpLVlNdGpoVHB5STlSRzROLUlBUDlRMW9uaDljS1BSMFlKOGJIbWswd0lNRWt3RjMxczVSUjBubA?oc=5",
+      "published": "Wed, 22 Jul 2026 22:35:30 GMT",
+      "ts": 1784759730,
       "author": "",
-      "feed_title": "Boston.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxPNjFoNGNFRV9SZm1QWThyZkpNTEVWYzNEMkFnRDhkZlpRSFN0LTIwM3M5bGNIUGxpcU16NWVyX004NXc2NzhONVdpeXJwRVBBRWt2SU9BT1pKRUJPN0NNRVhaYW5CdWRya3hJakwzSlZPd2Y4cU4wUm1LbE9zeFVuU05rdUNNX202MzhwYm9vTjk2REVxMjBBdDFmX3dWQVdZTUxmeUREbGxQR2RNa3VWVUVoR1QzdVE?oc=5\" target=\"_blank\">Ruggles Station is getting Commuter Rail fare gates in August</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
+      "feed_title": "WCVB",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNX24ybG05ekJZRE85NlRUbV9MU0h3WFFUeUlHaUthWjdaQ1JldzAwMzF3RXIyX1c3RVltRTZmcEtQQm9SZnZJa1o4NGxlblJhdHhoTHVUd2dhUWt1N1A2Y2NYdjVPTkY5MDd1VEJpLVlNdGpoVHB5STlSRzROLUlBUDlRMW9uaDljS1BSMFlKOGJIbWswd0lNRWt3RjMxczVSUjBubA?oc=5\" target=\"_blank\">Police ID suspect accused in Boston Common murder, separate assault</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WCVB</font>",
       "source": "MBTA"
     },
     {
@@ -6052,7 +6055,7 @@
       "date": "2026-07-27",
       "time": null,
       "all_day": true,
-      "summary": "adult chess comp?",
+      "summary": "closing of Glendale",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6060,55 +6063,7 @@
       "date": "2026-07-27",
       "time": null,
       "all_day": true,
-      "summary": "Reach out to Tommy Cross about hat signature",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-27",
-      "time": null,
-      "all_day": true,
-      "summary": "follow up on plan to promote the working group",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-27",
-      "time": null,
-      "all_day": true,
-      "summary": "get HDIP shirley district filed at registry",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-27",
-      "time": null,
-      "all_day": true,
-      "summary": "Ask for application completion with IT",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-27",
-      "time": null,
-      "all_day": true,
-      "summary": "cancel globe subscription/ renegotiate",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-27",
-      "time": null,
-      "all_day": true,
-      "summary": "Finish program redraft",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-27",
-      "time": null,
-      "all_day": true,
-      "summary": "Discuss with Don Martelli, put together a proposal",
+      "summary": "convene working group",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6132,7 +6087,7 @@
       "date": "2026-07-27",
       "time": null,
       "all_day": true,
-      "summary": "closing of Glendale",
+      "summary": "cancel globe subscription/ renegotiate",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6140,7 +6095,15 @@
       "date": "2026-07-27",
       "time": null,
       "all_day": true,
-      "summary": "share via the library, schools etc",
+      "summary": "confirm date/time for next meeting",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-27",
+      "time": null,
+      "all_day": true,
+      "summary": "Ask for application completion with IT",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6156,23 +6119,63 @@
       "date": "2026-07-27",
       "time": null,
       "all_day": true,
+      "summary": "get HDIP shirley district filed at registry",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-27",
+      "time": null,
+      "all_day": true,
+      "summary": "adult chess comp?",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-27",
+      "time": null,
+      "all_day": true,
+      "summary": "Discuss with Don Martelli, put together a proposal",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-27",
+      "time": null,
+      "all_day": true,
+      "summary": "Finish program redraft",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-27",
+      "time": null,
+      "all_day": true,
+      "summary": "share via the library, schools etc",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-27",
+      "time": null,
+      "all_day": true,
+      "summary": "Reach out to Tommy Cross about hat signature",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-27",
+      "time": null,
+      "all_day": true,
+      "summary": "follow up on plan to promote the working group",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-27",
+      "time": null,
+      "all_day": true,
       "summary": "confirm new balance/marketing can attend",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-27",
-      "time": null,
-      "all_day": true,
-      "summary": "convene working group",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-27",
-      "time": null,
-      "all_day": true,
-      "summary": "confirm date/time for next meeting",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6188,14 +6191,6 @@
       "date": "2026-07-28",
       "time": null,
       "all_day": true,
-      "summary": "Check in with Diego about TDM and next steps",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-28",
-      "time": null,
-      "all_day": true,
       "summary": "Start on marketing plan",
       "location": null,
       "calendar": "Todoist"
@@ -6204,7 +6199,7 @@
       "date": "2026-07-28",
       "time": null,
       "all_day": true,
-      "summary": "Discuss with Mayor",
+      "summary": "next steps for 2026",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6212,15 +6207,7 @@
       "date": "2026-07-28",
       "time": null,
       "all_day": true,
-      "summary": "Reading sessions",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-28",
-      "time": null,
-      "all_day": true,
-      "summary": "draft a policy narrowly tailored to curb abuse",
+      "summary": "Check in with Diego about TDM and next steps",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6236,6 +6223,22 @@
       "date": "2026-07-28",
       "time": null,
       "all_day": true,
+      "summary": "Reading sessions",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-28",
+      "time": null,
+      "all_day": true,
+      "summary": "Discuss with Mayor",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-28",
+      "time": null,
+      "all_day": true,
       "summary": "Schedule a board game day at Twisted Fate",
       "location": null,
       "calendar": "Todoist"
@@ -6244,7 +6247,7 @@
       "date": "2026-07-28",
       "time": null,
       "all_day": true,
-      "summary": "next steps for 2026",
+      "summary": "draft a policy narrowly tailored to curb abuse",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6268,6 +6271,14 @@
       "date": "2026-07-28",
       "time": "2:00 PM",
       "all_day": false,
+      "summary": "Applying Outcome-Based Technology in a Mature Transportation System: Waco\u2019s Use Cases in Practice - SCMC Webinar",
+      "location": "Microsoft Teams Meeting",
+      "calendar": "Joseph"
+    },
+    {
+      "date": "2026-07-28",
+      "time": "2:00 PM",
+      "all_day": false,
       "summary": "Canceled: Applying Outcome-Based Technology in a Mature Transportation System: Waco\u2019s Use Cases in Practice - Webinar",
       "location": "Microsoft Teams Meeting",
       "calendar": "Joseph"
@@ -6277,14 +6288,6 @@
       "time": "2:00 PM",
       "all_day": false,
       "summary": "SQUIRE ROAD MEETING",
-      "location": "Microsoft Teams Meeting",
-      "calendar": "Joseph"
-    },
-    {
-      "date": "2026-07-28",
-      "time": "2:00 PM",
-      "all_day": false,
-      "summary": "Applying Outcome-Based Technology in a Mature Transportation System: Waco\u2019s Use Cases in Practice - SCMC Webinar",
       "location": "Microsoft Teams Meeting",
       "calendar": "Joseph"
     },
@@ -6308,7 +6311,7 @@
       "date": "2026-07-29",
       "time": null,
       "all_day": true,
-      "summary": "weekly NASCAR picks",
+      "summary": "Begin prepping agenda",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6316,7 +6319,7 @@
       "date": "2026-07-29",
       "time": null,
       "all_day": true,
-      "summary": "Check in on marketing plan",
+      "summary": "Send phonebooth ideas to group",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6332,7 +6335,7 @@
       "date": "2026-07-29",
       "time": null,
       "all_day": true,
-      "summary": "Begin prepping agenda",
+      "summary": "weekly NASCAR picks",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6340,7 +6343,7 @@
       "date": "2026-07-29",
       "time": null,
       "all_day": true,
-      "summary": "Send phonebooth ideas to group",
+      "summary": "Check in on marketing plan",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6396,7 +6399,7 @@
       "date": "2026-07-30",
       "time": null,
       "all_day": true,
-      "summary": "check in with Diego",
+      "summary": "check in on FTHB resources for website - discuss w Matt",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6404,7 +6407,15 @@
       "date": "2026-07-30",
       "time": null,
       "all_day": true,
-      "summary": "check in on FTHB resources for website - discuss w Matt",
+      "summary": "brainstorm",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-07-30",
+      "time": null,
+      "all_day": true,
+      "summary": "check in with Diego",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6421,14 +6432,6 @@
       "time": null,
       "all_day": true,
       "summary": "Review and circle back with applicants",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-07-30",
-      "time": null,
-      "all_day": true,
-      "summary": "brainstorm",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6452,7 +6455,7 @@
       "date": "2026-07-31",
       "time": null,
       "all_day": true,
-      "summary": "propose ideas for shirts etc",
+      "summary": "Debrief thought on 2026 tournament",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6460,7 +6463,7 @@
       "date": "2026-07-31",
       "time": null,
       "all_day": true,
-      "summary": "Debrief thought on 2026 tournament",
+      "summary": "propose ideas for shirts etc",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6500,7 +6503,7 @@
       "date": "2026-08-01",
       "time": null,
       "all_day": true,
-      "summary": "Preapproved plans for infill 515",
+      "summary": "Reading sessions",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6508,7 +6511,7 @@
       "date": "2026-08-01",
       "time": null,
       "all_day": true,
-      "summary": "Reading sessions",
+      "summary": "Preapproved plans for infill 515",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6556,7 +6559,7 @@
       "date": "2026-08-02",
       "time": null,
       "all_day": true,
-      "summary": "New wave of marketing",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6564,7 +6567,7 @@
       "date": "2026-08-02",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "New wave of marketing",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6660,23 +6663,7 @@
       "date": "2026-08-05",
       "time": null,
       "all_day": true,
-      "summary": "weekly NASCAR picks",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-05",
-      "time": null,
-      "all_day": true,
       "summary": "Loudon Race Day Game Plan",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-05",
-      "time": null,
-      "all_day": true,
-      "summary": "HPP review: where are we, how are we doing? Prep and discuss with Diego",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6692,7 +6679,15 @@
       "date": "2026-08-05",
       "time": null,
       "all_day": true,
-      "summary": "Revere Journal",
+      "summary": "weekly NASCAR picks",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-05",
+      "time": null,
+      "all_day": true,
+      "summary": "HPP review: where are we, how are we doing? Prep and discuss with Diego",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6701,6 +6696,14 @@
       "time": null,
       "all_day": true,
       "summary": "Follow up w BRMPO on cost differentai between boardwalk plan vs. hugging parking lot",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-05",
+      "time": null,
+      "all_day": true,
+      "summary": "Revere Journal",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6820,7 +6823,7 @@
       "date": "2026-08-07",
       "time": null,
       "all_day": true,
-      "summary": "asked Nick to directly sell - follow up; call Nick if no answer",
+      "summary": "Medical checkins",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6836,7 +6839,7 @@
       "date": "2026-08-07",
       "time": null,
       "all_day": true,
-      "summary": "Medical checkins",
+      "summary": "asked Nick to directly sell - follow up; call Nick if no answer",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6868,22 +6871,6 @@
       "date": "2026-08-08",
       "time": null,
       "all_day": true,
-      "summary": "research fun itinerary ideas",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-08",
-      "time": null,
-      "all_day": true,
-      "summary": "check in on preseason Q+A feasibility",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-08",
-      "time": null,
-      "all_day": true,
       "summary": "book flights",
       "location": null,
       "calendar": "Todoist"
@@ -6893,6 +6880,22 @@
       "time": null,
       "all_day": true,
       "summary": "Do laundry",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-08",
+      "time": null,
+      "all_day": true,
+      "summary": "research fun itinerary ideas",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-08",
+      "time": null,
+      "all_day": true,
+      "summary": "check in on preseason Q+A feasibility",
       "location": null,
       "calendar": "Todoist"
     },
@@ -7606,7 +7609,7 @@
     },
     {
       "date": "2026-07-24",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 TSport 200 presented by Warn Industries",
       "time": "8:00 PM",
       "result": null,
@@ -7616,7 +7619,7 @@
     },
     {
       "date": "2026-07-24",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 TSport 200 presented by Warn Industries",
       "time": "8:00 PM",
       "result": null,
@@ -8903,6 +8906,22 @@
       "updated": "2026-07-21T11:12:58"
     },
     {
+      "id": "2635496622686757",
+      "title": "Traffic (DMV/Crash) \u2014 I-495 NB",
+      "type": "Traffic Incidents",
+      "subtype": "Traffic (DMV/Crash)",
+      "road": "I-495",
+      "direction": "NB",
+      "start": "",
+      "end": "",
+      "status": "Open",
+      "location": "I-495 NB Exit 81",
+      "lanes": "Travel Lane(s) Affected: 1 of 1 (SELECT IF Only Travel Lane Closed ) Lane(s) Affected Description: Left 1 lane closed",
+      "lat": 42.55274226229681,
+      "lng": -71.4635214576711,
+      "updated": "2026-07-25T10:41:05"
+    },
+    {
       "id": "2635496622683989",
       "title": "Traffic (Roadway Obstruction) \u2014 RT-125 NB and SB",
       "type": "Traffic Incidents",
@@ -8916,7 +8935,7 @@
       "lanes": "Travel Lane(s) Affected:  Lane(s) Affected Description: Road closed (both directions)",
       "lat": 42.6963079,
       "lng": -71.11900641590385,
-      "updated": "2026-07-25T09:55:18"
+      "updated": "2026-07-25T10:36:29"
     },
     {
       "id": "2635668421362454",
