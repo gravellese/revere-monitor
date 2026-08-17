@@ -1,25 +1,17 @@
 {
-  "updated": "2026-08-17T09:52:10.891106+00:00",
-  "updated_local": "August 17, 2026 at 9:52 AM",
+  "updated": "2026-08-17T10:41:20.936188+00:00",
+  "updated_local": "August 17, 2026 at 10:41 AM",
   "weather_current": {
-    "temp": 66,
+    "temp": 67,
     "unit": "F",
-    "wind": "8 mph",
+    "wind": "7 mph",
     "windDir": "S",
-    "shortForecast": "Chance Rain Showers",
+    "shortForecast": "Rain Showers Likely",
     "detailedForecast": "Rain showers likely before 8am, then rain showers likely and patchy fog. Mostly cloudy, with a high near 75. Southeast wind 5 to 8 mph. Chance of precipitation is 60%. New rainfall amounts between a tenth and quarter of an inch possible.",
-    "humidity": 95,
-    "precip": 51
+    "humidity": 93,
+    "precip": 55
   },
   "weather_hourly": [
-    {
-      "time": "2026-08-17T05:00:00-04:00",
-      "temp": 66,
-      "unit": "F",
-      "shortForecast": "Chance Rain Showers",
-      "wind": "8 mph",
-      "precip": 51
-    },
     {
       "time": "2026-08-17T06:00:00-04:00",
       "temp": 67,
@@ -203,11 +195,19 @@
       "shortForecast": "Patchy Fog",
       "wind": "2 mph",
       "precip": 5
+    },
+    {
+      "time": "2026-08-18T05:00:00-04:00",
+      "temp": 67,
+      "unit": "F",
+      "shortForecast": "Patchy Fog",
+      "wind": "3 mph",
+      "precip": 6
     }
   ],
   "weather_daily": [
     {
-      "name": "Monday",
+      "name": "Today",
       "date": "2026-08-17T06:00:00-04:00",
       "high": 75,
       "low": 66,
@@ -264,9 +264,9 @@
       "name": "Sunday",
       "date": "2026-08-23T06:00:00-04:00",
       "high": 77,
-      "low": null,
+      "low": 60,
       "shortForecast": "Chance Rain Showers",
-      "detailedForecast": "A chance of rain showers. Partly sunny, with a high near 77. Southeast wind 3 to 7 mph.",
+      "detailedForecast": "A chance of rain showers. Partly sunny, with a high near 77. Southeast wind 3 to 7 mph. Chance of precipitation is 50%.",
       "precip": 53
     }
   ],
@@ -325,7 +325,7 @@
     "delay": false,
     "status": "ok",
     "metar": {
-      "raw": "METAR KBOS 170854Z 18007KT 10SM OVC055 19/18 A2991 RMK AO2 RAE25 SLP129 P0000 60004 T01940183 58009",
+      "raw": "SPECI KBOS 171035Z 19011KT 7SM -RA FEW012 BKN030 OVC037 19/18 A2992 RMK AO2 P0001 T01940183",
       "flight_cat": ""
     },
     "faa_delays": [],
@@ -341,6 +341,11 @@
       "routes": []
     },
     {
+      "header": "Stoughton Line Train 908 (6:18 AM from Stoughton) is cancelled today due to a downed Catenary wire. Passengers may consider Train 914 (7:15 am from Stoughton).",
+      "effect": "CANCELLATION",
+      "routes": []
+    },
+    {
       "header": "Orange Line: Service will be suspended between Oak Grove and Back Bay from August 20 - 30. Riders can use shuttles between Oak Grove and North Station, and the Green Line between North Station and Copley/Back Bay.",
       "effect": "SUSPENSION",
       "routes": []
@@ -351,13 +356,43 @@
       "routes": []
     },
     {
-      "header": "Fairmount Line Train 1602 (4:45 AM from Readville) has departed Readville and is operating 15-25 minutes late.",
+      "header": "Providence Line Train 806 (5:10 AM from Providence) will bypass all stops between Route 128 and South Station today due to a downed catenary wire near Back Bay. Passengers at Ruggles and Back Bay may consider the Orange Line.",
+      "effect": "STATION_CLOSURE",
+      "routes": []
+    },
+    {
+      "header": "Newburyport Line Train 108 (5:53 AM from Newburyport) has departed Newburyport and is operating 10-20 minutes late.",
       "effect": "DELAY",
       "routes": []
     },
     {
       "header": "Littleton/Route 495 passengers can expect occasional traffic and detours when accessing the station due to the Foster Street reconstruction work.",
       "effect": "STATION_ISSUE",
+      "routes": []
+    },
+    {
+      "header": "Providence Line Train 810 (6:00 AM from Providence) is operating 5-15 minutes behind schedule between South Attleboro and South Station due to a downed catenary wire.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Green Line B Branch: Delays of about 15 minutes. Service will originate and terminate at Park Street until further notice.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Framingham/Worcester, Needham, Franklin/Foxboro Line & Providence/Stoughton Line passengers are experiencing severe delays in both directions due to a downed catenary wire. ",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Haverhill Line Train 208 (5:27 AM from Haverhill) is operating 5-15 minutes behind schedule between Melrose/Cedar Park and North Station.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Worcester Line Train 509 (6:02 AM from South Station) is operating 15-25 minutes behind schedule between Lansdowne and Worcester due to a downed catenary wire.",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -371,12 +406,22 @@
       "routes": []
     },
     {
-      "header": "Needham Line Train 602 (5:05 AM from Needham Heights) is stopped after Forrest Hills and is 15-25 minutes behind schedule due to a downed catenary wire near Back Bay.",
+      "header": "Needham Line Train 602 (5:05 AM from Needham Heights) is operating 25-35 minutes behind schedule between Forest Hills and South Station due to a downed catenary wire near Back Bay.",
       "effect": "DELAY",
       "routes": []
     },
     {
-      "header": "Providence Line Train 806 (5:10 AM from Providence) is operating 5-15 minutes behind schedule between Mansfield and South Station.",
+      "header": "Providence Line Train 806 (5:10 AM from Providence) is operating 25-35 minutes behind schedule between Wickford Junction and Route 128.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Franklin Line Train 704 (4:59 AM from Forge Park/495) will bypass all stops between Readville and South Station due to a downed catenary wire near Back Bay. Passengers may consider the Orange Line for service.",
+      "effect": "STATION_CLOSURE",
+      "routes": []
+    },
+    {
+      "header": "Worcester Line Train 1511 (6:13 AM from South Station) has departed South Station and is operating 15-25 minutes late due to a downed catenary wire. ",
       "effect": "DELAY",
       "routes": []
     },
@@ -389,54 +434,14 @@
       "header": "There is no accessible path connecting the inbound and outbound platforms at Wellesley Square Station. The existing path includes steep slopes and is long. Designs are underway to provide for a fully compliant pathway.",
       "effect": "STATION_ISSUE",
       "routes": []
-    },
-    {
-      "header": "Green Line C Branch:  Trains will not stop at Brandon Hall from Aug 17 through Oct 4 for accessibility upgrades. Riders can instead board or alight at either Fairbanks St or Summit Ave, which are 0.1-0.2 miles away (or a 4- to 5-minute walk) ",
-      "effect": "STATION_CLOSURE",
-      "routes": []
-    },
-    {
-      "header": "To accommodate renovations at Providence Station, construction barriers have been installed and the southern stairwell to Track 1 is out of service. Staircase access is available to Track 3 and Track 5.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "Green Line E Branch: Symphony station is closed for major accessibility upgrades. Riders can use Prudential or Northeastern to access E Branch service. The station is expected to reopen in 2029.",
-      "effect": "STATION_CLOSURE",
-      "routes": []
-    },
-    {
-      "header": "Blue Line: Delays of about 15 minutes due to a signal problem between Revere Beach and Beachmont.",
-      "effect": "DELAY",
-      "routes": []
-    },
-    {
-      "header": "The Wyoming Hill Mini-high platform project has begun. Passengers and local residents can expect construction vehicles and activity during the day through the Winter of 2026.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "The Endicott Mini-high platform project has begun. Passengers and local residents can expect construction vehicles and activity during the day through the Winter of 2026.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "The Riverside Ave entrance at Campello Station is currently closed. Passengers may continue to use the Plain St entrance.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "Stoughton Line Train 904 (5:15 AM from Stoughton) is operating 5-15 minutes behind schedule between Canton Junction and South Station.",
-      "effect": "DELAY",
-      "routes": []
     }
   ],
   "beach_conditions": {
-    "water_temp_f": 69.6,
-    "wvht_ft": 1.6,
+    "water_temp_f": 69.8,
+    "wvht_ft": null,
     "dpd_s": null,
     "wspd_mph": 11.2,
-    "wdir_deg": 180.0,
+    "wdir_deg": 170.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
@@ -1268,17 +1273,6 @@
       "source": "Advocate News"
     },
     {
-      "title": "Somerville man faces OUI, reckless operation charges after Revere rollover crash - Advocate News Online",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNaXdONnJVYzBfV1pWLU5oSEhtR3lUTGhNM3p4SHI1NHlackpiaHBkck5MVGhTTU9vb3RPdkd0TVJ5bmR0UlJLQS01RXFlTElnZXZpU3NEWV9mSEs0czNZOExXXzJjS09CTFRoczFieTdRZHRiR1duLVNCT1hGUmtpc0wyZkVCVWI1T1drQnBTaFoxRkpjUkFOZ3J5OFMxUXljWGlnT0lUc0RfVXVhU19hNllQZTBTd0xW?oc=5",
-      "published": "Thu, 13 Aug 2026 15:00:26 GMT",
-      "ts": 1786633226,
-      "author": "",
-      "feed_title": "Advocate News Online",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxNaXdONnJVYzBfV1pWLU5oSEhtR3lUTGhNM3p4SHI1NHlackpiaHBkck5MVGhTTU9vb3RPdkd0TVJ5bmR0UlJLQS01RXFlTElnZXZpU3NEWV9mSEs0czNZOExXXzJjS09CTFRoczFieTdRZHRiR1duLVNCT1hGUmtpc0wyZkVCVWI1T1drQnBTaFoxRkpjUkFOZ3J5OFMxUXljWGlnT0lUc0RfVXVhU19hNllQZTBTd0xW?oc=5\" target=\"_blank\">Somerville man faces OUI, reckless operation charges after Revere rollover crash</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Advocate News Online</font>",
-      "source": "Google News \u00b7 Revere Police",
-      "_alert": "Revere Police"
-    },
-    {
       "title": "Revere Public Schools distribute backpacks ahead of Aug. 25 school start - Advocate News Online",
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMklTaXpKNXdKcnJDVmgwRnNNYU1vdURncU9UZm5NSFNrNUFqTkFBX2xoejhXaEZodUVXSHVFMHdSOVZxM0J2QTFtM3NhazlUSUVtSE85ZkNvSGlLRHJwWTdNWGZtV21rQkpWS1BjZUlWU3YwSDhmbXdLTXhIYmVKMnBqeHkzeG9XcTVWRjhJUEpqSDNhYWJDMW52RTBiN3VaTlBET3VDcHRQZUxKQWc?oc=5",
       "published": "Thu, 13 Aug 2026 14:54:58 GMT",
@@ -1301,13 +1295,13 @@
       "_alert": "City of Revere"
     },
     {
-      "title": "Domenic Anthony Gizzi - pressdemocrat.com",
+      "title": "Domenic Anthony Gizzi - The Press Democrat",
       "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOV3d6UE9ia19KQ3Y3ZnN3VnJqX2ZESzNZZ0dNNHliYlRDTEl0OWFHemxvajlLV1pGM3FtejQtWWVmSWhGTThHbFpubkJlUkpQQzFpdVYxbTd6SEpxYjc2bUE0V29jaW00NE9CY3RHTGREVXJRWENYY1ozVlRqclNhVA?oc=5",
       "published": "Thu, 13 Aug 2026 08:09:11 GMT",
       "ts": 1786608551,
       "author": "",
-      "feed_title": "pressdemocrat.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxOV3d6UE9ia19KQ3Y3ZnN3VnJqX2ZESzNZZ0dNNHliYlRDTEl0OWFHemxvajlLV1pGM3FtejQtWWVmSWhGTThHbFpubkJlUkpQQzFpdVYxbTd6SEpxYjc2bUE0V29jaW00NE9CY3RHTGREVXJRWENYY1ozVlRqclNhVA?oc=5\" target=\"_blank\">Domenic Anthony Gizzi</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">pressdemocrat.com</font>",
+      "feed_title": "The Press Democrat",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxOV3d6UE9ia19KQ3Y3ZnN3VnJqX2ZESzNZZ0dNNHliYlRDTEl0OWFHemxvajlLV1pGM3FtejQtWWVmSWhGTThHbFpubkJlUkpQQzFpdVYxbTd6SEpxYjc2bUE0V29jaW00NE9CY3RHTGREVXJRWENYY1ozVlRqclNhVA?oc=5\" target=\"_blank\">Domenic Anthony Gizzi</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Press Democrat</font>",
       "source": "Google News \u00b7 Revere Massachusetts",
       "_alert": "Revere Massachusetts"
     },
@@ -2072,16 +2066,6 @@
       "source": "Winthrop"
     },
     {
-      "title": "Peabody Veterans Memorial High School (MA) Volleyball - MaxPreps",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxORnRtRElBa3loSEF6LWJERXVNMW9pVlQ1bzQtblBEcjliZTFnWFc5Rzh5R1dtbEoxRjJaU0ZGVVdWQlZLck0yMmQ1Tk0zclA2UDgxUmkyLVJsRUVfZkswX0c1Nkl3QWRuTjVpS1QwcGlmQmlETlhjeV9tSms5elJYaVA2Y0dNaG9j?oc=5",
-      "published": "Wed, 12 Aug 2026 16:14:57 GMT",
-      "ts": 1786551297,
-      "author": "",
-      "feed_title": "MaxPreps",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAFBVV95cUxORnRtRElBa3loSEF6LWJERXVNMW9pVlQ1bzQtblBEcjliZTFnWFc5Rzh5R1dtbEoxRjJaU0ZGVVdWQlZLck0yMmQ1Tk0zclA2UDgxUmkyLVJsRUVfZkswX0c1Nkl3QWRuTjVpS1QwcGlmQmlETlhjeV9tSms5elJYaVA2Y0dNaG9j?oc=5\" target=\"_blank\">Peabody Veterans Memorial High School (MA) Volleyball</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MaxPreps</font>",
-      "source": "Peabody"
-    },
-    {
       "title": "DA Hayden brings fraud awareness presentation to East Boston residents - East Boston Times-Free Press",
       "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOeERzdHQ1Z3Z6RVE5LV9lSEtUSVdWR2tNbkUxa0RjYlRMV0p1SVdKR2VJcDZKcmFaRVhtUm9HU2p5dXYyODBQVTd3Wm5ZQXpDOEJPelJzX0tuODlmT21oVy16NkJOYm91a3ZQMWlLeFVvNnpwTEp3bEhWZmhpSV9TRk1xRHNrQ3VJckpSYVU2akY5ZmQ1enZNeXFzSWdSZ1NGVkQ1NjRGUURlQdIBrwFBVV95cUxQcHYtOFNKcTI2OXAzYnJLTDVObzNmZmRHMzRWcUJZY2g1UjVnWjE5TVJLdU93QnVhSjF0SUNFVjBIT1RHVTQ4Mk1GVTQtOWt2dW8xNTN3YjUwUVZEZ1h1ZUN0SXpSaWtGWXlBdlp5cHN5NkxPQVdLLVVZZGVqdllFejN1UHdHVjF3UzRseEFNZDZ5SnViTUp3WkpXM3hnMmpPcmtRZER3Vkw4UEJ3M05F?oc=5",
       "published": "Wed, 12 Aug 2026 08:50:40 GMT",
@@ -2202,13 +2186,13 @@
       "source": "East Boston"
     },
     {
-      "title": "This North Shore city was Realtor.com\u2019s hottest ZIP code in 2026 - boston.com",
+      "title": "This North Shore city was Realtor.com\u2019s hottest ZIP code in 2026 - Boston.com",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNX0ktdTV2LXZfTklhQnJueE9NR284WVk2YkdfV01nWXBsTE50Qng3dTJNY0pseE5JTjR3cHFIV2E1V3dfUkpwR2ZLUThHMU45OFZuZVlySmVocU1ockJiU29LQjdqN2p0YVNWMERYOW9TcVZZUG5lQ3pILUhkazVLMG9sWkZlVVJTZzhOOTcwSzJkSlJ1V2sxdHdCV3B2QmVfYmZZa05saw?oc=5",
       "published": "Tue, 11 Aug 2026 20:12:09 GMT",
       "ts": 1786479129,
       "author": "",
-      "feed_title": "boston.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxNX0ktdTV2LXZfTklhQnJueE9NR284WVk2YkdfV01nWXBsTE50Qng3dTJNY0pseE5JTjR3cHFIV2E1V3dfUkpwR2ZLUThHMU45OFZuZVlySmVocU1ockJiU29LQjdqN2p0YVNWMERYOW9TcVZZUG5lQ3pILUhkazVLMG9sWkZlVVJTZzhOOTcwSzJkSlJ1V2sxdHdCV3B2QmVfYmZZa05saw?oc=5\" target=\"_blank\">This North Shore city was Realtor.com\u2019s hottest ZIP code in 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">boston.com</font>",
+      "feed_title": "Boston.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxNX0ktdTV2LXZfTklhQnJueE9NR284WVk2YkdfV01nWXBsTE50Qng3dTJNY0pseE5JTjR3cHFIV2E1V3dfUkpwR2ZLUThHMU45OFZuZVlySmVocU1ockJiU29LQjdqN2p0YVNWMERYOW9TcVZZUG5lQ3pILUhkazVLMG9sWkZlVVJTZzhOOTcwSzJkSlJ1V2sxdHdCV3B2QmVfYmZZa05saw?oc=5\" target=\"_blank\">This North Shore city was Realtor.com\u2019s hottest ZIP code in 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
       "source": "North Shore"
     },
     {
@@ -2452,13 +2436,13 @@
       "source": "Everett"
     },
     {
-      "title": "Body washes up at Orient Heights Beach in East Boston - boston.com",
+      "title": "Body washes up at Orient Heights Beach in East Boston - Boston.com",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQTHQ3ZVNkR1Nnb3JQQW5OcFZsdzcyemd0eFFONHZDekxYU1pPZW85dDNOajQ2LUJqdlZVNHlsS1hjaWJVczNadHU5dzdYbVRGNFN3QlBZcWdQSkNsWUVROW5zM1BySV80Z3JPS2wzMmdwT2pYNFNISDJZUnJyazBsYUpRUnJQcTN1WmxrdzRoeFYySFRSNkRXSmFEd2JuWEgzR3lGemItbw?oc=5",
       "published": "Wed, 05 Aug 2026 07:00:00 GMT",
       "ts": 1785913200,
       "author": "",
-      "feed_title": "boston.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQTHQ3ZVNkR1Nnb3JQQW5OcFZsdzcyemd0eFFONHZDekxYU1pPZW85dDNOajQ2LUJqdlZVNHlsS1hjaWJVczNadHU5dzdYbVRGNFN3QlBZcWdQSkNsWUVROW5zM1BySV80Z3JPS2wzMmdwT2pYNFNISDJZUnJyazBsYUpRUnJQcTN1WmxrdzRoeFYySFRSNkRXSmFEd2JuWEgzR3lGemItbw?oc=5\" target=\"_blank\">Body washes up at Orient Heights Beach in East Boston</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">boston.com</font>",
+      "feed_title": "Boston.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQTHQ3ZVNkR1Nnb3JQQW5OcFZsdzcyemd0eFFONHZDekxYU1pPZW85dDNOajQ2LUJqdlZVNHlsS1hjaWJVczNadHU5dzdYbVRGNFN3QlBZcWdQSkNsWUVROW5zM1BySV80Z3JPS2wzMmdwT2pYNFNISDJZUnJyazBsYUpRUnJQcTN1WmxrdzRoeFYySFRSNkRXSmFEd2JuWEgzR3lGemItbw?oc=5\" target=\"_blank\">Body washes up at Orient Heights Beach in East Boston</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
       "source": "East Boston"
     },
     {
@@ -2822,13 +2806,13 @@
       "source": "East Boston"
     },
     {
-      "title": "Gateway Center in Everett, MA 100% Leased - citybiz",
+      "title": "Gateway Center in Everett, MA 100% Leased - citybiz.co",
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPb1JJOEhnUVBDWm1ORU03dDBsS1hPZS10OUlhVTBkYzNFVDl2MVFsQkVDYzUwbTJlalltd04zTzhNcmxkSTRfcm54SkNHRmM3OFBfZjlyUWl6TjV6WTBJSWdlZUhCV0tJR1hjU0Z2SXFTNnQ0dlR3RHMya21FN044bDlCTzk?oc=5",
       "published": "Mon, 06 Jul 2026 07:00:00 GMT",
       "ts": 1783321200,
       "author": "",
-      "feed_title": "citybiz",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxPb1JJOEhnUVBDWm1ORU03dDBsS1hPZS10OUlhVTBkYzNFVDl2MVFsQkVDYzUwbTJlalltd04zTzhNcmxkSTRfcm54SkNHRmM3OFBfZjlyUWl6TjV6WTBJSWdlZUhCV0tJR1hjU0Z2SXFTNnQ0dlR3RHMya21FN044bDlCTzk?oc=5\" target=\"_blank\">Gateway Center in Everett, MA 100% Leased</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">citybiz</font>",
+      "feed_title": "citybiz.co",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxPb1JJOEhnUVBDWm1ORU03dDBsS1hPZS10OUlhVTBkYzNFVDl2MVFsQkVDYzUwbTJlalltd04zTzhNcmxkSTRfcm54SkNHRmM3OFBfZjlyUWl6TjV6WTBJSWdlZUhCV0tJR1hjU0Z2SXFTNnQ0dlR3RHMya21FN044bDlCTzk?oc=5\" target=\"_blank\">Gateway Center in Everett, MA 100% Leased</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">citybiz.co</font>",
       "source": "Everett"
     },
     {
@@ -2980,6 +2964,16 @@
       "feed_title": "Patch",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxNN3RtUjhiSjUyS1VPU1htSmlETkxodkNTWlFnNDBMYUl4eUw2ZHVBU1RhclhadVMtMGJaVTh1UmExVzNrYUthSGRqSlVENVNJUFBsZzRLSmVvbkZmR2xoWnlCbWlMbExHaV8tY1pNWnY3QjdCNFdETWdOdWNRT2Jlck5ON2stajQ4bG8xV0V2OVk?oc=5\" target=\"_blank\">Longtime Malden Officer Chosen As Next Police Chief</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
       "source": "Malden"
+    },
+    {
+      "title": "Joan Helen Shea Obituary (2026) - Peabody, MA - Mackey Funeral Home - Middleton - Legacy obituary",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5KbWNHaS1JYjhnSlJoUlJiUXJORy1TTkNteUkxX01Jek9FVUhjVDVKbTc4Z3V2d0NSaU5UWVZrTDJNQmQ0V2d3SEtpdFhhbHM4eGl1VXpxOGVyMmthQXMxWE5PM3FveE9wOGtjcjlTQmpjdlM4RWVaTDZha1c?oc=5",
+      "published": "Wed, 17 Jun 2026 07:00:00 GMT",
+      "ts": 1781679600,
+      "author": "",
+      "feed_title": "Legacy obituary",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifEFVX3lxTE5KbWNHaS1JYjhnSlJoUlJiUXJORy1TTkNteUkxX01Jek9FVUhjVDVKbTc4Z3V2d0NSaU5UWVZrTDJNQmQ0V2d3SEtpdFhhbHM4eGl1VXpxOGVyMmthQXMxWE5PM3FveE9wOGtjcjlTQmpjdlM4RWVaTDZha1c?oc=5\" target=\"_blank\">Joan Helen Shea Obituary (2026) - Peabody, MA - Mackey Funeral Home - Middleton</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Legacy obituary</font>",
+      "source": "Peabody"
     },
     {
       "title": "Dog found dead after being reported stolen on Saugus trail",
@@ -3532,13 +3526,13 @@
       "source": "Malden"
     },
     {
-      "title": "News | DUO preserves public housing, adds 330 eco-friendly homes in Chelsea, Massachusetts - CoStar",
+      "title": "News | DUO preserves public housing, adds 330 eco-friendly homes in Chelsea, Massachusetts - costar.com",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxObWp4YldZc2EwV2xSMDFfS0dTVUQ3M245c0hpaDNNY3VRcHdZNXc2ckUtTVlHUUVxN2hNTXQzVmRPVVY1VDhnNndUbnRIVXdqZm1fRDZvVjE4aEl5LUxtUE5OaWszZ05tM21OUnBYWnBGdW5NYnZvMmNIREdaaFVfTl95MlltZkVTeHhJUlByWTk3OWFQLW5JX29lX3l0Tm0xNGtKWmQ1dmd5WVNjM1U1YmVuLUZIajYxd3B3QUhxYUU?oc=5",
       "published": "Wed, 25 Mar 2026 07:00:00 GMT",
       "ts": 1774422000,
       "author": "",
-      "feed_title": "CoStar",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxObWp4YldZc2EwV2xSMDFfS0dTVUQ3M245c0hpaDNNY3VRcHdZNXc2ckUtTVlHUUVxN2hNTXQzVmRPVVY1VDhnNndUbnRIVXdqZm1fRDZvVjE4aEl5LUxtUE5OaWszZ05tM21OUnBYWnBGdW5NYnZvMmNIREdaaFVfTl95MlltZkVTeHhJUlByWTk3OWFQLW5JX29lX3l0Tm0xNGtKWmQ1dmd5WVNjM1U1YmVuLUZIajYxd3B3QUhxYUU?oc=5\" target=\"_blank\">News | DUO preserves public housing, adds 330 eco-friendly homes in Chelsea, Massachusetts</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CoStar</font>",
+      "feed_title": "costar.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxObWp4YldZc2EwV2xSMDFfS0dTVUQ3M245c0hpaDNNY3VRcHdZNXc2ckUtTVlHUUVxN2hNTXQzVmRPVVY1VDhnNndUbnRIVXdqZm1fRDZvVjE4aEl5LUxtUE5OaWszZ05tM21OUnBYWnBGdW5NYnZvMmNIREdaaFVfTl95MlltZkVTeHhJUlByWTk3OWFQLW5JX29lX3l0Tm0xNGtKWmQ1dmd5WVNjM1U1YmVuLUZIajYxd3B3QUhxYUU?oc=5\" target=\"_blank\">News | DUO preserves public housing, adds 330 eco-friendly homes in Chelsea, Massachusetts</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">costar.com</font>",
       "source": "Chelsea"
     },
     {
@@ -3744,6 +3738,46 @@
   ],
   "news_boston": [
     {
+      "title": "Democrats approve 2028 presidential calendar that puts South Carolina in lead spot",
+      "link": "https://www.wbur.org/news/2026/08/17/dnc-2028-presidential-primary-election-calendar-south-carolina-new-hampshire",
+      "published": "Mon, 17 Aug 2026 06:32:15 -0400",
+      "ts": 1786962735,
+      "author": "WBUR",
+      "feed_title": "WBUR News",
+      "summary": "<p>An election-year calendar approved by the Democratic National Committee makes South Carolina\u2019s primary the first, followed by Nevada. The lineup pushes the Iowa caucus and New Hampshire primary from the traditional top spots.</p>",
+      "source": "WBUR News"
+    },
+    {
+      "title": "Dog rescued after '\ufeffmiraculously' surviving 50-foot fall into Indiana cave",
+      "link": "https://www.wcvb.com/article/dog-rescue-indiana-cave-dnr-fall/73451010",
+      "published": "Mon, 17 Aug 2026 10:31:00 GMT",
+      "ts": 1786962660,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A dog was safely rescued after taking a 50-foot fall into a cave in Indiana Thursday night.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Kushner sits with Netanyahu to talk Gaza after 2-hour meeting with Hamas",
+      "link": "https://whdh.com/news/kushner-sits-with-netanyahu-to-talk-gaza-after-2-hour-meeting-with-hamas/",
+      "published": "Mon, 17 Aug 2026 10:30:06 +0000",
+      "ts": 1786962606,
+      "author": "James Kukstis",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "JERUSALEM (AP) \u2014 Mideast negotiator and Trump son-in-law Jared Kushner was meeting Monday with Israel\u2019s Prime Minister Benjamin Netanyahu after the premier rejected the&#160;15-point, U.S.-backed...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "Damp Start",
+      "link": "https://whdh.com/weather-blog/damp-start-2/",
+      "published": "Mon, 17 Aug 2026 09:56:05 +0000",
+      "ts": 1786960565,
+      "author": "Clamberton7",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "After another great weather weekend across the area, we kick off the new work week with clouds and some scattered showers this morning. While rainfall...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
       "title": "Machine gun range proposal for Joint Base Cape Cod is back",
       "link": "https://www.wbur.org/news/2026/08/17/machine-gun-range-proposal-joint-base-cape-cod-back",
       "published": "Mon, 17 Aug 2026 05:50:07 -0400",
@@ -3884,6 +3918,16 @@
       "source": "Top Stories"
     },
     {
+      "title": "The 60-day deadline for an Iran peace deal is expiring. Here's where things stand",
+      "link": "https://www.nbcboston.com/news/national-international/60-day-deadline-for-iran-peace-deal-is-expiring/3998729/",
+      "published": "Mon, Aug 17 2026 06:22:20 AM",
+      "ts": 1786947740,
+      "author": "Joseph Krauss | The Associated Press",
+      "feed_title": "NBC Boston",
+      "summary": "<p>The deal that President <a href=\"https://www.nbcboston.com/tag/donald-trump/\" rel=\"noreferrer noopener\" target=\"_blank\">Donald Trump</a> signed at Versailles in June set an ambitious 60-day deadline for ending the <a href=\"https://www.nbcboston.com/tag/war-with-iran/\" rel=\"noreferrer noopener\" target=\"_blank\">war with Iran</a> and reaching an accord on its nuclear program.</p>\n\n\n\n<p>The deadline was Monday, and the two sides are further apart than they were then.</p>\n\n\n\n<p>Talks, such as they are, have focused on reopening the Strait of Hormuz and lifting a U.S. blockade on <a href=\"https://www.nbcboston.com/tag/iran/\" rel=\"noreferrer noopener\" target=\"_blank\">Iran</a>, both of which were supposed to have happened under the interim deal. There has been no sign of any compromise on the strait, or that detailed nuclear talks have even begun.</p>\n\n\n\n<p>The <a href=\"https://www.nbcboston.com/tag/united-states/\" rel=\"noreferrer noopener\" target=\"_blank\">United States</a>, meanwhile, has no good options for getting out of the war it started alongside <a href=\"https://www.nbcboston.com/tag/israel/\" rel=\"noreferrer noopener\" target=\"_blank\">Israel</a>.</p>\n\n\n\n<p>Acceding to Iran&#8217;s latest demands would mean giving it control over a critical international waterway that carried a fifth of the world&#8217;s <a href=\"https://www.nbcboston.com/tag/oil-gas/\" rel=\"noreferrer noopener\" target=\"_blank\">traded oil and gas</a> before the war \u2014 and would be tantamount to admitting defeat. Escalating the deeply unpopular war would further draw down U.S. supplies of advanced missile interceptors, jolt the world economy, and drive up gas prices ahead of U.S. congressional elections.</p>\n\n\n\n<p>So both sides have dug in, hoping the other will blink first. So far, neither has. </p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">The interim deal collapsed weeks later</h2>\n\n\n\n<p>The June deal, known as the Memorandum of Understanding, called for a halt to all military operations and set a 60-day deadline for an agreement to permanently end the war and resolve the longstanding dispute over Iran&#8217;s nuclear activities.</p>\n\n\n\n<p>It called for the Strait of Hormuz to be reopened but gave Iran a vaguely defined role in facilitating traffic, leaving open the possibility it could charge fees after the 60-day deadline. Iran has seized on that clause to claim control over the waterway.</p>\n\n\n\n<p>A week after the deal was signed, Iran began firing on vessels using a route along the coast of Oman, on the other side of the strait, that is overseen by the <a href=\"https://www.nbcboston.com/tag/military/\" rel=\"noreferrer noopener\" target=\"_blank\">U.S. military</a> and intended to bypass Tehran&#8217;s control.</p>\n\n\n\n<p>The U.S. responded by striking Iran, which retaliated by attacking Arab countries hosting American forces, like Jordan, Kuwait and Bahrain. The U.S. canceled waivers issued as part of the deal that had allowed Iran to sell its oil internationally and Trump restored a blockade of Iran&#8217;s ports.</p>\n\n\n\n<p>Each side accused the other of violating the June agreement, of which almost nothing remains.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/us-pulls-last-aircraft-carrier-in-asia-trump-focuses-iran-western-hemisphere/3998493/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/GettyImages-2287618679.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/military/\">Military</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 16\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/us-pulls-last-aircraft-carrier-in-asia-trump-focuses-iran-western-hemisphere/3998493/\">\n\t\t\t\t\t\t\t\t\t\tU.S. pulls last aircraft carrier in Asia as Trump focuses on Iran and the Western Hemisphere\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/trump-pivots-back-sanctions-iran-other-strategies-end-war-fizzle/3995398/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/AP26221761800502.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/war-with-iran/\">War with Iran</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 11\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/trump-pivots-back-sanctions-iran-other-strategies-end-war-fizzle/3995398/\">\n\t\t\t\t\t\t\t\t\t\tTrump pivots back to sanctions for Iran as other strategies to end his war fizzle\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p>The fighting eventually died down. A related truce in <a href=\"https://www.nbcboston.com/tag/lebanon/\" rel=\"noreferrer noopener\" target=\"_blank\">Lebanon</a> between Israel and the Iran-backed Hezbollah has mostly held, even as Israeli troops occupy large areas in the country&#8217;s south. Lebanon&#8217;s &#8220;territorial integrity and sovereignty&#8221; were to have been ensured under the June deal.</p>\n\n\n\n<p>Iranian officials say they stopped negotiating with the U.S. in June, while acknowledging that messages have been relayed by intermediaries. Trump says the talks have continued, occasionally claiming progress after pulling back from threatening major strikes.</p>\n\n\n\n<p>Pakistan, which played a key role in brokering the June agreement, noted last week that the deadline was Monday while expressing hope it would be extended. </p>\n\n\n\n<p>\u201cWe are not closing the chapter,\u201d Foreign Ministry spokesman Tahir Andrabi said. \u201cPakistan is making all-out efforts to bring the two parties to the negotiating table.\u201d</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Iran&#8217;s leaders think they can force Trump to give up the strait</h2>\n\n\n\n<p>Earlier this month, Iran issued a list of demands for reopening the strait, including the lifting of the American blockade, the withdrawal of U.S. forces from around Iran and the payment of reparations for damage inflicted in the war started by the U.S. and Israel on Feb. 28.</p>\n\n\n\n<p>Even then, Iran has said it would control the strait \u2014 and potentially charge fees \u2014 through an agreement it is negotiating with Oman, and that the strait will not go back to being an open, toll-free waterway as it was before the war.</p>\n\n\n\n<p>Iran-backed Houthi rebels in Yemen have meanwhile begun attacking Saudi oil tankers in the Red Sea, threatening another crucial trade route that had been used to relieve some of the pressure from the strait being closed.</p>\n\n\n\n<p>Trump has rejected Iran&#8217;s demands \u2014 saying it&#8217;s Tehran that should pay war reparations and claiming the U.S. controls the strait. He appears to be banking on economic pressure \u2014 in the form of the blockade and longstanding sanctions \u2014 to bring Iran&#8217;s rulers to their knees.</p>\n\n\n\n<p>Iran&#8217;s economy has been battered by the war and isolation, and inflation has soared. The crisis could stoke renewed anti-government protests, like those that were brutally crushed in January.</p>\n\n\n\n<p>Traffic through the Strait of Hormuz, which rose immediately after the interim deal, is back to a small fraction of what it was before the war. Rising prices of fuel and other goods are expected to climb further the longer this continues with effects far beyond the Middle East.</p>\n\n\n\n<p>The clock is still ticking for both sides.</p>\n\n\n\n<p>___</p>\n\n\n\n<p>Associated Press writer Munir Ahmed in Islamabad contributed.</p>",
+      "source": "NBC Boston"
+    },
+    {
       "title": "Rainy start of the week, muggy across Southern New England",
       "link": "https://www.nbcboston.com/news/local/rainy-weather-morning-muggy-new-england/3998710/",
       "published": "Mon, Aug 17 2026 05:34:02 AM",
@@ -3994,16 +4038,6 @@
       "source": "Boston.com"
     },
     {
-      "title": "Waltham police investigating after man shot",
-      "link": "https://whdh.com/news/waltham-police-investigating-after-man-shot/",
-      "published": "Mon, 17 Aug 2026 01:12:17 +0000",
-      "ts": 1786929137,
-      "author": "Owen Boss",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "Police are investigating after a man was shot in Waltham on Sunday, officials said. Officers responding to a reported shooting on Main Street around 5...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
       "title": "Red Sox reportedly viewed Rafael Devers as \u2018immature\u2019 and \u2018selfish\u2019 prior to trade",
       "link": "https://www.boston.com/sports/boston-red-sox/2026/08/16/boston-red-sox-rafael-devers-mlb-baseball-trade-san-francisco-giants/",
       "published": "Mon, 17 Aug 2026 00:44:32 +0000",
@@ -4044,23 +4078,13 @@
       "source": "Top Stories"
     },
     {
-      "title": "Trump orders Pentagon to scale back joint exercises with South Korea",
-      "link": "https://whdh.com/news/trump-orders-pentagon-to-scale-back-joint-exercises-with-south-korea/",
-      "published": "Sun, 16 Aug 2026 23:34:43 +0000",
-      "ts": 1786923283,
-      "author": "Owen Boss",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "WASHINGTON (AP) \u2014 President Donald Trump ordered the Pentagon on Sunday to scale back&#160;planned joint military exercises with South Korea, saying it declined to help&#160;denuclearize...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
       "title": "Actor Hayden Panettiere, known for roles in \u2018Heroes,' \u2018Nashville,' dies at 36",
       "link": "https://www.nbcboston.com/entertainment/entertainment-news/actor-hayden-panettiere-known-for-roles-in-heroes-nashville-dies-at-36/3998673/",
       "published": "Sun, Aug 16 2026 11:34:09 PM",
       "ts": 1786880049,
       "author": "Dennis Romero | NBC News and Bill Feather | NBC Los Angeles",
       "feed_title": "NBC Boston",
-      "summary": "<p id=\"anchor-9df511\">Actor Hayden Panettiere has died, her father said in a statement Sunday night. She was 36.</p>\n\n\n\n<p id=\"anchor-4aa459\">\u201cIt is with profound sadness that we share the tragic passing of our beloved Hayden,\u201d her father Skip Panettiere said in a statement provided by the actor\u2019s representative.</p>\n\n\n\n<p id=\"anchor-a20ab1\">The cause and manner of death were not provided. Her publicist, Kasey Kitchen, said Panettiere\u2019s death was being investigated.</p>\n\n\n\n<p id=\"anchor-a20ab1\">\u201cThere\u2019s an investigation ongoing,\u201d Kitchen said in a statement. \u201cWe should know more tomorrow.\u201d</p>\n\n\n\n<p id=\"anchor-eb10ad\">Police in Greenville, <a href=\"https://www.nbcboston.com/tag/south-carolina/\" rel=\"noreferrer noopener\" target=\"_blank\">South Carolina</a>, said in a statement that officers \u201caccompanied by EMS personnel, responded to a report of an unresponsive female\u201d at around 1:50 p.m. Sunday. \u201cUpon arrival, medical assistance was administered; however, the individual, later identified as Hayden Panettiere, was pronounced deceased at the scene,\u201d police said in a statement.</p>\n\n\n\n<p id=\"anchor-f0cf21\">\u201cThe case is under investigation by the Greenville Police Department in conjunction with the Greenville County Coroner\u2019s Office. The preliminary investigation has not indicated any signs of foul play or suspicious circumstances. An acquaintance of Ms. Panettiere placed the 911 call,\u201d it said. The statement added that no further details were available for release at this time.</p>\n\n\n\n<p id=\"anchor-4c087d\">Panettiere revealed this year that&nbsp;<a href=\"https://www.today.com/parents/hayden-panettiere-daughter-kaya-rcna344958\" rel=\"noreferrer noopener\" target=\"_blank\">she struggled with postpartum depression and addiction</a>, which she said led to her decision to give up custody of her only child, daughter Kaya Evdokia Klitschko, in 2018, whom she had with former partner and Ukrainian professional boxer Wladimir Klitschko.</p>\n\n\n\n<p id=\"anchor-3ce50c\">Panettiere recently published a memoir, \u201cThis is Me: A Reckoning,\u201d which generated headlines over its revelations, including about her past relationships.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/entertainment/entertainment-news/hayden-panettiere-addresses-controversial-on-camera-interview/3497070/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2024/09/GettyImages-1471760770.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/celebrity-news/\">Celebrity News</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tSep 23, 2024\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/entertainment/entertainment-news/hayden-panettiere-addresses-controversial-on-camera-interview/3497070/\">\n\t\t\t\t\t\t\t\t\t\tHayden Panettiere addresses controversial on-camera interview\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/entertainment/entertainment-news/hayden-panettiere-younger-brother-jansen-interview/3493523/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2023/02/GettyImages-1126598429-e1676997746487.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/celebrity-news/\">Celebrity News</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tSep 19, 2024\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/entertainment/entertainment-news/hayden-panettiere-younger-brother-jansen-interview/3493523/\">\n\t\t\t\t\t\t\t\t\t\tHayden Panettiere opens up about the sudden death of only sibling Jansen\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p id=\"anchor-51ca86\">In 2024,&nbsp;<a href=\"https://www.today.com/popculture/hayden-panettiere-brother-jansen-rcna171776\" rel=\"noreferrer noopener\" target=\"_blank\">she described pain and grief&nbsp;</a>after her younger brother died unexpectedly of an undiagnosed heart condition the previous year.</p>\n\n\n\n<p id=\"anchor-1b1058\">\u201cWhen you lose somebody that that you saw in all the important moments in your life, standing right next to you, it just rocks your world,\u201d she told the \u201cTODAY\u201d show.</p>\n\n\n\n<p>The actor was born and raised in Palisades, New York, about 40 miles north of New York City, according to her Television Academy bio.</p>\n\n\n\n<p id=\"anchor-ee0bac\">Panettiere started working at 11 months old, when she appeared in television commercials, it said.</p>\n\n\n\n<p id=\"anchor-fb7442\">She appeared on <a href=\"https://www.nbcboston.com/tag/television/\" rel=\"noreferrer noopener\" target=\"_blank\">soap operas</a>, including \u201cOne Life to Live\u201d and \u201cGuiding Light,\u201d beginning at age 4. Her voice was featured on \u201cA Bug\u2019s Life,\u201d the animated feature, and she eventually appeared in <a href=\"https://www.nbcboston.com/tag/movies/\" rel=\"noreferrer noopener\" target=\"_blank\">big-screen stories</a>, including \u201cRemember the Titans,\u201d and \u201cBring it On: All or Nothing.\u201d</p>\n\n\n\n<p id=\"anchor-b54323\">One of her most impactful roles was as Juliette Barnes on television\u2019s \u201cNashville.\u201d Before that, she was Claire Bennet on the 2000s show \u201cHeroes.\u201d</p>\n\n\n\n<p>Her time shooting \u201cNashville\u201d included the pressure of having had a baby and experiencing postpartum depression, she said, and at times it was too much.</p>\n\n\n\n<p id=\"anchor-726810\">\u201cThat\u2019s why I turned to substances \u2014 because the anxiety that I started having, the panic attacks that I started having,\u201d she said in a tearful interview on the&nbsp;<a href=\"https://www.youtube.com/watch?v=vs6x8VUGXCw\" rel=\"noreferrer noopener\" target=\"_blank\">Jay Shetty Podcast</a>&nbsp;in May.</p>\n\n\n<div></div>\n\n\n<p id=\"anchor-579d97\">Panettiere said she always wanted to be a mother but discussed her sadness amid her postpartum depression battle.</p>\n\n\n\n<p id=\"anchor-912b54\">\u201cI had this beautiful plan in my head, and then I had my daughter and I knew something was just terribly, terribly wrong,\u201d she said on the podcast. \u201cI was miserable. I was in tears all the time. Even though the alcohol helped my nervous system calm down, it is a depressant, so over time it made things worse, not better.\u201d</p>\n\n\n\n<p id=\"anchor-978a3b\">Despite being apart from her daughter after giving up custody to Klitschko, Panettiere told Shetty, she formed a strong bond with her child.</p>\n\n\n\n<p id=\"anchor-0f7922\">\u201cI will always want her here. I always miss her,\u201d she said. \u201cI always want to have my arms wrapped around her, but that\u2019s just not the way life is right at this moment.\u201d</p>\n\n\n\n<p id=\"anchor-a6e1df\">She continued: \u201cI have faith that she is going to come to me and that we\u2019re going to have an incredible relationship and bond and friendship that a lot of parents don\u2019t get to have with their kids.\u201d</p>\n\n\n\n<p id=\"anchor-269975\">In 2018, the year \u201cNashville\u201d ended it six-season run, Panettiere&nbsp;<a href=\"https://www.today.com/home/hayden-panettiere-s-charming-nashville-home-sale-t135483\" rel=\"noreferrer noopener\" target=\"_blank\">sold her home in the namesake city.</a></p>\n\n\n\n<p>Actor Emme Ryland, who appeared with Panettiere in \u201cBring It On: All or Nothing,\u201d\u00a0<a href=\"https://www.instagram.com/emmerylan/?hl=en\" rel=\"noreferrer noopener\" target=\"_blank\">reacted to news of her death on Instagram</a>, saying: \u201cSo very sad. Rest in peace sweet soul.\u201d</p>\n\n\n\n<p id=\"anchor-c70180\">Panettiere was a spokesperson for oceanic conservation group the Whaleman Foundation, appeared in the 2010 Oscar-winning documentary on dolphin slaughter, \u201cThe Cove,\u201d and received the Genesis Wyler Award from the Humane Society, according to the television academy.</p>\n\n\n\n<p id=\"anchor-a4b9ca\">\u201cShe was an incredible light and a force of nature who brought immeasurable love and joy to all who knew her\u2014 and to the millions who watched her onscreen,\u201d her father said.</p>\n\n\n<div></div>\n\n\n<p><em>If you or someone you know is struggling or in emotional distress, call or text 988, or chat at\u00a0</em><a href=\"http://988lifeline.org/\" rel=\"noreferrer noopener\" target=\"_blank\"><em>988lifeline.org</em></a><em>\u00a024/7, to reach the 988 Suicide &amp; Crisis Lifeline. For additional resources, visit\u00a0</em><a href=\"http://speakingofsuicide.com/resources\" rel=\"noreferrer noopener\" target=\"_blank\"><em>SpeakingOfSuicide.com/resources</em></a><em>.</em></p>",
+      "summary": "<p id=\"anchor-9df511\">Actor Hayden Panettiere, who was known for roles in television\u2019s \u201cHeroes\u201d and \u201cNashville\u201d and had recently published a memoir, has died, her father said in a statement Sunday night. She was 36.</p>\n\n\n\n<p id=\"anchor-4aa459\">\u201cIt is with profound sadness that we share the tragic passing of our beloved Hayden,\u201d her father Skip Panettiere said in a statement provided by the actor\u2019s representative.</p>\n\n\n\n<p id=\"anchor-a20ab1\">The cause and manner of death were not provided. Her publicist, Kasey Kitchen, said Panettiere\u2019s death was being investigated.</p>\n\n\n\n<p id=\"anchor-a20ab1\">\u201cThere\u2019s an investigation ongoing,\u201d Kitchen said in a statement. \u201cWe should know more tomorrow.\u201d</p>\n\n\n\n<p id=\"anchor-eb10ad\">Police in Greenville, <a href=\"https://www.nbcboston.com/tag/south-carolina/\" rel=\"noreferrer noopener\" target=\"_blank\">South Carolina</a>, said in a statement that officers \u201caccompanied by EMS personnel, responded to a report of an unresponsive female\u201d at around 1:50 p.m. Sunday. \u201cUpon arrival, medical assistance was administered; however, the individual, later identified as Hayden Panettiere, was pronounced deceased at the scene,\u201d police said in a statement.</p>\n\n\n\n<p id=\"anchor-f0cf21\">\u201cThe case is under investigation by the Greenville Police Department in conjunction with the Greenville County Coroner\u2019s Office. The preliminary investigation has not indicated any signs of foul play or suspicious circumstances. An acquaintance of Ms. Panettiere placed the 911 call,\u201d it said. The statement added that no further details were available for release at this time.</p>\n\n\n\n<p id=\"anchor-4c087d\">Panettiere revealed this year that&nbsp;<a href=\"https://www.today.com/parents/hayden-panettiere-daughter-kaya-rcna344958\" rel=\"noreferrer noopener\" target=\"_blank\">she struggled with postpartum depression and addiction</a>, which she said led to her decision to give up custody of her only child, daughter Kaya Evdokia Klitschko, in 2018, whom she had with former partner and Ukrainian professional boxer Wladimir Klitschko.</p>\n\n\n\n<p id=\"anchor-3ce50c\">Panettiere recently published a memoir, \u201cThis is Me: A Reckoning,\u201d which generated headlines over its revelations, including about her past relationships.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/entertainment/entertainment-news/hayden-panettiere-jay-shetty-podcast-daughter-kaya-custody/3949286/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/GettyImages-2173776268.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/celebrity-news/\">Celebrity News</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 13\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/entertainment/entertainment-news/hayden-panettiere-jay-shetty-podcast-daughter-kaya-custody/3949286/\">\n\t\t\t\t\t\t\t\t\t\tHayden Panettiere pushes back on claims she \u2018abandoned&#039; daughter Kaya\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/video/news/national-international/hayden-panettiere-claims-fired-revealing-postpartum-depression-battle-tv/3948820/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/HaydenAH050826.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/celebrity-news/\">Celebrity News</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 12\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/video/news/national-international/hayden-panettiere-claims-fired-revealing-postpartum-depression-battle-tv/3948820/\">\n\t\t\t\t\t\t\t\t\t\tHayden Panettiere claims she was fired after revealing postpartum depression battle on live TV\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p id=\"anchor-51ca86\">In 2024,&nbsp;<a href=\"https://www.today.com/popculture/hayden-panettiere-brother-jansen-rcna171776\" rel=\"noreferrer noopener\" target=\"_blank\">she described pain and grief&nbsp;</a>after her younger brother died unexpectedly of an undiagnosed heart condition the previous year.</p>\n\n\n\n<p id=\"anchor-1b1058\">\u201cWhen you lose somebody that that you saw in all the important moments in your life, standing right next to you, it just rocks your world,\u201d she told the \u201cTODAY\u201d show.</p>\n\n\n\n<p>Panettiere was born and raised in Palisades, New York, about 40 miles north of New York City, according to her Television Academy bio.</p>\n\n\n\n<p id=\"anchor-ee0bac\">Panettiere started working at 11 months old, when she appeared in television commercials, it said.</p>\n\n\n\n<p id=\"anchor-fb7442\">She appeared on <a href=\"https://www.nbcboston.com/tag/television/\" rel=\"noreferrer noopener\" target=\"_blank\">soap operas</a>, including \u201cOne Life to Live\u201d and \u201cGuiding Light,\u201d beginning at age 4. Her voice was featured on \u201cA Bug\u2019s Life,\u201d the animated feature, and she eventually appeared in <a href=\"https://www.nbcboston.com/tag/movies/\" rel=\"noreferrer noopener\" target=\"_blank\">big-screen stories</a>, including \u201cRemember the Titans,\u201d and \u201cBring it On: All or Nothing.\u201d</p>\n\n\n\n<p id=\"anchor-b54323\">One of her most impactful roles was as Juliette Barnes on television\u2019s \u201cNashville.\u201d Before that, she was Claire Bennet on the 2000s show \u201cHeroes.\u201d</p>\n\n\n\n<p>Her time shooting \u201cNashville\u201d included the pressure of having had a baby and experiencing postpartum depression, she said, and at times it was too much.</p>\n\n\n\n<p id=\"anchor-726810\">\u201cThat\u2019s why I turned to substances \u2014 because the anxiety that I started having, the panic attacks that I started having,\u201d she said in a tearful interview on the&nbsp;<a href=\"https://www.youtube.com/watch?v=vs6x8VUGXCw\" rel=\"noreferrer noopener\" target=\"_blank\">Jay Shetty Podcast</a>&nbsp;in May.</p>\n\n\n<div></div>\n\n\n<p id=\"anchor-579d97\">Panettiere said she always wanted to be a mother but discussed her sadness amid her postpartum depression battle.</p>\n\n\n\n<p id=\"anchor-912b54\">\u201cI had this beautiful plan in my head, and then I had my daughter and I knew something was just terribly, terribly wrong,\u201d she said on the podcast. \u201cI was miserable. I was in tears all the time. Even though the alcohol helped my nervous system calm down, it is a depressant, so over time it made things worse, not better.\u201d</p>\n\n\n\n<p id=\"anchor-978a3b\">Despite being apart from her daughter after giving up custody to Klitschko, Panettiere told Shetty, she formed a strong bond with her child.</p>\n\n\n\n<p id=\"anchor-0f7922\">\u201cI will always want her here. I always miss her,\u201d she said. \u201cI always want to have my arms wrapped around her, but that\u2019s just not the way life is right at this moment.\u201d</p>\n\n\n\n<p id=\"anchor-a6e1df\">She continued: \u201cI have faith that she is going to come to me and that we\u2019re going to have an incredible relationship and bond and friendship that a lot of parents don\u2019t get to have with their kids.\u201d</p>\n\n\n\n<p id=\"anchor-269975\">In 2018, the year \u201cNashville\u201d ended it six-season run, Panettiere&nbsp;<a href=\"https://www.today.com/home/hayden-panettiere-s-charming-nashville-home-sale-t135483\" rel=\"noreferrer noopener\" target=\"_blank\">sold her home in the namesake city.</a></p>\n\n\n\n<p id=\"anchor-c70180\">\u201cWe join in mourning the sudden passing of Hayden Panettiere,\u201d the screen actors\u2019 union SAG-AFTRA, which counted her as a member since 1994, said in a statement. \u201cOur hearts are with her daughter, family, friends and fans.\u201d</p>\n\n\n<div></div>\n\n\n<p id=\"anchor-7ff400\">Viola Davis, who starred alongside Panettiere in the 2016 film \u201cCustody,\u201d paid tribute to her \u201camazing talent.\u201d</p>\n\n\n\n<p id=\"anchor-401335\">\u201cI wish the world had more time with you because I had a burning curiosity about who you were becoming. I saw this beautiful Phoenix rising from the ashes. Your tests became your testimony, and your testimony became your legacy. You will be remembered,\u201d Davis said in a post on Instagram.</p>\n\n\n\n<p>Actor Emme Ryland, who appeared with Panettiere in \u201cBring It On: All or Nothing,\u201d&nbsp;<a href=\"https://www.instagram.com/emmerylan/?hl=en\" rel=\"noreferrer noopener\" target=\"_blank\">reacted to news of her death on Instagram</a>, saying: \u201cSo very sad. Rest in peace sweet soul.\u201d</p>\n\n\n\n<p id=\"anchor-c70180\">Panettiere was a spokesperson for oceanic conservation group the Whaleman Foundation, appeared in the 2010 Oscar-winning documentary on dolphin slaughter, \u201cThe Cove,\u201d and received the Genesis Wyler Award from the Humane Society, according to the television academy.</p>\n\n\n\n<p id=\"anchor-a4b9ca\">\u201cShe was an incredible light and a force of nature who brought immeasurable love and joy to all who knew her\u2014 and to the millions who watched her onscreen,\u201d her father said.</p>\n\n\n\n<blockquote class=\"featured-text\">\n\t<em>If you or someone you know is in crisis, call\u00a0or text\u00a0988 to reach the Suicide and Crisis Lifeline\u00a0or chat live at\u00a0</em><a href=\"http://988lifeline.org/\"><em>988lifeline.org</em></a><em>. You can also visit\u00a0</em><a href=\"http://speakingofsuicide.com/resources\"><em>SpeakingOfSuicide.com/resources</em></a><em>\u00a0for additional\u00a0support.</em></blockquote>",
       "source": "NBC Boston"
     },
     {
@@ -4174,16 +4198,6 @@
       "source": "NBC Boston"
     },
     {
-      "title": "Drone video: Bridge ripped apart by floodwaters in Indiana",
-      "link": "https://www.wcvb.com/article/drone-video-carmel-indiana-flooding-hazel-dell-parkway-bridge/73446468",
-      "published": "Sun, 16 Aug 2026 20:56:00 GMT",
-      "ts": 1786913760,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Days of relentless storms left this roadway north of Indianapolis cracked apart. Drone video shows the damage.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Waltham shooting leaves man seriously wounded on Sunday, police say",
       "link": "https://www.nbcboston.com/news/local/waltham-police-investigating-incident-on-rich-street-sunday/3998639/",
       "published": "Sun, Aug 16 2026 07:21:09 PM",
@@ -4221,26 +4235,6 @@
       "author": "Beth Harris | The Associated Press",
       "feed_title": "NBC Boston",
       "summary": "<p>Tommy John, who won 288 games during a 26-year big league career and became the first pitcher to successfully return following&nbsp;<a href=\"https://apnews.com/article/tommy-john-surgery-50-years-5a272eb356532411c8c03ddfe4fa97f8\" rel=\"noreferrer noopener\" target=\"_blank\">groundbreaking elbow surgery</a>&nbsp;that later was named after him, has died. He was 83.</p>\n\n\n\n<p>He died at his home in Bradenton, Florida, on Saturday night, agent Mike Maguire said Sunday. He had been in hospice care.</p>\n\n\n\n<p>On Aug. 8, the <a href=\"http://www.nbcnewyork.com/tag/new-york-yankees/\" rel=\"noreferrer noopener\" target=\"_blank\">New York Yankees</a> released a social media post in which John wrote that he wanted to say goodbye to everyone, including friends and fans who followed him throughout his career, saying, \u201cI will never forget you.\u201d</p>\n\n\n\n<p>John was a four-time All-Star with a record of 288-231 and a 3.34 ERA during a career that stretched from 1963 to 1989. He pitched for Cleveland, the <a href=\"http://www.nbcchicago.com/tag/chicago-white-sox/\" rel=\"noreferrer noopener\" target=\"_blank\">Chicago White Sox</a>, the <a href=\"http://www.nbclosangeles.com/tag/los-angeles-dodgers/\" rel=\"noreferrer noopener\" target=\"_blank\">Los Angeles Dodgers</a>, the New York Yankees, the California Angels and the <a href=\"http://www.nbcsportsbayarea.com/mlb/athletics\" rel=\"noreferrer noopener\" target=\"_blank\">Oakland Athletics</a>.</p>\n\n\n\n\n\n\n\n<p>The left-hander was 31 years old when he tore the ulnar collateral ligament in his pitching elbow in 1974, a death knell for pitchers&#8217; careers to that point.</p>\n\n\n\n<p>John allowed Dr. Frank Jobe, the Dodgers\u2019 team physician, to replace the ligament with a tendon from his right forearm. Jobe gave the surgery 100-to-1 odds of being successful.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">John was a great pitcher, but his elbow surgery made him a baseball legend</h2>\n\n\n\n<p>The procedure had been done on others before, although it was usually performed on wrists and hands. John was the first pitcher to have it done on his elbow.</p>\n\n\n\n<p>More than&nbsp;<a href=\"https://docs.google.com/spreadsheets/d/1gQujXQQGOVNaiuwSN680Hq-FDVsCwvN-3AazykOBON0/edit#gid=0\" rel=\"noreferrer noopener\" target=\"_blank\">2,600 big leaguers</a>&nbsp;and thousands more amateurs have since had UCL reconstructions, better known as Tommy John surgery. It\u2019s been a godsend for many of baseball\u2019s greatest stars, including two-way sensation&nbsp;<a href=\"https://apnews.com/article/ohtani-dodgers-elattrache-9a87de3cf0ea31d1bb78420d6b505cc7\" rel=\"noreferrer noopener\" target=\"_blank\">Shohei Ohtani</a>, three-time Cy Young Award winner Justin Verlander and even <a href=\"http://www.nbcsportsphiladelphia.com/mlb/philadelphia-phillies\" rel=\"noreferrer noopener\" target=\"_blank\">Philadelphia Phillies</a> slugger Bryce Harper.</p>\n\n\n\n<p>\u201cIf you put it in dollars and cents, I think there\u2019s no question that Tommy John is the most valuable reconstructive procedure there is,\u201d Dodgers team physician Dr. Neal ElAttrache told The Associated Press in 2024.</p>\n\n\n\n<p>Born Thomas Edward John Jr. on May 22, 1943, in Terre Haute, Indiana, he was a top baseball and basketball player at the city\u2019s Gerstmeyer High. He graduated in 1961 as valedictorian but did not give the commencement speech because of a stutter. Despite being recruited by the University of Kentucky to play basketball, John chose baseball and signed with Cleveland.</p>\n\n\n\n<p>\u201cThe day I left for my first job as a pitcher, my father looked at me &amp; said, \u2018Good luck, Tommy. Just remember one thing: whether you make it big in the big leagues or you don\u2019t, you\u2019ll always just be Tommy John from Terre Haute, Indiana.\u2019 I\u2019ve never forgotten those words,\u201d John wrote in his Aug. 8 post.</p>\n\n\n\n<p>John recorded 2,245 strikeouts but never led either league in wins or strikeouts. John had the second-most wins of any pitcher since 1900 not to be elected to the Hall of Fame. From 1995 through 2009, John was on the Hall of Fame ballot, but he never received more than 31.7% of the votes, falling well short of the 75% required for election.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">John won more games after his eponymous surgery</h2>\n\n\n\n<p>Known for his longevity, John was the opening day starter for both the 1966 Chicago White Sox and the 1989 New York Yankees. He won 124 games before his UCL repair and 164 after. His final appearance came days after his 46th birthday.</p>\n\n\n\n<p>He made his major league debut on Sept. 6, 1963, pitching one inning in relief for Cleveland.</p>\n\n\n\n<p>He was traded to the White Sox in 1965 and worked his way into the starting rotation. The following year, he tied for the American League lead with five shutouts and in 1967, his six shutouts led the AL.</p>\n\n\n\n<p>In 1971, he was traded to the Dodgers.</p>\n\n\n\n\n\n\n\n<p>In 1974, John had a 13-3 record and led the National League in victories going into the All-Star break. He was pitching against the Montreal Expos when he permanently damaged the UCL in his left arm. After a month, the injury had not improved.</p>\n\n\n\n<p>During the four-hour surgery on Sept. 25, 1974, Jobe made holes in the humerus and ulna bones of John\u2019s left arm and used anchors to insert the tendon in a figure-eight pattern.</p>\n\n\n\n<p>At first, John\u2019s left hand was shriveled and he lacked feeling in several of his fingers because of damage to the ulnar nerve. Jobe performed a second procedure to reroute the nerve that was necessary to John\u2019s full recovery.</p>\n\n\n\n<p>John\u2019s arm was in a cast for four months. He had recovered the full range of motion in his left arm by spring training of 1975, and spent that season resting, healing and rebuilding strength in his arm. John worked with fellow Dodgers pitcher Mike Marshall, who had a doctorate in kinesiology, on learning a different grip.</p>\n\n\n\n<p>That September he made five appearances during an offseason instructional league, working his way up to seven innings by his final game.</p>\n\n\n\n<p>John resumed pitching for the Dodgers in 1976 as the fourth starter in their rotation. He allowed three runs in five innings and took the loss in his first start against Atlanta, the first time any pitcher had started a game following UCL reconstructive surgery.</p>\n\n\n\n<p>John donated the original cast from his surgery to the Smithsonian Institution in June 2022. His teammates on the 1974 Dodgers signed it, as well as Jobe and the team\u2019s Hall of Fame announcer Vin Scully.</p>\n\n\n\n<p>The procedure has become so widely known that in 2019, Merriam-Webster added the term to its dictionary.</p>\n\n\n\n<p>John made 31 starts for the Dodgers in 1976, posting a 10-10 record, a 3.09 ERA, 91 strikeouts, 61 walks and 207 hits allowed in 207 innings.</p>\n\n\n\n<p>In 1977, he won 20 games for the first time in his career, finishing with a 20-7 record. He finished second behind Philadelphia\u2019s Steve Carlton in voting for the NL Cy Young Award.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">John and his family had mixed feelings about the legacy of his operation</h2>\n\n\n\n<p>Over 50 years later, Tommy John surgery is as much a part of baseball as peanuts and hot dogs. Advanced training methods are helping&nbsp;<a href=\"https://apnews.com/article/tommy-john-elbow-teenagers-fe9c4e7dcf105d517340dbdcc297769b\" rel=\"noreferrer noopener\" target=\"_blank\">pitchers of all ages</a>&nbsp;throw harder than ever. They take comfort knowing a torn UCL won\u2019t necessarily end their careers.</p>\n\n\n\n<p>\u201cI am sick my name is attached to a surgery happening in kids more than pros,\u201d John tweeted in July 2018.</p>\n\n\n\n<p>John\u2019s oldest son, Tommy III, became a chiropractor who wrote a book suggesting ways to prevent young athletes from having to undergo major sports-related surgery similar to what his father endured.</p>\n\n\n\n<p>After his pitching career ended, John worked as a broadcaster for the Minnesota Twins and Yankees in the 1990s. He managed the Bridgeport (Connecticut) Bluefish from 2007-09.</p>\n\n\n\n<p>John was hospitalized in December 2020 due to <a href=\"https://www.nbcboston.com/tag/coronavirus\" rel=\"noreferrer noopener\" target=\"_blank\">COVID-19</a> and later had Guillain-Barr\u00e9 syndrome in which a person\u2019s immune system attacks their nerves. John told the New York Post in May 2022 that he was paralyzed in his lower extremities for several months.</p>\n\n\n\n<p>John and his wife Sally Simmons had four children: Tamara, Tommy III, Travis and Taylor, who died of a prescription drug overdose at 28 in 2010. The couple divorced in 2013.</p>\n\n\n\n<p>Besides his children, he is survived by his second wife, Cheryl, and son-in-law Patrick Mannelly, a retired <a href=\"https://www.nbcboston.com/tag/nfl/\" rel=\"noreferrer noopener\" target=\"_blank\">NFL long snapper</a> who played 16 years for the <a href=\"http://www.nbcchicago.com/tag/chicago-bears/\" rel=\"noreferrer noopener\" target=\"_blank\">Chicago Bears</a>.</p>\n<p><i>This story uses functionality that may not work in our app. <a href=\"https://www.nbcboston.com/mlb/tommy-john-mlb-pitcher-surgery-pioneer-dies/3998581/\">Click here</a> to open the story in your web browser.</i></p>",
-      "source": "NBC Boston"
-    },
-    {
-      "title": "Bedbugs can cause people to lose sleep \u2014 and blood. Here's what to do about them",
-      "link": "https://www.nbcboston.com/news/national-international/bedbugs-lose-sleep-blood-what-to-do-about-them/3998575/",
-      "published": "Sun, Aug 16 2026 02:00:34 PM",
-      "ts": 1786845634,
-      "author": "Mike Stobbe | The Associated Press",
-      "feed_title": "NBC Boston",
-      "summary": "<p>Bedbugs are sometimes called the vampires of the insect world \u2014 hiding during the day and coming out at night to feast on human blood. Generations of children have been told: \u201cSleep tight. Don\u2019t let the bedbugs bite.\u201d</p>\n\n\n\n<p>Well, bad news: Bedbug infestations are increasing. This is the time of year when they tend to be at their worst. And some scientists think the reviled pests might be capable of spreading an antibiotic-resistant infection called MRSA.</p>\n\n\n\n<p>For centuries, the bugs have horrified homeowners and occasionally panicked the public. That happened in New York City in 2018, when at least a half dozen city buses were taken out of service after reports of bedbugs crawling on seats. It happened again in Paris in 2023, when reports of bedbugs at a movie theater, on trains and on buses popped up in the lead-up to the 2024 Olympics. </p>\n\n\n\n<p>\u201cThey certainly are out there,\u201d said Christopher Hayes, a North Carolina State University assistant professor who has been bitten by bedbugs more than 50 times in the course of research. \u201cAnd if you&#8217;re unaware, if you&#8217;re not on top of your game, it&#8217;s easy to bring them into your home.&#8221;</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/virginia-family-delta-klm-lawsuit-alleged-bed-bug-infestation/3867205/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/12/GettyImages-2234067265-e1766594099978.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/lawsuits/\">Lawsuits</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tDec 24, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/virginia-family-delta-klm-lawsuit-alleged-bed-bug-infestation/3867205/\">\n\t\t\t\t\t\t\t\t\t\tVirginia family sues Delta and KLM Airlines for alleged bed bug infestation on flight\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/disturbing-100k-bed-bugs-believed-to-be-in-brookline-condo-as-infestation-spreads-to-other-units/3752284/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/06/Brookline-bed-bugs-062525.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJun 26, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/disturbing-100k-bed-bugs-believed-to-be-in-brookline-condo-as-infestation-spreads-to-other-units/3752284/\">\n\t\t\t\t\t\t\t\t\t\t\u2018Disturbing&#039;: 100K bed bugs believed to be in Brookline condo as infestation spreads\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Bedbugs really do come out at night</h2>\n\n\n\n<p>Bedbugs are reddish-brown bloodsuckers about the size of an apple seed. Some researchers estimate they date back to the time of the dinosaurs, but they are best known for their unfortunate ability to live with \u2014 and prey on \u2014 humans. </p>\n\n\n\n<p>They can hide in narrow crevices in furniture and lurk in clothes, linens and mattresses. They are hard to see but can be detected through the small dark excrement stains they leave. </p>\n\n\n\n<p>The pests can be year-round problems but they have traditionally thrived in the summer. They tend to emerge at night, crawling onto people and using a beaklike body part to pierce human skin and suck blood for several minutes. </p>\n\n\n\n<p>The bite itself is painless. Some people develop itchy red welts a day or so later, but others have no reaction. </p>\n\n\n\n<p>That&#8217;s a problem, because people unaware that they are repeatedly being bitten can quickly find themselves victims of an infestation.</p>\n\n\n\n<p>One of the more gruesome stories about bedbugs and human health was detailed in a 2020 medical journal case report from France. </p>\n\n\n\n<p>It told of a 70-year-old man who lived by himself in an apartment and fainted on the street one day. He was brought to a hospital emergency department in a Paris suburb where he was diagnosed with dementia \u2014 and with anemia caused by a longstanding loss of blood. </p>\n\n\n\n<p>He also had bedbugs feeding on his neck, head and shoulder. An investigation of his apartment detected thousands of them in his bed and on the floor, walls and curtains of his home.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">They aren&#8217;t thought to spread disease, but one experiment raises questions</h2>\n\n\n\n<p>Some good news about bedbugs is there hasn&#8217;t been clear evidence that they have spread diseases from one person to another. The bugs&#8217; digestion and anatomy seem to prevent germs from being passed on efficiently, said Chow-Yang Lee, an entomologist at the University of California at Riverside. </p>\n\n\n\n<p>But University of South Dakota researchers in 2023 published the results of an experiment \u2014 using blood capsules with an artificial skin \u2014 that demonstrated bedbugs could acquire MRSA during one feeding and spread it during a later one.</p>\n\n\n\n<p>Follow-up research is needed to really prove bedbugs actually are spreading MRSA to people, said one of the study&#8217;s authors, Jose Pietri, who is now at Purdue University. But \u201cit changes the perspective of what bedbugs do, in terms of public health,\u201d Pietri said.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Bedbugs are more resistant to pesticides</h2>\n\n\n\n<p>Bedbug populations in developed countries were decimated after World War II due to the widespread use of the pesticide DDT. The U.S. Environmental Protection Agency banned the pesticide for most uses in 1972, citing evidence that it was harming animals and was a potential risk to people.</p>\n\n\n\n<p>Bedbugs had already started to develop resistance to DDT by then, and they have only been getting stronger and more common, said Lee, noting that insecticide resistance has driven a continued resurgence in bedbugs in recent decades.</p>\n\n\n\n<p>Exactly how much more common isn&#8217;t clear. Pest control companies generate annual rankings of U.S. cities with the worst bedbug problems. (Orkin currently ranks Chicago at No. 1, while Terminix says Philadelphia has the biggest problem.) But those lists are based on how many calls each company receives in a year, not a rigorous survey. </p>\n\n\n\n<p>Many bedbug infestations happen in low-income or public housing, which may not hire the big companies that compile those rankings, Lee said in an email.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">How to protect yourself from the pests</h2>\n\n\n\n<p>The best thing you can do is never get them in the first place, experts say. That means not bringing them into your home.</p>\n\n\n\n<p>Travelers can pick them up in hotel rooms. So before you unpack for your stay, check the room for signs of bedbugs by pulling back the covers and bedsheets to look for bugs or fecal spots. </p>\n\n\n\n<p>Do not place luggage on beds or on the floor near beds, and consider placing your bags in a light-colored trash bag or even in the bathtub. When you get home, open the luggage outside and take laundry right to the washing machine and dryer.</p>\n\n\n\n<p>Sometimes, bedbugs enter homes by hitching a ride on secondhand furniture or other products. Visually inspect those items and treat them before you take them into your home, Hayes advised. Some experts advise vacuuming, steaming or heating furniture, and quarantining it in a garage or storage unit for a few days before bringing it inside the house.</p>\n\n\n\n<p>If it&#8217;s clothes, wash them and put them through the dryer for an hour. Shoes or other items? Consider putting them in a freezer for a week \u201cto make sure that everything in there that could be alive is taken care of,\u201d Hayes said. </p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">How to get rid of bedbugs if you have them</h2>\n\n\n\n<p>The U.S. Environmental Protection Agency offers do-it-yourself guidance for getting rid of the pests, but it&#8217;s labor-intensive, involving sealing hiding spaces and treating infested items. </p>\n\n\n\n<p>It also contains many warnings of what not to do. </p>\n\n\n\n<p>&#8220;You can&#8217;t just blast random chemicals and expect it&#8217;s going to work because there&#8217;s a fairly high likelihood that they&#8217;ll be resistant to some of the first-line insecticides,\u201d Pietri said.</p>\n\n\n\n<p>It makes sense to hire professional exterminators who are experienced in getting rid of bedbugs, Pietri and other experts said. But it can cost hundreds or even thousands of dollars.</p>\n\n\n\n<p>Insecticides are not the only option. </p>\n\n\n\n<p>Silica dust treatments, for example, absorb the bedbug\u2019s body moisture, killing them. </p>\n\n\n\n<p>Sustained dry heating works wonders, killing eggs as well as adult bedbugs. But it has to be at least 122 degrees (50 degrees Celsius) and can damage furniture, paintings and other personal possessions, so it must be done by professionals. </p>\n\n\n\n<p>\u201cI think the biggest piece of advice is just people shouldn&#8217;t panic,\u201d Hayes said. \u201cThey just need to take action. If you think you have bedbugs, don&#8217;t wait to deal with it.\u201d</p>\n\n\n\n<p>___</p>\n\n\n\n<p><em>The Associated Press Health and Science Department receives support from the Howard Hughes Medical Institute\u2019s Department of Science Education and the Robert Wood Johnson Foundation. The AP is solely responsible for all content.</em></p>",
-      "source": "NBC Boston"
-    },
-    {
-      "title": "Resident assaulted by person who broke into Bellingham home thru window, police say",
-      "link": "https://www.nbcboston.com/news/local/bellingham-break-in-home-climb-through-a-window-and-assaulted-a-resident/3998560/",
-      "published": "Sun, Aug 16 2026 01:39:18 PM",
-      "ts": 1786844358,
-      "author": "Nicole Garcia",
-      "feed_title": "NBC Boston",
-      "summary": "<p>A person broke into a Bellingham, Massachusetts, home by climbing through a window and assaulted a resident early Saturday, police said.</p>\n\n\n\n<p>The home break-in was reported in the area of South Main Street and Mann Street about 12:40 a.m., according to Bellingham police. No arrests have been announced.</p>\n\n\n\n<p>They said the suspect is a 6-foot, skinny male, around 30 to 40 years old, who was wearing a black hoodie.</p>\n\n\n\n<p>Police are asking people who live nearby to check their home security footage from that night and share any video. Footage can be shared with <a href=\"mailto:detectives@bellinghamma.org\">detectives@bellinghamma.org</a> or by calling the police department. For those who would like to remain anonymous, they can call 508-657-2863.</p>\n\n\n\n<p>Police patrols have been increased, and the department advised residents to secure all windows and doors, particularly after dark.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More Bellingham news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/bellingham-motorcycle-car-crash-medical-helicopter/3983959/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2022/12/Boston-MedFlight-121522.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJul 20\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/bellingham-motorcycle-car-crash-medical-helicopter/3983959/\">\n\t\t\t\t\t\t\t\t\t\tMotorcyclist flown to trauma center after Bellingham crash\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/bellingham-police-seek-2-missing-teenagers/3965837/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/06/police-lights-generic.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/bellingham/\">Bellingham</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJun 15\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/bellingham-police-seek-2-missing-teenagers/3965837/\">\n\t\t\t\t\t\t\t\t\t\tBellingham police say 2 missing teenagers have been found safe\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
       "source": "NBC Boston"
     }
   ],
@@ -4760,16 +4754,6 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "Wisconsin will raise women's hockey championship banner before home opener - Milwaukee Journal Sentinel",
-      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOaUpKR0tWazkyMFZHQmZrRExnUGxFZjNXOUJmZ0g2QVhjZE5Qa1hBQ1VmajBhODhNNnNfQ1RoQlBJMEpmLTVKMnV1QVRwLXR6OURnZERLeDNmaDF2RFB5YzJUWklYYWs4ak5keTh1WXN6M1VSU2hNQmx2eFlxVVJvTU9ZVl9ZbFhKOU5LN1BqZnc5REhQMnNKaG0zb0RYTzU0MVNBZWwwVE5RUGhsX2laSXV6Q1VteFMzWkFiQlFPTkgwQ2NGOWhQSmF4ZHhFZjlWTG02NXVPdkFVa0UxWWZwdjdoV3VpcWEzZ2lR?oc=5",
-      "published": "Wed, 12 Aug 2026 20:06:00 GMT",
-      "ts": 1786565160,
-      "author": "",
-      "feed_title": "Milwaukee Journal Sentinel",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6wFBVV95cUxOaUpKR0tWazkyMFZHQmZrRExnUGxFZjNXOUJmZ0g2QVhjZE5Qa1hBQ1VmajBhODhNNnNfQ1RoQlBJMEpmLTVKMnV1QVRwLXR6OURnZERLeDNmaDF2RFB5YzJUWklYYWs4ak5keTh1WXN6M1VSU2hNQmx2eFlxVVJvTU9ZVl9ZbFhKOU5LN1BqZnc5REhQMnNKaG0zb0RYTzU0MVNBZWwwVE5RUGhsX2laSXV6Q1VteFMzWkFiQlFPTkgwQ2NGOWhQSmF4ZHhFZjlWTG02NXVPdkFVa0UxWWZwdjdoV3VpcWEzZ2lR?oc=5\" target=\"_blank\">Wisconsin will raise women's hockey championship banner before home opener</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Milwaukee Journal Sentinel</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
       "title": "College hockey: Dartmouth to be No. 2 seed for ECAC tournament; UNH falls to Providence - UnionLeader.com",
       "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZllBZVZtaG1SY1hxM2Q1VlJBeHcwbE1zQkxHeE83RW9LV2p6c2ZhOUpqNEx3eTgyQVdIM3hPSkhMM3lUb2VIaDFsQ2dfUF9ZOExnYXFKb0s1Zl9XMHhoTWdDSXAwYlN3ZUNEbUhNSHRjTXFwRV9ENzAyaHpjRFJBWk1HVThJeEpCNzNpS2F4cHFrRFlFM2lXRUUzYUZfYmo4eE90VzNVNjZ5V195UTlxX3hGbmwzdFNOOGw4ckpTMVNUYkRyeE94T1k1Q2lNRVpKZkRVZzdwY0RXanlweEdwM1NKMHJZNFRfVzVWVHFadUhxZG4zQnpQd09vMHgyRXllSHI4OEZNeWE?oc=5",
       "published": "Sat, 08 Aug 2026 07:00:00 GMT",
@@ -4780,13 +4764,23 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "30 Americans to know for college hockey's new recruiting cycle - Grand Forks Herald",
+      "title": "Wisconsin will raise women's hockey championship banner before home opener - Milwaukee Journal Sentinel",
+      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOaUpKR0tWazkyMFZHQmZrRExnUGxFZjNXOUJmZ0g2QVhjZE5Qa1hBQ1VmajBhODhNNnNfQ1RoQlBJMEpmLTVKMnV1QVRwLXR6OURnZERLeDNmaDF2RFB5YzJUWklYYWs4ak5keTh1WXN6M1VSU2hNQmx2eFlxVVJvTU9ZVl9ZbFhKOU5LN1BqZnc5REhQMnNKaG0zb0RYTzU0MVNBZWwwVE5RUGhsX2laSXV6Q1VteFMzWkFiQlFPTkgwQ2NGOWhQSmF4ZHhFZjlWTG02NXVPdkFVa0UxWWZwdjdoV3VpcWEzZ2lR?oc=5",
+      "published": "Wed, 12 Aug 2026 20:06:00 GMT",
+      "ts": 1786565160,
+      "author": "",
+      "feed_title": "Milwaukee Journal Sentinel",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi6wFBVV95cUxOaUpKR0tWazkyMFZHQmZrRExnUGxFZjNXOUJmZ0g2QVhjZE5Qa1hBQ1VmajBhODhNNnNfQ1RoQlBJMEpmLTVKMnV1QVRwLXR6OURnZERLeDNmaDF2RFB5YzJUWklYYWs4ak5keTh1WXN6M1VSU2hNQmx2eFlxVVJvTU9ZVl9ZbFhKOU5LN1BqZnc5REhQMnNKaG0zb0RYTzU0MVNBZWwwVE5RUGhsX2laSXV6Q1VteFMzWkFiQlFPTkgwQ2NGOWhQSmF4ZHhFZjlWTG02NXVPdkFVa0UxWWZwdjdoV3VpcWEzZ2lR?oc=5\" target=\"_blank\">Wisconsin will raise women's hockey championship banner before home opener</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Milwaukee Journal Sentinel</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "30 Americans to know for college hockey's new recruiting cycle - grandforksherald.com",
       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSms5TnMwT2lNS1d2NWFwZkxoYXI1WjVnUDhPYnkxak9OY0hialgyMk5MSUVWMnNUZGxfWXdJNlNVWXNnRFRRa3doNUF5Q25NQTZSbFpqbHl0TExMX0JuR2E3cnZ2ck1YTmZhV2ZfYlpTaDRiN2VxV1gteWVHRDM0YkR0eXhDZmhyV0ZrcUVTSjFrVXBaZk9JVmhwVTdaQ3RiMjB5a3BYb29vN0laMVlJMDhn?oc=5",
       "published": "Tue, 21 Jul 2026 07:00:00 GMT",
       "ts": 1784617200,
       "author": "",
-      "feed_title": "Grand Forks Herald",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxPSms5TnMwT2lNS1d2NWFwZkxoYXI1WjVnUDhPYnkxak9OY0hialgyMk5MSUVWMnNUZGxfWXdJNlNVWXNnRFRRa3doNUF5Q25NQTZSbFpqbHl0TExMX0JuR2E3cnZ2ck1YTmZhV2ZfYlpTaDRiN2VxV1gteWVHRDM0YkR0eXhDZmhyV0ZrcUVTSjFrVXBaZk9JVmhwVTdaQ3RiMjB5a3BYb29vN0laMVlJMDhn?oc=5\" target=\"_blank\">30 Americans to know for college hockey's new recruiting cycle</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Grand Forks Herald</font>",
+      "feed_title": "grandforksherald.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxPSms5TnMwT2lNS1d2NWFwZkxoYXI1WjVnUDhPYnkxak9OY0hialgyMk5MSUVWMnNUZGxfWXdJNlNVWXNnRFRRa3doNUF5Q25NQTZSbFpqbHl0TExMX0JuR2E3cnZ2ck1YTmZhV2ZfYlpTaDRiN2VxV1gteWVHRDM0YkR0eXhDZmhyV0ZrcUVTSjFrVXBaZk9JVmhwVTdaQ3RiMjB5a3BYb29vN0laMVlJMDhn?oc=5\" target=\"_blank\">30 Americans to know for college hockey's new recruiting cycle</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">grandforksherald.com</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4870,6 +4864,16 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
+      "title": "Early power play goals lead Boston College hockey to 7-3 win over UMaine - Bangor Daily News",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5",
+      "published": "Fri, 21 Nov 2025 08:00:00 GMT",
+      "ts": 1763712000,
+      "author": "",
+      "feed_title": "Bangor Daily News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5\" target=\"_blank\">Early power play goals lead Boston College hockey to 7-3 win over UMaine</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Bangor Daily News</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
+    {
       "title": "Providence takes advantage of BC hockey miscues in OT win - MassLive.com",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5",
       "published": "Fri, 16 Jan 2026 08:00:00 GMT",
@@ -4877,16 +4881,6 @@
       "author": "",
       "feed_title": "MassLive.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5\" target=\"_blank\">Providence takes advantage of BC hockey miscues in OT win</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
-      "title": "Senators coach Travis Green inducted into B.C. Hockey Hall of Fame - Ottawa Citizen",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNV0tmcTVpVTJwMjdVaGlmYWFuRkJOV2FSRklQcmRYeDluYkZXb08xTmwwbDJDNVNUekpYUnBxRlVQSmRCZXlmRlRIMEI1SGJmV25tcVBHbll2cVlNcWRIQ1JUdVdNNnk2UFpyMTlrbmhWSE44ajV1RGU1SnVCbGFjcGRZSm1IX2pEMV8xaUQ0QW5qV1pL?oc=5",
-      "published": "Sun, 12 Jul 2026 07:00:00 GMT",
-      "ts": 1783839600,
-      "author": "",
-      "feed_title": "Ottawa Citizen",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxNV0tmcTVpVTJwMjdVaGlmYWFuRkJOV2FSRklQcmRYeDluYkZXb08xTmwwbDJDNVNUekpYUnBxRlVQSmRCZXlmRlRIMEI1SGJmV25tcVBHbll2cVlNcWRIQ1JUdVdNNnk2UFpyMTlrbmhWSE44ajV1RGU1SnVCbGFjcGRZSm1IX2pEMV8xaUQ0QW5qV1pL?oc=5\" target=\"_blank\">Senators coach Travis Green inducted into B.C. Hockey Hall of Fame</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Ottawa Citizen</font>",
       "source": "Google News \u00b7 BC Hockey"
     }
   ],
@@ -5082,17 +5076,27 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "NHL Rumors: Sabres prospect set to make early jump to college hockey in 2026-27 - Sabre Noise",
+      "title": "NHL Rumors: Sabres prospect set to make early jump to college hockey in 2026-27 - sabrenoise.com",
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNMU5YNnFTZDlkTXlHZmktMjNhMnNWRHVweVkzZ1Z6ZnI5dTFTZHJabFBkcGx6bGJLMUtDWUp0WHVDbGstMm5qUTc4ZHpFbXBlR1pBZ09uUVY0UW9scmxqenVYc3dBT1hkQU5FaDhneFgwMHJ1NUkyWDZFZ3luRVA4Y1NwR1hnSDg0d09DX1otM25KdG96NTBQRHpNdElpS1c4NmRoY0VRWm5hbFk2RWY1d21Wazg?oc=5",
       "published": "Mon, 10 Aug 2026 13:00:01 GMT",
       "ts": 1786366801,
       "author": "",
-      "feed_title": "Sabre Noise",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxNMU5YNnFTZDlkTXlHZmktMjNhMnNWRHVweVkzZ1Z6ZnI5dTFTZHJabFBkcGx6bGJLMUtDWUp0WHVDbGstMm5qUTc4ZHpFbXBlR1pBZ09uUVY0UW9scmxqenVYc3dBT1hkQU5FaDhneFgwMHJ1NUkyWDZFZ3luRVA4Y1NwR1hnSDg0d09DX1otM25KdG96NTBQRHpNdElpS1c4NmRoY0VRWm5hbFk2RWY1d21Wazg?oc=5\" target=\"_blank\">NHL Rumors: Sabres prospect set to make early jump to college hockey in 2026-27</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sabre Noise</font>",
+      "feed_title": "sabrenoise.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxNMU5YNnFTZDlkTXlHZmktMjNhMnNWRHVweVkzZ1Z6ZnI5dTFTZHJabFBkcGx6bGJLMUtDWUp0WHVDbGstMm5qUTc4ZHpFbXBlR1pBZ09uUVY0UW9scmxqenVYc3dBT1hkQU5FaDhneFgwMHJ1NUkyWDZFZ3luRVA4Y1NwR1hnSDg0d09DX1otM25KdG96NTBQRHpNdElpS1c4NmRoY0VRWm5hbFk2RWY1d21Wazg?oc=5\" target=\"_blank\">NHL Rumors: Sabres prospect set to make early jump to college hockey in 2026-27</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">sabrenoise.com</font>",
       "source": "Google News \u00b7 BC Hockey"
     }
   ],
   "news_hockey_east": [
+    {
+      "title": "Hockey East Coach Mike Kelly Steps Down After Eight Seasons, Takes New Position: Puck Drop - Sports Illustrated",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPbHZlWW1ScU52UVUtLVM3VUEwS1VocFR4dXJvRDdhTjVVeGI2V3BtbnNsSUprTnViNmp5d0pVVmJmSkhqTlFpcnAxS3FoRlBZeG51aGx1VUxUc0t5ZWhfeWx0cEgyelFPbE1MZm5Ianh2aFB4SFlwY1ZtLWthd3hiNWRXMGRhMnhtU3VKbG4yZUVFMTVXaE5jZXdERl9rd0N0clJ2Skx3bTRpam5BbFNnS1dtMXpaQS1feW1ySW1CVjFadTJBVWZDQWhLNVNNV1NZXzJiMkNTVQ?oc=5",
+      "published": "Mon, 17 Aug 2026 10:00:02 GMT",
+      "ts": 1786960802,
+      "author": "",
+      "feed_title": "Sports Illustrated",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi1wFBVV95cUxPbHZlWW1ScU52UVUtLVM3VUEwS1VocFR4dXJvRDdhTjVVeGI2V3BtbnNsSUprTnViNmp5d0pVVmJmSkhqTlFpcnAxS3FoRlBZeG51aGx1VUxUc0t5ZWhfeWx0cEgyelFPbE1MZm5Ianh2aFB4SFlwY1ZtLWthd3hiNWRXMGRhMnhtU3VKbG4yZUVFMTVXaE5jZXdERl9rd0N0clJ2Skx3bTRpam5BbFNnS1dtMXpaQS1feW1ySW1CVjFadTJBVWZDQWhLNVNNV1NZXzJiMkNTVQ?oc=5\" target=\"_blank\">Hockey East Coach Mike Kelly Steps Down After Eight Seasons, Takes New Position: Puck Drop</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
     {
       "title": "Every first-round pick in the Hockey East for the 2026-27 season - The Hockey News",
       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQM2l4WlRQb2c1QTY3XzBNczllSHlvMWpMX3IwZWh3cmR2emlJV0xGemNueXd3VzJSdEZNb011cHhjZlFFRGloQV9RcThkdFpuaTlKblp6Uy1fWEhqRldNNENUcUNERlkyN3RaQ21rU3dqOUg2eVppek1nWnZFU19xeTNfS2RTVm5RYVo0d1B5RkhWQnlXOWVYX2tPSnpocXdyMzM5NEdvOHNkNEk?oc=5",
@@ -5114,16 +5118,6 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "Women\u2019s Hockey Announces 2026-27 Schedule - Providence College Athletics",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5",
-      "published": "Mon, 10 Aug 2026 21:12:53 GMT",
-      "ts": 1786396373,
-      "author": "",
-      "feed_title": "Providence College Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5\" target=\"_blank\">Women\u2019s Hockey Announces 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Providence College Athletics</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
       "title": "Men's Ice Hockey Heads to UConn Saturday for Hockey East Quarterfinal on ESPN+, NESN+ - Boston University Athletics",
       "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWGJzbzVJOVQ2OWNWeERMS2VRREVnby1CUnU3QXE1TVZ0TlpycEYzVWNqU3QzM0hCTmNUcC1INElCQVJmZjhkQkZxWGNWRERFc1dsZmVFQkVYZUtqVmUxaTM3Q0NJRWE2Qk1GRmdTNVNfU1JFWkZMdEFWY2xsakFlMncxOUdPQW0yVl92X1dCc2plN1N4RFlFNHFkLUdYN1VYelJPRUZocjlEOFBLN3VqaWV2a2thMF9pLWM0UGo4OXducWVhd09ISndibGhUZ2hz?oc=5",
       "published": "Fri, 13 Mar 2026 07:00:00 GMT",
@@ -5131,6 +5125,16 @@
       "author": "",
       "feed_title": "Boston University Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0AFBVV95cUxQWGJzbzVJOVQ2OWNWeERMS2VRREVnby1CUnU3QXE1TVZ0TlpycEYzVWNqU3QzM0hCTmNUcC1INElCQVJmZjhkQkZxWGNWRERFc1dsZmVFQkVYZUtqVmUxaTM3Q0NJRWE2Qk1GRmdTNVNfU1JFWkZMdEFWY2xsakFlMncxOUdPQW0yVl92X1dCc2plN1N4RFlFNHFkLUdYN1VYelJPRUZocjlEOFBLN3VqaWV2a2thMF9pLWM0UGo4OXducWVhd09ISndibGhUZ2hz?oc=5\" target=\"_blank\">Men's Ice Hockey Heads to UConn Saturday for Hockey East Quarterfinal on ESPN+, NESN+</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston University Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "Women\u2019s Hockey Announces 2026-27 Schedule - Providence College Athletics",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5",
+      "published": "Mon, 10 Aug 2026 21:12:53 GMT",
+      "ts": 1786396373,
+      "author": "",
+      "feed_title": "Providence College Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5\" target=\"_blank\">Women\u2019s Hockey Announces 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Providence College Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -5232,19 +5236,19 @@
       "feed_title": "University of Maine Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxObTZIdXhuZXNJNHlIQkFzcFozcnBZLVBJWDM0eVR4MHJpc1l5STlSc3U2ODNfZWM2VXBpcnBIcGVzSUl2XzA1b2RpQnNXN3YxZEVHbE5GU2FHZEQtR25qSkFuTmdnclV4WENfOXZhQkZXM0lrNk9FMjlGX3lBeWYtdGZsT0cxYXBOUFUyWHVacnFvXzNCV2ZwNFp6Mkk5bzhrSzB0ZFhKeDcxS3RuZHUwdDFNWXI?oc=5\" target=\"_blank\">Preview: Maine set for Hockey East series with Northeastern - University of Maine Athletics</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Maine Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
-    },
-    {
-      "title": "Terriers Face Top-Seeded No. 5 Northeastern in Hockey East Quarterfinals Saturday - Boston University Athletics",
-      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSk9DS2VIQjNKVkRfRWt0N2dmdTNPMFQyRVNyOV9UbkNmTUt4MlVRTXhqODBnVjFHLUp6eTh0MjNJbDVNVEpVcGJlblhOdURVYno5S1ItSnFELUxFSmNIVzFBNEREWHRzcVlBUV9WV3A4SzdpeVpjZUZ3cGNEX3NCODdndWFkMDdCd0NwVU5IRmkzc1RPZFBxRTY3cHhuVXNINEZNOVB2bFMwNjhOOUhGUDRJM0hLVjNGRk5OMGxEUmVQUVBjR0lOUzVnSGtpOXZ2N3c?oc=5",
-      "published": "Fri, 27 Feb 2026 08:00:00 GMT",
-      "ts": 1772179200,
-      "author": "",
-      "feed_title": "Boston University Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSk9DS2VIQjNKVkRfRWt0N2dmdTNPMFQyRVNyOV9UbkNmTUt4MlVRTXhqODBnVjFHLUp6eTh0MjNJbDVNVEpVcGJlblhOdURVYno5S1ItSnFELUxFSmNIVzFBNEREWHRzcVlBUV9WV3A4SzdpeVpjZUZ3cGNEX3NCODdndWFkMDdCd0NwVU5IRmkzc1RPZFBxRTY3cHhuVXNINEZNOVB2bFMwNjhOOUhGUDRJM0hLVjNGRk5OMGxEUmVQUVBjR0lOUzVnSGtpOXZ2N3c?oc=5\" target=\"_blank\">Terriers Face Top-Seeded No. 5 Northeastern in Hockey East Quarterfinals Saturday</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston University Athletics</font>",
-      "source": "Google News \u00b7 Hockey East"
     }
   ],
   "news_national": [
+    {
+      "title": "Hayden Panettiere, who starred in 'Heroes' and 'Nashville,' dies at 36",
+      "link": "https://www.npr.org/2026/08/17/nx-s1-5935226/hayden-panettiere-dies",
+      "published": "Mon, 17 Aug 2026 06:00:10 -0400",
+      "ts": 1786960810,
+      "author": "NPR Staff",
+      "feed_title": "",
+      "summary": "<img alt=\"Hayden Panettiere attends amfAR Gala Los Angeles 2022 at Pacific Design Center on November 03, 2022 in West Hollywood, California.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/1024x683+0+0/resize/1024x683!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fd4%2Fa9%2F5c1755fa40c89beef0871ab675bb%2Fgettyimages-1438843136.jpg\" /><p>A child actor since she was cast in various commercials as an 11-month-old, Panettiere was best known for her role as the country music star Juliette Barnes in the series \"Nashville.\"</p><p>(Image credit: Jon Kopaloff)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5935226\" />",
+      "source": "NPR"
+    },
     {
       "title": "Living with nuns: Priced out of D.C., young women found low rent with unlikely roommates",
       "link": "https://www.npr.org/2026/08/17/nx-s1-5913980/nuns-dc-affordable-housing",
@@ -5263,16 +5267,6 @@
       "author": "Andrea Hsu",
       "feed_title": "",
       "summary": "<img alt=\"Ebert Velasquez Ramos (right) works at the drive-through at a McDonald\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4500x3000+0+0/resize/4500x3000!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Ff6%2F05%2Fec05678b48f188b5b3a80c1ecd3f%2F20260811-dsc8670.jpg\" /><p>Unexpected absences can cost employers tens of thousands of dollars a month. An app that helps workers with last-minute transportation, food and childcare is making a difference.</p><p>(Image credit: Claire Harbage)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5893721\" />",
-      "source": "NPR"
-    },
-    {
-      "title": "Elon Musk's Starbase wants to expand in south Texas",
-      "link": "https://www.npr.org/2026/08/17/nx-s1-5910496/elon-musk-starbase-texas-spacex",
-      "published": "Mon, 17 Aug 2026 05:00:00 -0400",
-      "ts": 1786957200,
-      "author": "Reynaldo Lea\u00f1os Jr.",
-      "feed_title": "",
-      "summary": "<img alt=\"A view from Boca Chica Beach towards two SpaceX launch pads, in south Texas.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/7008x4672+0+0/resize/7008x4672!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fa6%2F5f%2F5f1f401542b997649dc86b4d8e1c%2Fspacex-complex.JPG\" /><p>Landowners and activists worry about impact to the environment around SpaceX's complex.</p><p>(Image credit: Reynaldo Lea\u00f1os Jr.)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5910496\" />",
       "source": "NPR"
     },
     {
@@ -5296,6 +5290,16 @@
       "source": "NPR"
     },
     {
+      "title": "Cialis is an erectile dysfunction drug. Could it also help you live longer?",
+      "link": "https://www.npr.org/2026/08/17/nx-s1-5928263/cialis-viagra-tadalafil-longevity-heart-health",
+      "published": "Mon, 17 Aug 2026 05:00:00 -0400",
+      "ts": 1786957200,
+      "author": "Will Stone",
+      "feed_title": "",
+      "summary": "<img alt=\"undefined\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4000x3000+0+0/resize/4000x3000!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F7e%2Fe0%2F34773d11496ebf7fa623f75f49c0%2Fsaraandreasson-npr-cialis-colour-b-2.jpg\" /><p>In some wellness circles, tadalafil is promoted as a longevity drug. There is evidence showing a link between it and a lower risk of death in men, but there are no well-controlled trials in humans. </p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5928263\" />",
+      "source": "NPR"
+    },
+    {
       "title": "As wildfires get worse, some states are struggling to pass fire protection rules",
       "link": "https://www.npr.org/2026/08/17/nx-s1-5923975/wildfires-western-community-protection",
       "published": "Mon, 17 Aug 2026 05:00:00 -0400",
@@ -5306,13 +5310,13 @@
       "source": "NPR"
     },
     {
-      "title": "Cialis is an erectile dysfunction drug. Could it also help you live longer?",
-      "link": "https://www.npr.org/2026/08/17/nx-s1-5928263/cialis-viagra-tadalafil-longevity-heart-health",
+      "title": "Elon Musk's Starbase wants to expand in south Texas",
+      "link": "https://www.npr.org/2026/08/17/nx-s1-5910496/elon-musk-starbase-texas-spacex",
       "published": "Mon, 17 Aug 2026 05:00:00 -0400",
       "ts": 1786957200,
-      "author": "Will Stone",
+      "author": "Reynaldo Lea\u00f1os Jr.",
       "feed_title": "",
-      "summary": "<img alt=\"undefined\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4000x3000+0+0/resize/4000x3000!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F7e%2Fe0%2F34773d11496ebf7fa623f75f49c0%2Fsaraandreasson-npr-cialis-colour-b-2.jpg\" /><p>In some wellness circles, tadalafil is promoted as a longevity drug. There is evidence showing a link between it and a lower risk of death in men, but there are no well-controlled trials in humans. </p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5928263\" />",
+      "summary": "<img alt=\"A view from Boca Chica Beach towards two SpaceX launch pads, in south Texas.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/7008x4672+0+0/resize/7008x4672!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fa6%2F5f%2F5f1f401542b997649dc86b4d8e1c%2Fspacex-complex.JPG\" /><p>Landowners and activists worry about impact to the environment around SpaceX's complex.</p><p>(Image credit: Reynaldo Lea\u00f1os Jr.)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5910496\" />",
       "source": "NPR"
     },
     {
@@ -5336,43 +5340,63 @@
       "source": "NPR"
     },
     {
-      "title": "Multiple people dead as flooding continues in Indiana",
-      "link": "https://www.npr.org/2026/08/16/nx-s1-5934670/indiana-flooding-deaths",
-      "published": "Sun, 16 Aug 2026 16:38:40 -0400",
-      "ts": 1786912720,
-      "author": "Chandelis Duster",
+      "title": "China Wants Its Data to Power the World\u2019s A.I.",
+      "link": "https://www.nytimes.com/2026/08/17/world/asia/china-ai-data-chatbots.html",
+      "published": "Mon, 17 Aug 2026 04:01:07 +0000",
+      "ts": 1786939267,
+      "author": "David Pierson and Berry Wang",
       "feed_title": "",
-      "summary": "<img alt=\"Residents paddle through a flooded neighborhood in a kayak in Indianapolis, Sunday, Aug. 16, 2026.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4932x3288+0+0/resize/4932x3288!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F51%2Fa6%2F641fbac946498d84f086abf5fea5%2Fap26228638548863.jpg\" /><p>Some parts of Indiana received more than 11 inches of rainfall over three days, beginning Aug. 11, causing record floods. Several suburbs of Indianapolis also underwater.</p><p>(Image credit: Obed Lamy)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5934670\" />",
-      "source": "NPR"
+      "summary": "A Google booth during the World Artificial Intelligence Conference in Shanghai last month. China wants a greater voice in the development of A.I. chatbots.",
+      "source": "NY Times"
     },
     {
-      "title": "Kushner Meets With Hamas to Advance Trump\u2019s Gaza Plan",
-      "link": "https://www.nytimes.com/2026/08/16/world/middleeast/kushner-hamas-talks.html",
-      "published": "Sun, 16 Aug 2026 21:16:17 +0000",
-      "ts": 1786914977,
-      "author": "Aaron Boxerman and Zolan Kanno-Youngs",
+      "title": "As A.I. Data Centers Spread, Pressure Mounts to Share Profits",
+      "link": "https://www.nytimes.com/2026/08/16/business/ai-data-centers.html",
+      "published": "Sun, 16 Aug 2026 09:00:38 +0000",
+      "ts": 1786870838,
+      "author": "Tony Romm",
       "feed_title": "",
-      "summary": "Jared Kushner earlier this year.",
+      "summary": "Policymakers around the country are maneuvering to ensure that tech giants aren\u2019t the only ones who stand to benefit.",
+      "source": "NY Times"
+    },
+    {
+      "title": "U.S. and Iran Blow Past War Deadline, and the Rise of Islamophobia in Texas",
+      "link": "https://www.nytimes.com/2026/08/17/podcasts/the-headlines/us-iran-deadline-war-islamophobia-texas.html",
+      "published": "Mon, 17 Aug 2026 10:00:15 +0000",
+      "ts": 1786960815,
+      "author": "Tracy Mumford, Will Jarvis, Margaret Kadifa, Jake Lucas, Ian Stewart, J. David Goodman and Orlando Mayorqu\u00edn",
+      "feed_title": "",
+      "summary": "Tehran in July. The United States and Iran appear to be gearing up for a protracted campaign of economic attrition that could easily tip over into renewed warfare, analysts said.",
+      "source": "NY Times"
+    },
+    {
+      "title": "Iran\u2019s Supreme Leader Signals Intention to Keep Country on a War Footing",
+      "link": "https://www.nytimes.com/2026/08/17/world/middleeast/iran-khamenei-military-leaders-war.html",
+      "published": "Mon, 17 Aug 2026 09:42:00 +0000",
+      "ts": 1786959720,
+      "author": "Erika Solomon",
+      "feed_title": "",
+      "summary": "A rally in Tehran in April, with posters of Ayatollah Mojtaba Khamenei. The ayatollah has not been seen in public since being named supreme leader of Iran.",
       "source": "NY Times"
     },
     {
       "title": "U.S. and Iran Blow Through Deadline to Agree to a Broad Deal to End War",
       "link": "https://www.nytimes.com/2026/08/17/world/middleeast/iran-mou-deadline.html",
-      "published": "Mon, 17 Aug 2026 04:01:19 +0000",
-      "ts": 1786939279,
+      "published": "Mon, 17 Aug 2026 10:13:09 +0000",
+      "ts": 1786961589,
       "author": "Aaron Boxerman",
       "feed_title": "",
       "summary": "People in Tehran, Iran, last month. Iranians are coping with severe economic strain from six months of war.",
       "source": "NY Times"
     },
     {
-      "title": "How a False Nuclear Claim About Iran Ricocheted From India to Washington",
-      "link": "https://www.nytimes.com/2026/08/16/business/iran-nuclear-false-claims.html",
-      "published": "Sun, 16 Aug 2026 09:01:55 +0000",
-      "ts": 1786870915,
-      "author": "Steven Lee Myers, Ronen Bergman and Farnaz Fassihi",
+      "title": "Kushner Meets Netanyahu in Effort to Break Logjam Over Gaza",
+      "link": "https://www.nytimes.com/2026/08/17/world/middleeast/kushner-netanyahu-gaza-peace-deal.html",
+      "published": "Mon, 17 Aug 2026 10:20:36 +0000",
+      "ts": 1786962036,
+      "author": "David M. Halbfinger and Adam Rasgon",
       "feed_title": "",
-      "summary": "Funeral ceremonies for Ayatollah Ali Khamenei, Iran\u2019s supreme leader, in Tehran in July.",
+      "summary": "Jared Kushner speaking about the Board of Peace, an organization backed by the Trump administration to end the war in Gaza, during the World Economic Forum in Davos, Switzerland, in January.",
       "source": "NY Times"
     },
     {
@@ -5386,6 +5410,16 @@
       "source": "NY Times"
     },
     {
+      "title": "Who Is the New White House Counsel?",
+      "link": "https://www.nytimes.com/video/us/100000011088612/who-is-the-new-white-house-counsel.html",
+      "published": "Mon, 17 Aug 2026 10:33:59 +0000",
+      "ts": 1786962839,
+      "author": "Maggie Haberman, Nour Idriss, June Kim and Edward Vega",
+      "feed_title": "",
+      "summary": "President Trump appointed his former personal lawyer Will Scharf as White House counsel. Maggie Haberman, our White House correspondent, explains how Scharf might help the president avoid congressional oversight at a critical time.",
+      "source": "NY Times"
+    },
+    {
       "title": "Blanche Refuses to Say He\u2019ll Always Be Independent of Trump as Attorney General",
       "link": "https://www.nytimes.com/2026/08/16/us/politics/blanche-trump-attorney-general-justice-department.html",
       "published": "Sun, 16 Aug 2026 16:14:13 +0000",
@@ -5393,16 +5427,6 @@
       "author": "Glenn Thrush",
       "feed_title": "",
       "summary": "Attorney General Todd Blanche has said President Trump has never asked him to do something illegal.",
-      "source": "NY Times"
-    },
-    {
-      "title": "How The New York Times Reported on Trump\u2019s Air Force One Ruse in Turkey",
-      "link": "https://www.nytimes.com/2026/08/14/insider/trump-air-force-one-decoy-reporters.html",
-      "published": "Fri, 14 Aug 2026 19:20:46 +0000",
-      "ts": 1786735246,
-      "author": "Megan DiTrolio, Peter Baker, Doug Mills and Richard W. Stevenson",
-      "feed_title": "",
-      "summary": "President Donald Trump walked off Air Force One in Britain, but as was recently revealed he had not flown on the plane.",
       "source": "NY Times"
     },
     {
@@ -5416,36 +5440,6 @@
       "source": "NY Times"
     },
     {
-      "title": "Hayden Panettiere, Star of \u2018Nashville\u2019 and \u2018Heroes,\u2019 Dies at 36",
-      "link": "https://www.nytimes.com/2026/08/17/arts/television/hayden-panettiere-dead.html",
-      "published": "Mon, 17 Aug 2026 06:06:50 +0000",
-      "ts": 1786946810,
-      "author": "Matt Stevens",
-      "feed_title": "",
-      "summary": "Hayden Panettiere in West Hollywood, Calif., in April.",
-      "source": "NY Times"
-    },
-    {
-      "title": "What We Know About the Storms Battering the Midwest",
-      "link": "https://www.nytimes.com/2026/08/13/us/storm-damage-midwest.html",
-      "published": "Sun, 16 Aug 2026 19:22:05 +0000",
-      "ts": 1786908125,
-      "author": "Jacey Fortin",
-      "feed_title": "",
-      "summary": "Natalee Andrews, left, and Nathan Dyer looked at the floodwaters in Crooksville, Ohio, on Tuesday.",
-      "source": "NY Times"
-    },
-    {
-      "title": "Indiana Prepares for More Rain After Days of Deadly Storms",
-      "link": "https://www.nytimes.com/2026/08/16/us/indiana-storms-flooding.html",
-      "published": "Mon, 17 Aug 2026 02:51:03 +0000",
-      "ts": 1786935063,
-      "author": "Bernard Mokam",
-      "feed_title": "",
-      "summary": "Evacuation efforts in Indianapolis on Saturday.",
-      "source": "NY Times"
-    },
-    {
       "title": "Parents pushed to breaking point by Child Maintenance Service, BBC told",
       "link": "https://www.bbc.co.uk/news/articles/c4g3re5ew8do?at_medium=RSS&at_campaign=rss",
       "published": "Mon, 17 Aug 2026 05:03:31 GMT",
@@ -5456,13 +5450,13 @@
       "source": "BBC"
     },
     {
-      "title": "Trump envoy Kushner arrives in Israel after rare Hamas talks on Gaza peace plan",
-      "link": "https://www.bbc.co.uk/news/articles/c77gg5vn44yo?at_medium=RSS&at_campaign=rss",
-      "published": "Mon, 17 Aug 2026 08:43:12 GMT",
-      "ts": 1786956192,
+      "title": "Burnham exchanged messages with person posing as Trump's chief of staff",
+      "link": "https://www.bbc.co.uk/news/articles/clyvj5zdjj2o?at_medium=RSS&at_campaign=rss",
+      "published": "Mon, 17 Aug 2026 10:16:25 GMT",
+      "ts": 1786961785,
       "author": "",
       "feed_title": "",
-      "summary": "US President Trump's son-in-law Jared Kushner is expected to meet Israeli Prime Minister Benjamin Netanyahu later on Monday.",
+      "summary": "Downing Street has declined to comment on the security breach, first reported by Politico.",
       "source": "BBC"
     },
     {
@@ -5473,16 +5467,6 @@
       "author": "",
       "feed_title": "",
       "summary": "After and exceptional summer of heatwaves and drought, the weather will turn wetter and cooler this week, as Simon King explains",
-      "source": "BBC"
-    },
-    {
-      "title": "Burnham exchanged messages with person posing as Trump's chief of staff",
-      "link": "https://www.bbc.co.uk/news/articles/clyvj5zdjj2o?at_medium=RSS&at_campaign=rss",
-      "published": "Mon, 17 Aug 2026 08:38:10 GMT",
-      "ts": 1786955890,
-      "author": "",
-      "feed_title": "",
-      "summary": "Downing Street has declined to comment on the security breach, first reported by Politico.",
       "source": "BBC"
     },
     {
@@ -5503,6 +5487,16 @@
       "author": "",
       "feed_title": "",
       "summary": "Amy Hunt asserts herself as Great Britain's new track sensation after winning an unprecedented four gold medals at the European Athletics Championships.",
+      "source": "BBC"
+    },
+    {
+      "title": "Trump envoy Kushner arrives in Israel after rare Hamas talks on Gaza peace plan",
+      "link": "https://www.bbc.co.uk/news/articles/c77gg5vn44yo?at_medium=RSS&at_campaign=rss",
+      "published": "Mon, 17 Aug 2026 08:43:12 GMT",
+      "ts": 1786956192,
+      "author": "",
+      "feed_title": "",
+      "summary": "US President Trump's son-in-law Jared Kushner is expected to meet Israeli Prime Minister Benjamin Netanyahu later on Monday.",
       "source": "BBC"
     },
     {
@@ -5544,6 +5538,56 @@
       "feed_title": "",
       "summary": "A 14-year-old child was among four others injured, the acting governor of Russia's Belgorod region says.",
       "source": "BBC"
+    },
+    {
+      "title": "Can you get flesh-eating bacteria from eating seafood or oysters?",
+      "link": "https://thehill.com/policy/healthcare/6031432-flesh-eating-bacteria-vibrio-oysters-seafood-risk/",
+      "published": "Mon, 17 Aug 2026 10:21:27 +0000",
+      "ts": 1786962087,
+      "author": "Zach Kaplan",
+      "feed_title": "",
+      "summary": "Dr. William Schaffner said people with liver disease or who are immunocompromised should avoid eating raw oysters.",
+      "source": "The Hill"
+    },
+    {
+      "title": "Actress Hayden Panettiere dies at 36",
+      "link": "https://thehill.com/blogs/in-the-know/6032588-actress-hayden-panettiere-obituary-36/",
+      "published": "Mon, 17 Aug 2026 10:14:45 +0000",
+      "ts": 1786961685,
+      "author": "Alicia Sitz",
+      "feed_title": "",
+      "summary": "Panettiere has a daughter, Kaya, whom she shares with her former fianc\u00e9, professional boxer Wladimir Klitschko.",
+      "source": "The Hill"
+    },
+    {
+      "title": "Ocasio-Cortez gets personal as Democrats make case for relatability",
+      "link": "https://thehill.com/homenews/campaign/6030043-democrats-social-media-authenticity/",
+      "published": "Mon, 17 Aug 2026 10:00:00 +0000",
+      "ts": 1786960800,
+      "author": "Amie Parnes",
+      "feed_title": "",
+      "summary": "Since announcing that she was freezing her eggs on Instagram last weekend, Rep. Alexandria Ocasio-Cortez (D-N.Y.) has spent the week taking her 9.6 million followers along for the ride \u2014 chronicling the process in detailed videos and answering questions while administering her shots.&#160; On Thursday, as she was recording one of those shots, she ran&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Buttigieg endorses Poindexter in House race against Miller",
+      "link": "https://thehill.com/homenews/campaign/6032545-buttigieg-endorses-poindexter-miller-race/",
+      "published": "Mon, 17 Aug 2026 10:00:00 +0000",
+      "ts": 1786960800,
+      "author": "Caroline Vakil",
+      "feed_title": "",
+      "summary": "Former Transportation Secretary Pete Buttigieg is endorsing Brook Park City Council member and ironworker Brian Poindexter as he challenges controversy-ridden Rep. Max Miller (R-Ohio) in November.&#160; \u201cHe&#8217;s an example of somebody who walks the walk. He knows what working families are going through because he&#8217;s literally a card-carrying union ironworker,\u201d Buttigieg, who\u2019s widely seen as&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Questions about Schumer\u2019s future grow as Democratic candidates call for change",
+      "link": "https://thehill.com/homenews/senate/6030959-schumer-senate-leader-future/",
+      "published": "Mon, 17 Aug 2026 10:00:00 +0000",
+      "ts": 1786960800,
+      "author": "Alexander Bolton",
+      "feed_title": "",
+      "summary": "Questions are growing about Sen. Chuck Schumer\u2019s (D-N.Y.) future as an increasing number of Democratic candidates say they will not support his bid for another term as Senate Democratic leader. Progressive critics of the Democratic establishment are calling for a leadership shake-up in Washington as their candidates win Senate Democratic primaries in Illinois, Maine, Michigan&#8230;",
+      "source": "The Hill"
     },
     {
       "title": "Navy considers major aircraft carrier revamp to better suit Trump\u2019s aesthetic",
@@ -5596,54 +5640,14 @@
       "source": "The Hill"
     },
     {
-      "title": "Centcom commander addresses mental health concerns for troops on USS Abraham Lincoln",
-      "link": "https://thehill.com/policy/defense/6032334-lincoln-crew-mental-health-concerns/",
-      "published": "Sun, 16 Aug 2026 21:54:00 +0000",
-      "ts": 1786917240,
-      "author": "Ryan Mancini",
+      "title": "After beloved Jackie the eagle\u2019s death, fans turned on her caretakers",
+      "link": "https://www.washingtonpost.com/nation/2026/08/17/after-beloved-jackie-eagles-death-fans-turned-her-caretakers/",
+      "published": "Mon, 17 Aug 2026 10:00:00 +0000",
+      "ts": 1786960800,
+      "author": "Cole Reynolds",
       "feed_title": "",
-      "summary": "U.S. Central Command (Centcom) commander Adm. Brad Cooper on Sunday addressed concerns about the mental health of service members aboard the USS Abraham Lincoln as the aircraft carrier returns home after being docked in the Middle East for more than 260 days. Cooper called his visit to the ship on Saturday &#8220;awe-inspiring&#8221; in a statement,&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Moore: Trump\u2019s response to reported USS Abraham Lincoln conditions \u2018pisses me off\u2019",
-      "link": "https://thehill.com/policy/defense/6032333-moore-criticizes-trump-uss-lincoln/",
-      "published": "Sun, 16 Aug 2026 21:25:57 +0000",
-      "ts": 1786915557,
-      "author": "Tara Suter",
-      "feed_title": "",
-      "summary": "Maryland Gov. Wes Moore (D) on Sunday expressed anger over President Trump\u2019s reaction to reported conditions on the USS Abraham Lincoln.&#160; \u201cI mean, not only are these conditions and the reports of the conditions heartbreaking, the response of the president of the United States pisses me off. And it should piss all of us off,\u201d&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Kentucky Gov. Andy Beshear says he\u2019s \u2018heard absolutely nothing back from Mitch McConnell\u2019",
-      "link": "https://thehill.com/homenews/senate/6032276-beshear-mitch-mcconnell-health-silence/",
-      "published": "Sun, 16 Aug 2026 21:15:05 +0000",
-      "ts": 1786914905,
-      "author": "Ryan Mancini",
-      "feed_title": "",
-      "summary": "Kentucky Gov. Andy Beshear (D) on Sunday said he has &#8220;heard absolutely nothing back from&#8221; Sen. Mitch McConnell (R-Ky.) after requesting updates on his health following the GOP senator&#8217;s weeks-long hospitalization. Beshear, a potential 2028 Democratic presidential contender, made the admission during his Sunday appearance on CBS News&#8217;s &#8220;Face the Nation.&#8221; The Kentucky governor added&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Flock tries to quell surveillance fears as questions pile up",
-      "link": "https://thehill.com/policy/technology/6030740-civil-liberties-backlash-ai-surveillance/",
-      "published": "Sun, 16 Aug 2026 21:00:00 +0000",
-      "ts": 1786914000,
-      "author": "Sophie Brams",
-      "feed_title": "",
-      "summary": "Flock Safety is&#160;facing a growing backlash&#160;across the country from communities and civil liberties advocates concerned over the surveillance technology company\u2019s network of AI-powered license plate readers.&#160;&#160; Amid a wave of privacy lawsuits and terminated contracts,&#160;Flock announced&#160;changes to its privacy and data retention policies Thursday in an attempt to quell concerns around mass surveillance and misuse&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Cassidy on Trump\u2019s vaccine order, \u2018crazy, stupid\u2019 claims: \u2018This is why the president\u2019s poll numbers are going down\u2019",
-      "link": "https://thehill.com/policy/healthcare/6032232-cassidy-slams-trump-vaccine-order/",
-      "published": "Sun, 16 Aug 2026 20:13:41 +0000",
-      "ts": 1786911221,
-      "author": "Ryan Mancini",
-      "feed_title": "",
-      "summary": "Sen. Bill Cassidy (R-La.) on Sunday said President Trump&#8217;s executive order\u00a0that seeks to alter the\u00a0childhood vaccine schedule is based on &#8220;crazy, stupid&#8221; claims, and that is &#8220;why the president&#8217;s poll numbers are going down.&#8221; During Cassidy&#8217;s appearance on CNN&#8217;s &#8220;State of the Union&#8221; Sunday, host Jake Tapper reiterated the GOP senator&#8217;s words in saying that&#8230;",
-      "source": "The Hill"
+      "summary": "As the bird\u2019s health failed, wildlife professionals said they were flooded with questions about her care.",
+      "source": "Washington Post"
     },
     {
       "title": "Tommy John, whose elbow surgery transformed baseball, dies at 83",
@@ -5684,26 +5688,6 @@
       "feed_title": "",
       "summary": "Goosey rushed out of the barn squawking so forcefully he woke up Bert Gerber, who had never heard him honk before.",
       "source": "Washington Post"
-    },
-    {
-      "title": "Bishop Rainey Cheeks, a taekwondo master who took on the AIDS crisis, dies at 74",
-      "link": "https://www.washingtonpost.com/obituaries/2026/08/15/bishop-rainey-cheeks-taekwondo-master-dc-lgbtq-leader-dies-74/",
-      "published": "Sat, 15 Aug 2026 10:00:01 +0000",
-      "ts": 1786788001,
-      "author": "Harrison Smith",
-      "feed_title": "",
-      "summary": "At 21, he won a bronze medal at the inaugural World Taekwondo Championships. He went on to become a lynchpin of Washington\u2019s LGBTQ+ community.",
-      "source": "Washington Post"
-    },
-    {
-      "title": "What I learned about the American Dream from Europeans pretending to live in Ohio",
-      "link": "https://www.washingtonpost.com/nation/2026/08/15/what-fake-ohio-trailer-park-poland-taught-me-about-american-dream/",
-      "published": "Sat, 15 Aug 2026 10:00:01 +0000",
-      "ts": 1786788001,
-      "author": "Danielle Paquette",
-      "feed_title": "",
-      "summary": "The state of the American Dream looks very different from inside a role-playing event deep in the woods of Poland.",
-      "source": "Washington Post"
     }
   ],
   "news_logan": [
@@ -5738,16 +5722,6 @@
       "source": "Google News"
     },
     {
-      "title": "Logan runway closure this fall could mean more flight delays - boston.com",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPdk9ueWc4cjJjME5UdTJLSTJPX0pVUDlPbzM0dTNaRHpKWHhvTENtZld0Y0ZZM25XVXJ6YnVVYzA0ZE1aRzRmbk5tYU9XU3NOVmxSWS1oTTFrRmRyemlEOHVVdFRIZmtsbnBNYm5hZkdtMHJLdjZtM3N3SE5abFpYUDM4NDNnOF9ZTkhMQUF5aVNob001NjlmLWJOX21QRkxaWlU4ZXVGOElJMVZqNmItTw?oc=5",
-      "published": "Mon, 10 Aug 2026 18:54:21 GMT",
-      "ts": 1786388061,
-      "author": "",
-      "feed_title": "boston.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPdk9ueWc4cjJjME5UdTJLSTJPX0pVUDlPbzM0dTNaRHpKWHhvTENtZld0Y0ZZM25XVXJ6YnVVYzA0ZE1aRzRmbk5tYU9XU3NOVmxSWS1oTTFrRmRyemlEOHVVdFRIZmtsbnBNYm5hZkdtMHJLdjZtM3N3SE5abFpYUDM4NDNnOF9ZTkhMQUF5aVNob001NjlmLWJOX21QRkxaWlU4ZXVGOElJMVZqNmItTw?oc=5\" target=\"_blank\">Logan runway closure this fall could mean more flight delays</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">boston.com</font>",
-      "source": "Google News"
-    },
-    {
       "title": "Woman details ICE arrest at Logan Airport in Boston - WPLG Local 10",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQZFZTeDFxVnVkM295LWRKQnJyNzc3T1hlNllWMkFWNE45NFF4TjMxendYb3BLb1ppRkEwUXc2R2E0Q2J1YkZBMEpnVWEtSF9YMjlCNUItUU5Nc3VFYjI1VU5yOVVDbVVudjlsSDhEWDIzYk1rODMwZFFmV2VLa0tWeXJ2X1N4WmZfczZmM194QUtSQl9GNUlRajFTZjVWZlk?oc=5",
       "published": "Sat, 15 Aug 2026 16:34:45 GMT",
@@ -5755,6 +5729,16 @@
       "author": "",
       "feed_title": "WPLG Local 10",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxQZFZTeDFxVnVkM295LWRKQnJyNzc3T1hlNllWMkFWNE45NFF4TjMxendYb3BLb1ppRkEwUXc2R2E0Q2J1YkZBMEpnVWEtSF9YMjlCNUItUU5Nc3VFYjI1VU5yOVVDbVVudjlsSDhEWDIzYk1rODMwZFFmV2VLa0tWeXJ2X1N4WmZfczZmM194QUtSQl9GNUlRajFTZjVWZlk?oc=5\" target=\"_blank\">Woman details ICE arrest at Logan Airport in Boston</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WPLG Local 10</font>",
+      "source": "Google News"
+    },
+    {
+      "title": "Logan runway closure this fall could mean more flight delays - Boston.com",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPdk9ueWc4cjJjME5UdTJLSTJPX0pVUDlPbzM0dTNaRHpKWHhvTENtZld0Y0ZZM25XVXJ6YnVVYzA0ZE1aRzRmbk5tYU9XU3NOVmxSWS1oTTFrRmRyemlEOHVVdFRIZmtsbnBNYm5hZkdtMHJLdjZtM3N3SE5abFpYUDM4NDNnOF9ZTkhMQUF5aVNob001NjlmLWJOX21QRkxaWlU4ZXVGOElJMVZqNmItTw?oc=5",
+      "published": "Mon, 10 Aug 2026 18:54:21 GMT",
+      "ts": 1786388061,
+      "author": "",
+      "feed_title": "Boston.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPdk9ueWc4cjJjME5UdTJLSTJPX0pVUDlPbzM0dTNaRHpKWHhvTENtZld0Y0ZZM25XVXJ6YnVVYzA0ZE1aRzRmbk5tYU9XU3NOVmxSWS1oTTFrRmRyemlEOHVVdFRIZmtsbnBNYm5hZkdtMHJLdjZtM3N3SE5abFpYUDM4NDNnOF9ZTkhMQUF5aVNob001NjlmLWJOX21QRkxaWlU4ZXVGOElJMVZqNmItTw?oc=5\" target=\"_blank\">Logan runway closure this fall could mean more flight delays</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
       "source": "Google News"
     },
     {
@@ -5788,16 +5772,6 @@
       "source": "Google News"
     },
     {
-      "title": "Lawyer says MaineHealth nurse detained by ICE was arrested at Portland Jetport, not Logan Airport - Maine Public",
-      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOSnFYdHhDM2lRc1RhS1FHWE1SbzFHT1h6OWlRWEYzOEhJUW9yOTMyR1VTZjRIR2ZiaHNuM0FIbWxjd0VKbzBQRVR2Ml9GbEV2cVVjb2RjTlN3NFV5amhaR0RXSW1ocHpLeUNxaU9xYlZhMS1KczJtMnBUUFQzTy01Q284SXFmNS1zQXB3SVVkY0l1ekdQNFh4cmJzWWppQ0pUYkc2LWJWMWg4QWU2RExGWWNDcDZqYWFoMTNOUEtjM2Fqak1lSlkycUVUNDBUY0E4QUlFeV9WaFB6MFhYYmJNNg?oc=5",
-      "published": "Tue, 11 Aug 2026 19:35:00 GMT",
-      "ts": 1786476900,
-      "author": "",
-      "feed_title": "Maine Public",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxOSnFYdHhDM2lRc1RhS1FHWE1SbzFHT1h6OWlRWEYzOEhJUW9yOTMyR1VTZjRIR2ZiaHNuM0FIbWxjd0VKbzBQRVR2Ml9GbEV2cVVjb2RjTlN3NFV5amhaR0RXSW1ocHpLeUNxaU9xYlZhMS1KczJtMnBUUFQzTy01Q284SXFmNS1zQXB3SVVkY0l1ekdQNFh4cmJzWWppQ0pUYkc2LWJWMWg4QWU2RExGWWNDcDZqYWFoMTNOUEtjM2Fqak1lSlkycUVUNDBUY0E4QUlFeV9WaFB6MFhYYmJNNg?oc=5\" target=\"_blank\">Lawyer says MaineHealth nurse detained by ICE was arrested at Portland Jetport, not Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Maine Public</font>",
-      "source": "Google News"
-    },
-    {
       "title": "Logan Airport's remote terminal in Framingham 'took off.' Now, officials are planning an expansion - WBUR",
       "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMk44RXI2cVU2dGZLeW1NN3NULWhIR3BISS1NTFp5dWpaOG03T1ZocnMyUURLYUw0MFBSV0d0MG9Db2NIT3N4SllranpfYnoxTzJ4WHFqYkctLXZ0b2UzNVR3ZGZzNDd6MHpJT0FRSjB6SU9TTDE1Uk42TnFPNEI0OXFFYTNLRDFySVYyRlV2bVdYR0Z2Sk13WmY0cXM3YzlUR3ZFTkxIYnF5UQ?oc=5",
       "published": "Wed, 29 Jul 2026 07:00:00 GMT",
@@ -5805,6 +5779,16 @@
       "author": "",
       "feed_title": "WBUR",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMk44RXI2cVU2dGZLeW1NN3NULWhIR3BISS1NTFp5dWpaOG03T1ZocnMyUURLYUw0MFBSV0d0MG9Db2NIT3N4SllranpfYnoxTzJ4WHFqYkctLXZ0b2UzNVR3ZGZzNDd6MHpJT0FRSjB6SU9TTDE1Uk42TnFPNEI0OXFFYTNLRDFySVYyRlV2bVdYR0Z2Sk13WmY0cXM3YzlUR3ZFTkxIYnF5UQ?oc=5\" target=\"_blank\">Logan Airport's remote terminal in Framingham 'took off.' Now, officials are planning an expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WBUR</font>",
+      "source": "Google News"
+    },
+    {
+      "title": "Lawyer says MaineHealth nurse detained by ICE was arrested at Portland Jetport, not Logan Airport - Maine Public",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOSnFYdHhDM2lRc1RhS1FHWE1SbzFHT1h6OWlRWEYzOEhJUW9yOTMyR1VTZjRIR2ZiaHNuM0FIbWxjd0VKbzBQRVR2Ml9GbEV2cVVjb2RjTlN3NFV5amhaR0RXSW1ocHpLeUNxaU9xYlZhMS1KczJtMnBUUFQzTy01Q284SXFmNS1zQXB3SVVkY0l1ekdQNFh4cmJzWWppQ0pUYkc2LWJWMWg4QWU2RExGWWNDcDZqYWFoMTNOUEtjM2Fqak1lSlkycUVUNDBUY0E4QUlFeV9WaFB6MFhYYmJNNg?oc=5",
+      "published": "Tue, 11 Aug 2026 19:35:00 GMT",
+      "ts": 1786476900,
+      "author": "",
+      "feed_title": "Maine Public",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxOSnFYdHhDM2lRc1RhS1FHWE1SbzFHT1h6OWlRWEYzOEhJUW9yOTMyR1VTZjRIR2ZiaHNuM0FIbWxjd0VKbzBQRVR2Ml9GbEV2cVVjb2RjTlN3NFV5amhaR0RXSW1ocHpLeUNxaU9xYlZhMS1KczJtMnBUUFQzTy01Q284SXFmNS1zQXB3SVVkY0l1ekdQNFh4cmJzWWppQ0pUYkc2LWJWMWg4QWU2RExGWWNDcDZqYWFoMTNOUEtjM2Fqak1lSlkycUVUNDBUY0E4QUlFeV9WaFB6MFhYYmJNNg?oc=5\" target=\"_blank\">Lawyer says MaineHealth nurse detained by ICE was arrested at Portland Jetport, not Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Maine Public</font>",
       "source": "Google News"
     },
     {
@@ -5838,13 +5822,13 @@
       "source": "Google News"
     },
     {
-      "title": "Union says Maine Medical Center nurse was detained by ICE at Portland Jetport, not Boston's Logan Airport - WMTW",
+      "title": "Union says Maine Medical Center nurse was detained by ICE at Portland Jetport, not Boston's Logan Airport - wmtw.com",
       "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNVzZ3amZwSTFFQkRqVXBQYjd1WERlbFJrZW5zSEI2UGpEb0s1TW13RzRjUmhyeG5ETFFvaHRma0VDTEdnMThidFd2clRCbDQxaFVJSHRQamlORWhMcEh3bWF4OXBGRy1sVUV6MHFmcksyUXE5aHFnYkk5V2I3ZFVNeFo1XzgtLXZWeTVGUjV3?oc=5",
       "published": "Wed, 12 Aug 2026 22:56:00 GMT",
       "ts": 1786575360,
       "author": "",
-      "feed_title": "WMTW",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxNVzZ3amZwSTFFQkRqVXBQYjd1WERlbFJrZW5zSEI2UGpEb0s1TW13RzRjUmhyeG5ETFFvaHRma0VDTEdnMThidFd2clRCbDQxaFVJSHRQamlORWhMcEh3bWF4OXBGRy1sVUV6MHFmcksyUXE5aHFnYkk5V2I3ZFVNeFo1XzgtLXZWeTVGUjV3?oc=5\" target=\"_blank\">Union says Maine Medical Center nurse was detained by ICE at Portland Jetport, not Boston's Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WMTW</font>",
+      "feed_title": "wmtw.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxNVzZ3amZwSTFFQkRqVXBQYjd1WERlbFJrZW5zSEI2UGpEb0s1TW13RzRjUmhyeG5ETFFvaHRma0VDTEdnMThidFd2clRCbDQxaFVJSHRQamlORWhMcEh3bWF4OXBGRy1sVUV6MHFmcksyUXE5aHFnYkk5V2I3ZFVNeFo1XzgtLXZWeTVGUjV3?oc=5\" target=\"_blank\">Union says Maine Medical Center nurse was detained by ICE at Portland Jetport, not Boston's Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">wmtw.com</font>",
       "source": "Google News"
     },
     {
@@ -5881,13 +5865,13 @@
       "source": "MBTA"
     },
     {
-      "title": "MBTA pays $500K settlement to employee in Phil Eng hair-pulling incident - boston.com",
+      "title": "MBTA pays $500K settlement to employee in Phil Eng hair-pulling incident - Boston.com",
       "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOalFSeFdCSVZkT2M3RzhaLS1JbTl6cXlTYkRMTlRyRGhrVS1yOXhwYjZzVG9lMTRQZng2dndNMkZBZFJoNVl6bTlVX0tSQU5nWmJaWU5EQWxaOVR1YzVGeWhjQzg2LUIyaUF3ZzhyQV8tUldNSUlaZV9EVkdRTjJWZEYzU2ZlRGRyUHpiZXhMYXNnd1FzWGxManEtOVZRYkxXejRLVnAtZ2NpeW9LSjNEUmRSVlEzRUZlUGJ3dkZQOA?oc=5",
       "published": "Sat, 15 Aug 2026 11:37:56 GMT",
       "ts": 1786793876,
       "author": "",
-      "feed_title": "boston.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxOalFSeFdCSVZkT2M3RzhaLS1JbTl6cXlTYkRMTlRyRGhrVS1yOXhwYjZzVG9lMTRQZng2dndNMkZBZFJoNVl6bTlVX0tSQU5nWmJaWU5EQWxaOVR1YzVGeWhjQzg2LUIyaUF3ZzhyQV8tUldNSUlaZV9EVkdRTjJWZEYzU2ZlRGRyUHpiZXhMYXNnd1FzWGxManEtOVZRYkxXejRLVnAtZ2NpeW9LSjNEUmRSVlEzRUZlUGJ3dkZQOA?oc=5\" target=\"_blank\">MBTA pays $500K settlement to employee in Phil Eng hair-pulling incident</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">boston.com</font>",
+      "feed_title": "Boston.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxOalFSeFdCSVZkT2M3RzhaLS1JbTl6cXlTYkRMTlRyRGhrVS1yOXhwYjZzVG9lMTRQZng2dndNMkZBZFJoNVl6bTlVX0tSQU5nWmJaWU5EQWxaOVR1YzVGeWhjQzg2LUIyaUF3ZzhyQV8tUldNSUlaZV9EVkdRTjJWZEYzU2ZlRGRyUHpiZXhMYXNnd1FzWGxManEtOVZRYkxXejRLVnAtZ2NpeW9LSjNEUmRSVlEzRUZlUGJ3dkZQOA?oc=5\" target=\"_blank\">MBTA pays $500K settlement to employee in Phil Eng hair-pulling incident</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
       "source": "MBTA"
     },
     {
@@ -5931,16 +5915,6 @@
       "source": "MBTA"
     },
     {
-      "title": "Phillip Eng at-a-glance - Boston Herald",
-      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5FYkw1eDNxdGlmam1PNEwxMU91dmlZc0FlWHdtUkNEWDVwMDNjNWp6dUswUmVxYzRrQnowVjRHWUNRNWlrOG11eHJRVjdZQXVwRVFxTkN2dUJsRGcwUDV6YUp5QWF2SzBkYUdsVUFyQlI0UQ?oc=5",
-      "published": "Fri, 14 Aug 2026 19:11:35 GMT",
-      "ts": 1786734695,
-      "author": "",
-      "feed_title": "Boston Herald",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTE5FYkw1eDNxdGlmam1PNEwxMU91dmlZc0FlWHdtUkNEWDVwMDNjNWp6dUswUmVxYzRrQnowVjRHWUNRNWlrOG11eHJRVjdZQXVwRVFxTkN2dUJsRGcwUDV6YUp5QWF2SzBkYUdsVUFyQlI0UQ?oc=5\" target=\"_blank\">Phillip Eng at-a-glance</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston Herald</font>",
-      "source": "MBTA"
-    },
-    {
       "title": "MBTA worker whose hair GM Eng pulled gets $495,000 in settlement - WBUR",
       "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBNTGpIWjYtdEFtNTBZYXkybkwtY20yQ2JDZDZjT2M3dDk4MDdFN1psM2xqMGQ5THJjMGxrYlBnQXowdE9RODItbkZ3dkIwS2czeHRmeXZ0ek5RR3VfOTRvaWloNmczNFcydDFCYjVoTm8zNjQwVlBnZQ?oc=5",
       "published": "Fri, 14 Aug 2026 19:06:29 GMT",
@@ -5948,6 +5922,16 @@
       "author": "",
       "feed_title": "WBUR",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMieEFVX3lxTFBNTGpIWjYtdEFtNTBZYXkybkwtY20yQ2JDZDZjT2M3dDk4MDdFN1psM2xqMGQ5THJjMGxrYlBnQXowdE9RODItbkZ3dkIwS2czeHRmeXZ0ek5RR3VfOTRvaWloNmczNFcydDFCYjVoTm8zNjQwVlBnZQ?oc=5\" target=\"_blank\">MBTA worker whose hair GM Eng pulled gets $495,000 in settlement</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WBUR</font>",
+      "source": "MBTA"
+    },
+    {
+      "title": "MBTA to pay $495,000 to employee who accused GM Phillip Eng of pulling her hair - Boston Herald",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOTFgxZnUwREpPSmZQR0tQSm5lRmJLRVlMWWlLVlM3ZG14MnpNeGx1WHBMZUN2emdGaW0yVktjM3pIejlmMnhsS1FxS3ZsalB4dGR6Snlfc3lpdHlfalR4VTVRekFiOVhyY0FZb2pGVEFYbjluMGR3Vm5pVXp5SWY0WnZHejFpSWJldVBIM1ZTOThfMkxFTE1ka1IzblpOa2xoSWMwRDR1R01jMlhjVzE2dXhjWHAzZzBXTWc?oc=5",
+      "published": "Fri, 14 Aug 2026 18:30:12 GMT",
+      "ts": 1786732212,
+      "author": "",
+      "feed_title": "Boston Herald",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxOTFgxZnUwREpPSmZQR0tQSm5lRmJLRVlMWWlLVlM3ZG14MnpNeGx1WHBMZUN2emdGaW0yVktjM3pIejlmMnhsS1FxS3ZsalB4dGR6Snlfc3lpdHlfalR4VTVRekFiOVhyY0FZb2pGVEFYbjluMGR3Vm5pVXp5SWY0WnZHejFpSWJldVBIM1ZTOThfMkxFTE1ka1IzblpOa2xoSWMwRDR1R01jMlhjVzE2dXhjWHAzZzBXTWc?oc=5\" target=\"_blank\">MBTA to pay $495,000 to employee who accused GM Phillip Eng of pulling her hair</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston Herald</font>",
       "source": "MBTA"
     },
     {
@@ -6067,7 +6051,7 @@
       "date": "2026-08-17",
       "time": null,
       "all_day": true,
-      "summary": "Reading sessions",
+      "summary": "Reach out to Tommy Cross about hat signature",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6075,7 +6059,7 @@
       "date": "2026-08-17",
       "time": null,
       "all_day": true,
-      "summary": "Reach out to Tommy Cross about hat signature",
+      "summary": "Reading sessions",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6115,14 +6099,6 @@
       "date": "2026-08-18",
       "time": null,
       "all_day": true,
-      "summary": "New wave of marketing",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-18",
-      "time": null,
-      "all_day": true,
       "summary": "lottery agent training followup",
       "location": null,
       "calendar": "Todoist"
@@ -6132,6 +6108,14 @@
       "time": null,
       "all_day": true,
       "summary": "check in on preseason Q+A feasibility",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-18",
+      "time": null,
+      "all_day": true,
+      "summary": "New wave of marketing",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6147,7 +6131,7 @@
       "date": "2026-08-18",
       "time": "10:00 AM",
       "all_day": false,
-      "summary": "GC economic partnerships working group meeting",
+      "summary": "MeetBoston meeting",
       "location": null,
       "calendar": "Joseph"
     },
@@ -6155,7 +6139,7 @@
       "date": "2026-08-18",
       "time": "10:00 AM",
       "all_day": false,
-      "summary": "MeetBoston meeting",
+      "summary": "GC economic partnerships working group meeting",
       "location": null,
       "calendar": "Joseph"
     },
@@ -6203,14 +6187,6 @@
       "date": "2026-08-19",
       "time": null,
       "all_day": true,
-      "summary": "Program publicity - connect with Lydia Edwards' office",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-19",
-      "time": null,
-      "all_day": true,
       "summary": "Decide on next year's date and venue",
       "location": null,
       "calendar": "Todoist"
@@ -6219,7 +6195,15 @@
       "date": "2026-08-19",
       "time": null,
       "all_day": true,
-      "summary": "Revere Journal",
+      "summary": "weekly NASCAR picks",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-19",
+      "time": null,
+      "all_day": true,
+      "summary": "Program publicity - connect with Lydia Edwards' office",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6235,7 +6219,7 @@
       "date": "2026-08-19",
       "time": null,
       "all_day": true,
-      "summary": "weekly NASCAR picks",
+      "summary": "Revere Journal",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6291,7 +6275,7 @@
       "date": "2026-08-20",
       "time": null,
       "all_day": true,
-      "summary": "determine whether to renew fubo tv",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6299,7 +6283,7 @@
       "date": "2026-08-20",
       "time": null,
       "all_day": true,
-      "summary": "follow up about Capri, Las Delicias, etc",
+      "summary": "determine whether to renew fubo tv",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6315,7 +6299,7 @@
       "date": "2026-08-20",
       "time": null,
       "all_day": true,
-      "summary": "Follow up on new hockey seats",
+      "summary": "follow up about Capri, Las Delicias, etc",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6323,7 +6307,7 @@
       "date": "2026-08-20",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "Follow up on new hockey seats",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6363,7 +6347,7 @@
       "date": "2026-08-21",
       "time": null,
       "all_day": true,
-      "summary": "Reading sessions",
+      "summary": "Medical checkins",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6371,7 +6355,7 @@
       "date": "2026-08-21",
       "time": null,
       "all_day": true,
-      "summary": "Medical checkins",
+      "summary": "Reading sessions",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6507,6 +6491,14 @@
       "date": "2026-08-26",
       "time": null,
       "all_day": true,
+      "summary": "weekly NASCAR picks",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-26",
+      "time": null,
+      "all_day": true,
       "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
@@ -6516,14 +6508,6 @@
       "time": null,
       "all_day": true,
       "summary": "Revere Journal",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-26",
-      "time": null,
-      "all_day": true,
-      "summary": "weekly NASCAR picks",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6539,16 +6523,16 @@
       "date": "2026-08-26",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "PII Training - DPCD",
-      "location": "DPCD conf table",
+      "summary": "Joe/Tom Meeting",
+      "location": null,
       "calendar": "Joseph"
     },
     {
       "date": "2026-08-26",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "Joe/Tom Meeting",
-      "location": null,
+      "summary": "PII Training - DPCD",
+      "location": "DPCD conf table",
       "calendar": "Joseph"
     },
     {
@@ -6659,7 +6643,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "Regular deep-cleaning",
+      "summary": "prep for sept meeting",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6667,7 +6651,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "prep for sept meeting",
+      "summary": "Regular deep-cleaning",
       "location": null,
       "calendar": "Todoist"
     },
@@ -7019,7 +7003,7 @@
     },
     {
       "date": "2026-08-15",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 Black's Tire 250 presented by BTS Rewards",
       "time": "12:00 PM",
       "result": null,
@@ -7029,7 +7013,7 @@
     },
     {
       "date": "2026-08-15",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 Black's Tire 250 presented by BTS Rewards",
       "time": "12:00 PM",
       "result": null,
@@ -8386,6 +8370,22 @@
       "lat": 42.2446,
       "lng": -70.9673,
       "updated": "2026-08-13T09:33:15"
+    },
+    {
+      "id": "2684115652539663",
+      "title": "Traffic (DMV/Crash) \u2014 I-90 EB",
+      "type": "Traffic Incidents",
+      "subtype": "Traffic (DMV/Crash)",
+      "road": "I-90",
+      "direction": "EB",
+      "start": "",
+      "end": "",
+      "status": "Open",
+      "location": "I-90 EB Exit After MSP Weston Barracks",
+      "lanes": "Travel Lane(s) Affected: 1 of 3 Lane(s) Affected Description:",
+      "lat": 42.33520678464767,
+      "lng": -71.30584145309047,
+      "updated": "2026-08-17T06:27:20"
     }
   ],
   "news_ktn": [
