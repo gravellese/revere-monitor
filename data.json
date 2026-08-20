@@ -1,25 +1,17 @@
 {
-  "updated": "2026-08-20T18:53:10.493158+00:00",
-  "updated_local": "August 20, 2026 at 6:53 PM",
+  "updated": "2026-08-20T19:37:59.762512+00:00",
+  "updated_local": "August 20, 2026 at 7:37 PM",
   "weather_current": {
     "temp": 86,
     "unit": "F",
-    "wind": "3 mph",
+    "wind": "5 mph",
     "windDir": "W",
-    "shortForecast": "Partly Sunny",
+    "shortForecast": "Mostly Cloudy",
     "detailedForecast": "Mostly cloudy, with a high near 86. West wind around 6 mph.",
     "humidity": 42,
     "precip": 1
   },
   "weather_hourly": [
-    {
-      "time": "2026-08-20T14:00:00-04:00",
-      "temp": 86,
-      "unit": "F",
-      "shortForecast": "Partly Sunny",
-      "wind": "3 mph",
-      "precip": 1
-    },
     {
       "time": "2026-08-20T15:00:00-04:00",
       "temp": 86,
@@ -203,12 +195,20 @@
       "shortForecast": "Chance Light Rain",
       "wind": "9 mph",
       "precip": 37
+    },
+    {
+      "time": "2026-08-21T14:00:00-04:00",
+      "temp": 70,
+      "unit": "F",
+      "shortForecast": "Chance Light Rain",
+      "wind": "10 mph",
+      "precip": 42
     }
   ],
   "weather_daily": [
     {
       "name": "This Afternoon",
-      "date": "2026-08-20T14:00:00-04:00",
+      "date": "2026-08-20T15:00:00-04:00",
       "high": 86,
       "low": 63,
       "shortForecast": "Mostly Cloudy",
@@ -319,7 +319,10 @@
     "name": "Boston Logan (KBOS)",
     "delay": false,
     "status": "ok",
-    "metar": null,
+    "metar": {
+      "raw": "METAR KBOS 201854Z 11010KT 10SM FEW060 SCT085 BKN150 OVC250 27/17 A2995 RMK AO2 SLP142 T02670172",
+      "flight_cat": ""
+    },
     "faa_delays": [],
     "flight_stats": {
       "cancelled": 24,
@@ -330,6 +333,11 @@
     {
       "header": "The platform at Jackson Square is undergoing renovations to improve safety and accessibility. Sections of the platform are unlevel, which may make it difficult for some riders to board and exit trains.",
       "effect": "STATION_ISSUE",
+      "routes": []
+    },
+    {
+      "header": "Foxboro Line Train 1747 (2:28 PM from South Station) is operating 5-15 minutes behind schedule between Islington and Foxboro.",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -368,7 +376,12 @@
       "routes": []
     },
     {
-      "header": "Franklin Line Train 743 (1:28 PM from South Station) is operating 5-15 minutes behind schedule between Walpole and Forge Park.",
+      "header": "Newburyport/Rockport Line Train 1150 (3:23 PM from Beverly) is operating 5-15 minutes behind schedule between Salem and North Station.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Fitchburg Line Train 421 (2:30 PM from North Station) is operating 5-15 minutes behind schedule between Waverley and Wachusett.",
       "effect": "DELAY",
       "routes": []
     },
@@ -378,7 +391,17 @@
       "routes": []
     },
     {
+      "header": "Newburyport Line Train 148 (2:25 PM from Newburyport) is operating 15-25 minutes behind schedule between Swampscott and North Station due to a signal issue.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
       "header": "Blue Line: All trains will operate on the outbound/eastbound track between Wonderland and Revere Beach the weekend of September 26 \u2013 27, for switch work. ",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Newburyport Line Train 149 (2:35 PM from North Station) is operating 10-20 minutes behind schedule between Beverly and Newburyport due to a signal issue.",
       "effect": "DELAY",
       "routes": []
     },
@@ -406,32 +429,12 @@
       "header": "Green Line C Branch:  Trains are not stopping at Brandon Hall through October 4 while accessibility upgrades are being done. Riders can board or alight at either Fairbanks St or Summit Ave, which are 0.1-0.2 miles away (or a 4- to 5-minute walk) ",
       "effect": "STATION_CLOSURE",
       "routes": []
-    },
-    {
-      "header": "To accommodate renovations at Providence Station, construction barriers have been installed and the southern stairwell to Track 1 is out of service. Staircase access is available to Track 3 and Track 5.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "Green Line E Branch: Symphony station is closed for major accessibility upgrades. Riders can use Prudential or Northeastern to access E Branch service. The station is expected to reopen in 2029.",
-      "effect": "STATION_CLOSURE",
-      "routes": []
-    },
-    {
-      "header": "The Wyoming Hill Mini-high platform project has begun. Passengers and local residents can expect construction vehicles and activity during the day through the Winter of 2026.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "The Endicott Mini-high platform project has begun. Passengers and local residents can expect construction vehicles and activity during the day through the Winter of 2026.",
-      "effect": "STATION_ISSUE",
-      "routes": []
     }
   ],
   "beach_conditions": {
-    "water_temp_f": 73.0,
-    "wvht_ft": 1.6,
-    "dpd_s": 6.0,
+    "water_temp_f": 72.5,
+    "wvht_ft": null,
+    "dpd_s": null,
     "wspd_mph": 8.9,
     "wdir_deg": 130.0,
     "flag": "green",
@@ -1278,6 +1281,17 @@
       "_alert": "Mayor Keefe"
     },
     {
+      "title": "Save the Harbor/Save the Bay hosts All Abilities Beach Day - Advocate News Online",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNy1lMXZLU0k4WTdNZXE2YTRNdFJVd0JSWjdMa2xxdUZPTzZ2dDlvV212YjdZSmRMU1lwRW0yb3VCMFY3RVFLcWo5cEdsSnlEUjlQZXdxdmtUV0h0bl9CVVhHbmJQTHgwSGJPd1hSVUhrbllIMUNyQ1g3dm1HRkQzZFN3X3hfeENvbHg0WDdQOUpwc0lveFF3Um96TEM?oc=5",
+      "published": "Thu, 20 Aug 2026 15:27:30 GMT",
+      "ts": 1787239650,
+      "author": "",
+      "feed_title": "Advocate News Online",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxPNy1lMXZLU0k4WTdNZXE2YTRNdFJVd0JSWjdMa2xxdUZPTzZ2dDlvV212YjdZSmRMU1lwRW0yb3VCMFY3RVFLcWo5cEdsSnlEUjlQZXdxdmtUV0h0bl9CVVhHbmJQTHgwSGJPd1hSVUhrbllIMUNyQ1g3dm1HRkQzZFN3X3hfeENvbHg0WDdQOUpwc0lveFF3Um96TEM?oc=5\" target=\"_blank\">Save the Harbor/Save the Bay hosts All Abilities Beach Day</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Advocate News Online</font>",
+      "source": "Google News \u00b7 Revere Beach",
+      "_alert": "Revere Beach"
+    },
+    {
       "title": "Leo Joseph Scarlata - Revere Journal",
       "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE52WEZhUVRIOG9pSmJyQklXMHQzSU9qb0pqNURQamNTSHF4QkhlQnJvcmZVTXFkd1pyZGlJZVAtazZmUUJLYXdsMmw2ZDA3b1V4Vy1Ld0dVVGV5ZngtdjI1OTM1Z3R0Q0tJ?oc=5",
       "published": "Wed, 19 Aug 2026 11:49:06 GMT",
@@ -1815,7 +1829,7 @@
       "ts": 1787192605,
       "author": "Daily Item StaffDaily Item StaffDaily Item Staff",
       "feed_title": "",
-      "summary": "<p><img alt=\"\" class=\"alignnone size-full wp-image-756883\" height=\"2560\" src=\"https://itemlive.com/wp-content/uploads/2026/08/LDI082026PgA1-scaled.jpg\" width=\"1259\" /></p>\n<p>The post <a href=\"https://itemlive.com/2026/08/19/todays-page-1-8-20-26/\">Today\u2019s page 1: 8-20-26</a> appeared first on <a href=\"https://itemlive.com\">Itemlive</a>.</p>\n<p><a href=\"https://itemlive.com/2026/08/19/todays-page-1-8-20-26/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "summary": "<p><img alt=\"\" class=\"alignnone size-full wp-image-756883\" height=\"2560\" src=\"https://itemlive.com/wp-content/uploads/2026/08/LDI082026PgA1-scaled.jpg\" width=\"1259\" /></p>\n<p>The post <a href=\"https://itemlive.com/2026/08/19/todays-page-1-8-20-26/\">Today&#8217;s page 1: 8-20-26</a> appeared first on <a href=\"https://itemlive.com\">Itemlive</a>.</p>",
       "source": "Lynn"
     },
     {
@@ -3731,6 +3745,96 @@
   ],
   "news_boston": [
     {
+      "title": "Massachusetts is home to just one living elephant. Activists want to send her to a sanctuary.",
+      "link": "https://www.wgbh.org/news/local/2026-08-20/massachusetts-is-home-to-just-one-living-elephant-activists-want-to-send-her-to-a-sanctuary",
+      "published": "Thu, 20 Aug 2026 19:29:03 GMT",
+      "ts": 1787254143,
+      "author": "",
+      "feed_title": "GBH News",
+      "summary": "Emily is the only elephant in Massachusetts. Advocates want her to be sent to a sanctuary. The Buttonwood Park Zoo says Emily prefers the company of her human caretakers",
+      "source": "GBH News"
+    },
+    {
+      "title": "Unsettled stretch of weather through the weekend",
+      "link": "https://whdh.com/weather-blog/unsettled-stretch-of-weather-through-the-weekend/",
+      "published": "Thu, 20 Aug 2026 19:25:00 +0000",
+      "ts": 1787253900,
+      "author": "Kshalhoup",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "We&#8217;re in for a tricky stretch, starting with this evening across Southern New England. A storm moving in from the west will drive clouds and...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "Third former boarding school staffer indicted in teacher abuse scandal",
+      "link": "https://www.wcvb.com/article/miss-halls-indicted-matthew-johnson/73486715",
+      "published": "Thu, 20 Aug 2026 19:22:00 GMT",
+      "ts": 1787253720,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A former science teacher was indicted Thursday on three criminal charges in connection with a growing teacher abuse scandal. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Jury excused for day after hospital chaplain testifies in Lindsay Clancy murder trial",
+      "link": "https://www.wcvb.com/article/lindsay-clancy-trial-live-updates-aug-20/73482117",
+      "published": "Thu, 20 Aug 2026 19:20:00 GMT",
+      "ts": 1787253600,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Just one witness testified Thursday as Lindsay Clancy's defense team appears to be closing in on the conclusion of their presentation in her murder trial. The Massachusetts mother is accused of strangling her three children in the family's Duxbury home in 2023.<br /></p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Recall roundup: The products tied to a multistate salmonella outbreak",
+      "link": "https://www.wcvb.com/article/recalled-products-salmonella-jalapenos/73487161",
+      "published": "Thu, 20 Aug 2026 19:15:00 GMT",
+      "ts": 1787253300,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Some brands of guacamole and salsa contain ingredients connected to a salmonella outbreak. Here's a roundup of affected products.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Hidden device found inside Mass General Brigham research lab locker room",
+      "link": "https://www.boston.com/news/local-news/2026/08/20/hidden-device-found-inside-mass-general-brigham-research-lab-locker-room/",
+      "published": "Thu, 20 Aug 2026 19:09:21 +0000",
+      "ts": 1787252961,
+      "author": "Beth Treffeisen",
+      "feed_title": "Boston.com",
+      "summary": "<p>The hidden object was discovered after it fell to the ground, and police are investigating who placed it there.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/20/hidden-device-found-inside-mass-general-brigham-research-lab-locker-room/\">Hidden device found inside Mass General Brigham research lab locker room</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "Mass. town ends 'unlawful' Flock Safety contract after legal review",
+      "link": "https://www.wcvb.com/article/hopkinton-ends-unlawful-flock-safety-contract-legal-review/73487106",
+      "published": "Thu, 20 Aug 2026 19:01:00 GMT",
+      "ts": 1787252460,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Hopkinton terminated its Flock Safety contract after a legal review found the agreement did not meet Massachusetts requirements.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "2 Mass. police officers on leave after city's license plate reader system audit",
+      "link": "https://www.wcvb.com/article/lynn-massachusetts-officers-on-leave-flock-license-plate-reader-audit/73484480",
+      "published": "Thu, 20 Aug 2026 18:58:00 GMT",
+      "ts": 1787252280,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Two Lynn police officers are on paid administrative leave after an audit flagged a concerning pattern in searches using the department\u2019s license plate reader technology.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Disability advocates worry about \u2018unintentional harm' in bill to protect health care workers",
+      "link": "https://www.wgbh.org/news/local/2026-08-20/disability-advocates-worry-about-unintentional-harm-in-bill-to-protect-health-care-workers",
+      "published": "Thu, 20 Aug 2026 18:57:32 GMT",
+      "ts": 1787252252,
+      "author": "",
+      "feed_title": "GBH News",
+      "summary": "Families of people with autism and intellectual disabilities say their behavior could be misinterpreted.",
+      "source": "GBH News"
+    },
+    {
       "title": "Hopkinton cancels contract with Flock Safety",
       "link": "https://whdh.com/news/hopkinton-cancels-contract-with-flock-safety/",
       "published": "Thu, 20 Aug 2026 18:51:13 +0000",
@@ -3749,16 +3853,6 @@
       "feed_title": "Boston News, Weather, Sports | WHDH 7News",
       "summary": "Two Lynn police officers were placed on administrative leave this month for potentially misusing Flock camera data. &#8220;On August 12, the Lynn Police Department implemented...",
       "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Jury excused for day after hospital chaplain testifies in Lindsay Clancy murder trial",
-      "link": "https://www.wcvb.com/article/lindsay-clancy-trial-live-updates-aug-20/73482117",
-      "published": "Thu, 20 Aug 2026 18:42:00 GMT",
-      "ts": 1787251320,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Just one witness testified Thursday as Lindsay Clancy's defense team appears to be closing in on the conclusion of their presentation in her murder trial. The Massachusetts mother is accused of strangling her three children in the family's Duxbury home in 2023.<br /></p>",
-      "source": "Top Stories"
     },
     {
       "title": "Police issue warning after woman reports assault on N.H. walking trail",
@@ -3791,16 +3885,6 @@
       "source": "Boston News, Weather, Sports | WHDH 7News"
     },
     {
-      "title": "Third former boarding school staffer indicted in teacher abuse scandal",
-      "link": "https://www.wcvb.com/article/miss-halls-indicted-matthew-johnson/73486715",
-      "published": "Thu, 20 Aug 2026 18:14:00 GMT",
-      "ts": 1787249640,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>A former science teacher was indicted Thursday on three criminal charges in connection with a growing teacher abuse scandal. </p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Feds say man impersonated ex-roommate to frame him for illegal voting",
       "link": "https://www.boston.com/news/crime/2026/08/20/feds-say-man-impersonated-ex-roommate-to-frame-him-for-illegal-voting/",
       "published": "Thu, 20 Aug 2026 18:13:34 +0000",
@@ -3819,16 +3903,6 @@
       "feed_title": "GBH News",
       "summary": "Danielle Allen, chair of the Coalition for Health Democracy, joined GBH's All Things Considered guest host Saraya Wintersmith to talk about all party primaries.",
       "source": "GBH News"
-    },
-    {
-      "title": "US aircraft carrier arrives in Middle East, relieving long-deployed USS Lincoln",
-      "link": "https://whdh.com/news/us-aircraft-carrier-arrives-in-middle-east-relieving-long-deployed-uss-lincoln/",
-      "published": "Thu, 20 Aug 2026 18:00:50 +0000",
-      "ts": 1787248850,
-      "author": "James Kukstis",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "WASHINGTON (AP) \u2014 The&#160;Asia-based USS George Washington&#160;aircraft carrier is now operating in the Middle East, the U.S. military said Thursday,&#160;relieving a long-deployed carrier&#160;following reports of...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
     },
     {
       "title": "Recreational marijuana repeal supporter says potency, addiction risk warrant legalization rollback",
@@ -3878,16 +3952,6 @@
       "author": "",
       "feed_title": "Top Stories",
       "summary": "<p>The family of an 8-year-old Sudbury boy killed by a falling tree at camp is remembering him as loving, funny and loyal.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "2 Mass. police officers on leave after city's license plate reader system audit",
-      "link": "https://www.wcvb.com/article/lynn-massachusetts-officers-on-leave-flock-license-plate-reader-audit/73484480",
-      "published": "Thu, 20 Aug 2026 16:51:00 GMT",
-      "ts": 1787244660,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Two Lynn police officers are on paid administrative leave after an audit flagged a concerning pattern in searches using the department\u2019s license plate reader technology.</p>",
       "source": "Top Stories"
     },
     {
@@ -4121,44 +4185,14 @@
       "source": "Top Stories"
     },
     {
-      "title": "Bridgewater Little League balances fun with big business at Little League World Series",
-      "link": "https://www.wgbh.org/news/local/2026-08-20/bridgewater-little-league-balances-fun-with-big-business-at-little-league-world-series",
-      "published": "Thu, 20 Aug 2026 15:07:45 GMT",
-      "ts": 1787238465,
-      "author": "",
-      "feed_title": "GBH News",
-      "summary": "After a 2-1 loss Wednesday, Bridgewater will live to see at least one more game this Saturday.",
-      "source": "GBH News"
-    },
-    {
-      "title": "Big Y keeps expanding east. Its next stop: Norton",
-      "link": "https://www.boston.com/news/business/2026/08/20/big-y-keeps-expanding-east-its-next-stop-norton/",
-      "published": "Thu, 20 Aug 2026 15:00:48 +0000",
-      "ts": 1787238048,
-      "author": "Beth Treffeisen",
-      "feed_title": "Boston.com",
-      "summary": "<p>The Western Massachusetts-based grocery chain plans to open its newest store in early 2028. </p>\n<p>The post <a href=\"https://www.boston.com/news/business/2026/08/20/big-y-keeps-expanding-east-its-next-stop-norton/\">Big Y keeps expanding east. Its next stop: Norton</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Reports: DEA joins investigation into Hayden Panettiere\u2019s death",
-      "link": "https://www.wcvb.com/article/hayden-panettiere-death-dea-investigation/73483989",
-      "published": "Thu, 20 Aug 2026 14:59:00 GMT",
-      "ts": 1787237940,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>The federal DEA has joined the investigation into the death of actress Hayden Panettiere, according to multiple media reports.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "President Trump pushes new crypto rules amid scrutiny over his financial interests",
-      "link": "https://www.wcvb.com/article/trump-pushes-new-crypto-rules-amid-scrutiny-financial-interests/73478699",
-      "published": "Thu, 20 Aug 2026 14:48:00 GMT",
-      "ts": 1787237280,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>A new poll highlights concerns over President Trump's cryptocurrency earnings as his administration pushes regulations for the industry, raising ethical and legal questions.</p>",
-      "source": "Top Stories"
+      "title": "Quincy loses bid to quash lawsuit over statues of saints on new city building",
+      "link": "https://www.nbcboston.com/news/local/quincy-mass-saint-statues-sjc-ruling/4001304/",
+      "published": "Thu, Aug 20 2026 03:03:36 PM",
+      "ts": 1787195016,
+      "author": "Asher Klein",
+      "feed_title": "NBC Boston",
+      "summary": "<p>Massachusetts&#8217; highest court denied Quincy&#8217;s bid to restart work installing statues of two Catholic saints on the city&#8217;s new public safety headquarters amid a lawsuit.</p>\n\n\n\n<p>The Supreme Judicial Court on Thursday denied Quincy&#8217;s motion to dismiss a lawsuit filed by a group of taxpayers, backed by the American Civil Liberties Union of Massachusetts, citing the separation of church and state. The court also upheld a <a href=\"https://www.nbcboston.com/news/local/quincy-religious-statue-building-update/3827156\" rel=\"noreferrer noopener\" target=\"_blank\">lower court&#8217;s order preventing Quincy from putting the statues</a> on the fa\u00e7ade of the $170 million Quincy Public Safety Headquarters while the lawsuit moves forward.</p>\n\n\n\n<p>Writing for the court, Justice Scott Kafker said in <a href=\"https://www.mass.gov/doc/fitzmaurice-v-city-of-quincy-sjc-g13877/download\" rel=\"noreferrer noopener\" target=\"_blank\">the ruling</a> that &#8220;the plaintiffs have demonstrated a reasonable likelihood that the city has violated important constitutional rights and has spent, and plans to continue to spend, taxpayer dollars in violation of those rights that will not be recoverable.&#8221;</p>\n\n\n\n<p>The city has insisted that the figures of St. Michael the Archangel and St. Florian commissioned for the new building have been used by police and fire departments, respectively, as symbols of professional ideals.</p>\n\n\n\n<p>The ACLU of Massachusetts on Thursday described it as a landmark ruling, and shared statements from two of the Quincy residents who brought the lawsuit. </p>\n\n\n\n<p>&#8220;The court&#8217;s wise decision casts doubt on the profoundly un-American idea that Quincy\u2019s city government can spend hundreds of thousands of dollars on massive religious statuary and then affix it to the front of the public safety building, where it would loom above citizens using the main entrance,&#8221; David Reich said in the statement. </p>\n\n\n<div></div>\n\n\n<p>The city released a statement saying, &#8220;Quincy\u2019s firefighters and police put their lives on the line for this city every day, and these statues were chosen to honor their bravery, service, and sacrifice. This decision is disappointing, but it is preliminary, and we will continue to fight for the ability to commemorate our first responders as the law permits.&#8221;</p>\n\n\n\n<p>Quincy&#8217;s lead attorney, Joe Davis, a senior counsel at prominent religious liberty-promoting legal group Becket, also noted that the statue lawsuit continues. </p>\n\n\n\n<p>&#8220;The City should not have to hide public art simply because some people may think of religion when they see it,&#8221; he said in a statement.</p>\n\n\n\n<p>The case was initially heard in Norfolk Superior Court before Judge William Sullivan, who has been presiding over the Lindsay Clancy murder trial.</p>\n\n\n<div></div>\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More on Quincy&#039;s statue controversy</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/investigations/planned-saint-statues-at-quincy-police-headquarters-spark-outcry/3642054/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/02/Quincy-statues-022525.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/quincy/\">Quincy</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tFeb 25, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/investigations/planned-saint-statues-at-quincy-police-headquarters-spark-outcry/3642054/\">\n\t\t\t\t\t\t\t\t\t\tPlanned saint statues at Quincy police headquarters spark outcry\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/investigations/quincy-statues-raise-concerns-of-price-transparency-and-religious-freedom/3665446/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/02/Quincy-statues-022525.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/quincy/\">Quincy</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMar 22, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/investigations/quincy-statues-raise-concerns-of-price-transparency-and-religious-freedom/3665446/\">\n\t\t\t\t\t\t\t\t\t\tQuincy statues raise concerns of price, transparency and religious freedom\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/fight-over-quincy-city-buildings-religious-statues-goes-to-court/3812231/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/02/Quincy-statues-022525.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/quincy/\">Quincy</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tSep 19, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/fight-over-quincy-city-buildings-religious-statues-goes-to-court/3812231/\">\n\t\t\t\t\t\t\t\t\t\tFight over Quincy city building&#039;s religious statues goes to court\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
+      "source": "NBC Boston"
     },
     {
       "title": "Hidden camera found in changing room at Mass General Brigham research lab",
@@ -4209,26 +4243,6 @@
       "feed_title": "WBUR News",
       "summary": "<p>A final decision is expected to be made later this year by party leaders. Republicans have already\u00a0chosen Houston\u00a0for the site of their 2028 convention. Boston last hosted the convention in 2004.</p>",
       "source": "WBUR News"
-    },
-    {
-      "title": "Mass. Democrats react to Boston making short list for 2028 presidential convention cities",
-      "link": "https://www.wgbh.org/news/politics/2026-08-20/mass-democrats-react-to-boston-making-short-list-for-2028-presidential-convention-cities",
-      "published": "Thu, 20 Aug 2026 12:23:55 GMT",
-      "ts": 1787228635,
-      "author": "",
-      "feed_title": "GBH News",
-      "summary": "The Democratic convention, scheduled for Aug. 7-10, 2028, traditionally gives the party a chance to formally introduce its nominee to the country, rally the base and kick-start the most intense period of campaigning ahead of the general election.",
-      "source": "GBH News"
-    },
-    {
-      "title": "Post Malone is engaged to stylist Christy Lee",
-      "link": "https://www.nbcboston.com/entertainment/entertainment-news/post-malone-engaged-christy-lee/4001137/",
-      "published": "Thu, Aug 20 2026 11:29:59 AM",
-      "ts": 1787225399,
-      "author": "Julia Elbaba",
-      "feed_title": "NBC Boston",
-      "summary": "<p>&#8220;Congratulations&#8221; are in order!</p>\n\n\n\n<p>Post Malone is engaged to stylist Christy Lee, according to a series of celebratory social media posts shared by Lee&#8217;s friends.</p>\n\n\n\n<p>Their engagement became public on Aug. 19 when Lee&#8217;s friend <a href=\"https://www.instagram.com/stories/marinahollyer/3967369637020036873/\" rel=\"noreferrer noopener\" target=\"_blank\">Marina Hollyer</a> posted several photos of the couple posing together, with Lee wearing a veil, a &#8220;Bride to Be&#8221; sash and a diamond ring.</p>\n\n\n\n<p>&#8220;My best friend in the world just got engaged,&#8221; Hollyer wrote along the photos, referring to her by her nickname. &#8220;Love you more than words Toph!!!&#8221;</p>\n\n\n\n<p>Another friend, <a href=\"https://www.instagram.com/stories/brookedonovann/3967366239235397537/\">Brooke Donovan,</a> shared an image of Malone and Lee kissing among a bed of roses, writing, &#8220;So happy for you both.&#8221; A third friend, <a href=\"https://www.instagram.com/stories/phoebemckeaan/3967369866633516593/\" rel=\"noreferrer noopener\" target=\"_blank\">Phoebe McKeaan,</a> posted a picture of the couple in a car, with Lee&#8217;s hand behind Malone&#8217;s neck to show off her massive new diamond ring.</p>\n\n\n\n<figure class=\"wp-block-image size-full\"><img alt=\"\" class=\"wp-image-11457259\" height=\"675\" src=\"https://media.nbcboston.com//2026/08/split-2-vertical-1200x675-5-2.jpg?quality=85&#038;strip=all&#038;resize=1200%2C675\" width=\"1200\" /><figcaption class=\"wp-element-caption\">Post Malone and Christy Lee. Courtesy of @phoebemckeaan and @brookedonovann.</figcaption></figure>\n\n\n\n<p>Neither Malone nor Lee has announced the engagement on their own social media accounts.</p>\n\n\n\n<p>Malone and Lee first sparked romance rumors in January of last year when they were seen grabbing dinner in Europe. They were spotted together again at a bar in Idaho in March before resurfacing in Paris the following month.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/entertainment/entertainment-news/post-malones-ex-fiancee-requests-full-physical-custody-of-daughter/3690647/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/04/GettyImages-2198420111.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/celebrity-news/\">Celebrity News</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tApr 19, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/entertainment/entertainment-news/post-malones-ex-fiancee-requests-full-physical-custody-of-daughter/3690647/\">\n\t\t\t\t\t\t\t\t\t\tPost Malone&#039;s ex-fianc\u00e9e requests full physical custody of daughter\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/entertainment/entertainment-news/post-malone-denies-drug-use-and-credits-weight-loss-to-dad-life/3033138/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2023/04/GettyImages-993062898.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.rssrssrssrss.com/api/merge?feeds=NoIgFgLhAODOBcB6RB3NA6FBjAbgI3SwHsBbRCIuCgJwEsBTWAWmtlhABpwo4lUwAJmEKlEAM3r0BiTtxgJkaFOgB2eLHiKwKKkWQD8rWAF4AnrMjy+S9Ju1FdxMhKkyul3snoBDbXZ16bnKeqBgoeACu1OhE1ADmiCr0KOzuPAqhyihxeMKxCUkpIAC6QA\"></a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date\">\n\t\t\t\t\t\t\t\t\t\tApr 28, 2023\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/entertainment/entertainment-news/post-malone-denies-drug-use-and-credits-weight-loss-to-dad-life/3033138/\">\n\t\t\t\t\t\t\t\t\t\tPost Malone Denies Drug Use and Credits Weight Loss to \u2018Dad Life&#039;\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p>This isn&#8217;t Malone&#8217;s first engagement. He was previously with Hee Sung &#8220;Jamie&#8221; Park, with whom he shares a 4-year-old daughter.</p>\n\n\n\n<p>NBC Local did not immediately hear back from Malone&#8217;s representatives confirming the engagement.</p>",
-      "source": "NBC Boston"
     }
   ],
   "news_universalhub": [],
@@ -4767,13 +4781,13 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "College hockey: Dartmouth to be No. 2 seed for ECAC tournament; UNH falls to Providence - UnionLeader.com",
-      "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZllBZVZtaG1SY1hxM2Q1VlJBeHcwbE1zQkxHeE83RW9LV2p6c2ZhOUpqNEx3eTgyQVdIM3hPSkhMM3lUb2VIaDFsQ2dfUF9ZOExnYXFKb0s1Zl9XMHhoTWdDSXAwYlN3ZUNEbUhNSHRjTXFwRV9ENzAyaHpjRFJBWk1HVThJeEpCNzNpS2F4cHFrRFlFM2lXRUUzYUZfYmo4eE90VzNVNjZ5V195UTlxX3hGbmwzdFNOOGw4ckpTMVNUYkRyeE94T1k1Q2lNRVpKZkRVZzdwY0RXanlweEdwM1NKMHJZNFRfVzVWVHFadUhxZG4zQnpQd09vMHgyRXllSHI4OEZNeWE?oc=5",
-      "published": "Sat, 08 Aug 2026 07:00:00 GMT",
-      "ts": 1786172400,
+      "title": "Author Bal Khabra completes four-part hockey romance series \"Off the Ice\" - CBS News",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQVW1uZnNGSnpLZFE3ZG9lMmp1Vl9QS1g4MmhWSWg0ZVRZVDRCMGdTSDFrT0pROXR0R2xvcWYwWGJiNEJqYm9pS1pkT0I5SFRnbXV0VHMwQWF1eDI5VDVHamU4dEhNVGJ3Nm9jQUtGYTk5LVByZ09kN3pBeGpJeXN6ekgxd2tGbUdVTTdBalNhM3VfTjJSakhHWERiRW9xei1QM1VHbHhQbFNDVUV6X2c?oc=5",
+      "published": "Sun, 16 Aug 2026 14:40:00 GMT",
+      "ts": 1786891200,
       "author": "",
-      "feed_title": "UnionLeader.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZllBZVZtaG1SY1hxM2Q1VlJBeHcwbE1zQkxHeE83RW9LV2p6c2ZhOUpqNEx3eTgyQVdIM3hPSkhMM3lUb2VIaDFsQ2dfUF9ZOExnYXFKb0s1Zl9XMHhoTWdDSXAwYlN3ZUNEbUhNSHRjTXFwRV9ENzAyaHpjRFJBWk1HVThJeEpCNzNpS2F4cHFrRFlFM2lXRUUzYUZfYmo4eE90VzNVNjZ5V195UTlxX3hGbmwzdFNOOGw4ckpTMVNUYkRyeE94T1k1Q2lNRVpKZkRVZzdwY0RXanlweEdwM1NKMHJZNFRfVzVWVHFadUhxZG4zQnpQd09vMHgyRXllSHI4OEZNeWE?oc=5\" target=\"_blank\">College hockey: Dartmouth to be No. 2 seed for ECAC tournament; UNH falls to Providence</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UnionLeader.com</font>",
+      "feed_title": "CBS News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxQVW1uZnNGSnpLZFE3ZG9lMmp1Vl9QS1g4MmhWSWg0ZVRZVDRCMGdTSDFrT0pROXR0R2xvcWYwWGJiNEJqYm9pS1pkT0I5SFRnbXV0VHMwQWF1eDI5VDVHamU4dEhNVGJ3Nm9jQUtGYTk5LVByZ09kN3pBeGpJeXN6ekgxd2tGbUdVTTdBalNhM3VfTjJSakhHWERiRW9xei1QM1VHbHhQbFNDVUV6X2c?oc=5\" target=\"_blank\">Author Bal Khabra completes four-part hockey romance series \"Off the Ice\"</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4878,6 +4892,16 @@
     }
   ],
   "news_bc_hockey": [
+    {
+      "title": "2026 Training Camp Practice #13- August 20 - Boston College Athletics",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQUUswRzQydDJ0dDdNYnBaVkhlRkp2ZUlQWmhmWU9hNTRCS0ozQWE5QlJNR2VLUW5kQlhvRGpURVZTRi1lZVlRajBlTDVEblljRFNZNVN5U0lGRmRYcnNQbTA2UE5oV3NidjNyRmF4LXNoZkJmXzFRT0hLNVM1LWdtQ1BSVjZCSXhOdTZYcXhB?oc=5",
+      "published": "Thu, 20 Aug 2026 19:10:51 GMT",
+      "ts": 1787253051,
+      "author": "",
+      "feed_title": "Boston College Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxQUUswRzQydDJ0dDdNYnBaVkhlRkp2ZUlQWmhmWU9hNTRCS0ozQWE5QlJNR2VLUW5kQlhvRGpURVZTRi1lZVlRajBlTDVEblljRFNZNVN5U0lGRmRYcnNQbTA2UE5oV3NidjNyRmF4LXNoZkJmXzFRT0hLNVM1LWdtQ1BSVjZCSXhOdTZYcXhB?oc=5\" target=\"_blank\">2026 Training Camp Practice #13- August 20</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston College Athletics</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
     {
       "title": "Pair In Eagles Secondary Named to Senior Bowl Top 300 Watch List - Boston College Athletics",
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbnhTdy1JRzRYSHJtUmktQ0lLdVl2cjZVZFJBRmpmWlZfV0tQYlZCOGhHZlNfR0w4VWZacjhCNEI2RTc5RlBHX0NkV1RiTGNJNkZJY294aWwwSFFEdVkxdWhaT282WUtELTl2RmpucWZyTWFxZE5uMUJua0ZpRmVXZ1hKWTloUFhDSEtFLXA2TkJlcmhzbU14Q2pUalhSN3huMzlZencxUzNNdEl4VUE?oc=5",
@@ -5039,16 +5063,6 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "The U.S. Falls in Game Two of Collegiate and Under-18 Select Series - Team USA Hockey",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA0NEd3bXVPdDBHYUk4QXVkNnd5VmFlODFMQjJ3b0ZsVUVITXBYMERQZGVITHVDaDNCbWRJLVpjTXRhSk9iM0t1WUwwNHM0cDFCV1dSMFVFV0lpTm9ORmh6UldXb010Zw?oc=5",
-      "published": "Fri, 14 Aug 2026 04:15:00 GMT",
-      "ts": 1786680900,
-      "author": "",
-      "feed_title": "Team USA Hockey",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTFA0NEd3bXVPdDBHYUk4QXVkNnd5VmFlODFMQjJ3b0ZsVUVITXBYMERQZGVITHVDaDNCbWRJLVpjTXRhSk9iM0t1WUwwNHM0cDFCV1dSMFVFV0lpTm9ORmh6UldXb010Zw?oc=5\" target=\"_blank\">The U.S. Falls in Game Two of Collegiate and Under-18 Select Series</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Team USA Hockey</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
       "title": "Ben Smith Returns to BC as Assistant - College Hockey News",
       "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPVURLZlpVdlU2dWhJbmZ2YkdnS1hSTWJQaFJUVDE3d0dTN3Q2YWQ4V3NjQXpyYkVteTlvZk9nUHh0WlFTaWtKcHZjYWRNLTQ5X0RCTWJ1OWk2dzlJam5pZl9teElrVjBMZUdjdmtRNmVyb2Z3ZHo5NGl4OGJPMGFoM1hfUXJJV1k?oc=5",
       "published": "Fri, 14 Aug 2026 02:04:51 GMT",
@@ -5081,16 +5095,6 @@
   ],
   "news_hockey_east": [
     {
-      "title": "Massachusetts Hockey Announces Captains For 2026-27 - University of Massachusetts Athletics",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTzBTTkowNF9yalpySEZvSWZ3VnB4eXFCWUY2UHgwcE5naHRua1dSZEZBcVRfQWNVYnJKakhyLXpmN2dTanhhV0lJdlc1dHFBb1Y3NnVCaHpyVF9UeExTYnczQk1TekUyOFVBSGQwTGp3QTh4djhqQ3hOMFNCeGstTWgxckV0Z0hxaS14UE5CNW5fRjVRYk9wcw?oc=5",
-      "published": "Thu, 20 Aug 2026 01:06:56 GMT",
-      "ts": 1787188016,
-      "author": "",
-      "feed_title": "University of Massachusetts Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxPTzBTTkowNF9yalpySEZvSWZ3VnB4eXFCWUY2UHgwcE5naHRua1dSZEZBcVRfQWNVYnJKakhyLXpmN2dTanhhV0lJdlc1dHFBb1Y3NnVCaHpyVF9UeExTYnczQk1TekUyOFVBSGQwTGp3QTh4djhqQ3hOMFNCeGstTWgxckV0Z0hxaS14UE5CNW5fRjVRYk9wcw?oc=5\" target=\"_blank\">Massachusetts Hockey Announces Captains For 2026-27</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Massachusetts Athletics</font>",
-      "source": "Google News \u00b7 Hockey East"
-    },
-    {
       "title": "Summer shuffling in Hockey East - The IX Sports",
       "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORUx6NFhrNVFDZFlLV25OYk14UWVTcDZOOXE1TFJJRnllVjU4ZnZ2eHJXUlI4UDRXMDM4ekRrLTV6ajhLTGprekhlbzZpWDVhZWdpYWYzelBBSmlXRVdQa3M5UHJrSWZmeTlMYXhMSVU3TkctbkpTTGRVeUlZTUNxWDdsdzZUbEFFUUdGNDM0MUxhZWpQRW5zUzFCeUwwTXMx?oc=5",
       "published": "Mon, 17 Aug 2026 19:14:23 GMT",
@@ -5098,6 +5102,16 @@
       "author": "",
       "feed_title": "The IX Sports",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxORUx6NFhrNVFDZFlLV25OYk14UWVTcDZOOXE1TFJJRnllVjU4ZnZ2eHJXUlI4UDRXMDM4ekRrLTV6ajhLTGprekhlbzZpWDVhZWdpYWYzelBBSmlXRVdQa3M5UHJrSWZmeTlMYXhMSVU3TkctbkpTTGRVeUlZTUNxWDdsdzZUbEFFUUdGNDM0MUxhZWpQRW5zUzFCeUwwTXMx?oc=5\" target=\"_blank\">Summer shuffling in Hockey East</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The IX Sports</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
+      "title": "Massachusetts Hockey Announces Captains For 2026-27 - University of Massachusetts Athletics",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTzBTTkowNF9yalpySEZvSWZ3VnB4eXFCWUY2UHgwcE5naHRua1dSZEZBcVRfQWNVYnJKakhyLXpmN2dTanhhV0lJdlc1dHFBb1Y3NnVCaHpyVF9UeExTYnczQk1TekUyOFVBSGQwTGp3QTh4djhqQ3hOMFNCeGstTWgxckV0Z0hxaS14UE5CNW5fRjVRYk9wcw?oc=5",
+      "published": "Thu, 20 Aug 2026 01:06:56 GMT",
+      "ts": 1787188016,
+      "author": "",
+      "feed_title": "University of Massachusetts Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxPTzBTTkowNF9yalpySEZvSWZ3VnB4eXFCWUY2UHgwcE5naHRua1dSZEZBcVRfQWNVYnJKakhyLXpmN2dTanhhV0lJdlc1dHFBb1Y3NnVCaHpyVF9UeExTYnczQk1TekUyOFVBSGQwTGp3QTh4djhqQ3hOMFNCeGstTWgxckV0Z0hxaS14UE5CNW5fRjVRYk9wcw?oc=5\" target=\"_blank\">Massachusetts Hockey Announces Captains For 2026-27</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Massachusetts Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -5233,6 +5247,16 @@
   ],
   "news_national": [
     {
+      "title": "The Iran war and tariffs are costing farmers. Will Republicans pay in November?",
+      "link": "https://www.npr.org/2026/08/20/nx-s1-5914684/farmers-trump-pennsylvania-midterms",
+      "published": "Thu, 20 Aug 2026 15:22:20 -0400",
+      "ts": 1787253740,
+      "author": "Scott Neuman",
+      "feed_title": "",
+      "summary": "<img alt=\"Ian Stamy, 38, a sixth-generation cash-crop soybean and grain farmer, walks into his field in Mechanicsburg, Pa., on Aug. 12. Stamy pivoted to soybeans and grain because he says dairy farming was no longer turning a profit.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4500x3000+0+0/resize/4500x3000!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F1c%2F29%2Fa04b34d04ffa8cb520b9c455a28f%2Fpennsylvaniafarmerstrump-gustafson-017.jpg\" /><p>In some tight midterm races, how farmers frustrated with the war and rising costs vote could make a difference.</p><p>(Image credit: Michelle Gustafson for NPR)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5914684\" />",
+      "source": "NPR"
+    },
+    {
       "title": "Three things to know about the $40 trillion federal debt",
       "link": "https://www.npr.org/2026/08/20/nx-s1-5939473/40-trillion-federal-debt",
       "published": "Thu, 20 Aug 2026 12:50:41 -0400",
@@ -5313,16 +5337,6 @@
       "source": "NPR"
     },
     {
-      "title": "The bond market is signaling trouble ahead. This is why you should pay attention",
-      "link": "https://www.npr.org/2026/08/20/nx-s1-5937600/economy-bonds-inflation-debt-consumers",
-      "published": "Thu, 20 Aug 2026 05:00:00 -0400",
-      "ts": 1787216400,
-      "author": "Rafael Nam",
-      "feed_title": "",
-      "summary": "<img alt=\"Bond markets have tumbled over economic concerns \u2014 even as stocks have hit record highs recently.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5351x3202+0+0/resize/5351x3202!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F03%2Fc3%2F33edef4d4edd988204482e55de1b%2Fgettyimages-2288234598.jpg\" /><p>Many people don't pay attention to bond markets, but they should \u2014 especially now. This is why they matter and why the drop in bond prices is signaling investor concerns about the U.S. economy.</p><p>(Image credit: Timothy A. Clary)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5937600\" />",
-      "source": "NPR"
-    },
-    {
       "title": "The system meant to protect ICE detainees has collapsed",
       "link": "https://www.npr.org/2026/08/20/nx-s1-5850361/grievance-ice-detention-immigrants",
       "published": "Thu, 20 Aug 2026 05:00:00 -0400",
@@ -5365,8 +5379,8 @@
     {
       "title": "Canada and U.S. Resume Talks Over Trump Tariffs as a New Deadline Looms",
       "link": "https://www.nytimes.com/2026/08/20/world/canada/trump-carney-tariffs-trade-deal.html",
-      "published": "Thu, 20 Aug 2026 16:46:04 +0000",
-      "ts": 1787244364,
+      "published": "Thu, 20 Aug 2026 19:13:27 +0000",
+      "ts": 1787253207,
       "author": "Ian Austen and Ana Swanson",
       "feed_title": "",
       "summary": "Dominic LeBlanc, the Canadian minister in charge of U.S. trade, arriving to meet with Jamieson Greer, the U.S. trade representative, on Thursday in Washington.",
@@ -5393,13 +5407,33 @@
       "source": "NY Times"
     },
     {
-      "title": "How Trump Is Trying to Crush California\u2019s Climate Policies",
-      "link": "https://www.nytimes.com/2026/08/20/climate/trump-california-climate.html",
-      "published": "Thu, 20 Aug 2026 17:17:05 +0000",
-      "ts": 1787246225,
-      "author": "Maxine Joselow",
+      "title": "Trump Boasts of Declassifying Secrets, but Withholds Key Election Files From Public",
+      "link": "https://www.nytimes.com/2026/08/20/us/politics/trump-2024-election-classified-files.html",
+      "published": "Thu, 20 Aug 2026 19:16:16 +0000",
+      "ts": 1787253376,
+      "author": "Dustin Volz",
       "feed_title": "",
-      "summary": "An oil platform seen from Sands Beach next to Coal Oil Point Natural Reserve in Santa Barbara, Calif.",
+      "summary": "A polling location in New York during the 2024 election.",
+      "source": "NY Times"
+    },
+    {
+      "title": "First U.S. Deportees to Arrive in Liberia Amid Growing Backlash",
+      "link": "https://www.nytimes.com/2026/08/20/world/africa/liberia-trump-deportations.html",
+      "published": "Thu, 20 Aug 2026 18:25:34 +0000",
+      "ts": 1787250334,
+      "author": "Emmanuel Akinwotu",
+      "feed_title": "",
+      "summary": "Monrovia, the capital of Liberia. The U.S. deportation deal with Liberia is one of the largest so-called third-country deportation agreements struck by the Trump administration so far.",
+      "source": "NY Times"
+    },
+    {
+      "title": "State Dept. Declares U.S. Citizen in China Wrongfully Detained",
+      "link": "https://www.nytimes.com/2026/08/20/us/politics/scholar-china-wrongfully-detained.html",
+      "published": "Thu, 20 Aug 2026 14:59:45 +0000",
+      "ts": 1787237985,
+      "author": "Karoun Demirjian",
+      "feed_title": "",
+      "summary": "The detained U.S. citizen U Min Zin disappeared in China\u2019s Yunnan province after traveling there to attend an academic conference at the invitation of the Chinese government, according to the State Department.",
       "source": "NY Times"
     },
     {
@@ -5410,26 +5444,6 @@
       "author": "Michael D. Shear",
       "feed_title": "",
       "summary": "Prince Harry and his wife, Meghan, in Sydney, Australia, in April.",
-      "source": "NY Times"
-    },
-    {
-      "title": "What to Know About Prince Harry and Meghan\u2019s Move Back to the U.K.",
-      "link": "https://www.nytimes.com/2026/08/20/world/europe/prince-harry-meghan-uk-move-return.html",
-      "published": "Thu, 20 Aug 2026 13:58:38 +0000",
-      "ts": 1787234318,
-      "author": "Amelia Nierenberg",
-      "feed_title": "",
-      "summary": "Prince Harry and Meghan visiting Bondi Beach in Sydney, Australia, in April.",
-      "source": "NY Times"
-    },
-    {
-      "title": "As Prince Harry and Meghan Depart California for the U.K., Their Neighbors Shrug",
-      "link": "https://www.nytimes.com/2026/08/20/us/prince-harry-meghan-montecito-california-uk.html",
-      "published": "Thu, 20 Aug 2026 16:23:35 +0000",
-      "ts": 1787243015,
-      "author": "Shawn Hubler and Livia Albeck-Ripka",
-      "feed_title": "",
-      "summary": "The duke and duchess of Sussex went among the people, but few knew them well.",
       "source": "NY Times"
     },
     {
@@ -5463,13 +5477,13 @@
       "source": "BBC"
     },
     {
-      "title": "Man charged over Manchester synagogue attack",
-      "link": "https://www.bbc.co.uk/news/articles/cm2g5ne37zyo?at_medium=RSS&at_campaign=rss",
-      "published": "Thu, 20 Aug 2026 16:17:27 GMT",
-      "ts": 1787242647,
+      "title": "US says sanctions will 'squash' Iran's economy and 'collapse' its regime",
+      "link": "https://www.bbc.co.uk/news/articles/c87n90eg0p2o?at_medium=RSS&at_campaign=rss",
+      "published": "Thu, 20 Aug 2026 19:19:20 GMT",
+      "ts": 1787253560,
       "author": "",
       "feed_title": "",
-      "summary": "Police say the man is accused of failing to disclose information regarding terrorist activity.",
+      "summary": "The US treasury secretary says allies will need to decide whether they \"are with us or against us\".",
       "source": "BBC"
     },
     {
@@ -5493,6 +5507,16 @@
       "source": "BBC"
     },
     {
+      "title": "UK, France, Germany, Italy and Canada condemn Israel's West Bank settlement project",
+      "link": "https://www.bbc.co.uk/news/articles/c998evlgz8ko?at_medium=RSS&at_campaign=rss",
+      "published": "Thu, 20 Aug 2026 18:55:14 GMT",
+      "ts": 1787252114,
+      "author": "",
+      "feed_title": "",
+      "summary": "European countries and Canada pile on pressure over Israel's plans to expand settlements in a strategically vital part of the occupied West Bank.",
+      "source": "BBC"
+    },
+    {
       "title": "Belgian car salesman becomes prince after royal parentage confirmed",
       "link": "https://www.bbc.co.uk/news/articles/c4g616gvxr0o?at_medium=RSS&at_campaign=rss",
       "published": "Thu, 20 Aug 2026 10:14:47 GMT",
@@ -5513,24 +5537,44 @@
       "source": "BBC"
     },
     {
-      "title": "Bessent urges US partners to back plans to 'squash' Iran economy",
-      "link": "https://www.bbc.co.uk/news/articles/c87n90eg0p2o?at_medium=RSS&at_campaign=rss",
-      "published": "Thu, 20 Aug 2026 18:40:46 GMT",
-      "ts": 1787251246,
+      "title": "Man charged over Manchester synagogue attack",
+      "link": "https://www.bbc.co.uk/news/articles/cm2g5ne37zyo?at_medium=RSS&at_campaign=rss",
+      "published": "Thu, 20 Aug 2026 16:17:27 GMT",
+      "ts": 1787242647,
       "author": "",
       "feed_title": "",
-      "summary": "The US Treasury secretary says allies will need to decide whether they \"are with us or against us\".",
+      "summary": "Police say the man is accused of failing to disclose information regarding terrorist activity.",
       "source": "BBC"
     },
     {
-      "title": "Travelodge boss resigns as chain tackles security after sex assault at hotel",
-      "link": "https://www.bbc.co.uk/news/articles/c2k7e7zwxvyo?at_medium=RSS&at_campaign=rss",
-      "published": "Thu, 20 Aug 2026 10:05:24 GMT",
-      "ts": 1787220324,
-      "author": "",
+      "title": "Aircraft carrier arrives in Middle East to relieve USS Lincoln after lengthy deployment",
+      "link": "https://thehill.com/policy/defense/6042201-uss-george-washington-middle-east/",
+      "published": "Thu, 20 Aug 2026 19:27:39 +0000",
+      "ts": 1787254059,
+      "author": "Filip Timotija",
       "feed_title": "",
-      "summary": "Jo Boydell had been criticised for the company's handling of issues with its safety and security.",
-      "source": "BBC"
+      "summary": "The USS George Washington aircraft carrier arrived in the Middle East theater this week to provide relief for the USS Abraham Lincoln, whose lengthy deployment has drawn scrutiny over reports of worsening sailors\u2019 mental health and supply shortages while supporting the U.S. war against Iran.\u00a0 The U.S. military confirmed on Thursday that the USS George&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Another polling firm comes under fire for \u2018falsified data\u2019 on Florida primary",
+      "link": "https://thehill.com/homenews/campaign/6042103-pollsters-under-fire-midterms-false-data-florida-gubernatorial-primary/",
+      "published": "Thu, 20 Aug 2026 19:10:10 +0000",
+      "ts": 1787253010,
+      "author": "Sarah Davis",
+      "feed_title": "",
+      "summary": "A major polling tracker announced Thursday it would suspend its use of data from a pollster after it discovered evidence that the firm allegedly \u201cfalsified data\u201d in a survey of candidates in Florida\u2019s gubernatorial Republican primary race.\u00a0 The decision follows a shocking announcement last week from fake polling center Median Strategies, which admitted to spreading&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Watch live: Trump, first lady headline Fostering Future Together event in Rose Garden",
+      "link": "https://thehill.com/video-clips/6042062-watch-live-donald-trump-melania-trump-fostering-future-together-rose-garden-indycar/",
+      "published": "Thu, 20 Aug 2026 19:00:00 +0000",
+      "ts": 1787252400,
+      "author": "The Hill staff",
+      "feed_title": "",
+      "summary": "President Trump and first lady Melania Trump are set to make an announcement at the White House Rose Garden on Thursday afternoon related to the administration&#8217;s Fostering the Future Together initiative. While details surrounding the event are slim, the initiative has looked to expand academic opportunities for young people transitioning out of the foster care&#8230;",
+      "source": "The Hill"
     },
     {
       "title": "Cook Political Report moves Iowa, Texas governor\u2019s races in Democrats favor",
@@ -5539,7 +5583,7 @@
       "ts": 1787250507,
       "author": "Mira Bhakta",
       "feed_title": "",
-      "summary": "The nonpartisan Cook Political Report shifted its ratings Thursday for both the Texas and Iowa gubernatorial races, giving Democrats a higher chance at claiming the seat. Cook Political Report Senate and Governors Editor Jessica Taylor wrote in her analysis that Texas&#8217; Democratic nominee for governor, state Rep. Gina Hinojosa (D), is &#8220;surprisingly competitive\u201d against incumbent&#8230;",
+      "summary": "The nonpartisan Cook Political Report shifted its ratings Thursday for both the Texas and Iowa gubernatorial races, giving Democrats a higher chance at claiming the seat. Jessica Taylor, Cook Political Report&#8217;s Senate and governors editor, wrote in her analysis that Texas&#8217;s Democratic nominee for governor, state Rep. Gina Hinojosa (D), is &#8220;surprisingly competitive\u201d against incumbent&#8230;",
       "source": "The Hill"
     },
     {
@@ -5600,36 +5644,6 @@
       "author": "Lindsey Granger, opinion contributor",
       "feed_title": "",
       "summary": "if a political leader as powerful as Hakeem Jeffries changes position on a major issue, voters deserve more than a pivot. They deserve the why and, more importantly, the what\u00a0now.",
-      "source": "The Hill"
-    },
-    {
-      "title": "Invited media, military members held at gunpoint by Space Force security",
-      "link": "https://thehill.com/policy/defense/6041787-media-military-escort-detained-space-force-incident-california/",
-      "published": "Thu, 20 Aug 2026 17:15:46 +0000",
-      "ts": 1787246146,
-      "author": "Ellen Mitchell",
-      "feed_title": "",
-      "summary": "Five journalists and the two military members escorting them to an event at Vandenberg Space Force Base, Calif., this week were briefly detained at gunpoint by security police who believed they were gate crashers, according to the local media affected. The Monday incident happened ahead of an invitation-only groundbreaking for a new training facility for&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Senate Dems press Hegseth for answers on Stars and Stripes independence",
-      "link": "https://thehill.com/policy/defense/6041767-hegseth-stars-and-stripes-dod/",
-      "published": "Thu, 20 Aug 2026 17:08:52 +0000",
-      "ts": 1787245732,
-      "author": "Sarah Davis",
-      "feed_title": "",
-      "summary": "A trio of Senate Democrats is expressing concern over the Pentagon\u2019s involvement in the operations of Stars and Stripes, defending the publication&#8217;s independence in a letter to Defense Secretary Pete Hegseth on Thursday. Their inquiry follows an announcement this week that the military newspaper\u2019s longtime publisher, Max Lederer, will be retiring after the Pentagon appointed&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "NOAA releases fall weather predictions for all 50 states as El Ni\u00f1o grows stronger",
-      "link": "https://thehill.com/policy/energy-environment/6041581-noaa-releases-fall-weather-predictions-for-all-50-states-as-el-nino-grows-stronger/",
-      "published": "Thu, 20 Aug 2026 17:08:36 +0000",
-      "ts": 1787245716,
-      "author": "Alix Martichoux",
-      "feed_title": "",
-      "summary": "Fall is just around the corner, but summer weather may be sticking around a little while longer.",
       "source": "The Hill"
     },
     {
@@ -5715,6 +5729,16 @@
       "source": "Google News"
     },
     {
+      "title": "11,000 Square Feet: JetBlue\u2019s New BlueHouse Lounge At Boston Logan Nears Opening - Simple Flying",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBsakVIbTJWbUlXYzkzNEdHNUljc2xaWnp1Q3hNVjgzc0RDZ0VWYlVuR0tZN1E4U3dfMVJzTlU1UFBIM25NRnZ2ellJa2RBMFpxWm42WS1wOUUtMXc4UnJta3d5cjE1Q0F0c0NhV3ZlS0o5Skl2T0k1TnJ2REYzOTg?oc=5",
+      "published": "Wed, 19 Aug 2026 19:18:19 GMT",
+      "ts": 1787167099,
+      "author": "",
+      "feed_title": "Simple Flying",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTFBsakVIbTJWbUlXYzkzNEdHNUljc2xaWnp1Q3hNVjgzc0RDZ0VWYlVuR0tZN1E4U3dfMVJzTlU1UFBIM25NRnZ2ellJa2RBMFpxWm42WS1wOUUtMXc4UnJta3d5cjE1Q0F0c0NhV3ZlS0o5Skl2T0k1TnJ2REYzOTg?oc=5\" target=\"_blank\">11,000 Square Feet: JetBlue\u2019s New BlueHouse Lounge At Boston Logan Nears Opening</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Simple Flying</font>",
+      "source": "Google News"
+    },
+    {
       "title": "Woman arrested by ICE at Logan Airport after Noah Kahan concert says detainment was 'traumatizing' - WCVB",
       "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNZ2pSZ3Y3cnREd0JfNU9weWxabU1ub19DeXpOY19uMVZhUWF4TWxRY1hHMGNpSUtpTFpIZG5DMUpwVkxkTmZvcWtZNkIxdFpPVTBDRGlyZGZfTjBqTWQ0SU5uRER3WkNhWkRRWXZaVzUxZVRmMEtqY2xnWERBcTJwc2FpbkpBQzBVQWp1T3ItMXFLLU5RR0JlMHFKRWtJSTRPVWxjQ0xnc3I4OHdiR0UtSkJIMUZRb2tfNlJkNnJ2SGtTOFhsLWh0M09jSGhfUVU?oc=5",
       "published": "Fri, 14 Aug 2026 04:49:00 GMT",
@@ -5752,16 +5776,6 @@
       "author": "",
       "feed_title": "CBS News",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxOMVhFNW85cnZsR3lKSTZyelVmbjBPOTZpd3kwWmpKdzN1Y0dQczNJNlJreEo1R2ZRLTUwcFhYMFpwZ2FCUXBKZW16Vlp0Nng4Nm5DU2pGUmNja3ZnYU5EaW1CTFRmTzAxWkR2dEh5R1JtMnBMWnZnZVk5YmhPcGhtdnYyQ295YmZ4amZKTEJrZHBvcWNoT1FaZA?oc=5\" target=\"_blank\">JetBlue passengers sleep on cots at Logan Airport after flights delayed, canceled in Boston</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
-      "source": "Google News"
-    },
-    {
-      "title": "11,000 Square Feet: JetBlue\u2019s New BlueHouse Lounge At Boston Logan Nears Opening - Simple Flying",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBsakVIbTJWbUlXYzkzNEdHNUljc2xaWnp1Q3hNVjgzc0RDZ0VWYlVuR0tZN1E4U3dfMVJzTlU1UFBIM25NRnZ2ellJa2RBMFpxWm42WS1wOUUtMXc4UnJta3d5cjE1Q0F0c0NhV3ZlS0o5Skl2T0k1TnJ2REYzOTg?oc=5",
-      "published": "Wed, 19 Aug 2026 19:18:19 GMT",
-      "ts": 1787167099,
-      "author": "",
-      "feed_title": "Simple Flying",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTFBsakVIbTJWbUlXYzkzNEdHNUljc2xaWnp1Q3hNVjgzc0RDZ0VWYlVuR0tZN1E4U3dfMVJzTlU1UFBIM25NRnZ2ellJa2RBMFpxWm42WS1wOUUtMXc4UnJta3d5cjE1Q0F0c0NhV3ZlS0o5Skl2T0k1TnJ2REYzOTg?oc=5\" target=\"_blank\">11,000 Square Feet: JetBlue\u2019s New BlueHouse Lounge At Boston Logan Nears Opening</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Simple Flying</font>",
       "source": "Google News"
     },
     {
@@ -5928,14 +5942,14 @@
       "source": "MassDOT"
     },
     {
-      "title": "Why Phil Eng\u2019s hair-pulling incident hits differently for Black women - The Boston Globe",
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxORWlvTDhHeUs3UGxabDRObFZ1Y1NudVE5eTdrR3RhdVRpUm5hZmVLSGZvbFNUNU1mV0pUamxGeHN1dTFTc3M5S1gtMlh4b2ZvRmY5ZE5xOTdPSFk1ZFRMMDQ2Z3pkbXl4Qm1rSTNwZlBNa3VWYXpxU0lzUDJIRVM2NVYxSkNKdXNGb2ow?oc=5",
-      "published": "Tue, 18 Aug 2026 18:23:57 GMT",
-      "ts": 1787077437,
+      "title": "Wrong-way detection testing planned on I-495 in Norton - Taunton Daily Gazette",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQa2FVd0dWbGE1VHJzbVJSR1hUNnRvWFltVDdrN1FEcVJUOUZjcDFTelN1QjdmbjJKSEluc0J3RHZrOV9zUmx1WHAzNUxvU3N1WnFuc3d2LVhSNjY5M3hLblcyOENKUU1uYThYUEJ1dVdsU2diM0dRU3FRWkNreWtTRlFWUWt0YklzODNNSTM1amlQUVA1dzZWQzliaEJUd3F3RE5kOW10Tl9NRW1QSHN0ek55RDlnMUtvOUdfZlV3NU03SGNvY1V4NzgxODg?oc=5",
+      "published": "Tue, 18 Aug 2026 18:05:00 GMT",
+      "ts": 1787076300,
       "author": "",
-      "feed_title": "The Boston Globe",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxORWlvTDhHeUs3UGxabDRObFZ1Y1NudVE5eTdrR3RhdVRpUm5hZmVLSGZvbFNUNU1mV0pUamxGeHN1dTFTc3M5S1gtMlh4b2ZvRmY5ZE5xOTdPSFk1ZFRMMDQ2Z3pkbXl4Qm1rSTNwZlBNa3VWYXpxU0lzUDJIRVM2NVYxSkNKdXNGb2ow?oc=5\" target=\"_blank\">Why Phil Eng\u2019s hair-pulling incident hits differently for Black women</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Boston Globe</font>",
-      "source": "MBTA"
+      "feed_title": "Taunton Daily Gazette",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxQa2FVd0dWbGE1VHJzbVJSR1hUNnRvWFltVDdrN1FEcVJUOUZjcDFTelN1QjdmbjJKSEluc0J3RHZrOV9zUmx1WHAzNUxvU3N1WnFuc3d2LVhSNjY5M3hLblcyOENKUU1uYThYUEJ1dVdsU2diM0dRU3FRWkNreWtTRlFWUWt0YklzODNNSTM1amlQUVA1dzZWQzliaEJUd3F3RE5kOW10Tl9NRW1QSHN0ek55RDlnMUtvOUdfZlV3NU03SGNvY1V4NzgxODg?oc=5\" target=\"_blank\">Wrong-way detection testing planned on I-495 in Norton</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Taunton Daily Gazette</font>",
+      "source": "MassDOT"
     },
     {
       "title": "\u2018Future-proof\u2019 or \u2018a strategic mistake\u2019? Inside the MBTA\u2019s effort to electrify its commuter rail system - CommonWealth Beacon",
@@ -5988,6 +6002,16 @@
       "source": "MBTA"
     },
     {
+      "title": "The Orange Line is partially shut down for 11 days. Here\u2019s what to know. - The Boston Globe",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOR0IzVEF5akJVT2RTNWVmYVlNZkhMSHlENG9GUTJ4MExPNUVSVW9BazhZbmdvRUVweUNpR01ObER5VDNOTm5HZFRyZFNSTGJsWk4wT0R3S3U3QWVad0hYdTdwOVYtNmJ4WWNEMjlRZEFaZEJVdXR3Q2otazhqenpVUi1MZmljZ0k?oc=5",
+      "published": "Mon, 17 Aug 2026 13:12:47 GMT",
+      "ts": 1786972367,
+      "author": "",
+      "feed_title": "The Boston Globe",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxOR0IzVEF5akJVT2RTNWVmYVlNZkhMSHlENG9GUTJ4MExPNUVSVW9BazhZbmdvRUVweUNpR01ObER5VDNOTm5HZFRyZFNSTGJsWk4wT0R3S3U3QWVad0hYdTdwOVYtNmJ4WWNEMjlRZEFaZEJVdXR3Q2otazhqenpVUi1MZmljZ0k?oc=5\" target=\"_blank\">The Orange Line is partially shut down for 11 days. Here\u2019s what to know.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Boston Globe</font>",
+      "source": "MBTA"
+    },
+    {
       "title": "Route 25 bridge work to begin in Wareham - Enterprise News",
       "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQVHpjQ1MtUloySktmRjN5bUh4UTgwUDM3RTBRVzVEVndtWjgtUW5wV2s5ZFRkTWJmUEh0bXoyOFJneTlWeDRLbTNEd0hwV2Q1ZG50S2NRYXpOUGZSbm5Lam9kY2U0SUJkUXVfVzdvd1NoQTBOckxtaUxkR1EwaG44cHNSaTNFT0x4MHNnM0VjaFlfN045YWc4aTE0VW5BLVlCaU44c21pWFVQUDM4N05qQnlPZTBZOGpQbmpRQVVJVTRmai1kS2Z0NFktWQ?oc=5",
       "published": "Mon, 17 Aug 2026 12:01:00 GMT",
@@ -6005,16 +6029,6 @@
       "author": "",
       "feed_title": "The Patriot Ledger",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxPS2RTMGY2blhMSWhDRHg2cllOS0dScEd6N2Myd1NfQVZELUN5eVZFaG5qUmhuTXJOZWt6c3BHajFHMzd6TG8tRndvX3ZUaUgzWXNOejVQNHhoVTdFYjlCUWhUQXZlRm5wS2FSeXNZeGU5N0Nnd1R3bUliR1ZMQjRwS0otdlE3U0pfM3lwRUF2aU11c0hSeHo1MGNFNkJoRkZDVEtUSWx3VWwwYkRkcFFaU2NHQlU2eXJ3bzJKZlpB?oc=5\" target=\"_blank\">Overnight roadwork begins on Route 53 in Hanover</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Patriot Ledger</font>",
-      "source": "MassDOT"
-    },
-    {
-      "title": "MassDOT announces I-90/I-495 lane closure, additional overnight ramp work - Hopkinton Independent",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOLVEtZEpHc1pIbmNVT2k0ZU4ySW04NjlKcTlfMmN3clhVZzRpQWVUN0tsdDZqYmxzQnpDZDFmSE54Q2RCOHVHVHBGRWVCSEswMXBuOFJiZ2YzYndRc25ESmVJTWFRUzNNR09qdHNHS0E0bUtGaktWTzdWWVdTTVNHOU1yaGNKVmxzYWNieFBwQm1hcmFyUkxfZEVDWjNCQlp3T3VCNEptY0Q?oc=5",
-      "published": "Fri, 14 Aug 2026 22:40:57 GMT",
-      "ts": 1786747257,
-      "author": "",
-      "feed_title": "Hopkinton Independent",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOLVEtZEpHc1pIbmNVT2k0ZU4ySW04NjlKcTlfMmN3clhVZzRpQWVUN0tsdDZqYmxzQnpDZDFmSE54Q2RCOHVHVHBGRWVCSEswMXBuOFJiZ2YzYndRc25ESmVJTWFRUzNNR09qdHNHS0E0bUtGaktWTzdWWVdTTVNHOU1yaGNKVmxzYWNieFBwQm1hcmFyUkxfZEVDWjNCQlp3T3VCNEptY0Q?oc=5\" target=\"_blank\">MassDOT announces I-90/I-495 lane closure, additional overnight ramp work</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Hopkinton Independent</font>",
       "source": "MassDOT"
     },
     {
@@ -6044,23 +6058,7 @@
       "date": "2026-08-20",
       "time": null,
       "all_day": true,
-      "summary": "follow up about Capri, Las Delicias, etc",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-20",
-      "time": null,
-      "all_day": true,
       "summary": "Do laundry",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-20",
-      "time": null,
-      "all_day": true,
-      "summary": "Follow up on new hockey seats",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6077,6 +6075,22 @@
       "time": null,
       "all_day": true,
       "summary": "determine whether to renew fubo tv",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-20",
+      "time": null,
+      "all_day": true,
+      "summary": "Follow up on new hockey seats",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-20",
+      "time": null,
+      "all_day": true,
+      "summary": "follow up about Capri, Las Delicias, etc",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6284,7 +6298,7 @@
       "date": "2026-08-26",
       "time": null,
       "all_day": true,
-      "summary": "Revere Journal",
+      "summary": "weekly NASCAR picks",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6292,7 +6306,7 @@
       "date": "2026-08-26",
       "time": null,
       "all_day": true,
-      "summary": "weekly NASCAR picks",
+      "summary": "Revere Journal",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6492,7 +6506,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Convene alumni committee",
+      "summary": "Check back in",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6516,7 +6530,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Check back in",
+      "summary": "Convene alumni committee",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6548,7 +6562,7 @@
       "date": "2026-09-02",
       "time": null,
       "all_day": true,
-      "summary": "Revere Journal",
+      "summary": "weekly NASCAR picks",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6556,7 +6570,7 @@
       "date": "2026-09-02",
       "time": null,
       "all_day": true,
-      "summary": "weekly NASCAR picks",
+      "summary": "Revere Journal",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6904,7 +6918,7 @@
     },
     {
       "date": "2026-08-15",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 Black's Tire 250 presented by BTS Rewards",
       "time": "12:00 PM",
       "result": null,
@@ -6914,7 +6928,7 @@
     },
     {
       "date": "2026-08-15",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 Black's Tire 250 presented by BTS Rewards",
       "time": "12:00 PM",
       "result": null,
@@ -8327,6 +8341,22 @@
       "updated": "2026-08-19T09:18:48"
     },
     {
+      "id": "2699886772362531",
+      "title": "Traffic (DMV/Crash) \u2014 RT-139 EB",
+      "type": "Traffic Incidents",
+      "subtype": "Traffic (DMV/Crash)",
+      "road": "RT-139",
+      "direction": "EB",
+      "start": "",
+      "end": "",
+      "status": "Open",
+      "location": "RT-139 EB Exit At RT 3A",
+      "lanes": "Travel Lane(s) Affected: 2 of 2 (SELECT ONLY IF All Lanes are Closed) Lane(s) Affected Description: 1 direction closed",
+      "lat": 42.0938499,
+      "lng": -70.71763969999999,
+      "updated": "2026-08-20T15:18:13"
+    },
+    {
       "id": "2691021959863794",
       "title": "Traffic (DMV/Crash) \u2014 I-93 SB",
       "type": "Traffic Incidents",
@@ -8357,22 +8387,6 @@
       "lat": 41.96775207898358,
       "lng": -70.02814354498291,
       "updated": "2026-08-20T13:56:28"
-    },
-    {
-      "id": "2684459249938299",
-      "title": "Traffic (Roadway Obstruction) \u2014 RT-9 EB",
-      "type": "Traffic Incidents",
-      "subtype": "Traffic (Roadway Obstruction)",
-      "road": "RT-9",
-      "direction": "EB",
-      "start": "",
-      "end": "",
-      "status": "Open",
-      "location": "RT-9 EB Exit @ 424 Boylston St",
-      "lanes": "Travel Lane(s) Affected:  Lane(s) Affected Description: Right 1 lane closed",
-      "lat": 42.33002424106048,
-      "lng": -71.12589394833928,
-      "updated": "2026-08-18T16:07:40"
     }
   ],
   "news_ktn": [
