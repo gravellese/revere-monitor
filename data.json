@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-21T13:04:02.474666+00:00",
-  "updated_local": "August 21, 2026 at 1:04 PM",
+  "updated": "2026-08-21T13:54:18.204053+00:00",
+  "updated_local": "August 21, 2026 at 1:54 PM",
   "weather_current": {
     "temp": 69,
     "unit": "F",
@@ -325,12 +325,13 @@
     "delay": false,
     "status": "ok",
     "metar": {
-      "raw": "METAR KBOS 211254Z 36008KT 2SM -RA BR FEW007 SCT018 OVC036 19/18 A3009 RMK AO2 SFC VIS 4 SLP188 P0001 T01940183",
+      "raw": "SPECI KBOS 211331Z 01009KT 3SM -RA BR FEW008 SCT020 OVC036 20/18 A3009 RMK AO2 SFC VIS 5 P0000 T02000183",
       "flight_cat": ""
     },
     "faa_delays": [],
     "flight_stats": {
-      "cancelled": 24
+      "cancelled": 24,
+      "delayed": 2
     }
   },
   "mbta_alerts": [
@@ -350,18 +351,28 @@
       "routes": []
     },
     {
-      "header": "Foxboro Line Train 1719 (7:20 AM from South Station) is operating 5-15 minutes behind schedule between Norwood Depot and Foxboro.",
-      "effect": "DELAY",
-      "routes": []
-    },
-    {
       "header": "Orange Line: Service is suspended between Oak Grove and Back Bay through August 30. Riders can use shuttles between Oak Grove and North Station, and the Green Line between North Station and Copley/Back Bay. ",
       "effect": "SUSPENSION",
       "routes": []
     },
     {
+      "header": "Fairmount Line Train 1630 (9:30 AM from Readville) is operating 5-15 minutes behind schedule between Four Corners/Geneva and South Station.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Worcester Line Train 526 (8:10 AM from Worcester) is operating 5-15 minutes behind schedule between Wellesley Hills and South Station.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
       "header": "The stairway connecting the Jackson Square lobby and the south end of the platform is closed until winter 2026. Use the stairway at the north end of the platform. This closure is for the construction of a new stairway and a second elevator.",
       "effect": "STATION_ISSUE",
+      "routes": []
+    },
+    {
+      "header": "Newburyport Line Train 126 (8:49 AM from Newburyport) is operating 5-15 minutes behind schedule between Salem and North Station.",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -385,18 +396,23 @@
       "routes": []
     },
     {
+      "header": "Please board all Newburyport Line trains on the inbound platform (Track 2) at North Beverly until further notice today.",
+      "effect": "TRACK_CHANGE",
+      "routes": []
+    },
+    {
       "header": "Red Line: Shuttle buses replace service between JFK/UMass and Ashmont the weekend of September 19-20 while personnel perform critical bridge work along the Ashmont branch.",
       "effect": "SHUTTLE",
       "routes": []
     },
     {
-      "header": "Providence Line Train 820 (7:02 AM from Wickford Junction) is operating 5-15 minutes behind schedule between Wickford Junction and South Station.",
-      "effect": "DELAY",
+      "header": "Orange Line: Shuttle buses will replace service between Back Bay and Forest Hills from September 10 - 14 to allow for work on the Ruggles Station Improvement Project. ",
+      "effect": "SHUTTLE",
       "routes": []
     },
     {
-      "header": "Orange Line: Shuttle buses will replace service between Back Bay and Forest Hills from September 10 - 14 to allow for work on the Ruggles Station Improvement Project. ",
-      "effect": "SHUTTLE",
+      "header": "New Bedford Line Train 2022 (9:18 AM from New Bedford) is operating 10-20 minutes behind schedule between Church Street and South Station.",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -418,29 +434,14 @@
       "header": "Green Line C Branch:  Trains are not stopping at Brandon Hall through October 4 while accessibility upgrades are being done. Riders can board or alight at either Fairbanks St or Summit Ave, which are 0.1-0.2 miles away (or a 4- to 5-minute walk) ",
       "effect": "STATION_CLOSURE",
       "routes": []
-    },
-    {
-      "header": "To accommodate renovations at Providence Station, construction barriers have been installed and the southern stairwell to Track 1 is out of service. Staircase access is available to Track 3 and Track 5.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "Green Line E Branch: Symphony station is closed for major accessibility upgrades. Riders can use Prudential or Northeastern to access E Branch service. The station is expected to reopen in 2029.",
-      "effect": "STATION_CLOSURE",
-      "routes": []
-    },
-    {
-      "header": "The Wyoming Hill Mini-high platform project has begun. Passengers and local residents can expect construction vehicles and activity during the day through the Winter of 2026.",
-      "effect": "STATION_ISSUE",
-      "routes": []
     }
   ],
   "beach_conditions": {
-    "water_temp_f": 69.6,
-    "wvht_ft": null,
-    "dpd_s": null,
+    "water_temp_f": 69.8,
+    "wvht_ft": 2.3,
+    "dpd_s": 3.0,
     "wspd_mph": 13.4,
-    "wdir_deg": 10.0,
+    "wdir_deg": 360.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
@@ -1673,16 +1674,6 @@
       "source": "Malden"
     },
     {
-      "title": "2 North Shore Police Officers Suspended After Suspected Flock Abuse - Patch",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQc1U3aFJ2RDBKM0hWRkU5ck1FNHJoSmdYUGZxd01MS0JTNThKcmZ2UGxZQjhvaFNtSjZXSmxMX1lzTzk4VUQ3XzUxN0Y5ZnljYk4wcVgyNGtfeWt5c21ITWl6c1dZcXN2Ykdlcmw1QmRlWE1GNHgtaHhVQ1MwMHlub2xwbXlFdHh0eXREVlVFVEl5RzQ1T29RVl9nU2kzWVc0UmVqUDB3QjLSAboBQVVfeXFMTmh4U2NvdUtSMU9nOVNMb0gtV2M3TXJuTVg3NmQwYkpTZ0RBQ0gzQUV0Q3hYTnJFN1ZyTFRKUGZOa3Q1dnZ0YzQ0aEdqd01wWklfOEFaOUZyM09OR29CVFhCWldyZGpHX3pJb3NwUlFycUcycnF1S3MxblcyeEZ0cUY2bE1tLTVROWJXSm4zU2VneUNqRDlTSm80VDdCV1R0X2wtSVFjbE5XY3pyUk1iaWNwMVRXOFpEa3BR?oc=5",
-      "published": "Thu, 20 Aug 2026 19:34:51 GMT",
-      "ts": 1787254491,
-      "author": "",
-      "feed_title": "Patch",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQc1U3aFJ2RDBKM0hWRkU5ck1FNHJoSmdYUGZxd01MS0JTNThKcmZ2UGxZQjhvaFNtSjZXSmxMX1lzTzk4VUQ3XzUxN0Y5ZnljYk4wcVgyNGtfeWt5c21ITWl6c1dZcXN2Ykdlcmw1QmRlWE1GNHgtaHhVQ1MwMHlub2xwbXlFdHh0eXREVlVFVEl5RzQ1T29RVl9nU2kzWVc0UmVqUDB3QjLSAboBQVVfeXFMTmh4U2NvdUtSMU9nOVNMb0gtV2M3TXJuTVg3NmQwYkpTZ0RBQ0gzQUV0Q3hYTnJFN1ZyTFRKUGZOa3Q1dnZ0YzQ0aEdqd01wWklfOEFaOUZyM09OR29CVFhCWldyZGpHX3pJb3NwUlFycUcycnF1S3MxblcyeEZ0cUY2bE1tLTVROWJXSm4zU2VneUNqRDlTSm80VDdCV1R0X2wtSVFjbE5XY3pyUk1iaWNwMVRXOFpEa3BR?oc=5\" target=\"_blank\">2 North Shore Police Officers Suspended After Suspected Flock Abuse</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
-      "source": "North Shore"
-    },
-    {
       "title": "Elizabeth S. Chotkowski Obituary (2026) - Everett, MA - Chapman Funerals & Cremations - Falmouth - Legacy obituary",
       "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQaHp4bzg1UFozSk5XcTl6ZWhucVVQb0lvUExWc3NvdUdBS2R5YkpDUkxiZHlGRmtKNjJ4dE5OR2NsUWRNa3ZYTFFmS2xyWl9wcS13WFZ6UUVfUHJOX0lNWmp3Q2RhWU03eEpac0Y4LXNXUF9ORl9uZWN6WTdsZDlFQ09ORDdycF9PV0tJ?oc=5",
       "published": "Thu, 20 Aug 2026 17:34:16 GMT",
@@ -2080,6 +2071,16 @@
       "author": "Associated Press",
       "feed_title": "",
       "summary": "<p>Depending on who you ask, tending to the daily barrage of guinea pig needs can be either a fairy tale or a horror show. For Kimie Smothermon, it\u2019s often a mix of both.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/18/massachusetts-sanctuary-guinea-pigs/\">How this Massachusetts sanctuary takes in hundreds of guinea pigs from across the U.S.</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "North Shore"
+    },
+    {
+      "title": "Rip Current Danger Warnings Issued Across North Shore, MA Coast - Patch",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQaHdWOHpDWHpnSFV4QUVXLWc5by1BaHF1b1djLXA4U0pHSUxValdOQU9ISTRVeVh6RXdkNWdhNFBZVnI5bTFzb0VUQWtwMk1IekRlZW5SU1N3LUg1bXBaTk1qbkxXclBWUlZ2OFY0MUZCVEtjVDZfREJScHNDT3djYmtvdVE5Y3N1MEZjUG02QTRWbE8yVXJzc0hqczZ6Yl91NjNWZENENUvSAboBQVVfeXFMTVBzRkRiMnVxLWE4NEFvUWprRzBwWUZRZlZ2RlpwaTlyMUlHd1ZJcnkxNVIxOEtVZmRteGNZTUNZT2RMc0lsSDRGQlMtcWN4YnBzdnkxT0dLU0tKZEZVWUFUZmZDVFAyWm9qTnJPVV9yMzB4N0MzaWdTN0dXaEcxSzNfeHlyZ1ozYV83cG9hbVIzY2VKeU9mNllKVG92YTRQelBySTd5ZDN4ZFJ4MHhaTldVRWRKY05GUHJ3?oc=5",
+      "published": "Tue, 18 Aug 2026 17:12:48 GMT",
+      "ts": 1787073168,
+      "author": "",
+      "feed_title": "Patch",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQaHdWOHpDWHpnSFV4QUVXLWc5by1BaHF1b1djLXA4U0pHSUxValdOQU9ISTRVeVh6RXdkNWdhNFBZVnI5bTFzb0VUQWtwMk1IekRlZW5SU1N3LUg1bXBaTk1qbkxXclBWUlZ2OFY0MUZCVEtjVDZfREJScHNDT3djYmtvdVE5Y3N1MEZjUG02QTRWbE8yVXJzc0hqczZ6Yl91NjNWZENENUvSAboBQVVfeXFMTVBzRkRiMnVxLWE4NEFvUWprRzBwWUZRZlZ2RlpwaTlyMUlHd1ZJcnkxNVIxOEtVZmRteGNZTUNZT2RMc0lsSDRGQlMtcWN4YnBzdnkxT0dLU0tKZEZVWUFUZmZDVFAyWm9qTnJPVV9yMzB4N0MzaWdTN0dXaEcxSzNfeHlyZ1ozYV83cG9hbVIzY2VKeU9mNllKVG92YTRQelBySTd5ZDN4ZFJ4MHhaTldVRWRKY05GUHJ3?oc=5\" target=\"_blank\">Rip Current Danger Warnings Issued Across North Shore, MA Coast</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Patch</font>",
       "source": "North Shore"
     },
     {
@@ -3725,6 +3726,76 @@
   ],
   "news_boston": [
     {
+      "title": "CNN: Navy weighs renaming carrier slated to honor Black war hero, potentially switching it to Trump",
+      "link": "https://whdh.com/news/cnn-navy-weighs-renaming-carrier-slated-to-honor-black-war-hero-potentially-switching-it-to-trump/",
+      "published": "Fri, 21 Aug 2026 13:53:34 +0000",
+      "ts": 1787320414,
+      "author": "James Kukstis",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "(CNN) \u2014&#160;The US Navy is working to rename an aircraft carrier under construction that was set to honor a Black sailor hailed for his heroic...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "Temporary injunction against installation of religious statues at Quincy public safety building upheld",
+      "link": "https://whdh.com/news/temporary-injunction-against-installation-of-religious-statues-at-quincy-public-safety-building-upheld/",
+      "published": "Fri, 21 Aug 2026 13:51:03 +0000",
+      "ts": 1787320263,
+      "author": "James Kukstis",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "Massachusetts&#8217; highest court upheld a temporary injunction against the installation of two religious statues outside Quincy&#8217;s public safety building as legal proceedings play out. The...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "Melania Trump's behind-the-scenes foster youth work comes into focus",
+      "link": "https://www.wcvb.com/article/melania-trump-foster-youth-work/73493878",
+      "published": "Fri, 21 Aug 2026 13:44:00 GMT",
+      "ts": 1787319840,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>\"Our mission is simple yet transformational: Provide every young person from the foster care community the chance to earn a college education, launch a meaningful career, and achieve lasting financial independence,\" First Lady Melania Trump said, touting her \"Fostering the Future\" initiative.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "What to know about the new Museum of Science wing opening in October",
+      "link": "https://www.boston.com/travel/local-news/2026/08/21/new-wing-of-the-museum-of-science-opening-in-october/",
+      "published": "Fri, 21 Aug 2026 13:38:59 +0000",
+      "ts": 1787319539,
+      "author": "Kristi Palma",
+      "feed_title": "Boston.com",
+      "summary": "<p>The 10,000-square-foot, $155 million venue will have state-of-the-art technology.</p>\n<p>The post <a href=\"https://www.boston.com/travel/local-news/2026/08/21/new-wing-of-the-museum-of-science-opening-in-october/\">What to know about the new Museum of Science wing opening in October</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "Prince Harry and 6 others must pay initial $13 million over failed invasion of privacy case",
+      "link": "https://whdh.com/news/prince-harry-and-6-others-must-pay-initial-13-million-over-failed-invasion-of-privacy-case/",
+      "published": "Fri, 21 Aug 2026 13:27:04 +0000",
+      "ts": 1787318824,
+      "author": "James Kukstis",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "LONDON (AP) \u2014&#160;Prince Harry&#160;and six others, including&#160;Elton John, have been ordered to pay an initial 9.5 million pounds ($13 million) to the publisher of Britain\u2019s...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "She lobbied for police officers. Now she\u2019s a suspect in one\u2019s death.",
+      "link": "https://www.boston.com/news/local-news/2026/08/21/she-lobbied-for-police-officers-now-shes-a-suspect-in-ones-death/",
+      "published": "Fri, 21 Aug 2026 13:24:36 +0000",
+      "ts": 1787318676,
+      "author": "New York Times Service",
+      "feed_title": "Boston.com",
+      "summary": "<p>Worcester police are searching for Karen Solomon in connection with the death of her husband, Kurt Solomon.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/21/she-lobbied-for-police-officers-now-shes-a-suspect-in-ones-death/\">She lobbied for police officers. Now she\u2019s a suspect in one\u2019s death.</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "Defense preparing to rest case in Lindsay Clancy murder trial",
+      "link": "https://www.wcvb.com/article/lindsay-clancy-trial-live-updates-aug-21/73492912",
+      "published": "Fri, 21 Aug 2026 13:09:00 GMT",
+      "ts": 1787317740,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Testimony continues Friday in the murder trial of Lindsay Clancy, the Massachusetts mother accused of strangling her three children in the family's Duxbury home in 2023.  </p>",
+      "source": "Top Stories"
+    },
+    {
       "title": "Livestream: Lindsay Clancy murder trial nears its end",
       "link": "https://www.boston.com/news/crime/2026/08/21/lindsay-clancy-murder-trial-livestream-video-friday-august-21/",
       "published": "Fri, 21 Aug 2026 12:58:39 +0000",
@@ -3733,16 +3804,6 @@
       "feed_title": "Boston.com",
       "summary": "<p>Witness testimony will possibly conclude Friday. Judge William Sullivan said Thursday he expected closing arguments to be delivered Monday or Tuesday.</p>\n<p>The post <a href=\"https://www.boston.com/news/crime/2026/08/21/lindsay-clancy-murder-trial-livestream-video-friday-august-21/\">Livestream: Lindsay Clancy murder trial nears its end</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
       "source": "Boston.com"
-    },
-    {
-      "title": "Defense preparing to rest case in Lindsay Clancy murder trial",
-      "link": "https://www.wcvb.com/article/lindsay-clancy-trial-live-updates-aug-21/73492912",
-      "published": "Fri, 21 Aug 2026 12:48:00 GMT",
-      "ts": 1787316480,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Testimony continues Friday in the murder trial of Lindsay Clancy, the Massachusetts mother accused of strangling her three children in the family's Duxbury home in 2023.  </p>",
-      "source": "Top Stories"
     },
     {
       "title": "Video: Spot showers linger for day",
@@ -3875,36 +3936,6 @@
       "source": "Top Stories"
     },
     {
-      "title": "Schools are starting to teach AI literacy. For many, that means helping kids see chatbots\u2019 flaws",
-      "link": "https://whdh.com/news/schools-are-starting-to-teach-ai-literacy-for-many-that-means-helping-kids-see-chatbots-flaws/",
-      "published": "Fri, 21 Aug 2026 10:56:40 +0000",
-      "ts": 1787309800,
-      "author": "Owen Boss",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "NORTH CHARLESTON, S.C. (AP) \u2014 Artificial intelligence chatbots have become the&#160;bane of teachers&#160;everywhere, but to prepare for the new school year, a group of educators...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Iranian families struggle to afford the basics as US ratchets up economic warfare",
-      "link": "https://whdh.com/news/iranian-families-struggle-to-afford-the-basics-as-us-ratchets-up-economic-warfare/",
-      "published": "Fri, 21 Aug 2026 10:53:52 +0000",
-      "ts": 1787309632,
-      "author": "Owen Boss",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "TEHRAN, Iran (AP) \u2014 Tehran\u2019s grocery stores are well-stocked, but many families can barely afford the basics. Unemployment is soaring and those with jobs are...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Charter plane crash kills 8 near remote radar site in western Alaska",
-      "link": "https://whdh.com/news/charter-plane-crash-kills-8-near-remote-radar-site-in-western-alaska/",
-      "published": "Fri, 21 Aug 2026 10:50:31 +0000",
-      "ts": 1787309431,
-      "author": "Owen Boss",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "JUNEAU, Alaska (AP) \u2014 A charter aircraft carrying eight people crashed at a remote radar site in western Alaska on Thursday, killing all on board,...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
       "title": "GBH Daily: Free Ride: Summer house",
       "link": "https://www.wgbh.org/news/local/2026-08-21/gbh-daily-free-ride-summer-house",
       "published": "Fri, 21 Aug 2026 10:45:00 GMT",
@@ -3985,7 +4016,7 @@
       "source": "Top Stories"
     },
     {
-      "title": "Ed Markey and Seth Moulton spar over healthcare and AI in final Senate primary debate",
+      "title": "Markey, Moulton spar over healthcare and AI in final Senate primary debate",
       "link": "https://www.nbcboston.com/elections/ed-markey-seth-moulton-final-senate-primary-debate/4001662/",
       "published": "Fri, Aug 21 2026 09:03:33 AM",
       "ts": 1787303013,
@@ -4013,6 +4044,16 @@
       "feed_title": "Top Stories",
       "summary": "<p>A mom found a new way to communicate with her 11-year-old son Hunter, who has autism and is non-speaking. Her creative approach is getting a lot of attention.</p>",
       "source": "Top Stories"
+    },
+    {
+      "title": "2 people dead after Cumberland, RI, crash that closed I-295 north",
+      "link": "https://www.nbcboston.com/news/local/i-295-cumberland-rhode-island-crash/4001615/",
+      "published": "Fri, Aug 21 2026 08:34:54 AM",
+      "ts": 1787301294,
+      "author": "Kaitlin McKinley Becker",
+      "feed_title": "NBC Boston",
+      "summary": "<p>Two people were killed in a crash on Interstate 295 in Cumberland, Rhode Island, that closed the northbound side of the highway for hours on Thursday.</p>\n\n\n\n<p>Cumberland police said I-295 northbound was closed at Route 146 and at Mendon Road for a serious crash around 3:30 p.m. between the Mendon Road and Diamond Hill Road exits. </p>\n\n\n\n<p>Rhode Island State Police say troopers, along with Cumberland officers and fire/rescue crews, arrived on scene to find two victims &#8212; one who was already dead, and one with serious injuries. </p>\n\n\n\n<p>A preliminary investigation found that a vehicle was traveling on I-295 south near Mendon Road when it lost control, crossed the center median, entered the northbound lanes, and struck a pickup truck, state police added.</p>\n\n\n\n<p>The pickup driver was taken to taken to Rhode Island Hospital where he later died from his injuries. Neither driver has been publicly identified at this time.</p>\n\n\n\n\n\n\n\n<p>A North Providence woman who was driving to pick up her son at the time saw the deadly crash unfold, telling NBC10 Boston affiliate <a href=\"https://turnto10.com/news/local/rolled-over-truck-blocks-interstate-295-north-route-122-cumberland-rhode-island-august-20-2026\" rel=\"noreferrer noopener\" target=\"_blank\">WJAR</a> that a white car traveling south crossed the median, went airborne and then slammed head-on into a black pickup truck traveling north in the high-speed lane.</p>\n\n\n\n<p>&#8220;It was something, it was horrible,&#8221; Alysia Polion said. &#8220;I just laid on the horn for as long as I could until basically the impact happened&#8230;It&#8217;s sad. It was tragic. The person in the truck didn&#8217;t see it coming, and he couldn&#8217;t have avoided it if he tried because it happened that fast.&#8221;</p>\n\n\n\n<p>&#8220;All I kept thinking was, today is my son&#8217;s birthday. I cannot die, it cannot be today,&#8221; Polion added. &#8220;I literally realized that your life can change in like three seconds.&#8221;</p>\n\n\n\n<p>Video from the scene shows cars scattered everywhere, backed up behind the crash and trying to turn around with the northbound side of the highway shut down for hours.</p>\n\n\n\n<p>The southbound side of the highway was also being affected, and drivers were urged to seek alternate routes.</p>\n\n\n\n<p>Crews eventually cleared the debris and finished their on-scene investigation. Police and the Rhode Island Department of Transportation said all I-295 northbound lanes had reopened as of 6:45 p.m.</p>\n\n\n\n<p>It&#8217;s unclear at this time what caused the vehicle to cross the median into oncoming traffic. An investigation remains ongoing.</p>\n<p><i>This story uses functionality that may not work in our app. <a href=\"https://www.nbcboston.com/news/local/i-295-cumberland-rhode-island-crash/4001615/\">Click here</a> to open the story in your web browser.</i></p>",
+      "source": "NBC Boston"
     },
     {
       "title": "Could defense rest its case today in the Lindsay Clancy trial?",
@@ -4105,16 +4146,6 @@
       "source": "Top Stories"
     },
     {
-      "title": "Boston kidnapping report leads to police chase, arrest in Milton",
-      "link": "https://www.wcvb.com/article/milton-police-pursuit-kidnapping-suspect-arrested/73487809",
-      "published": "Fri, 21 Aug 2026 03:17:00 GMT",
-      "ts": 1787282220,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>A 911 call, a woman\u2019s cries for help and a police chase from Boston to Milton led to an arrest and an ongoing investigation.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Markey, Moulton make final case to voters before primary",
       "link": "https://www.wbur.org/news/2026/08/20/markey-moulton-debate-senate-primary-democrat",
       "published": "Thu, 20 Aug 2026 22:21:07 -0400",
@@ -4155,7 +4186,7 @@
       "source": "Boston.com"
     },
     {
-      "title": "11 accused of distributing child sex abuse material after agents board cruise ships in Boston",
+      "title": "11 arrested after federal agents board cruise ships in Boston",
       "link": "https://www.nbcboston.com/news/local/11-accused-of-distributing-csam-after-agents-board-cruise-ships-in-boston/4001534/",
       "published": "Thu, Aug 20 2026 11:47:29 PM",
       "ts": 1787226449,
@@ -4185,16 +4216,6 @@
       "source": "Boston.com"
     },
     {
-      "title": "MBTA shuttle bus bound for North Station accidentally ends up in Stoneham",
-      "link": "https://www.boston.com/news/local-news/2026/08/20/mbta-shuttle-bus-bound-for-north-station-accidentally-ends-up-in-stoneham/",
-      "published": "Thu, 20 Aug 2026 23:12:35 +0000",
-      "ts": 1787267555,
-      "author": "Samantha Genzer",
-      "feed_title": "Boston.com",
-      "summary": "<p>They were headed north. Just not that far north.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/20/mbta-shuttle-bus-bound-for-north-station-accidentally-ends-up-in-stoneham/\">MBTA shuttle bus bound for North Station accidentally ends up in Stoneham</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
       "title": "Man facing drug charges after police raid Weymouth pizza shop",
       "link": "https://www.nbcboston.com/news/local/man-facing-drug-charges-after-police-raid-weymouth-pizza-shop/4001532/",
       "published": "Thu, Aug 20 2026 10:39:43 PM",
@@ -4202,26 +4223,6 @@
       "author": "Brittany Cadet and Mike Pescaro",
       "feed_title": "NBC Boston",
       "summary": "<p>Police raided a popular pizza shop in Weymouth, Massachusetts, arresting a man who helps manage the business.</p>\n\n\n\n<p>Massachusetts State Police executed a search warrant Tuesday at Denly Gardens Old World Pizza, a family-owned restaurant, after a monthslong investigation.</p>\n\n\n\n<p>The Norfolk County District Attorney&#8217;s Office said Thursday that 50-year-old Jeremy Caruso of Whitman had been arrested Tuesday on several drug charges. He pleaded not guilty when he was arraigned the same day.</p>\n\n\n\n<p>Mark Caruso, Jeremy&#8217;s brother who manages the restaurant with him, told NBC10 Boston that the family denies the allegations.</p>\n\n\n\n<p>&#8220;Whoever else comes in and out of this restaurant, I have no control of, and we can&#8217;t control every employee that we have that could have been doing anything or had any involvement with anything,&#8221; he said.</p>\n\n\n\n<p>The district attorney&#8217;s office said state police detectives investigated the case for four months, establishing probable cause and obtaining warrants to arrest Jeremy Caruso and search his home, his car and the restaurant.</p>\n\n\n\n<p>Police seized cocaine; ketamine; MDMA; psilocybin mushroom bars; suboxone strips and pills; and THC vape cartridges and edibles, authorities said.</p>\n\n\n\n<p>Caruso is facing a charge of trafficking cocaine, as well as possession with intent to distribute ketamine, MDMA, suboxone, psilocybin mushrooms and THC, according to prosecutors, who said the charges stem from the search warrant executed at the restaurant.</p>\n\n\n\n<p>A former employee praised the Caruso family.</p>\n\n\n\n<p>&#8220;They&#8217;re the best family going,&#8221; said Billy Beradi, who worked at the restaurant. &#8220;There&#8217;s no problem with them.&#8221;</p>\n\n\n\n<p>Caruso is due back in court next month. The business remains open.</p>\n\n\n\n<p>&#8220;We&#8217;re an icon in the community, we are not going anywhere, and we&#8217;re here to stay, and I&#8217;m proud to say that this is my family,&#8221; Mark Caruso said. &#8220;My sobriety&#8217;s huge, my brother&#8217;s sobriety&#8217;s huge.&#8221;</p>",
-      "source": "NBC Boston"
-    },
-    {
-      "title": "State Police trooper charged with assault after allegedly punching colleague in viral bar fight video",
-      "link": "https://www.boston.com/news/local-news/2026/08/20/state-police-trooper-charged-with-assault-after-allegedly-punching-colleague-in-viral-bar-fight-video/",
-      "published": "Thu, 20 Aug 2026 22:21:35 +0000",
-      "ts": 1787264495,
-      "author": "Ross Cristantiello",
-      "feed_title": "Boston.com",
-      "summary": "<p>Trooper Christopher Regan now faces one count of assault and battery in Quincy District Court. </p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/20/state-police-trooper-charged-with-assault-after-allegedly-punching-colleague-in-viral-bar-fight-video/\">State Police trooper charged with assault after allegedly punching colleague in viral bar fight video</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Babysitter accused in boy's death on Martha's Vineyard now faces murder charge",
-      "link": "https://www.nbcboston.com/news/local/marthas-vineyard-babysitter-murder-charge-update/4001487/",
-      "published": "Thu, Aug 20 2026 08:39:23 PM",
-      "ts": 1787215163,
-      "author": "Asher Klein and Thea DiGiammerino",
-      "feed_title": "NBC Boston",
-      "summary": "<p>A woman who&#8217;d previously been charged with manslaughter in the 2025 death of a 2-year-old boy on Martha&#8217;s Vineyard has now been charged with second-degree murder, prosecutors confirmed. </p>\n\n\n\n<p>A grand jury handed down an indicted of Aimee Cotton Wednesday on charges of murder in the second degree and reckless endangerment of a child, the Cape and Islands District Attorney said. She&#8217;s due to face the charges in Dukes Superior Court on Oct. 5,</p>\n\n\n\n<p>Cotton previously had a plea of not guilty entered for the previous charges at a court hearing in October.</p>\n\n\n\n<p>The <a href=\"https://www.nbcboston.com/news/local/marthas-vineyard-hot-car-death-babysitter-charge/3663901\" rel=\"noreferrer noopener\" target=\"_blank\">toddler died at Massachusetts General Hospital in March 2025</a>, days after being <a href=\"https://www.nbcboston.com/news/local/woman-charged-with-child-endangerment-after-leaving-child-in-car/3662965\" rel=\"noreferrer noopener\" target=\"_blank\">rushed to a local emergency room from an SUV </a>that had been sitting in the driveway of her Oak Bluffs home, authorities have said. Cotton was babysitting the boy. </p>\n\n\n<div></div>\n\n\n<p>According to a court document filed previously in the case, Cotton called 911 for help after finding the child unresponsive in her vehicle. She initially told dispatchers that she had left the child in the car for around 15 minutes, buckled into a third-row car seat in her SUV.</p>\n\n\n\n<p>When first responders arrived, Cotton was performing CPR on the child, according to the document. The child, reported to be in grave condition, was rushed to the local emergency room and ultimately airlifted to MGH in critical condition.</p>\n\n\n\n<p>According to the document, video evidence provided by a Nest camera at Cotton&#8217;s home showed that she left the toddler, along with another child she babysits, in the car for an extended period of time. Cotton later admitted that the child had been in the car much longer than 15 minutes \u2014 closer to around three hours. Investigators said she also admitted that she did not give either child food, water or supervision during this period. She called 911 when she found the child unresponsive.</p>\n\n\n\n<p>Massachusetts&#8217; criminal code lists second-degree murder as separate from manslaughter. </p>\n\n\n\n<p><a href=\"https://www.mass.gov/law-library/model-jury-instructions-on-homicide\" rel=\"noreferrer noopener\" target=\"_blank\">According to standard guidance that judges give state juries</a>, second-degree murder requires prosecutors to prove intended to kill or grievously harm someone, or do something that it would be clear would likely lead to someone&#8217;s death. A manslaughter charge can involve mitigating circumstances in a homicide, like the heat of passion upon being provoked or excessive use of force in self-defense, or the defendant intentionally inflicting injuries on someone likely to cause their death, where they then died.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More Martha&#039;s Vineyard news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/cambridge-man-dies-after-being-pulled-from-water-off-marthas-vineyard/3991586/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2019/09/Ocean-Generic-5476-1.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/marthas-vineyard/\">Martha&#039;s Vineyard</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 3\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/cambridge-man-dies-after-being-pulled-from-water-off-marthas-vineyard/3991586/\">\n\t\t\t\t\t\t\t\t\t\tCambridge man dies after being pulled from water off Martha&#039;s Vineyard\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/boston-business-journal/marthas-vineyard-house-owned-by-whiskey-distillery-sold-for-2-6-million/3981996/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/06/pxl20260618183213324900xx3547-2365-0-119.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/boston-business-journal/\">Boston Business Journal</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJul 15\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/boston-business-journal/marthas-vineyard-house-owned-by-whiskey-distillery-sold-for-2-6-million/3981996/\">\n\t\t\t\t\t\t\t\t\t\tMartha&#039;s Vineyard house owned by whiskey distillery sold for $2.6 million\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/driver-dies-after-crash-aboard-marthas-vineyard-ferry/3982140/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/Marthas-Vineyard-071526.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJul 15\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/driver-dies-after-crash-aboard-marthas-vineyard-ferry/3982140/\">\n\t\t\t\t\t\t\t\t\t\tDriver dies after crash aboard Martha&#039;s Vineyard ferry\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
       "source": "NBC Boston"
     }
   ],
@@ -4761,13 +4762,13 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "Bulldogs' 2026 NHL Draft class continues to grow - Duluth News Tribune",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNeFJCdmhhWlNBZ1NfOHh4R2gyRTBOa1N4cG1mUmZHclN0bmxEUDZ0Z3V0NUtQVUppVUFHUW5tZzN2R1BaMGUzQi1QU2JhU3hDaVpRSl9YZ1MyOTQ0blE1OWNZTkNMVEpYaEFFTG9TWFZHSEV6UTAwTU41WjNPbl9JRkN1SVBFREZKTzBWQnh5RFBwcXZOVVUxTzRhVmNnSVE5YU5BSDBjYw?oc=5",
-      "published": "Thu, 20 Aug 2026 16:10:00 GMT",
-      "ts": 1787242200,
+      "title": "Kings of the Midwest: How Adrian College Became College Hockey's Gold Standard Outside of Division I - adrianbulldogs.com",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQMnZ2d1JHcVJrMmJHeDNuNzZ1eS1lLW01OVFybzZ5Tml1RlVCaWlkQnEwSEJwbnd1Z2xDaF9qY084YnhFbm0tbUNRRFFPdWFKbklvbU1DeWoyLXAtUWM1bEF6Z1RaVlV2N00wcHdDRE1MX0FkdGlvbTNVUU5TRXF3eUV0VFdQSFhxTUx1ZkprRjlDTFdhaTI3bVRxQ2RERzRYQmItNWhCSmRReHpNcGlhVmZMbVgzdXBsWWRfSklyWURXWEFDV3lEUmR5R2F2XzMwb3NmVmo4U19kbXBURnEtTmhiUUJLb2M?oc=5",
+      "published": "Tue, 04 Aug 2026 07:00:00 GMT",
+      "ts": 1785826800,
       "author": "",
-      "feed_title": "Duluth News Tribune",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxNeFJCdmhhWlNBZ1NfOHh4R2gyRTBOa1N4cG1mUmZHclN0bmxEUDZ0Z3V0NUtQVUppVUFHUW5tZzN2R1BaMGUzQi1QU2JhU3hDaVpRSl9YZ1MyOTQ0blE1OWNZTkNMVEpYaEFFTG9TWFZHSEV6UTAwTU41WjNPbl9JRkN1SVBFREZKTzBWQnh5RFBwcXZOVVUxTzRhVmNnSVE5YU5BSDBjYw?oc=5\" target=\"_blank\">Bulldogs' 2026 NHL Draft class continues to grow</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Duluth News Tribune</font>",
+      "feed_title": "adrianbulldogs.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi5wFBVV95cUxQMnZ2d1JHcVJrMmJHeDNuNzZ1eS1lLW01OVFybzZ5Tml1RlVCaWlkQnEwSEJwbnd1Z2xDaF9qY084YnhFbm0tbUNRRFFPdWFKbklvbU1DeWoyLXAtUWM1bEF6Z1RaVlV2N00wcHdDRE1MX0FkdGlvbTNVUU5TRXF3eUV0VFdQSFhxTUx1ZkprRjlDTFdhaTI3bVRxQ2RERzRYQmItNWhCSmRReHpNcGlhVmZMbVgzdXBsWWRfSklyWURXWEFDV3lEUmR5R2F2XzMwb3NmVmo4U19kbXBURnEtTmhiUUJLb2M?oc=5\" target=\"_blank\">Kings of the Midwest: How Adrian College Became College Hockey's Gold Standard Outside of Division I</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">adrianbulldogs.com</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -5253,7 +5254,7 @@
       "ts": 1787302860,
       "author": "Rachel Treisman",
       "feed_title": "",
-      "summary": "<img alt=\"President Trump speaks as Bud Denker, president of the Penske Corporation, also in a suit and tie, applauds at a Freedom 250 Grand Prix showcase outside the White House in July.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/7749x5204+0+0/resize/7749x5204!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F53%2F25%2F8320060943b1b033b55c2310f69c%2Fgettyimages-2285911393.jpg\" /><p>Why is the car race in this part of D.C.? Will it be streaming? Who's paying for it? Here's what to know before the Freedom 250 Grand Prix hits the National Mall this weekend.</p><p>(Image credit: Andrew Harnik)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5939443\" />",
+      "summary": "<img alt=\"President Trump speaks as Bud Denker, president of the Penske Corp., also in a suit and tie, applauds at a Freedom 250 Grand Prix showcase outside the White House in July.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/7749x5204+0+0/resize/7749x5204!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F53%2F25%2F8320060943b1b033b55c2310f69c%2Fgettyimages-2285911393.jpg\" /><p>Why is the car race in this part of D.C.? Will it be streaming? Who's paying for it? Here's what to know before the Freedom 250 Grand Prix hits the National Mall this weekend.</p><p>(Image credit: Andrew Harnik)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5939443\" />",
       "source": "NPR"
     },
     {
@@ -5377,10 +5378,10 @@
       "source": "NY Times"
     },
     {
-      "title": "Iran Must Plan to Overcome \u2018Unjust\u2019 U.S. Sanctions, Top Tehran Official Says",
+      "title": "Iran Must Plan to Overcome U.S. Sanctions After Trump\u2019s \u2018Economic D-Day\u2019 Threats, Tehran Official Says",
       "link": "https://www.nytimes.com/2026/08/21/world/middleeast/iran-sanctions-united-states-ghalibaf.html",
-      "published": "Fri, 21 Aug 2026 11:38:30 +0000",
-      "ts": 1787312310,
+      "published": "Fri, 21 Aug 2026 11:38:31 +0000",
+      "ts": 1787312311,
       "author": "Aurelien Breeden",
       "feed_title": "",
       "summary": "In Tehran last month. Before the latest round of sanctions was announced, Iranians were already contending with sky-high inflation and other economic hardships.",
@@ -5427,6 +5428,16 @@
       "source": "NY Times"
     },
     {
+      "title": "Prince Harry and six others ordered to pay initial \u00a39.5m to Daily Mail publisher",
+      "link": "https://www.bbc.co.uk/news/articles/c04kwr9r1zlo?at_medium=RSS&at_campaign=rss",
+      "published": "Fri, 21 Aug 2026 13:46:04 GMT",
+      "ts": 1787319964,
+      "author": "",
+      "feed_title": "",
+      "summary": "The seven claimants, who include Sir Elton John and Liz Hurley, could potentially have to pay up to \u00a325m more after losing their High Court privacy case.",
+      "source": "BBC"
+    },
+    {
       "title": "El Ni\u00f1o warming set to be 'strongest in living memory', warns Met Office",
       "link": "https://www.bbc.co.uk/weather/articles/c3ekg93vjz9o?at_medium=RSS&at_campaign=rss",
       "published": "Fri, 21 Aug 2026 10:37:15 GMT",
@@ -5434,16 +5445,6 @@
       "author": "",
       "feed_title": "",
       "summary": "Scientists say the \"unprecedented event\" will likely push up global temperatures in 2027 and put the UK at risk of a wetter, stormier autumn.",
-      "source": "BBC"
-    },
-    {
-      "title": "Meghan could return to acting once back in UK",
-      "link": "https://www.bbc.co.uk/news/articles/c79g28zxwzdo?at_medium=RSS&at_campaign=rss",
-      "published": "Fri, 21 Aug 2026 10:17:01 GMT",
-      "ts": 1787307421,
-      "author": "",
-      "feed_title": "",
-      "summary": "Sources close to the Sussexes have not denied reports that Meghan has been offered an acting role in the UK.",
       "source": "BBC"
     },
     {
@@ -5459,11 +5460,21 @@
     {
       "title": "Steve Rosenberg: Shortage of petrol but not patriotism as Russians feel growing impact of war",
       "link": "https://www.bbc.co.uk/news/articles/c4gknzgje7go?at_medium=RSS&at_campaign=rss",
-      "published": "Fri, 21 Aug 2026 11:31:51 GMT",
-      "ts": 1787311911,
+      "published": "Fri, 21 Aug 2026 13:07:00 GMT",
+      "ts": 1787317620,
       "author": "",
       "feed_title": "",
       "summary": "Drivers are waiting hours in fuel queues, as Moscow prepares to celebrate Russian Flag Day.",
+      "source": "BBC"
+    },
+    {
+      "title": "Meghan could return to acting once back in UK",
+      "link": "https://www.bbc.co.uk/news/articles/c79g28zxwzdo?at_medium=RSS&at_campaign=rss",
+      "published": "Fri, 21 Aug 2026 10:17:01 GMT",
+      "ts": 1787307421,
+      "author": "",
+      "feed_title": "",
+      "summary": "Sources close to the Sussexes have not denied reports that Meghan has been offered an acting role in the UK.",
       "source": "BBC"
     },
     {
@@ -5517,14 +5528,24 @@
       "source": "BBC"
     },
     {
-      "title": "Search for cruise ship passenger feared to have fallen overboard",
-      "link": "https://www.bbc.co.uk/news/articles/cp8x6yl4j99o?at_medium=RSS&at_campaign=rss",
-      "published": "Fri, 21 Aug 2026 11:55:23 GMT",
-      "ts": 1787313323,
-      "author": "",
+      "title": "Mike Rogers on push for data centers pause: \u2018Let\u2019s get these questions answered\u2019",
+      "link": "https://thehill.com/homenews/campaign/6043170-mike-rogers-data-center-pressure-michigan-senate-race/",
+      "published": "Fri, 21 Aug 2026 13:44:00 +0000",
+      "ts": 1787319840,
+      "author": "Sarah Davis",
       "feed_title": "",
-      "summary": "The alarm was raised on board the Ambassador Ambition before it arrived in Dundee on Friday.",
-      "source": "BBC"
+      "summary": "Former Rep. Mike Rogers (R-Mich.) is calling for a one-year moratorium on data center construction until Michiganders can &#8220;get their questions answered&#8221; about these projects.&#160; The Republican, who is running in Michigan&#8217;s closely-watched Senate race, cited his conversations with voters on the campaign trail about the issue in an interview with NewsNation&#8217;s Katie Pavlich. \u201cThere&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "The hemp loophole has become a national intoxicant market",
+      "link": "https://thehill.com/opinion/healthcare/6042789-states-fight-hemp-loophole/",
+      "published": "Fri, 21 Aug 2026 13:30:00 +0000",
+      "ts": 1787319000,
+      "author": "Paul Chabot, opinion contributor",
+      "feed_title": "",
+      "summary": "An op-ed argues that while recent federal legislation aims to correct the 2018 farm bill's loophole regarding intoxicating hemp products, states must maintain authority to regulate the burgeoning market to prevent it from becoming politically entrenched.",
+      "source": "The Hill"
     },
     {
       "title": "What\u2019s\u00a0with\u00a0Trump\u2019s\u00a0war\u00a0against\u00a0the US Navy?",
@@ -5604,26 +5625,6 @@
       "author": "Myra Adams, opinion contributor",
       "feed_title": "",
       "summary": "Over a forty-nine year career marked by resilience and reelection to seven different offices, Ohio Gov. Mike DeWine has shaped the state's political landscape while emphasizing data-driven leadership and public service.",
-      "source": "The Hill"
-    },
-    {
-      "title": "Trump seeks to rekindle bromance with Kim Jong Un",
-      "link": "https://thehill.com/homenews/administration/6042660-trump-kim-jong-un-relations-north-korea/",
-      "published": "Fri, 21 Aug 2026 10:00:00 +0000",
-      "ts": 1787306400,
-      "author": "Mallory Wilson",
-      "feed_title": "",
-      "summary": "President Trump is pushing to rekindle his first-term bromance with North Korea\u2019s Kim Jong Un, expressing his desire for another rendezvous after reducing joint military exercises with South Korea in an effort to appease the dictator.&#160; The president met with Kim three times during his first term, but ultimately, denuclearization talks stalled and the relationship&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Gen Z turns against capitalism as DSA takes off",
-      "link": "https://thehill.com/blogs/in-the-know/6042507-gen-z-capitalism-socialism-sports-betting-gender-political-divide/",
-      "published": "Fri, 21 Aug 2026 10:00:00 +0000",
-      "ts": 1787306400,
-      "author": "Joshua Feldstein",
-      "feed_title": "",
-      "summary": "Only 9 percent of Americans under 30 have a \u201cvery positive\u201d view of capitalism, according to a new&#160;CBS/YouGov poll.&#160; That shows a stark generation between Generation Z and older generations. Thirty-three percent of people over 65, the Baby Boom generation, say they have a very positive view of capitalism, while 23 percent of people aged&#8230;",
       "source": "The Hill"
     },
     {
@@ -5729,6 +5730,16 @@
       "source": "Google News"
     },
     {
+      "title": "Logan runway closure this fall could mean more flight delays - Boston.com",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPdk9ueWc4cjJjME5UdTJLSTJPX0pVUDlPbzM0dTNaRHpKWHhvTENtZld0Y0ZZM25XVXJ6YnVVYzA0ZE1aRzRmbk5tYU9XU3NOVmxSWS1oTTFrRmRyemlEOHVVdFRIZmtsbnBNYm5hZkdtMHJLdjZtM3N3SE5abFpYUDM4NDNnOF9ZTkhMQUF5aVNob001NjlmLWJOX21QRkxaWlU4ZXVGOElJMVZqNmItTw?oc=5",
+      "published": "Mon, 10 Aug 2026 07:00:00 GMT",
+      "ts": 1786345200,
+      "author": "",
+      "feed_title": "Boston.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPdk9ueWc4cjJjME5UdTJLSTJPX0pVUDlPbzM0dTNaRHpKWHhvTENtZld0Y0ZZM25XVXJ6YnVVYzA0ZE1aRzRmbk5tYU9XU3NOVmxSWS1oTTFrRmRyemlEOHVVdFRIZmtsbnBNYm5hZkdtMHJLdjZtM3N3SE5abFpYUDM4NDNnOF9ZTkhMQUF5aVNob001NjlmLWJOX21QRkxaWlU4ZXVGOElJMVZqNmItTw?oc=5\" target=\"_blank\">Logan runway closure this fall could mean more flight delays</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
+      "source": "Google News"
+    },
+    {
       "title": "Woman details ICE arrest at Logan Airport in Boston - WPLG Local 10",
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQZFZTeDFxVnVkM295LWRKQnJyNzc3T1hlNllWMkFWNE45NFF4TjMxendYb3BLb1ppRkEwUXc2R2E0Q2J1YkZBMEpnVWEtSF9YMjlCNUItUU5Nc3VFYjI1VU5yOVVDbVVudjlsSDhEWDIzYk1rODMwZFFmV2VLa0tWeXJ2X1N4WmZfczZmM194QUtSQl9GNUlRajFTZjVWZlk?oc=5",
       "published": "Sat, 15 Aug 2026 16:34:45 GMT",
@@ -5739,13 +5750,13 @@
       "source": "Google News"
     },
     {
-      "title": "Logan runway closure this fall could mean more flight delays - Boston.com",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPdk9ueWc4cjJjME5UdTJLSTJPX0pVUDlPbzM0dTNaRHpKWHhvTENtZld0Y0ZZM25XVXJ6YnVVYzA0ZE1aRzRmbk5tYU9XU3NOVmxSWS1oTTFrRmRyemlEOHVVdFRIZmtsbnBNYm5hZkdtMHJLdjZtM3N3SE5abFpYUDM4NDNnOF9ZTkhMQUF5aVNob001NjlmLWJOX21QRkxaWlU4ZXVGOElJMVZqNmItTw?oc=5",
-      "published": "Mon, 10 Aug 2026 07:00:00 GMT",
-      "ts": 1786345200,
+      "title": "Logan Airport's remote terminal in Framingham 'took off.' Now, officials are planning an expansion - WBUR",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMk44RXI2cVU2dGZLeW1NN3NULWhIR3BISS1NTFp5dWpaOG03T1ZocnMyUURLYUw0MFBSV0d0MG9Db2NIT3N4SllranpfYnoxTzJ4WHFqYkctLXZ0b2UzNVR3ZGZzNDd6MHpJT0FRSjB6SU9TTDE1Uk42TnFPNEI0OXFFYTNLRDFySVYyRlV2bVdYR0Z2Sk13WmY0cXM3YzlUR3ZFTkxIYnF5UQ?oc=5",
+      "published": "Wed, 29 Jul 2026 07:00:00 GMT",
+      "ts": 1785308400,
       "author": "",
-      "feed_title": "Boston.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPdk9ueWc4cjJjME5UdTJLSTJPX0pVUDlPbzM0dTNaRHpKWHhvTENtZld0Y0ZZM25XVXJ6YnVVYzA0ZE1aRzRmbk5tYU9XU3NOVmxSWS1oTTFrRmRyemlEOHVVdFRIZmtsbnBNYm5hZkdtMHJLdjZtM3N3SE5abFpYUDM4NDNnOF9ZTkhMQUF5aVNob001NjlmLWJOX21QRkxaWlU4ZXVGOElJMVZqNmItTw?oc=5\" target=\"_blank\">Logan runway closure this fall could mean more flight delays</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
+      "feed_title": "WBUR",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMk44RXI2cVU2dGZLeW1NN3NULWhIR3BISS1NTFp5dWpaOG03T1ZocnMyUURLYUw0MFBSV0d0MG9Db2NIT3N4SllranpfYnoxTzJ4WHFqYkctLXZ0b2UzNVR3ZGZzNDd6MHpJT0FRSjB6SU9TTDE1Uk42TnFPNEI0OXFFYTNLRDFySVYyRlV2bVdYR0Z2Sk13WmY0cXM3YzlUR3ZFTkxIYnF5UQ?oc=5\" target=\"_blank\">Logan Airport's remote terminal in Framingham 'took off.' Now, officials are planning an expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WBUR</font>",
       "source": "Google News"
     },
     {
@@ -5786,16 +5797,6 @@
       "author": "",
       "feed_title": "TheTravel",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxNaGJLdzFwUkUySEhFeWMyNWtwVTBtck04aFRDM0NSNlNtY0dwYVlvdC1xRzk4MWQwVjV1VjFJcDVSSDlRcU1MNG1ITUlqdzdPMzhZSy1fSHUza3dJV3pKa2dRYTdTbkpwYmUyM2Jic1ZHYmJpYmFmNElhUlhfYTBoU3UwaHNfbWdfVWhrN2Y0SXFDNmsxRktyeVFn?oc=5\" target=\"_blank\">Boston Logan International Airport Sees Unexpected Boost From Allegiant With New U.S. Routes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TheTravel</font>",
-      "source": "Google News"
-    },
-    {
-      "title": "Logan Airport's remote terminal in Framingham 'took off.' Now, officials are planning an expansion - WBUR",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMk44RXI2cVU2dGZLeW1NN3NULWhIR3BISS1NTFp5dWpaOG03T1ZocnMyUURLYUw0MFBSV0d0MG9Db2NIT3N4SllranpfYnoxTzJ4WHFqYkctLXZ0b2UzNVR3ZGZzNDd6MHpJT0FRSjB6SU9TTDE1Uk42TnFPNEI0OXFFYTNLRDFySVYyRlV2bVdYR0Z2Sk13WmY0cXM3YzlUR3ZFTkxIYnF5UQ?oc=5",
-      "published": "Wed, 29 Jul 2026 07:00:00 GMT",
-      "ts": 1785308400,
-      "author": "",
-      "feed_title": "WBUR",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMk44RXI2cVU2dGZLeW1NN3NULWhIR3BISS1NTFp5dWpaOG03T1ZocnMyUURLYUw0MFBSV0d0MG9Db2NIT3N4SllranpfYnoxTzJ4WHFqYkctLXZ0b2UzNVR3ZGZzNDd6MHpJT0FRSjB6SU9TTDE1Uk42TnFPNEI0OXFFYTNLRDFySVYyRlV2bVdYR0Z2Sk13WmY0cXM3YzlUR3ZFTkxIYnF5UQ?oc=5\" target=\"_blank\">Logan Airport's remote terminal in Framingham 'took off.' Now, officials are planning an expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WBUR</font>",
       "source": "Google News"
     },
     {
@@ -6196,7 +6197,7 @@
       "date": "2026-08-26",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "Revere Journal",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6204,7 +6205,7 @@
       "date": "2026-08-26",
       "time": null,
       "all_day": true,
-      "summary": "Revere Journal",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6356,7 +6357,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "prep for sept meeting",
+      "summary": "Regular deep-cleaning",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6364,7 +6365,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "Regular deep-cleaning",
+      "summary": "prep for sept meeting",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6412,7 +6413,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "Convene alumni committee",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6420,7 +6421,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Convene alumni committee",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6460,7 +6461,7 @@
       "date": "2026-09-02",
       "time": null,
       "all_day": true,
-      "summary": "Reading sessions",
+      "summary": "Revere Journal",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6468,7 +6469,7 @@
       "date": "2026-09-02",
       "time": null,
       "all_day": true,
-      "summary": "Revere Journal",
+      "summary": "Reading sessions",
       "location": null,
       "calendar": "Todoist"
     },
@@ -8110,7 +8111,7 @@
     },
     {
       "date": "2026-10-16",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Phoenix",
       "time": "7:30 PM",
       "result": null,
@@ -8120,7 +8121,7 @@
     },
     {
       "date": "2026-10-16",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Phoenix",
       "time": "7:30 PM",
       "result": null,
@@ -8238,6 +8239,15 @@
     }
   ],
   "news_ktn": [
+    {
+      "title": "Prince Harry, Elton John and other high-profile figures to pay $13 million toward legal costs of UK tabloid publisher",
+      "link": "https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv/entries/zby0d1aj330xdy1ipt4g.html",
+      "published": "2026-08-21T13:28:49.178Z",
+      "ts": 1787318929,
+      "author": "msprvs1=20693ky2YeFJE=bounces-266693-1981@alert.cnn.com (msprvs1=20693ky2YeFJE=bounces-266693-1981@alert.cnn.com)",
+      "feed_title": "",
+      "summary": "<!--[if mso]>\n<xml><w:WordDocument xmlns:w=\"urn:schemas-microsoft-com:office:word\"><w:DontUseAdvancedTypographyReadingMail></w:DontUseAdvancedTypographyReadingMail></w:WordDocument>\n<o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG></o:AllowPNG></o:OfficeDocumentSettings></xml>\n<![endif]--><!--[if !mso]><!-->\n<!--<![endif]-->\n<!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup { mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]-->\n\n\n<div style=\"color: transparent; font-size: 0px; border: 0; width: 1px; margin: 0px; padding: 0px; display: none!important; line-height: 0px!important;\"><img alt=\"\" border=\"0\" height=\"1\" src=\"https://clicks.cnn.com/q/s7blpw1uLyvhiJbWUYFAoA~~/AAQRxRA~/xHMQuyNs5y4RICqDmT0JL-Zt83D_KYkQJ1j4dx0QwL6ypM5yJoA43wlXx-pA5dBLdsiWgfOwYAeppBTwQ_I_L41rtb058u9zSdAavgGtTAU~\" width=\"1\" /></div>\n\n<div style=\"display: none !important; font-size: 1px; color: #ffffff; line-height: 1px; overflow: hidden;\">Get the latest updates from CNN</div>\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"nl-container\" style=\"background-color: #f8f8f8;\" width=\"100%\"><tbody>\n<tr><td>\n<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row row-1\" width=\"100%\"><tbody><tr><td><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row-content stack\" style=\"background-color: #fff; border-radius: 0; color: #000; width: 600px; margin: 0 auto;\" width=\"600\"><tbody><tr><td class=\"column column-1\" style=\"font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top;\" width=\"100%\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"html_block block-1\" width=\"100%\"><tr><td class=\"pad\"><div align=\"center\" style=\"font-family: 'Droid Serif',Arial,Sans-serif; text-align: center;\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"6\" width=\"40\">\n    <tbody>\n        <tr>\n            <td>\n                <img border=\"0\" height=\"6\" src=\"https://li.cnn.com/imp?s=125561100&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=2026-08-2113:28&amp;lctg=69d69169a8de46005699e356&amp;stpe=pixel\" width=\"2\" />\n            </td>\n            <td>\n                <img border=\"0\" height=\"6\" src=\"https://li.cnn.com/imp?s=125561101&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=2026-08-2113:28&amp;lctg=69d69169a8de46005699e356&amp;stpe=pixel\" width=\"2\" />\n            </td>\n            <td>\n                <img border=\"0\" height=\"6\" src=\"https://li.cnn.com/imp?s=125561102&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=2026-08-2113:28&amp;lctg=69d69169a8de46005699e356&amp;stpe=pixel\" width=\"2\" />\n            </td>\n            <td>\n                <img border=\"0\" height=\"6\" src=\"https://li.cnn.com/imp?s=125561103&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=2026-08-2113:28&amp;lctg=69d69169a8de46005699e356&amp;stpe=pixel\" width=\"2\" />\n            </td>\n            <td>\n                <img border=\"0\" height=\"6\" src=\"https://li.cnn.com/imp?s=125561104&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=2026-08-2113:28&amp;lctg=69d69169a8de46005699e356&amp;stpe=pixel\" width=\"2\" />\n            </td>\n        </tr>\n    </tbody>\n</table></div></td></tr></table></td></tr></tbody></table></td></tr></tbody></table>\n<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row row-2\" width=\"100%\"><tbody><tr><td><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row-content\" style=\"background-color: #fff; border-radius: 0; color: #000; width: 600px; margin: 0 auto;\" width=\"600\">\n<tbody><tr>\n<td class=\"column column-1\" style=\"font-weight: 400; text-align: left; padding-top: 10px; vertical-align: top;\" width=\"25%\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"image_block block-1\" width=\"100%\"><tr><td align=\"left\" class=\"pad\" style=\"width: 100%; padding-left: 16px; padding-right: 16px;\"><div><a href=\"https://clicks.cnn.com/f/a/SVtDnJ2LLOIOmHAgeVuYgg~~/AAQRxRA~/MlTb-YrIvePcrAL0--XE9JM_-crZcEkYdHucwlDPkza8bJ3DJCvpFaxT15gEAetnMYrhmT3W2UAQcPmpRhG44V2wHrGzhpuo0VR_UR_NOvJ238wvfNynEhtQSPthxHHkBRk6qKcQ0w_2zYLQwT1MkuR-SPTuEy39MHWCkvi3_KRKfcDQo1_3z21OhGrAFvWN1GJzG-HUCYg6z2fAC9aNGRketvyL8r4tY30r2rJL_r4~\" target=\"_blank\"><img alt=\"CNN\" height=\"auto\" src=\"https://braze-images.com/appboy/communication/assets/image_assets/images/697bc34028b1f500657d86cc/original.png?1769718591\" style=\"display: block; height: auto; border: 0; width: 100%;\" title=\"CNN\" width=\"60\" /></a></div></td></tr></table></td>\n<td class=\"column column-2\" style=\"font-weight: 400; text-align: left; padding-left: 16px; vertical-align: top;\" width=\"75%\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"heading_block block-1\" width=\"100%\"><tr><td align=\"center\" class=\"pad\" style=\"width: 100%; padding-top: 23px; padding-left: 16px; padding-right: 16px;\"><h1 style=\"margin: 0; color: #6e6e6e; direction: ltr; font-family: Helvetica,Arial,Sans-serif; font-size: 12px; font-weight: 400; letter-spacing: normal; line-height: 1.2; text-align: right; margin-top: 0; margin-bottom: 0;\">Friday, August 21, 2026</h1></td></tr></table></td>\n</tr></tbody>\n</table></td></tr></tbody></table>\n<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row row-3\" style=\"background-color: #f8f8f8;\" width=\"100%\"><tbody><tr><td><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row-content stack\" style=\"background-color: #fff; color: #000; width: 600px; margin: 0 auto;\" width=\"600\"><tbody><tr><td class=\"column column-1\" style=\"font-weight: 400; text-align: left; padding-left: 16px; padding-right: 16px; vertical-align: top;\" width=\"100%\">\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"divider_block block-1\" width=\"100%\"><tr><td align=\"center\" class=\"pad\" style=\"padding-top: 3px;\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\"><tr><td class=\"divider_inner\" style=\"font-size: 1px; line-height: 1px; border-top: 2px solid #0c0c0c;\"><span>\u200a</span></td></tr></table></td></tr></table>\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"image_block block-2\" width=\"100%\"><tr><td align=\"center\" class=\"pad\" style=\"width: 100%;\"><div><img alt=\"Breaking News\" height=\"auto\" src=\"https://braze-images.com/appboy/communication/assets/image_assets/images/69b9af49db48b90064845d0e/original.png?1773776713\" style=\"display: block; height: auto; border: 0; width: 100%;\" title=\"Breaking News\" width=\"568\" /></div></td></tr></table>\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"heading_block block-3\" width=\"100%\"><tr><td align=\"center\" class=\"pad\" style=\"width: 100%; padding-top: 15px; padding-left: 10px; padding-right: 10px;\"><h1 style=\"margin: 0; color: #000; direction: ltr; font-family: Helvetica,Arial,Sans-serif; font-size: 28px; font-weight: 700; letter-spacing: normal; line-height: 1.2; text-align: left; margin-top: 0; margin-bottom: 0;\"><span class=\"tinyMce-placeholder\">Prince Harry, Elton John and other high-profile figures to pay $13 million toward legal costs of UK tabloid publisher</span></h1></td></tr></table>\n<table border=\"0\" cellpadding=\"10\" cellspacing=\"0\" class=\"paragraph_block block-4\" width=\"100%\"><tr><td class=\"pad\"><div style=\"color: #000; direction: ltr; font-family: 'Droid Serif',Arial,Sans-serif; font-size: 18px; font-weight: 400; letter-spacing: 0; line-height: 1.8; text-align: left;\"><p style=\"margin: 0;\"><p>Prince Harry and six other high-profile figures will have to make an initial payment of \u00a39.5 million ($13 million) toward the legal costs of a British tabloid newspaper after losing a high-stakes case against them last month, a UK High Court judge ruled Friday.</p></p></div></td></tr></table>\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"button_block block-5\" width=\"100%\"><tr><td align=\"center\" class=\"pad\" style=\"padding-top: 10px; padding-bottom: 24px;\"><a href=\"https://clicks.cnn.com/f/a/qWG5tY4xZ8CMzgSgB7nY2w~~/AAQRxRA~/jaa6KD5UtKpuwFxfOgERR5a5v8zZIAYW2Yr307IRi6cIQug8AvLdTlLYS6KY1rAi1HbWE4Ub1Dl30c8oZAMOtKbt8JE03nBXgdgXimj_yZMH9l4x2tOiy6iDWVjpmBGhSsaZMF0ndUn9pDnkPELl_ovVLp_xsXKMU30JbcFm7YGxKWsvFHZdaifhhikYe0xa9CpQI7CEZQcUUEdQEPgMyScVrinH37wy5fX2OzNxSbLpWcnbxmPYryYGFfpb697JI6C9fVVi2nnJ9VQVliZ_XFQ5R4yq70WhBBWdzIjBPRs~\" style=\"color: #FFFFFF; text-decoration: none;\" target=\"_blank\"><!--[if mso]>\n<v:roundrect xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:w=\"urn:schemas-microsoft-com:office:word\"  href=\"https://clicks.cnn.com/f/a/qWG5tY4xZ8CMzgSgB7nY2w~~/AAQRxRA~/jaa6KD5UtKpuwFxfOgERR5a5v8zZIAYW2Yr307IRi6cIQug8AvLdTlLYS6KY1rAi1HbWE4Ub1Dl30c8oZAMOtKbt8JE03nBXgdgXimj_yZMH9l4x2tOiy6iDWVjpmBGhSsaZMF0ndUn9pDnkPELl_ovVLp_xsXKMU30JbcFm7YGxKWsvFHZdaifhhikYe0xa9CpQI7CEZQcUUEdQEPgMyScVrinH37wy5fX2OzNxSbLpWcnbxmPYryYGFfpb697JI6C9fVVi2nnJ9VQVliZ_XFQ5R4yq70WhBBWdzIjBPRs~\"  style=\"height:48px;width:343px;v-text-anchor:middle;\" arcsize=\"17%\" fillcolor=\"#cc0000\">\n<v:stroke dashstyle=\"Solid\" weight=\"0px\" color=\"#1871D8\"/>\n<w:anchorlock></w:anchorlock>\n<v:textbox inset=\"0px,0px,0px,0px\">\n<center dir=\"false\" style=\"color:#FFFFFF;font-family:sans-serif;font-size:16px\">\n<![endif]-->\n<span class=\"button\" style=\"background-color: #cc0000; border-radius: 8px; color: #FFFFFF; display: inline-block; font-family: 'Helvetica', 'Arial', Sans-serif; font-size: 16px; font-weight: 700; padding-bottom: 8px; padding-top: 8px; padding-left: 24px; padding-right: 24px; text-align: center; width: auto; letter-spacing: normal;\"><span style=\"line-height: 32px;\">Read more</span></span>\n<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></a></td></tr></table>\n</td></tr></tbody></table></td></tr></tbody></table>\n<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row row-4\" width=\"100%\"><tbody><tr><td><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row-content stack\" style=\"background-color: #fff; border-radius: 0; color: #000; width: 600px; margin: 0 auto;\" width=\"600\"><tbody><tr><td class=\"column column-1\" style=\"font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top;\" width=\"100%\">\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"html_block block-1\" width=\"100%\"><tr><td class=\"pad\"><div align=\"center\" style=\"font-family: 'Droid Serif',Arial,Sans-serif; text-align: center;\"><div>\n    <table align=\"center\"><tr><td style=\"font-size: 10px; line-height: 10px;\">ADVERTISEMENT</td></tr></table>\n    <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n        <tr><td align=\"center\" colspan=\"2\" style=\"line-height: 1px;\">\n            <img border=\"0\" src=\"https://li.cnn.com/imp?s=1060690&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=2026-08-2113:28&amp;lctg=69d69169a8de46005699e356&amp;stpe=static\" style=\"display: block;\" />\n</td></tr>\n        <tr class=\"lihide\"><td colspan=\"2\" style=\"line-height: 1px;\">\n            <a href=\"https://clicks.cnn.com/f/a/EhdXXdm1xZoszkY6sosx1g~~/AAQRxRA~/FYBJcbRbI_jZ8XlR1BCK8DuteIN0sVrRUAxZcH4A0xGZOLOVo19hI1_z-8Dz3vqYrkOb8iaGHQooTvJBV3ofmKybYmWaJR-lG0uPCSBUdpURc839jfkqH7r4CjeSU80Csl3Y3MO_PwkYL10TM6c9W80wMjJhEbyc7phOcGYsF4fS58XqLpJrPo7kF5_LqQb4-LSt1Cu51nKRLTVCClwhXAzn8XBfC_sOmoowMdrip_E9qC9xyIGxroCHb0OdcvKFIMYP5p4opNaGkSNicy4d2KwZwpKkaCjQAG3SOlaVPyzENle-_gkWCxH-lxfY5kpM_WqWfEazu_ZDeeC6bF7vHtcVnoQec2uDnFxebLK6stMvDoj6IyL0kyIxWvzSzYyY\" rel=\"nofollow\" target=\"_blank\">\n                <img border=\"0\" class=\"lihide\" src=\"https://li.cnn.com/imp?s=804555&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=2026-08-2113:28&amp;lctg=69d69169a8de46005699e356&amp;stpe=default&amp;li_coord=desktop&amp;collapse_width=568\" style=\"display: block; width: 100% !important;\" width=\"568\" /></a>\n</td></tr>\n        <!--[if !mso]>-->\n        <tr class=\"lishow\" style=\"display: none;\">\n            <td colspan=\"2\" style=\"line-height: 1px;\">\n                <a href=\"https://clicks.cnn.com/f/a/ztVtcPAU3_i8w198P-iMoQ~~/AAQRxRA~/FYBJcbRbI_jZ8XlR1BCK8DuteIN0sVrRUAxZcH4A0xGffnjoevzVegAS-IKR2FtUjDlmluqplb75qQgUETsMF_5qzfV5ROzuzUudUE7gqtv6k5vgc5U-0KvJtjEBj8gYIcYO-WEMK_d4AK28KET8StqJveNjgQa4B3Jx6hrlZ7uOVUMi_eSg_ltiI_6m-mbfMiNxtC_WdP-MicAJ0Jn4K9GiBWnaLq1E8EkWAESPnVnSPkMj69cmKd_YG2_ecqGOSstxZCVCM8TxPL8TcIYf9dCJWkEOCIIs_ywgYNjxYSUPMvk4xJ3bX_4oVe6vdPAXR5T89qHdyY7M0iIX25M7cZvIYqEpTpQg2paeHCm3ONEUr52NOSYDX6rx5z5hnOiA\" rel=\"nofollow\" target=\"_blank\">\n                    <img border=\"0\" src=\"https://li.cnn.com/imp?s=804555&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=2026-08-2113:28&amp;lctg=69d69169a8de46005699e356&amp;stpe=default&amp;li_coord=mobile&amp;collapse_width=480\" style=\"display: block !important; width: 100% !important;\" width=\"480\" /></a>\n</td>\n</tr>\n        <!--<![endif]-->\n        \n    </table>\n</div></div></td></tr></table>\n<div class=\"spacer_block block-2\" style=\"height: 10px; line-height: 10px; font-size: 1px;\">\u200a</div>\n</td></tr></tbody></table></td></tr></tbody></table>\n<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row row-5\" width=\"100%\"><tbody><tr><td><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"row-content stack\" style=\"background-color: #0c0c0c; border-radius: 0; color: #000; width: 600px; margin: 0 auto;\" width=\"600\"><tbody><tr><td class=\"column column-1\" style=\"font-weight: 400; text-align: left; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; vertical-align: top;\" width=\"100%\">\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"image_block block-1\" width=\"100%\"><tr><td align=\"left\" class=\"pad\" style=\"width: 100%; padding-top: 10px; padding-bottom: 10px;\"><div><img alt=\"CNN\" height=\"auto\" src=\"https://braze-images.com/appboy/communication/assets/image_assets/images/697bc34028b1f500657d86cc/original.png?1769718591\" style=\"display: block; height: auto; border: 0; width: 100%;\" title=\"CNN\" width=\"56\" /></div></td></tr></table>\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"paragraph_block block-2\" width=\"100%\"><tr><td class=\"pad\" style=\"padding-top: 15px; padding-bottom: 20px;\"><div style=\"color: #fff; direction: ltr; font-family: Helvetica,Arial,Sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0; line-height: 1.5; text-align: left;\">\n<p style=\"margin: 0; margin-bottom: 0;\">\nYou are receiving this newsletter because you signed up for Breaking News.</p>\n<p style=\"margin: 0; margin-bottom: 0;\">&nbsp;</p>\n<p style=\"margin: 0; margin-bottom: 0;\">To stop receiving this newsletter, <a href=\"https://clicks.cnn.com/f/a/J7dez6V0YLIWNJLj9j1Jsw~~/AAQRxRA~/J1x8mYW1Hv0oE0SmsIH1C9MrnZZlgdChYdVUh_jJ0Ms_ozJ2ZuPQSa62Yfb07J-vCr7CZ5WwJnIaD75zf8ZTncXi7yYpT1uQ9VEGspI8I4sL0MgJnurH_5Zx7CQ13_Od-5OdE6sXngXMGTvkItH8G_-ExVVLAh1_zL_7tgxAmzFat91-G95HRy_VsDIjdMgs0dQdtmUnepKGxIWnEbCzlgjPQTWLcvwOBE23yEXa62Y1fbmhOuAc-u9pxCsVqUxonVq4cMpa4otz5Tbd71rT-hGWS9ynXjwywjZFtRqNaC0-AEwWXaMTlxndNwTLcgKN-bKCoxZPs4hrSl1n-Dw7tE-bidyAqi4d1O0nbWMyf18~\" rel=\"noopener\" style=\"text-decoration: underline; color: #ffffff;\" target=\"_blank\">unsubscribe</a> or sign up to <a href=\"https://clicks.cnn.com/f/a/HRlUxyZuxVuwm20PO2OQwg~~/AAQRxRA~/s79ai5IkUOIrA02ukljAo_HfZqe5uSelxDDgKsXTAz5R_jRcTqliFMFJ2uUiOKIy_38gnmf8i9I2I4cpuZ5M9_8m-4gLpVEV0LJR0yodLcakpNjq0DjVKAAyw98yJYnyf4r6Hqu3HozMbYiaq2VfAArKCT9cbS57zmAbo0AzxnJz-vurd43vvemIRSSnj8FYPpe2dreAdw2J9_tkgmTGKTDcPb3YIyrbKdWbKOi3dJBs89tsBKcEn6g5cp6ijBOB\" rel=\"noopener\" style=\"text-decoration: underline; color: #ffffff;\" target=\"_blank\">manage your CNN account</a>.</p>\n<p style=\"margin: 0; margin-bottom: 0;\">&nbsp;</p>\n<p style=\"margin: 0; margin-bottom: 0;\">\n<a href=\"https://clicks.cnn.com/f/a/KxEyyIZEVQZax_Xi7nTH1Q~~/AAQRxRA~/hgqc70jdBAWNvPTgSDazS8loS18pC8wO9w3zB-dDne-etwp-s81teY_rf-7-zWTaOTcSRkB4_JD61AWpxK8nJyzw61VfgVOyHhLC2dNIhKsawqZH6WW4G9j0pnG9FOWHRqc2uFtig0ZTenpor3-EiGNdCNlbiWO2ouUSm4RfIYOwKkIrMIgW6RZEBV-RBbBSlMneMlanIfjEa8yonumjj_yBKmITIPfmi4xg_jRN13b3Dx1nIrhIldNWFc21RMe-UQzpguAS6NiuV8o1HPHWRA~~\" rel=\"noopener\" style=\"text-decoration: underline; color: #ffffff;\" target=\"_blank\">Sign up for a free CNN account</a></p>\n<p style=\"margin: 0; margin-bottom: 0;\">&nbsp;</p>\n<p style=\"margin: 0; margin-bottom: 0;\">&nbsp;\u00ae \u00a9 2026 Cable News Network, Inc.</p>\n<p style=\"margin: 0; margin-bottom: 0;\">A Warner Bros. Discovery Company. All Rights Reserved.</p>\n<p style=\"margin: 0;\">\n1050 Techwood Drive NW, Atlanta, GA 30318</p>\n</div></td></tr></table>\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"social_block block-3\" width=\"100%\"><tr><td align=\"left\" class=\"pad\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"social-table\" width=\"254px\"><tr>\n<td style=\"padding: 0;\">\n<a href=\"https://clicks.cnn.com/f/a/blPiJQoB87Ik6LXH4IkQKg~~/AAQRxRA~/6QFBzMpW2V1Q33-hAnzzN-Rov32YUfrAoIH9rBU_E8RrZqyrAFEgz7JHg2KqXWnSyw60wKzBuqArwUGEl00x6y6uRQwKaVmzvdBtxIHATDOkU0QcM_UXDJQSuDbxwB2oKbmIoHVwREfbKraUNcYhK07R3yDXF9gsG_vRoTUHlnO9FdiRQbOtk9cPCIVgnv4E72sutB1v0xRy3Zg5t38xizqTQGk0GHQUFp2HdyJYZp_ymO3LIZgBk6HM0crpBsG8\" target=\"_blank\"><img alt=\"Facebook\" height=\"auto\" src=\"https://braze-social-icons.s3.amazonaws.com/social-networks-icon-sets/t-only-logo-default-gray/facebook@2x.png\" style=\"display: block; height: auto; border: 0;\" title=\"Facebook\" width=\"32\" /></a>\n</td>\n<td style=\"padding: 0 0 0 5px;\"><a href=\"https://clicks.cnn.com/f/a/8jjgpSk6J0kn7BbcTY4wYw~~/AAQRxRA~/4Apt723316J1bKjr7cIpoLVeFs2MQz0ImeGBCr82BoSHf_fypTa9LpnvAyPPnxLcZeiW-_fWSzESIGkG5llP8e5H9GnRtJd1DrukgUHRnkhJYY_vLG_Xm5keV-zMIR_N18joYX9X9bVWuVJZdCE5Z-L00N2MuhbwUku5-XAe6gXdXWeO7CJYOX4fg92T5e6P4X9znMLffVtG2e7JvThY84iVRDilGnuCsCp68PE_3-pKm9H3CbKratZD4Vfvkbnl\" target=\"_blank\"><img alt=\"X\" height=\"auto\" src=\"https://braze-social-icons.s3.amazonaws.com/social-networks-icon-sets/t-only-logo-default-gray/x@2x.png\" style=\"display: block; height: auto; border: 0;\" title=\"X\" width=\"32\" /></a></td>\n<td style=\"padding: 0 0 0 5px;\"><a href=\"https://clicks.cnn.com/f/a/b3yhEdutgyNfdW3Q70l_tA~~/AAQRxRA~/ZjLvBpohGAVHEc6YjFEEjC9MyM2XS80rTgZrhAsehKZJo7WmckF628pzynNtqBS0bh3H1Hxr1ierjNnhlJED54JMVsmmhIgXX6dUbQMSR_7AHgoSQ0X9Q0sAerx6Kff8YAg_i_bi87yEAuXuveF2AcQYO-UspOdTPXK4TQfET-fKI5lHY12Cut8GzT23MXH7HAUpppezfrAFDngg7xsiTHe4XMUrsRmh02GyTU0LF2AZpJq7i9K3aFffHpkt_imQ\" target=\"_blank\"><img alt=\"Instagram\" height=\"auto\" src=\"https://braze-social-icons.s3.amazonaws.com/social-networks-icon-sets/t-only-logo-default-gray/instagram@2x.png\" style=\"display: block; height: auto; border: 0;\" title=\"Instagram\" width=\"32\" /></a></td>\n<td style=\"padding: 0 0 0 5px;\"><a href=\"https://clicks.cnn.com/f/a/GmIGkPA18XJAjiud2JFofA~~/AAQRxRA~/froc0Ir9xleSLRzBNOTapyBzXx16NasyBa7-lAXDFuFReADQPHDgyapdWO4Bc6PfPj77aFvgzd-99WB6PvKHB-S1JDMkCp69MN8dMtO-kfSc-wfDxamPn6qYo-Wsk5zyoTaxYVtmf1Lp3KQOJn6OAcfoR2dtqd8wPZUMSuIeOXhab6O-Mp4zViIWwgi69_M6s9vVSnwT-lU-rsjesRCB4cz8zH-yTLx794w-4hsG4UY~\" target=\"_blank\"><img alt=\"Threads\" height=\"auto\" src=\"https://braze-social-icons.s3.amazonaws.com/social-networks-icon-sets/t-only-logo-default-gray/threads@2x.png\" style=\"display: block; height: auto; border: 0;\" title=\"Threads\" width=\"32\" /></a></td>\n<td style=\"padding: 0 0 0 5px;\"><a href=\"https://clicks.cnn.com/f/a/RIn9HDKv3A-iCN_ashYJbQ~~/AAQRxRA~/xd_Eh4JZo0a37D_vObF6Inj2xRRplXZJAzXRM9h9TYDkAiiwQbjbHOknAxJ6avPpVoYxAMgeFwkk4YnL_ky6ccBIIrm3XZz9ce3naVcCXLCBtohjmnAOsYuqSg_d4k0i77F8wR9RDPD59B4jleUNfiA9UjyDdomgpgbgVhS0LVclGyn0O8TAiYxqxO2X6Og5YKmHnuW-vL_fEyEBdXoZZjBrFCNCeGlBhwQaUkLLfML9fRVy_sLu8Qtvi7shfiGx\" target=\"_blank\">\n<img alt=\"YouTube\" height=\"auto\" src=\"https://braze-social-icons.s3.amazonaws.com/social-networks-icon-sets/t-only-logo-default-gray/youtube@2x.png\" style=\"display: block; height: auto; border: 0;\" title=\"YouTube\" width=\"32\" /></a></td>\n<td style=\"padding: 0 0 0 5px;\"><a href=\"https://clicks.cnn.com/f/a/76v24QiKyy2FpV5fDQ2xrQ~~/AAQRxRA~/BjMu01k3n-USXRvDCLm2SQ9fsEll7xdoF747w0Pi4wCE84XY78WCwXARam7P0zu5z1duyy8ZPTkjctruXyPsU2I1ecmvxgWGWhNwbJC4tW2FmXmNEQh9Gjv7qu3Tbh-iDRYO1k0yrm1j2Y577pY1babJJ-jsxwLbH3-GKC0g329OODlbEyjLTC2AGRIwLcxG0xKUPPkyE6ZmIS7l-rgMLmSdQtZFpEat4oZYZfRGWEM~\" target=\"_blank\"><img alt=\"TikTok\" height=\"auto\" src=\"https://braze-social-icons.s3.amazonaws.com/social-networks-icon-sets/t-only-logo-default-gray/tiktok@2x.png\" style=\"display: block; height: auto; border: 0;\" title=\"TikTok\" width=\"32\" /></a></td>\n<td style=\"padding: 0 0 0 5px;\"><a href=\"https://clicks.cnn.com/f/a/u0dnpbkrP8I7qtUAdKRaHg~~/AAQRxRA~/s79ai5IkUOIrA02ukljAoz4Wrl-tWEsEI5HPOF8hgTTpu9b7dnMG88bs2nWoHE-t4VWb_QKc2ncfEQxKgaU-k9j7kYZae9PNHT16TA-Ep3C34OvLASC1dfodqCBAQSmQp4-eswZT_Wk3RDUs4qoKirQt23JE0e2Izi57HQVKFwT83mROClRtHRF7HEBdrWTKxgPaYIH0sjffOlFH6X5w_S6E0Al6dgX1k2NodKugFBN8G6fSv9PkWUDP-kOZSuGu\" target=\"_blank\"><img alt=\"LinkedIn\" height=\"auto\" src=\"https://braze-social-icons.s3.amazonaws.com/social-networks-icon-sets/t-only-logo-default-gray/linkedin@2x.png\" style=\"display: block; height: auto; border: 0;\" title=\"LinkedIn\" width=\"32\" /></a></td>\n</tr></table></td></tr></table>\n</td></tr></tbody></table></td></tr></tbody></table>\n</td></tr>\n</tbody></table>\n<!-- End -->\n\n\n              \n                <hr />\n                <p>\n                  <small>\n                    <a href=\"https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv\">Kill the Newsletter! feed settings</a>\n                  </small>\n                </p>"
+    },
     {
       "title": "Trending Now: Inside the police investigation into how Rep. Max Miller\u2019s daughter got hurt",
       "link": "https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv/entries/kv2yaqdff02on674b0ms.html",
