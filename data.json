@@ -1,25 +1,17 @@
 {
-  "updated": "2026-08-22T11:29:21.995274+00:00",
-  "updated_local": "August 22, 2026 at 11:29 AM",
+  "updated": "2026-08-22T12:54:51.998131+00:00",
+  "updated_local": "August 22, 2026 at 12:54 PM",
   "weather_current": {
-    "temp": 63,
+    "temp": 66,
     "unit": "F",
     "wind": "6 mph",
-    "windDir": "N",
-    "shortForecast": "Cloudy",
-    "detailedForecast": "A chance of rain showers between 8am and 1pm, then a chance of rain showers and patchy fog between 1pm and 3pm, then patchy fog and a slight chance of rain showers. Cloudy, with a high near 71. Northeast wind around 7 mph. Chance of precipitation is 30%.",
-    "humidity": 97,
+    "windDir": "NE",
+    "shortForecast": "Slight Chance Rain Showers",
+    "detailedForecast": "A chance of rain showers before 1pm, then a chance of rain showers and patchy fog between 1pm and 3pm, then patchy fog and a slight chance of rain showers. Mostly cloudy, with a high near 71. Northeast wind around 7 mph. Chance of precipitation is 30%.",
+    "humidity": 93,
     "precip": 0
   },
   "weather_hourly": [
-    {
-      "time": "2026-08-22T07:00:00-04:00",
-      "temp": 63,
-      "unit": "F",
-      "shortForecast": "Cloudy",
-      "wind": "6 mph",
-      "precip": 0
-    },
     {
       "time": "2026-08-22T08:00:00-04:00",
       "temp": 66,
@@ -203,16 +195,24 @@
       "shortForecast": "Chance Rain Showers",
       "wind": "3 mph",
       "precip": 54
+    },
+    {
+      "time": "2026-08-23T07:00:00-04:00",
+      "temp": 64,
+      "unit": "F",
+      "shortForecast": "Chance Rain Showers",
+      "wind": "5 mph",
+      "precip": 51
     }
   ],
   "weather_daily": [
     {
       "name": "Today",
-      "date": "2026-08-22T07:00:00-04:00",
+      "date": "2026-08-22T08:00:00-04:00",
       "high": 71,
       "low": 60,
       "shortForecast": "Chance Rain Showers",
-      "detailedForecast": "A chance of rain showers between 8am and 1pm, then a chance of rain showers and patchy fog between 1pm and 3pm, then patchy fog and a slight chance of rain showers. Cloudy, with a high near 71. Northeast wind around 7 mph. Chance of precipitation is 30%.",
+      "detailedForecast": "A chance of rain showers before 1pm, then a chance of rain showers and patchy fog between 1pm and 3pm, then patchy fog and a slight chance of rain showers. Mostly cloudy, with a high near 71. Northeast wind around 7 mph. Chance of precipitation is 30%.",
       "precip": 28
     },
     {
@@ -324,10 +324,7 @@
     "name": "Boston Logan (KBOS)",
     "delay": false,
     "status": "ok",
-    "metar": {
-      "raw": "METAR KBOS 221054Z 02007KT 3SM OVC011 19/18 A3007 RMK AO2 SFC VIS 8 SLP182 T01940178",
-      "flight_cat": ""
-    },
+    "metar": null,
     "faa_delays": [],
     "flight_stats": {
       "cancelled": 24
@@ -342,6 +339,11 @@
     {
       "header": "Please board all Framingham/Worcester Line trains on the outbound platform (Track 1) at West Natick through Wellesley Farms until further notice today. ",
       "effect": "TRACK_CHANGE",
+      "routes": []
+    },
+    {
+      "header": "Fitchburg Line Train 5407 (7:45 AM from North Station) is stopped before Littleton and is 5-15 minutes behind schedule due to a track issue.",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -375,6 +377,11 @@
       "routes": []
     },
     {
+      "header": "Please board all Lowell Line trains on the outbound platform (Track 1) at West Medford, Wedgemere, and Winchester Center until further notice.",
+      "effect": "TRACK_CHANGE",
+      "routes": []
+    },
+    {
       "header": "Orange Line: Shuttle buses will replace service between Back Bay and Forest Hills from September 10 - 14 to allow for work on the Ruggles Station Improvement Project. ",
       "effect": "SHUTTLE",
       "routes": []
@@ -386,6 +393,11 @@
     },
     {
       "header": "Blue Line: All trains will operate on the outbound/eastbound track between Wonderland and Revere Beach the weekend of September 26 \u2013 27, for switch work. ",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Fitchburg Line Train 5412 (8:00 AM from Wachusett) is operating 20-30 minutes late between Ayer and North Station due to freight train traffic.",
       "effect": "DELAY",
       "routes": []
     },
@@ -418,33 +430,18 @@
       "header": "The Wyoming Hill Mini-high platform project has begun. Passengers and local residents can expect construction vehicles and activity during the day through the Winter of 2026.",
       "effect": "STATION_ISSUE",
       "routes": []
-    },
-    {
-      "header": "The Endicott Mini-high platform project has begun. Passengers and local residents can expect construction vehicles and activity during the day through the Winter of 2026.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "The Riverside Ave entrance at Campello Station is currently closed. Passengers may continue to use the Plain St entrance.",
-      "effect": "STATION_ISSUE",
-      "routes": []
-    },
-    {
-      "header": "Please board all Framingham/Worcester Line trains on the outbound platform (Track 7) at Lansdowne and Back Bay until further notice today.",
-      "effect": "TRACK_CHANGE",
-      "routes": []
     }
   ],
   "beach_conditions": {
-    "water_temp_f": 66.6,
+    "water_temp_f": 66.7,
     "wvht_ft": null,
     "dpd_s": null,
     "wspd_mph": 11.2,
-    "wdir_deg": 60.0,
+    "wdir_deg": 30.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
-    "wdir_label": "ENE"
+    "wdir_label": "NNE"
   },
   "revere_calendar": [
     {
@@ -1239,13 +1236,13 @@
       "_alert": "Revere Massachusetts"
     },
     {
-      "title": "rfr-mbta-blue-line - Railfan & Railroad Magazine",
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPZ3RZNGdmZ2RkSTBBWkJuRzYzM0JRSHdEN29lM0tpejJBS0c2c3Vjd2IzMGxrT0ZFNGxmNjFBR3JEcWlfRGNyZUZVZlZlUm9ZTE1zemtkdGQyU0dyY2pzaGpCaGNrdjNBODA0TEZPQTh1Q0lmcG01VEc4dXVpNDN4WGxOV3NmbUZzZTc1NmNSdHlXYjQ?oc=5",
-      "published": "Fri, 21 Aug 2026 20:08:07 GMT",
-      "ts": 1787342887,
+      "title": "rfr-mbta-blue-line-01 - Railfan & Railroad Magazine",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNT0JFN1JMNHdiTXFYUWdDZGw2azIzU09KcXZ3VGZmMDg3R0pZMy1ib2xCYmZnLUdzMUFkaTlreklMdFFvTHlwV0lsc2VpVmlpVVNVMDduTFp2WFBfWmt0el9SaFk5UTRlSDRvdlVxT1hwaThHNVZjWFhmMHJYcTVFb0NZV2tvVUhsM2lWM29oTEJKQ0ZmOURn?oc=5",
+      "published": "Fri, 21 Aug 2026 20:36:01 GMT",
+      "ts": 1787344561,
       "author": "",
       "feed_title": "Railfan & Railroad Magazine",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxPZ3RZNGdmZ2RkSTBBWkJuRzYzM0JRSHdEN29lM0tpejJBS0c2c3Vjd2IzMGxrT0ZFNGxmNjFBR3JEcWlfRGNyZUZVZlZlUm9ZTE1zemtkdGQyU0dyY2pzaGpCaGNrdjNBODA0TEZPQTh1Q0lmcG01VEc4dXVpNDN4WGxOV3NmbUZzZTc1NmNSdHlXYjQ?oc=5\" target=\"_blank\">rfr-mbta-blue-line</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Railfan & Railroad Magazine</font>",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxNT0JFN1JMNHdiTXFYUWdDZGw2azIzU09KcXZ3VGZmMDg3R0pZMy1ib2xCYmZnLUdzMUFkaTlreklMdFFvTHlwV0lsc2VpVmlpVVNVMDduTFp2WFBfWmt0el9SaFk5UTRlSDRvdlVxT1hwaThHNVZjWFhmMHJYcTVFb0NZV2tvVUhsM2lWM29oTEJKQ0ZmOURn?oc=5\" target=\"_blank\">rfr-mbta-blue-line-01</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Railfan & Railroad Magazine</font>",
       "source": "Google News \u00b7 Blue Line \u00b7 MBTA",
       "_alert": "Blue Line \u00b7 MBTA"
     },
@@ -3756,6 +3753,86 @@
   ],
   "news_boston": [
     {
+      "title": "US imposes 50% tariffs on $20B worth of Canadian products. Canada says it will retaliate.",
+      "link": "https://www.boston.com/news/national-news/2026/08/22/us-imposes-50-tariffs-on-20b-worth-of-canadian-products-canada-says-it-will-retaliate/",
+      "published": "Sat, 22 Aug 2026 12:52:24 +0000",
+      "ts": 1787403144,
+      "author": "Associated Press",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
+      "summary": "<p>\u201cCanada will match those tariffs dollar for dollar to protect our workers and businesses,\u201d Canadian Prime Minister Mark Carney said in a statement.</p>\n<p>The post <a href=\"https://www.boston.com/news/national-news/2026/08/22/us-imposes-50-tariffs-on-20b-worth-of-canadian-products-canada-says-it-will-retaliate/\">US imposes 50% tariffs on $20B worth of Canadian products. Canada says it will retaliate.</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
+    },
+    {
+      "title": "Gray Saturday, rainier Sunday",
+      "link": "https://whdh.com/weather-blog/gray-saturday-rainier-sunday/",
+      "published": "Sat, 22 Aug 2026 12:39:50 +0000",
+      "ts": 1787402390,
+      "author": "Kshalhoup",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "It&#8217;s a dreary morning, but you already know that if you&#8217;ve even looked outside so far today. It&#8217;ll stay gray, and misty and drizzly at...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "US imposes 50% tariffs on $20 billion worth of Canadian products; Canada says it will retaliate",
+      "link": "https://www.wcvb.com/article/us-tariffs-20-billion-canadian-products/73500214",
+      "published": "Sat, 22 Aug 2026 12:33:00 GMT",
+      "ts": 1787401980,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>The United States imposed 50% tariffs on $20 billion worth of Canadian products early Saturday, and Canada immediately said it would retaliate.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Trump's 50% tariffs on Canada take effect after talks fall through",
+      "link": "https://www.wcvb.com/article/trumps-50-tariffs-canada-take-effect-after-talks-fall-through/73500777",
+      "published": "Sat, 22 Aug 2026 12:22:00 GMT",
+      "ts": 1787401320,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Canada is promising to match President Donald Trump's new tariffs \"dollar for dollar.\" </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "AI slop has infected our streaming services",
+      "link": "https://www.boston.com/things-to-do/the-queue/2026/08/22/culture-streaming-ai-slop-content/",
+      "published": "Sat, 22 Aug 2026 12:00:00 +0000",
+      "ts": 1787400000,
+      "author": "Kevin Slane",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
+      "summary": "<p>\"Fairground AI Creator TV\" operates like a regular television network, but only airs 100% AI content.</p>\n<p>The post <a href=\"https://www.boston.com/things-to-do/the-queue/2026/08/22/culture-streaming-ai-slop-content/\">AI slop has infected our streaming services</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
+    },
+    {
+      "title": "'Contrary to law': Trump\u2019s 75-country immigrant visa ban is struck down by judge",
+      "link": "https://www.wcvb.com/article/trumps-75-country-immigrant-visa-ban-struck-down-judge/73500806",
+      "published": "Sat, 22 Aug 2026 11:55:00 GMT",
+      "ts": 1787399700,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>The Trump administration\u2019s ban on visas for immigrants from 75 countries was struck down by a federal judge Friday, who ruled it was \u201ccontrary to law.\u201d</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Iran says the world has accepted it has defeated the US",
+      "link": "https://www.boston.com/news/world-news/2026/08/22/iran-says-the-world-has-accepted-it-has-defeated-the-us/",
+      "published": "Sat, 22 Aug 2026 11:51:13 +0000",
+      "ts": 1787399473,
+      "author": "Associated Press",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
+      "summary": "<p>\u201cThe entire world approved our victory and the U.S. is hated,\u201d President Masoud Pezeshkian said, according to IRNA news agency.</p>\n<p>The post <a href=\"https://www.boston.com/news/world-news/2026/08/22/iran-says-the-world-has-accepted-it-has-defeated-the-us/\">Iran says the world has accepted it has defeated the US</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
+    },
+    {
+      "title": "Shooting Involving Police Officer in Cambridge",
+      "link": "https://www.wcvb.com/article/shooting-involving-police-officer-in-cambridge/73500079",
+      "published": "Sat, 22 Aug 2026 11:51:00 GMT",
+      "ts": 1787399460,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Shooting Involving Police Officer in Cambridge</p>",
+      "source": "Top Stories"
+    },
+    {
       "title": "Video: Weekend showers, less humid Monday",
       "link": "https://www.wcvb.com/article/video-weekend-showers-less-humid-monday/73500846",
       "published": "Sat, 22 Aug 2026 11:25:00 GMT",
@@ -3791,9 +3868,9 @@
       "published": "Sat, 22 Aug 2026 11:00:00 +0000",
       "ts": 1787396400,
       "author": "New York Times Service",
-      "feed_title": "Boston.com",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
       "summary": "<p>A hyperlocal dish, the stuffed quahog, or \u201cstuffie,\u201d is especially suited to home cooking, and delightfully in reach.</p>\n<p>The post <a href=\"https://www.boston.com/food/restaurants/2026/08/22/stuffed-quahogs-stuffies-new-england-cape-cod-clams/\">This classic New England seafood dish is the antidote to $30 lobster rolls</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
     },
     {
       "title": "Trump's US attorney pick can no longer investigate one of president\u2019s top foes, court rules",
@@ -3836,14 +3913,34 @@
       "source": "Boston News, Weather, Sports | WHDH 7News"
     },
     {
-      "title": "US imposes 50% tariffs on $20 billion worth of Canadian products; Canada says it will retaliate",
-      "link": "https://www.wcvb.com/article/us-tariffs-20-billion-canadian-products/73500214",
-      "published": "Sat, 22 Aug 2026 10:02:00 GMT",
-      "ts": 1787392920,
+      "title": "2 police officers shot, suspect dead after pursuit ends in Newington, Conn.",
+      "link": "https://www.nbcboston.com/news/local/2-police-officers-shot-suspect-dead-after-pursuit-ends-in-newington/4002217/",
+      "published": "Sat, Aug 22 2026 08:34:45 AM",
+      "ts": 1787387685,
       "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>The United States imposed 50% tariffs on $20 billion worth of Canadian products early Saturday, and Canada immediately said it would retaliate.</p>",
-      "source": "Top Stories"
+      "feed_title": "NBC Boston",
+      "summary": "<p>Two police officers were shot and a suspect is dead after a pursuit that started in Hartford ended in Newington overnight.</p>\n\n\n\n<p>Officers in Hartford were investigating illegal activity on Fales Street around 11 p.m. Friday when a male suspect fled on foot.</p>\n\n\n\n<p>A Hartford police officer attempted to take the suspect into custody and during the struggle, authorities said the officer felt what appeared to be a firearm in the suspect&#8217;s waistband. </p>\n\n\n\n<p>The suspect then reportedly entered a vehicle and fled the area. According to police, officers pursued the vehicle through Hartford and continued south before stopping in Webster Court in Newington near the Rocky Hill town line.</p>\n\n\n\n<p>Authorities said the suspect exited the vehicle and there was an exchange of gunfire. As a result, investigators said a Hartford police officer and a Rocky Hill police officer were struck by gunfire. Both officers were transported to the hospital where they are in stable condition.</p>\n\n\n\n<p>The suspect was also struck by gunfire and was pronounced dead at the scene, police said. The suspect&#8217;s identity has not yet been released.</p>\n\n\n\n<p>A gun was found on scene, police said.</p>\n\n\n\n<p>The Inspector General&#8217;s Office was called to the scene and is investigating.</p>",
+      "source": "NBC Boston"
+    },
+    {
+      "title": "Bridgewater Little League team plays elimination game at World Series today",
+      "link": "https://www.nbcboston.com/news/local/bridgewater-little-league-world-series-elimination-game/4002188/",
+      "published": "Sat, Aug 22 2026 08:24:33 AM",
+      "ts": 1787387073,
+      "author": "Kaitlin McKinley Becker",
+      "feed_title": "NBC Boston",
+      "summary": "<p><a href=\"https://www.bridgewaterll.com/\" rel=\"noreferrer noopener\" target=\"_blank\">The Little League team from Bridgewater, Massachusetts</a>, that is representing New England in the <a href=\"https://www.littleleague.org/world-series/2026/llbws/\" rel=\"noreferrer noopener\" target=\"_blank\">World Series</a>, will play again Saturday for a chance to stay in the tournament in Williamsport, Pennsylvania.</p>\n\n\n\n<p>Bridgewater, coming off Wednesday&#8217;s <a href=\"https://web.gc.com/organizations/B7Sx2RR0qcXP/schedule/705ab191-97db-44b5-9e2b-9c73d5714c10/info\" rel=\"noreferrer noopener\" target=\"_blank\">2-1 loss to the Metro team</a>, will face the Great Lakes Region team &#8212; from Hamilton, Ohio &#8212; at 3 p.m. Saturday at the Howard J. Lamade Stadium. </p>\n\n\n\n<p>Both teams have a 0-1 record and are fighting to stay alive in the bracket. The loser will be eliminated from the World Series, while the winner will go on to play again Monday, Aug. 24, against a team to be determined.</p>\n\n\n\n<p>The Bridgewater boys won the regional championship game, 8-0 against Gray, Maine, to become the New England champion. </p>\n\n\n\n<p>The Little League World Series championship game, featuring the international winner vs. the U.S. winner, will be held Sunday Aug. 30.</p>\n\n\n\n<p><a href=\"https://www.littleleague.org/world-series/2026/llbws/tournaments/world-series/\" rel=\"noreferrer noopener\" target=\"_blank\">The tournament&#8217;s full bracket can be found&nbsp;here</a>, and you can find&nbsp;<a href=\"https://www.nbcboston.com/news/sports/little-league-world-series-2026-teams-schedule-how-to-watch/3987566/\" rel=\"noreferrer noopener\" target=\"_blank\">a full guide to the 2026 Little League World Series, including teams and schedules, here</a>.</p>",
+      "source": "NBC Boston"
+    },
+    {
+      "title": "How much rain will we see this weekend, and when does it move through?",
+      "link": "https://www.nbcboston.com/news/local/weather-radar-boston-rain-timing-temperature/4002189/",
+      "published": "Sat, Aug 22 2026 07:33:29 AM",
+      "ts": 1787384009,
+      "author": "Pete Bouchard",
+      "feed_title": "NBC Boston",
+      "summary": "<p>We\u2019re at one of the final weekends of summer, and <a href=\"https://www.nbcboston.com/weather/\" rel=\"noreferrer noopener\" target=\"_blank\">the forecast isn\u2019t measuring up</a>. </p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11460393\" height=\"1080\" src=\"https://media.nbcboston.com/2026/08/LKS_2DAY_WEEKEND_BOSTON_ad3029.png?w=840&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Weekend rain timing</h2>\n\n\n\n<p>While today\u2019s on the cool side, it\u2019s not on the soaking wet side. A few spotty sprinkles are possible, but a steady rain isn\u2019t\u2026until we get to tonight.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11460394\" height=\"1080\" src=\"https://media.nbcboston.com/2026/08/LKS_GRAPH_POP_TOMORROW_BOSTON.png?w=840&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11460396\" height=\"1080\" src=\"https://media.nbcboston.com/2026/08/Weekend-Precip-Timeline-1.png?w=840&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>A batch of heavier rain will move through starting very late tonight and into early Sunday morning. Embedded thunderstorms are possible, along with a few downpours. </p>\n\n\n\n<p>Some spots may capitalize on an inch of water. </p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11460395\" height=\"1080\" src=\"https://media.nbcboston.com/2026/08/LKS_PRECIP_FCST_BOSDMA2-_PETE-2.png?w=840&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>Our guidance is favoring eastern Massachusetts and New Hampshire, however, so this may not be a huge issue from Worcester to western Mass. This is the wettest part of the weekend, too. All signs point to drying in the afternoon with some possible sunny breaks.</p>\n\n\n\n<p><em><a href=\"https://www.nbcboston.com/weather/severe-weather-alerts/\" rel=\"noreferrer noopener\" target=\"_blank\">Click here for active weather alerts</a></em></p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Weather radar</h2>\n\n\n<div style=\"height: 520px;\"></div>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Weekend temps</h2>\n\n\n\n<p>Saturday remains on the cool side with winds from the northeast. Sunday\u2019s breezes turn to the south and jack up the humidity. We will see highs in the low 70s Saturday and near 80 Sunday.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11460392\" height=\"1080\" src=\"https://media.nbcboston.com/2026/08/LKS-DEW-POINT-AND-WORD-AUTO-LINE-GRAPH_PM-8.png?w=840&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>Less humid air moves in Monday along with a return to the sunshine. That should carry through midweek, with temps in the summery low 80s.</p>\n\n\n\n<p>Enjoy the weekend!</p>",
+      "source": "NBC Boston"
     },
     {
       "title": "DA: Won't stop 'until we find Karen Solomon'; Warrant issued for wife of slain officer",
@@ -3861,19 +3958,9 @@
       "published": "Sat, 22 Aug 2026 03:31:09 +0000",
       "ts": 1787369469,
       "author": "Kaley Brown",
-      "feed_title": "Boston.com",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
       "summary": "<p>Contreras launched a 450-foot laser beam over the Green Monster to give the Sox a lead. Devers hit the second of back-to-back bombs for San Francisco.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/08/21/red-sox-giants-willson-contreras-rafael-devers/\">Red Sox\u2019 Willson Contreras, Giants\u2019 Rafael Devers each hit 400-plus-foot home runs in 6-4 Boston win</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Shooting Involving Police Officer in Cambridge",
-      "link": "https://www.wcvb.com/article/shooting-involving-police-officer-in-cambridge/73500079",
-      "published": "Sat, 22 Aug 2026 03:30:00 GMT",
-      "ts": 1787369400,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Shooting Involving Police Officer in Cambridge</p>",
-      "source": "Top Stories"
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
     },
     {
       "title": "Patriots linebacker Robert Spillane revisits Tom Brady\u2019s Super Bowl comments",
@@ -3881,19 +3968,9 @@
       "published": "Sat, 22 Aug 2026 03:19:59 +0000",
       "ts": 1787368799,
       "author": "Colin McCarthy",
-      "feed_title": "Boston.com",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
       "summary": "<p>\"It made me feel sad for him,\" Spillane explained on The Greg Hill show. </p>\n<p>The post <a href=\"https://www.boston.com/sports/new-england-patriots/2026/08/21/patriots-tom-brady-super-bowl-quote-robert-spillane-comments/\">Patriots linebacker Robert Spillane revisits Tom Brady&#8217;s Super Bowl comments</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Investigation underway following officer-involved shooting in Cambridge",
-      "link": "https://whdh.com/news/investigation-underway-following-officer-involved-shooting-in-cambridge/",
-      "published": "Sat, 22 Aug 2026 02:55:26 +0000",
-      "ts": 1787367326,
-      "author": "Owen Boss",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "Authorities are investigating an officer-involved shooting in Cambridge on Friday night, officials said. A large police presence has gathered near the scene on Temple Street,...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
     },
     {
       "title": "Activists urge Trump against promoting coal to power data centers",
@@ -3931,9 +4008,9 @@
       "published": "Sat, 22 Aug 2026 01:23:53 +0000",
       "ts": 1787361833,
       "author": "Colin McCarthy",
-      "feed_title": "Boston.com",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
       "summary": "<p>Patrice Bergeron and Brad Marchand skated alongside Chara one last time Friday.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-bruins/2026/08/21/nhl-bruins-zdeno-chara-zees-last-shift-event/\">Zdeno Chara leaves skates on the ice after star-studded &#8216;Zee&#8217;s Final Shift&#8217; event</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
     },
     {
       "title": "Trump urges South Carolinians to make Sen. Darline Graham the GOP nominee for US Senate",
@@ -3991,9 +4068,9 @@
       "published": "Sat, 22 Aug 2026 00:11:19 +0000",
       "ts": 1787357479,
       "author": "Associated Press",
-      "feed_title": "Boston.com",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
       "summary": "<p>The ruling does not affect a separate $1.25 billion judgment against Jones in Connecticut, where he was also found liable for defaming and causing emotional distress.</p>\n<p>The post <a href=\"https://www.boston.com/news/national-news/2026/08/21/court-cuts-50m-judgment-against-infowars-alex-jones-over-falsely-labeling-newtown-killings-a-hoax/\">Court cuts $50M judgment against Infowars&#8217; Alex Jones over falsely labeling Newtown killings a hoax</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
     },
     {
       "title": "Watch: Fenway Park crowd boos Rafael Devers in first at-bat in Boston since Red Sox trade",
@@ -4001,9 +4078,9 @@
       "published": "Fri, 21 Aug 2026 23:58:20 +0000",
       "ts": 1787356700,
       "author": "Kaley Brown",
-      "feed_title": "Boston.com",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
       "summary": "<p>There were some cheers, but the reception was mostly negative.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/08/21/rafael-devers-red-sox-fenway-park-reaction/\">Watch: Fenway Park crowd boos Rafael Devers in first at-bat in Boston since Red Sox trade</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
     },
     {
       "title": "Supreme Court\u2019s chief justice allows work on Trump\u2019s $400M White House ballroom to continue for now",
@@ -4011,9 +4088,9 @@
       "published": "Fri, 21 Aug 2026 23:35:25 +0000",
       "ts": 1787355325,
       "author": "Associated Press",
-      "feed_title": "Boston.com",
+      "feed_title": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate",
       "summary": "<p>The temporary order came hours before lower-court rulings would have forced a halt to aboveground construction of the project because Trump didn't get congressional approval.</p>\n<p>The post <a href=\"https://www.boston.com/news/national-news/2026/08/21/supreme-courts-chief-justice-allows-work-on-trumps-400m-white-house-ballroom-to-continue-for-now/\">Supreme Court&#8217;s chief justice allows work on Trump&rsquo;s $400M White House ballroom to continue for now</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
+      "source": "US imposes 50% tariffs on $20 billion worth of Canadian products. Canada says it will retaliate"
     },
     {
       "title": "Video: Weekend showers, then clearing Monday",
@@ -4032,18 +4109,8 @@
       "ts": 1787311232,
       "author": "Mike Pescaro and Asher Klein",
       "feed_title": "NBC Boston",
-      "summary": "<p>A man died in a police shooting in a busy part of Cambridge, Massachusetts, on Friday night, authorities said.</p>\n\n\n\n<p>The shooting happened on Temple Street in the Central Square area, near where Massachusetts Avenue intersects with Prospect Street. Temple Street remained closed for hours after the shooting took place.  </p>\n\n\n\n<p>The incident was first reported, as suspicious individuals who&#8217;d been lingering in a loading dock or parking lot area behind businesses, in an 8 p.m. call to the Cambridge police business line, according to police and the Middlesex County District Attorney&#8217;s Office. When officers arrived they spoke with multiple people in the area.</p>\n\n\n\n<p>A man in his 60s got out of a vehicle at some point after police arrived and pointed a gun at officers, who tried to disarm him, officials said. Multiple gunshots were fired &#8212; officials didn&#8217;t say by whom &#8212; and the man was hit, fatally wounding him.</p>\n\n\n\n<p>Medical aid was rendered to the wounded man at the scene, and the police officers involved in the incident were taken to local hospitals as a precaution, then released after being treated, authorities said early Saturday.</p>\n\n\n\n<p>The man hasn&#8217;t been publicly identified.</p>\n\n\n\n<p>The officers had body-worn cameras at the time of the incident, and the footage was being reviewed as part of the ongoing investigation, which will involve, as standard practice for shootings involving officers in Middlesex County, a judicial inquest to find facts and determine if any crime took place, the officials said.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More Cambridge news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/cambridge-police-shotspotter-reactivated-soundthinking-xavier-bautista/3999444/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/Video-2026-08-03T050718.700.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 18\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/cambridge-police-shotspotter-reactivated-soundthinking-xavier-bautista/3999444/\">\n\t\t\t\t\t\t\t\t\t\tShotSpotter temporarily reactivated in Cambridge months after city worker&#039;s death\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/cambridge-hit-run-scooter-crash-arrest/3999070/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2022/07/Cambridge-Police-071022.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/cambridge/\">Cambridge</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 17\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/cambridge-hit-run-scooter-crash-arrest/3999070/\">\n\t\t\t\t\t\t\t\t\t\tSuspect arrested in hit-and-run crash that injured 12-year-old girl\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/cambridge-police-say-body-found-in-fresh-pond/3995752/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/IMG_2821.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 11\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/cambridge-police-say-body-found-in-fresh-pond/3995752/\">\n\t\t\t\t\t\t\t\t\t\tBody found in Fresh Pond in Cambridge, police say\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
+      "summary": "<p>A man died in a police shooting in a busy part of Cambridge, Massachusetts, on Friday night, authorities said.</p>\n\n\n\n<p>The shooting happened on Temple Street in the Central Square area, near where Massachusetts Avenue intersects with Prospect Street. Temple Street remained closed for hours after the shooting took place.  </p>\n\n\n\n<p>The incident was first reported, as suspicious individuals who&#8217;d been lingering in a loading dock or parking lot area behind businesses, in an 8 p.m. call to the Cambridge police business line, according to police and the Middlesex County District Attorney&#8217;s Office. When officers arrived they spoke with multiple people in the area.</p>\n\n\n\n<p>A man in his 60s got out of a vehicle at some point after police arrived and pointed a gun at officers, who tried to disarm him, officials said. Multiple gunshots were fired &#8212; officials didn&#8217;t say by whom &#8212; and the man was hit, fatally wounding him.</p>\n\n\n<div></div>\n\n\n<p>Medical aid was rendered to the wounded man at the scene, and the police officers involved in the incident were taken to local hospitals as a precaution, then released after being treated, authorities said early Saturday.</p>\n\n\n\n<p>The man hasn&#8217;t been publicly identified.</p>\n\n\n\n<p>The officers had body-worn cameras at the time of the incident, and the footage was being reviewed as part of the ongoing investigation, which will involve, as standard practice for shootings involving officers in Middlesex County, a judicial inquest to find facts and determine if any crime took place, the officials said.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More Cambridge news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/cambridge-police-shotspotter-reactivated-soundthinking-xavier-bautista/3999444/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/Video-2026-08-03T050718.700.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 18\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/cambridge-police-shotspotter-reactivated-soundthinking-xavier-bautista/3999444/\">\n\t\t\t\t\t\t\t\t\t\tShotSpotter temporarily reactivated in Cambridge months after city worker&#039;s death\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/cambridge-hit-run-scooter-crash-arrest/3999070/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2022/07/Cambridge-Police-071022.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/cambridge/\">Cambridge</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 17\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/cambridge-hit-run-scooter-crash-arrest/3999070/\">\n\t\t\t\t\t\t\t\t\t\tSuspect arrested in hit-and-run crash that injured 12-year-old girl\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/cambridge-police-say-body-found-in-fresh-pond/3995752/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/IMG_2821.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 11\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/cambridge-police-say-body-found-in-fresh-pond/3995752/\">\n\t\t\t\t\t\t\t\t\t\tBody found in Fresh Pond in Cambridge, police say\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "5 must-watch movies & TV shows streaming right now",
-      "link": "https://www.boston.com/culture/streaming/2026/08/21/5-must-watch-movies-tv-shows-streaming-right-now-august-21-2026/",
-      "published": "Fri, 21 Aug 2026 22:53:30 +0000",
-      "ts": 1787352810,
-      "author": "Kevin Slane",
-      "feed_title": "Boston.com",
-      "summary": "<p>The best of what's new streaming on Netflix, Hulu, HBO Max, Disney Plus, and more.</p>\n<p>The post <a href=\"https://www.boston.com/culture/streaming/2026/08/21/5-must-watch-movies-tv-shows-streaming-right-now-august-21-2026/\">5 must-watch movies &amp; TV shows streaming right now</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
     },
     {
       "title": "O'Brien revives Goldberg feud with whistleblower claim",
@@ -4116,16 +4183,6 @@
       "source": "NBC Boston"
     },
     {
-      "title": "Ex-Red Sox Rafael Devers focused on the present with Giants in his return to Fenway Park",
-      "link": "https://www.boston.com/sports/boston-red-sox/2026/08/21/rafael-devers-red-sox-giants/",
-      "published": "Fri, 21 Aug 2026 22:06:17 +0000",
-      "ts": 1787349977,
-      "author": "Kaley Brown",
-      "feed_title": "Boston.com",
-      "summary": "<p>\u201cI don\u2019t want to think about the past, I don\u2019t want to talk about the past. \u2026 But at the same time, you make mistakes and we have to move on and mature.\u201d</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/08/21/rafael-devers-red-sox-giants/\">Ex-Red Sox Rafael Devers focused on the present with Giants in his return to Fenway Park</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
       "title": "Trump announces temporary beef imports to lower prices. US beef producers say it won't work",
       "link": "https://www.wcvb.com/article/trump-temporary-beef-imports-producers-say-it-wont-work/73498095",
       "published": "Fri, 21 Aug 2026 22:04:00 GMT",
@@ -4134,16 +4191,6 @@
       "feed_title": "Top Stories",
       "summary": "<p>President Trump announced a plan to import roughly 660 million pounds of ground beef over the next 90 days to reduce food prices, but experts warn the policy could harm the very people it aims to help.</p>",
       "source": "Top Stories"
-    },
-    {
-      "title": "These Mass. beaches are closed as a cool, rainy weekend approaches",
-      "link": "https://www.boston.com/news/local-news/2026/08/21/these-mass-beaches-are-closed-as-a-cool-rainy-weekend-approaches/",
-      "published": "Fri, 21 Aug 2026 22:03:14 +0000",
-      "ts": 1787349794,
-      "author": "Rosemary Ford",
-      "feed_title": "Boston.com",
-      "summary": "<p>Bacteria and harmful algae have shuttered swimming spots across the state, though wet weather may keep many beachgoers away this weekend.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/21/these-mass-beaches-are-closed-as-a-cool-rainy-weekend-approaches/\">These Mass. beaches are closed as a cool, rainy weekend approaches</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
     },
     {
       "title": "State says Saugus schools mishandled bullying complaint, student suspension",
@@ -4176,33 +4223,13 @@
       "source": "Top Stories"
     },
     {
-      "title": "Suspect arraigned after Boston-area alleged kidnapping, chase",
-      "link": "https://www.wcvb.com/article/possible-kidnapping-boston-milton-police-stop-arraignment/73496163",
-      "published": "Fri, 21 Aug 2026 21:48:00 GMT",
-      "ts": 1787348880,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Police say a dispute over a cellphone led to an alleged kidnapping and a chase through Boston-area neighborhoods.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Rafael Devers returns to Fenway Park with San Francisco Giants",
-      "link": "https://www.wcvb.com/article/rafael-devers-returns-to-fenway-park/73498636",
-      "published": "Fri, 21 Aug 2026 21:45:00 GMT",
-      "ts": 1787348700,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Rafael Devers returned to Fenway Park as a Giant, saying he has no hard feelings about how things ended in Boston.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Markey talks Moulton primary challenge, how Dems should approach Trump impeachment",
       "link": "https://www.nbcboston.com/news/politics/ed-markey-interview-primary-election/4002117/",
       "published": "Fri, Aug 21 2026 08:46:38 PM",
       "ts": 1787301998,
       "author": "Matt Prichard",
       "feed_title": "NBC Boston",
-      "summary": "<p>Sen. Ed Markey is laying out his priorities as he asks Bay Staters for one final term.</p>\n\n\n\n<p>&#8220;We just have to think big,&#8221; the Massachusetts Democrat said in an interview with NBC10 Boston.</p>\n\n\n\n<p>A 50-year congressional veteran and Beacon Hill lawmaker before that, Markey hopes to spend six more years in the Senate even as questions surrounding age continue to come up.</p>\n\n\n\n<p>&#8220;This is the most energized I&#8217;ve ever been,&#8221; Markey said.</p>\n\n\n<div></div>\n\n\n<p>At 80-years old, Markey would be 86 at the end of his next term, should he survive a primary challenge from Congressman Seth Moulton and the general election in November.</p>\n\n\n\n<p>&#8220;If I couldn&#8217;t do the job, I would step down,&#8221; said Markey. &#8220;Anyone who can&#8217;t do the job should step down, regardless of their age.&#8221;</p>\n\n\n\n<p>Even with age-related questions, Markey maintains that his ideas are young. He points to a slate of progressive policies: &#8220;We&#8217;re running a sick care system. It just doesn&#8217;t work. We just have to overhaul that system. That&#8217;s what I&#8217;m doing and partnering with Bernie Sanders on Medicare for all.&#8221;</p>\n\n\n\n<p>Some Democrats have made impeaching President Donald Trump a critical priority should their party reclaim a majority in the House. Markey says he would welcome that action.</p>\n\n\n\n<p>&#8220;He must be held accountable in the same way that we attempted to hold him accountable after he sought to steal the election of 2020,&#8221; Markey said.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More on the Massachusetts Senate primary</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/elections/ed-markey-seth-moulton-final-senate-primary-debate/4001662/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/11/Seth-Moulton-Ed-Markey-112525.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/decision-2026/\">Decision 2026</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t22 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/elections/ed-markey-seth-moulton-final-senate-primary-debate/4001662/\">\n\t\t\t\t\t\t\t\t\t\tMarkey, Moulton spar over healthcare and AI in final Senate primary debate\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/massachusetts-democrats-endorsement-ed-markey-seth-moulton-senate-race-primary/3957944/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/11/Seth-Moulton-Ed-Markey-112525.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 31\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/massachusetts-democrats-endorsement-ed-markey-seth-moulton-senate-race-primary/3957944/\">\n\t\t\t\t\t\t\t\t\t\tMarkey wins Mass. Dems&#039; endorsement as Moulton clears ballot hurdle in Senate race\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/seth-moulton-challenge-ed-markey-us-senate-seat/3827182/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/10/image-33-1.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tOct 15, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/seth-moulton-challenge-ed-markey-us-senate-seat/3827182/\">\n\t\t\t\t\t\t\t\t\t\tCongressman Moulton will challenge Markey for U.S. Senate seat\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p>As for whether impeachment would be a distraction for Democrats in addressing issues like affordability, Markey believes the party can generate momentum on both of those priorities.</p>\n\n\n\n<p>&#8220;We can do both,&#8221; said Markey. &#8220;We have to do both.&#8221;</p>\n\n\n\n<p>Tune in Sunday morning at 9:30 a.m. for our extended @Issue Sit Down with Sen. Ed Markey. You can also <a href=\"https://www.nbcboston.com/news/politics/at-issue/moulton-touts-positive-vision-for-the-future-before-primary-against-markey/3998243\" rel=\"noreferrer noopener\" target=\"_blank\">watch our conversation with Congressman Seth Moulton here</a>, and listen wherever you get your podcasts.</p>\n\n\n\n<p></p>",
+      "summary": "<p>Sen. Ed Markey is laying out his priorities as he asks Bay Staters for one final term.</p>\n\n\n\n<p>&#8220;We just have to think big,&#8221; the Massachusetts Democrat said in an interview with NBC10 Boston.</p>\n\n\n\n<p>A 50-year congressional veteran and Beacon Hill lawmaker before that, Markey hopes to spend six more years in the Senate even as questions surrounding age continue to come up.</p>\n\n\n\n<p>&#8220;This is the most energized I&#8217;ve ever been,&#8221; Markey said.</p>\n\n\n<div></div>\n\n\n<p>At 80-years old, Markey would be 86 at the end of his next term, should he survive a primary challenge from Congressman Seth Moulton and the general election in November.</p>\n\n\n\n<p>&#8220;If I couldn&#8217;t do the job, I would step down,&#8221; said Markey. &#8220;Anyone who can&#8217;t do the job should step down, regardless of their age.&#8221;</p>\n\n\n\n<p>Even with age-related questions, Markey maintains that his ideas are young. He points to a slate of progressive policies: &#8220;We&#8217;re running a sick care system. It just doesn&#8217;t work. We just have to overhaul that system. That&#8217;s what I&#8217;m doing and partnering with Bernie Sanders on Medicare for all.&#8221;</p>\n\n\n\n<p>Some Democrats have made impeaching President Donald Trump a critical priority should their party reclaim a majority in the House. Markey says he would welcome that action.</p>\n\n\n\n<p>&#8220;He must be held accountable in the same way that we attempted to hold him accountable after he sought to steal the election of 2020,&#8221; Markey said.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More on the Massachusetts Senate primary</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/elections/ed-markey-seth-moulton-final-senate-primary-debate/4001662/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/11/Seth-Moulton-Ed-Markey-112525.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/decision-2026/\">Decision 2026</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t24 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/elections/ed-markey-seth-moulton-final-senate-primary-debate/4001662/\">\n\t\t\t\t\t\t\t\t\t\tMarkey, Moulton spar over healthcare and AI in final Senate primary debate\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/massachusetts-democrats-endorsement-ed-markey-seth-moulton-senate-race-primary/3957944/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/11/Seth-Moulton-Ed-Markey-112525.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 31\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/massachusetts-democrats-endorsement-ed-markey-seth-moulton-senate-race-primary/3957944/\">\n\t\t\t\t\t\t\t\t\t\tMarkey wins Mass. Dems&#039; endorsement as Moulton clears ballot hurdle in Senate race\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/seth-moulton-challenge-ed-markey-us-senate-seat/3827182/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/10/image-33-1.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tOct 15, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/seth-moulton-challenge-ed-markey-us-senate-seat/3827182/\">\n\t\t\t\t\t\t\t\t\t\tCongressman Moulton will challenge Markey for U.S. Senate seat\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p>As for whether impeachment would be a distraction for Democrats in addressing issues like affordability, Markey believes the party can generate momentum on both of those priorities.</p>\n\n\n\n<p>&#8220;We can do both,&#8221; said Markey. &#8220;We have to do both.&#8221;</p>\n\n\n\n<p>Tune in Sunday morning at 9:30 a.m. for our extended @Issue Sit Down with Sen. Ed Markey. You can also <a href=\"https://www.nbcboston.com/news/politics/at-issue/moulton-touts-positive-vision-for-the-future-before-primary-against-markey/3998243\" rel=\"noreferrer noopener\" target=\"_blank\">watch our conversation with Congressman Seth Moulton here</a>, and listen wherever you get your podcasts.</p>\n\n\n\n<p></p>",
       "source": "NBC Boston"
     },
     {
@@ -4224,36 +4251,6 @@
       "feed_title": "GBH News",
       "summary": "The city's Public Health Commission issued a health alert Friday saying an algae bloom was discovered by the Massachusetts Department of Public Health, which found cyanobacteria that exceeds DPH guidelines for recreational waterbodies in the state.",
       "source": "GBH News"
-    },
-    {
-      "title": "On eve of trial, Middlesex DA drops charges against ICE protesters",
-      "link": "https://www.wbur.org/news/2026/08/21/middlesex-ice-protesters-charges-dropped",
-      "published": "Fri, 21 Aug 2026 14:46:45 -0400",
-      "ts": 1787338005,
-      "author": "WBUR",
-      "feed_title": "WBUR News",
-      "summary": "<p>\u201cI had just sent them the witness and exhibit list, and the next day I got the message that they had decided to drop it,\u201d said attorney Kylah Clay.</p>",
-      "source": "WBUR News"
-    },
-    {
-      "title": "Bourne police chief suspended for leaving unarmed firearm unattended",
-      "link": "https://whdh.com/news/bourne-police-chief-suspended-for-leaving-unarmed-firearm-unattended/",
-      "published": "Fri, 21 Aug 2026 18:30:39 +0000",
-      "ts": 1787337039,
-      "author": "James Kukstis",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "Bourne&#8217;s police chief has been suspended for allegedly leaving his firearm unattended. Town officials said Chief Brandon Esip removed his service belt and holster to...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Rockers mourn the loss of beloved bassist Linda Pardee",
-      "link": "https://www.wbur.org/news/2026/08/21/remembering-bassist-linda-pardee",
-      "published": "Fri, 21 Aug 2026 14:10:00 -0400",
-      "ts": 1787335800,
-      "author": "WBUR",
-      "feed_title": "WBUR News",
-      "summary": "<p>The Boston rock community is lamenting the loss of longtime bassist Linda Bean Pardee. She was a constant collaborator with area musicians and the co-founding force behind the retro mod pop trio The Chelsea Curve. She was 60.</p>",
-      "source": "WBUR News"
     }
   ],
   "news_universalhub": [],
@@ -4480,16 +4477,6 @@
       "source": "Google News BC"
     },
     {
-      "title": "Boston College Eagles @ Harvard Crimson: Live game updates, stats, play-by-play - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNM29fYWZSbk9ULUNtUUR0YjVKcWJrY25NdzJzMjBfeGJqdkxmeWthN1VaWFlTbVdxaUVZdC1ubnBtQi0yUnRUZHlFOVRWT3NpM3Etd051TFNXY0NHQldzR00zMnRqN01IdmYzOEVoenV2cTdnaVVjT2kxNHhWdWxEOVhYV3M5WC1hNUE?oc=5",
-      "published": "Sat, 22 Aug 2026 09:24:34 GMT",
-      "ts": 1787390674,
-      "author": "",
-      "feed_title": "Yahoo Sports",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxNM29fYWZSbk9ULUNtUUR0YjVKcWJrY25NdzJzMjBfeGJqdkxmeWthN1VaWFlTbVdxaUVZdC1ubnBtQi0yUnRUZHlFOVRWT3NpM3Etd051TFNXY0NHQldzR00zMnRqN01IdmYzOEVoenV2cTdnaVVjT2kxNHhWdWxEOVhYV3M5WC1hNUE?oc=5\" target=\"_blank\">Boston College Eagles @ Harvard Crimson: Live game updates, stats, play-by-play</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo Sports</font>",
-      "source": "Google News BC"
-    },
-    {
       "title": "Luke Murray\u2019s Staff Is The Perfect Group To Rebuild BC Basketball - 247Sports",
       "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOb2hlTlFJcWhBd0FBQTd6NWVIS3JDRnpaSXZqYldLak9QZ3NnSjJCWVZTSTlvaWdCUUhoMEh2cmdFNFlrcjlCQ3ZrUkpaVWY1bUprVmc1cEJKUjAtandjY3plYzA0eGJQS0pIZWdmSnRIa2hNZkhEaDdOWGxTTjJYd0ZPdmY4WV9YWFViVFplS3VZelV1c05hRTJFVUlvbmgyaGNpck92ZUFuTmRxWUxOV1ZOa0RnTzdzbEVHbmRFQ0dLOGNMbkg0?oc=5",
       "published": "Thu, 09 Jul 2026 07:00:00 GMT",
@@ -4497,6 +4484,16 @@
       "author": "",
       "feed_title": "247Sports",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxOb2hlTlFJcWhBd0FBQTd6NWVIS3JDRnpaSXZqYldLak9QZ3NnSjJCWVZTSTlvaWdCUUhoMEh2cmdFNFlrcjlCQ3ZrUkpaVWY1bUprVmc1cEJKUjAtandjY3plYzA0eGJQS0pIZWdmSnRIa2hNZkhEaDdOWGxTTjJYd0ZPdmY4WV9YWFViVFplS3VZelV1c05hRTJFVUlvbmgyaGNpck92ZUFuTmRxWUxOV1ZOa0RnTzdzbEVHbmRFQ0dLOGNMbkg0?oc=5\" target=\"_blank\">Luke Murray\u2019s Staff Is The Perfect Group To Rebuild BC Basketball</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">247Sports</font>",
+      "source": "Google News BC"
+    },
+    {
+      "title": "Boston College Eagles @ Harvard Crimson: Live game updates, stats, play-by-play - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNM29fYWZSbk9ULUNtUUR0YjVKcWJrY25NdzJzMjBfeGJqdkxmeWthN1VaWFlTbVdxaUVZdC1ubnBtQi0yUnRUZHlFOVRWT3NpM3Etd051TFNXY0NHQldzR00zMnRqN01IdmYzOEVoenV2cTdnaVVjT2kxNHhWdWxEOVhYV3M5WC1hNUE?oc=5",
+      "published": "Sat, 22 Aug 2026 09:24:34 GMT",
+      "ts": 1787390674,
+      "author": "",
+      "feed_title": "Yahoo Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxNM29fYWZSbk9ULUNtUUR0YjVKcWJrY25NdzJzMjBfeGJqdkxmeWthN1VaWFlTbVdxaUVZdC1ubnBtQi0yUnRUZHlFOVRWT3NpM3Etd051TFNXY0NHQldzR00zMnRqN01IdmYzOEVoenV2cTdnaVVjT2kxNHhWdWxEOVhYV3M5WC1hNUE?oc=5\" target=\"_blank\">Boston College Eagles @ Harvard Crimson: Live game updates, stats, play-by-play</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo Sports</font>",
       "source": "Google News BC"
     }
   ],
@@ -4772,16 +4769,6 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "Alex Donovan commits to Providence College - New England Hockey Journal",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5qSjhfNE42QlFMcGg1ekNhSTM3V2RxUW5FaTRWeTNBeEc3MlIzVDQyNEp6UnFyZkpxTGRmRHo5S0c2UjM1QUFYeEd6ZTFwcjlOUmsxV1VEY3kwdmhvakF1aXF5Wl9pb3loaXJ4YThwTFc4dHkyMHlVcjVsX0tWdw?oc=5",
-      "published": "Wed, 19 Aug 2026 13:31:01 GMT",
-      "ts": 1787146261,
-      "author": "",
-      "feed_title": "New England Hockey Journal",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTE5qSjhfNE42QlFMcGg1ekNhSTM3V2RxUW5FaTRWeTNBeEc3MlIzVDQyNEp6UnFyZkpxTGRmRHo5S0c2UjM1QUFYeEd6ZTFwcjlOUmsxV1VEY3kwdmhvakF1aXF5Wl9pb3loaXJ4YThwTFc4dHkyMHlVcjVsX0tWdw?oc=5\" target=\"_blank\">Alex Donovan commits to Providence College</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">New England Hockey Journal</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
       "title": "CC Hockey Announces 2026-27 Newcomers - Colorado College Athletics",
       "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNc0VKTnltTVU0b1lfMnNualZOeVY4Q0pjUUdNUVNDZmVYM2d5Tl9kbXRqNlZIbWJ6aVNPenpCTkYzaXVITzRHdzAxc01Fa0w3dm16NEU0T2R0bHM4RnAzOWdsVjZjRUZET000Z0lha0pmQlpnbVlaaTJEOVFXZXgxTGszNWJ4bDZMb0dmaXZKcWpCTVE0NHJvOA?oc=5",
       "published": "Thu, 06 Aug 2026 07:00:00 GMT",
@@ -4789,6 +4776,16 @@
       "author": "",
       "feed_title": "Colorado College Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxNc0VKTnltTVU0b1lfMnNualZOeVY4Q0pjUUdNUVNDZmVYM2d5Tl9kbXRqNlZIbWJ6aVNPenpCTkYzaXVITzRHdzAxc01Fa0w3dm16NEU0T2R0bHM4RnAzOWdsVjZjRUZET000Z0lha0pmQlpnbVlaaTJEOVFXZXgxTGszNWJ4bDZMb0dmaXZKcWpCTVE0NHJvOA?oc=5\" target=\"_blank\">CC Hockey Announces 2026-27 Newcomers</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Colorado College Athletics</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "College hockey recruiting: Live updates from start of 2026 commitment season - New England Hockey Journal",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOc3dGWjVlYV93YVV0OXFWTWxFZ2ppcjZVTWRBOFNnc0FtNGtyRVE5X1dqR1NuMlNtZzIwRVFfYmRhNXUxbTU1WnJMRkc5NElHV2NubjJoMGJjTmhRbU5NSUNiX2VPLU9iZ2ZfVkVkNWNaTzFkYVVyV0RDNHpub1Z4c0dSVE5ka3htQW05MktDcWhwUWZnSDNlNkVfTmJ4Rk00Z3A2dkJFUzM2QQ?oc=5",
+      "published": "Mon, 10 Aug 2026 12:00:34 GMT",
+      "ts": 1786363234,
+      "author": "",
+      "feed_title": "New England Hockey Journal",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqgFBVV95cUxOc3dGWjVlYV93YVV0OXFWTWxFZ2ppcjZVTWRBOFNnc0FtNGtyRVE5X1dqR1NuMlNtZzIwRVFfYmRhNXUxbTU1WnJMRkc5NElHV2NubjJoMGJjTmhRbU5NSUNiX2VPLU9iZ2ZfVkVkNWNaTzFkYVVyV0RDNHpub1Z4c0dSVE5ka3htQW05MktDcWhwUWZnSDNlNkVfTmJ4Rk00Z3A2dkJFUzM2QQ?oc=5\" target=\"_blank\">College hockey recruiting: Live updates from start of 2026 commitment season</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">New England Hockey Journal</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -5258,13 +5255,23 @@
   ],
   "news_national": [
     {
+      "title": "Opinion: Mr. Rogers keeps finding a new neighborhood",
+      "link": "https://www.npr.org/2026/08/22/nx-s1-5932426/opinion-mr-rogers-keeps-finding-a-new-neighborhood",
+      "published": "Sat, 22 Aug 2026 08:00:00 -0400",
+      "ts": 1787400000,
+      "author": "Scott Simon",
+      "feed_title": "",
+      "summary": "<img alt=\"Catcher Jake Rogers #28 of the Chicago White Sox talks with starting pitcher Anthony Kay #18 before their game against the Detroit Tigers at Comerica Park on August 15, 2026 in Detroit, Michigan.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/3425x2284+0+0/resize/3425x2284!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fd6%2Fae%2Fe3d4783f448881c90fff4f3419f1%2Fgettyimages-2290067647.jpg\" /><p>MLB catcher Jake Rogers probably didn't know if he was coming or going the last several weeks: he's been a Detroit Tiger, a Baltimore Oriole, a Boston Red Sox, and now he's a Chicago White Sox.</p><p>(Image credit: Duane Burleson/Getty Images)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5932426\" />",
+      "source": "NPR"
+    },
+    {
       "title": "U.S.-Canada trade talks collapse just before deadline for tariffs",
       "link": "https://www.npr.org/2026/08/22/nx-s1-5941584/us-canada-tariffs",
       "published": "Sat, 22 Aug 2026 00:36:27 -0400",
       "ts": 1787373387,
       "author": "Miguel Macias",
       "feed_title": "",
-      "summary": "<img alt=\"President Trump walks on the Ellipse as he arrives on Marine One near the White House on Friday.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2523x1682+0+0/resize/2523x1682!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F7f%2F15%2Fc487165c448d8e4448e1b79c9afc%2Fap26234112017787.jpg\" /><p>The midnight deadline means that U.S. will impose 50% tariffs on $20 billion worth of Canadian products. Prime Minister Mark Carney says Canada \"will match those tariffs dollar for dollar.\"</p><p>(Image credit: Manuel Balce Ceneta)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5941584\" />",
+      "summary": "<img alt=\"President Trump walks on the Ellipse as he arrives on Marine One near the White House on Friday.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2523x1682+0+0/resize/2523x1682!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F7f%2F15%2Fc487165c448d8e4448e1b79c9afc%2Fap26234112017787.jpg\" /><p>The midnight deadline means the U.S. has imposed 50% tariffs on $20 billion worth of Canadian products. Prime Minister Mark Carney says Canada \"will match those tariffs dollar for dollar.\"</p><p>(Image credit: Manuel Balce Ceneta)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5941584\" />",
       "source": "NPR"
     },
     {
@@ -5328,26 +5335,6 @@
       "source": "NPR"
     },
     {
-      "title": "As Trump courts Kim, Pyongyang ups the price, while Seoul fears being sidelined",
-      "link": "https://www.npr.org/2026/08/21/g-s1-139466/as-trump-courts-kim-pyongyang-ups-price-while-seoul-fears-being-sidelined",
-      "published": "Fri, 21 Aug 2026 05:00:00 -0400",
-      "ts": 1787302800,
-      "author": "Anthony Kuhn",
-      "feed_title": "",
-      "summary": "<img alt=\"People at a train station in Seoul watch a TV screen on Thursday showing a news broadcast with file footage of a North Korean missile test. North Korea fired about 10 short-range ballistic missiles, South Korea\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4999x3434+0+0/resize/4999x3434!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F14%2F82%2Ff2719412495fbee9b796707c1385%2Fgettyimages-2290633220.jpg\" /><p>Experts warn that President Trump's transactional approach to an alliance will erode political trust.</p><p>(Image credit: Jung Yeon-je)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-139466\" />",
-      "source": "NPR"
-    },
-    {
-      "title": "As USS Lincoln heads home, mental health experts tally the stressors of life at sea",
-      "link": "https://www.npr.org/2026/08/21/nx-s1-5936445/uss-lincoln-returns-mental-health-stressors-life-sea",
-      "published": "Fri, 21 Aug 2026 05:00:00 -0400",
-      "ts": 1787302800,
-      "author": "Katia Riddle",
-      "feed_title": "",
-      "summary": "<img alt=\"The USS Abraham Lincoln conducts U.S. blockade operations related to the Strait of Hormuz on April 16 in the Arabian Sea. The aircraft carrier is now headed homeward after reports of deteriorating conditions onboard.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4586x2896+0+0/resize/4586x2896!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F33%2F78%2Fb41bb2734460bb62a6145da0c7d9%2Fgettyimages-2271668787.jpg\" /><p>The USS Abraham Lincoln is now on its way home after spending nine months at sea. Experts weigh in on the mental health challenges of prolonged confinement and isolation aboard an aircraft carrier.</p><p>(Image credit: U.S. Navy)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5936445\" />",
-      "source": "NPR"
-    },
-    {
       "title": "Federal government thins the herds of wild horses in Colorado",
       "link": "https://www.npr.org/2026/08/21/nx-s1-5920407/colorado-wild-horses-federal-government-roundup",
       "published": "Fri, 21 Aug 2026 05:00:00 -0400",
@@ -5355,6 +5342,16 @@
       "author": "Stina Sieg",
       "feed_title": "",
       "summary": "<img alt=\"A trailer of wild mustangs is transported to a temporary holding facility during the federal Bureau of Land Management\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2036x1358+0+0/resize/2036x1358!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F81%2F2b%2Fb7755b624c5ba688d6e311cb89e9%2F260805-blm-wild-horse-round-up-rio-blanc-county-colo-mckenzielange-10.jpg\" /><p>U.S. officials say the ever-growing population of wild horses that roam federal lands in Colorado is depleting natural resources. But some activists say efforts to remove the horses are inhumane.</p><p>(Image credit: McKenzie Lange)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5920407\" />",
+      "source": "NPR"
+    },
+    {
+      "title": "Amid intense backlash, people are vandalizing Flock surveillance cameras",
+      "link": "https://www.npr.org/2026/08/21/nx-s1-5939851/flock-cameras-police-block-surveillance-vandalize",
+      "published": "Fri, 21 Aug 2026 05:00:00 -0400",
+      "ts": 1787302800,
+      "author": "Meg Anderson",
+      "feed_title": "",
+      "summary": "<img alt=\"Brady O\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4032x3024+0+0/resize/4032x3024!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F3c%2Fd8%2Fc3fe174d4acf9c4756cd8991b9f1%2Fimg-0417-1.jpg\" /><p>In dozens of states around the country, people are vandalizing, blocking and taking down Flock cameras. A surge in such activity underscores the growing resistance to this police surveillance technology.</p><p>(Image credit: Meg Anderson)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5939851\" />",
       "source": "NPR"
     },
     {
@@ -5370,8 +5367,8 @@
     {
       "title": "Carney Stands Up to Trump in U.S.-Canada Trade War",
       "link": "https://www.nytimes.com/2026/08/22/world/canada/carney-trump-canada-tariffs.html",
-      "published": "Sat, 22 Aug 2026 09:26:12 +0000",
-      "ts": 1787390772,
+      "published": "Sat, 22 Aug 2026 12:49:14 +0000",
+      "ts": 1787402954,
       "author": "Matina Stevis-Gridneff",
       "feed_title": "",
       "summary": "Prime Minister Mark Carney of Canada said his country would retaliate against U.S. tariffs \u201cdollar for dollar.\u201d",
@@ -5400,8 +5397,8 @@
     {
       "title": "Why Polling Chaos Could Create Big Problems for American Politics",
       "link": "https://www.nytimes.com/2026/08/22/us/politics/election-polls-confusion-prediction-markets.html",
-      "published": "Sat, 22 Aug 2026 09:02:22 +0000",
-      "ts": 1787389342,
+      "published": "Sat, 22 Aug 2026 12:50:24 +0000",
+      "ts": 1787403024,
       "author": "Reid J. Epstein",
       "feed_title": "",
       "summary": "Polls fueled a widespread belief that Representative Haley Stevens, a moderate Democrat, was a major underdog in Michigan\u2019s primary for Senate to Dr. Abdul El-Sayed, a progressive. She ended up losing by just a percentage point.",
@@ -5458,33 +5455,23 @@
       "source": "NY Times"
     },
     {
-      "title": "Multiple deaths after police vehicle and car crash during pursuit",
-      "link": "https://www.bbc.co.uk/news/articles/cx272ly3g00o?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 22 Aug 2026 10:13:33 GMT",
-      "ts": 1787393613,
-      "author": "",
-      "feed_title": "",
-      "summary": "\"A number of patients died at the scene\" after the collision near Middlesbrough, ambulance officials say, as the police watchdog opens an investigation.",
-      "source": "BBC"
-    },
-    {
       "title": "Canada says it will match US tariffs 'dollar for dollar' as trade talks break down",
       "link": "https://www.bbc.co.uk/news/articles/cvgvyy4x2mvo?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 22 Aug 2026 11:21:05 GMT",
-      "ts": 1787397665,
+      "published": "Sat, 22 Aug 2026 12:20:46 GMT",
+      "ts": 1787401246,
       "author": "",
       "feed_title": "",
       "summary": "A new 50% levy on $20bn of Canadian imports comes into force after a last-minute breakdown in trade talks.",
       "source": "BBC"
     },
     {
-      "title": "Rescuers dig through Ukraine mall wreckage as Zelensky condemns 'despicable' strike",
+      "title": "Rescuers dig through Ukraine mall wreckage as Zelensky condemns 'despicable' Russian strike",
       "link": "https://www.bbc.co.uk/news/articles/c39egw7nmk2o?at_medium=RSS&at_campaign=rss",
-      "published": "Sat, 22 Aug 2026 10:01:22 GMT",
-      "ts": 1787392882,
+      "published": "Sat, 22 Aug 2026 12:36:28 GMT",
+      "ts": 1787402188,
       "author": "",
       "feed_title": "",
-      "summary": "Nine people are still missing after the attack which left 130 injured, including a number of children.",
+      "summary": "Four people are still missing after Friday's attack which killed 16 and left 130 injured, including a number of children.",
       "source": "BBC"
     },
     {
@@ -5556,6 +5543,26 @@
       "feed_title": "",
       "summary": "For some mainlanders, Hong Kong's independent bookstores are a window into a different, freer world.",
       "source": "BBC"
+    },
+    {
+      "title": "Laptop catches fire on US flight, with passenger treated at airport",
+      "link": "https://www.bbc.co.uk/news/articles/ce979zpjj85o?at_medium=RSS&at_campaign=rss",
+      "published": "Sat, 22 Aug 2026 10:27:25 GMT",
+      "ts": 1787394445,
+      "author": "",
+      "feed_title": "",
+      "summary": "The pilot had reported a \"cabin fire in the back\" of American Airlines Flight 2398, which landed safely.",
+      "source": "BBC"
+    },
+    {
+      "title": "Canada rejects US terms for trade deal as 50 percent tariffs take effect",
+      "link": "https://thehill.com/policy/international/6044914-carney-suspends-us-trade-talks-tariffs/",
+      "published": "Sat, 22 Aug 2026 12:09:05 +0000",
+      "ts": 1787400545,
+      "author": "Sarah Davis",
+      "feed_title": "",
+      "summary": "Canadian Prime Minister Mark Carney pulled his country\u2019s negotiators from trade talks with the U.S. on Friday evening, just hours before the Trump administration\u2019s new round of tariffs were set to go into effect.&#160; This decision followed weeks of intense negotiations between the two nations over President Trump\u2019s proposed 50 percent tariffs on over $20&#8230;",
+      "source": "The Hill"
     },
     {
       "title": "5 things to know about the Freedom 250 Grand Prix\u00a0in Washington",
@@ -5645,16 +5652,6 @@
       "author": "Joseph Choi",
       "feed_title": "",
       "summary": "Click in for more news from The Hill {beacon} Healthcare Healthcare &#8202; The Big Story&#160; Trump eyes vaccine categories To support President Trump\u2019s vaccine executive order issued earlier this month, the administration is considering to changing or adding to the categories of vaccinations, in what critics argue is another effort by the White House to&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Trump defends Darline Graham\u2019s Taiwan response: \u2018She was being honest\u2019",
-      "link": "https://thehill.com/homenews/campaign/6044561-donald-trump-darline-graham-defense-debate-mistake/",
-      "published": "Fri, 21 Aug 2026 22:56:00 +0000",
-      "ts": 1787352960,
-      "author": "Joshua Feldstein",
-      "feed_title": "",
-      "summary": "President Trump defended Sen. Darline Graham (R-S.C.) on Friday following her stumble on a national security question during the Palmetto State&#8217;s GOP Senate primary debate this week. The president offered his support to Graham as he was on his way to Myrtle Beach, S.C., where he&#8217;s set to rally alongside her Friday evening, just days&#8230;",
       "source": "The Hill"
     },
     {
@@ -6099,7 +6096,7 @@
       "date": "2026-08-22",
       "time": null,
       "all_day": true,
-      "summary": "Bocce on the beach day",
+      "summary": "Folklore Night at RIFC",
       "location": null,
       "calendar": "Wesley"
     },
@@ -6107,7 +6104,7 @@
       "date": "2026-08-22",
       "time": null,
       "all_day": true,
-      "summary": "Folklore Night at RIFC",
+      "summary": "Bocce on the beach day",
       "location": null,
       "calendar": "Wesley"
     },
@@ -6219,6 +6216,14 @@
       "date": "2026-08-26",
       "time": null,
       "all_day": true,
+      "summary": "Do laundry",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-08-26",
+      "time": null,
+      "all_day": true,
       "summary": "weekly NASCAR picks",
       "location": null,
       "calendar": "Todoist"
@@ -6228,14 +6233,6 @@
       "time": null,
       "all_day": true,
       "summary": "Revere Journal",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-08-26",
-      "time": null,
-      "all_day": true,
-      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6387,7 +6384,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "prep for sept meeting",
+      "summary": "Regular deep-cleaning",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6395,7 +6392,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "Regular deep-cleaning",
+      "summary": "prep for sept meeting",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6427,7 +6424,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "brainstorm",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6451,7 +6448,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "brainstorm",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6507,16 +6504,16 @@
       "date": "2026-09-02",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "HOLD For Senior Repairs Program Q&A at Senior Center",
-      "location": "Council On Elder Affairs (25 Winthrop Ave, Revere,",
+      "summary": "Joe/Tom Meeting",
+      "location": null,
       "calendar": "Joseph"
     },
     {
       "date": "2026-09-02",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "Joe/Tom Meeting",
-      "location": null,
+      "summary": "HOLD For Senior Repairs Program Q&A at Senior Center",
+      "location": "Council On Elder Affairs (25 Winthrop Ave, Revere,",
       "calendar": "Joseph"
     },
     {
