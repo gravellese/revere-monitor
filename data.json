@@ -1,25 +1,17 @@
 {
-  "updated": "2026-08-23T21:30:04.524689+00:00",
-  "updated_local": "August 23, 2026 at 9:30 PM",
+  "updated": "2026-08-23T22:31:57.801332+00:00",
+  "updated_local": "August 23, 2026 at 10:31 PM",
   "weather_current": {
-    "temp": 77,
+    "temp": 76,
     "unit": "F",
-    "wind": "2 mph",
+    "wind": "3 mph",
     "windDir": "SE",
-    "shortForecast": "Cloudy",
-    "detailedForecast": "Cloudy, with a high near 78. Southeast wind around 2 mph.",
-    "humidity": 74,
-    "precip": 7
+    "shortForecast": "Slight Chance Rain Showers",
+    "detailedForecast": "Areas of fog before 8am. Sunny, with a high near 79. Southwest wind 5 to 12 mph, with gusts as high as 22 mph.",
+    "humidity": 76,
+    "precip": 16
   },
   "weather_hourly": [
-    {
-      "time": "2026-08-23T17:00:00-04:00",
-      "temp": 77,
-      "unit": "F",
-      "shortForecast": "Cloudy",
-      "wind": "2 mph",
-      "precip": 7
-    },
     {
       "time": "2026-08-23T18:00:00-04:00",
       "temp": 76,
@@ -203,18 +195,17 @@
       "shortForecast": "Mostly Sunny",
       "wind": "12 mph",
       "precip": 3
+    },
+    {
+      "time": "2026-08-24T17:00:00-04:00",
+      "temp": 78,
+      "unit": "F",
+      "shortForecast": "Mostly Sunny",
+      "wind": "10 mph",
+      "precip": 2
     }
   ],
   "weather_daily": [
-    {
-      "name": "This Afternoon",
-      "date": "2026-08-23T17:00:00-04:00",
-      "high": 78,
-      "low": 60,
-      "shortForecast": "Cloudy",
-      "detailedForecast": "Cloudy, with a high near 78. Southeast wind around 2 mph.",
-      "precip": 7
-    },
     {
       "name": "Monday",
       "date": "2026-08-24T06:00:00-04:00",
@@ -267,6 +258,15 @@
       "low": 58,
       "shortForecast": "Mostly Sunny",
       "detailedForecast": "Mostly sunny, with a high near 82. Northwest wind around 5 mph.",
+      "precip": 7
+    },
+    {
+      "name": "Sunday",
+      "date": "2026-08-30T06:00:00-04:00",
+      "high": 80,
+      "low": null,
+      "shortForecast": "Sunny",
+      "detailedForecast": "Sunny, with a high near 80. South wind around 6 mph.",
       "precip": 7
     }
   ],
@@ -325,12 +325,12 @@
     "delay": false,
     "status": "ok",
     "metar": {
-      "raw": "METAR KBOS 232054Z 11006KT 10SM FEW017 SCT031 BKN250 22/19 A2981 RMK AO2 SLP093 60010 T02170194 58005",
+      "raw": "METAR KBOS 232154Z 11005KT 10SM SCT014 BKN030 BKN250 21/19 A2982 RMK AO2 SLP098 T02060189",
       "flight_cat": ""
     },
     "faa_delays": [],
     "flight_stats": {
-      "cancelled": 24,
+      "cancelled": 1,
       "delayed": 2
     }
   },
@@ -338,6 +338,11 @@
     {
       "header": "The platform at Jackson Square is undergoing renovations to improve safety and accessibility. Sections of the platform are unlevel, which may make it difficult for some riders to board and exit trains.",
       "effect": "STATION_ISSUE",
+      "routes": []
+    },
+    {
+      "header": "Please board Rockport Line Train 5071 (6:30 PM from North Station) on the inbound platform (Track 2) at Montserrat through West Gloucester today.",
+      "effect": "TRACK_CHANGE",
       "routes": []
     },
     {
@@ -351,7 +356,7 @@
       "routes": []
     },
     {
-      "header": "Rockport Line Train 5059 (4:30 PM from North Station) is operating 5-15 minutes behind schedule between Salem and Rockport.",
+      "header": "Rockport Line Train 5059 (4:30 PM from North Station) remains stopped after Manchester and is 40-50 minutes behind schedule due to a mechanical issue.",
       "effect": "DELAY",
       "routes": []
     },
@@ -391,13 +396,13 @@
       "routes": []
     },
     {
-      "header": "Rockport Line Train 5056 (4:00 PM from Rockport) has departed Rockport and is operating 10-20 minutes behind schedule due to an earlier medical emergency.",
-      "effect": "DELAY",
+      "header": "There is no accessible path connecting the inbound and outbound platforms at Wellesley Square Station. The existing path includes steep slopes and is long. Designs are underway to provide for a fully compliant pathway.",
+      "effect": "STATION_ISSUE",
       "routes": []
     },
     {
-      "header": "There is no accessible path connecting the inbound and outbound platforms at Wellesley Square Station. The existing path includes steep slopes and is long. Designs are underway to provide for a fully compliant pathway.",
-      "effect": "STATION_ISSUE",
+      "header": "Rockport Line Train 5066 (6:00 PM from Rockport) has been cancelled today due to a mechanical issue. Passengers may consider Rockport Train 5078 (8:00 PM from Rockport).",
+      "effect": "CANCELLATION",
       "routes": []
     },
     {
@@ -426,11 +431,6 @@
       "routes": []
     },
     {
-      "header": "Franklin Line Train 5755 (3:47 PM from South Station) is operating 5-15 minutes behind schedule between Readville and Forge Park/495.",
-      "effect": "DELAY",
-      "routes": []
-    },
-    {
       "header": "The Wyoming Hill Mini-high platform project has begun. Passengers and local residents can expect construction vehicles and activity during the day through the Winter of 2026.",
       "effect": "STATION_ISSUE",
       "routes": []
@@ -440,12 +440,12 @@
     "water_temp_f": 69.8,
     "wvht_ft": null,
     "dpd_s": null,
-    "wspd_mph": 2.2,
-    "wdir_deg": 90.0,
+    "wspd_mph": 4.5,
+    "wdir_deg": 140.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
-    "wdir_label": "E"
+    "wdir_label": "SE"
   },
   "revere_calendar": [
     {
@@ -1493,6 +1493,106 @@
   ],
   "news_communities": [
     {
+      "title": "Lynn police salute boy with cancer",
+      "link": "https://itemlive.com/2026/08/23/lynn-police-salute-boy-with-cancer/",
+      "published": "Sun, 23 Aug 2026 22:18:41 +0000",
+      "ts": 1787523521,
+      "author": "Dylan PichnarcikDylan PichnarcikDylan Pichnarcik",
+      "feed_title": "",
+      "summary": "<p>LYNN \u2014 A Lynn boy and his mother received a $5,500 donation from Cops for Kids with Cancer during a visit to the Lynn Police Department on Aug. 20.</p>\n<p>Five-year-old Joseph, known as JoJo, and his mother were welcomed to the department for a tour before being presented with the check. Police Chief Christopher Reddy, Lt. Richard Connick, and other members of the department joined Bobby Hall, a retired Everett police lieutenant and member of the Cops for Kids with Cancer board of directors, for the presentation.</p>\n<p>Cops for Kids with Cancer provides financial assistance to families caring for children with cancer. When an eligible recipient lives in Lynn, the organization notifies the Lynn Police Department, allowing local officers to take part in presenting the donation.</p>\n<p>Reddy said the organization has provided direct assistance to Lynn families on numerous occasions over the years, helping them manage some of the financial challenges that can accompany a child&#8217;s cancer diagnosis and treatment.</p>\n<p>\u201cThe direct support that Cops for Kids with Cancer provides through these donations helps to ease some of those challenges,\u201d Reddy said.</p>\n<p>Members of the Lynn Police Department also raise money for the organization throughout the year, he said.</p>\n<p>Reddy said he was grateful to join members of the department and Hall in presenting the donation to JoJo&#8217;s family.</p>\n<p>\u201cIt is truly humbling to see these families who have endured so much express such deep gratitude for the support Cops for Kids with Cancer provides,\u201d Reddy said. \u201cOn behalf of the men and women of the Lynn Police Department, I want to express our heartfelt gratitude for the good work of the Cops for Kids with Cancer team and the support they provide to families in our community.\u201d</p>\n<p>While many cancer-related organizations focus on funding research, Cops for Kids with Cancer provides money directly to families to help ease expenses they face while caring for a child with cancer.</p>\n<p>Families typically receive about $5,500, according to the organization&#8217;s website.</p>\n<p>Since its founding in 2002, Cops for Kids with Cancer has distributed more than $6.5 million to more than 1,240 families. The organization currently assists eight to 10 families across New England each month.</p>\n<p>The post <a href=\"https://itemlive.com/2026/08/23/lynn-police-salute-boy-with-cancer/\">Lynn police salute boy with cancer</a> appeared first on <a href=\"https://itemlive.com\">Itemlive</a>.</p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "Lynnfield playground set to open",
+      "link": "https://itemlive.com/2026/08/23/lynnfield-playground-set-to-open/",
+      "published": "Sun, 23 Aug 2026 21:20:55 +0000",
+      "ts": 1787520055,
+      "author": "Deyscha SmithDeyscha SmithDeyscha Smith",
+      "feed_title": "",
+      "summary": "<p>LYNNFIELD \u2014 The Summer Street School playground will officially reopen on Sept. 1 following major renovations aimed at making the space safer and more accessible for students.</p>\n<p>A ribbon-cutting ceremony,\u2026</p><p><a href=\"https://itemlive.com/2026/08/23/lynnfield-playground-set-to-open/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "Lynn Councilor McClain endorses Baylis for Governor\u2019s Council",
+      "link": "https://itemlive.com/2026/08/23/lynn-councilor-mcclain-endorses-baylis-for-governors-council/",
+      "published": "Sun, 23 Aug 2026 21:17:08 +0000",
+      "ts": 1787519828,
+      "author": "For the ItemFor the ItemFor the Item",
+      "feed_title": "",
+      "summary": "<p style=\"font-weight: 400;\">LYNN \u2014 Immigration attorney and Governor\u2019s Council candidate Diann Baylis received the endorsement of Lynn City Councilor At-Large Nicole McClain on Sunday.</p>\n<p style=\"font-weight: 400;\">\u201cI am proud to endorse Diann Baylis for\u2026</p><p><a href=\"https://itemlive.com/2026/08/23/lynn-councilor-mcclain-endorses-baylis-for-governors-council/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "Sen. Markey finds Common ground in Lynn",
+      "link": "https://itemlive.com/2026/08/23/sen-markey-finds-common-ground-in-lynn/",
+      "published": "Sun, 23 Aug 2026 21:04:01 +0000",
+      "ts": 1787519041,
+      "author": "Sophia HarrisSophia HarrisSophia Harris",
+      "feed_title": "",
+      "summary": "<p>LYNN \u2014 With the Democratic primary approaching, U.S. Sen. Ed Markey brought his reelection campaign to Lynn, where he pledged to fight for federal investment in the city and sought\u2026</p><p><a href=\"https://itemlive.com/2026/08/23/sen-markey-finds-common-ground-in-lynn/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "An appreciation: Everyone wanted to be with Rick Comfort",
+      "link": "https://itemlive.com/2026/08/23/an-appreciation-everyone-wanted-to-be-with-rick-comfort/",
+      "published": "Sun, 23 Aug 2026 19:51:56 +0000",
+      "ts": 1787514716,
+      "author": "Steve KrauseSteve KrauseSteve Krause",
+      "feed_title": "",
+      "summary": "<p>Start talking about pioneers in the long history of hockey in Lynn and the name that will come up immediately is Rick Comfort.</p>\n<p>A former high school hockey star himself,\u2026</p><p><a href=\"https://itemlive.com/2026/08/23/an-appreciation-everyone-wanted-to-be-with-rick-comfort/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "Saugus remembers Lt. Drella",
+      "link": "https://itemlive.com/2026/08/23/saugus-remembers-lt-drella/",
+      "published": "Sun, 23 Aug 2026 19:07:24 +0000",
+      "ts": 1787512044,
+      "author": "Elizabeth Della PianaElizabeth Della PianaElizabeth Della Piana",
+      "feed_title": "",
+      "summary": "<p>SAUGUS \u2014 Lt. Damian Drella, who served as a member of the Saugus Fire Department for 39 years, died on Aug. 19 after battling occupational cancer.</p>\n<p>The Saugus Fire Department\u2026</p><p><a href=\"https://itemlive.com/2026/08/23/saugus-remembers-lt-drella/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "The best bargain in Swampscott",
+      "link": "https://itemlive.com/2026/08/23/the-best-bargain-in-swampscott/",
+      "published": "Sun, 23 Aug 2026 19:05:57 +0000",
+      "ts": 1787511957,
+      "author": "Erin HickeyErin HickeyErin Hickey",
+      "feed_title": "",
+      "summary": "<p>SWAMPSCOTT \u2014 Shoppers streamed into Big Blue Bargains Saturday morning looking for clothes, toys, books, furniture, and more. The price tag? A reasonable $0.</p>\n<p>The nonprofit thrift store welcomed 178\u2026</p><p><a href=\"https://itemlive.com/2026/08/23/the-best-bargain-in-swampscott/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "Police Logs: Aug. 22, 2026",
+      "link": "https://itemlive.com/2026/08/23/police-logs-aug-22-2026/",
+      "published": "Sun, 23 Aug 2026 18:12:17 +0000",
+      "ts": 1787508737,
+      "author": "For the ItemFor the ItemFor the Item",
+      "feed_title": "",
+      "summary": "<p><i><span style=\"font-weight: 400;\">All address information, particularly arrests, reflects police records. In the event of a perceived inaccuracy, it is the sole responsibility of the concerned party to contact the relevant police department\u2026</span></i></p><p><a href=\"https://itemlive.com/2026/08/23/police-logs-aug-22-2026/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "Captains of the ship",
+      "link": "https://itemlive.com/2026/08/23/captains-of-the-ship/",
+      "published": "Sun, 23 Aug 2026 16:19:47 +0000",
+      "ts": 1787501987,
+      "author": "Joey BarrettJoey BarrettJoey Barrett",
+      "feed_title": "",
+      "summary": "<p>The post <a href=\"https://itemlive.com/2026/08/23/captains-of-the-ship/\">Captains of the ship</a> appeared first on <a href=\"https://itemlive.com\">Itemlive</a>.</p>\n<p><a href=\"https://itemlive.com/2026/08/23/captains-of-the-ship/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
+      "title": "Panthers pouncing with \u2018high energy and high effort\u2019",
+      "link": "https://itemlive.com/2026/08/23/panthers-pouncing-with-high-energy-and-high-effort/",
+      "published": "Sun, 23 Aug 2026 16:10:08 +0000",
+      "ts": 1787501408,
+      "author": "Joey BarrettJoey BarrettJoey Barrett",
+      "feed_title": "",
+      "summary": "<p>LYNN \u2014 When first-year head coach Marcus Taylor and his KIPP Academy Panthers run onto Salem\u2019s Bertram Field for a Week 1 showdown, their mission is simple.</p>\n<p>\u201cHigh energy and\u2026</p><p><a href=\"https://itemlive.com/2026/08/23/panthers-pouncing-with-high-energy-and-high-effort/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
+      "source": "Lynn"
+    },
+    {
       "title": "EBO & CO. Grocery to close",
       "link": "https://eastboston.com/ebo-grocery-to-close/?utm_source=rss&utm_medium=rss&utm_campaign=ebo-grocery-to-close",
       "published": "Sun, 23 Aug 2026 13:23:25 +0000",
@@ -2021,16 +2121,6 @@
       "feed_title": "Salem, MA | Official Website (.gov)",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiakFVX3lxTE5BN0JrUkpaT19wTzlOb0hnZVNuQU5YclNOSVVoWlVFRWVjRmp0bEQ5cDY4QjhQTDBSTmlqdG5Ma1NNZlZPaTl5NUx0Wl9Ya2h4azJHMXBvX0NiX0NjNzNxSUk2T1lwN0p5TVE?oc=5\" target=\"_blank\">Water Use Restrictions Notice</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA | Official Website (.gov)</font>",
       "source": "Salem"
-    },
-    {
-      "title": "Close finishes and exciting competition in Marblehead at Corinthian Classic Yacht Regatta - Sail-World.com",
-      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbXBGQW5YSy01cGZwXzFidWc0WklZaWlYN1NKakh1WTk4aHlxS2hNOUpTWXhybF9BRFlSSkdjVzREU29odjltTGJ6QkU1RFd5NmtlcEZuYWJydDlMYWQwNldiZW00bGV4Qk4yVm95czdRcVZ2S1l0UG11THBya0dWdWFB?oc=5",
-      "published": "Thu, 13 Aug 2026 20:05:00 GMT",
-      "ts": 1786651500,
-      "author": "",
-      "feed_title": "Sail-World.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiggFBVV95cUxNbXBGQW5YSy01cGZwXzFidWc0WklZaWlYN1NKakh1WTk4aHlxS2hNOUpTWXhybF9BRFlSSkdjVzREU29odjltTGJ6QkU1RFd5NmtlcEZuYWJydDlMYWQwNldiZW00bGV4Qk4yVm95czdRcVZ2S1l0UG11THBya0dWdWFB?oc=5\" target=\"_blank\">Close finishes and exciting competition in Marblehead at Corinthian Classic Yacht Regatta</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sail-World.com</font>",
-      "source": "Marblehead"
     },
     {
       "title": "Saugus High School (MA) Volleyball - MaxPreps",
@@ -2673,6 +2763,16 @@
       "source": "Everett"
     },
     {
+      "title": "North Shore beach ranks best in Mass. for etiquette, according to survey - MassLive",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPclpVS0RyR1hFZVRSR01JcjUwdDV4MlRKU1d5OXZadXh1dlZrcGNnRzJMdnpzalh6SWpxMTVwdDlGc3pSelM5Vm40SXN0cU1zZEpIN2xzdFg1aFRfMXpqX01EekFBX3NaaVpUWnZjTGE3S0dfWVJUdDQtRTN0MDItQWlEOHloNlZaM0xZZkkxTkhUMkZrWFdfb0VWMmM0X3ctV1VKTWtDRktSNUNrYVNrYTh1RdIBxwFBVV95cUxNdndjS2kycUN6YjBodDJwTUxONzFkUGVYWTgyY2R1N2J6WU1wd2Q1dHhwa09fMWJSaWItdUFna3FLZHU5WXM2TzkzRko2QnJmWjNxZVlONnRpTFFyc0kwUXJndDFYSHliZEdsaXA3RDQ1eG9aOVNJWEt4dDJSVktsNmVIeThTMEdCNEFXeGkzVHdianZHWWtVYkk2SHg5c2FOaXdkRTlzaEwyN0tadnVhOGZtcUtIem9wSjVaV3NHMHRNdDFKZU5j?oc=5",
+      "published": "Tue, 14 Jul 2026 07:00:00 GMT",
+      "ts": 1784012400,
+      "author": "",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPclpVS0RyR1hFZVRSR01JcjUwdDV4MlRKU1d5OXZadXh1dlZrcGNnRzJMdnpzalh6SWpxMTVwdDlGc3pSelM5Vm40SXN0cU1zZEpIN2xzdFg1aFRfMXpqX01EekFBX3NaaVpUWnZjTGE3S0dfWVJUdDQtRTN0MDItQWlEOHloNlZaM0xZZkkxTkhUMkZrWFdfb0VWMmM0X3ctV1VKTWtDRktSNUNrYVNrYTh1RdIBxwFBVV95cUxNdndjS2kycUN6YjBodDJwTUxONzFkUGVYWTgyY2R1N2J6WU1wd2Q1dHhwa09fMWJSaWItdUFna3FLZHU5WXM2TzkzRko2QnJmWjNxZVlONnRpTFFyc0kwUXJndDFYSHliZEdsaXA3RDQ1eG9aOVNJWEt4dDJSVktsNmVIeThTMEdCNEFXeGkzVHdianZHWWtVYkk2SHg5c2FOaXdkRTlzaEwyN0tadnVhOGZtcUtIem9wSjVaV3NHMHRNdDFKZU5j?oc=5\" target=\"_blank\">North Shore beach ranks best in Mass. for etiquette, according to survey</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
+      "source": "North Shore"
+    },
+    {
       "title": "Woman and small service dog mauled by much larger dog in Chelsea",
       "link": "https://www.nbcboston.com/news/local/woman-and-small-service-dog-mauled-by-much-larger-dog-in-chelsea/3979154/",
       "published": "Fri, Jul 10 2026 12:42:45 AM",
@@ -2760,16 +2860,6 @@
       "author": "",
       "feed_title": "Boston 25 News",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi7wFBVV95cUxPV3ltemsxWVhFRXNaZDBWS1MxXzRhSDZXYS04QmJRNUlzS0x3RWUtTENBWEdlYlBuUzFNTnFqc2UyQktBVlVLenlFcmd3X0R5SnRZRzV5SmlEaG1ibXpHTTJfWXhmajAwN0Jvem56cTJFUHhjd2x0dkthVHFXbXIyZlFUeDdVRVptVVRIYXU4Z1B0SDhlWFBHQ1dFOWppX3c3THdzUkZ0VnI1emJUMXlGU3FoODh2bFNVTFhHMHFoZXllYTBqSjVnSHlDSnA4OXY5OWkyVnVib181S1BxVHV0Z2JFRGhuYkNrb1gzVTJCSdIBgwJBVV95cUxQY2xJUkl4U0dlaUozYVFiVi1LVGhiWFV0bnVWempxWUJKNkw1d1VEYlBOM1ExdzRtb2xPdUw2clhxcXNPaG9GR25QVE5pYjVRX25TMjFKX1V6V21SZEQ4TTdtQnhjb0RIWFhpOTg4SGhybTI4T3VJZDRGMjFRLTJjQVY5cFc4dGRXSFZrdVdBLVFSU2JFRDJOT19uZVFiZDQzRFhnSTVhRGN0cTRwek9ZX2tUR1Rhc1VRak5nN1RaWUlqOHNGZF9zaV9KRTk0X2tXNU14eHBJUTNTRXlaLXVnbE56ZjY3YVhMUHJJdWltY0liMkNiSWxHTlFmek1xWG5yLWlR?oc=5\" target=\"_blank\">North Shore beaches still closed as millions of gallons of sewage keep flowing into Merrimack River</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
-      "source": "North Shore"
-    },
-    {
-      "title": "Shellfishing areas along North Shore closed - Gloucester Daily Times",
-      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPOG5JekhrMnIwS291MGp3RzJYN1hPUUdtemRnX3FybDJac1ExWG9BUXdHcU9VV09mbDEzdzdQX1ZOR2d2N044WVlnay1lcE9BOTFueExmUU5nU2hkLUF6aEdUQnluRF9sdGNzOXlUMVZLWm9mbkg3aEsxOU4tTUhPRlVyOHc3bVk5cXlhQU5WcUpyY0xHb0pxbkFWd1hycmFQV3BiZTJUWFNQX1c1dkNtdE1tUG03djVsYnkwQUE2RW5RWUFSSjFFNEh4OVJiTjl4QnlvSTJZOHZCMi1VdE9vMHRtZXYzdUU?oc=5",
-      "published": "Mon, 29 Jun 2026 07:00:00 GMT",
-      "ts": 1782716400,
-      "author": "",
-      "feed_title": "Gloucester Daily Times",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi5wFBVV95cUxPOG5JekhrMnIwS291MGp3RzJYN1hPUUdtemRnX3FybDJac1ExWG9BUXdHcU9VV09mbDEzdzdQX1ZOR2d2N044WVlnay1lcE9BOTFueExmUU5nU2hkLUF6aEdUQnluRF9sdGNzOXlUMVZLWm9mbkg3aEsxOU4tTUhPRlVyOHc3bVk5cXlhQU5WcUpyY0xHb0pxbkFWd1hycmFQV3BiZTJUWFNQX1c1dkNtdE1tUG03djVsYnkwQUE2RW5RWUFSSjFFNEh4OVJiTjl4QnlvSTJZOHZCMi1VdE9vMHRtZXYzdUU?oc=5\" target=\"_blank\">Shellfishing areas along North Shore closed</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Gloucester Daily Times</font>",
       "source": "North Shore"
     },
     {
@@ -3273,13 +3363,13 @@
       "source": "Everett"
     },
     {
-      "title": "Chelsea payroll database: What every city employee made in 2025 - MassLive.com",
+      "title": "Chelsea payroll database: What every city employee made in 2025 - MassLive",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQczItXzBUcVM4bjduY0pEdGhMbFFQMnV4cWFPSm9qOUdhWGliMjV5SVB2eWw2U0xGU2EzV2Y3ZnZNRnRTd1E5d3NLOTFvMnMtMEkwcWt2SDY0WG1aUDNZTEJnamR3dnVMSVZfdkJHVnphRUlwdmVuc0tob3NGWGF2bzQ5NjhaTVpaUTZHZ1FVYk9ha0NSUDdjR2pCQ1BpVFlOOUNGLTVrSWXSAbwBQVVfeXFMTnQ4WGpycFR6dy1ETzRtc0JWLVZvc0g2TUFZd2RmVllwckc5MkFvd180VDUxVURtSERhbnpnb0lNNUUzS0pfamdKdWsySGp1TzVlSzI5OEx6bG9DbC1GaTkyUXVSM1BJTGNKQlZqVnI4VWJyZzkyTWhHaGM4c0V3eVlkbVNTTklXUUNkVXIxU19zYU95SlRCMFRkN2xyRndfTF9lMnVmdFdyUnRWUXd0TVllLTJLNEpGLXJhT1U?oc=5",
       "published": "Sat, 02 May 2026 07:00:00 GMT",
       "ts": 1777705200,
       "author": "",
-      "feed_title": "MassLive.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQczItXzBUcVM4bjduY0pEdGhMbFFQMnV4cWFPSm9qOUdhWGliMjV5SVB2eWw2U0xGU2EzV2Y3ZnZNRnRTd1E5d3NLOTFvMnMtMEkwcWt2SDY0WG1aUDNZTEJnamR3dnVMSVZfdkJHVnphRUlwdmVuc0tob3NGWGF2bzQ5NjhaTVpaUTZHZ1FVYk9ha0NSUDdjR2pCQ1BpVFlOOUNGLTVrSWXSAbwBQVVfeXFMTnQ4WGpycFR6dy1ETzRtc0JWLVZvc0g2TUFZd2RmVllwckc5MkFvd180VDUxVURtSERhbnpnb0lNNUUzS0pfamdKdWsySGp1TzVlSzI5OEx6bG9DbC1GaTkyUXVSM1BJTGNKQlZqVnI4VWJyZzkyTWhHaGM4c0V3eVlkbVNTTklXUUNkVXIxU19zYU95SlRCMFRkN2xyRndfTF9lMnVmdFdyUnRWUXd0TVllLTJLNEpGLXJhT1U?oc=5\" target=\"_blank\">Chelsea payroll database: What every city employee made in 2025</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQczItXzBUcVM4bjduY0pEdGhMbFFQMnV4cWFPSm9qOUdhWGliMjV5SVB2eWw2U0xGU2EzV2Y3ZnZNRnRTd1E5d3NLOTFvMnMtMEkwcWt2SDY0WG1aUDNZTEJnamR3dnVMSVZfdkJHVnphRUlwdmVuc0tob3NGWGF2bzQ5NjhaTVpaUTZHZ1FVYk9ha0NSUDdjR2pCQ1BpVFlOOUNGLTVrSWXSAbwBQVVfeXFMTnQ4WGpycFR6dy1ETzRtc0JWLVZvc0g2TUFZd2RmVllwckc5MkFvd180VDUxVURtSERhbnpnb0lNNUUzS0pfamdKdWsySGp1TzVlSzI5OEx6bG9DbC1GaTkyUXVSM1BJTGNKQlZqVnI4VWJyZzkyTWhHaGM4c0V3eVlkbVNTTklXUUNkVXIxU19zYU95SlRCMFRkN2xyRndfTF9lMnVmdFdyUnRWUXd0TVllLTJLNEpGLXJhT1U?oc=5\" target=\"_blank\">Chelsea payroll database: What every city employee made in 2025</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
       "source": "Chelsea City"
     },
     {
@@ -3411,6 +3501,16 @@
       "feed_title": "facebook.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxQTi1EOG1jNEpQdmNieGYzRGJ6Unh5elhIZjdnU1NWZV9hMGVHMGN3ZVNhc09Wb0Mza3hSS2JwdXk3VkdhN1REbjB5REt5S3NXV0hWY1MyWUhmVXBvdkhTOGowZ2tUbVpjTXJNaXJ6S21nbUdEd25oWFdHbkFyZFV2M01aOTc5blJHRi1keWxOV0dvanhacUtoVnQ4VHBONXN1UnhsWmk2S0JVcDdDUHJscDJjQm4tWlpLdjBjSmJweHdrYUZJWFVtWUJEWVJqSFJGM3lyNGtvRzhrQQ?oc=5\" target=\"_blank\">BREAKING UPDATE: A pedestrian was struck and killed by a vehicle on Route 1 south near Collins Avenue in Saugus last night, according to authorities. He was identified by Mass. State Police as 53-year-old Brian McDonald.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">facebook.com</font>",
       "source": "Saugus"
+    },
+    {
+      "title": "Marblehead, Massachusetts could lose its public library amid $7 million budget deficit - CBS News",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSDZJMGJJV0djMWFRTVhkX0hhWjdlMi13NUlQYkF1MEx0eFRHZHRodU9xWmtrVVgwc2pPTzdnWFBnZkw3OW5BY3I3elVKdkY0QmJPNEllNjlITV9SaHoycVNha0dRN0xfT1Rpc1ZENDBpMkl3dlcySi00bHppMVllc0F6OXJRZVU?oc=5",
+      "published": "Thu, 12 Mar 2026 07:00:00 GMT",
+      "ts": 1773298800,
+      "author": "",
+      "feed_title": "CBS News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxPSDZJMGJJV0djMWFRTVhkX0hhWjdlMi13NUlQYkF1MEx0eFRHZHRodU9xWmtrVVgwc2pPTzdnWFBnZkw3OW5BY3I3elVKdkY0QmJPNEllNjlITV9SaHoycVNha0dRN0xfT1Rpc1ZENDBpMkl3dlcySi00bHppMVllc0F6OXJRZVU?oc=5\" target=\"_blank\">Marblehead, Massachusetts could lose its public library amid $7 million budget deficit</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
+      "source": "Marblehead"
     },
     {
       "title": "A collapse zone has been established in a Massachusetts city after a section of bricks fell from the facade of a three-story home and crashed down onto the sidewalk below. - facebook.com",
@@ -3575,14 +3675,164 @@
   ],
   "news_boston": [
     {
-      "title": "Driver charged after father, young daughter, killed in fiery Mass. crash",
-      "link": "https://www.wcvb.com/article/north-reading-massachusetts-crash-investigation/73503604",
-      "published": "Sun, 23 Aug 2026 21:26:00 GMT",
-      "ts": 1787520360,
+      "title": "Sogard\u2019s solo homer starts Red Sox rally in 5-4 win over Giants, Boston sweeps series",
+      "link": "https://www.boston.com/sports/boston-red-sox/2026/08/23/sogards-solo-homer-starts-red-sox-rally-in-5-4-win-over-giants-boston-sweeps-series/",
+      "published": "Sun, 23 Aug 2026 22:27:23 +0000",
+      "ts": 1787524043,
+      "author": "Jack Pickell",
+      "feed_title": "Boston.com",
+      "summary": "<p>The Sox finished their homestand 5-1. They are 7-3 since a five-game skid that matched their season high.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/08/23/sogards-solo-homer-starts-red-sox-rally-in-5-4-win-over-giants-boston-sweeps-series/\">Sogard&#8217;s solo homer starts Red Sox rally in 5-4 win over Giants, Boston sweeps series</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "Shelley Fabares, 'Johnny Angel' singer and actor in 'The Donna Reed Show' and 'Coach,' dies at 82",
+      "link": "https://www.wcvb.com/article/actress-shelley-fabares-dies/73505426",
+      "published": "Sun, 23 Aug 2026 22:24:00 GMT",
+      "ts": 1787523840,
       "author": "",
       "feed_title": "Top Stories",
-      "summary": "<p>A Massachusetts man is facing several charges in connection with a fiery crash that killed two people, including a minor, Saturday night, the Middlesex District Attorney's Office announced. <br /><br /></p>",
+      "summary": "<p>Shelley Fabares, a TV actor known for roles in \u201cThe Donna Reed Show,\" \"One Day at a Time,\"  and \u201cCoach\u201d who had a hit with the song \u201cJohnny Angel,\u201d has died at age 82.</p>",
       "source": "Top Stories"
+    },
+    {
+      "title": "Roxbury man allegedly hit victim with vehicle after argument, later turned himself in",
+      "link": "https://www.boston.com/news/crime/2026/08/23/roxbury-man-allegedly-hit-victim-with-vehicle-after-argument-later-turned-himself-in/",
+      "published": "Sun, 23 Aug 2026 22:20:20 +0000",
+      "ts": 1787523620,
+      "author": "Darin Zullo",
+      "feed_title": "Boston.com",
+      "summary": "<p>The suspect allegedly hit the victim with his vehicle, leaving them in critical condition, after the two had an argument.</p>\n<p>The post <a href=\"https://www.boston.com/news/crime/2026/08/23/roxbury-man-allegedly-hit-victim-with-vehicle-after-argument-later-turned-himself-in/\">Roxbury man allegedly hit victim with vehicle after argument, later turned himself in</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "Julian Edelman highlights one reason why A.J. Brown will have a dominant year with Patriots",
+      "link": "https://www.boston.com/sports/new-england-patriots/2026/08/23/julian-edelman-new-england-patriots-nfl-football-a-j-brown-josh-mcdaniels/",
+      "published": "Sun, 23 Aug 2026 22:19:03 +0000",
+      "ts": 1787523543,
+      "author": "Conor Ryan",
+      "feed_title": "Boston.com",
+      "summary": "<p>\"They probably haven't had someone like that since Randy Moss.\" </p>\n<p>The post <a href=\"https://www.boston.com/sports/new-england-patriots/2026/08/23/julian-edelman-new-england-patriots-nfl-football-a-j-brown-josh-mcdaniels/\">Julian Edelman highlights one reason why A.J. Brown will have a dominant year with Patriots</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "Driver charged after father, young daughter, killed in fiery Mass. crash",
+      "link": "https://www.wcvb.com/article/north-reading-massachusetts-crash-investigation/73503604",
+      "published": "Sun, 23 Aug 2026 22:13:00 GMT",
+      "ts": 1787523180,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A Massachusetts man is facing several charges in connection with a fiery crash that killed a father and his 8-year-old daughter Saturday night, the Middlesex District Attorney's Office announced.<br /><br /> <br /><br /></p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Boston Symphony Orchestra and musicians extend contract for 48 hours, delaying possible first strike",
+      "link": "https://www.wcvb.com/article/boston-symphony-orchestra-musicians-labor-extension/73504842",
+      "published": "Sun, 23 Aug 2026 22:10:00 GMT",
+      "ts": 1787523000,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>The Boston Symphony Orchestra says it agreed with its musicians to a 48-hour extension of their collective bargaining agreement, allowing more time for negotiations to head off what could be the first strike in the ensemble\u2019s 145-year history.<br /><br /><br /><br /></p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Sogard's solo homer starts Red Sox rally in 5-4 win over Giants",
+      "link": "https://www.wcvb.com/article/red-sox-beat-giants-aug-23-2026/73505520",
+      "published": "Sun, 23 Aug 2026 22:07:00 GMT",
+      "ts": 1787522820,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Nick Sogard hit his second career homer, Jake Bennett struck out six in seven innings and the Boston Red Sox came back to finish a sweep of the San Francisco Giants with a 5-4 win on Sunday.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Brighter skies, lower humidity ahead",
+      "link": "https://whdh.com/news/brighter-skies-lower-humidity-ahead/",
+      "published": "Sun, 23 Aug 2026 22:06:47 +0000",
+      "ts": 1787522807,
+      "author": "Kelly Costa",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "Happy Sunday! We got some rain today, and the sun popped out a little late in the day. Thankfully, we&#8217;ll see much more of it...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "11 arrested with alleged child sex abuse materials after feds board cruise ships in Boston",
+      "link": "https://www.boston.com/news/crime/2026/08/23/11-arrested-with-alleged-child-sex-abuse-materials-after-feds-board-boston-cruise-ships/",
+      "published": "Sun, 23 Aug 2026 22:03:18 +0000",
+      "ts": 1787522598,
+      "author": "Madison Lucchesi",
+      "feed_title": "Boston.com",
+      "summary": "<p>The arrests were apart of \"Operation Tidal Wave,\" which aims to identify cruise ship workers who are in possession of child sexual abuse and exploitation materials. </p>\n<p>The post <a href=\"https://www.boston.com/news/crime/2026/08/23/11-arrested-with-alleged-child-sex-abuse-materials-after-feds-board-boston-cruise-ships/\">11 arrested with alleged child sex abuse materials after feds board cruise ships in Boston</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "Video: Less humid Monday with a spot shower",
+      "link": "https://www.wcvb.com/article/video-less-humid-monday-with-a-spot-shower/73505481",
+      "published": "Sun, 23 Aug 2026 21:55:00 GMT",
+      "ts": 1787522100,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Less humid air arrives Monday with a spot shower possible. An isolated shower is possible north Tuesday before partly sunny skies return Wednesday.<br /><br /></p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Man runs 50K in 50 states in 50 consecutive days for Make-A-Wish",
+      "link": "https://www.wcvb.com/article/make-a-wish-man-runs-50k-50-states/73505371",
+      "published": "Sun, 23 Aug 2026 21:54:00 GMT",
+      "ts": 1787522040,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>With the hope of raising $1 million for Make-A-Wish, Brady McDonald is running a 50K in all 50 states in 50 consecutive days. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Suspect surrenders after Boston hit-and-run leaves victim critically injured",
+      "link": "https://www.wcvb.com/article/suspect-surrenders-after-boston-hit-and-run/73504740",
+      "published": "Sun, 23 Aug 2026 21:49:00 GMT",
+      "ts": 1787521740,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A Boston man surrendered himself to police Friday after a warrant was issued for his arrest in connection with a hit-and-run. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "IndyCar Freedom 250 races through DC in historic first",
+      "link": "https://www.wcvb.com/article/indycar-freedom-250-grand-prix-race-washington-dc-national-mall/73505369",
+      "published": "Sun, 23 Aug 2026 21:49:00 GMT",
+      "ts": 1787521740,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "The inaugural IndyCar Freedom 250 Grand Prix brought high-speed racing, military flyovers, and a presidential pre-race lap to Washington, D.C., as part of America\u2019s 250th birthday celebration.",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Tropical Storm Moke set to dump more heavy rain on hurricane-stricken Hawaii",
+      "link": "https://whdh.com/news/tropical-storm-moke-set-to-dump-more-heavy-rain-on-hurricane-stricken-hawaii/",
+      "published": "Sun, 23 Aug 2026 21:43:26 +0000",
+      "ts": 1787521406,
+      "author": "Owen Boss",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "HONOLULU (AP) \u2014 Tropical Storm Moke was swirling past Hawaii on Sunday, close enough to dump heavy rain on Big Island communities in the aftermath...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "As the Clancy case highlights postpartum psychosis, a mom stricken by it shares her story of hope",
+      "link": "https://whdh.com/news/as-the-clancy-case-highlights-postpartum-psychosis-a-mom-stricken-by-it-shares-her-story-of-hope/",
+      "published": "Sun, 23 Aug 2026 21:40:53 +0000",
+      "ts": 1787521253,
+      "author": "Owen Boss",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "About two weeks after giving birth, Bridget Mar\u00eda Chesterton was curled up on the bathroom floor, saying things that made little sense. Later, in the...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "FBI warns of New England scammers impersonating FBI agents",
+      "link": "https://www.boston.com/news/local-news/2026/08/23/fbi-warns-of-new-england-scammers-impersonating-fbi-agents/",
+      "published": "Sun, 23 Aug 2026 21:40:16 +0000",
+      "ts": 1787521216,
+      "author": "Madison Lucchesi",
+      "feed_title": "Boston.com",
+      "summary": "<p>The scammers are telling victims their information was used to create an account to purchase illegal firearms, the FBI said.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/23/fbi-warns-of-new-england-scammers-impersonating-fbi-agents/\">FBI warns of New England scammers impersonating FBI agents</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
     },
     {
       "title": "Man charged with motor vehicle homicide, OUI in North Reading crash that killed 2, including minor",
@@ -3622,16 +3872,6 @@
       "author": "",
       "feed_title": "Top Stories",
       "summary": "Kyle Kirkwood gave the Freedom 250 an American winner, racing to his second victory of the IndyCar season on the streets of downtown Washington in a dominant performance",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Boston Symphony Orchestra and musicians extend contract for 48 hours, delaying possible first strike",
-      "link": "https://www.wcvb.com/article/boston-symphony-orchestra-musicians-labor-extension/73504842",
-      "published": "Sun, 23 Aug 2026 21:04:00 GMT",
-      "ts": 1787519040,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Musicians from the Boston Symphony Orchestra agreed to extend their current labor agreement for 48 hours, according to a Sunday announcement.<br /><br /></p>",
       "source": "Top Stories"
     },
     {
@@ -3692,16 +3932,6 @@
       "author": "",
       "feed_title": "Top Stories",
       "summary": "<p>President Donald Trump and First Lady Melania Trump have kicked off the Freedom 250 Grand Prix in Washington</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Suspect surrenders after Boston hit-and-run leaves victim critically injured",
-      "link": "https://www.wcvb.com/article/suspect-surrenders-after-boston-hit-and-run/73504740",
-      "published": "Sun, 23 Aug 2026 17:44:00 GMT",
-      "ts": 1787507040,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>A Boston man surrendered himself to police Friday after a warrant was issued for his arrest in connection with a hit-and-run. </p>",
       "source": "Top Stories"
     },
     {
@@ -3791,7 +4021,7 @@
       "ts": 1787450430,
       "author": "Laura Ungar | The Associated Press",
       "feed_title": "NBC Boston",
-      "summary": "<p>About two weeks after giving birth, Bridget Mar\u00eda Chesterton was curled up on the bathroom floor, saying things that made little sense. Later, in the emergency room, she kept repeating, \u201cWhat\u2019s going on?\u201d She\u2019d lost touch with reality.</p>\n\n\n\n<p>The family eventually learned that Chesterton had postpartum psychosis, a severe mental health disorder thrust into the spotlight by the case of Lindsay Clancy, a Massachusetts woman on trial for strangling her three children. A key question is whether postpartum psychosis drove Clancy to do it.</p>\n\n\n\n<p>Researchers estimate that the condition \u2014 a mental health emergency that is less common than postpartum depression \u2014 afflicts 1 to 2 out of 1,000 women after delivery. Although most who develop postpartum psychosis don\u2019t harm their children, mothers with severe cases may try to harm themselves or their kids. </p>\n\n\n\n<p>If not for medication and strong family support, Chesterton said her own situation \u201ccould have gone sideways.\u201d</p>\n\n\n\n<p>Chesterton bristles at online comments about the Clancy case suggesting postpartum psychosis is not a real disorder. She feels driven to raise awareness by sharing her story publicly; a poem she wrote about the experience will be published in a journal in the fall. She wants to dispel misconceptions about the widely misunderstood condition \u2014 and let families know there is hope.</p>\n\n\n\n<p>\u201cIt\u2019s something that we do not talk about as a society,\u201d said Chesterton, a 52-year-old history professor who lives outside Buffalo, New York. \u201cI\u2019m not embarrassed about what happened. I want people to know about it.\u201d</p>\n\n\n\n<h2 class=\"wp-block-heading\">A mom was fine at first, then \u2018in bad shape\u2019</h2>\n\n\n\n<p>Chesterton and her husband James Fitzsimmons wanted a baby desperately and underwent fertility treatment for years. She finally got pregnant in her mid-40s and had severe asthma during the pregnancy that put her in the hospital. She gave birth to her daughter by C-section in January 2019, about two months early.</p>\n\n\n\n<p>\u201cEverything about bringing her into the world was awful,\u201d Chesterton said. \u201cIt was the longest seven months of my life.\u201d</p>\n\n\n\n<p>Just after the birth, the baby was hurried off to the neonatal intensive care unit, where she spent her first weeks of life. To protect the child&#8217;s privacy, The Associated Press is withholding her name at the family&#8217;s request.</p>\n\n\n\n<blockquote class=\"featured-text\">\n\t<em>If you or someone you know is a new parent who&#8217;s struggling or in emotional distress, you can call the National Maternal Mental Health Hotline at 833-TLC-MAMA (833-852-6262) any time. If you or someone you know is in crisis, call or text 988 to reach the Suicide and Crisis Lifeline or chat live at 988lifeline.org. You can also visit <a href=\"https://speakingofsuicide.com/resources\" rel=\"noreferrer noopener\" target=\"_blank\">SpeakingOfSuicide.com/resources</a> for additional support.</em></blockquote>\n\n\n\n<p>Chesterton went home and seemed fine at first. But the day Fitzsimmons found her on the bathroom floor, her family said, she had trouble remembering basic details of her life and made strange comments, such as \u201cit&#8217;s meditation day&#8221; even though she doesn&#8217;t meditate. Fitzsimmons called his wife\u2019s mom, Maria Chesterton, who met the couple at the hospital.</p>\n\n\n\n<p>\u201cShe didn\u2019t even remember having a baby,\u201d the elder Chesterton said. \u201cShe knew us vaguely.\u201d</p>\n\n\n\n<h2 class=\"wp-block-heading\">People with certain conditions are more likely to be affected</h2>\n\n\n\n<p>Disorganized thinking and delusions are among the symptoms of postpartum psychosis, which also may include hallucinations, paranoia, agitation and mood changes. Postpartum depression, by contrast, is a mood disorder affecting about 1 in 7 women after giving birth \u2014 or more, according to some research.</p>\n\n\n\n<p>Postpartum psychosis can happen to anyone after giving birth, but the chances are higher for people with certain mental health conditions such as bipolar disorder. Chesterton didn\u2019t have such conditions, said Dr. Emily Williams of Buffalo OB/GYN, one of her doctors.</p>\n\n\n\n<p>Chesterton was transferred to BryLin Hospital in Buffalo, which provides crisis mental healthcare, and spent about two weeks there. Her mom, who was staying at the couple\u2019s house to help out, remembers visiting her with food and Valentine\u2019s Day chocolates.</p>\n\n\n\n<p>When she was released, she did OK for a few days, her mom remembers, then \u201cjust lost it.\u201d She stared blankly ahead, not knowing where she was or what was happening. But she did manage to aggressively express that she didn\u2019t want to go back to the same place she\u2019d just left, so she was institutionalized involuntarily.</p>\n\n\n\n<p>\u201cWe had no choice,\u201d her mother said. \u201cShe was in bad shape.\u201d</p>\n\n\n\n<p>She stayed for another two weeks \u2014 apart from her baby.</p>\n\n\n\n<p>\u201cI was kind of lucky that she was in the NICU,\u201d Chesterton said, \u201cbecause we had somebody to take care of her when I was so sick.\u201d</p>\n\n\n\n<h2 class=\"wp-block-heading\">Medication and family support help a mom recover</h2>\n\n\n\n<p>Chesterton believes antipsychotic drugs ultimately brought her back to reality. But just as essential was the support of her family. When the baby came home after nearly two months at the hospital, her team of helpers included her husband, mom, dad and a postpartum doula.</p>\n\n\n\n<p>\u201cShe helped me learn how to take care of the baby, remember her \u2014 you know, to become a parent again,\u201d Chesterton said, adding that she knows how lucky she is that her family had the resources to provide such care.</p>\n\n\n\n<p>Williams, the doctor, said family support is crucial in the postpartum period even if everything is going well. \u201cThe more hands on deck, the better,\u201d she said.</p>\n\n\n\n<p>Over the next several months, it was as if a fog slowly lifted.</p>\n\n\n\n<p>\u201cWe could see improvement in her. It was a little bit at a time,\u201d her mother said. \u201cShe was taking care of the baby. The glassy-eyed look was gone.\u201d</p>\n\n\n\n<p>Chesterton stayed on antipsychotics for about a year. By her daughter\u2019s first birthday party, she was back to normal.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Doctor encourages families to be on alert for signs of trouble</h2>\n\n\n\n<p>Williams said Chesterton\u2019s family did the right thing when they took quick action after symptoms arose. Sometimes, the doctor said, people may deny that something so serious could be wrong with a loved one&#8217;s mental health and attribute signs of postpartum psychosis to things like needing more sleep.</p>\n\n\n\n<p>Chesterton\u2019s mother advised other families to be vigilant for signs of the illness, then come together to shepherd loved ones through it. </p>\n\n\n\n<p>\u201cIf my daughter would not have had the support system,\u201d she said, \u201cI don\u2019t know how this would have turned out.\u201d</p>\n\n\n\n<p>___</p>\n\n\n\n<p>The Associated Press Health and Science Department receives support from the Howard Hughes Medical Institute\u2019s Department of Science Education and the Robert Wood Johnson Foundation. The AP is solely responsible for all content.</p>",
+      "summary": "<p>About two weeks after giving birth, Bridget Mar\u00eda Chesterton was curled up on the bathroom floor, saying things that made little sense. Later, in the emergency room, she kept repeating, \u201cWhat\u2019s going on?\u201d She\u2019d lost touch with reality.</p>\n\n\n\n<p>The family eventually learned that Chesterton had postpartum psychosis, a severe mental health disorder thrust into the spotlight by the case of Lindsay Clancy, a Massachusetts woman on trial for strangling her three children. A key question is whether postpartum psychosis drove Clancy to do it.</p>\n\n\n\n<p>Researchers estimate that the condition \u2014 a mental health emergency that is less common than postpartum depression \u2014 afflicts 1 to 2 out of 1,000 women after delivery. Although most who develop postpartum psychosis don\u2019t harm their children, mothers with severe cases may try to harm themselves or their kids. </p>\n\n\n\n<p>If not for medication and strong family support, Chesterton said her own situation \u201ccould have gone sideways.\u201d</p>\n\n\n\n<p>Chesterton bristles at online comments about the Clancy case suggesting postpartum psychosis is not a real disorder. She feels driven to raise awareness by sharing her story publicly; a poem she wrote about the experience will be published in a journal in the fall. She wants to dispel misconceptions about the widely misunderstood condition \u2014 and let families know there is hope.</p>\n\n\n\n<p>\u201cIt\u2019s something that we do not talk about as a society,\u201d said Chesterton, a 52-year-old history professor who lives outside Buffalo, New York. \u201cI\u2019m not embarrassed about what happened. I want people to know about it.\u201d</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">A mom was fine at first, then \u2018in bad shape\u2019</h2>\n\n\n\n<p>Chesterton and her husband James Fitzsimmons wanted a baby desperately and underwent fertility treatment for years. She finally got pregnant in her mid-40s and had severe asthma during the pregnancy that put her in the hospital. She gave birth to her daughter by C-section in January 2019, about two months early.</p>\n\n\n\n<p>\u201cEverything about bringing her into the world was awful,\u201d Chesterton said. \u201cIt was the longest seven months of my life.\u201d</p>\n\n\n\n<p>Just after the birth, the baby was hurried off to the neonatal intensive care unit, where she spent her first weeks of life. To protect the child&#8217;s privacy, The Associated Press is withholding her name at the family&#8217;s request.</p>\n\n\n\n<blockquote class=\"featured-text\">\n\t<em>If you or someone you know is a new parent who&#8217;s struggling or in emotional distress, you can call the National Maternal Mental Health Hotline at 833-TLC-MAMA (833-852-6262) any time. If you or someone you know is in crisis, call or text 988 to reach the Suicide and Crisis Lifeline or chat live at 988lifeline.org. You can also visit <a href=\"https://speakingofsuicide.com/resources\" rel=\"noreferrer noopener\" target=\"_blank\">SpeakingOfSuicide.com/resources</a> for additional support.</em></blockquote>\n\n\n\n<p>Chesterton went home and seemed fine at first. But the day Fitzsimmons found her on the bathroom floor, her family said, she had trouble remembering basic details of her life and made strange comments, such as \u201cit&#8217;s meditation day&#8221; even though she doesn&#8217;t meditate. Fitzsimmons called his wife\u2019s mom, Maria Chesterton, who met the couple at the hospital.</p>\n\n\n\n<p>\u201cShe didn\u2019t even remember having a baby,\u201d the elder Chesterton said. \u201cShe knew us vaguely.\u201d</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">People with certain conditions are more likely to be affected</h2>\n\n\n\n<p>Disorganized thinking and delusions are among the symptoms of postpartum psychosis, which also may include hallucinations, paranoia, agitation and mood changes. Postpartum depression, by contrast, is a mood disorder affecting about 1 in 7 women after giving birth \u2014 or more, according to some research.</p>\n\n\n\n<p>Postpartum psychosis can happen to anyone after giving birth, but the chances are higher for people with certain mental health conditions such as bipolar disorder. Chesterton didn\u2019t have such conditions, said Dr. Emily Williams of Buffalo OB/GYN, one of her doctors.</p>\n\n\n\n<p>Chesterton was transferred to BryLin Hospital in Buffalo, which provides crisis mental healthcare, and spent about two weeks there. Her mom, who was staying at the couple\u2019s house to help out, remembers visiting her with food and Valentine\u2019s Day chocolates.</p>\n\n\n\n<p>When she was released, she did OK for a few days, her mom remembers, then \u201cjust lost it.\u201d She stared blankly ahead, not knowing where she was or what was happening. But she did manage to aggressively express that she didn\u2019t want to go back to the same place she\u2019d just left, so she was institutionalized involuntarily.</p>\n\n\n\n<p>\u201cWe had no choice,\u201d her mother said. \u201cShe was in bad shape.\u201d</p>\n\n\n\n<p>She stayed for another two weeks \u2014 apart from her baby.</p>\n\n\n\n<p>\u201cI was kind of lucky that she was in the NICU,\u201d Chesterton said, \u201cbecause we had somebody to take care of her when I was so sick.\u201d</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/health/postpartum-psychosis-condition-explained-lindsay-clancy/3995483/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/Patrick-Clancy-describes-ex-wifes-mental-health-st-2287616804-Getty.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/health/\">Health</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 11\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/health/postpartum-psychosis-condition-explained-lindsay-clancy/3995483/\">\n\t\t\t\t\t\t\t\t\t\tAs Lindsay Clancy uses postpartum psychosis as defense in trial, experts explain the condition\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/patrick-clancy-911-call-court-resumes/3989469/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/07/lindsay-clancy-kevin-reddington.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/crime-and-courts/\">Crime and Courts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJul 30\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/patrick-clancy-911-call-court-resumes/3989469/\">\n\t\t\t\t\t\t\t\t\t\t911 call from Lindsay Clancy&#039;s husband brought tears to the courtroom\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Medication and family support help a mom recover</h2>\n\n\n\n<p>Chesterton believes antipsychotic drugs ultimately brought her back to reality. But just as essential was the support of her family. When the baby came home after nearly two months at the hospital, her team of helpers included her husband, mom, dad and a postpartum doula.</p>\n\n\n\n<p>\u201cShe helped me learn how to take care of the baby, remember her \u2014 you know, to become a parent again,\u201d Chesterton said, adding that she knows how lucky she is that her family had the resources to provide such care.</p>\n\n\n\n<p>Williams, the doctor, said family support is crucial in the postpartum period even if everything is going well. \u201cThe more hands on deck, the better,\u201d she said.</p>\n\n\n\n<p>Over the next several months, it was as if a fog slowly lifted.</p>\n\n\n\n<p>\u201cWe could see improvement in her. It was a little bit at a time,\u201d her mother said. \u201cShe was taking care of the baby. The glassy-eyed look was gone.\u201d</p>\n\n\n\n<p>Chesterton stayed on antipsychotics for about a year. By her daughter\u2019s first birthday party, she was back to normal.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Doctor encourages families to be on alert for signs of trouble</h2>\n\n\n\n<p>Williams said Chesterton\u2019s family did the right thing when they took quick action after symptoms arose. Sometimes, the doctor said, people may deny that something so serious could be wrong with a loved one&#8217;s mental health and attribute signs of postpartum psychosis to things like needing more sleep.</p>\n\n\n\n<p>Chesterton\u2019s mother advised other families to be vigilant for signs of the illness, then come together to shepherd loved ones through it. </p>\n\n\n\n<p>\u201cIf my daughter would not have had the support system,\u201d she said, \u201cI don\u2019t know how this would have turned out.\u201d</p>\n\n\n\n<p>___</p>\n\n\n\n<p><em>The Associated Press Health and Science Department receives support from the Howard Hughes Medical Institute\u2019s Department of Science Education and the Robert Wood Johnson Foundation. The AP is solely responsible for all content.</em></p>",
       "source": "NBC Boston"
     },
     {
@@ -3841,7 +4071,7 @@
       "ts": 1787447698,
       "author": "Asher Klein",
       "feed_title": "NBC Boston",
-      "summary": "<p>A man wanted in a hit-and-run crash that left a person critically injured in Charlestown surrendered to police on Friday, Boston police said.</p>\n\n\n\n<p>Wanted on a charge of assault to kill, Luis Serrano surrendered at the downtown police station, the department said Sunday.</p>\n\n\n\n<p>The 28-year-old Roxbury resident is accused of fleeing his vehicle when it got stuck in a fence on Bunker Hill Street near Trenton Street Thursday evening, according to police.</p>\n\n\n\n<p>Officers had been called about 7:05 p.m. for a pedestrian hit by a vehicle, and Boston EMS took a person in critical condition to the hospital, police said.</p>\n\n\n\n<p>Investigators were told at the scene that the person who was hit and the driver had argued before the incident, according to police.</p>\n\n\n\n<p>Serrano, who is due to be arraigned in Boston Municipal Court, was cited for alleged reckless operation and leaving the scene of an accident that injured a person, police said.</p>\n\n\n\n<p>It wasn&#8217;t immediately clear if Serrano had an attorney who could speak to the charges, and police didn&#8217;t share information on what led to argument that preceded the crash.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More Boston news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/weather/sunday-storm-forecast-boston-mass-radar/4002442/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/LKS_PRECIP_FCST_ACCUM_BOSDMA.png?quality=85&#038;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t11 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/weather/sunday-storm-forecast-boston-mass-radar/4002442/\">\n\t\t\t\t\t\t\t\t\t\tClouds, rain or a storm? What to expect in the weather across New England Sunday\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/weather/el-nino-boston-massachusetts-winter-effects/4002417/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/2026-El-Nino.png?quality=85&#038;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/extreme-weather/\">Extreme Weather</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t6 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/weather/el-nino-boston-massachusetts-winter-effects/4002417/\">\n\t\t\t\t\t\t\t\t\t\tEl Ni\u00f1o, extreme weather and you: What the science says about this winter so far\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/dorchester-standoff-boston-police/4002267/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/06/boston-police-generic-pic.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/boston/\">Boston</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 22\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/dorchester-standoff-boston-police/4002267/\">\n\t\t\t\t\t\t\t\t\t\t1 arrested after domestic dispute, Boston police standoff in Dorchester\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
+      "summary": "<p>A man wanted in a hit-and-run crash that left a person critically injured in Charlestown surrendered to police on Friday, Boston police said.</p>\n\n\n\n<p>Wanted on a charge of assault to kill, Luis Serrano surrendered at the downtown police station, the department said Sunday.</p>\n\n\n\n<p>The 28-year-old Roxbury resident is accused of fleeing his vehicle when it got stuck in a fence on Bunker Hill Street near Trenton Street Thursday evening, according to police.</p>\n\n\n\n<p>Officers had been called about 7:05 p.m. for a pedestrian hit by a vehicle, and Boston EMS took a person in critical condition to the hospital, police said.</p>\n\n\n\n<p>Investigators were told at the scene that the person who was hit and the driver had argued before the incident, according to police.</p>\n\n\n\n<p>Serrano, who is due to be arraigned in Boston Municipal Court, was cited for alleged reckless operation and leaving the scene of an accident that injured a person, police said.</p>\n\n\n\n<p>It wasn&#8217;t immediately clear if Serrano had an attorney who could speak to the charges, and police didn&#8217;t share information on what led to argument that preceded the crash.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More Boston news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/weather/sunday-storm-forecast-boston-mass-radar/4002442/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/LKS_PRECIP_FCST_ACCUM_BOSDMA.png?quality=85&#038;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t12 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/weather/sunday-storm-forecast-boston-mass-radar/4002442/\">\n\t\t\t\t\t\t\t\t\t\tClouds, rain or a storm? What to expect in the weather across New England Sunday\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/weather/el-nino-boston-massachusetts-winter-effects/4002417/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/2026-El-Nino.png?quality=85&#038;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/extreme-weather/\">Extreme Weather</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t7 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/weather/el-nino-boston-massachusetts-winter-effects/4002417/\">\n\t\t\t\t\t\t\t\t\t\tEl Ni\u00f1o, extreme weather and you: What the science says about this winter so far\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/dorchester-standoff-boston-police/4002267/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/06/boston-police-generic-pic.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/boston/\">Boston</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 22\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/dorchester-standoff-boston-police/4002267/\">\n\t\t\t\t\t\t\t\t\t\t1 arrested after domestic dispute, Boston police standoff in Dorchester\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
       "source": "NBC Boston"
     },
     {
@@ -3865,46 +4095,6 @@
       "source": "NBC Boston"
     },
     {
-      "title": "Ja\u2019Quinden Jackson was on Patriots\u2019 minds after scary moment at Gillette Stadium",
-      "link": "https://www.boston.com/sports/new-england-patriots/2026/08/23/patriots-eagles-preseason-jaquinden-jackson-injury-comments/",
-      "published": "Sun, 23 Aug 2026 12:43:52 +0000",
-      "ts": 1787489032,
-      "author": "Khari A. Thompson",
-      "feed_title": "Boston.com",
-      "summary": "<p>\"That's not how you want to start any game or see anybody out there on the field like that.\"</p>\n<p>The post <a href=\"https://www.boston.com/sports/new-england-patriots/2026/08/23/patriots-eagles-preseason-jaquinden-jackson-injury-comments/\">Ja&#8217;Quinden Jackson was on Patriots&#8217; minds after scary moment at Gillette Stadium</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Mike Vrabel makes candid admission about Patriots\u2019 depth issues",
-      "link": "https://www.boston.com/sports/new-england-patriots/2026/08/23/mike-vrabel-makes-candid-admission-about-patriots-depth-issues/",
-      "published": "Sun, 23 Aug 2026 12:20:02 +0000",
-      "ts": 1787487602,
-      "author": "Khari A. Thompson",
-      "feed_title": "Boston.com",
-      "summary": "<p>The Patriots do not have a very deep team, Vrabel said, which is why they've been so reluctant to play their starters this preseason. </p>\n<p>The post <a href=\"https://www.boston.com/sports/new-england-patriots/2026/08/23/mike-vrabel-makes-candid-admission-about-patriots-depth-issues/\">Mike Vrabel makes candid admission about Patriots&#8217; depth issues</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "US national debt tops $40 trillion: These charts offer more context",
-      "link": "https://www.wcvb.com/article/us-national-debt-in-four-charts/73487070",
-      "published": "Sun, 23 Aug 2026 12:17:00 GMT",
-      "ts": 1787487420,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>The U.S. had about $36.2 trillion in debt when President Donald Trump assumed office in January 2025. From then to now, the national debt has grown by 10.6%.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Trump's new 50% tariffs on Canadian goods: What to know",
-      "link": "https://www.wcvb.com/article/trump-tariffs-canadian-goods-what-to-know/73503898",
-      "published": "Sun, 23 Aug 2026 12:13:00 GMT",
-      "ts": 1787487180,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>After trade negotiations crumbled at the eleventh hour, President Donald Trump's 50% tariffs on scores of Canadian imports kicked in on Saturday. Here's what to know.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Eli White slides home headfirst with winning run, play reviewed and Red Sox rally past Giants 3-2",
       "link": "https://whdh.com/news/eli-white-slides-home-headfirst-with-winning-run-play-reviewed-and-red-sox-rally-past-giants-3-2/",
       "published": "Sun, 23 Aug 2026 12:01:32 +0000",
@@ -3915,23 +4105,13 @@
       "source": "Boston News, Weather, Sports | WHDH 7News"
     },
     {
-      "title": "Sticky Sunday with showers and storms",
-      "link": "https://whdh.com/weather-blog/sticky-sunday-with-showers-and-storms/",
-      "published": "Sun, 23 Aug 2026 11:59:44 +0000",
-      "ts": 1787486384,
-      "author": "Kshalhoup",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "Good morning and happy Sunday! It&#8217;s a gloomy start to the day with plenty of moisture in the air and clouds hanging low. Temperatures are...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Boston Symphony Orchestra musicians vote to authorize first strike in orchestra\u2019s history",
-      "link": "https://whdh.com/news/boston-symphony-orchestra-musicians-vote-to-authorize-first-strike-in-orchestras-history/",
+      "title": "Boston Symphony Orchestra and musicians extend contract for 48 hours, delaying possible first strike",
+      "link": "https://whdh.com/news/boston-symphony-orchestra-and-musicians-extend-contract-for-48-hours-delaying-possible-first-strike/",
       "published": "Sun, 23 Aug 2026 11:57:22 +0000",
       "ts": 1787486242,
       "author": "Owen Boss",
       "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "The musicians of the Boston Symphony Orchestra have unanimously voted to authorize the first strike in the orchestra\u2019s history amid contract negotiations. The orchestra&#8217;s current...",
+      "summary": "BOSTON (AP) \u2014 The Boston Symphony Orchestra says it agreed with its musicians to a 48-hour extension of their collective bargaining agreement, allowing more time...",
       "source": "Boston News, Weather, Sports | WHDH 7News"
     },
     {
@@ -3943,36 +4123,6 @@
       "feed_title": "NBC Boston",
       "summary": "<p>You\u2019ve probably seen a few headlines and read the dire warnings about the <a href=\"https://www.nbcboston.com/news/national-international/odds-super-el-nino-extreme-weather-world/3946222\" rel=\"noreferrer noopener\" target=\"_blank\">impending Super El Ni\u00f1o</a> that is forming in the Pacific this year. </p>\n\n\n\n<p>Is it all hype and bluster or are we in for a crazy fall and winter? And just what is El Ni\u00f1o anyway? How could it possibly affect us on this side of the Atlantic?</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">What is El Ni\u00f1o?</h2>\n\n\n\n<p>In its most basic form, El Ni\u00f1o is simply the warm phase of what is known as the Southern Oscillation, a seesawing of air pressure between the eastern and western tropical Pacific Ocean. </p>\n\n\n\n<p>The switch-up in air pressure in turn triggers the wind to heave vast amounts of water on either side of the Pacific Basin (via what is known as a Kelvin Wave). It\u2019s a somewhat slow process, with water traveling about 150 miles per day across the surface of the ocean, allowing us time to see this entirely natural process evolve. </p>\n\n\n\n<p>The Southern Oscillation can be defined as being in a warm phase (El Ni\u00f1o), a cold phase (La Ni\u00f1a) or a neutral phase (what some [OK, me] call La Nada).</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11461147\" height=\"1080\" src=\"https://media.nbcboston.com/2026/08/2026-El-Nino2.png?w=840&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Warmest El Ni\u00f1o ever?</h2>\n\n\n\n<p>All signs are pointing to this upcoming El Ni\u00f1o being the warmest in recorded history. The Kelvin Wave has transported a pool of very warm water into the eastern Pacific and continues to set temperature records and descend to deeper and deeper depths in the ocean than previous events. </p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11461151\" height=\"487\" src=\"https://media.nbcboston.com/2026/08/kelvin.png?w=744&#038;resize=744%2C487&#038;quality=85&#038;strip=all\" width=\"744\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11461148\" height=\"1080\" src=\"https://media.nbcboston.com/2026/08/2026-Heat-Wave-El-Nino.png?w=840&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>The implications for this are dire for those in the immediate vicinity of the warm pool. The warm water almost immediately interacts with the atmosphere in the tropics, producing tremendous thunderstorm clusters that repeatedly hammer the same regions for weeks (or months) on end. </p>\n\n\n\n\n\n\n\n<p>Those clusters can eventually perturb the upper atmosphere, which then reverberates beyond the tropics into the higher latitudes here across the north Pacific and all North America. </p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Will El Ni\u00f1o boost our winter weather patterns or overwhelm them? </h2>\n\n\n\n<p>The key here is the persistence and longevity of the warm water (and subsequent storm clusters) \u2013 through the seasonal change of fall into winter.</p>\n\n\n\n<p>In the past, the scope of the El Ni\u00f1o would dictate whether we\u2019d see repercussions here in the United States: the largest events were observed to alter our own jet stream and set up warm, wet weather across the country in winter. </p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\" />\n\n\n\n<div class=\"wp-block-group is-layout-constrained wp-block-group-is-layout-constrained\">\n<p><em>Get lots more on our weather from Pete Bouchard on TikTok: </em></p>\n\n\n\n<blockquote cite=\"https://www.tiktok.com/@officialpetebouchard\" class=\"tiktok-embed\"> <section> <a href=\"https://www.tiktok.com/@officialpetebouchard?refer=creator_embed\" target=\"_blank\">@officialpetebouchard</a> </section> </blockquote> \n</div>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\" />\n\n\n\n<p>Marginal events might not have much of an impact because the tropical perturbations were too weak (or washed out too quickly in the atmosphere) before reaching us. </p>\n\n\n\n<p>With the current El Ni\u00f1o breaking all the rules, we are likely to have some effects, but we\u2019re also in uncharted territory. Will it amplify all our normal winter weather patterns &#8212; arctic blasts, January thaws, snowy spells, fleeting warmups &#8212; or completely overwhelm our winter and lock us in a mild, wet pattern? </p>\n\n\n\n<p>This remains to be seen, but with El Ni\u00f1o compounding the existing abnormal warmth already in place across the global oceans, it\u2019s hard to imagine there would be any persistent cold at any point this winter. </p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" class=\"wp-image-11461150\" height=\"1080\" src=\"https://media.nbcboston.com/2026/08/El-Nino-Winter.png?w=840&#038;resize=1920%2C1080&#038;quality=85&#038;strip=all\" width=\"1920\" /></figure>\n\n\n\n<p>Moreover, El Ni\u00f1o causes these patterns &#8212; drought, flood, warm, cold &#8212; to clamp down for months on end. So, whatever we get locked into, it\u2019s likely to last for a long time.</p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">A powerful past El Ni\u00f1o brought New England a big ice storm  </h2>\n\n\n\n<p>If history is any guide, we might also be in store for more icing than normal. One of the most powerful El Ni\u00f1os in recorded history was in 1997-98 \u2013 the year of the devastating ice storm across northern New England. </p>\n\n\n\n<p>While El Ni\u00f1o can jack up the warmth and water vapor in the upper atmosphere, our ground level temperatures can stay relatively cold in winter. This is the perfect recipe for icing.</p>\n\n\n\n<p>In fact, this week, the U.S. Climate Prediction Center came out with its winter outlook, and while they aren&#8217;t always conclusive nor speak to <em>every day</em> of the season, it speaks to the marginal temperatures and events that could lead to more icing than normal:</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" src=\"https://media.nbcboston.com/2026/08/us-seasonal-outlook-temperatures.gif?w=900&#038;quality=85&#038;strip=all\" style=\"margin-bottom: 0px;\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><img alt=\"\" src=\"https://media.nbcboston.com/2026/08/us-seasonal-preciptiation-outlook-2026-27.gif?w=900&#038;quality=85&#038;strip=all\" style=\"margin-bottom: 0px;\" /></figure>\n\n\n\n<p>We\u2019ll stay vigilant and monitor the progress of the upcoming event. Get ready for a bumpy ride.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More </h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/noaa-outlook-2026-atlantic-hurricane-season/3953598/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/image-28-3.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/weather/\">Weather</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 21\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/noaa-outlook-2026-atlantic-hurricane-season/3953598/\">\n\t\t\t\t\t\t\t\t\t\tNOAA reveals outlook for 2026 Atlantic hurricane season\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/odds-super-el-nino-extreme-weather-world/3946222/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/AP26098596346950-e1778112434547.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/extreme-weather/\">Extreme Weather</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 6\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/odds-super-el-nino-extreme-weather-world/3946222/\">\n\t\t\t\t\t\t\t\t\t\tOdds of a \u2018super El Ni\u00f1o&#039; increase, adding to fears of extreme weather around the world\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t<p><i>This story uses functionality that may not work in our app. <a href=\"https://www.nbcboston.com/weather/el-nino-boston-massachusetts-winter-effects/4002417/\">Click here</a> to open the story in your web browser.</i></p>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "Video: Sunday showers, less humid Monday",
-      "link": "https://www.wcvb.com/article/video-sunday-showers-less-humid-monday/73503826",
-      "published": "Sun, 23 Aug 2026 11:13:00 GMT",
-      "ts": 1787483580,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Sunday showers, less humid Monday</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Popular husband calling contest takes place at the Iowa State Fair",
-      "link": "https://www.wcvb.com/article/husband-calling-contest-iowa-state-fair-2026-winner/73503721",
-      "published": "Sun, 23 Aug 2026 10:31:00 GMT",
-      "ts": 1787481060,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>One of the most popular contests at the Iowa State Fair has become the husband calling contest. This year's winner talks about her technique.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Hayden Panettiere's troubling final months after a life in the spotlight: A timeline",
-      "link": "https://www.wcvb.com/article/hayden-panettiere-final-months-timeline/73503646",
-      "published": "Sun, 23 Aug 2026 09:39:00 GMT",
-      "ts": 1787477940,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Hayden Panettiere, a one-time child star who soared to fame while navigating addiction and postpartum depression in her adult life, died last week. Here's a look back at Panettiere's life and career.</p>",
-      "source": "Top Stories"
     },
     {
       "title": "Trump waves the green flag to start the IndyCar race as drivers zoom through Washington's streets",
@@ -3995,26 +4145,6 @@
       "source": "NBC Boston"
     },
     {
-      "title": "5 takeaways as resilient Red Sox rally past Giants, 3-2, in thrilling fashion",
-      "link": "https://www.boston.com/sports/boston-red-sox/2026/08/22/red-sox-giants-takeaways-wilyer-abreu-nick-sogard-patrick-sandoval-analysis/",
-      "published": "Sun, 23 Aug 2026 03:50:56 +0000",
-      "ts": 1787457056,
-      "author": "Trevor Hass",
-      "feed_title": "Boston.com",
-      "summary": "<p>\"It was crazy. The ending was just crazy.\"</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/08/22/red-sox-giants-takeaways-wilyer-abreu-nick-sogard-patrick-sandoval-analysis/\">5 takeaways as resilient Red Sox rally past Giants, 3-2, in thrilling fashion</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Legacy suffer historic, bitter defeat at North Carolina in 17th minute of added time",
-      "link": "https://www.boston.com/sports/boston-legacy-football-club/2026/08/22/boston-legacy-north-carolina-courage/",
-      "published": "Sun, 23 Aug 2026 02:57:54 +0000",
-      "ts": 1787453874,
-      "author": "The Boston Globe",
-      "feed_title": "Boston.com",
-      "summary": "<p>The Courage scored the latest goal in a match in NWSL history.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-legacy-football-club/2026/08/22/boston-legacy-north-carolina-courage/\">Legacy suffer historic, bitter defeat at North Carolina in 17th minute of added time</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
       "title": "Tommy DeVito throws TD pass, Ja\u2019Quinden Jackson taken off in ambulance as Patriots beat Eagles 24-21",
       "link": "https://whdh.com/sports/tommy-devito-throws-td-pass-jaquinden-jackson-taken-off-in-ambulance-as-patriots-beat-eagles-24-21/",
       "published": "Sun, 23 Aug 2026 02:40:11 +0000",
@@ -4022,36 +4152,6 @@
       "author": "Owen Boss",
       "feed_title": "Boston News, Weather, Sports | WHDH 7News",
       "summary": "FOXBOROUGH, Mass. (AP) \u2014 Patriots backup quarterback Tommy DeVito tossed a&#160;69-yard touchdown pass&#160;to Kyle Williams and New England beat Philadelphia 24-21 in a preseason game...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Patriots, Christian Gonzalez still working on contract extension, Eliot Wolf says",
-      "link": "https://www.boston.com/sports/new-england-patriots/2026/08/22/christian-gonzalez-patriots-contract-eliot-wolf/",
-      "published": "Sun, 23 Aug 2026 02:24:08 +0000",
-      "ts": 1787451848,
-      "author": "Kaley Brown",
-      "feed_title": "Boston.com",
-      "summary": "<p>\u201cWe\u2019re going to continue working with his representation to try to get something done.\u201d</p>\n<p>The post <a href=\"https://www.boston.com/sports/new-england-patriots/2026/08/22/christian-gonzalez-patriots-contract-eliot-wolf/\">Patriots, Christian Gonzalez still working on contract extension, Eliot Wolf says</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
-    },
-    {
-      "title": "Revere lemonade stand is back and raising money for cancer research",
-      "link": "https://whdh.com/news/revere-lemonade-stand-is-back-and-raising-money-for-cancer-research/",
-      "published": "Sun, 23 Aug 2026 01:58:32 +0000",
-      "ts": 1787450312,
-      "author": "Owen Boss",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "A tasty tradition in Revere is back. A lemonade stand run by two sisters for 15 years is once again raising money for cancer research....",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "House goes up in flames in Nashua, NH",
-      "link": "https://whdh.com/news/house-goes-up-in-flames-in-nashua-nh/",
-      "published": "Sun, 23 Aug 2026 01:46:39 +0000",
-      "ts": 1787449599,
-      "author": "Owen Boss",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "Fire crews battled a multi-alarm blaze in Nashua, New Hampshire, early Saturday morning that left a building seriously damaged. Crews responding to a reported structure...",
       "source": "Boston News, Weather, Sports | WHDH 7News"
     },
     {
@@ -4521,16 +4621,6 @@
       "source": "CHN"
     },
     {
-      "title": "Arizona State hockey player hospitalized after collapsing during outdoor workout - The New York Times",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSmRMa3BaLS02RXRiT0I3MFN5Z0dtQlhTRjFYV3B2czVsZWp2OW0zVF8wQUVWVDA3NklRNW5QZ2l3MDlXcXhTUGx6aEhncFN4TmE0QUVjd1NETlRsbmhBZzU3UzktYlluaUljYjZpYUtQWmdfazhWT0ZTcS1oZUUxcDV4S3EyTnh1cjd5OW9UdThYWktQLVB5dVhTNVV3SFpoQXk1dQ?oc=5",
-      "published": "Sun, 23 Aug 2026 21:20:12 GMT",
-      "ts": 1787520012,
-      "author": "",
-      "feed_title": "The New York Times",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNSmRMa3BaLS02RXRiT0I3MFN5Z0dtQlhTRjFYV3B2czVsZWp2OW0zVF8wQUVWVDA3NklRNW5QZ2l3MDlXcXhTUGx6aEhncFN4TmE0QUVjd1NETlRsbmhBZzU3UzktYlluaUljYjZpYUtQWmdfazhWT0ZTcS1oZUUxcDV4S3EyTnh1cjd5OW9UdThYWktQLVB5dVhTNVV3SFpoQXk1dQ?oc=5\" target=\"_blank\">Arizona State hockey player hospitalized after collapsing during outdoor workout</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The New York Times</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
       "title": "Lafton Ready for College Hockey | Utah Mammoth - NHL.com",
       "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQd0RsbzhvNG5BQlBiUEpqTlZUeXFPWHYxVDNrWkpfaWJnc2dxMUpla01FcXpibHJSMnVocXgtYTV4VmtDM0U1U2dxN3dnbUtDQTRBSkUzUFFmWWpBeXFVQUtERnZ0Z1BVV0pnaVVjZXVRb3U2Y1NhU3VraFBHQngwU1pNRQ?oc=5",
       "published": "Wed, 19 Aug 2026 16:13:57 GMT",
@@ -4538,6 +4628,16 @@
       "author": "",
       "feed_title": "NHL.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxQd0RsbzhvNG5BQlBiUEpqTlZUeXFPWHYxVDNrWkpfaWJnc2dxMUpla01FcXpibHJSMnVocXgtYTV4VmtDM0U1U2dxN3dnbUtDQTRBSkUzUFFmWWpBeXFVQUtERnZ0Z1BVV0pnaVVjZXVRb3U2Y1NhU3VraFBHQngwU1pNRQ?oc=5\" target=\"_blank\">Lafton Ready for College Hockey | Utah Mammoth</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NHL.com</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "The Top Five Trios in the NCAA This Season - The Hockey News",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQUjV4UEl6aGxWSW9CaklaOTBDSzVLRV9YaUFZU2poYVFvYzVPa05jVkhlX09DOUFSMUp5MEZDaExZdEowNDlWQlhiVWZ1YkVtNDQ4dkRSNDBfR2tXczlnMU9JU01FS2lvLUNmNkZHUTJoNWZqUjd3SVB1ckFNU3JCYlJ6MWs1ZnBYMUJCNHhB?oc=5",
+      "published": "Sun, 23 Aug 2026 21:56:27 GMT",
+      "ts": 1787522187,
+      "author": "",
+      "feed_title": "The Hockey News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxQUjV4UEl6aGxWSW9CaklaOTBDSzVLRV9YaUFZU2poYVFvYzVPa05jVkhlX09DOUFSMUp5MEZDaExZdEowNDlWQlhiVWZ1YkVtNDQ4dkRSNDBfR2tXczlnMU9JU01FS2lvLUNmNkZHUTJoNWZqUjd3SVB1ckFNU3JCYlJ6MWs1ZnBYMUJCNHhB?oc=5\" target=\"_blank\">The Top Five Trios in the NCAA This Season</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Hockey News</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4691,13 +4791,13 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Providence takes advantage of BC hockey miscues in OT win - MassLive.com",
+      "title": "Providence takes advantage of BC hockey miscues in OT win - MassLive",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5",
       "published": "Fri, 16 Jan 2026 08:00:00 GMT",
       "ts": 1768550400,
       "author": "",
-      "feed_title": "MassLive.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5\" target=\"_blank\">Providence takes advantage of BC hockey miscues in OT win</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5\" target=\"_blank\">Providence takes advantage of BC hockey miscues in OT win</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
@@ -4833,6 +4933,16 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
+      "title": "Women\u2019s college hockey: Where will the \u201908 girls be playing? - New England Hockey Journal",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNT01DWmxLc3M5dFBacnRpOWljWjE3N1NYRXdjWWFpOXhpSDJZY2F3Zk1hcmVBYUhtbl9CQnN1OVBWZGJXaVJwZ0tJcGx4ZDFNbVpBZDJMakc2NXh0eXNYZms0RFhMcFhhZFVYRWhYVFBOTzVIT1J4TmpfNmJ3eGxRZFRETzlSMG5BRVJBSW1Ba2s?oc=5",
+      "published": "Thu, 20 Aug 2026 16:00:32 GMT",
+      "ts": 1787241632,
+      "author": "",
+      "feed_title": "New England Hockey Journal",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxNT01DWmxLc3M5dFBacnRpOWljWjE3N1NYRXdjWWFpOXhpSDJZY2F3Zk1hcmVBYUhtbl9CQnN1OVBWZGJXaVJwZ0tJcGx4ZDFNbVpBZDJMakc2NXh0eXNYZms0RFhMcFhhZFVYRWhYVFBOTzVIT1J4TmpfNmJ3eGxRZFRETzlSMG5BRVJBSW1Ba2s?oc=5\" target=\"_blank\">Women\u2019s college hockey: Where will the \u201908 girls be playing?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">New England Hockey Journal</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
+    {
       "title": "Pair In Eagles Secondary Named to Senior Bowl Top 300 Watch List - Boston College Athletics",
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbnhTdy1JRzRYSHJtUmktQ0lLdVl2cjZVZFJBRmpmWlZfV0tQYlZCOGhHZlNfR0w4VWZacjhCNEI2RTc5RlBHX0NkV1RiTGNJNkZJY294aWwwSFFEdVkxdWhaT282WUtELTl2RmpucWZyTWFxZE5uMUJua0ZpRmVXZ1hKWTloUFhDSEtFLXA2TkJlcmhzbU14Q2pUalhSN3huMzlZencxUzNNdEl4VUE?oc=5",
       "published": "Thu, 20 Aug 2026 13:09:23 GMT",
@@ -4900,16 +5010,6 @@
       "author": "",
       "feed_title": "Boston College Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxQaGp1ZzVpbDluTFotejhmTm1UYW15WDJzMWNDWDRmUHozR1lTQ2sxVmZIZ1JsZTNwNFU2cVlWdVZOMnNUOWdnYVAzZi1YeUF0aTZlRnI3ZnZUdjdfazE5SWR0N3pxX0Q2cVVqaWhLQklKUEhaNkx4OXNyREc3NlhCSHVpV2hVT0h2ZnNSbk5n?oc=5\" target=\"_blank\">2026 Training Camp Practice #10- August 17</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston College Athletics</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
-      "title": "Previewing Boston College Football's 2026 Position Groups: Offensive Line - Sports Illustrated",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMWgyZzNNOFdjTVRXWjI2UFFoUDVMOEEtaFdNdS1QVC0zNWlhT0tWOTFRUDdyX3lPWlBkR25lak9jNVZETTlEeUZKeDV5SUlhd2pDSlFkaGVfajFWczA0Y2loeGNJSjN6Um1WQl9GVkVTcFVmS1hsVDJiaHJvTGlDc2YwckFqUDJkaGYyVlFhQXJFZEpXSUlna1UtNzdtSkprT2d4akdxcmw5MWJuYWc2Wk9SbDU4d0lybkNhMg?oc=5",
-      "published": "Mon, 17 Aug 2026 17:11:07 GMT",
-      "ts": 1786986667,
-      "author": "",
-      "feed_title": "Sports Illustrated",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxPMWgyZzNNOFdjTVRXWjI2UFFoUDVMOEEtaFdNdS1QVC0zNWlhT0tWOTFRUDdyX3lPWlBkR25lak9jNVZETTlEeUZKeDV5SUlhd2pDSlFkaGVfajFWczA0Y2loeGNJSjN6Um1WQl9GVkVTcFVmS1hsVDJiaHJvTGlDc2YwckFqUDJkaGYyVlFhQXJFZEpXSUlna1UtNzdtSkprT2d4akdxcmw5MWJuYWc2Wk9SbDU4d0lybkNhMg?oc=5\" target=\"_blank\">Previewing Boston College Football's 2026 Position Groups: Offensive Line</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
@@ -5177,6 +5277,36 @@
       "source": "NPR"
     },
     {
+      "title": "The U.S. Start-Up Making Low-Cost Interceptors for the Iran War",
+      "link": "https://www.nytimes.com/2026/08/23/business/powerus-counter-drone-iran-war.html",
+      "published": "Sun, 23 Aug 2026 09:00:19 +0000",
+      "ts": 1787475619,
+      "author": "Farah Stockman and Ismaeel Naar",
+      "feed_title": "",
+      "summary": "For Florida-based Powerus, becoming a global supplier of counterdrone technology has meant involving the Trumps, a golf course and a new way of doing business.",
+      "source": "NY Times"
+    },
+    {
+      "title": "Iran Warns Gulf States Not to Join Trump\u2019s Economic War",
+      "link": "https://www.nytimes.com/2026/08/23/world/europe/iran-economy-war-united-states.html",
+      "published": "Sun, 23 Aug 2026 17:00:10 +0000",
+      "ts": 1787504410,
+      "author": "Erika Solomon",
+      "feed_title": "",
+      "summary": "Mohsen Rezaei, Iran\u2019s new security chief, last month in Tehran. Though hostilities have largely ceased, the United States and Iran are locked in an economic standoff.",
+      "source": "NY Times"
+    },
+    {
+      "title": "Trump\u2019s Economic Approach Draws Concern From Some Republicans",
+      "link": "https://www.nytimes.com/2026/08/23/us/politics/trump-republicans-economy-midterms.html",
+      "published": "Sun, 23 Aug 2026 21:17:40 +0000",
+      "ts": 1787519860,
+      "author": "Bayliss Wagner",
+      "feed_title": "",
+      "summary": "President Trump arriving aboard Air Force One at Kennedy International Airport on Aug. 14.",
+      "source": "NY Times"
+    },
+    {
       "title": "The Data Center Backlash Bursts Into the Midterms",
       "link": "https://www.nytimes.com/2026/08/23/us/politics/data-centers-midterm-elections.html",
       "published": "Sun, 23 Aug 2026 09:01:58 +0000",
@@ -5207,13 +5337,13 @@
       "source": "NY Times"
     },
     {
-      "title": "The Midterms Feel Like 2006 All Over Again",
-      "link": "https://www.nytimes.com/2026/08/23/us/politics/midterms-feel-like-2006-all-over-again.html",
-      "published": "Sun, 23 Aug 2026 09:01:57 +0000",
-      "ts": 1787475717,
-      "author": "Carl Hulse",
+      "title": "Trump\u2019s Summer of Fun Ends With an IndyCar Race on the Streets of D.C.",
+      "link": "https://www.nytimes.com/2026/08/23/us/politics/trump-indycar-race-dc-america-250.html",
+      "published": "Sun, 23 Aug 2026 21:11:23 +0000",
+      "ts": 1787519483,
+      "author": "Shawn McCreesh",
       "feed_title": "",
-      "summary": "In 2006, Democrats gained 31 House seats and installed Nancy Pelosi, who is now retiring, as the first woman speaker.",
+      "summary": "The Freedom 250 Grand Prix took place on Sunday on a 1.7-mile track made up of streets around the National Mall.",
       "source": "NY Times"
     },
     {
@@ -5237,43 +5367,13 @@
       "source": "NY Times"
     },
     {
-      "title": "The U.S. Start-Up Making Low-Cost Interceptors for the Iran War",
-      "link": "https://www.nytimes.com/2026/08/23/business/powerus-counter-drone-iran-war.html",
-      "published": "Sun, 23 Aug 2026 09:00:19 +0000",
-      "ts": 1787475619,
-      "author": "Farah Stockman and Ismaeel Naar",
+      "title": "Hayden Panettiere\u2019s Final Battles: Mysterious Pain and Trouble With an Ex",
+      "link": "https://www.nytimes.com/2026/08/23/arts/television/hayden-panettiere-brian-hickerson-boyfriend-book-tour.html",
+      "published": "Sun, 23 Aug 2026 16:44:27 +0000",
+      "ts": 1787503467,
+      "author": "Julia Jacobs and Matt Stevens",
       "feed_title": "",
-      "summary": "For Florida-based Powerus, becoming a global supplier of counterdrone technology has meant involving the Trumps, a golf course and a new way of doing business.",
-      "source": "NY Times"
-    },
-    {
-      "title": "Iran Warns Gulf States Not to Join Trump\u2019s Economic War",
-      "link": "https://www.nytimes.com/2026/08/23/world/europe/iran-economy-war-united-states.html",
-      "published": "Sun, 23 Aug 2026 17:00:10 +0000",
-      "ts": 1787504410,
-      "author": "Erika Solomon",
-      "feed_title": "",
-      "summary": "Mohsen Rezaei, Iran\u2019s new security chief, last month in Tehran. Though hostilities have largely ceased, the United States and Iran are locked in an economic standoff.",
-      "source": "NY Times"
-    },
-    {
-      "title": "Fire Near Reno, Nev., Prompts Evacuations of Homes and Hospitals",
-      "link": "https://www.nytimes.com/2026/08/23/us/hawk-fire-reno-evacuations.html",
-      "published": "Sun, 23 Aug 2026 20:31:49 +0000",
-      "ts": 1787517109,
-      "author": "Bernard Mokam",
-      "feed_title": "",
-      "summary": "Smoke rising from the Hawk fire in Reno, Nev., on Saturday.",
-      "source": "NY Times"
-    },
-    {
-      "title": "Wildfires Are Turning Forests in the American West Into Shrubland",
-      "link": "https://www.nytimes.com/2026/08/23/climate/wildfire-forest-loss-california-southwest.html",
-      "published": "Sun, 23 Aug 2026 09:00:23 +0000",
-      "ts": 1787475623,
-      "author": "Eric Niiler and Nic Coury",
-      "feed_title": "",
-      "summary": "Towering woodlands in the West are being permanently replaced by tracts of spiky shrubs. Conditions \u201cjust aren\u2019t normal anymore,\u201d one researcher said.",
+      "summary": "At the end of Hayden Panettiere\u2019s memoir, \u201cThis Is Me: A Reckoning,\u201d she says she had been trying to embrace \u201cradical acceptance,\u201d a term she learned in mental health and addiction treatment.",
       "source": "NY Times"
     },
     {
@@ -5377,13 +5477,23 @@
       "source": "BBC"
     },
     {
+      "title": "Donalds says he\u2019s \u2018working\u2019 with Haitian leaders to stabilize government after end of TPS",
+      "link": "https://thehill.com/homenews/state-watch/6046053-donalds-haiti-stabilization-efforts/",
+      "published": "Sun, 23 Aug 2026 21:47:38 +0000",
+      "ts": 1787521658,
+      "author": "Max Rego",
+      "feed_title": "",
+      "summary": "Rep. Byron Donalds (R-Fla.), the GOP nominee for Florida governor, said Sunday he is \u201cworking\u201d with leaders in Haiti to stabilize the country, after the temporary protected status (TPS) of more than 300,000 Haitians migrants in the U.S. expired.&#160; \u201cI&#8217;ve actually had meetings with the transitional government and the ambassador for the transitional government,\u201d Donalds&#8230;",
+      "source": "The Hill"
+    },
+    {
       "title": "Zeldin warns against banning data centers in US, citing China",
       "link": "https://thehill.com/policy/energy-environment/6045971-zeldin-warns-against-data-center-bans/",
       "published": "Sun, 23 Aug 2026 21:26:14 +0000",
       "ts": 1787520374,
       "author": "Ashleigh Fields",
       "feed_title": "",
-      "summary": "Environmental Protection Agency Administrator Lee Zeldin on Sunday warned against banning data centers, citing implications for the U.S. in the artificial intelligence (AI)\u00a0race to outpace China.\u00a0 \u201cThere&#8217;s been a push from some states where they&#8217;re talking about a statewide moratorium and what I&#8217;ve found is that most of this country wants to make sure the&#8230;",
+      "summary": "Lee Zeldin, administrator of the Environmental Protection Agency (EPA), on Sunday warned against banning data centers, citing implications for the U.S. in the artificial intelligence\u00a0race to outpace China.\u00a0 \u201cThere&#8217;s been a push from some states where they&#8217;re talking about a statewide moratorium and what I&#8217;ve found is that most of this country wants to make&#8230;",
       "source": "The Hill"
     },
     {
@@ -5393,7 +5503,7 @@
       "ts": 1787519978,
       "author": "Max Rego",
       "feed_title": "",
-      "summary": "Former Vice President Mike Pence and Ukrainian President Volodymyr Zelensky on Sunday stressed the importance of Ukraine having the capabilities to deter Russian ballistic missile strikes.&#160; During an interview on NewsNation\u2019s \u201cThe Hill Sunday,\u201d Pence said Russian forces have \u201cshifted\u201d to using high-arcing ballistic missiles and cruise missiles to strike Ukraine.&#160; Those weapons require Patriot&#8230;",
+      "summary": "Former Vice President Mike Pence and Ukrainian President Volodymyr Zelensky on Sunday stressed the importance of Ukraine having the capabilities to deter Russian ballistic missile strikes.\u00a0 During an interview on NewsNation\u2019s \u201cThe Hill Sunday,\u201d Pence said Russian forces have \u201cshifted\u201d to using high-arc ballistic missiles and cruise missiles to strike Ukraine.\u00a0 Those weapons require Patriot&#8230;",
       "source": "The Hill"
     },
     {
@@ -5407,7 +5517,7 @@
       "source": "The Hill"
     },
     {
-      "title": "Oz says MMR vaccine \u2018is not a lethal vaccine\u2019",
+      "title": "Oz: MMR vaccine \u2018is not a lethal vaccine\u2019",
       "link": "https://thehill.com/policy/healthcare/6045961-oz-denies-mmr-lethality/",
       "published": "Sun, 23 Aug 2026 20:28:23 +0000",
       "ts": 1787516903,
@@ -5423,7 +5533,7 @@
       "ts": 1787516615,
       "author": "Ashleigh Fields",
       "feed_title": "",
-      "summary": "On Sunday, Senate Majority Whip John Barrasso (R-Wyo.) said that Monday will be \u201cD-Day\u201d for the economy in Iran as the Trump administration and U.S. military vow to exert maximum financial and militaristic pressure on Tehran to end the war overseas.\u00a0 \u201cTheir economy is in shambles. And they&#8217;re still dangerous. So, the president&#8217;s right to&#8230;",
+      "summary": "On Sunday, Senate Majority Whip John Barrasso (R-Wyo.) said that Monday will be \u201cD-Day\u201d for the economy in Iran as the Trump administration and U.S. military vow to exert maximum financial and militaristic pressure on Tehran to end the war overseas.&#160; \u201cTheir economy is in shambles. And they&#8217;re still dangerous. So, the president&#8217;s right to&#8230;",
       "source": "The Hill"
     },
     {
@@ -5467,16 +5577,6 @@
       "source": "The Hill"
     },
     {
-      "title": "Pence denies that Iran war hurting Ukraine by depleting US stockpiles",
-      "link": "https://thehill.com/policy/international/6045828-pence-denies-that-iran-war-hurting-ukraine-by-depleting-us-stockpiles/",
-      "published": "Sun, 23 Aug 2026 18:44:19 +0000",
-      "ts": 1787510659,
-      "author": "Max Rego",
-      "feed_title": "",
-      "summary": "Former Vice President Mike Pence denied Sunday that the U.S. military depleting its weapons stockpiles in the Iran war is hurting Ukraine in its ongoing fight against Russia. \u201cI don&#8217;t see it that way, and I don&#8217;t think\u2026 the Ukrainians do either,\u201d Pence told host Dana Bash on CNN\u2019s \u201cState of the Union,\u201d while in&#8230;",
-      "source": "The Hill"
-    },
-    {
       "title": "IndyCar drivers roar through D.C. streets in auto race along National Mall",
       "link": "https://www.washingtonpost.com/dc-md-va/2026/08/23/grand-prix-race-kick-off-dc-streets-trump-hosted-250th-celebration/",
       "published": "Sun, 23 Aug 2026 19:30:27 +0000",
@@ -5487,16 +5587,6 @@
       "source": "Washington Post"
     },
     {
-      "title": "The banker who found freedom in a Dodge van, and other extraordinary lives we\u2019ve lost",
-      "link": "https://www.washingtonpost.com/obituaries/2026/08/23/banker-who-found-freedom-dodge-van-other-extraordinary-lives-weve-lost/",
-      "published": "Sun, 23 Aug 2026 10:00:00 +0000",
-      "ts": 1787479200,
-      "author": "Washington Post staff",
-      "feed_title": "",
-      "summary": "A pastor with a childlike sense of wonder. A student who found strength in helping others. Intimate obituaries, in 150 words or less.",
-      "source": "Washington Post"
-    },
-    {
       "title": "Billionaire bets on luxury mall to restore community after devastating fire",
       "link": "https://www.washingtonpost.com/nation/2026/08/23/can-you-rebuild-community-before-you-rebuild-its-homes/",
       "published": "Sun, 23 Aug 2026 10:00:00 +0000",
@@ -5504,6 +5594,16 @@
       "author": "N. Kirkpatrick",
       "feed_title": "",
       "summary": "Nineteen months after the Palisades Fire leveled much of the seaside community, scars of the blaze are increasingly overshadowed by signs of progress.",
+      "source": "Washington Post"
+    },
+    {
+      "title": "The banker who found freedom in a Dodge van, and other extraordinary lives we\u2019ve lost",
+      "link": "https://www.washingtonpost.com/obituaries/2026/08/23/banker-who-found-freedom-dodge-van-other-extraordinary-lives-weve-lost/",
+      "published": "Sun, 23 Aug 2026 10:00:00 +0000",
+      "ts": 1787479200,
+      "author": "Washington Post staff",
+      "feed_title": "",
+      "summary": "A pastor with a childlike sense of wonder. A student who found strength in helping others. Intimate obituaries, in 150 words or less.",
       "source": "Washington Post"
     },
     {
@@ -5579,13 +5679,13 @@
       "source": "Google News"
     },
     {
-      "title": "Bill Murray stops by popular seafood spot while at Boston Logan Airport - MassLive.com",
+      "title": "Bill Murray stops by popular seafood spot while at Boston Logan Airport - MassLive",
       "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPbWtqT0lKQ0FoRldhWVFjaDNoemFFSlZ2blU0SXV5YzZTM3JVYm5xTnU2XzZNcnFfS0Q4bi1OLVlSMEdQSHRfeml5SXpZLVg0SEJqRThYTDV4bEpLVW1XVi12TE50QktMbHltaEtPTUFFbWVGYlJqLVo3VUVyLVJCUFdPVmRuNU9XVU9pQU5YeFNWa3NyU0lnZFI4dl9BMWJWREJIZHVqUm5QMkpNdlRlVGRZY09veTlMS2ozRGdoOUbSAdQBQVVfeXFMTjZGMTUybjBZaE51cU9xdEctRlBaM0x5RlRwSFJ6UW4tY1RyQzBxbHNKSTdnMlRjeUpvRVdzS0U2NW1PZHkwc0ZxUmdfTUVLVHlVdjJadTVOM1NRdlRYVlZua0FiM3ZMMkJlTWNPTXJTckpfRjV1RHJBZ21pU2stbjZEaUluR0t0dHQzbTQ0Yzd0TmlFcUlhWXdWY3pSa1pWdzI3Zjg0ZExWLVY1S09OWnQzczZHNzkzSnZOLUtpWjc4RnVJSjBsNG13cTROXzlFaXBQQlU?oc=5",
       "published": "Fri, 21 Aug 2026 12:36:00 GMT",
       "ts": 1787315760,
       "author": "",
-      "feed_title": "MassLive.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxPbWtqT0lKQ0FoRldhWVFjaDNoemFFSlZ2blU0SXV5YzZTM3JVYm5xTnU2XzZNcnFfS0Q4bi1OLVlSMEdQSHRfeml5SXpZLVg0SEJqRThYTDV4bEpLVW1XVi12TE50QktMbHltaEtPTUFFbWVGYlJqLVo3VUVyLVJCUFdPVmRuNU9XVU9pQU5YeFNWa3NyU0lnZFI4dl9BMWJWREJIZHVqUm5QMkpNdlRlVGRZY09veTlMS2ozRGdoOUbSAdQBQVVfeXFMTjZGMTUybjBZaE51cU9xdEctRlBaM0x5RlRwSFJ6UW4tY1RyQzBxbHNKSTdnMlRjeUpvRVdzS0U2NW1PZHkwc0ZxUmdfTUVLVHlVdjJadTVOM1NRdlRYVlZua0FiM3ZMMkJlTWNPTXJTckpfRjV1RHJBZ21pU2stbjZEaUluR0t0dHQzbTQ0Yzd0TmlFcUlhWXdWY3pSa1pWdzI3Zjg0ZExWLVY1S09OWnQzczZHNzkzSnZOLUtpWjc4RnVJSjBsNG13cTROXzlFaXBQQlU?oc=5\" target=\"_blank\">Bill Murray stops by popular seafood spot while at Boston Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxPbWtqT0lKQ0FoRldhWVFjaDNoemFFSlZ2blU0SXV5YzZTM3JVYm5xTnU2XzZNcnFfS0Q4bi1OLVlSMEdQSHRfeml5SXpZLVg0SEJqRThYTDV4bEpLVW1XVi12TE50QktMbHltaEtPTUFFbWVGYlJqLVo3VUVyLVJCUFdPVmRuNU9XVU9pQU5YeFNWa3NyU0lnZFI4dl9BMWJWREJIZHVqUm5QMkpNdlRlVGRZY09veTlMS2ozRGdoOUbSAdQBQVVfeXFMTjZGMTUybjBZaE51cU9xdEctRlBaM0x5RlRwSFJ6UW4tY1RyQzBxbHNKSTdnMlRjeUpvRVdzS0U2NW1PZHkwc0ZxUmdfTUVLVHlVdjJadTVOM1NRdlRYVlZua0FiM3ZMMkJlTWNPTXJTckpfRjV1RHJBZ21pU2stbjZEaUluR0t0dHQzbTQ0Yzd0TmlFcUlhWXdWY3pSa1pWdzI3Zjg0ZExWLVY1S09OWnQzczZHNzkzSnZOLUtpWjc4RnVJSjBsNG13cTROXzlFaXBQQlU?oc=5\" target=\"_blank\">Bill Murray stops by popular seafood spot while at Boston Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
       "source": "Google News"
     },
     {
@@ -5852,13 +5952,13 @@
       "source": "MassDOT"
     },
     {
-      "title": "Track issue forces temporary closure of MBTA Orange Line through Downtown Boston - MassLive.com",
+      "title": "Track issue forces temporary closure of MBTA Orange Line through Downtown Boston - MassLive",
       "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTkh2RjkyeU9BbTc4MHNfLU1HT3Z5b1FXQzd4eTdRbVZjNUFObUZkaFk1RVk3ZGdwUDVfSG9mMjF0U18zdGNCN1NUYjh5b3BNN0EtNlc2VGFQWFYtdFZzVjlWN295bk5oYkEzMWVOVlRhdVF0RzRVOFlua3h0LXBKSnl1eTlXQV9YRzh0bjNDdFpFTzZsaEdwTEt1MW1WaURHWmhNUk1ySVNzYjhsbzQ1WlpNSHEtcjl0TXV2dEFLakYtd1nSAdcBQVVfeXFMTklfajdkTTZ5VHNnQ0FXcGczSm5tZzViU09kODB5UGpIWVYzSGpoQzZEa1c3akJ5ZG5YaElDQVE4azdLUTZacnp5NlMxdUt2eWJGdEU0ZXdKNC1qYjVkRmxwWkRHb2c5YlBQQmdmd0pwQXdpZjRmWW5IdE9WUUJ4U05mbGM3Q2JFLVpHUVhIRE9Fd2gyMWNaUTVtMlJuUmRabk5yaGFOUndZQUpuVmtYaHZlaUR3STlUcU5FaXNBMzdVMWJ3ZktrVC13SjNEZVJLTWVITVFMYlk?oc=5",
       "published": "Tue, 18 Aug 2026 13:56:00 GMT",
       "ts": 1787061360,
       "author": "",
-      "feed_title": "MassLive.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTkh2RjkyeU9BbTc4MHNfLU1HT3Z5b1FXQzd4eTdRbVZjNUFObUZkaFk1RVk3ZGdwUDVfSG9mMjF0U18zdGNCN1NUYjh5b3BNN0EtNlc2VGFQWFYtdFZzVjlWN295bk5oYkEzMWVOVlRhdVF0RzRVOFlua3h0LXBKSnl1eTlXQV9YRzh0bjNDdFpFTzZsaEdwTEt1MW1WaURHWmhNUk1ySVNzYjhsbzQ1WlpNSHEtcjl0TXV2dEFLakYtd1nSAdcBQVVfeXFMTklfajdkTTZ5VHNnQ0FXcGczSm5tZzViU09kODB5UGpIWVYzSGpoQzZEa1c3akJ5ZG5YaElDQVE4azdLUTZacnp5NlMxdUt2eWJGdEU0ZXdKNC1qYjVkRmxwWkRHb2c5YlBQQmdmd0pwQXdpZjRmWW5IdE9WUUJ4U05mbGM3Q2JFLVpHUVhIRE9Fd2gyMWNaUTVtMlJuUmRabk5yaGFOUndZQUpuVmtYaHZlaUR3STlUcU5FaXNBMzdVMWJ3ZktrVC13SjNEZVJLTWVITVFMYlk?oc=5\" target=\"_blank\">Track issue forces temporary closure of MBTA Orange Line through Downtown Boston</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwwFBVV95cUxOTkh2RjkyeU9BbTc4MHNfLU1HT3Z5b1FXQzd4eTdRbVZjNUFObUZkaFk1RVk3ZGdwUDVfSG9mMjF0U18zdGNCN1NUYjh5b3BNN0EtNlc2VGFQWFYtdFZzVjlWN295bk5oYkEzMWVOVlRhdVF0RzRVOFlua3h0LXBKSnl1eTlXQV9YRzh0bjNDdFpFTzZsaEdwTEt1MW1WaURHWmhNUk1ySVNzYjhsbzQ1WlpNSHEtcjl0TXV2dEFLakYtd1nSAdcBQVVfeXFMTklfajdkTTZ5VHNnQ0FXcGczSm5tZzViU09kODB5UGpIWVYzSGpoQzZEa1c3akJ5ZG5YaElDQVE4azdLUTZacnp5NlMxdUt2eWJGdEU0ZXdKNC1qYjVkRmxwWkRHb2c5YlBQQmdmd0pwQXdpZjRmWW5IdE9WUUJ4U05mbGM3Q2JFLVpHUVhIRE9Fd2gyMWNaUTVtMlJuUmRabk5yaGFOUndZQUpuVmtYaHZlaUR3STlUcU5FaXNBMzdVMWJ3ZktrVC13SjNEZVJLTWVITVFMYlk?oc=5\" target=\"_blank\">Track issue forces temporary closure of MBTA Orange Line through Downtown Boston</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
       "source": "MBTA"
     },
     {
@@ -6016,16 +6116,16 @@
       "date": "2026-08-26",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "PII Training - DPCD",
-      "location": "DPCD conf table",
+      "summary": "Joe/Tom Meeting",
+      "location": null,
       "calendar": "Joseph"
     },
     {
       "date": "2026-08-26",
       "time": "2:00 PM",
       "all_day": false,
-      "summary": "Joe/Tom Meeting",
-      "location": null,
+      "summary": "PII Training - DPCD",
+      "location": "DPCD conf table",
       "calendar": "Joseph"
     },
     {
@@ -6152,7 +6252,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "Regular deep-cleaning",
+      "summary": "prep for sept meeting",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6160,7 +6260,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "prep for sept meeting",
+      "summary": "Regular deep-cleaning",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6192,14 +6292,6 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Convene alumni committee",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-09-01",
-      "time": null,
-      "all_day": true,
       "summary": "brainstorm",
       "location": null,
       "calendar": "Todoist"
@@ -6208,7 +6300,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Check back in",
+      "summary": "Convene alumni committee",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6217,6 +6309,14 @@
       "time": null,
       "all_day": true,
       "summary": "Do laundry",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-09-01",
+      "time": null,
+      "all_day": true,
+      "summary": "Check back in",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6256,7 +6356,7 @@
       "date": "2026-09-02",
       "time": null,
       "all_day": true,
-      "summary": "weekly NASCAR picks",
+      "summary": "Reading sessions",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6264,7 +6364,7 @@
       "date": "2026-09-02",
       "time": null,
       "all_day": true,
-      "summary": "Reading sessions",
+      "summary": "weekly NASCAR picks",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6618,7 +6718,7 @@
     },
     {
       "date": "2026-08-15",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 Black's Tire 250 presented by BTS Rewards",
       "time": "12:00 PM",
       "result": null,
@@ -6628,7 +6728,7 @@
     },
     {
       "date": "2026-08-15",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 Black's Tire 250 presented by BTS Rewards",
       "time": "12:00 PM",
       "result": null,
@@ -6839,7 +6939,7 @@
     {
       "date": "2026-08-23",
       "team": "sox",
-      "title": "Giants @ Red Sox",
+      "title": "Giants (4) @ Red Sox (5)",
       "time": "3:15 PM",
       "result": null,
       "score": null,
@@ -7908,7 +8008,7 @@
     },
     {
       "date": "2026-10-16",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Phoenix",
       "time": "7:30 PM",
       "result": null,
@@ -7918,7 +8018,7 @@
     },
     {
       "date": "2026-10-16",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Phoenix",
       "time": "7:30 PM",
       "result": null,
@@ -8078,6 +8178,15 @@
     }
   ],
   "news_ktn": [
+    {
+      "title": "She grew up unvaccinated. Now she\u2019s a leading voice for science \u2014 and empathy.",
+      "link": "https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv/entries/9z79rsjvybvt17ly0nzz.html",
+      "published": "2026-08-23T22:10:14.838Z",
+      "ts": 1787523014,
+      "author": "bounce-mc.us11_45982397.507850-6a2fc20c81@mail3.atl71.mcdlv.net (bounce-mc.us11_45982397.507850-6a2fc20c81@mail3.atl71.mcdlv.net)",
+      "feed_title": "",
+      "summary": "<!-- NAME: 1:2:1 COLUMN -->\n        <!--[if gte mso 15]>\n        <xml>\n            <o:OfficeDocumentSettings>\n            <o:AllowPNG></o:AllowPNG>\n            <o:PixelsPerInch>96</o:PixelsPerInch>\n            </o:OfficeDocumentSettings>\n        </xml>\n        <![endif]-->\n        \n        \n        \n        She grew up unvaccinated. Now she\u2019s a leading voice for science \u2014 and empathy.\n\n    \n    \n        <!--\n-->\n        <!--[if !gte mso 9]><!----><span class=\"mcnPreviewText\" style=\"display: none; font-size: 0px; line-height: 0px; overflow: hidden;\">Immunologist Liz Marnik urges patience with people like her mother who feared shots.</span><!--<![endif]-->\n        <!--\n-->\n        <center>\n            <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"100%\" id=\"bodyTable\" width=\"100%\">\n                <tr>\n                    <td align=\"center\" id=\"bodyCell\" valign=\"top\">\n                        <!-- BEGIN TEMPLATE // -->\n                        <!--[if (gte mso 9)|(IE)]>\n                        <table align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:600px;\">\n                        <tr>\n                        <td align=\"center\" valign=\"top\" width=\"600\" style=\"width:600px;\">\n                        <![endif]-->\n                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"templateContainer\" width=\"100%\">\n                            <tr>\n                                <td id=\"templatePreheader\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnCodeBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"6\" width=\"40\"><tbody><tr><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902100&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=pixel\" width=\"2\" /></td><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902101&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=pixel\" width=\"2\" /></td><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902102&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=pixel\" width=\"2\" /></td><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902103&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=pixel\" width=\"2\" /></td><td><img border=\"0\" height=\"6\" src=\"https://sli.bostonglobe.com/imp?s=124902104&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=pixel\" width=\"2\" /></td></tr></tbody></table>\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnCodeBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n                <div>\n  <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n    <tbody><tr><td align=\"center\" colspan=\"2\">\n      <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097633&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=static\" /></td></tr>\n    <tr class=\"lihide\"><td colspan=\"2\"><br />\n      <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=e3b806187f&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n        <img border=\"0\" class=\"lihide\" src=\"https://sli.bostonglobe.com/imp?s=1097629&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=default&amp;li_coord=desktop&amp;collapse_width=564\" width=\"564\" /></a></td></tr>\n    <!--[if !mso]>-->\n    <tr class=\"lishow\" style=\"display: none;\">\n      <td colspan=\"2\">\n        <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=3496b3b032&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n          <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097629&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=default&amp;li_coord=mobile&amp;collapse_width=480\" width=\"480\" /></a></td></tr>\n    <!--<![endif]-->\n    <tr><td align=\"left\">\n      <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=4b623b4fad&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n        <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097630&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=static\" /></a></td>\n      <td align=\"right\">\n        <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=71a49651c7&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n          <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097632&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=static\" /></a></td></tr>\n  </tbody></table>\n</div>\n            </td>\n        </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateHeader\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerBlock\" width=\"100%\">\n    <tbody class=\"mcnDividerBlockOuter\">\n        <tr>\n            <td class=\"mcnDividerBlockInner\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerContent\" width=\"100%\">\n                    <tbody><tr>\n                        <td>\n                            <span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n<!--\n                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\n                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\n-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnImageBlock\" width=\"100%\">\n    <tbody class=\"mcnImageBlockOuter\">\n            <tr>\n                <td class=\"mcnImageBlockInner\" valign=\"top\">\n                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnImageContentContainer\" width=\"100%\">\n                        <tbody><tr>\n                            <td class=\"mcnImageContent\" valign=\"top\">\n\n                                    <a class=\"\" href=\"https://us.list-manage.com/MN4vjeAmAUb?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\" title=\"\">\n                                        <img align=\"center\" alt=\"\" class=\"mcnImage\" src=\"https://mcusercontent.com/90f9e490a860897c7155feca1/images/e6d20b2c-84a5-f183-1372-3698abb50950.png\" width=\"564\" />\n                                    </a>\n\n                            </td>\n                        </tr>\n                    </tbody></table>\n                </td>\n            </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnImageBlock\" width=\"100%\">\n    <tbody class=\"mcnImageBlockOuter\">\n            <tr>\n                <td class=\"mcnImageBlockInner\" valign=\"top\">\n                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnImageContentContainer\" width=\"100%\">\n                        <tbody><tr>\n                            <td class=\"mcnImageContent\" valign=\"top\">\n\n                                    <a class=\"\" href=\"https://us.list-manage.com/twBdc65eHyC?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\" title=\"\">\n                                        <img align=\"center\" alt=\"\" class=\"mcnImage\" src=\"https://mcusercontent.com/90f9e490a860897c7155feca1/images/ad44f894-4047-91cd-5469-e76cfe3fe092.jpg\" width=\"564\" />\n                                    </a>\n\n                            </td>\n                        </tr>\n                    </tbody></table>\n                </td>\n            </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateUpperBody\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n              \t<!--[if mso]>\n\t\t\t\t<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\n\t\t\t\t<tr>\n\t\t\t\t<![endif]-->\n\t\t\t\n\t\t\t\t<!--[if mso]>\n\t\t\t\t<td valign=\"top\" width=\"600\" style=\"width:600px;\">\n\t\t\t\t<![endif]-->\n                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextContentContainer\" width=\"100%\">\n                    <tbody><tr>\n\n                        <td class=\"mcnTextContent\" valign=\"top\">\n\n                            <div style=\"text-align: center;\"><span style=\"font-size: 22px;\"><span style=\"font-family: helvetica neue,helvetica,arial,verdana,sans-serif;\"><strong>She grew up unvaccinated. Now she\u2019s a leading voice for science \u2014 and empathy.</strong></span></span></div>\n\n                        </td>\n                    </tr>\n                </tbody></table>\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</td>\n\t\t\t\t<![endif]-->\n\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<![endif]-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n              \t<!--[if mso]>\n\t\t\t\t<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\n\t\t\t\t<tr>\n\t\t\t\t<![endif]-->\n\t\t\t\n\t\t\t\t<!--[if mso]>\n\t\t\t\t<td valign=\"top\" width=\"600\" style=\"width:600px;\">\n\t\t\t\t<![endif]-->\n                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextContentContainer\" width=\"100%\">\n                    <tbody><tr>\n\n                        <td class=\"mcnTextContent\" valign=\"top\">\n\n                            <span style=\"font-family: georgia,times,times new roman,serif;\"><span style=\"font-size: 16px;\"><a href=\"https://us.list-manage.com/bu8JytyF_Kr?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Read the full story.</a><br />\n<br />\n<strong>Related:</strong> </span></span>\n\n<ul>\n\t<li><span style=\"font-family: georgia,times,times new roman,serif;\"><span style=\"font-size: 16px;\"><a href=\"https://us.list-manage.com/Vlcs4KElY5m?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Opinion:&nbsp;How to build trust and increase vaccine acceptance from an&nbsp;immunologist who grew up unvaccinated</a></span></span></li>\n</ul>\n<span style=\"font-family: georgia,times,times new roman,serif;\"><span style=\"font-size: 16px;\"> </span> </span>\n                        </td>\n                    </tr>\n                </tbody></table>\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</td>\n\t\t\t\t<![endif]-->\n\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<![endif]-->\n            </td>\n        </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateColumns\" valign=\"top\">\n                                    <!--[if (gte mso 9)|(IE)]>\n                                    <table align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:600px;\">\n                                    <tr>\n                                    <td align=\"center\" valign=\"top\" width=\"300\" style=\"width:300px;\">\n                                    <![endif]-->\n                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"columnWrapper\" width=\"300\">\n                                        <tr>\n                                            <td class=\"columnContainer\" valign=\"top\"></td>\n                                        </tr>\n                                    </table>\n                                    <!--[if (gte mso 9)|(IE)]>\n                                    </td>\n                                    <td align=\"center\" valign=\"top\" width=\"300\" style=\"width:300px;\">\n                                    <![endif]-->\n                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"columnWrapper\" width=\"300\">\n                                        <tr>\n                                            <td class=\"columnContainer\" valign=\"top\"></td>\n                                        </tr>\n                                    </table>\n                                    <!--[if (gte mso 9)|(IE)]>\n                                    </td>\n                                    </tr>\n                                    </table>\n                                    <![endif]-->\n                                </td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateLowerBody\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerBlock\" width=\"100%\">\n    <tbody class=\"mcnDividerBlockOuter\">\n        <tr>\n            <td class=\"mcnDividerBlockInner\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerContent\" width=\"100%\">\n                    <tbody><tr>\n                        <td>\n                            <span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n<!--\n                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\n                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\n-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnCodeBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n                <div>\n  <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n    <tbody><tr><td align=\"center\" colspan=\"2\">\n      <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097638&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=static\" /></td></tr>\n    <tr class=\"lihide\"><td colspan=\"2\"><br />\n      <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=88d5fba1c3&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n        <img border=\"0\" class=\"lihide\" src=\"https://sli.bostonglobe.com/imp?s=1097634&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=default&amp;li_coord=desktop&amp;collapse_width=564\" width=\"564\" /></a></td></tr>\n    <!--[if !mso]>-->\n    <tr class=\"lishow\" style=\"display: none;\">\n      <td colspan=\"2\">\n        <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=ee45ac4880&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n          <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097634&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=default&amp;li_coord=mobile&amp;collapse_width=480\" width=\"480\" /></a></td></tr>\n    <!--<![endif]-->\n    <tr><td align=\"left\">\n      <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=6388ad4083&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n        <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097635&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=static\" /></a></td>\n      <td align=\"right\">\n        <a href=\"https://bostonglobe.us11.list-manage.com/track/click?u=90f9e490a860897c7155feca1&amp;id=c315e7a716&amp;e=6a2fc20c81\" rel=\"nofollow\" target=\"_blank\">\n          <img border=\"0\" src=\"https://sli.bostonglobe.com/imp?s=1097637&amp;li=5ab5b28599&amp;e=g3cj2vs42hupn2f904lv@kill-the-newsletter.com&amp;p=448c89cd1e&amp;stpe=static\" /></a></td></tr>\n  </tbody></table>\n</div>\n            </td>\n        </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                            <tr>\n                                <td id=\"templateFooter\" valign=\"top\"><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnCodeBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n                <img height=\"0\" src=\"https://beacon.krxd.net/event.gif?event_id=NNIGa6_4&amp;event_type=email_open\" width=\"0\" />\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerBlock\" width=\"100%\">\n    <tbody class=\"mcnDividerBlockOuter\">\n        <tr>\n            <td class=\"mcnDividerBlockInner\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerContent\" width=\"100%\">\n                    <tbody><tr>\n                        <td>\n                            <span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n<!--\n                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\n                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\n-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n              \t<!--[if mso]>\n\t\t\t\t<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\n\t\t\t\t<tr>\n\t\t\t\t<![endif]-->\n\t\t\t\n\t\t\t\t<!--[if mso]>\n\t\t\t\t<td valign=\"top\" width=\"600\" style=\"width:600px;\">\n\t\t\t\t<![endif]-->\n                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextContentContainer\" width=\"100%\">\n                    <tbody><tr>\n\n                        <td class=\"mcnTextContent\" valign=\"top\">\n\n                            <div style=\"text-align: left;\"><span style=\"font-size: 16px;\"><span style=\"font-family: georgia,times,times new roman,serif;\"><em>Browse <a href=\"https://us.list-manage.com/ph3i8PUv0ig?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">all newsletters and email alerts</a> from The Boston Globe.</em></span></span></div>\n\n                        </td>\n                    </tr>\n                </tbody></table>\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</td>\n\t\t\t\t<![endif]-->\n\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<![endif]-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerBlock\" width=\"100%\">\n    <tbody class=\"mcnDividerBlockOuter\">\n        <tr>\n            <td class=\"mcnDividerBlockInner\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnDividerContent\" width=\"100%\">\n                    <tbody><tr>\n                        <td>\n                            <span></span>\n                        </td>\n                    </tr>\n                </tbody></table>\n<!--\n                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\n                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\n-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonBlock\" width=\"100%\">\n    <tbody class=\"mcnButtonBlockOuter\">\n        <tr>\n            <td align=\"left\" class=\"mcnButtonBlockInner\" valign=\"top\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonContentContainer\">\n                    <tbody>\n                        <tr>\n                            <td align=\"center\" class=\"mcnButtonContent\" valign=\"middle\">\n                                <a class=\"mcnButton \" href=\"https://us.list-manage.com/Dz4WqSlIt4D?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\" title=\"SUBSCRIBE TO THE GLOBE\">SUBSCRIBE TO THE GLOBE</a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextBlock\" width=\"100%\">\n    <tbody class=\"mcnTextBlockOuter\">\n        <tr>\n            <td class=\"mcnTextBlockInner\" valign=\"top\">\n              \t<!--[if mso]>\n\t\t\t\t<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\n\t\t\t\t<tr>\n\t\t\t\t<![endif]-->\n\t\t\t\n\t\t\t\t<!--[if mso]>\n\t\t\t\t<td valign=\"top\" width=\"600\" style=\"width:600px;\">\n\t\t\t\t<![endif]-->\n                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnTextContentContainer\" width=\"100%\">\n                    <tbody><tr>\n\n                        <td class=\"mcnTextContent\" valign=\"top\">\n\n                            <div style=\"text-align: left;\"><span style=\"font-size: 12px;\"><span style=\"font-family: arial,helvetica neue,helvetica,sans-serif;\">You received this message because you signed up for Breaking News Alerts.<br />\n<br />\n<a href=\"https://bostonglobe.us11.list-manage.com/unsubscribe?u=90f9e490a860897c7155feca1&amp;id=5ab5b28599&amp;t=b&amp;e=6a2fc20c81&amp;c=448c89cd1e\">Unsubscribe from this list</a><br />\n<br />\nCopyright \u00a9 2026 The Boston Globe, All rights reserved.<br />\n<br />\n<div class=\"vcard\"><span class=\"org fn\">The Boston Globe</span><div class=\"adr\"><div class=\"street-address\">1 Exchange Place Suite 201</div><span class=\"locality\">Boston</span>, <span class=\"region\">MA</span> <span class=\"postal-code\">02109-2132</span></div><br /><a class=\"hcard-download\" href=\"https://bostonglobe.us11.list-manage.com/vcard?u=90f9e490a860897c7155feca1&amp;id=5ab5b28599\">Add us to your address book</a></div> </span><br />\n<br />\n<a href=\"https://mailchi.mp/bostonglobe.com/she-grew-up-unvaccinated-now-shes-a-leading-voice-for-science-and-empathy?e=6a2fc20c81\" target=\"_blank\">View in Browser</a>&nbsp;|<span style=\"font-family: arial,helvetica neue,helvetica,sans-serif;\">&nbsp;<a href=\"https://us.list-manage.com/Or7Ysya8GQr?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Manage Your Account</a>&nbsp;|&nbsp;<a href=\"https://us.list-manage.com/IvEHajZXXyJ?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Terms of Service</a>&nbsp;|&nbsp;<a href=\"https://us.list-manage.com/EmC_9jLlLh7?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Privacy Policy</a>&nbsp;|&nbsp;<a href=\"https://us.list-manage.com/g_BQZ4XQlgi?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Help Center</a>&nbsp;|&nbsp;<a href=\"https://us.list-manage.com/18oVk8yuNCF?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\">Advertise</a></span></span></div>\n\n                        </td>\n                    </tr>\n                </tbody></table>\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</td>\n\t\t\t\t<![endif]-->\n\n\t\t\t\t<!--[if mso]>\n\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<![endif]-->\n            </td>\n        </tr>\n    </tbody>\n</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowBlock\" width=\"100%\">\n    <tbody class=\"mcnFollowBlockOuter\">\n        <tr>\n            <td align=\"center\" class=\"mcnFollowBlockInner\" valign=\"top\">\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContentContainer\" width=\"100%\">\n    <tbody><tr>\n        <td align=\"left\">\n            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContent\" width=\"100%\">\n                <tbody><tr>\n                    <td align=\"left\" valign=\"top\">\n                        <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n                            <tbody><tr>\n                                <td align=\"left\" valign=\"top\">\n                                    <!--[if mso]>\n                                    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n                                    <tr>\n                                    <![endif]-->\n\n                                        <!--[if mso]>\n                                        <td align=\"center\" valign=\"top\">\n                                        <![endif]-->\n\n\n                                            <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnBlockFloatLeft\">\n                                                <tbody><tr>\n                                                    <td class=\"mcnFollowContentItemContainer\" valign=\"top\">\n                                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContentItem\" width=\"100%\">\n                                                            <tbody><tr>\n                                                                <td align=\"left\" valign=\"middle\">\n                                                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"\">\n                                                                        <tbody><tr>\n\n                                                                                <td align=\"center\" class=\"mcnFollowIconContent\" valign=\"middle\" width=\"24\">\n                                                                                    <a href=\"https://us.list-manage.com/udzfpoCIXRI?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\"><img alt=\"Facebook\" class=\"\" height=\"24\" src=\"https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/icons/social-block-v2/light-facebook-48.png\" width=\"24\" /></a>\n                                                                                </td>\n\n\n                                                                        </tr>\n                                                                    </tbody></table>\n                                                                </td>\n                                                            </tr>\n                                                        </tbody></table>\n                                                    </td>\n                                                </tr>\n                                            </tbody></table>\n\n                                        <!--[if mso]>\n                                        </td>\n                                        <![endif]-->\n\n                                        <!--[if mso]>\n                                        <td align=\"center\" valign=\"top\">\n                                        <![endif]-->\n\n\n                                            <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnBlockFloatLeft\">\n                                                <tbody><tr>\n                                                    <td class=\"mcnFollowContentItemContainer\" valign=\"top\">\n                                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContentItem\" width=\"100%\">\n                                                            <tbody><tr>\n                                                                <td align=\"left\" valign=\"middle\">\n                                                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"\">\n                                                                        <tbody><tr>\n\n                                                                                <td align=\"center\" class=\"mcnFollowIconContent\" valign=\"middle\" width=\"24\">\n                                                                                    <a href=\"https://us.list-manage.com/K9KIG5UCU6j?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\"><img alt=\"Twitter\" class=\"\" height=\"24\" src=\"https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/icons/social-block-v2/light-twitter-48.png\" width=\"24\" /></a>\n                                                                                </td>\n\n\n                                                                        </tr>\n                                                                    </tbody></table>\n                                                                </td>\n                                                            </tr>\n                                                        </tbody></table>\n                                                    </td>\n                                                </tr>\n                                            </tbody></table>\n\n                                        <!--[if mso]>\n                                        </td>\n                                        <![endif]-->\n\n                                        <!--[if mso]>\n                                        <td align=\"center\" valign=\"top\">\n                                        <![endif]-->\n\n\n                                            <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnBlockFloatLeft\">\n                                                <tbody><tr>\n                                                    <td class=\"mcnFollowContentItemContainer\" valign=\"top\">\n                                                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnFollowContentItem\" width=\"100%\">\n                                                            <tbody><tr>\n                                                                <td align=\"left\" valign=\"middle\">\n                                                                    <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"\">\n                                                                        <tbody><tr>\n\n                                                                                <td align=\"center\" class=\"mcnFollowIconContent\" valign=\"middle\" width=\"24\">\n                                                                                    <a href=\"https://us.list-manage.com/xPe9_zD4fL0?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" target=\"_blank\"><img alt=\"Link\" class=\"\" height=\"24\" src=\"https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/icons/social-block-v2/light-instagram-48.png\" width=\"24\" /></a>\n                                                                                </td>\n\n\n                                                                        </tr>\n                                                                    </tbody></table>\n                                                                </td>\n                                                            </tr>\n                                                        </tbody></table>\n                                                    </td>\n                                                </tr>\n                                            </tbody></table>\n\n                                        <!--[if mso]>\n                                        </td>\n                                        <![endif]-->\n\n                                    <!--[if mso]>\n                                    </tr>\n                                    </table>\n                                    <![endif]-->\n                                </td>\n                            </tr>\n                        </tbody></table>\n                    </td>\n                </tr>\n            </tbody></table>\n        </td>\n    </tr>\n</tbody></table>\n\n            </td>\n        </tr>\n    </tbody>\n</table></td>\n                            </tr>\n                        </table>\n                        <!--[if (gte mso 9)|(IE)]>\n                        </td>\n                        </tr>\n                        </table>\n                        <![endif]-->\n                        <!-- // END TEMPLATE -->\n                    </td>\n                </tr>\n            </table>\n        </center>\n    <div style=\"display: none;\"><img alt=\"\" height=\"1\" src=\"https://us.list-manage.com/Etlu5CH6C2f6aobufKrfXa?e=6a2fc20c81&amp;c2id=d06a2c002b96d2a86d4655f6f82c1364\" style=\"display: none;\" width=\"1\" /></div>\n\n              \n                <hr />\n                <p>\n                  <small>\n                    <a href=\"https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv\">Kill the Newsletter! feed settings</a>\n                  </small>\n                </p>"
+    },
     {
       "title": "News Alert: Nevada\u2019s Hawk Fire blamed on human activity, official says, as 90,000 urged to flee",
       "link": "https://kill-the-newsletter.com/feeds/g3cj2vs42hupn2f904lv/entries/7lvleg3w7wtjt1d45inc.html",
