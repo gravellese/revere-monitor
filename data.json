@@ -1,33 +1,17 @@
 {
-  "updated": "2026-08-25T16:48:45.419750+00:00",
-  "updated_local": "August 25, 2026 at 4:48 PM",
+  "updated": "2026-08-25T17:39:05.813857+00:00",
+  "updated_local": "August 25, 2026 at 5:39 PM",
   "weather_current": {
-    "temp": 73,
+    "temp": 76,
     "unit": "F",
-    "wind": "8 mph",
+    "wind": "9 mph",
     "windDir": "W",
-    "shortForecast": "Sunny",
+    "shortForecast": "Mostly Sunny",
     "detailedForecast": "Mostly sunny, with a high near 77. West wind around 10 mph.",
-    "humidity": 63,
+    "humidity": 57,
     "precip": 0
   },
   "weather_hourly": [
-    {
-      "time": "2026-08-25T11:00:00-04:00",
-      "temp": 73,
-      "unit": "F",
-      "shortForecast": "Sunny",
-      "wind": "8 mph",
-      "precip": 0
-    },
-    {
-      "time": "2026-08-25T12:00:00-04:00",
-      "temp": 75,
-      "unit": "F",
-      "shortForecast": "Mostly Sunny",
-      "wind": "8 mph",
-      "precip": 0
-    },
     {
       "time": "2026-08-25T13:00:00-04:00",
       "temp": 76,
@@ -203,16 +187,32 @@
       "shortForecast": "Sunny",
       "wind": "3 mph",
       "precip": 0
+    },
+    {
+      "time": "2026-08-26T11:00:00-04:00",
+      "temp": 75,
+      "unit": "F",
+      "shortForecast": "Sunny",
+      "wind": "3 mph",
+      "precip": 0
+    },
+    {
+      "time": "2026-08-26T12:00:00-04:00",
+      "temp": 76,
+      "unit": "F",
+      "shortForecast": "Sunny",
+      "wind": "5 mph",
+      "precip": 0
     }
   ],
   "weather_daily": [
     {
       "name": "Today",
-      "date": "2026-08-25T11:00:00-04:00",
+      "date": "2026-08-25T07:00:00-04:00",
       "high": 77,
       "low": 59,
       "shortForecast": "Mostly Sunny",
-      "detailedForecast": "Mostly sunny, with a high near 77. West wind around 10 mph.",
+      "detailedForecast": "Mostly sunny, with a high near 77. West wind 3 to 10 mph.",
       "precip": 11
     },
     {
@@ -325,7 +325,7 @@
     "delay": false,
     "status": "ok",
     "metar": {
-      "raw": "METAR KBOS 251554Z 29007G19KT 260V340 10SM FEW050 25/13 A2992 RMK AO2 SLP132 T02500128",
+      "raw": "METAR KBOS 251654Z 24009KT 10SM SCT050 26/13 A2991 RMK AO2 SLP128 T02610133",
       "flight_cat": ""
     },
     "faa_delays": [],
@@ -360,18 +360,8 @@
       "routes": []
     },
     {
-      "header": "Please board all Lowell Line trains on the inbound platform (Track 2) at Wilmington until further notice today.",
-      "effect": "TRACK_CHANGE",
-      "routes": []
-    },
-    {
       "header": "Predictions may be unavailable on the Countdown Clocks. We are working to address the issue as quickly as possible. Next train information is still available on MBTA.com and on the MBTA Go app.",
       "effect": "NOTICE",
-      "routes": []
-    },
-    {
-      "header": "Fitchburg Line Train 420 (11:25 AM from Wachusett) is operating 10-20 minutes behind schedule between Shirley and North Station due to a mechanical issue.",
-      "effect": "DELAY",
       "routes": []
     },
     {
@@ -410,13 +400,18 @@
       "routes": []
     },
     {
-      "header": "Blue Line: All trains will operate on the outbound/eastbound track between Wonderland and Revere Beach the weekend of September 26 \u2013 27, for switch work. ",
+      "header": "Worcester Line Train 542 (12:00 PM from Worcester) is operating 5-15 minutes behind schedule between Framingham and South Station.",
       "effect": "DELAY",
       "routes": []
     },
     {
-      "header": "Please board all Worcester Line trains on the inbound platform (Track 2) at Westborough and Grafton until further notice today.",
-      "effect": "TRACK_CHANGE",
+      "header": "Blue Line: Delays of about 15 minutes due to a medical emergency at Wonderland. Trains may stand by at stations.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
+      "header": "Blue Line: All trains will operate on the outbound/eastbound track between Wonderland and Revere Beach the weekend of September 26 \u2013 27, for switch work. ",
+      "effect": "DELAY",
       "routes": []
     },
     {
@@ -433,18 +428,23 @@
       "header": "Green Line: No trains between North Station & Babcock St (B), Kenmore (C+D), & Heath St (E) the weekend of September 19 - 20. Use buses between Babcock, Kenmore, Heath St (Rt 39) & Copley/Back Bay. Use Orange Line between North Station & Back Bay.",
       "effect": "SUSPENSION",
       "routes": []
+    },
+    {
+      "header": "Green Line C Branch:  Trains are not stopping at Brandon Hall through October 4 while accessibility upgrades are being done. Riders can board or alight at either Fairbanks St or Summit Ave, which are 0.1-0.2 miles away (or a 4- to 5-minute walk) ",
+      "effect": "STATION_CLOSURE",
+      "routes": []
     }
   ],
   "beach_conditions": {
-    "water_temp_f": 70.0,
-    "wvht_ft": 1.3,
+    "water_temp_f": 70.7,
+    "wvht_ft": null,
     "dpd_s": null,
     "wspd_mph": 6.7,
-    "wdir_deg": 280.0,
+    "wdir_deg": 240.0,
     "flag": "green",
     "flag_label": "LOW HAZARD",
     "updated": null,
-    "wdir_label": "W"
+    "wdir_label": "WSW"
   },
   "revere_calendar": [
     {
@@ -1506,7 +1506,7 @@
       "ts": 1787624433,
       "author": "Daily Item StaffDaily Item StaffDaily Item Staff",
       "feed_title": "",
-      "summary": "<p><img alt=\"\" class=\"alignleft size-full wp-image-757469\" height=\"2560\" src=\"https://itemlive.com/wp-content/uploads/2026/08/LDI082526PgA1-scaled.jpg\" width=\"1259\" /></p>\n<p>The post <a href=\"https://itemlive.com/2026/08/24/todays-page-1-august-25-2026/\">Today&#8217;s Page 1: August 25, 2026</a> appeared first on <a href=\"https://itemlive.com\">Itemlive</a>.</p>",
+      "summary": "<p><img alt=\"\" class=\"alignleft size-full wp-image-757469\" height=\"2560\" src=\"https://itemlive.com/wp-content/uploads/2026/08/LDI082526PgA1-scaled.jpg\" width=\"1259\" /></p>\n<p>The post <a href=\"https://itemlive.com/2026/08/24/todays-page-1-august-25-2026/\">Today\u2019s Page 1: August 25, 2026</a> appeared first on <a href=\"https://itemlive.com\">Itemlive</a>.</p>\n<p><a href=\"https://itemlive.com/2026/08/24/todays-page-1-august-25-2026/\">Continue reading \u2014 subscribe to unlock the full article.</a></p>",
       "source": "Lynn"
     },
     {
@@ -2810,13 +2810,13 @@
       "source": "Everett"
     },
     {
-      "title": "North Shore beach ranks best in Mass. for etiquette, according to survey - MassLive.com",
+      "title": "North Shore beach ranks best in Mass. for etiquette, according to survey - MassLive",
       "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPclpVS0RyR1hFZVRSR01JcjUwdDV4MlRKU1d5OXZadXh1dlZrcGNnRzJMdnpzalh6SWpxMTVwdDlGc3pSelM5Vm40SXN0cU1zZEpIN2xzdFg1aFRfMXpqX01EekFBX3NaaVpUWnZjTGE3S0dfWVJUdDQtRTN0MDItQWlEOHloNlZaM0xZZkkxTkhUMkZrWFdfb0VWMmM0X3ctV1VKTWtDRktSNUNrYVNrYTh1RdIBxwFBVV95cUxNdndjS2kycUN6YjBodDJwTUxONzFkUGVYWTgyY2R1N2J6WU1wd2Q1dHhwa09fMWJSaWItdUFna3FLZHU5WXM2TzkzRko2QnJmWjNxZVlONnRpTFFyc0kwUXJndDFYSHliZEdsaXA3RDQ1eG9aOVNJWEt4dDJSVktsNmVIeThTMEdCNEFXeGkzVHdianZHWWtVYkk2SHg5c2FOaXdkRTlzaEwyN0tadnVhOGZtcUtIem9wSjVaV3NHMHRNdDFKZU5j?oc=5",
       "published": "Tue, 14 Jul 2026 07:00:00 GMT",
       "ts": 1784012400,
       "author": "",
-      "feed_title": "MassLive.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPclpVS0RyR1hFZVRSR01JcjUwdDV4MlRKU1d5OXZadXh1dlZrcGNnRzJMdnpzalh6SWpxMTVwdDlGc3pSelM5Vm40SXN0cU1zZEpIN2xzdFg1aFRfMXpqX01EekFBX3NaaVpUWnZjTGE3S0dfWVJUdDQtRTN0MDItQWlEOHloNlZaM0xZZkkxTkhUMkZrWFdfb0VWMmM0X3ctV1VKTWtDRktSNUNrYVNrYTh1RdIBxwFBVV95cUxNdndjS2kycUN6YjBodDJwTUxONzFkUGVYWTgyY2R1N2J6WU1wd2Q1dHhwa09fMWJSaWItdUFna3FLZHU5WXM2TzkzRko2QnJmWjNxZVlONnRpTFFyc0kwUXJndDFYSHliZEdsaXA3RDQ1eG9aOVNJWEt4dDJSVktsNmVIeThTMEdCNEFXeGkzVHdianZHWWtVYkk2SHg5c2FOaXdkRTlzaEwyN0tadnVhOGZtcUtIem9wSjVaV3NHMHRNdDFKZU5j?oc=5\" target=\"_blank\">North Shore beach ranks best in Mass. for etiquette, according to survey</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPclpVS0RyR1hFZVRSR01JcjUwdDV4MlRKU1d5OXZadXh1dlZrcGNnRzJMdnpzalh6SWpxMTVwdDlGc3pSelM5Vm40SXN0cU1zZEpIN2xzdFg1aFRfMXpqX01EekFBX3NaaVpUWnZjTGE3S0dfWVJUdDQtRTN0MDItQWlEOHloNlZaM0xZZkkxTkhUMkZrWFdfb0VWMmM0X3ctV1VKTWtDRktSNUNrYVNrYTh1RdIBxwFBVV95cUxNdndjS2kycUN6YjBodDJwTUxONzFkUGVYWTgyY2R1N2J6WU1wd2Q1dHhwa09fMWJSaWItdUFna3FLZHU5WXM2TzkzRko2QnJmWjNxZVlONnRpTFFyc0kwUXJndDFYSHliZEdsaXA3RDQ1eG9aOVNJWEt4dDJSVktsNmVIeThTMEdCNEFXeGkzVHdianZHWWtVYkk2SHg5c2FOaXdkRTlzaEwyN0tadnVhOGZtcUtIem9wSjVaV3NHMHRNdDFKZU5j?oc=5\" target=\"_blank\">North Shore beach ranks best in Mass. for etiquette, according to survey</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
       "source": "North Shore"
     },
     {
@@ -3370,13 +3370,13 @@
       "source": "Everett"
     },
     {
-      "title": "Chelsea payroll database: What every city employee made in 2025 - MassLive.com",
+      "title": "Chelsea payroll database: What every city employee made in 2025 - MassLive",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQczItXzBUcVM4bjduY0pEdGhMbFFQMnV4cWFPSm9qOUdhWGliMjV5SVB2eWw2U0xGU2EzV2Y3ZnZNRnRTd1E5d3NLOTFvMnMtMEkwcWt2SDY0WG1aUDNZTEJnamR3dnVMSVZfdkJHVnphRUlwdmVuc0tob3NGWGF2bzQ5NjhaTVpaUTZHZ1FVYk9ha0NSUDdjR2pCQ1BpVFlOOUNGLTVrSWXSAbwBQVVfeXFMTnQ4WGpycFR6dy1ETzRtc0JWLVZvc0g2TUFZd2RmVllwckc5MkFvd180VDUxVURtSERhbnpnb0lNNUUzS0pfamdKdWsySGp1TzVlSzI5OEx6bG9DbC1GaTkyUXVSM1BJTGNKQlZqVnI4VWJyZzkyTWhHaGM4c0V3eVlkbVNTTklXUUNkVXIxU19zYU95SlRCMFRkN2xyRndfTF9lMnVmdFdyUnRWUXd0TVllLTJLNEpGLXJhT1U?oc=5",
       "published": "Sat, 02 May 2026 07:00:00 GMT",
       "ts": 1777705200,
       "author": "",
-      "feed_title": "MassLive.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQczItXzBUcVM4bjduY0pEdGhMbFFQMnV4cWFPSm9qOUdhWGliMjV5SVB2eWw2U0xGU2EzV2Y3ZnZNRnRTd1E5d3NLOTFvMnMtMEkwcWt2SDY0WG1aUDNZTEJnamR3dnVMSVZfdkJHVnphRUlwdmVuc0tob3NGWGF2bzQ5NjhaTVpaUTZHZ1FVYk9ha0NSUDdjR2pCQ1BpVFlOOUNGLTVrSWXSAbwBQVVfeXFMTnQ4WGpycFR6dy1ETzRtc0JWLVZvc0g2TUFZd2RmVllwckc5MkFvd180VDUxVURtSERhbnpnb0lNNUUzS0pfamdKdWsySGp1TzVlSzI5OEx6bG9DbC1GaTkyUXVSM1BJTGNKQlZqVnI4VWJyZzkyTWhHaGM4c0V3eVlkbVNTTklXUUNkVXIxU19zYU95SlRCMFRkN2xyRndfTF9lMnVmdFdyUnRWUXd0TVllLTJLNEpGLXJhT1U?oc=5\" target=\"_blank\">Chelsea payroll database: What every city employee made in 2025</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxQczItXzBUcVM4bjduY0pEdGhMbFFQMnV4cWFPSm9qOUdhWGliMjV5SVB2eWw2U0xGU2EzV2Y3ZnZNRnRTd1E5d3NLOTFvMnMtMEkwcWt2SDY0WG1aUDNZTEJnamR3dnVMSVZfdkJHVnphRUlwdmVuc0tob3NGWGF2bzQ5NjhaTVpaUTZHZ1FVYk9ha0NSUDdjR2pCQ1BpVFlOOUNGLTVrSWXSAbwBQVVfeXFMTnQ4WGpycFR6dy1ETzRtc0JWLVZvc0g2TUFZd2RmVllwckc5MkFvd180VDUxVURtSERhbnpnb0lNNUUzS0pfamdKdWsySGp1TzVlSzI5OEx6bG9DbC1GaTkyUXVSM1BJTGNKQlZqVnI4VWJyZzkyTWhHaGM4c0V3eVlkbVNTTklXUUNkVXIxU19zYU95SlRCMFRkN2xyRndfTF9lMnVmdFdyUnRWUXd0TVllLTJLNEpGLXJhT1U?oc=5\" target=\"_blank\">Chelsea payroll database: What every city employee made in 2025</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
       "source": "Chelsea City"
     },
     {
@@ -3652,6 +3652,66 @@
   ],
   "news_boston": [
     {
+      "title": "Methuen resident sues city over pickleball noise",
+      "link": "https://www.boston.com/news/local-news/2026/08/25/methuen-resident-sues-city-over-pickleball-noise/",
+      "published": "Tue, 25 Aug 2026 17:18:35 +0000",
+      "ts": 1787678315,
+      "author": "Ross Cristantiello",
+      "feed_title": "Boston.com",
+      "summary": "<p>Multiple people who live near Methuen High School said in court documents that their quality of life has notably decreased since pickleball courts opened last year.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/25/methuen-resident-sues-city-over-pickleball-noise/\">Methuen resident sues city over pickleball noise</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "An attack disables a ship in the Strait of Hormuz and other news from around the Middle East",
+      "link": "https://whdh.com/news/an-attack-disables-a-ship-in-the-strait-of-hormuz-and-other-news-from-around-the-middle-east/",
+      "published": "Tue, 25 Aug 2026 17:15:29 +0000",
+      "ts": 1787678129,
+      "author": "Maria D'Agostino",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "An oil tanker was hit with a projectile off the coast of Oman in the&#160;Strait of Hormuz, according to a report on Tuesday that underscored...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "Falling oil prices help calm the stock and bond markets",
+      "link": "https://whdh.com/news/falling-oil-prices-help-calm-the-stock-and-bond-markets/",
+      "published": "Tue, 25 Aug 2026 17:13:31 +0000",
+      "ts": 1787678011,
+      "author": "Maria D'Agostino",
+      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
+      "summary": "NEW YORK (AP) \u2014 Oil prices are falling&#160;again&#160;on Tuesday, which is helping to ease worries in&#160;the bond market&#160;and support stock prices. The S&#38;P 500 rose...",
+      "source": "Boston News, Weather, Sports | WHDH 7News"
+    },
+    {
+      "title": "An NFL player coming back to college? Yes, it could happen. Here's why",
+      "link": "https://www.wcvb.com/article/nfl-player-coming-back-to-college/73514732",
+      "published": "Tue, 25 Aug 2026 17:06:00 GMT",
+      "ts": 1787677560,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A recent rule passed by the NCAA has resulted in confusion, lawsuits and the once-unthinkable notion of players leaving college, signing with NFL teams, and now leaving those teams to head back to college.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "ICE arrests jumped to nearly 50,000 in July, highest monthly total of Trump\u2019s second term",
+      "link": "https://www.wcvb.com/article/ice-arrests-jump-july-monthly-total/73522636",
+      "published": "Tue, 25 Aug 2026 16:50:00 GMT",
+      "ts": 1787676600,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>ICE arrests jumped to nearly 50,000 in July, the highest monthly total of Trump\u2019s second term, as the administration loosens restrictions on where and who ICE can arrest.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "'The ocean is not supposed to do this': Earth reaches its hottest water temps on record",
+      "link": "https://www.wcvb.com/article/earth-simmering-hottest-water-temps-record-bad-fish-us/73522310",
+      "published": "Tue, 25 Aug 2026 16:50:00 GMT",
+      "ts": 1787676600,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>The world's oceans simmered to their hottest temperatures on record over the weekend, putting stress on life in the water and on land.</p>",
+      "source": "Top Stories"
+    },
+    {
       "title": "Psychologist testifies Lindsay Clancy was 'criminally responsible' for deaths of children",
       "link": "https://www.wcvb.com/article/lindsay-clancy-trial-live-updates-aug-25/73518460",
       "published": "Tue, 25 Aug 2026 16:44:00 GMT",
@@ -3862,16 +3922,6 @@
       "source": "Top Stories"
     },
     {
-      "title": "Canada to impose retaliatory tariffs on more than 700 US goods, including steel and appliances, as trade war escalates",
-      "link": "https://whdh.com/news/canada-to-impose-retaliatory-tariffs-on-more-than-700-us-goods-including-steel-and-appliances-as-trade-war-escalates/",
-      "published": "Tue, 25 Aug 2026 15:12:47 +0000",
-      "ts": 1787670767,
-      "author": "James Kukstis",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "TORONTO (AP) \u2014 Canada to impose retaliatory tariffs on more than 700 US goods, including steel and appliances, as trade war escalates.",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
       "title": "2 die of measles in Pennsylvania, the first U.S. fatalities this year",
       "link": "https://www.wcvb.com/article/pennslyvania-measles-cases-deaths/73520983",
       "published": "Tue, 25 Aug 2026 14:45:00 GMT",
@@ -3922,16 +3972,6 @@
       "source": "Boston.com"
     },
     {
-      "title": "Federal judge rejects Ghislaine Maxwell\u2019s \u2018miscarriage of justice\u2019 claim and bid for prison release",
-      "link": "https://whdh.com/news/federal-judge-rejects-ghislaine-maxwells-miscarriage-of-justice-claim-and-bid-for-prison-release/",
-      "published": "Tue, 25 Aug 2026 13:50:19 +0000",
-      "ts": 1787665819,
-      "author": "James Kukstis",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "NEW YORK (AP) \u2014 Ghislaine Maxwell&#8217;s bid to overturn her&#160;sex trafficking conviction&#160;and be freed from prison was rejected by a federal judge Tuesday who said...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
       "title": "Livestream: Lindsay Clancy murder trial nears its end as prosecution expert returns to the stand",
       "link": "https://www.boston.com/news/crime/2026/08/25/lindsay-clancy-murder-trial-livestream-video-tuesday-august-25/",
       "published": "Tue, 25 Aug 2026 13:14:36 +0000",
@@ -3972,16 +4012,6 @@
       "source": "Top Stories"
     },
     {
-      "title": "Video: Mostly sunny before rain arrives late week",
-      "link": "https://www.wcvb.com/article/video-mostly-sunny-before-rain-arrives-late-week/73520420",
-      "published": "Tue, 25 Aug 2026 12:42:00 GMT",
-      "ts": 1787661720,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Tuesday is mostly sunny across the Boston area, with temperatures near normal.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Investigators to give update on Boston Harbor boat crash killed 24-year-old woman",
       "link": "https://www.nbcboston.com/news/local/boston-harbor-boat-crash-update/4003602/",
       "published": "Tue, Aug 25 2026 12:35:23 PM",
@@ -3990,16 +4020,6 @@
       "feed_title": "NBC Boston",
       "summary": "<div class=\"what-to-know\"><div class=\"what-to-know__wrapper\"><h3 class=\"what-to-know__heading\">What to Know</h3><ul class=\"what-to-know__list\"><li class=\"what-to-know__item\">A small twin engine boat crashed into a Logan Airport runway pier that stretches into Boston Harbor on May 13, 2026</li><li class=\"what-to-know__item\">Four people were on board, one of whom died \u2014 she was identified as Elizabeth Dankert, a Union College graduate from Andover. The rest were injured.</li><li class=\"what-to-know__item\">While the cause of the boat crash was under investigation and there was no word on any potential charges, Freedom Boat Club, which owns the vessel, said it &#8220;was taken without authorization.&#8221;</li><li class=\"what-to-know__item\">Massport said in a statement that the boat crash had no impact on airport service, though Runway 4R was temporarily closed for the response and investigation.</li></ul></div></div>\n\n\n\n<p>Investigators will announce updates Tuesday on the <a href=\"https://www.nbcboston.com/news/local/boston-harbor-boat-crash-water-rescues/3949713/\">investigation into a deadly late-night boat crash in Boston Harbor this May. </a></p>\n\n\n\n<p>Four people were on the boat. One of them, 24-year-old Elizabeth Dankert, of Andover, died in the crash. Dankert and two female friends, both 23, were in the Seaport District when they boarded the small twin-engine boat with a 40-year-old man.</p>\n\n\n\n<p>The boat they were in hit the runway 4R pier off Boston Logan International Airport just before 11:30 p.m., throwing them onto the rocks along the shore, officials said. Boston EMS said they rescued four injured people amid challenging conditions, including how dark it was and how slippery the rocks were. All four were taken to Massachusetts General Hospital, where Dankert died from her injuries. </p>\n\n\n\n<p>Suffolk District Attorney Kevin Hayden and Massachusetts State Police Lt. Col. Jeffrey Boutwell are scheduled to give an update on the case at 2 p.m. </p>\n\n\n<div></div>\n\n\n<p>Dankert&#8217;s family tells NBC10 Boston that she was an amazing young woman with a bright future ahead of her. </p>\n\n\n\n<p>She graduated in 2024 from Union College in New York, where she played soccer.</p>\n\n\n\n<p>&#8220;Lizzie was an exceptional student-athlete who had a tremendous impact during her four years at Union College. Her passing is a profound loss for our campus community,&#8221; the university said in a statement. &#8220;We offer our condolences to Lizzie\u2019s family, classmates, teammates and all those who were lucky to know this terrific young woman.&#8221;</p>\n\n\n\n<p>Dankert had been living and working in Boston at the Seaport-based software company PTC at the time of her death. The company said she was known for her positive attitude, enthusiasm and willingness to help others.</p>\n\n\n\n<p>\u201cLizzie was a beloved member of the PTC team,&#8221; the company said in a statement. &#8220;She will be deeply missed. Our thoughts are with Lizzie\u2019s family and loved ones during this incredibly difficult time.\u201d</p>\n\n\n<div></div>\n\n\n<p>Several months later, no one has been charged in the crash that killed Dankert. A spokesperson for the Brunswick Corporation, which owns Freedom Boat Club, said the vessel involved in the crash was taken from its Seaport location \u201cwithout authorization and operated outside the knowledge and control of the club, well after the club had closed for the day.\u201d</p>\n\n\n\n<p>&#8220;This activity did not occur within normal Club operations or established protocols governing access to and use of our vessels,&#8221; Lee Gordon said in an email, adding that the club is cooperating fully with authorities.</p>\n\n\n\n<p></p>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "Trump considers renaming Lake Ontario as 'Lake America' as trade war with Canada escalates",
-      "link": "https://www.wcvb.com/article/trump-lake-ontario-lake-america-canada-trade-war/73520167",
-      "published": "Tue, 25 Aug 2026 12:23:00 GMT",
-      "ts": 1787660580,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>President Trump says he is considering changing the name of Lake Ontario to \"Lake America\" as the trade war between the U.S. and Canada intensifies.</p>",
-      "source": "Top Stories"
     },
     {
       "title": "Independent investigation into Stoughton's town manager, police chief begins",
@@ -4022,16 +4042,6 @@
       "source": "WBUR News"
     },
     {
-      "title": "French has become a sticking point in the Canada-US trade dispute. Here's why",
-      "link": "https://www.wcvb.com/article/french-language-laws-us-canada-trade/73516476",
-      "published": "Tue, 25 Aug 2026 11:13:00 GMT",
-      "ts": 1787656380,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>French has become a sticking point in the Canada-U.S. trade dispute as President Trump imposes 50% tariffs on Canadian goods. Here's why.</p>",
-      "source": "Top Stories"
-    },
-    {
       "title": "Target apologizes for children's Halloween costume widely criticized as racist",
       "link": "https://www.nbcboston.com/news/national-international/target-apology-childrens-clown-costume-halloween-costume-backlash-racist/4003439/",
       "published": "Tue, Aug 25 2026 11:00:27 AM",
@@ -4040,16 +4050,6 @@
       "feed_title": "NBC Boston",
       "summary": "<p>Target apologized Monday and said it had removed a children&#8217;s Halloween costume that was widely criticized as racist after facing backlash. </p>\n\n\n\n<p>The clown costume, which was sold on Target&#8217;s website as \u201cKids\u2019 Glows Under Blacklight Circus Clown Halloween Costume,\u201d showed a Black child model in an orange and black outfit, with a mask featuring an exaggerated smile and mini top hat.  </p>\n\n\n\n<p>Critics said the costume and the child&#8217;s pose in the photo resembled racist caricatures in blackface from Jim Crow-era minstrel shows.</p>\n\n\n\n<p>The company issued an apology Monday and said it had stopped selling the costume. </p>\n\n\n\n<p>&#8220;As a company, we know we got this wrong, and we are deeply sorry,&#8221; <a href=\"https://corporate.target.com/press/statement/2026/08/target-statement-on-offensive-halloween-costume\" rel=\"noreferrer noopener\" target=\"_blank\">Target said in a statement</a>. &#8220;The costume is offensive and should never have been part of our assortment.&#8221;</p>\n\n\n\n<p>Target also acknowledged that the costume was &#8220;especially hurtful for our Black guests, team members and partners.&#8221;</p>\n\n\n\n<p>Blackface minstrelsy was a popular form of entertainment among post-Civil War whites, according to The Associated Press. White men would darken their faces to create caricatures of Black people, including large mouths, lips and eyes, woolly hair and coal-black skin. The performances would stereotype black men and women as ignorant, hypersexual, superstitious, lazy people who were prone to thievery and cowardice. </p>\n\n\n\n<p>The costume is the latest controversy for Target.</p>\n\n\n\n<p>In 2023, the company faced criticism for its <a href=\"https://www.nbcboston.com/news/national-international/why-is-target-pulling-some-pride-merch-the-retailers-response-to-backlash-explained/\" rel=\"noreferrer noopener\" target=\"_blank\">handling of products in its Pride Collection</a>. It removed certain items from its stores and made other changes to its LGBTQ-themed merchandise nationwide <a href=\"https://www.nbcboston.com/news/national-international/target-makes-changes-to-lgbtq-merchandise-for-june-pride-month-after-threats-to-workers/\" rel=\"noreferrer noopener\" target=\"_blank\">after an intense backlash from some customers</a>, including violent confrontations with its workers. The following year, it <a href=\"https://www.nbcboston.com/news/national-international/target-to-reduce-stores-pride-merchandise-after-backlash/\" rel=\"noreferrer noopener\" target=\"_blank\">reduced the number of stores</a> carrying Pride-themed merchandise.</p>\n\n\n\n<p>Last year, Target followed in the footsteps of Walmart, Meta and McDonald&#8217;s by <a href=\"https://www.nbcboston.com/news/business/money-report/target-rolls-back-dei-initiatives-the-latest-big-company-to-retreat/\" rel=\"noreferrer noopener\" target=\"_blank\">rolling back its diversity, equity and inclusion initiatives</a>. Shoppers responded with a <a href=\"https://www.nbcboston.com/news/national-international/target-boycott-what-to-know/\" rel=\"noreferrer noopener\" target=\"_blank\">Target boycott</a> and other protests.</p>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "Home of the Week: In Roxbury\u2019s Fort Hill neighborhood, a 3-bedroom in a \u2018twin home\u2019 Colonial for $650,000",
-      "link": "https://www.boston.com/real-estate/home-of-the-week/2026/08/25/roxbury-fort-hill-twin-home/",
-      "published": "Tue, 25 Aug 2026 11:00:00 +0000",
-      "ts": 1787655600,
-      "author": "The Boston Globe",
-      "feed_title": "Boston.com",
-      "summary": "<p>The neighboring unit is also for sale  </p>\n<p>The post <a href=\"https://www.boston.com/real-estate/home-of-the-week/2026/08/25/roxbury-fort-hill-twin-home/\">Home of the Week: In Roxbury\u2019s Fort Hill neighborhood, a 3-bedroom in a \u2018twin home\u2019 Colonial for $650,000</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Boston.com"
     },
     {
       "title": "Mass. social media influencer critical of JD Vance sues to attend his Maine rally",
@@ -4148,7 +4148,7 @@
       "ts": 1787649312,
       "author": "Phil Perry",
       "feed_title": "NBC Boston",
-      "summary": "<p>With two preseason games in the books, and with a roster-shifting trade now complete, what better time than now to try to cobble together another 53-man roster projection?</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Quarterback (3)</strong>: Drake Maye, Tommy DeVito, Behren Morton</p>\n\n\n\n<p>Behren Morton has provided the Patriots with professional reps when provided the opportunity in practices and preseason games this summer. His arm strength isn&#8217;t otherworldly but appears to be improved over when he played through injury at Texas Tech.</p>\n\n\n\n<p>With Eliot Wolf heading up the front office, it would come as little surprise if he brought a &#8220;Packer Way&#8221; approach to this position, developing a third passer with the future in mind.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Running back (3)</strong>: Rhamondre Stevenson, TreVeyon Henderson, Hassan Haskins</p>\n\n\n\n<p>The competition for the third running back spot might be one of the most heated this summer in New England. Haskins has the size (6-foot-2, 228 pounds) and NFL experience to warrant a real shot here. Injuries could help solidify his spot, too, since rookie Jam Miller and second-year back Lan Larison were banged up in preseason game No. 2.</p>\n\n\n<div></div>\n\n\n<p class=\"has-medium-font-size\"><strong>Wide receiver (6)</strong>: A.J. Brown, Romeo Doubs, DeMario Douglas, Kyle Williams, Mack Hollins, Efton Chism III</p>\n\n\n\n<p>With <a href=\"https://www.nbcsportsboston.com/nfl/new-england-patriots/trade-kayshon-boutte-houston-texans-jaylen-reed-draft-pick-report/800524/\" rel=\"noreferrer noopener\" target=\"_blank\">Kayshon Boutte out the door in a trade with the Texans</a>, this group of six seems to be the most likely to land on the initial 53-man roster when cuts are made at the end of the month. While Boutte might have provided solid insurance in case of injury to A.J. Brown, having outside-the-numbers options like Hollins and Williams on the roster made a Boutte trade a realistic possibility.</p>\n\n\n<div></div>\n\n\n<p class=\"has-medium-font-size\"><strong>Tight end/Fullback (4)</strong>: Hunter Henry, Eli Raridon, Tanner Arkin, Reggie Gilliam</p>\n\n\n\n<p>From a Patriots standpoint, Eli Raridon has provided one of the most encouraging young-player arcs of camp. He&#8217;s received first-team reps and has developed the kind of play speed the team wanted to see out of him as he grinded his way through spring practices. The talent is there, and he&#8217;s starting to show it.</p>\n\n\n\n<p>Tanner Arkin looks like a capable third option as a blocker who may one day have some positional versatility. He&#8217;s been used in the backfield, maybe foreshadowing that he could be a backup to fullback Reggie Gilliam, and looks raw but willing.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Offensive line (9)</strong>: Will Campbell, Alijah Vera-Tucker, Jared Wilson, Mike Onwenu, Morgan Moses, Caleb Lomu, Marcus Bryant, Dametrious Crownover, Greg Van Roten</p>\n\n\n\n<p>If Ben Brown isn&#8217;t healthy enough to start the season, the Patriots could end up with an extra roster spot here to keep a young tackle like Dametrious&nbsp;Crownover. Though the rookie sixth-round pick out of Texas A&amp;M hasn&#8217;t sniffed the starting lineup this camp &#8212; both Caleb Lomu and Marcus Bryant have consistently seen earlier practice and preseason game reps &#8212; Crownover has physical traits that might make him an enticing waiver claim for another club if released.</p>\n\n\n\n<p>Meanwhile, Greg Van Roten makes it here despite just one practice with the team to this point. He could end up starting the season as New England&#8217;s top backup at all three interior spots.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">MORE PATRIOTS</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/sports/nfl/new-england-patriots/christian-gonzalez-practices-treveyon-henderson-hurt/4003096/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/christian-gonzalez_1ed12b.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/new-england-patriots/\">New England Patriots</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t20 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/sports/nfl/new-england-patriots/christian-gonzalez-practices-treveyon-henderson-hurt/4003096/\">\n\t\t\t\t\t\t\t\t\t\tPatriots practice: Christian Gonzalez returns, TreVeyon Henderson gets hurt\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/kayshon-boutte-trade-texans-jaylen-reed-patriots/4003145/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/04/Kayshon-Boutte-USATSI_25001639.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/phil-perry/\">Phil Perry</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t19 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/kayshon-boutte-trade-texans-jaylen-reed-patriots/4003145/\">\n\t\t\t\t\t\t\t\t\t\tWhy didn&#039;t the Patriots get more in return for Kayshon Boutte?\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/sports/nfl/new-england-patriots/mike-vrabel-depth-comments/4002791/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/2026-08-23T004618Z_2130389282_MT1USATODAY29646205_RTRMADP_3_NFL-PHILADELPHIA-EAGLES-AT-NEW-ENGLAND-PATRIOTS-e1787577938316.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/new-england-patriots/\">New England Patriots</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 24\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/sports/nfl/new-england-patriots/mike-vrabel-depth-comments/4002791/\">\n\t\t\t\t\t\t\t\t\t\tA message to the front office? Vrabel clarifies comments about lack of depth\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p class=\"has-medium-font-size\"><strong>Special teams (3)</strong>: Andy Borregales, Matt Haack, Julian Ashby</p>\n\n\n\n<p>Bryce Baringer is dealing with an injury that could keep him out for the regular-season opener, meaning the Patriots may have to roll with Matt Haack as their new punter for now. Keep an eye on that spot, however, since there are multiple NFL teams with two punters on the roster. If the Patriots prefer another option, they could pounce as rosters league-wide get settled.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Defensive tackle (5)</strong>: Milton Williams, Christian Barmore, Cory Durden, Josh Farmer, Leonard Taylor</p>\n\n\n\n<p>The Patriots should have some NFL-caliber depth here, but their backups had a hard time against backup Eagles offensive linemen last week &#8212; both in join practices and the preseason game on Saturday.</p>\n\n\n<div></div>\n\n\n<p class=\"has-medium-font-size\"><strong>Outside linebacker (3): </strong>Dre&#8217;Mont Jones, Elijah Ponder, Gabe Jacas</p>\n\n\n\n<p>Because we have yet to see Harold Landry (PUP) practice, it&#8217;s worth wondering whether he&#8217;ll be ready to start the season on the active roster. This group of outside linebackers is among the thinnest on the roster, but perhaps the Patriots can play the practice squad elevation game at the position until reinforcements become available.</p>\n\n\n\n<p>Outside &#8216;backers like Bradyn Swinson, Quintayvious&nbsp;Hutchins and Jesse Luketa could all potentially make their way back to Foxboro via the practice squad if released.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Inside linebacker (5):</strong> Robert Spillane, Christian Elliss, Khalil Jacobs, Namdi Obiazor, K.J. Britt</p>\n\n\n\n<p>The top two options here are locked in, but the depth behind Robert Spillane and Christian Elliss is a little hazy. Khalil Jacobs, an undrafted rookie out of Missouri, has had an impressive camp but was banged up in the preseason game against the Eagles. Namdi Obiazor had a mixed-bag performance in the same game, breaking up a pass but appearing to react late on two more throws in his area leading to chunk gains for Philly. Both rookies have drawn praise from their veteran teammates and could be core special-teamers to officially start their pro careers. K.J. Britt has had an up-and-down camp but may be needed as veteran depth in Seattle.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Cornerback (6)</strong>: Christian Gonzalez, Carlton Davis, Marcus Jones, Charles Woods, Karon Prunty, Kindle Vildor</p>\n\n\n\n<p>There&#8217;s competition afoot for the backup corner jobs, and Kindle Vildor may have had the strongest finish to camp among all of their reserve options. He picked off a pass to end last week&#8217;s first joint practice with the Eagles and then recorded three pass breakups (one wiped out due to penalty) in one drive in the preseason game.</p>\n\n\n\n<p>Charles Woods has had a bumpy camp in terms of performance and he&#8217;s been in and out of the lineup due to injury, but he makes it here due to his experience. Karon Prunty, a fifth-round pick in the spring, seems to have flashed enough in the way of traits to warrant working with him on the active roster. Fellow rookie Channing Canada, undrafted out of TCU, looks like he&#8217;d be an ideal practice-squad candidate.</p>\n\n\n<div></div>\n\n\n<p class=\"has-medium-font-size\"><strong>Safety (6)</strong>: Kevin Byard, Craig Woodson, Dell Pettus, Brenden Schooler, Jaylen Reed, John Saunders</p>\n\n\n\n<p>Suddenly, this unit looks a little crowded. Jaylen Reed, acquired in the Boutte trade, projects as a versatile hard-hitting safety who could be used on special teams and in some &#8220;big nickel&#8221; three-safety packages. Dell Pettus seems to fit a similar mold and hasn&#8217;t looked out of place when working with starters at times during training camp. John Saunders makes it here thanks to his knack for getting his hands on the football. He had a pass breakup and an interception in Monday&#8217;s practice; the pick was his fifth of the summer.&nbsp;</p>\n\n\n\n\n\n\n\n<p></p>\n<p><i>This story uses functionality that may not work in our app. <a href=\"https://www.nbcboston.com/news/local/roster-projection-preseason-finale-browns/4003046/\">Click here</a> to open the story in your web browser.</i></p>",
+      "summary": "<p>With two preseason games in the books, and with a roster-shifting trade now complete, what better time than now to try to cobble together another 53-man roster projection?</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Quarterback (3)</strong>: Drake Maye, Tommy DeVito, Behren Morton</p>\n\n\n\n<p>Behren Morton has provided the Patriots with professional reps when provided the opportunity in practices and preseason games this summer. His arm strength isn&#8217;t otherworldly but appears to be improved over when he played through injury at Texas Tech.</p>\n\n\n\n<p>With Eliot Wolf heading up the front office, it would come as little surprise if he brought a &#8220;Packer Way&#8221; approach to this position, developing a third passer with the future in mind.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Running back (3)</strong>: Rhamondre Stevenson, TreVeyon Henderson, Hassan Haskins</p>\n\n\n\n<p>The competition for the third running back spot might be one of the most heated this summer in New England. Haskins has the size (6-foot-2, 228 pounds) and NFL experience to warrant a real shot here. Injuries could help solidify his spot, too, since rookie Jam Miller and second-year back Lan Larison were banged up in preseason game No. 2.</p>\n\n\n<div></div>\n\n\n<p class=\"has-medium-font-size\"><strong>Wide receiver (6)</strong>: A.J. Brown, Romeo Doubs, DeMario Douglas, Kyle Williams, Mack Hollins, Efton Chism III</p>\n\n\n\n<p>With <a href=\"https://www.nbcsportsboston.com/nfl/new-england-patriots/trade-kayshon-boutte-houston-texans-jaylen-reed-draft-pick-report/800524/\" rel=\"noreferrer noopener\" target=\"_blank\">Kayshon Boutte out the door in a trade with the Texans</a>, this group of six seems to be the most likely to land on the initial 53-man roster when cuts are made at the end of the month. While Boutte might have provided solid insurance in case of injury to A.J. Brown, having outside-the-numbers options like Hollins and Williams on the roster made a Boutte trade a realistic possibility.</p>\n\n\n<div></div>\n\n\n<p class=\"has-medium-font-size\"><strong>Tight end/Fullback (4)</strong>: Hunter Henry, Eli Raridon, Tanner Arkin, Reggie Gilliam</p>\n\n\n\n<p>From a Patriots standpoint, Eli Raridon has provided one of the most encouraging young-player arcs of camp. He&#8217;s received first-team reps and has developed the kind of play speed the team wanted to see out of him as he grinded his way through spring practices. The talent is there, and he&#8217;s starting to show it.</p>\n\n\n\n<p>Tanner Arkin looks like a capable third option as a blocker who may one day have some positional versatility. He&#8217;s been used in the backfield, maybe foreshadowing that he could be a backup to fullback Reggie Gilliam, and looks raw but willing.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Offensive line (9)</strong>: Will Campbell, Alijah Vera-Tucker, Jared Wilson, Mike Onwenu, Morgan Moses, Caleb Lomu, Marcus Bryant, Dametrious Crownover, Greg Van Roten</p>\n\n\n\n<p>If Ben Brown isn&#8217;t healthy enough to start the season, the Patriots could end up with an extra roster spot here to keep a young tackle like Dametrious&nbsp;Crownover. Though the rookie sixth-round pick out of Texas A&amp;M hasn&#8217;t sniffed the starting lineup this camp &#8212; both Caleb Lomu and Marcus Bryant have consistently seen earlier practice and preseason game reps &#8212; Crownover has physical traits that might make him an enticing waiver claim for another club if released.</p>\n\n\n\n<p>Meanwhile, Greg Van Roten makes it here despite just one practice with the team to this point. He could end up starting the season as New England&#8217;s top backup at all three interior spots.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">MORE PATRIOTS</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/sports/nfl/new-england-patriots/christian-gonzalez-practices-treveyon-henderson-hurt/4003096/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/christian-gonzalez_1ed12b.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/new-england-patriots/\">New England Patriots</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t21 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/sports/nfl/new-england-patriots/christian-gonzalez-practices-treveyon-henderson-hurt/4003096/\">\n\t\t\t\t\t\t\t\t\t\tPatriots practice: Christian Gonzalez returns, TreVeyon Henderson gets hurt\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/kayshon-boutte-trade-texans-jaylen-reed-patriots/4003145/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/04/Kayshon-Boutte-USATSI_25001639.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/phil-perry/\">Phil Perry</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t20 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/kayshon-boutte-trade-texans-jaylen-reed-patriots/4003145/\">\n\t\t\t\t\t\t\t\t\t\tWhy didn&#039;t the Patriots get more in return for Kayshon Boutte?\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/sports/nfl/new-england-patriots/mike-vrabel-depth-comments/4002791/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/2026-08-23T004618Z_2130389282_MT1USATODAY29646205_RTRMADP_3_NFL-PHILADELPHIA-EAGLES-AT-NEW-ENGLAND-PATRIOTS-e1787577938316.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/new-england-patriots/\">New England Patriots</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 24\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/sports/nfl/new-england-patriots/mike-vrabel-depth-comments/4002791/\">\n\t\t\t\t\t\t\t\t\t\tA message to the front office? Vrabel clarifies comments about lack of depth\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<p class=\"has-medium-font-size\"><strong>Special teams (3)</strong>: Andy Borregales, Matt Haack, Julian Ashby</p>\n\n\n\n<p>Bryce Baringer is dealing with an injury that could keep him out for the regular-season opener, meaning the Patriots may have to roll with Matt Haack as their new punter for now. Keep an eye on that spot, however, since there are multiple NFL teams with two punters on the roster. If the Patriots prefer another option, they could pounce as rosters league-wide get settled.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Defensive tackle (5)</strong>: Milton Williams, Christian Barmore, Cory Durden, Josh Farmer, Leonard Taylor</p>\n\n\n\n<p>The Patriots should have some NFL-caliber depth here, but their backups had a hard time against backup Eagles offensive linemen last week &#8212; both in join practices and the preseason game on Saturday.</p>\n\n\n<div></div>\n\n\n<p class=\"has-medium-font-size\"><strong>Outside linebacker (3): </strong>Dre&#8217;Mont Jones, Elijah Ponder, Gabe Jacas</p>\n\n\n\n<p>Because we have yet to see Harold Landry (PUP) practice, it&#8217;s worth wondering whether he&#8217;ll be ready to start the season on the active roster. This group of outside linebackers is among the thinnest on the roster, but perhaps the Patriots can play the practice squad elevation game at the position until reinforcements become available.</p>\n\n\n\n<p>Outside &#8216;backers like Bradyn Swinson, Quintayvious&nbsp;Hutchins and Jesse Luketa could all potentially make their way back to Foxboro via the practice squad if released.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Inside linebacker (5):</strong> Robert Spillane, Christian Elliss, Khalil Jacobs, Namdi Obiazor, K.J. Britt</p>\n\n\n\n<p>The top two options here are locked in, but the depth behind Robert Spillane and Christian Elliss is a little hazy. Khalil Jacobs, an undrafted rookie out of Missouri, has had an impressive camp but was banged up in the preseason game against the Eagles. Namdi Obiazor had a mixed-bag performance in the same game, breaking up a pass but appearing to react late on two more throws in his area leading to chunk gains for Philly. Both rookies have drawn praise from their veteran teammates and could be core special-teamers to officially start their pro careers. K.J. Britt has had an up-and-down camp but may be needed as veteran depth in Seattle.</p>\n\n\n\n<p class=\"has-medium-font-size\"><strong>Cornerback (6)</strong>: Christian Gonzalez, Carlton Davis, Marcus Jones, Charles Woods, Karon Prunty, Kindle Vildor</p>\n\n\n\n<p>There&#8217;s competition afoot for the backup corner jobs, and Kindle Vildor may have had the strongest finish to camp among all of their reserve options. He picked off a pass to end last week&#8217;s first joint practice with the Eagles and then recorded three pass breakups (one wiped out due to penalty) in one drive in the preseason game.</p>\n\n\n\n<p>Charles Woods has had a bumpy camp in terms of performance and he&#8217;s been in and out of the lineup due to injury, but he makes it here due to his experience. Karon Prunty, a fifth-round pick in the spring, seems to have flashed enough in the way of traits to warrant working with him on the active roster. Fellow rookie Channing Canada, undrafted out of TCU, looks like he&#8217;d be an ideal practice-squad candidate.</p>\n\n\n<div></div>\n\n\n<p class=\"has-medium-font-size\"><strong>Safety (6)</strong>: Kevin Byard, Craig Woodson, Dell Pettus, Brenden Schooler, Jaylen Reed, John Saunders</p>\n\n\n\n<p>Suddenly, this unit looks a little crowded. Jaylen Reed, acquired in the Boutte trade, projects as a versatile hard-hitting safety who could be used on special teams and in some &#8220;big nickel&#8221; three-safety packages. Dell Pettus seems to fit a similar mold and hasn&#8217;t looked out of place when working with starters at times during training camp. John Saunders makes it here thanks to his knack for getting his hands on the football. He had a pass breakup and an interception in Monday&#8217;s practice; the pick was his fifth of the summer.&nbsp;</p>\n\n\n\n\n\n\n\n<p></p>\n<p><i>This story uses functionality that may not work in our app. <a href=\"https://www.nbcboston.com/news/local/roster-projection-preseason-finale-browns/4003046/\">Click here</a> to open the story in your web browser.</i></p>",
       "source": "NBC Boston"
     }
   ],
@@ -4598,13 +4598,13 @@
       "source": "CHN"
     },
     {
-      "title": "How One year of CHL Involvement Brought Major Change to NCAA Hockey Rosters - Sports Illustrated",
-      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZVBKRlFHWXlQV3pNdHlNZEtBNmJSUHFyalI3V3M4S0RPaGpnbVNid3NJWGszZjJISlhhV2dGSUxxLUw2dFFodzJYel9vaUtFMFYwV0NtdVpUTXlhUEhiZTJYZXZBQmxTdTAwMUVkOGdmemZGbk43bUphajZlcE9rcHczbkVYNnNBUlFaT01SRFVZYjNyOVNzNDAzV3dXMTQwX0NJd3hEVVJrYnNoQ2ZVT012RUFINWN1MEVWaDdzby1SRnZfSlE?oc=5",
-      "published": "Tue, 25 Aug 2026 10:00:00 GMT",
-      "ts": 1787652000,
+      "title": "Arizona State hockey player hospitalized after collapsing during outdoor workout - The Athletic - The New York Times",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSmRMa3BaLS02RXRiT0I3MFN5Z0dtQlhTRjFYV3B2czVsZWp2OW0zVF8wQUVWVDA3NklRNW5QZ2l3MDlXcXhTUGx6aEhncFN4TmE0QUVjd1NETlRsbmhBZzU3UzktYlluaUljYjZpYUtQWmdfazhWT0ZTcS1oZUUxcDV4S3EyTnh1cjd5OW9UdThYWktQLVB5dVhTNVV3SFpoQXk1dQ?oc=5",
+      "published": "Sun, 23 Aug 2026 21:12:10 GMT",
+      "ts": 1787519530,
       "author": "",
-      "feed_title": "Sports Illustrated",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxQZVBKRlFHWXlQV3pNdHlNZEtBNmJSUHFyalI3V3M4S0RPaGpnbVNid3NJWGszZjJISlhhV2dGSUxxLUw2dFFodzJYel9vaUtFMFYwV0NtdVpUTXlhUEhiZTJYZXZBQmxTdTAwMUVkOGdmemZGbk43bUphajZlcE9rcHczbkVYNnNBUlFaT01SRFVZYjNyOVNzNDAzV3dXMTQwX0NJd3hEVVJrYnNoQ2ZVT012RUFINWN1MEVWaDdzby1SRnZfSlE?oc=5\" target=\"_blank\">How One year of CHL Involvement Brought Major Change to NCAA Hockey Rosters</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
+      "feed_title": "The New York Times",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNSmRMa3BaLS02RXRiT0I3MFN5Z0dtQlhTRjFYV3B2czVsZWp2OW0zVF8wQUVWVDA3NklRNW5QZ2l3MDlXcXhTUGx6aEhncFN4TmE0QUVjd1NETlRsbmhBZzU3UzktYlluaUljYjZpYUtQWmdfazhWT0ZTcS1oZUUxcDV4S3EyTnh1cjd5OW9UdThYWktQLVB5dVhTNVV3SFpoQXk1dQ?oc=5\" target=\"_blank\">Arizona State hockey player hospitalized after collapsing during outdoor workout - The Athletic</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The New York Times</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4618,13 +4618,23 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "Arizona State hockey player hospitalized after collapsing during outdoor workout - The Athletic - The New York Times",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSmRMa3BaLS02RXRiT0I3MFN5Z0dtQlhTRjFYV3B2czVsZWp2OW0zVF8wQUVWVDA3NklRNW5QZ2l3MDlXcXhTUGx6aEhncFN4TmE0QUVjd1NETlRsbmhBZzU3UzktYlluaUljYjZpYUtQWmdfazhWT0ZTcS1oZUUxcDV4S3EyTnh1cjd5OW9UdThYWktQLVB5dVhTNVV3SFpoQXk1dQ?oc=5",
-      "published": "Sun, 23 Aug 2026 21:12:10 GMT",
-      "ts": 1787519530,
+      "title": "Michigan adds Lazary as associate HC - USCHO.com",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9IMW40SUVoR3lfRl9IdEZfbUo1aUUxRGI2X1RCSXkzQUV4QnBhMW95TWVrWEwzcW41ZWctUTlvY251eWpCN2E4NXMwdE5xTlpIZ3g2YnpxTzRtMVg2UlhqN1hWaWlXbHJCSVVsR3V4NWJIRFlzNVB3WEt3?oc=5",
+      "published": "Mon, 24 Aug 2026 17:00:11 GMT",
+      "ts": 1787590811,
       "author": "",
-      "feed_title": "The New York Times",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxNSmRMa3BaLS02RXRiT0I3MFN5Z0dtQlhTRjFYV3B2czVsZWp2OW0zVF8wQUVWVDA3NklRNW5QZ2l3MDlXcXhTUGx6aEhncFN4TmE0QUVjd1NETlRsbmhBZzU3UzktYlluaUljYjZpYUtQWmdfazhWT0ZTcS1oZUUxcDV4S3EyTnh1cjd5OW9UdThYWktQLVB5dVhTNVV3SFpoQXk1dQ?oc=5\" target=\"_blank\">Arizona State hockey player hospitalized after collapsing during outdoor workout - The Athletic</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The New York Times</font>",
+      "feed_title": "USCHO.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiekFVX3lxTE9IMW40SUVoR3lfRl9IdEZfbUo1aUUxRGI2X1RCSXkzQUV4QnBhMW95TWVrWEwzcW41ZWctUTlvY251eWpCN2E4NXMwdE5xTlpIZ3g2YnpxTzRtMVg2UlhqN1hWaWlXbHJCSVVsR3V4NWJIRFlzNVB3WEt3?oc=5\" target=\"_blank\">Michigan adds Lazary as associate HC</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">USCHO.com</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "How One year of CHL Involvement Brought Major Change to NCAA Hockey Rosters - Sports Illustrated",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZVBKRlFHWXlQV3pNdHlNZEtBNmJSUHFyalI3V3M4S0RPaGpnbVNid3NJWGszZjJISlhhV2dGSUxxLUw2dFFodzJYel9vaUtFMFYwV0NtdVpUTXlhUEhiZTJYZXZBQmxTdTAwMUVkOGdmemZGbk43bUphajZlcE9rcHczbkVYNnNBUlFaT01SRFVZYjNyOVNzNDAzV3dXMTQwX0NJd3hEVVJrYnNoQ2ZVT012RUFINWN1MEVWaDdzby1SRnZfSlE?oc=5",
+      "published": "Tue, 25 Aug 2026 10:00:00 GMT",
+      "ts": 1787652000,
+      "author": "",
+      "feed_title": "Sports Illustrated",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMixgFBVV95cUxQZVBKRlFHWXlQV3pNdHlNZEtBNmJSUHFyalI3V3M4S0RPaGpnbVNid3NJWGszZjJISlhhV2dGSUxxLUw2dFFodzJYel9vaUtFMFYwV0NtdVpUTXlhUEhiZTJYZXZBQmxTdTAwMUVkOGdmemZGbk43bUphajZlcE9rcHczbkVYNnNBUlFaT01SRFVZYjNyOVNzNDAzV3dXMTQwX0NJd3hEVVJrYnNoQ2ZVT012RUFINWN1MEVWaDdzby1SRnZfSlE?oc=5\" target=\"_blank\">How One year of CHL Involvement Brought Major Change to NCAA Hockey Rosters</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4638,13 +4648,33 @@
       "source": "Google News \u00b7 College Hockey"
     },
     {
-      "title": "Michigan adds Lazary as associate HC - USCHO.com",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9IMW40SUVoR3lfRl9IdEZfbUo1aUUxRGI2X1RCSXkzQUV4QnBhMW95TWVrWEwzcW41ZWctUTlvY251eWpCN2E4NXMwdE5xTlpIZ3g2YnpxTzRtMVg2UlhqN1hWaWlXbHJCSVVsR3V4NWJIRFlzNVB3WEt3?oc=5",
-      "published": "Mon, 24 Aug 2026 17:00:11 GMT",
-      "ts": 1787590811,
+      "title": "ASU hockey player hospitalized after collapse during outdoor workout, treatment for heat - Arizona Sports",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPeUcwOVNCbk5yU2NZY0VWUS1CUUJ2ZVVDVnRYbXRsTVZWZ2VSN0dyVVdQSmZRSk5PaGhEaklESFdhd2JBeEFDU21tbkIyNms1d3d1MzFMTldjWlY0d0k5VnF2UGcxTTdyUmh4RHBsdDcwYzlkdFptV2s5cmtlZlpRVFlzMA?oc=5",
+      "published": "Sun, 23 Aug 2026 20:29:51 GMT",
+      "ts": 1787516991,
       "author": "",
-      "feed_title": "USCHO.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiekFVX3lxTE9IMW40SUVoR3lfRl9IdEZfbUo1aUUxRGI2X1RCSXkzQUV4QnBhMW95TWVrWEwzcW41ZWctUTlvY251eWpCN2E4NXMwdE5xTlpIZ3g2YnpxTzRtMVg2UlhqN1hWaWlXbHJCSVVsR3V4NWJIRFlzNVB3WEt3?oc=5\" target=\"_blank\">Michigan adds Lazary as associate HC</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">USCHO.com</font>",
+      "feed_title": "Arizona Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxPeUcwOVNCbk5yU2NZY0VWUS1CUUJ2ZVVDVnRYbXRsTVZWZ2VSN0dyVVdQSmZRSk5PaGhEaklESFdhd2JBeEFDU21tbkIyNms1d3d1MzFMTldjWlY0d0k5VnF2UGcxTTdyUmh4RHBsdDcwYzlkdFptV2s5cmtlZlpRVFlzMA?oc=5\" target=\"_blank\">ASU hockey player hospitalized after collapse during outdoor workout, treatment for heat</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Arizona Sports</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "The Next Wave: NCAA Hockey\u2019s Best Sophomores to Watch in 2026\u201327 - Yahoo Sports",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBTQXgxV0VpS0RrazRjamh2NTBtXzJ6X2hHVFVUemhYblFxeDBiSUE4M1pYeHRsX1FvVFZQaEpKemMxTzBfcnRac1RtWUZiaUZQZWRPQllweHJQVjlHT0Z1YS1VT01Tb3NsXzZjbEdmSWJzZ043ajNkUE1Kdmt5UQ?oc=5",
+      "published": "Sat, 22 Aug 2026 17:14:45 GMT",
+      "ts": 1787418885,
+      "author": "",
+      "feed_title": "Yahoo Sports",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMifkFVX3lxTFBTQXgxV0VpS0RrazRjamh2NTBtXzJ6X2hHVFVUemhYblFxeDBiSUE4M1pYeHRsX1FvVFZQaEpKemMxTzBfcnRac1RtWUZiaUZQZWRPQllweHJQVjlHT0Z1YS1VT01Tb3NsXzZjbEdmSWJzZ043ajNkUE1Kdmt5UQ?oc=5\" target=\"_blank\">The Next Wave: NCAA Hockey\u2019s Best Sophomores to Watch in 2026\u201327</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo Sports</font>",
+      "source": "Google News \u00b7 College Hockey"
+    },
+    {
+      "title": "Nailers agree to terms with Pitoscia - Pro Hockey News",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9BaWRYeEhGQUwzUnpCWG5oS1R6alJOcFBvWTh5LWdyajFycC1nTVMyNll3b1JfZEVSVEFCbU9HT3R2eXFZWk1jaTV0NDNoOXdBUEcxZmhBbWhHbTcwU1lJaG1rekdHMVJPMVFIYzhNNVE?oc=5",
+      "published": "Tue, 25 Aug 2026 17:06:02 GMT",
+      "ts": 1787677562,
+      "author": "",
+      "feed_title": "Pro Hockey News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTE9BaWRYeEhGQUwzUnpCWG5oS1R6alJOcFBvWTh5LWdyajFycC1nTVMyNll3b1JfZEVSVEFCbU9HT3R2eXFZWk1jaTV0NDNoOXdBUEcxZmhBbWhHbTcwU1lJaG1rekdHMVJPMVFIYzhNNVE?oc=5\" target=\"_blank\">Nailers agree to terms with Pitoscia</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pro Hockey News</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4665,36 +4695,6 @@
       "author": "",
       "feed_title": "WDIO.com",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOWmJjajVtRFZfaFJidnRMS0gwM1ZkY3pVWk41S1JubEJLU2tITTh5VVpqOWVUSTk3U2Q3Vk5GWGMtTjVIVEVCU0NsOFVsVEFoWWY1N1ZRUGFTNTVuZk1Obl9La3ltMFc4TjRIcU8yekduTWt4RWNvNXVwb0NFaHJld2xrc1FfZ25VcnhrT2FibExXalVWM0E1SE13SEE0MVZ2STM0X3JJVnFFTTB3QzNJQ1BmTWM5NW1LR3BKWA?oc=5\" target=\"_blank\">Hibbing\u2019s Tate Swanson to play college hockey at United States Air Force Academy</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WDIO.com</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
-      "title": "Live College Hockey Returns to Prescott Valley - Signals AZ",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQMXpCcThPMUxvck9zV3d1SW9VSThJT0EwZGNHSnVkQXZrUTVGTjFGSjk1RkE4M2hrX3NlckZMa2wwdldYbmltdUljY2Jxa1g1VTc4aHduT1lzbGlDOEJXMF92bUZJMnJGMVYzZVJYNkZVSEw3dmU0SHhTak9SWXdyeTl3Mm9zelExSVE?oc=5",
-      "published": "Wed, 19 Aug 2026 18:06:02 GMT",
-      "ts": 1787162762,
-      "author": "",
-      "feed_title": "Signals AZ",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxQMXpCcThPMUxvck9zV3d1SW9VSThJT0EwZGNHSnVkQXZrUTVGTjFGSjk1RkE4M2hrX3NlckZMa2wwdldYbmltdUljY2Jxa1g1VTc4aHduT1lzbGlDOEJXMF92bUZJMnJGMVYzZVJYNkZVSEw3dmU0SHhTak9SWXdyeTl3Mm9zelExSVE?oc=5\" target=\"_blank\">Live College Hockey Returns to Prescott Valley</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Signals AZ</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
-      "title": "CC Hockey Announces 2026-27 Newcomers - Colorado College Athletics",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNc0VKTnltTVU0b1lfMnNualZOeVY4Q0pjUUdNUVNDZmVYM2d5Tl9kbXRqNlZIbWJ6aVNPenpCTkYzaXVITzRHdzAxc01Fa0w3dm16NEU0T2R0bHM4RnAzOWdsVjZjRUZET000Z0lha0pmQlpnbVlaaTJEOVFXZXgxTGszNWJ4bDZMb0dmaXZKcWpCTVE0NHJvOA?oc=5",
-      "published": "Thu, 06 Aug 2026 07:00:00 GMT",
-      "ts": 1785999600,
-      "author": "",
-      "feed_title": "Colorado College Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxNc0VKTnltTVU0b1lfMnNualZOeVY4Q0pjUUdNUVNDZmVYM2d5Tl9kbXRqNlZIbWJ6aVNPenpCTkYzaXVITzRHdzAxc01Fa0w3dm16NEU0T2R0bHM4RnAzOWdsVjZjRUZET000Z0lha0pmQlpnbVlaaTJEOVFXZXgxTGszNWJ4bDZMb0dmaXZKcWpCTVE0NHJvOA?oc=5\" target=\"_blank\">CC Hockey Announces 2026-27 Newcomers</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Colorado College Athletics</font>",
-      "source": "Google News \u00b7 College Hockey"
-    },
-    {
-      "title": "NCAA Emerges as Top Development Path for Winnipeg Jets Prospects - The Hockey News",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOdEJfazNTOGhvZUYwbHpESmV6cDZBaGlHcW0xUGxLSElZUUFQelFiZW9TNkE5WGpuQ19YV3UxU1JOeXhreWktbEZ4ektfRXJsdVAxNHBpWmtMWnNfdUxSZklXRzdlcUpuUVVnQUktR1NqcXNPaldRd29fWXRKWEZmUnBDYWNBMjRYQkRGeUloZjhBcy1wTkJWUU12ZGhPSFFlMnRsRV9vbGcwandob3RxblQzN1p2aGlSWmlLcw?oc=5",
-      "published": "Tue, 25 Aug 2026 05:59:59 GMT",
-      "ts": 1787637599,
-      "author": "",
-      "feed_title": "The Hockey News",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOdEJfazNTOGhvZUYwbHpESmV6cDZBaGlHcW0xUGxLSElZUUFQelFiZW9TNkE5WGpuQ19YV3UxU1JOeXhreWktbEZ4ektfRXJsdVAxNHBpWmtMWnNfdUxSZklXRzdlcUpuUVVnQUktR1NqcXNPaldRd29fWXRKWEZmUnBDYWNBMjRYQkRGeUloZjhBcy1wTkJWUU12ZGhPSFFlMnRsRV9vbGcwandob3RxblQzN1p2aGlSWmlLcw?oc=5\" target=\"_blank\">NCAA Emerges as Top Development Path for Winnipeg Jets Prospects</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Hockey News</font>",
       "source": "Google News \u00b7 College Hockey"
     },
     {
@@ -4758,13 +4758,13 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Providence takes advantage of BC hockey miscues in OT win - MassLive.com",
+      "title": "Providence takes advantage of BC hockey miscues in OT win - MassLive",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5",
       "published": "Fri, 16 Jan 2026 08:00:00 GMT",
       "ts": 1768550400,
       "author": "",
-      "feed_title": "MassLive.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5\" target=\"_blank\">Providence takes advantage of BC hockey miscues in OT win</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
+      "feed_title": "MassLive",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5\" target=\"_blank\">Providence takes advantage of BC hockey miscues in OT win</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
@@ -5062,13 +5062,13 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "Women\u2019s Hockey Announces 2026-27 Schedule - Providence College Athletics",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5",
-      "published": "Mon, 10 Aug 2026 07:00:00 GMT",
-      "ts": 1786345200,
+      "title": "Roger McQueen Tabbed As Hockey East Rookie Of The Year - Providence College Athletics",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPNC1QSDVOdll5V1ZGOTBhTFFWWlJKdUFzRmdWOWN3M3RKZ2RGb2JvWmNkbWFOTlhhb0tXUllfSTdOVC0zOUxfTjI0N3NwdkYySFJVQTUtN3ZEazJmZmwyRE5uOFl6S0U3cFBTdDVWYWxkMlZMY3JvM0s0MzF3RVVYMkZwdzA2ZENvQldWLWxVQ2xmZXExZ1dRTVk3aWpWSWNGc1hGLUxoZw?oc=5",
+      "published": "Thu, 19 Mar 2026 07:00:00 GMT",
+      "ts": 1773903600,
       "author": "",
       "feed_title": "Providence College Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5\" target=\"_blank\">Women\u2019s Hockey Announces 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Providence College Athletics</font>",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxPNC1QSDVOdll5V1ZGOTBhTFFWWlJKdUFzRmdWOWN3M3RKZ2RGb2JvWmNkbWFOTlhhb0tXUllfSTdOVC0zOUxfTjI0N3NwdkYySFJVQTUtN3ZEazJmZmwyRE5uOFl6S0U3cFBTdDVWYWxkMlZMY3JvM0s0MzF3RVVYMkZwdzA2ZENvQldWLWxVQ2xmZXExZ1dRTVk3aWpWSWNGc1hGLUxoZw?oc=5\" target=\"_blank\">Roger McQueen Tabbed As Hockey East Rookie Of The Year</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Providence College Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -5122,13 +5122,13 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
-      "title": "Roger McQueen Tabbed As Hockey East Rookie Of The Year - Providence College Athletics",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPNC1QSDVOdll5V1ZGOTBhTFFWWlJKdUFzRmdWOWN3M3RKZ2RGb2JvWmNkbWFOTlhhb0tXUllfSTdOVC0zOUxfTjI0N3NwdkYySFJVQTUtN3ZEazJmZmwyRE5uOFl6S0U3cFBTdDVWYWxkMlZMY3JvM0s0MzF3RVVYMkZwdzA2ZENvQldWLWxVQ2xmZXExZ1dRTVk3aWpWSWNGc1hGLUxoZw?oc=5",
-      "published": "Thu, 19 Mar 2026 07:00:00 GMT",
-      "ts": 1773903600,
+      "title": "Women\u2019s Hockey Announces 2026-27 Schedule - Providence College Athletics",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5",
+      "published": "Mon, 10 Aug 2026 07:00:00 GMT",
+      "ts": 1786345200,
       "author": "",
       "feed_title": "Providence College Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxPNC1QSDVOdll5V1ZGOTBhTFFWWlJKdUFzRmdWOWN3M3RKZ2RGb2JvWmNkbWFOTlhhb0tXUllfSTdOVC0zOUxfTjI0N3NwdkYySFJVQTUtN3ZEazJmZmwyRE5uOFl6S0U3cFBTdDVWYWxkMlZMY3JvM0s0MzF3RVVYMkZwdzA2ZENvQldWLWxVQ2xmZXExZ1dRTVk3aWpWSWNGc1hGLUxoZw?oc=5\" target=\"_blank\">Roger McQueen Tabbed As Hockey East Rookie Of The Year</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Providence College Athletics</font>",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5\" target=\"_blank\">Women\u2019s Hockey Announces 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Providence College Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
     },
     {
@@ -5214,16 +5214,6 @@
       "source": "NPR"
     },
     {
-      "title": "Kids with brain injuries thrive at this camp. But federal research funding is in flux",
-      "link": "https://www.npr.org/2026/08/25/nx-s1-5936617/camp-cranium-tbi-act-brain-injury-concussion-trauma-cdc",
-      "published": "Tue, 25 Aug 2026 05:00:00 -0400",
-      "ts": 1787648400,
-      "author": "Lydia McFarlane",
-      "feed_title": "",
-      "summary": "<img alt=\"Camp Cranium counselor Anvitha Tharra (right) helps participant Angelica Zander learn to use a bow and arrow. The weeklong event in Pennsylvania\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6720x4480+0+0/resize/6720x4480!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F92%2F07%2F16aa4fed41868a3bcd396a6179d8%2Fcamp-cranium-01.jpg\" /><p>A Pennsylvania summer camp helps children who have survived brain injuries. But the future of federal funding for brain injury research, as well as grants to states to help such patients, is in limbo.</p><p>(Image credit: Sarah Hofius Hall)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5936617\" />",
-      "source": "NPR"
-    },
-    {
       "title": "Churches, libraries and breweries: Inside DHS' covert surveillance operation",
       "link": "https://www.npr.org/2026/08/25/nx-s1-5941135/dhs-surveillance-minnesota-ice-surge",
       "published": "Tue, 25 Aug 2026 05:00:00 -0400",
@@ -5251,6 +5241,16 @@
       "author": "Sadie Babits",
       "feed_title": "",
       "summary": "<img alt=\"A woman walks in the shade in downtown Houston, Texas, on July 30, 2026, during a regional heat wave.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/7439x4959+0+0/resize/7439x4959!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F29%2F19%2Fbe3be846478fa55daca484d487d6%2Fgettyimages-2287657636.jpg\" /><p>As the senior climate editor at NPR, when extreme weather impacts us, I often send out guidance to the newsroom to help everyone understand the role of climate change. Here's what I tell them.</p><p>(Image credit: Ronaldo Schemidt/AFP via Getty Images)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5940053\" />",
+      "source": "NPR"
+    },
+    {
+      "title": "When is suspending students discrimination? Education Department renews an old fight",
+      "link": "https://www.npr.org/2026/08/25/nx-s1-5936474/discrimination-school-discipline-suspension-race-education-department-civil-rights",
+      "published": "Tue, 25 Aug 2026 05:00:00 -0400",
+      "ts": 1787648400,
+      "author": "Cory Turner",
+      "feed_title": "",
+      "summary": "<img alt=\"undefined\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6720x4480+0+0/resize/6720x4480!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fec%2F4f%2Ffae96d4c48709fd9fe30fb761c92%2Fgettyimages-2252050224.jpg\" /><p>President Trump's Education Department is telling schools to stop considering race when it comes to school discipline.</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5936474\" />",
       "source": "NPR"
     },
     {
@@ -5326,11 +5326,21 @@
     {
       "title": "Iran May Have Little to Lose as U.S. Tries to Squeeze Its Economy",
       "link": "https://www.nytimes.com/2026/08/25/world/middleeast/iran-us-economy-sanctions.html",
-      "published": "Tue, 25 Aug 2026 10:47:25 +0000",
-      "ts": 1787654845,
-      "author": "Erika Solomon",
+      "published": "Tue, 25 Aug 2026 17:13:59 +0000",
+      "ts": 1787678039,
+      "author": "Erika Solomon and Sanam Mahoozi",
       "feed_title": "",
       "summary": "Drivers waiting at a taxi station in Tehran last month.",
+      "source": "NY Times"
+    },
+    {
+      "title": "How the Supreme Court Is Issuing Orders as Trump \u2018Emergencies\u2019 Return",
+      "link": "https://www.nytimes.com/2026/08/25/us/politics/supreme-court-trump-emergency-shadow-docket.html",
+      "published": "Tue, 25 Aug 2026 17:17:43 +0000",
+      "ts": 1787678263,
+      "author": "Ann E. Marimow",
+      "feed_title": "",
+      "summary": "In 19 months, the president has already asked the justices to intervene far more times than George W. Bush and Barack Obama did during their 16 years in office combined.",
       "source": "NY Times"
     },
     {
@@ -5344,33 +5354,33 @@
       "source": "NY Times"
     },
     {
-      "title": "Trump Wants to Restrict Mail-In Voting. See Which States Rely on It The Most.",
-      "link": "https://www.nytimes.com/2026/08/25/us/politics/mail-in-ballots-states-voting-trump.html",
-      "published": "Tue, 25 Aug 2026 15:17:57 +0000",
-      "ts": 1787671077,
-      "author": "Amy Schoenfeld Walker",
-      "feed_title": "",
-      "summary": "Poll officials in Pinellas County, Fla., processed mail-in ballots for the state\u2019s primary elections earlier this month.",
-      "source": "NY Times"
-    },
-    {
       "title": "Father's house rammed before son died in A66 crash",
       "link": "https://www.bbc.co.uk/news/articles/cevwjww8p08o?at_medium=RSS&at_campaign=rss",
-      "published": "Tue, 25 Aug 2026 15:26:11 GMT",
-      "ts": 1787671571,
+      "published": "Tue, 25 Aug 2026 17:30:40 GMT",
+      "ts": 1787679040,
       "author": "",
       "feed_title": "",
       "summary": "The house belonging to Cole Worthy's father is significantly damaged and its windows are smashed.",
       "source": "BBC"
     },
     {
-      "title": "China hits out at 'illegal' new US sanctions on Iran and trading partners",
-      "link": "https://www.bbc.co.uk/news/articles/clyl8965j5go?at_medium=RSS&at_campaign=rss",
-      "published": "Tue, 25 Aug 2026 11:53:36 GMT",
-      "ts": 1787658816,
+      "title": "CIA chief travels to Moscow for unannounced talks, US media reports",
+      "link": "https://www.bbc.co.uk/news/articles/c87vg9x5d7do?at_medium=RSS&at_campaign=rss",
+      "published": "Tue, 25 Aug 2026 16:56:20 GMT",
+      "ts": 1787676980,
       "author": "",
       "feed_title": "",
-      "summary": "The US has threatened to isolate nations that continue to do business with Tehran, which sells much of its oil to Beijing.",
+      "summary": "Flight tracking data confirms an American military aircraft travelled to Russia from the US via Latvia on Tuesday.",
+      "source": "BBC"
+    },
+    {
+      "title": "Trump says all mines cleared from Strait of Hormuz",
+      "link": "https://www.bbc.co.uk/news/articles/cwyzw836d05o?at_medium=RSS&at_campaign=rss",
+      "published": "Tue, 25 Aug 2026 17:32:50 GMT",
+      "ts": 1787679170,
+      "author": "",
+      "feed_title": "",
+      "summary": "Iran has closed the vital waterway since the beginning of the conflict causing wild fluctuations in oil prices worldwide.",
       "source": "BBC"
     },
     {
@@ -5391,16 +5401,6 @@
       "author": "",
       "feed_title": "",
       "summary": "Two women are also hurt and one remains in hospital in critical condition.",
-      "source": "BBC"
-    },
-    {
-      "title": "CIA chief in Moscow for unannounced talks, US media reports",
-      "link": "https://www.bbc.co.uk/news/articles/c87vg9x5d7do?at_medium=RSS&at_campaign=rss",
-      "published": "Tue, 25 Aug 2026 16:08:26 GMT",
-      "ts": 1787674106,
-      "author": "",
-      "feed_title": "",
-      "summary": "Flight tracking data confirms an American military aircraft travelled to Russia from the US via Latvia on Tuesday.",
       "source": "BBC"
     },
     {
@@ -5454,6 +5454,56 @@
       "source": "BBC"
     },
     {
+      "title": "Mike Lindell misses deadline for recount payment, seeks restraining order",
+      "link": "https://thehill.com/homenews/campaign/6049508-mike-lindell-minnesota-election-recount-deadline/",
+      "published": "Tue, 25 Aug 2026 17:21:44 +0000",
+      "ts": 1787678504,
+      "author": "Mira Bhakta",
+      "feed_title": "",
+      "summary": "MyPillow founder Mike Lindell (R) announced Monday he will file a temporary restraining order against Minnesota Secretary of State Steve Simon amid his ongoing efforts to fund a private recount of the state\u2019s gubernatorial primaries. His campaign said in a statement that Simon\u2019s office had put Lindell \u201cin an untenable position\u201d by placing restrictions on&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Democrat jabs Trump over Lake Ontario threat: \u2018Let\u2019s just call it Lake Natalie\u2019",
+      "link": "https://thehill.com/homenews/house/6049438-dingell-lake-ontario-natalie-harp/",
+      "published": "Tue, 25 Aug 2026 17:13:41 +0000",
+      "ts": 1787678021,
+      "author": "Ryan Mancini",
+      "feed_title": "",
+      "summary": "Rep. Debbie Dingell (D-Mich.) on Tuesday took a jab at President Trump over his threat to rename Lake Ontario to Lake America amid his trade war with Canada, saying the U.S. should &#8220;just call it Lake Natalie&#8221; after White House executive assistant Natalie Harp. Dingell shared on the social platform X a screenshot of Trump&#8217;s&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Paxton unveils data center plan, joining other GOP candidates in calling for restrictions",
+      "link": "https://thehill.com/policy/technology/6049559-ken-paxton-texas-senate-ai-data-center-plan/",
+      "published": "Tue, 25 Aug 2026 17:13:00 +0000",
+      "ts": 1787677980,
+      "author": "Julia Shapero",
+      "feed_title": "",
+      "summary": "Texas Attorney General Ken Paxton (R) unveiled a plan Monday to place restrictions on data centers if elected to the U.S. Senate, becoming the latest GOP candidate to take a stronger stance against the controversial AI infrastructure. Paxton laid out his four-point plan, vowing to \u201cfiercely advocate\u201d for Gov. Greg Abbott\u2019s (R) state-level data center&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Carville rips Jeffries for meeting with Kushner: \u2018We don\u2019t want to f\u2011\u2011\u2011 with them\u2019",
+      "link": "https://thehill.com/homenews/administration/6049542-carville-criticizes-jeffries-kushner-meeting/",
+      "published": "Tue, 25 Aug 2026 17:00:02 +0000",
+      "ts": 1787677202,
+      "author": "Tara Suter",
+      "feed_title": "",
+      "summary": "Democratic strategist James Carville went after House Minority Leader Hakeem Jeffries (D-N.Y.) over his recent meeting with President Trump\u2019s son-in-law Jared Kushner. \u201cOne thing that I know and you know, these are a pack of crooks, and they&#8217;re a pack of people that don&#8217;t give a s\u2011\u2011\u2011 about the United States of America, and we&#8230;",
+      "source": "The Hill"
+    },
+    {
+      "title": "Parents are winning \u2014 and the Department of Education is leading the charge",
+      "link": "https://thehill.com/opinion/education/6048340-dept-education-enforces-parental-rights/",
+      "published": "Tue, 25 Aug 2026 17:00:00 +0000",
+      "ts": 1787677200,
+      "author": "Kate Anderson, opinion contributor",
+      "feed_title": "",
+      "summary": "The U.S. Department of Education and the Department of Justice have intensified enforcement of parental rights laws against school districts that hide student information from parents regarding gender identity and privacy violations.",
+      "source": "The Hill"
+    },
+    {
       "title": "What is CTE, and how many former NFL players have been diagnosed with it?",
       "link": "https://thehill.com/policy/healthcare/6048906-what-is-cte-and-how-many-former-nfl-players-have-been-diagnosed-with-it/",
       "published": "Tue, 25 Aug 2026 16:36:32 +0000",
@@ -5470,7 +5520,7 @@
       "ts": 1787675558,
       "author": "Max Rego",
       "feed_title": "",
-      "summary": "Rep. Byron Donalds (R-Fla.) on Tuesday announced Florida state Sen. Bryan \u00c1vila (R) will be his running mate in the Sunshine State\u2019s gubernatorial race. Donalds, who won the GOP primary last week, praised \u00c1vila as a \u201cproven warrior\u201d and \u201cconservative fighter.\u201d \u00c1vila, the former speaker pro tempore of the Florida House, has represented the state\u2019s&#8230;",
+      "summary": "Rep. Byron Donalds (R-Fla.) announced Tuesday that Florida state Sen. Bryan Avila (R) will be his running mate in the Sunshine State\u2019s gubernatorial race. Donalds, who won the GOP primary last week, praised Avila as a \u201cproven warrior\u201d and \u201cconservative fighter.\u201d Avila, the former speaker pro tempore of the Florida House, has represented the state\u2019s&#8230;",
       "source": "The Hill"
     },
     {
@@ -5504,54 +5554,14 @@
       "source": "The Hill"
     },
     {
-      "title": "Thyroid tablets recalled nationwide over potential \u2018superpotency\u2019: FDA",
-      "link": "https://thehill.com/policy/healthcare/6049169-thyroid-tablets-recalled-nationwide-potential-superpotency-fda/",
-      "published": "Tue, 25 Aug 2026 16:10:51 +0000",
-      "ts": 1787674251,
-      "author": "Zach Kaplan",
+      "title": "Most of northwestern Indiana now has power restored 13 days after storms",
+      "link": "https://www.washingtonpost.com/nation/2026/08/25/most-northwestern-indiana-now-has-power-restored-13-days-after-storms/",
+      "published": "Tue, 25 Aug 2026 17:00:00 +0000",
+      "ts": 1787677200,
+      "author": "Cole Reynolds",
       "feed_title": "",
-      "summary": "Patients taking the affected lot are advised not to discontinue use without first consulting their health care provider.",
-      "source": "The Hill"
-    },
-    {
-      "title": "Iran\u2019s attacks on US water systems are just the beginning",
-      "link": "https://thehill.com/opinion/cybersecurity/6047624-iranian-hackers-water-infrastructure/",
-      "published": "Tue, 25 Aug 2026 16:00:00 +0000",
-      "ts": 1787673600,
-      "author": "Tal Kollender, opinion contributors",
-      "feed_title": "",
-      "summary": "Iran\u00a0isn\u2019t\u00a0waiting for this war to end before it looks for the next vulnerability,\u00a0and neither should we.",
-      "source": "The Hill"
-    },
-    {
-      "title": "Shapiro holds 16-point lead in reelection bid polling",
-      "link": "https://thehill.com/homenews/campaign/6049300-josh-shapiro-pennsylvania-reelection-bid-survey/",
-      "published": "Tue, 25 Aug 2026 15:59:13 +0000",
-      "ts": 1787673553,
-      "author": "Max Rego",
-      "feed_title": "",
-      "summary": "Pennsylvania Gov. Josh Shapiro (D) is cruising toward reelection, according to a new poll of likely voters in the Keystone State. The latest survey from The New York Times/Philadelphia Inquirer/Siena University showed 55 percent of respondents supported Shapiro in the gubernatorial race. Another 39 percent backed GOP state Treasurer Stacy Garrity, and 6 percent did&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Doug Ford responds to Trump\u2019s Lake Ontario taunt: \u2018A lot of rhetoric\u2019",
-      "link": "https://thehill.com/policy/international/6049319-ford-dismisses-trump-lake-threat/",
-      "published": "Tue, 25 Aug 2026 15:53:27 +0000",
-      "ts": 1787673207,
-      "author": "Sarah Davis",
-      "feed_title": "",
-      "summary": "Ontario Premier Doug Ford dismissed President Trump\u2019s Tuesday threat to rename a Canadian lake in honor of the U.S., a day after the pair publicly exchanged insults amid an escalating trade fight between the two countries.\u00a0 \u201cI think it\u2019s a lot of rhetoric,\u201d Ford told CNN\u2019s Wolf Blitzer, noting Canada\u2019s role as a \u201cnumber one&#8230;",
-      "source": "The Hill"
-    },
-    {
-      "title": "Canada announces \u2018dollar for dollar, rate for rate\u2019 retaliatory tariffs on US",
-      "link": "https://thehill.com/policy/international/6049341-canada-trade-war-trump-tariffs/",
-      "published": "Tue, 25 Aug 2026 15:52:02 +0000",
-      "ts": 1787673122,
-      "author": "Mallory Wilson",
-      "feed_title": "",
-      "summary": "Canada announced retaliatory tariffs on hundreds of American products as high as 50 percent Tuesday, just days after the collapse of negotiations between the two countries. Canadian Finance Minister Fran\u00e7ois-Philippe Champagne said Canada will match the U.S.\u2019s tariffs \u201cdollar for dollar, rate for rate.\u201d The tariffs would take effect Sept. 8. He said the 15&#8230;",
-      "source": "The Hill"
+      "summary": "A derecho sent 99-mph winds through Gary on Aug. 11, cutting power to more than 300,000 residents in the area.",
+      "source": "Washington Post"
     },
     {
       "title": "State Department wants to sell \u2018woke\u2019 painting by Obama portrait artist",
@@ -5606,6 +5616,16 @@
   ],
   "news_logan": [
     {
+      "title": "Peek inside JetBlue\u2019s brand-new lounge at Logan Airport - Boston.com",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQaFA3bC1pMktVekl2YzVlX3dkZUJaZ2stelQ1elMxMVNqMGw2RnNqRDQ5NVhBeC1iWFA4Z0MtOS1GUVo1WFpnaDIyRUhCOHJrY1Q0b3NXcTdlS0VqUkl5dTRtbFZPVG5ZaDVpbVh0dVRUcG85VEx5M1VGaHlmenBDQ1VRc3hUaHhINUNjbnhlR2pJLWM?oc=5",
+      "published": "Mon, 24 Aug 2026 20:30:00 GMT",
+      "ts": 1787603400,
+      "author": "",
+      "feed_title": "Boston.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxQaFA3bC1pMktVekl2YzVlX3dkZUJaZ2stelQ1elMxMVNqMGw2RnNqRDQ5NVhBeC1iWFA4Z0MtOS1GUVo1WFpnaDIyRUhCOHJrY1Q0b3NXcTdlS0VqUkl5dTRtbFZPVG5ZaDVpbVh0dVRUcG85VEx5M1VGaHlmenBDQ1VRc3hUaHhINUNjbnhlR2pJLWM?oc=5\" target=\"_blank\">Peek inside JetBlue\u2019s brand-new lounge at Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
+      "source": "Google News"
+    },
+    {
       "title": "JetBlue unveils new lounge inside Logan Airport's Terminal C - CBS News",
       "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNDlRN3Y4RXJZaGF1VHFDWW10c0dJVmwzSlJ2dWxpYllvQm0zdlpCQkFYMTNGaW9nZmdIV1lYb215MDUxQjlTa2ZyVUtGeXlhc0plNTFzWVh4ZTVaTjJTUS1COW9JNkNfYnRGRVlpWi1taGNYRTdSQ1I1UUdPSkNMZHZUZlFTM3pReWlwdGIzVkxoR2tHNnJMc3ZjY21aZw?oc=5",
       "published": "Tue, 25 Aug 2026 15:07:00 GMT",
@@ -5623,16 +5643,6 @@
       "author": "",
       "feed_title": "The Boston Globe",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxPSWRjc2pfSmJSV1RTcmdWeDRxVDZQc1duY0ZSTlZONjVac0lWSG5CQkFFMVNSYm9DS2xSb1otSkN0SksxY1FEMzJvY01FOTRmM0FxVlctdEM2ODlhNktya2w0cXZ2TWh0amR1cEo2RkdIMnk3MjBwcUs3dTgzYmFHUEtkVnpPY0RfWVE?oc=5\" target=\"_blank\">JetBlue\u2019s new lounge at Logan has a Green Monster, craft cocktails, and a secret candy alcove. Take a peek inside.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Boston Globe</font>",
-      "source": "Google News"
-    },
-    {
-      "title": "Peek inside JetBlue\u2019s brand-new lounge at Logan Airport - Boston.com",
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQaFA3bC1pMktVekl2YzVlX3dkZUJaZ2stelQ1elMxMVNqMGw2RnNqRDQ5NVhBeC1iWFA4Z0MtOS1GUVo1WFpnaDIyRUhCOHJrY1Q0b3NXcTdlS0VqUkl5dTRtbFZPVG5ZaDVpbVh0dVRUcG85VEx5M1VGaHlmenBDQ1VRc3hUaHhINUNjbnhlR2pJLWM?oc=5",
-      "published": "Mon, 24 Aug 2026 20:30:00 GMT",
-      "ts": 1787603400,
-      "author": "",
-      "feed_title": "Boston.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxQaFA3bC1pMktVekl2YzVlX3dkZUJaZ2stelQ1elMxMVNqMGw2RnNqRDQ5NVhBeC1iWFA4Z0MtOS1GUVo1WFpnaDIyRUhCOHJrY1Q0b3NXcTdlS0VqUkl5dTRtbFZPVG5ZaDVpbVh0dVRUcG85VEx5M1VGaHlmenBDQ1VRc3hUaHhINUNjbnhlR2pJLWM?oc=5\" target=\"_blank\">Peek inside JetBlue\u2019s brand-new lounge at Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston.com</font>",
       "source": "Google News"
     },
     {
@@ -5726,6 +5736,16 @@
       "source": "Google News"
     },
     {
+      "title": "Authorities to give update on Boston Harbor boat crash that killed 24-year-old woman - Boston 25 News",
+      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNZi1WZGFrS2NOc2JHSEY4eU5pek5UcTFwaWNSc2Jra1MzcTJRX18xTjg5NTNqYkh1SVNxTDJLd2pwcUJackVEWjg2OUxDWm5OdEJzM2hBZFRqTzE0QVpwTGIyUHY2ZVFITndpa1hnMDAySlBNSmQ0WkZnTzNJZlRiZGNGUFNnak9lMGhOZlFrUUxlRWlOUlVZSmJGbXd6MXBXY3JocU1yaGtaWWM1V2ZWeDRlZ1hpWmQ4aFhDXzFRVUtMUEZKb3F3dTk4MXBRbTJRcFAyclhDRC01MHZrSWNR0gHzAUFVX3lxTE5tTnl0T2o0UUN0dVBNNnY0Z2hCb05zS0ZEdGJEb1U3Qk9ZczZvU2dpLWJtZlRPT3ZVWFFsZWNOaUFGN2x2NzhaTnh2ckItZ3Btc2VJU3FTTE1ZM2NGSmY0M1JiRDlsTHhDUWN1TUVudnM4M04wZmRPaXg2YTlBeDJnY3draTNzS1lWVWFGWENQM21mdktBeDVVczBUazBDbUpLMnFVSXBHcVV0S2QxS1p5eXhGLVJsTTdGaVowZkNDTWZtZ2RPVkRoSjVWV2kyU2RqWW0yM3BEY21kSXpSb2ZNVnVXNlZHNkthOEo2NGR5ekNMcw?oc=5",
+      "published": "Tue, 25 Aug 2026 16:40:06 GMT",
+      "ts": 1787676006,
+      "author": "",
+      "feed_title": "Boston 25 News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi3wFBVV95cUxNZi1WZGFrS2NOc2JHSEY4eU5pek5UcTFwaWNSc2Jra1MzcTJRX18xTjg5NTNqYkh1SVNxTDJLd2pwcUJackVEWjg2OUxDWm5OdEJzM2hBZFRqTzE0QVpwTGIyUHY2ZVFITndpa1hnMDAySlBNSmQ0WkZnTzNJZlRiZGNGUFNnak9lMGhOZlFrUUxlRWlOUlVZSmJGbXd6MXBXY3JocU1yaGtaWWM1V2ZWeDRlZ1hpWmQ4aFhDXzFRVUtMUEZKb3F3dTk4MXBRbTJRcFAyclhDRC01MHZrSWNR0gHzAUFVX3lxTE5tTnl0T2o0UUN0dVBNNnY0Z2hCb05zS0ZEdGJEb1U3Qk9ZczZvU2dpLWJtZlRPT3ZVWFFsZWNOaUFGN2x2NzhaTnh2ckItZ3Btc2VJU3FTTE1ZM2NGSmY0M1JiRDlsTHhDUWN1TUVudnM4M04wZmRPaXg2YTlBeDJnY3draTNzS1lWVWFGWENQM21mdktBeDVVczBUazBDbUpLMnFVSXBHcVV0S2QxS1p5eXhGLVJsTTdGaVowZkNDTWZtZ2RPVkRoSjVWV2kyU2RqWW0yM3BEY21kSXpSb2ZNVnVXNlZHNkthOEo2NGR5ekNMcw?oc=5\" target=\"_blank\">Authorities to give update on Boston Harbor boat crash that killed 24-year-old woman</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston 25 News</font>",
+      "source": "Google News"
+    },
+    {
       "title": "U.S. Airport Dethrones John F. Kennedy International Airport As The Top Hub For International Flight Deals - TheTravel",
       "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOeURLLUtUcUQ0V3FHd3ZLT1NHSXV3VlNlSm4wNlRxU284a1Z5WlViSnVBWTJSQ0dhYnJvM25YVUhHZnRLSWdIQktwRm9rdmcwMXZleGNpMjF5bzdPM2xTXzJxbVYwWTZJWExEcFd0dlJ4MzRwQ2pOVElJeThWQ3VUb3lxZllXT1g1RXpVWWRhZkxZSTJwR0Ywd1VfSnBwdEszQ1dkRGFhZ1Badmwyc0ZwWDRjTXJTQUt5WE9vYkRn?oc=5",
       "published": "Tue, 25 Aug 2026 12:10:15 GMT",
@@ -5743,16 +5763,6 @@
       "author": "",
       "feed_title": "StreetInsider",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMivwFBVV95cUxPTVl3RXV1T1Z2YW41aV91V21Ec3hGWlNoRVlyTnNUdFVRc3BMb0RZQ0VQbE12Z2Y0V3ZsWkM2cDJXMHJBMVUxRDJQdVVWQlpyNGhtTDlNQURaQUZmNlJ3TWptQTEyQzllSzFNaFlhV1Mzd2JHb0s0aW5FTkZxQU9zMGpWakJTY3JrWDMtYVZfZW9fa0ZjUTBtNFFTTGpyQTRtVk8ybFE3Y2s0eEFuWlNOT2lDajdySm10a0NmaGpSRQ?oc=5\" target=\"_blank\">JetBlue to open second BlueHouse lounge at Boston Logan airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">StreetInsider</font>",
-      "source": "Google News"
-    },
-    {
-      "title": "11,000 Square Feet: JetBlue\u2019s New BlueHouse Lounge At Boston Logan Nears Opening - Simple Flying",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBsakVIbTJWbUlXYzkzNEdHNUljc2xaWnp1Q3hNVjgzc0RDZ0VWYlVuR0tZN1E4U3dfMVJzTlU1UFBIM25NRnZ2ellJa2RBMFpxWm42WS1wOUUtMXc4UnJta3d5cjE1Q0F0c0NhV3ZlS0o5Skl2T0k1TnJ2REYzOTg?oc=5",
-      "published": "Wed, 19 Aug 2026 19:18:19 GMT",
-      "ts": 1787167099,
-      "author": "",
-      "feed_title": "Simple Flying",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMif0FVX3lxTFBsakVIbTJWbUlXYzkzNEdHNUljc2xaWnp1Q3hNVjgzc0RDZ0VWYlVuR0tZN1E4U3dfMVJzTlU1UFBIM25NRnZ2ellJa2RBMFpxWm42WS1wOUUtMXc4UnJta3d5cjE1Q0F0c0NhV3ZlS0o5Skl2T0k1TnJ2REYzOTg?oc=5\" target=\"_blank\">11,000 Square Feet: JetBlue\u2019s New BlueHouse Lounge At Boston Logan Nears Opening</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Simple Flying</font>",
       "source": "Google News"
     }
   ],
@@ -6197,7 +6207,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "Regular deep-cleaning",
+      "summary": "prep for sept meeting",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6205,7 +6215,7 @@
       "date": "2026-08-30",
       "time": null,
       "all_day": true,
-      "summary": "prep for sept meeting",
+      "summary": "Regular deep-cleaning",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6245,7 +6255,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Check back in",
+      "summary": "brainstorm",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6261,7 +6271,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "brainstorm",
+      "summary": "Check back in",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6293,6 +6303,14 @@
       "date": "2026-09-02",
       "time": null,
       "all_day": true,
+      "summary": "Reading sessions",
+      "location": null,
+      "calendar": "Todoist"
+    },
+    {
+      "date": "2026-09-02",
+      "time": null,
+      "all_day": true,
       "summary": "weekly NASCAR picks",
       "location": null,
       "calendar": "Todoist"
@@ -6302,14 +6320,6 @@
       "time": null,
       "all_day": true,
       "summary": "Revere Journal",
-      "location": null,
-      "calendar": "Todoist"
-    },
-    {
-      "date": "2026-09-02",
-      "time": null,
-      "all_day": true,
-      "summary": "Reading sessions",
       "location": null,
       "calendar": "Todoist"
     },
@@ -7995,7 +8005,7 @@
     },
     {
       "date": "2026-10-16",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Phoenix",
       "time": "7:30 PM",
       "result": null,
@@ -8005,7 +8015,7 @@
     },
     {
       "date": "2026-10-16",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Phoenix",
       "time": "7:30 PM",
       "result": null,
