@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-26T08:54:59.107878+00:00",
-  "updated_local": "August 26, 2026 at 8:54 AM",
+  "updated": "2026-08-26T09:51:48.146491+00:00",
+  "updated_local": "August 26, 2026 at 9:51 AM",
   "weather_current": {
     "temp": 60,
     "unit": "F",
@@ -12,14 +12,6 @@
     "precip": 0
   },
   "weather_hourly": [
-    {
-      "time": "2026-08-26T04:00:00-04:00",
-      "temp": 60,
-      "unit": "F",
-      "shortForecast": "Clear",
-      "wind": "3 mph",
-      "precip": 0
-    },
     {
       "time": "2026-08-26T05:00:00-04:00",
       "temp": 60,
@@ -203,6 +195,14 @@
       "shortForecast": "Mostly Cloudy",
       "wind": "3 mph",
       "precip": 0
+    },
+    {
+      "time": "2026-08-27T04:00:00-04:00",
+      "temp": 62,
+      "unit": "F",
+      "shortForecast": "Mostly Cloudy",
+      "wind": "3 mph",
+      "precip": 0
     }
   ],
   "weather_daily": [
@@ -324,11 +324,13 @@
     "name": "Boston Logan (KBOS)",
     "delay": false,
     "status": "ok",
-    "metar": null,
+    "metar": {
+      "raw": "METAR KBOS 260854Z 30006KT 10SM CLR 18/14 A3001 RMK AO2 SLP160 T01830144 51007",
+      "flight_cat": ""
+    },
     "faa_delays": [],
     "flight_stats": {
-      "cancelled": 24,
-      "delayed": 2
+      "cancelled": 24
     }
   },
   "mbta_alerts": [
@@ -383,6 +385,11 @@
       "routes": []
     },
     {
+      "header": "Fall River Line Train 1906 (5:00 AM from Fall River Depot) is operating 20-30 minutes behind schedule between Freetown and South Station due to an unruly passenger.",
+      "effect": "DELAY",
+      "routes": []
+    },
+    {
       "header": "There is no accessible path connecting the inbound and outbound platforms at Wellesley Square Station. The existing path includes steep slopes and is long. Designs are underway to provide for a fully compliant pathway.",
       "effect": "STATION_ISSUE",
       "routes": []
@@ -426,7 +433,7 @@
   "beach_conditions": {
     "water_temp_f": 70.0,
     "wvht_ft": 1.6,
-    "dpd_s": 2.0,
+    "dpd_s": 3.0,
     "wspd_mph": 11.2,
     "wdir_deg": 300.0,
     "flag": "green",
@@ -1354,17 +1361,6 @@
       "source": "Revere Journal"
     },
     {
-      "title": "Domenic Anthony Gizzi - The Press Democrat",
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOV3d6UE9ia19KQ3Y3ZnN3VnJqX2ZESzNZZ0dNNHliYlRDTEl0OWFHemxvajlLV1pGM3FtejQtWWVmSWhGTThHbFpubkJlUkpQQzFpdVYxbTd6SEpxYjc2bUE0V29jaW00NE9CY3RHTGREVXJRWENYY1ozVlRqclNhVA?oc=5",
-      "published": "Tue, 25 Aug 2026 23:49:49 GMT",
-      "ts": 1787701789,
-      "author": "",
-      "feed_title": "The Press Democrat",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxOV3d6UE9ia19KQ3Y3ZnN3VnJqX2ZESzNZZ0dNNHliYlRDTEl0OWFHemxvajlLV1pGM3FtejQtWWVmSWhGTThHbFpubkJlUkpQQzFpdVYxbTd6SEpxYjc2bUE0V29jaW00NE9CY3RHTGREVXJRWENYY1ozVlRqclNhVA?oc=5\" target=\"_blank\">Domenic Anthony Gizzi</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Press Democrat</font>",
-      "source": "Google News \u00b7 Revere Massachusetts",
-      "_alert": "Revere Massachusetts"
-    },
-    {
       "title": "Revere Beach International Sand Sculpting Festival Returns Prato Siena (wAN4Hcqyzo) - Mshale",
       "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE52Wk05ZU9pTlpibEtjaUNTT2pvTS1Kb0Fvc1RPQ1NwZFBrQURHOGtOQW1zSW00dWZhRkdWU3BvMm1RaWFRRlRucjMzZDlud2dXek1LNTFKR1ZHS095QWRYdg?oc=5",
       "published": "Tue, 25 Aug 2026 19:55:48 GMT",
@@ -1407,6 +1403,17 @@
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxOTHl6X05XV3VNRHQtWkxtTUlfTTFBd0pTejZOd3ZmQ2x5TXhXS0RtVVNQNUJMQzB0ZkNQX3N2TlVWa1FWU1NmTnowN3ptU2VqLVhpSVJibmpvSXFlWGoxRWlQa3R4cHRLUVhGZzJTLXBEbE5ha1pBbjFJS0ZzbWhLNFJyTllBejRTV1RJcExnbkFrRk4wMDIyTGx5dFFUa0NV?oc=5\" target=\"_blank\">MBTA announces Orange, Green, Red line closures in September</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Boston Herald</font>",
       "source": "Google News \u00b7 Blue Line \u00b7 MBTA",
       "_alert": "Blue Line \u00b7 MBTA"
+    },
+    {
+      "title": "Domenic Anthony Gizzi - The Press Democrat",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOV3d6UE9ia19KQ3Y3ZnN3VnJqX2ZESzNZZ0dNNHliYlRDTEl0OWFHemxvajlLV1pGM3FtejQtWWVmSWhGTThHbFpubkJlUkpQQzFpdVYxbTd6SEpxYjc2bUE0V29jaW00NE9CY3RHTGREVXJRWENYY1ozVlRqclNhVA?oc=5",
+      "published": "Sun, 23 Aug 2026 02:53:49 GMT",
+      "ts": 1787453629,
+      "author": "",
+      "feed_title": "The Press Democrat",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxOV3d6UE9ia19KQ3Y3ZnN3VnJqX2ZESzNZZ0dNNHliYlRDTEl0OWFHemxvajlLV1pGM3FtejQtWWVmSWhGTThHbFpubkJlUkpQQzFpdVYxbTd6SEpxYjc2bUE0V29jaW00NE9CY3RHTGREVXJRWENYY1ozVlRqclNhVA?oc=5\" target=\"_blank\">Domenic Anthony Gizzi</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Press Democrat</font>",
+      "source": "Google News \u00b7 Revere Massachusetts",
+      "_alert": "Revere Massachusetts"
     },
     {
       "title": "rfr-mbta-blue-line-01 - Railfan & Railroad Magazine",
@@ -3065,6 +3072,16 @@
       "source": "Winthrop"
     },
     {
+      "title": "City of Salem adds E-Bikes to its Bluebikes System - Salem, MA | Official Website (.gov)",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1kckxUbzY4VnRaNkZYTDhGbFNES3NIclBkQ29nUEFhc01PRTVpWGVyV3FlQjcyYkNiU3REVGNMMl9KdXFVRmRBUXlEekxSd3BYVHl2YTMtSFNYVEtETmtR?oc=5",
+      "published": "Fri, 29 May 2026 02:57:56 GMT",
+      "ts": 1780023476,
+      "author": "",
+      "feed_title": "Salem, MA | Official Website (.gov)",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE1kckxUbzY4VnRaNkZYTDhGbFNES3NIclBkQ29nUEFhc01PRTVpWGVyV3FlQjcyYkNiU3REVGNMMl9KdXFVRmRBUXlEekxSd3BYVHl2YTMtSFNYVEtETmtR?oc=5\" target=\"_blank\">City of Salem adds E-Bikes to its Bluebikes System</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA | Official Website (.gov)</font>",
+      "source": "Salem"
+    },
+    {
       "title": "Driver flees police, hits cruiser and escapes after chase through Boston suburbs",
       "link": "https://www.nbcboston.com/news/local/driver-flees-from-police-strikes-law-enforcement-cruiser-in-malden/3957215/",
       "published": "Fri, May 29 2026 01:29:40 PM",
@@ -3535,16 +3552,6 @@
       "source": "Saugus"
     },
     {
-      "title": "City of Salem Announces 2026 Black History Month Celebrations - Salem, MA | Official Website (.gov)",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4ybmZiTmFTRU5GMkRxdXZjMkg0b1JxSEVHMFlRTlVLSzZxMGxDaEYzbHV4NDhLcEVPT2t1Rjl2WW5xVThCWjRHaTBqUzItX3pFcENJc2ROaTVkcWNhNzBz?oc=5",
-      "published": "Fri, 23 Jan 2026 08:00:00 GMT",
-      "ts": 1769155200,
-      "author": "",
-      "feed_title": "Salem, MA | Official Website (.gov)",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE4ybmZiTmFTRU5GMkRxdXZjMkg0b1JxSEVHMFlRTlVLSzZxMGxDaEYzbHV4NDhLcEVPT2t1Rjl2WW5xVThCWjRHaTBqUzItX3pFcENJc2ROaTVkcWNhNzBz?oc=5\" target=\"_blank\">City of Salem Announces 2026 Black History Month Celebrations</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Salem, MA | Official Website (.gov)</font>",
-      "source": "Salem"
-    },
-    {
       "title": "New England Revolution - revolutionsoccer.net",
       "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE50a0NLLVh3eklDck9DbnA2QzhOcTIzWk90VEZ4bHhFWmJWNDFMWDE1LWs4OEp0QWRHZU5fcENYejRVdy0tcUkwNE1wMHEtSGFVQk1UMnNZSzRoRnh6?oc=5",
       "published": "Thu, 18 Dec 2025 16:03:42 GMT",
@@ -3647,6 +3654,136 @@
   ],
   "news_boston": [
     {
+      "title": "Boston researcher explains finding that CTE could affect at least 1 in 4 NFL players",
+      "link": "https://www.wbur.org/news/2026/08/26/cte-nfl-players-study-boston",
+      "published": "Wed, 26 Aug 2026 05:42:40 -0400",
+      "ts": 1787737360,
+      "author": "WBUR",
+      "feed_title": "WBUR News",
+      "summary": "<p>At least 1 in 4 NFL players are likely to end up with the brain disease CTE. A Boston researcher who took part in the study says \"We need to start pivoting resources into better treating \u2014 and ultimately curing this disease.\"</p>",
+      "source": "WBUR News"
+    },
+    {
+      "title": "Video: Storm chances return Thursday",
+      "link": "https://www.wcvb.com/article/video-storm-chances-return-thursday/73529757",
+      "published": "Wed, 26 Aug 2026 09:41:00 GMT",
+      "ts": 1787737260,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Wednesday stays mostly sunny and dry across the Boston area. Humidity builds Thursday with afternoon storms possible before another chance of storms Friday.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Wake Up Call from The Kubes",
+      "link": "https://www.wcvb.com/article/wake-up-call-from-the-kubes/73529737",
+      "published": "Wed, 26 Aug 2026 09:38:00 GMT",
+      "ts": 1787737080,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Wednesday's Wake Up Call comes from The Kubes.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Person hospitalized after reported shooting in Boston",
+      "link": "https://www.wcvb.com/article/person-hospitalized-after-reported-shooting-in-boston/73529686",
+      "published": "Wed, 26 Aug 2026 09:36:00 GMT",
+      "ts": 1787736960,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>A person was hospitalized Tuesday night after a reported shooting in Roxbury. </p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "Final witness expected back on stand in Lindsay Clancy murder trial",
+      "link": "https://www.wcvb.com/article/lindsay-clancy-trial-live-updates-aug-26/73529464",
+      "published": "Wed, 26 Aug 2026 09:33:00 GMT",
+      "ts": 1787736780,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Testimony in the murder trial of Lindsay Clancy, the Massachusetts mother accused of strangling her three children in the family's Duxbury home in 2023, is expected to conclude Wednesday.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "3 Secret Service officials placed on administrative leave pending investigation",
+      "link": "https://www.wcvb.com/article/secret-service-officials-administrative-leave/73529398",
+      "published": "Wed, 26 Aug 2026 09:28:00 GMT",
+      "ts": 1787736480,
+      "author": "",
+      "feed_title": "Top Stories",
+      "summary": "<p>Three U.S. Secret Service officials were placed on administrative leave, pending the outcome of an investigation by the agency\u2019s professional standards office.</p>",
+      "source": "Top Stories"
+    },
+    {
+      "title": "8 books with New England ties to read this fall",
+      "link": "https://www.wbur.org/news/2026/08/26/2026-new-books-fall-boston-new-england",
+      "published": "Wed, 26 Aug 2026 05:00:58 -0400",
+      "ts": 1787734858,
+      "author": "WBUR",
+      "feed_title": "WBUR News",
+      "summary": "<p>Whether it\u2019s the ripple effects of family secrets, the intimate losses of historic tragedies or even a copycat murder, WBUR literature writer Katherine Ouellette recommends eight enthralling books where the past is never really past.</p>",
+      "source": "WBUR News"
+    },
+    {
+      "title": "11 Greater Boston film festivals to check out this fall",
+      "link": "https://www.wbur.org/news/2026/08/26/2026-fall-greater-boston-film-festivals",
+      "published": "Wed, 26 Aug 2026 05:00:43 -0400",
+      "ts": 1787734843,
+      "author": "WBUR",
+      "feed_title": "WBUR News",
+      "summary": "<p>The calendar boasts a film festival nearly every weekend from now through early December. WBUR film writer Erin Trahan shares a roundup of the ones she's most looking forward to this season.</p>",
+      "source": "WBUR News"
+    },
+    {
+      "title": "5 things to do this weekend, including a Chelsea theater festival and a DADA Quartet concert",
+      "link": "https://www.wbur.org/news/2026/08/26/weekend-apollinaire-theatre-company-festival-chelsea-dada-quartet-concert",
+      "published": "Wed, 26 Aug 2026 05:00:39 -0400",
+      "ts": 1787734839,
+      "author": "WBUR",
+      "feed_title": "WBUR News",
+      "summary": "<p>Plus, a roving music festival and singer-songwriter Judy Collins' farewell tour.</p>",
+      "source": "WBUR News"
+    },
+    {
+      "title": "There's a portal at the Coolidge, and it leads to peak Malkovich",
+      "link": "https://www.wbur.org/news/2026/08/26/malkovich-coolidge-corner-theatre",
+      "published": "Wed, 26 Aug 2026 05:00:24 -0400",
+      "ts": 1787734824,
+      "author": "WBUR",
+      "feed_title": "WBUR News",
+      "summary": "<p>Coolidge Corner Theatre's 35mm triple feature catches John Malkovich at his most gloriously strange: seducing Michelle Pfeiffer in \"Dangerous Liaisons,\" menacing Clint Eastwood in \"In the Line of Fire\" and multiplying into a chorus of himself in \"Being John Malkovich.\"</p>",
+      "source": "WBUR News"
+    },
+    {
+      "title": "Her homemade empanadas went viral. Then she got shut down",
+      "link": "https://www.wbur.org/news/2026/08/26/homemade-empanadas-home-kitchen-laws",
+      "published": "Wed, 26 Aug 2026 05:00:03 -0400",
+      "ts": 1787734803,
+      "author": "WBUR",
+      "feed_title": "WBUR News",
+      "summary": "<p>A quick search on Facebook Marketplace reveals hundreds of home chefs across Greater Boston. However, the majority of these chefs are operating outside of state law. They\u2019re hoping they don\u2019t get caught. </p>",
+      "source": "WBUR News"
+    },
+    {
+      "title": "Recent homes sales in Greater Boston (Aug. 26)",
+      "link": "https://www.boston.com/real-estate/latest-sales/2026/08/26/recent-homes-sales-in-greater-boston-aug-26/",
+      "published": "Wed, 26 Aug 2026 09:00:00 +0000",
+      "ts": 1787734800,
+      "author": "The Boston Globe",
+      "feed_title": "Boston.com",
+      "summary": "<p>ABINGTON 890 Bedford St. Two-family two family, built in 1870, 1,734 square feet, 8 rooms, 3 bedrooms, 2 baths, on 30,473-square-foot lot. $755,000 17 Melvern Road. One-family Cape Cod, built in 1955, 1,182 square feet, 5 rooms, 3 bedrooms, 2 baths, on 9,121-square-foot lot. $595,000 55 Clapp St. One-family ranch, built in 1952, 824 square [&#8230;]</p>\n<p>The post <a href=\"https://www.boston.com/real-estate/latest-sales/2026/08/26/recent-homes-sales-in-greater-boston-aug-26/\">Recent homes sales in Greater Boston (Aug. 26)</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
+      "source": "Boston.com"
+    },
+    {
+      "title": "As small Mass. colleges close, a growing focus on saving the students rather than the schools",
+      "link": "https://www.wgbh.org/news/education-news/2026-08-26/as-small-mass-colleges-close-a-growing-focus-on-saving-the-students-rather-than-the-schools",
+      "published": "Wed, 26 Aug 2026 09:00:00 GMT",
+      "ts": 1787734800,
+      "author": "",
+      "feed_title": "GBH News",
+      "summary": "As demographic decline and financial pressures push more colleges toward closure, leaders are looking beyond mergers and asking: what\u2019s worth saving?",
+      "source": "GBH News"
+    },
+    {
       "title": "Fire at Pakistan hospital kills 14 newborns",
       "link": "https://www.wcvb.com/article/fire-hospital-pakistan-kills-14-newborns/73527952",
       "published": "Wed, 26 Aug 2026 05:39:00 GMT",
@@ -3655,6 +3792,16 @@
       "feed_title": "Top Stories",
       "summary": "<p>The nursery at the Pakistan Institute of Medical Sciences housed at least 15 newborns when the fire broke out, hospital officials said. At least one baby was rescued.</p>",
       "source": "Top Stories"
+    },
+    {
+      "title": "In a divided America, left and right unite to oppose artificial intelligence data centers",
+      "link": "https://www.nbcboston.com/news/national-international/left-and-right-oppose-artificial-intelligence-data-centers/4004025/",
+      "published": "Wed, Aug 26 2026 05:08:55 AM",
+      "ts": 1787720935,
+      "author": "Will Weissert and Susan Montoya Bryan | The Associated Press",
+      "feed_title": "NBC Boston",
+      "summary": "<p>In rural eastern <a href=\"https://www.nbcboston.com/tag/nebraska/\" rel=\"noreferrer noopener\" target=\"_blank\">Nebraska</a>, a technology revolution could rise from fields of corn and soybean in the form of new data centers to power the artificial intelligence boom.</p>\n\n\n\n<p>But just like around many parts of the country, opposition has been building in ways that defy typical partisan boundaries. Conservative farmers and the state Sierra Club chapter recently found common cause against labor leaders as they filled the firehouse in Murdock \u2014 population around 275 \u2014 to share concerns about data center development moving too quickly. </p>\n\n\n\n<p>The scene exemplified an unlikely coalition that worries about dwindling farmland, declining water supplies and rising electricity bills \u2014 not to mention how massive corporations could reshape small town America into nodes in a national network of computing warehouses. </p>\n\n\n\n<p>The debate around data center projects is one of the rare modern issues to cut across party lines, demographics and geography \u2014 from <a href=\"https://www.nbcboston.com/tag/republicans/\" rel=\"noreferrer noopener\" target=\"_blank\">Republican</a>-dominated Nebraska, <a href=\"https://www.nbcboston.com/tag/texas/\" rel=\"noreferrer noopener\" target=\"_blank\">Texas</a> and <a href=\"https://www.nbcboston.com/tag/wyoming/\" rel=\"noreferrer noopener\" target=\"_blank\">Wyoming</a> to swing-state <a href=\"https://www.nbcboston.com/tag/pennsylvania/\" rel=\"noreferrer noopener\" target=\"_blank\">Pennsylvania</a> to <a href=\"https://www.nbcboston.com/tag/democrats/\" rel=\"noreferrer noopener\" target=\"_blank\">Democratic</a>-leaning <a href=\"https://www.nbcboston.com/tag/new-mexico/\" rel=\"noreferrer noopener\" target=\"_blank\">New Mexico</a>.</p>\n\n\n\n<p>Supporters of data centers, including Republican President <a href=\"https://www.nbcboston.com/tag/donald-trump/\" rel=\"noreferrer noopener\" target=\"_blank\">Donald Trump</a> and some <a href=\"https://www.nbcboston.com/tag/labor-unions/\" rel=\"noreferrer noopener\" target=\"_blank\">union leaders</a> who usually back Democrats, praise a potential jobs and economic bonanza, while helping the U.S. thwart <a href=\"https://www.nbcboston.com/tag/china/\" rel=\"noreferrer noopener\" target=\"_blank\">China</a> in the geopolitical race for <a href=\"https://www.nbcboston.com/tag/technology/\" rel=\"noreferrer noopener\" target=\"_blank\">technological</a> supremacy.</p>\n\n\n\n<p>But hostility toward developments coming at breakneck speed has surged ahead of November&#8217;s midterm elections, and forced national, state and local elected officials to adapt to a shifting political landscape. </p>\n\n\n\n<p>Judy Stroy, a fifth-generation Nebraska farmer whose late husband grew corn and soybeans and whose son still does, worried that with \u201cthe amount of ground that\u2019s getting gobbled up every year, our food source is in trouble.\u201d</p>\n\n\n\n<p>\u201cThat should scare everyone,\u201d she said. </p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\"></h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/maha-activists-letter-trump-kennedy-coal-ai-data-centers/4002041/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/COAL-DATACENTER.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/trump-administration/\">Trump Administration</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 21\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/maha-activists-letter-trump-kennedy-coal-ai-data-centers/4002041/\">\n\t\t\t\t\t\t\t\t\t\tMAHA activists urge Trump against promoting coal to power AI data centers\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/us-electric-grids-under-pressure-energy-hungry-data-centers/3808185/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/09/AP25254502230745.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/energy/\">Energy</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tSep 13, 2025\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/us-electric-grids-under-pressure-energy-hungry-data-centers/3808185/\">\n\t\t\t\t\t\t\t\t\t\tData centers threaten to overload US electricity grids\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Some areas have paused data center expansion </h2>\n\n\n\n<p>Stroy&#8217;s fields are just outside Murdock, a village named for a railroad official at the company that first laid tracks here in the 1890s. There&#8217;s a school, a post office, a bar and a Corn Grower\u2019s State Bank branch, plus the Midwest Farmer&#8217;s Coop where growers sell their produce and buy supplies like feed and fertilizer.</p>\n\n\n\n<p>Murdock is in Cass County, where officials recently approved a 12-month moratorium on allowing data center development. </p>\n\n\n\n<p>That might freeze energy company Tenaska&#8217;s plans to potentially option 1,300-plus acres of land along Highway 75, south of the nearby villages of Murray and Beaver Lake, in a project that activists fear would pave the way for a data center and its own natural gas power plant. </p>\n\n\n\n<p>Tenaska spokesperson Leighton Elise Eusebio said the company has been exploring &#8220;the feasibility of developing power generation to serve large loads, whether that is a data center or other form of economic development.\u201d </p>\n\n\n\n<p>\u201cWe believe there are opportunities to work with public power, communities and other stakeholders to develop power generation that will benefit Nebraskans,\u201d Eusebio said in a statement. </p>\n\n\n\n<p>Meanwhile, data center operator CyrusOne has nearly 400 acres under its control outside another Cass County community, Plattsmouth, also along Highway 75, but no development has occurred nor has a project been announced, according to a CyrusOne spokesperson. </p>\n\n\n\n<p>The area may be seen as particularly favorable because the highway has been widened, offering easy access to Omaha to the northeast, and to the college town of Lincoln to the southwest. The Missouri River provides a reasonably close, major water source.</p>\n\n\n\n<p>Some landowners accepted large checks to sell. Local land typically can go for $10,000 an acre, residents say, and developers sometimes offer four times that, or even more. </p>\n\n\n\n<p>Such paydays can be extra enticing as farming has gotten more expensive amid rising diesel prices and soybean exports that have declined in the midst of Trump&#8217;s tariff fight with a major market for the crop, China. </p>\n\n\n\n<p>\u201cWhat if somebody offered me $40,000 an acre for my ground? It would be hard to turn down,\u201d Stroy conceded. </p>\n\n\n\n<p>Nebraska Sierra Club attorney Ken Winston noted that tech giants have made donations to municipal programs in Lincoln to help mitigate the impact of data centers. </p>\n\n\n\n<p>\u201cWe need to be aware of the fact that they\u2019re going to happen somewhere,&#8221; Winston said. \u201cBut communities need to be able to protect themselves and if they don\u2019t want them, they should be able to say no.&#8221; </p>\n\n\n<div></div>\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Major project sparks New Mexico divisions</h2>\n\n\n\n<p>There is no development moratorium in New Mexico that could stop Project Jupiter, a $165 billion data center complex planned near the Mexican border, but concerns over dwindling water supplies are mounting. </p>\n\n\n\n<p>\u201cIt is not about blue vs. red, or whether we\u2019re a purple state or county,\u201d said Samantha Barncastle Salopek, a longtime water attorney, who is running as a Republican for a seat on the Do\u00f1a Ana County Commission partly because of the project. </p>\n\n\n\n<p>\u201cThis is about the local community coming together and saying, \u2018Hold on, hold on.&#8217; We didn\u2019t get enough information, and now we\u2019re very concerned because also we have to cut back our water use anyway,&#8221; she said. </p>\n\n\n\n<p>Barncastle Salopek, whose family grows pecans, said she frequently fields worried calls from farmers, ranchers and local business owners across the political spectrum and in other states. </p>\n\n\n\n<p>\u201cWhen we have to fight over the last piece of the pie, those big companies are going to win,\u201d she said of pressure on remaining water supplies. That&#8217;s because New Mexico has been hammered by persistent drought, and large swaths of the Rio Grande have dried up in the central part of the state. </p>\n\n\n\n<p>The largest reservoir stands at 1.3% capacity, lows unseen since the early 1970s, even though New Mexico is on the hook to deliver more water to Texas under a recent settlement approved by the U.S. Supreme Court. Activists worry that New Mexico&#8217;s pecan, chile and other farms could disappear, taking schools, hospitals and supporting businesses and incomes with them.</p>\n\n\n\n<p>Oracle, which announced Project Jupiter, has offered funding for youth programs and pledged to invest $50 million in water and wastewater systems in Do\u00f1a Ana County.</p>\n\n\n\n<p>It also plans to partner with an agriculture technology company to install sensors providing real-time data to farmers to help them use water more efficiently \u2014 estimating an eventual savings of 21 million gallons annually.</p>\n\n\n\n<p>An Oracle spokesperson called the project a generational New Mexico investment, saying it would generate $4.7 billion in taxes and create more than 7,000 construction jobs and 1,500 long-term jobs while being designed to use little water over 15 years, given its closed-loop cooling and fuel-cell systems. </p>\n\n\n\n<p>Still, the Center for Biological Diversity last week filed an emergency petition with the New Mexico Supreme Court, challenging the state\u2019s approval of well drilling to supply millions of gallons of water for Project Jupiter\u2019s construction. </p>\n\n\n\n<p>The court on Sunday granted that request, halting authorization to use water from a new well until the legal fight is concluded.</p>\n\n\n\n<p>During a recent protest in the state capital of Santa Fe, the demonstrators included Jesus Rodriguez, who traveled four-plus hours from his micro-farm in southern New Mexico. </p>\n\n\n\n<p>\u201cThe fact is that now the money has taken over,\u201d said Rodriguez, who described himself as disillusioned with American politics. \u201cNow it shows that the Democrats, Republicans, or whatever other party is involved, they don\u2019t care about the land. They care about money. And that\u2019s because they want power.\u201d</p>\n\n\n<div></div>\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Some labor leaders see new job opportunities </h2>\n\n\n\n<p>Data centers have found an ally in organized labor, including Mike Gage, president and secretary-treasurer of the Nebraska State AFL-CIO. Gage said he personally was worried that some workers are seeing their jobs replaced by AI, but that the centers can also create construction jobs and longer-term positions for people running the finished product.</p>\n\n\n\n<p>\u201cThis problem is also a very big opportunity for some small communities,\u201d Gage said. He noted that a data center built decades ago in Council Bluffs, Iowa, near Omaha, still employs about 60 people today. </p>\n\n\n\n<p>Heather McKenzie, who works in labor relations in Lincoln, said putting more data centers in Nebraska can slow an exodus of skilled young people leaving the state.</p>\n\n\n\n<p>\u201cI don\u2019t think that enough people understand that this is going to create really good jobs,\u201d she said. \u201cI think a lot of people view it in a negative sense because it\u2019s being sprung on them.\u201d</p>\n\n\n\n<p>Chris Backemeyer, a Democratic congressional candidate in the district that includes Murdock, is a former State Department employee. He said he heard about Saudi Arabia and the United Arab Emirates offering to host data centers for the U.S., which might concentrate technology outside the country. </p>\n\n\n\n<p>\u201cThat scares the bejesus out of me,\u201d Backemeyer said. </p>\n\n\n\n<h2 class=\"wp-block-nbc-section-heading\">Trump champions data centers, but some Republicans are wary</h2>\n\n\n\n<p>The president has warned about China&#8217;s technology gains and Republican House Speaker Mike Johnson said that a federal pause on data center construction might be a \u201cdangerous prospect.\u201d </p>\n\n\n\n<p>Still, most registered voters oppose building a data center in their area, according to a July Fox News poll, including 60% of Republicans and 53% of MAGA voters.</p>\n\n\n\n<p>Democratic New York Gov. Kathy Hochul ordered a one-year ban on large data centers. Pennsylvania Gov. Josh Shapiro, a fellow Democrat, said his administration would no longer prioritize data center projects when it comes to issuing construction permits or granting developers lucrative tax exemptions if they don\u2019t meet certain standards.</p>\n\n\n<div></div>\n\n\n<p>Republican Texas Gov. Greg Abbott announced a halt on approval of new data centers until audits determine their impact on the state&#8217;s electrical grid. </p>\n\n\n\n<p>Abbott told ABC News that data centers hadn&#8217;t been working in collaboration with state or local officials and \u201cbasically dug their own grave for the problem that\u2019s been caused for them, and that\u2019s why they got the backlash they deserve.\u201d</p>\n\n\n\n<p>The Republican Party&#8217;s Senate campaign arm is worried enough about the issue potentially deciding races in Ohio, that it drafted a memo outlining how to respond. But politicians on both sides of the aisle have turned data centers into a punching bag. </p>\n\n\n\n<p>Wyoming Secretary of State Chuck Gray, a Republican running for an open House seat, has pledged to halt their construction. </p>\n\n\n\n<p>\u201cIf Silicon Valley wants to build their liberal empire, they can do it somewhere else,\u201d he said in an ad. </p>\n\n\n\n<p>That overlaps with an ad for the mayor of Scranton, Pennsylvania, Democrat Paige Cognetti, who said &#8220;we are not for sale\u201d when it comes to data centers. Cognetti is trying to unseat first-term Republican Rep. Rob Bresnahan in a battleground district. </p>\n\n\n\n<p>Trump is undeterred, saying that what data centers mean \u201cfor a community is jobs and lots of money and lower taxes.\u201d The president has also conceded, however, that tech companies and developers maybe \u201ccan use a little public relations help.\u201d </p>\n\n\n\n<p>Seeking to soften fears about rising utility prices, Trump says his administration has urged data centers to build their own power plants. </p>\n\n\n\n<p>Yet, during a recent meeting in the conservative East Texas town of Tyler, residents complained of being forced to live in a \u201cgas cloud\u201d so data centers can get enough electricity.</p>\n\n\n\n<p>The complaint echoed a similar objection from Kardal Coleman, who leads the Democratic Party in big-city Dallas County. He wrote a recent email decrying data centers for &#8220;replacing our jobs, polluting our air, and exacerbating the climate crisis, not to mention the noise disturbing our neighborhoods.\u201d </p>\n\n\n\n<p>___</p>\n\n\n\n<p>Montoya Bryan reported from Santa Fe, New Mexico.</p>",
+      "source": "NBC Boston"
     },
     {
       "title": "Republican with same name as incumbent Dan Sullivan advances from US Senate primary",
@@ -3682,9 +3829,9 @@
       "published": "Wed, 26 Aug 2026 03:23:14 +0000",
       "ts": 1787714594,
       "author": "Associated Press",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>The surging Red Sox won their fifth in a row and ninth in 12 games. They have won their past three series and 14 of their last 20.</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/08/25/jarren-duran-hits-grand-slam-in-11th-inning-and-red-sox-sink-marlins-7-3/\">Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
+      "source": "Boston.com"
     },
     {
       "title": "Mass. bridges glow pink to honor Dolly Parton",
@@ -3692,9 +3839,9 @@
       "published": "Wed, 26 Aug 2026 03:12:42 +0000",
       "ts": 1787713962,
       "author": "Samantha Genzer",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>\"We will always love you, Dolly,\" Gov. Maura Healey wrote.</p>\n<p>The post <a href=\"https://www.boston.com/news/music/2026/08/25/mass-bridges-glow-pink-to-honor-dolly-parton/\">Mass. bridges glow pink to honor Dolly Parton</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
+      "source": "Boston.com"
     },
     {
       "title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
@@ -3832,9 +3979,9 @@
       "published": "Wed, 26 Aug 2026 01:24:51 +0000",
       "ts": 1787707491,
       "author": "Conor Ryan",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>\u201cI'm not pulling for Bill Belichick. He's a grouch. He's a bully. And his career in college is about to go down in flames.\"</p>\n<p>The post <a href=\"https://www.boston.com/sports/new-england-patriots/2026/08/25/bill-belichick-new-england-patriots-nfl-football-unc-paul-finebaum/\">Paul Finebaum rips Bill Belichick, predicts he won\u2019t finish second season at UNC\u00a0</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
+      "source": "Boston.com"
     },
     {
       "title": "Target faces renewed backlash after stocking Halloween costume with \u2018minstrel show features\u2019",
@@ -3862,9 +4009,9 @@
       "published": "Wed, 26 Aug 2026 00:38:56 +0000",
       "ts": 1787704736,
       "author": "Conor Ryan",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>\"We\u2019ve still got to temper that hope and just see if everything goes well with the next steps.\u201d</p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-red-sox/2026/08/25/boston-red-sox-curtis-mead-mlb-baseball-injury-update/\">Red Sox get good news on Curtis Mead\u2019s potential return this season</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
+      "source": "Boston.com"
     },
     {
       "title": "How Mass. consumers and businesses stand to be affected by Canada trade war",
@@ -3873,7 +4020,7 @@
       "ts": 1787747612,
       "author": "Oscar Margain",
       "feed_title": "NBC Boston",
-      "summary": "<p>Massachusetts consumers and businesses are beginning to feel the effects of an escalating trade dispute between the United States and Canada as new U.S. tariffs raised costs on hundreds of Canadian products.</p>\n\n\n\n<p><a href=\"https://www.nbcboston.com/news/politics/canadian-prime-minister-suspends-us-trade-talks-50-tariffs-in-motion/4002159/\" rel=\"noreferrer noopener\" target=\"_blank\">The new 50% U.S. tariffs</a> covered a broad range of Canadian goods, including building materials, sporting equipment, food products and other items sold in Massachusetts.</p>\n\n\n\n<p>The impact is particularly significant in Massachusetts because Canadian goods account for about a quarter of the state&#8217;s imports.</p>\n\n\n\n<p>At Sports Etc. in Arlington, owner Paul Stanton said his hockey equipment business depended heavily on Canadian manufacturers.</p>\n\n\n\n<p>&#8220;On any given week, we&#8217;re going to probably be getting four or five shipments from Canada,&#8221; Stanton said.</p>\n\n\n<div></div>\n\n\n<p>The tariffs affected high-end hockey equipment, including goalie pads, skates, gloves and blockers. Stanton said some of the higher costs had already reached his store.</p>\n\n\n\n<p>&#8220;I&#8217;m already starting to feel the pinch from some of the invoices that have come in directly,&#8221; Stanton said.</p>\n\n\n\n<p>The potential increases could be substantial for customers buying premium equipment.</p>\n\n\n\n<p>&#8220;It&#8217;s a $2,100 pad. The catchers are almost $700. So if we see a 50% increase in that, I&#8217;m not sure where we&#8217;ll settle with the price, but it&#8217;s going to go up staggeringly,&#8221; Stanton said.</p>\n\n\n\n<p>Some customers are already changing their buying behavior because of the uncertainty, Stanton said.</p>\n\n\n\n<p>&#8220;People are starting to come out to try to make purchases, whether it&#8217;s for sticks, skates or goalie equipment, because they&#8217;re fearful of what&#8217;s going to happen,&#8221; he said.</p>\n\n\n<div></div>\n\n\n<p>The effects could extend well beyond retail stores.</p>\n\n\n\n<p>Massachusetts homebuilders and developers said the tariffs could increase construction and renovation costs because New England relied heavily on Canadian lumber and other building products.</p>\n\n\n\n<p>David O&#8217;Sullivan, executive director of the Home Builders &amp; Remodelers Association of Massachusetts, said builders could eventually have little choice but to pass those expenses on to consumers.</p>\n\n\n\n<p>&#8220;As these tariffs come in, the costs are going to have to be passed on in the form of higher sales prices of homes or higher costs for renovations,&#8221; O&#8217;Sullivan said.</p>\n\n\n\n<p>Real estate developer Vitaly Fedosik expressed hope that the two countries would resolve their differences.</p>\n\n\n\n<p>&#8220;I just hope that we get along with Canada, because they do have great forestry products,&#8221; Fedosik said.</p>\n\n\n\n<p>Developers managing multiple projects could see relatively small increases quickly add up to significant expenses.</p>\n\n\n\n<p>&#8220;If you&#8217;re running 10 jobs and you&#8217;re buying $20,000, $50,000 of [lumber] and those costs go up, you know, and those costs can be used on different things,&#8221; Fedosik said.</p>\n\n\n\n<p>The economic uncertainty came as the trade dispute between the two longtime partners escalated.</p>\n\n\n\n<p>President <a href=\"https://www.nbcboston.com/tag/donald-trump/\" rel=\"noreferrer noopener\" target=\"_blank\">Donald Trump</a> accused Canada of discriminating against American products and said in a social media post that Canada had been &#8220;ripping off&#8221; the United States for decades.</p>\n\n\n\n<p>Canada, meanwhile, <a href=\"https://www.nbcboston.com/news/national-international/trump-lake-ontario-lake-america-name-change-trade-war-canada-escalates/4003375/\" rel=\"noreferrer noopener\" target=\"_blank\">announced retaliatory tariffs on U.S. products</a>, including medical equipment, electronics and agricultural products \u2014 categories that Massachusetts businesses also exported.</p>\n\n\n\n<p>Those Canadian tariffs are set to range from 15% to 50% on Sept. 8.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More on the trade war with Canada</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/trump-lake-ontario-lake-america-name-change-trade-war-canada-escalates/4003375/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/GettyImages-2207473686.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/tariffs/\">tariffs</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t20 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/trump-lake-ontario-lake-america-name-change-trade-war-canada-escalates/4003375/\">\n\t\t\t\t\t\t\t\t\t\tCanada strikes back at U.S. with retaliatory tariffs as trade war escalates\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/trump-carney-canada-tariffs-threat-50-percent-auto-truck-metals/4002828/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/GettyImages-2281267371.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/tariffs/\">tariffs</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 24\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/trump-carney-canada-tariffs-threat-50-percent-auto-truck-metals/4002828/\">\n\t\t\t\t\t\t\t\t\t\tTrump hits back at Carney, threatens to hike auto, truck, metals tariffs to 50%\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/what-to-know-trump-tariffs-canadian-goods/4002491/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2019/09/Canadian-flag.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/tariffs/\">tariffs</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 23\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/what-to-know-trump-tariffs-canadian-goods/4002491/\">\n\t\t\t\t\t\t\t\t\t\tWhat to know about Trump&#039;s 50% tariffs on Canadian goods that just went into effect\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
+      "summary": "<p>Massachusetts consumers and businesses are beginning to feel the effects of an escalating trade dispute between the United States and Canada as new U.S. tariffs raised costs on hundreds of Canadian products.</p>\n\n\n\n<p><a href=\"https://www.nbcboston.com/news/politics/canadian-prime-minister-suspends-us-trade-talks-50-tariffs-in-motion/4002159/\" rel=\"noreferrer noopener\" target=\"_blank\">The new 50% U.S. tariffs</a> covered a broad range of Canadian goods, including building materials, sporting equipment, food products and other items sold in Massachusetts.</p>\n\n\n\n<p>The impact is particularly significant in Massachusetts because Canadian goods account for about a quarter of the state&#8217;s imports.</p>\n\n\n\n<p>At Sports Etc. in Arlington, owner Paul Stanton said his hockey equipment business depended heavily on Canadian manufacturers.</p>\n\n\n\n<p>&#8220;On any given week, we&#8217;re going to probably be getting four or five shipments from Canada,&#8221; Stanton said.</p>\n\n\n<div></div>\n\n\n<p>The tariffs affected high-end hockey equipment, including goalie pads, skates, gloves and blockers. Stanton said some of the higher costs had already reached his store.</p>\n\n\n\n<p>&#8220;I&#8217;m already starting to feel the pinch from some of the invoices that have come in directly,&#8221; Stanton said.</p>\n\n\n\n<p>The potential increases could be substantial for customers buying premium equipment.</p>\n\n\n\n<p>&#8220;It&#8217;s a $2,100 pad. The catchers are almost $700. So if we see a 50% increase in that, I&#8217;m not sure where we&#8217;ll settle with the price, but it&#8217;s going to go up staggeringly,&#8221; Stanton said.</p>\n\n\n\n<p>Some customers are already changing their buying behavior because of the uncertainty, Stanton said.</p>\n\n\n\n<p>&#8220;People are starting to come out to try to make purchases, whether it&#8217;s for sticks, skates or goalie equipment, because they&#8217;re fearful of what&#8217;s going to happen,&#8221; he said.</p>\n\n\n<div></div>\n\n\n<p>The effects could extend well beyond retail stores.</p>\n\n\n\n<p>Massachusetts homebuilders and developers said the tariffs could increase construction and renovation costs because New England relied heavily on Canadian lumber and other building products.</p>\n\n\n\n<p>David O&#8217;Sullivan, executive director of the Home Builders &amp; Remodelers Association of Massachusetts, said builders could eventually have little choice but to pass those expenses on to consumers.</p>\n\n\n\n<p>&#8220;As these tariffs come in, the costs are going to have to be passed on in the form of higher sales prices of homes or higher costs for renovations,&#8221; O&#8217;Sullivan said.</p>\n\n\n\n<p>Real estate developer Vitaly Fedosik expressed hope that the two countries would resolve their differences.</p>\n\n\n\n<p>&#8220;I just hope that we get along with Canada, because they do have great forestry products,&#8221; Fedosik said.</p>\n\n\n\n<p>Developers managing multiple projects could see relatively small increases quickly add up to significant expenses.</p>\n\n\n\n<p>&#8220;If you&#8217;re running 10 jobs and you&#8217;re buying $20,000, $50,000 of [lumber] and those costs go up, you know, and those costs can be used on different things,&#8221; Fedosik said.</p>\n\n\n\n<p>The economic uncertainty came as the trade dispute between the two longtime partners escalated.</p>\n\n\n\n<p>President <a href=\"https://www.nbcboston.com/tag/donald-trump/\" rel=\"noreferrer noopener\" target=\"_blank\">Donald Trump</a> accused Canada of discriminating against American products and said in a social media post that Canada had been &#8220;ripping off&#8221; the United States for decades.</p>\n\n\n\n<p>Canada, meanwhile, <a href=\"https://www.nbcboston.com/news/national-international/trump-lake-ontario-lake-america-name-change-trade-war-canada-escalates/4003375/\" rel=\"noreferrer noopener\" target=\"_blank\">announced retaliatory tariffs on U.S. products</a>, including medical equipment, electronics and agricultural products \u2014 categories that Massachusetts businesses also exported.</p>\n\n\n\n<p>Those Canadian tariffs are set to range from 15% to 50% on Sept. 8.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More on the trade war with Canada</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/trump-lake-ontario-lake-america-name-change-trade-war-canada-escalates/4003375/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/GettyImages-2207473686.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/tariffs/\">tariffs</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t21 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/trump-lake-ontario-lake-america-name-change-trade-war-canada-escalates/4003375/\">\n\t\t\t\t\t\t\t\t\t\tCanada strikes back at U.S. with retaliatory tariffs as trade war escalates\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/trump-carney-canada-tariffs-threat-50-percent-auto-truck-metals/4002828/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/GettyImages-2281267371.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/tariffs/\">tariffs</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 24\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/trump-carney-canada-tariffs-threat-50-percent-auto-truck-metals/4002828/\">\n\t\t\t\t\t\t\t\t\t\tTrump hits back at Carney, threatens to hike auto, truck, metals tariffs to 50%\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/what-to-know-trump-tariffs-canadian-goods/4002491/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2019/09/Canadian-flag.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/tariffs/\">tariffs</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 23\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/what-to-know-trump-tariffs-canadian-goods/4002491/\">\n\t\t\t\t\t\t\t\t\t\tWhat to know about Trump&#039;s 50% tariffs on Canadian goods that just went into effect\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
       "source": "NBC Boston"
     },
     {
@@ -3892,9 +4039,9 @@
       "published": "Tue, 25 Aug 2026 23:59:59 +0000",
       "ts": 1787702399,
       "author": "Khari A. Thompson",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>\"It\u2019s frustrating, but I\u2019m focused on the season,\" Gonzalez said. </p>\n<p>The post <a href=\"https://www.boston.com/sports/new-england-patriots/2026/08/25/patriots-christian-gonzalez-contract-update-frustration-training-camp-takeaways/\">Christian Gonzalez admits frustration with Patriots contract talks, and other training camp takeaways</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
+      "source": "Boston.com"
     },
     {
       "title": "Overnight fire in Holbrook hospitalizes four, including a firefighter",
@@ -3902,9 +4049,9 @@
       "published": "Tue, 25 Aug 2026 23:46:09 +0000",
       "ts": 1787701569,
       "author": "Samantha Genzer",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>The firefighter faced a \u201cnon-life-threatening medical condition,\u201d officials said. </p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/25/overnight-fire-in-holbrook-hospitalizes-four-including-a-firefighter/\">Overnight fire in Holbrook hospitalizes four, including a firefighter</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
+      "source": "Boston.com"
     },
     {
       "title": "Video: Mostly sunny and dry Wednesday",
@@ -3932,9 +4079,9 @@
       "published": "Tue, 25 Aug 2026 23:32:47 +0000",
       "ts": 1787700767,
       "author": "Associated Press",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>The orchestra and management have had strained relations since BSO decided in March to force out music director Andris Nelsons next summer after 13 seasons.</p>\n<p>The post <a href=\"https://www.boston.com/news/music/2026/08/25/boston-symphony-orchestra-and-musicians-agree-to-3-year-deal-that-avoids-possible-strike/\">Boston Symphony Orchestra and musicians agree to 3-year deal that avoids possible strike</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
+      "source": "Boston.com"
     },
     {
       "title": "Funeral service to be held for Worcester police officer found dead in home",
@@ -3942,19 +4089,9 @@
       "published": "Tue, 25 Aug 2026 23:26:53 +0000",
       "ts": 1787700413,
       "author": "Samantha Genzer",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>Kurt Solomon, a father of two and US Army veteran, served as a police officer for more than three decades. </p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/25/funeral-service-to-be-held-for-worcester-police-officer-found-dead-in-home/\">Funeral service to be held for Worcester police officer found dead in home</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
-    },
-    {
-      "title": "Legendary country music artist Dolly Parton dies at 80",
-      "link": "https://www.wcvb.com/article/dolly-parton-dies-at-80/73523608",
-      "published": "Tue, 25 Aug 2026 23:13:00 GMT",
-      "ts": 1787699580,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Dolly Parton, the 10-time Grammy-winning country singer, songwriter, actress and philanthropist known as the \u201cQueen of Country,\u201d has died at 80.</p>",
-      "source": "Top Stories"
+      "source": "Boston.com"
     },
     {
       "title": "NH man accused of stealing rescue truck as fire destroys his home",
@@ -3963,18 +4100,8 @@
       "ts": 1787655740,
       "author": "Mike Pescaro",
       "feed_title": "NBC Boston",
-      "summary": "<p>A northern New Hampshire man is facing serious charges after allegedly stealing an emergency vehicle that responded to the fire that burned down his house in Dalton.</p>\n\n\n\n<p>Fire crews from Dalton and neighboring communities responded shortly after 3:30 a.m. Tuesday to a house fire near the intersection of Faraway Road and Mountain Road. The fire was fully involved when they arrived.</p>\n\n\n\n<p>A short time before 5 a.m., the homeowner got into a Ford F-550 rescue truck that had responded from Whitefield Fire &amp; Rescue, fire officials in Dalton said.</p>\n\n\n\n<p>The driver nearly hit two firefighters and almost pinned a third between two trucks, according to Dalton Fire Rescue. He then allegedly hit a Whitefield fire engine and a small pickup truck, ran over multiple water supply lines and hit a firefighter&#8217;s parked personal vehicle.</p>\n\n\n\n<p>New Hampshire State Police, who had responded earlier to assist at the scene of the fire, said the driver then damaged wooden fences at two properties before crashing at another property, where he allegedly tried to take items from the porch.</p>\n\n\n\n<p>The man was identified as 30-year-old Nestor Roman II of Dalton. State police said he was uncooperative as troopers took him into custody.</p>\n\n\n\n<p>Roman is charged with three counts of reckless conduct with a deadly weapon and four counts of conduct after an accident, as well as single counts of obstructing government administration, felony theft by unauthorized taking, burglary and resisting arrest.</p>\n\n\n\n<p>Fire officials said Roman&#8217;s house was a total loss, with photos showing little of the structure still standing.</p>\n\n\n\n<p>The fire engine Roman is accused of hitting sustained significant damage, fire officials said, but was able to continue fighting the fire. The hoses that were run over were not damaged.</p>\n\n\n\n<p>&#8220;We are extremely thankful that no firefighters were physically injured despite the close call,&#8221; Dalton Fire Rescue wrote in a <a href=\"https://www.facebook.com/daltonfirerescue/posts/pfbid0j34sfyv3j8BtgpZqERUwBmoeqXnM9uD7mW4doWj9cpvy8eBvvrQZ2RE6PNR8tBF2l?__cft__[0]=AZbRTbSVm9eOasuRpgWBIa8LbE_tuX2N_ptXHQaVFFoTq9HTXJ9Zuz8woYhmLM72GI7Qki6GYr1uteEHxdOVHlGHNoQYTtmyLjiN7-sUw0371CahJG5eiZJ9I6AUGIdKwjgg_D63-NrPnqAN1Kqa8KF8&amp;__tn__=%2CO%2CP-R\" rel=\"noreferrer noopener\" target=\"_blank\">social media post</a>.</p>\n\n\n\n<p>The cause of the fire is under investigation.</p>\n\n\n\n<p>Roman is set to be arraigned Wednesday in Lancaster District Court. It was not immediately clear if he had an attorney.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More New Hampshire news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/newton-mass-man-dies-nh-crash/4003532/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2021/08/medstar-ambulance-generic.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/newton/\">Newton</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t11 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/newton-mass-man-dies-nh-crash/4003532/\">\n\t\t\t\t\t\t\t\t\t\tMass. man dies in head-on NH SUV crash, police say\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/brother-dies-whitefield-new-hampshire-shooting/4002942/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2019/09/paseando-perro-e1663659069643.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/new-hampshire/\">New Hampshire</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 24\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/brother-dies-whitefield-new-hampshire-shooting/4002942/\">\n\t\t\t\t\t\t\t\t\t\tAnother family member dies in NH murder-suicide shooting, officials say\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/i-89-police-standoff-pursuit-warner-new-hampshire/4002377/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2024/10/newhampshirestatepolice.png?quality=85&#038;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/new-hampshire/\">New Hampshire</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 22\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/i-89-police-standoff-pursuit-warner-new-hampshire/4002377/\">\n\t\t\t\t\t\t\t\t\t\tNew Hampshire woman arrested after police pursuit that ended in standoff on I-89\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
+      "summary": "<p>A northern New Hampshire man is facing serious charges after allegedly stealing an emergency vehicle that responded to the fire that burned down his house in Dalton.</p>\n\n\n\n<p>Fire crews from Dalton and neighboring communities responded shortly after 3:30 a.m. Tuesday to a house fire near the intersection of Faraway Road and Mountain Road. The fire was fully involved when they arrived.</p>\n\n\n\n<p>A short time before 5 a.m., the homeowner got into a Ford F-550 rescue truck that had responded from Whitefield Fire &amp; Rescue, fire officials in Dalton said.</p>\n\n\n\n<p>The driver nearly hit two firefighters and almost pinned a third between two trucks, according to Dalton Fire Rescue. He then allegedly hit a Whitefield fire engine and a small pickup truck, ran over multiple water supply lines and hit a firefighter&#8217;s parked personal vehicle.</p>\n\n\n\n<p>New Hampshire State Police, who had responded earlier to assist at the scene of the fire, said the driver then damaged wooden fences at two properties before crashing at another property, where he allegedly tried to take items from the porch.</p>\n\n\n\n<p>The man was identified as 30-year-old Nestor Roman II of Dalton. State police said he was uncooperative as troopers took him into custody.</p>\n\n\n\n<p>Roman is charged with three counts of reckless conduct with a deadly weapon and four counts of conduct after an accident, as well as single counts of obstructing government administration, felony theft by unauthorized taking, burglary and resisting arrest.</p>\n\n\n\n<p>Fire officials said Roman&#8217;s house was a total loss, with photos showing little of the structure still standing.</p>\n\n\n\n<p>The fire engine Roman is accused of hitting sustained significant damage, fire officials said, but was able to continue fighting the fire. The hoses that were run over were not damaged.</p>\n\n\n\n<p>&#8220;We are extremely thankful that no firefighters were physically injured despite the close call,&#8221; Dalton Fire Rescue wrote in a <a href=\"https://www.facebook.com/daltonfirerescue/posts/pfbid0j34sfyv3j8BtgpZqERUwBmoeqXnM9uD7mW4doWj9cpvy8eBvvrQZ2RE6PNR8tBF2l?__cft__[0]=AZbRTbSVm9eOasuRpgWBIa8LbE_tuX2N_ptXHQaVFFoTq9HTXJ9Zuz8woYhmLM72GI7Qki6GYr1uteEHxdOVHlGHNoQYTtmyLjiN7-sUw0371CahJG5eiZJ9I6AUGIdKwjgg_D63-NrPnqAN1Kqa8KF8&amp;__tn__=%2CO%2CP-R\" rel=\"noreferrer noopener\" target=\"_blank\">social media post</a>.</p>\n\n\n\n<p>The cause of the fire is under investigation.</p>\n\n\n\n<p>Roman is set to be arraigned Wednesday in Lancaster District Court. It was not immediately clear if he had an attorney.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More New Hampshire news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/newton-mass-man-dies-nh-crash/4003532/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2021/08/medstar-ambulance-generic.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/newton/\">Newton</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\t12 hours ago\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/newton-mass-man-dies-nh-crash/4003532/\">\n\t\t\t\t\t\t\t\t\t\tMass. man dies in head-on NH SUV crash, police say\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/brother-dies-whitefield-new-hampshire-shooting/4002942/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2019/09/paseando-perro-e1663659069643.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/new-hampshire/\">New Hampshire</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 24\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/brother-dies-whitefield-new-hampshire-shooting/4002942/\">\n\t\t\t\t\t\t\t\t\t\tAnother family member dies in NH murder-suicide shooting, officials say\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/i-89-police-standoff-pursuit-warner-new-hampshire/4002377/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2024/10/newhampshirestatepolice.png?quality=85&#038;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/new-hampshire/\">New Hampshire</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 22\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/i-89-police-standoff-pursuit-warner-new-hampshire/4002377/\">\n\t\t\t\t\t\t\t\t\t\tNew Hampshire woman arrested after police pursuit that ended in standoff on I-89\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
       "source": "NBC Boston"
-    },
-    {
-      "title": "Lawrence mayor defends city finances amid federal probe",
-      "link": "https://www.wcvb.com/article/lawrence-mayor-depena-city-finances-federal-investigation/73525021",
-      "published": "Tue, 25 Aug 2026 22:42:00 GMT",
-      "ts": 1787697720,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>DePe\u00f1a says Lawrence\u2019s finances remain strong, citing audits and reserves as he pushes back on claims tied to a federal probe.</p>",
-      "source": "Top Stories"
     },
     {
       "title": "ESPN has a pessimistic projection for the Celtics in 2026-27",
@@ -3982,49 +4109,9 @@
       "published": "Tue, 25 Aug 2026 22:29:17 +0000",
       "ts": 1787696957,
       "author": "Conor Ryan",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
+      "feed_title": "Boston.com",
       "summary": "<p>This would be the first season the Celtics haven't reached at least 50 wins since 2020-21. </p>\n<p>The post <a href=\"https://www.boston.com/sports/boston-celtics/2026/08/25/boston-celtics-nba-basketball-espn-projections-standings-predictions/\">ESPN has a pessimistic projection for the Celtics in 2026-27</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
-    },
-    {
-      "title": "Services underway for Worcester patrolman killed in domestic incident",
-      "link": "https://www.wcvb.com/article/kurt-solomon-worcester-services/73518528",
-      "published": "Tue, 25 Aug 2026 22:19:00 GMT",
-      "ts": 1787696340,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Worcester police are honoring Patrolman Kurt Solomon as services begin after his death in a domestic incident.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "How Dolly Parton started a massive early-childhood reading movement",
-      "link": "https://www.wcvb.com/article/dolly-parton-imagination-library-free-books-philanthropy/73525060",
-      "published": "Tue, 25 Aug 2026 22:19:00 GMT",
-      "ts": 1787696340,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>Country music icon Dolly Parton has died at the age of 80, leaving behind a legacy measured in songs, kindness and millions of opened books.</p>",
-      "source": "Top Stories"
-    },
-    {
-      "title": "Woman killed in Portland, Maine hit-and-run crash",
-      "link": "https://www.boston.com/news/local-news/2026/08/25/woman-killed-in-portland-maine-hit-and-run-crash/",
-      "published": "Tue, 25 Aug 2026 22:17:02 +0000",
-      "ts": 1787696222,
-      "author": "Samantha Genzer",
-      "feed_title": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3",
-      "summary": "<p>Witnesses described the vehicle involved as a dark-colored pickup truck.</p>\n<p>The post <a href=\"https://www.boston.com/news/local-news/2026/08/25/woman-killed-in-portland-maine-hit-and-run-crash/\">Woman killed in Portland, Maine hit-and-run crash</a> appeared first on <a href=\"https://www.boston.com\">Boston.com</a>.</p>",
-      "source": "Jarren Duran hits grand slam in 11th inning and Red Sox sink Marlins 7-3"
-    },
-    {
-      "title": "At least 1 in 4 NFL players had brain disease CTE, Mass General Brigham study finds",
-      "link": "https://www.wcvb.com/article/at-least-1-in-4-nfl-players-had-brain-disease-cte-mass-general-brigham-study-finds/73518874",
-      "published": "Tue, 25 Aug 2026 22:06:00 GMT",
-      "ts": 1787695560,
-      "author": "",
-      "feed_title": "Top Stories",
-      "summary": "<p>A Mass General Brigham study has found that one in four former NFL players who died between 2016 and 2021 had evidence of chronic traumatic encephalopathy, or CTE, at the time of their death.</p>",
-      "source": "Top Stories"
+      "source": "Boston.com"
     },
     {
       "title": "Cannabis exec given immunity in extortion trial of Suffolk Sheriff\u00a0Tompkins",
@@ -4065,86 +4152,6 @@
       "feed_title": "Boston News, Weather, Sports | WHDH 7News",
       "summary": "Hundreds of police officers and community members gathered at the Lady of the Angels Church for the wake of Worcester police officer Kurt Solomon, who...",
       "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Giamatti and Turturro anchor a stampeding, stellar 'Rhinoceros' at A.R.T.",
-      "link": "https://www.wbur.org/news/2026/08/25/american-repertory-theater-rhinoceros-review",
-      "published": "Tue, 25 Aug 2026 17:03:00 -0400",
-      "ts": 1787691780,
-      "author": "WBUR",
-      "feed_title": "WBUR News",
-      "summary": "<p>Paul Giamatti and John Turturro give highlight performances in Diane Paulus's smart production of Eug\u00e8ne Ionesco's absurdist classic. Critic Jacquinn Sinclair writes it's  funnier and more resonant than she expected, with Giamatti's transformation into a raging rhino a genuine showstopper.</p>",
-      "source": "WBUR News"
-    },
-    {
-      "title": "Somerville commuter warns pet owners about MBTA escalator injuries",
-      "link": "https://www.nbcboston.com/investigations/somerville-commuter-warns-pet-owners-about-mbta-escalator-injuries/4003960/",
-      "published": "Tue, Aug 25 2026 08:35:19 PM",
-      "ts": 1787646919,
-      "author": "Ryan Kath",
-      "feed_title": "NBC Boston",
-      "summary": "<p>After an accident involving an MBTA escalator, a dog owner from Somerville, Massachusetts, is sharing a warning for commuters who like to take their pets on public transit.</p>\n\n\n\n<p>Joel Tenenbaum reached out to the NBC10 Boston Investigators when he saw our series of reports about Steven McCluskey, a 40-year-old father of two kids, <a href=\"https://www.nbcboston.com/news/local/man-caught-in-mbta-escalator-died-from-brain-injuries-tied-to-strangulation/3982107/\" rel=\"noreferrer noopener\" target=\"_blank\">who died after getting caught in an escalator</a> at the MBTA station in Davis Square.</p>\n\n\n\n<p>Tenenbaum said he realized the impact of increased public awareness when he watched how, months later, <a href=\"https://www.nbcboston.com/investigations/good-samaritan-meets-woman-he-helped-when-she-was-trapped-in-mbta-escalator/3992850/\" rel=\"noreferrer noopener\" target=\"_blank\">a good Samaritan pressed the emergency stop button</a> and helped a woman who was trapped in the very same escalator.</p>\n\n\n<div></div>\n\n\n<p>That is why the owner of a greyhound named Turner decided to spread the word about the dangers of escalators for four-legged companions.</p>\n\n\n\n<p>During an afternoon walk with Turner around their Somerville neighborhood, Tenenbaum told NBC10 Boston how the pair are regular commuters at the Sullivan station on the Orange Line.</p>\n\n\n\n<p>Tenenbaum said his dog had been on escalators &#8220;hundreds of times.&#8221;</p>\n\n\n\n<p>&#8220;It had never occurred to me it would be an issue,&#8221; he said.</p>\n\n\n\n<p>However, that changed in November when they were riding the escalator on their way home. Just as they were about to disembark, Tenenbaum said he heard his dog let out a yelp.</p>\n\n\n\n<p>The greyhound&#8217;s paw was caught where the steps disappear under the teeth at the top of the escalator.</p>\n\n\n\n<p>&#8220;I reach over, I quickly pull him out,&#8221; Tenenbaum said. &#8220;There was just an instant urgency for a need to help my poor dog in his suffering.&#8221;</p>\n\n\n<div></div>\n\n\n<p>Turner was bleeding as other commuters and MBTA employees gathered around. Tenenbaum rushed his dog to an emergency veterinarian.</p>\n\n\n\n<p>After getting stitched up, Turner had to spend time recovering with a cone on his head and bandage on his injured paw.</p>\n\n\n\n<p>&#8220;We went through his insurance deductible real fast,&#8221; Tenenbaum said.</p>\n\n\n\n<p>Turner made a full recovery and is now back on all fours, enjoying his daily walks.</p>\n\n\n\n<p>Tenenbaum figured his dog wasn&#8217;t alone. He was right.</p>\n\n\n\n<p>The NBC10 Boston Investigators found an incident last year when a pet owner suffered a hand injury when trying to free their dog&#8217;s leg from an escalator at the Alewife station, according to data obtained via a public records request.</p>\n\n\n<div></div>\n\n\n<p>Last October, the Cambridge Fire Department posted about rescuing a small dog with both back paws caught in an escalator at the Harvard stop on the Red Line. One firefighter was bitten during the extrication, according to the post.</p>\n\n\n\n<p>The Cambridge Fire Department also <a href=\"https://x.com/CambridgeMAFire/status/1504434850845151241?s=20\" rel=\"noreferrer noopener\" target=\"_blank\">shared a photo on social media</a> of firefighters rescuing a dog named Taco back in 2000.</p>\n\n\n\n<p>&#8220;[Escalators] certainly make me pretty nervous,&#8221; said Dr. Kelsea Studer, an emergency veterinarian and assistant clinical professor at Cummings School of Veterinary Medicine at Tufts University.</p>\n\n\n\n<p>Studer said dogs&#8217; nails, paws and hair can get caught in escalators. The veterinarian has seen injuries that require surgery or even an amputation.</p>\n\n\n\n<p>If stairs or elevators are not an option, Studer said pet owners should carry their dogs on escalators, or at least guide them on entry and exit points to avoid where they can get paws entrapped.</p>\n\n\n\n<p>&#8220;The recommendation from me would be to try to avoid [escalators] if possible,&#8221; Studer said.</p>\n\n\n\n<p>Tenenbaum said his mindset has shifted about escalators, a piece of machinery he previously viewed as a mundane part of his daily commute.</p>\n\n\n\n<p>&#8220;People don&#8217;t realize that their pets can wind up getting quite painful and expensive injuries,&#8221; he said.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More on escalator safety at MBTA stations</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/investigations/good-samaritan-meets-woman-he-helped-when-she-was-trapped-in-mbta-escalator/3992850/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/MBTA-escalator-reunion-080526.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/mbta/\">MBTA</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 5\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/investigations/good-samaritan-meets-woman-he-helped-when-she-was-trapped-in-mbta-escalator/3992850/\">\n\t\t\t\t\t\t\t\t\t\tGood Samaritan meets woman he helped when she was trapped in MBTA escalator\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/investigations/there-is-love-out-there-community-mourns-man-after-mbta-escalator-death/3958598/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/06/VigEsc010.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/somerville/\">Somerville</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tJun 2\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/investigations/there-is-love-out-there-community-mourns-man-after-mbta-escalator-death/3958598/\">\n\t\t\t\t\t\t\t\t\t\t\u2018There is love out there&#039;: Community mourns man after MBTA escalator death\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/investigations/mbta-davis-escalator-death-investigation/3948562/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/05/MBTA-DAVIS-SURVEILLANCE.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"format-icon format-icon--video\"></span>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/mbta/\">MBTA</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMay 12\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/investigations/mbta-davis-escalator-death-investigation/3948562/\">\n\t\t\t\t\t\t\t\t\t\tHow did a man die after getting caught in an MBTA escalator?\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
-      "source": "NBC Boston"
-    },
-    {
-      "title": "Psychologist testifies Lindsay Clancy is criminally responsible for murdering her 3 children",
-      "link": "https://whdh.com/news/psychologist-testifies-lindsay-clancy-is-criminally-responsible-for-murdering-her-3-children/",
-      "published": "Tue, 25 Aug 2026 20:28:25 +0000",
-      "ts": 1787689705,
-      "author": "Maria D'Agostino",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "More mental health experts hired by the District Attorney&#8217;s Office have now testified that Lindsay Clancy did have a mental health issue when she killed...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Boston Symphony Orchestra musicians ratify contract, avoiding historic strike",
-      "link": "https://www.nbcboston.com/news/local/boston-symphony-orchestra-musicians-ratify-contract-avoiding-historic-strike/4003904/",
-      "published": "Tue, Aug 25 2026 07:11:34 PM",
-      "ts": 1787641894,
-      "author": "Asher Klein and Thea DiGiammerino",
-      "feed_title": "NBC Boston",
-      "summary": "<p>The musicians of the Boston Symphony Orchestra have ratified a contract and avoided a strike.</p>\n\n\n\n<p>The Boston Musicians&#8217; Association contract was originally set to run out Monday. Union members had authorized a strike, which would have been the first one in BSO history. Instead, the union announced Tuesday that members voted in favor of ratifying a new three-year contract.</p>\n\n\n\n<p>&#8220;This groundbreaking agreement offers unprecedented artistic collaboration through all aspects of the artistic process, which we believe will set a new standard for American Orchestras. The agreement guarantees the musicians a meaningful role engaging collaborators and planning repertoire that ensures artistic excellence,&#8221; wrote union President David Rufino in a media statement.</p>\n\n\n\n<p>This comes after union members voted to approve a strike, citing the turmoil caused by the decision to <a href=\"https://www.nbcboston.com/news/local/andris-nelsons-out-as-music-director-of-boston-symphony-at-end-of-2026-27-season/3911892\" rel=\"noreferrer noopener\" target=\"_blank\">oust Music Director Andris Nelsons</a>. </p>\n\n\n\n<p>BSO President and CEO Chad Smith said previously that his team respected the musicians&#8217; right to negotiate and that they were committed to reaching an agreement &#8220;with competitive pay and benefits that enhances collaboration with the Players.&#8221;</p>\n\n\n\n<p>&#8220;With an economic agreement that keeps us competitive with our peer orchestras, it is also an innovative and transformative path forward for American orchestras, involving players as never before in the process of artistic decision making and planning,&#8221; wrote Players Committee Chair Todd Seeber.  &#8220;In addition, the agreement guarantees the musicians a critically enhanced role in the engagement of titled conductors, including the Music Director. With both musicians and management working in earnest, we look forward to presenting the finest in classical music for our devoted audiences.&#8221;</p>\n\n\n\n<p>The BSO\u00a0Patron Action Network, an independent group of patrons and donors, said they would continue to call for Nelsons to be reinstated, despite the agreement.</p>\n\n\n\n<p>&#8220;As we near 200 days since Chad Smith and Board Chair Barbara W. Hostetter\u2019s disastrous decision to terminate Andris Nelsons\u2019 contract, we continue to stand in steadfast support for the musicians and Andris Nelsons,&#8221; the group wrote in a media statement.</p>\n\n\n\n<p>The BSO had two more concerts on its schedule this weekend, Saturday night and Sunday afternoon, at Tanglewood, its beloved summer home in the Berkshires. The orchestra is set to begin its 146th season in September, with Nelsons and Yo-Yo Ma part of opening night on Thursday, Sept. 17.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">More BSO news</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/andris-nelsons-out-as-music-director-of-boston-symphony-at-end-of-2026-27-season/3911892/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/03/GettyImages-1955178560.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/art-and-culture/\">Art and Culture</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tMar 6\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/andris-nelsons-out-as-music-director-of-boston-symphony-at-end-of-2026-27-season/3911892/\">\n\t\t\t\t\t\t\t\t\t\tAndris Nelsons out as music director of Boston Symphony at end of 2026-27 season\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/boston-symphony-orchestra-yo-yo-ma-grammy-awards-wins/3888330/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2024/03/bso-14900xx5400-3600-0-32.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/boston/\">Boston</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tFeb 1\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/boston-symphony-orchestra-yo-yo-ma-grammy-awards-wins/3888330/\">\n\t\t\t\t\t\t\t\t\t\tBoston Symphony Orchestra scores two Grammys\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\n<div></div>\n\n\n<p>Earlier this year, the BSO announced that Nelsons&#8217; contract as music director wasn&#8217;t being renewed, given that the parties &#8220;were not aligned on future vision.&#8221;</p>\n\n\n\n<p>Nelsons told the musicians and staff of the orchestra at the time &#8220;this is not the decision I anticipated or wanted,&#8221; but committed to continue to work and &#8220;support the orchestra&#8217;s stability.&#8221;</p>",
-      "source": "NBC Boston"
-    },
-    {
-      "title": "What does Moderna's melanoma treatment mean for cancer research? We asked 2 local experts",
-      "link": "https://www.wbur.org/news/2026/08/25/oncologist-moderna-mrna-melanoma-vaccine",
-      "published": "Tue, 25 Aug 2026 14:55:03 -0400",
-      "ts": 1787684103,
-      "author": "WBUR",
-      "feed_title": "WBUR News",
-      "summary": "<p> Moderna's stock price soared last week after the release of promising news about an experimental melanoma treatment using an mRNA-based cancer vaccine that the Cambridge company is working on with Merck. Two local cancer researchers explain how the treatment works and how it could mean for their field.</p>",
-      "source": "WBUR News"
-    },
-    {
-      "title": "Dolly Parton, music star, actor and beloved figure who spanned generations, dies at 80",
-      "link": "https://whdh.com/entertainment/dolly-parton-music-star-actor-and-beloved-figure-who-spanned-generations-dies-at-80/",
-      "published": "Tue, 25 Aug 2026 18:33:22 +0000",
-      "ts": 1787682802,
-      "author": "Maria D'Agostino",
-      "feed_title": "Boston News, Weather, Sports | WHDH 7News",
-      "summary": "NASHVILLE, Tenn. (AP) \u2014&#160;Dolly Parton, the country music icon whose soaring vibrato vocals,&#160;poignant songwriting&#160;and sparkling costumes defined her rise from a log cabin in the...",
-      "source": "Boston News, Weather, Sports | WHDH 7News"
-    },
-    {
-      "title": "Online lottery draws 23,000 new accounts, $110M in bets",
-      "link": "https://www.wgbh.org/news/local/2026-08-25/online-lottery-draws-23-000-new-accounts-110m-in-bets",
-      "published": "Tue, 25 Aug 2026 18:32:22 GMT",
-      "ts": 1787682742,
-      "author": "",
-      "feed_title": "GBH News",
-      "summary": "Year-over-year sales are up at the Massachusetts Lottery soon after the launch of its long-awaited iLottery.",
-      "source": "GBH News"
-    },
-    {
-      "title": "College student move-in season in Boston brings excitement, Storrowing warning",
-      "link": "https://www.nbcboston.com/news/local/college-student-move-in-season-in-boston-brings-excitement-storrowing-warning/4003874/",
-      "published": "Tue, Aug 25 2026 06:08:10 PM",
-      "ts": 1787638090,
-      "author": "Brianna Borghi",
-      "feed_title": "NBC Boston",
-      "summary": "<p>College move-in is underway in Boston, bringing thousands of students, families, packed cars and moving trucks back to the city.</p>\n\n\n\n<p>At Boston University, incoming freshmen filled Commonwealth Avenue with boxes, blue moving carts and plenty of excitement as they prepared to settle into campus life.</p>\n\n\n\n<p>&#8220;There&#8217;s a lot of emotions, but I just cannot wait to start school here at BU,&#8221; incoming freshman Nabiel Malik said.</p>\n\n\n\n<p>Malik arrived on campus with his twin brother, Shaamiel. The two brought video games, swivel chairs, a refrigerator \u2014 and the added comfort of already knowing their roommates.</p>\n\n\n\n<p>&#8220;I mean, it&#8217;s a great experience,&#8221; said Shaamiel Malik. &#8220;Wondering who my roommate was going to be was one of my top stressors, but now, I have him, so it&#8217;s really great.&#8221;</p>\n\n\n\n<p>For other freshmen, meeting their roommates remains one of the biggest unknowns of move-in day.</p>\n\n\n<div></div>\n\n\n<p>&#8220;I&#8217;m excited to meet my roommates. I&#8217;m in a triple, they&#8217;re really nice kids, but we haven&#8217;t called or anything, so it&#8217;ll be nice to meet them for the first time,&#8221; incoming BU freshman Paulina Valladares said.</p>\n\n\n\n<p>Students have also spent weeks \u2014 and, in some cases, months \u2014 preparing for the move.</p>\n\n\n\n<p>&#8220;I made a list like two months ago, so I made a spreadsheet and everything, so the actual packing process wasn&#8217;t that bad,&#8221; incoming freshman Kayla Rufner said.</p>\n\n\n\n<p>But even a detailed spreadsheet cannot always fit everything into the car. Asked what she planned to do once she was settled, Rufner had a simple answer.</p>\n\n\n\n<p>&#8220;Go shop for more things that I couldn&#8217;t fit,&#8221; she said.</p>\n\n\n\n<p>Some families needed more than one vehicle to get everything to campus.</p>\n\n\n\n<p>&#8220;One car, and then we rented a U-Haul truck,&#8221; incoming freshman Jordanna Silverstein said.</p>\n\n\n\n<p>With moving trucks returning to Boston&#8217;s streets, the Massachusetts Department of Conservation and Recreation is reminding drivers to stay off Storrow Drive, Soldiers Field Road and Memorial Drive, where low-clearance bridges can turn a college move into a viral mishap known locally as getting &#8220;Storrowed.&#8221;</p>\n\n\n\n<p>&#8220;If you hit the signs or the bridges, it&#8217;s very loud. Neighborhood children are going to come out and make fun of you. So avoid being on the local news, avoid being a meme in town for a few days,&#8221; said Ryan Hutton, a digital strategist for DCR.</p>\n\n\n\n<p>Officials are urging drivers to pay attention to &#8220;cars only&#8221; signs and plan their routes before getting behind the wheel of a rental truck.</p>\n\n\n\n<p>&#8220;Normal GPS apps don&#8217;t allow you to input the height of your truck, but TruckMap and Hammer are free and they do let you put that in. So it&#8217;ll avoid any bridge or overpass that your truck can&#8217;t fit in,&#8221; Hutton said.</p>\n\n\n\n<p>Boston made it through the 2024 college move-in period without any reported &#8220;Storrowings,&#8221; but this year&#8217;s rush is just beginning.</p>\n\n\n\n<p>Emerson College students are expected to begin moving in later this week, with Northeastern University students following closer to Labor Day. The city will also see its annual surge of apartment moves around Sept. 1.</p>\n\n\n\t\t\t<div class=\"recirc-module\">\n\t\t\t<h3 class=\"recirc__heading\">Back to school</h3>\n\t\t\t<p class=\"recirc__subheading\"></p>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/number-2-pencil-uniquely-american-school-supply-staple/4002937/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/GettyImages-2288436752.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/back-to-school/\">Back to School</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 24\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/number-2-pencil-uniquely-american-school-supply-staple/4002937/\">\n\t\t\t\t\t\t\t\t\t\tHow the No. 2 pencil became a uniquely American school supply staple\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/local/us-news-and-world-report-best-high-schools-rankings-massachusetts-new-england/4000243/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2025/02/GettyImages-1415424431.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/massachusetts/\">Massachusetts</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 19\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/local/us-news-and-world-report-best-high-schools-rankings-massachusetts-new-england/4000243/\">\n\t\t\t\t\t\t\t\t\t\tNearly half of Massachusetts high schools rank among nation&#039;s best\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"recirc__post\">\n\t\t\t\t\t<div class=\"post__wrap\">\n\t\t\t\t\t\t<div class=\"post__image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.nbcboston.com/news/national-international/teens-ai-use-school-parents-grappling-impact-learning/4000426/\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" class=\"post__image\" src=\"https://media.nbcboston.com/2026/08/GettyImages-1242701087.jpg?quality=85&amp;strip=all\" />\n\t\t\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"post__text\">\n\t\t\t\t\t\t\t<div class=\"post__meta\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"post__tag\" href=\"https://www.nbcboston.com/tag/artificial-intelligence/\">Artificial Intelligence</a>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"post__date post__date--has-category\">\n\t\t\t\t\t\t\t\t\t\tAug 19\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h3 class=\"post__title\">\n\t\t\t\t\t\t\t\t\t<a class=\"post__title--link\" href=\"https://www.nbcboston.com/news/national-international/teens-ai-use-school-parents-grappling-impact-learning/4000426/\">\n\t\t\t\t\t\t\t\t\t\tAs more teens use AI in school, parents are grappling with how it impacts learning\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>",
-      "source": "NBC Boston"
     }
   ],
   "news_universalhub": [],
@@ -4713,26 +4720,6 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Boston College hockey coach raves about the development of James Hagens - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNU3lVMnU4WHBWNUNWbWhGQktra2RKS1VXdjNkZXVhcEdybFAyNU9DUUk2WUNZQ3V5RFJpdmJjZzM3ZkV6VER0ZEJ1cWhUR09BX3JxQ1I2empYZ0tpdzVUNXdGYklVZW9Ubk1qWGZZRW0xRTFkNmZVNEJyLTVqZ2pHd2szYXZlelUyTERYWXBYdUdSbk9YRDhPTg?oc=5",
-      "published": "Tue, 11 Aug 2026 00:12:18 GMT",
-      "ts": 1786407138,
-      "author": "",
-      "feed_title": "Yahoo Sports",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxNU3lVMnU4WHBWNUNWbWhGQktra2RKS1VXdjNkZXVhcEdybFAyNU9DUUk2WUNZQ3V5RFJpdmJjZzM3ZkV6VER0ZEJ1cWhUR09BX3JxQ1I2empYZ0tpdzVUNXdGYklVZW9Ubk1qWGZZRW0xRTFkNmZVNEJyLTVqZ2pHd2szYXZlelUyTERYWXBYdUdSbk9YRDhPTg?oc=5\" target=\"_blank\">Boston College hockey coach raves about the development of James Hagens</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo Sports</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
-      "title": "Why Can\u2019t Boston College Close Out a Season? - BC Interruption",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZTZhT202Q2lfS2ZLVGI0Q0tqd1JlVTdOU3F1cjluclFwYjg4a1o3QXRSSi1QYU9NaGQ0UmdyV2MzYUFOMlBJZTg4YXNtZ3dzYkhkdFFYd2FncVBIY3IzQ0EwRVYxTUVfTDY1MWx3SHpTaV8wWDduUlN1VV9GQmlWdnltbnVBXzlLSU41NGNtMHN6QUs0NHhKQ0k1YjVBd1BjbGVv?oc=5",
-      "published": "Sun, 08 Mar 2026 08:00:00 GMT",
-      "ts": 1772956800,
-      "author": "",
-      "feed_title": "BC Interruption",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxQZTZhT202Q2lfS2ZLVGI0Q0tqd1JlVTdOU3F1cjluclFwYjg4a1o3QXRSSi1QYU9NaGQ0UmdyV2MzYUFOMlBJZTg4YXNtZ3dzYkhkdFFYd2FncVBIY3IzQ0EwRVYxTUVfTDY1MWx3SHpTaV8wWDduUlN1VV9GQmlWdnltbnVBXzlLSU41NGNtMHN6QUs0NHhKQ0k1YjVBd1BjbGVv?oc=5\" target=\"_blank\">Why Can\u2019t Boston College Close Out a Season?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BC Interruption</font>",
-      "source": "Google News \u00b7 BC Hockey"
-    },
-    {
       "title": "New Season, New Expectations for New Era of BC Hockey - Boston College Athletics",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNy1xc0IxOG9mZ3M2UzNUdHM0NUYzRFpEbnhFcHp0dG92N3E3d2IzOWlzem5zcTJaQ0N0aERSRi1tMGZhUlFPVmxmWk0tXzUtU1lkNWpMZmtYaHVhSU05S3dNREFXRVhtaVhEb2FOQmQxZHl2M3pXdEhOMmZ2RU4zT1RkUy10eHlXOVNsYnBJR3B4Zlp0VmVBLXhtLXFNM1ZRX1ZCV1hzNmQ?oc=5",
       "published": "Mon, 29 Sep 2025 07:00:00 GMT",
@@ -4743,53 +4730,73 @@
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Providence takes advantage of BC hockey miscues in OT win - MassLive.com",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5",
-      "published": "Fri, 16 Jan 2026 08:00:00 GMT",
-      "ts": 1768550400,
+      "title": "Early power play goals lead Boston College hockey to 7-3 win over UMaine - Bangor Daily News",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5",
+      "published": "Fri, 21 Nov 2025 08:00:00 GMT",
+      "ts": 1763712000,
+      "author": "",
+      "feed_title": "Bangor Daily News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxQUUl4OGNBWXNuZ1ZsdndRbmVvRTAxUFNFLTNvZHZmcUpPQVVBcjFSOGdxa1ByVE4tZUltR0c0V3RRbjdVMGcxWmRBU0dJak9BekdZSVNRUU8zMGF6UlhxWjFkM0F2Y3hrcTNhMklqNi1pckRPdkFXQXVBU0pwSk1xRFlrMEZCY0VuczVMdFVNN1lPb05KOXlTaV9rMFVhZTdZUzJ1MmhLOA?oc=5\" target=\"_blank\">Early power play goals lead Boston College hockey to 7-3 win over UMaine</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Bangor Daily News</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
+    {
+      "title": "Boston College hockey takes down Boston University ahead of Beanpot - MassLive.com",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbXdxbVIwUXV0VVRQTVRHOTZLRnVKS3Y5eVhHNFRjVkxwa09aMjhHZW1zX05RWlhNQjRVOXNTMTVqQlpSajVJN0NuU1pLVWtiMFRNdTVxbGc5cTdScElKcVVQcVhDN1UzODV4LUtqWERhTjJTdFRiUEtpTTFIR0huRVJnY093RXV3M0ttSFczU2p1YlNEYVhFQm5ZeE1PZXp3UE5uTUlfZ3U5V2p2dkFsT0Z3M2tjNWZxRlkw?oc=5",
+      "published": "Fri, 30 Jan 2026 08:00:00 GMT",
+      "ts": 1769760000,
       "author": "",
       "feed_title": "MassLive.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWV2UklLZXI4X3dScFYyOUVyc3BjQ2tHZXV0SlIwa3B6Vi1HX18taERoZzc0dUhtR1pZa1ZGdWF2Z1ltV1VLSnBvbUhIYWRGLTZqSHBoWnZYTVozTXIyMTgyWkNqQ0hoUzJPWkNBM0VqTDZ2WFVEUGs2WV92TDlDOERZQ1lLN0M0bURYaUozaGRqZFpQR1A3dHE2UHlITi1XNldiZVJlYw?oc=5\" target=\"_blank\">Providence takes advantage of BC hockey miscues in OT win</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbXdxbVIwUXV0VVRQTVRHOTZLRnVKS3Y5eVhHNFRjVkxwa09aMjhHZW1zX05RWlhNQjRVOXNTMTVqQlpSajVJN0NuU1pLVWtiMFRNdTVxbGc5cTdScElKcVVQcVhDN1UzODV4LUtqWERhTjJTdFRiUEtpTTFIR0huRVJnY093RXV3M0ttSFczU2p1YlNEYVhFQm5ZeE1PZXp3UE5uTUlfZ3U5V2p2dkFsT0Z3M2tjNWZxRlkw?oc=5\" target=\"_blank\">Boston College hockey takes down Boston University ahead of Beanpot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">MassLive.com</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "BC Hockey Roundup: Major Coaching Change, New USNTDP Commitment and a Potential Roster Addition - Sports Illustrated",
-      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPeVMxWmgxekgtLUV6dmxudVN6bVNYYkprVXdBY1BuVEIzbE9UTHRrZldjMkd6QTNfenl3NVRzSENvNE1WTTFISWp2cGJzc0xubXAtdjNLT2hYR0dteGUza0E2TTZzTVlKaWxicDAtbGdFMkR1bUphN1NUdFMyWkk2RmVJem9ocjlrY3puZnZ6VkphdGR0N0t2WEtUcmlUN01wQnNvdXd4bFpONVNyYTRhemFWNVdjSEhxZFlkNEppel9TQjQ?oc=5",
-      "published": "Tue, 11 Aug 2026 07:00:00 GMT",
-      "ts": 1786431600,
+      "title": "Six Numbers that Tell the Story of Boston College Hockey\u2019s Season Ending Loss - Sports Illustrated",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNOWVPRkdDbE1pRzd3SHJYTWtHc1ZmQTJfUkZxZDdncHNreXVEUHVTS3pJYXdjOVFXRUN0a2xRZFREUEtwNzM2S1o3ZmRwRk1XSXdHVXNZUFljNXhVeWcyZWZNSGZKSGtYU0JTbzlSNUJIYW1jaGRncl9kVFFCZEtHMWZCLWVxSmtfMzBsaEtBMHcyOWo1WTRvUTBuY2xObXk2LV9XNGJzTE5XS2JIeG0xN3J0NFFjOFNzWHRuUUQ5bUY?oc=5",
+      "published": "Sat, 21 Mar 2026 07:00:00 GMT",
+      "ts": 1774076400,
       "author": "",
       "feed_title": "Sports Illustrated",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwwFBVV95cUxPeVMxWmgxekgtLUV6dmxudVN6bVNYYkprVXdBY1BuVEIzbE9UTHRrZldjMkd6QTNfenl3NVRzSENvNE1WTTFISWp2cGJzc0xubXAtdjNLT2hYR0dteGUza0E2TTZzTVlKaWxicDAtbGdFMkR1bUphN1NUdFMyWkk2RmVJem9ocjlrY3puZnZ6VkphdGR0N0t2WEtUcmlUN01wQnNvdXd4bFpONVNyYTRhemFWNVdjSEhxZFlkNEppel9TQjQ?oc=5\" target=\"_blank\">BC Hockey Roundup: Major Coaching Change, New USNTDP Commitment and a Potential Roster Addition</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxNOWVPRkdDbE1pRzd3SHJYTWtHc1ZmQTJfUkZxZDdncHNreXVEUHVTS3pJYXdjOVFXRUN0a2xRZFREUEtwNzM2S1o3ZmRwRk1XSXdHVXNZUFljNXhVeWcyZWZNSGZKSGtYU0JTbzlSNUJIYW1jaGRncl9kVFFCZEtHMWZCLWVxSmtfMzBsaEtBMHcyOWo1WTRvUTBuY2xObXk2LV9XNGJzTE5XS2JIeG0xN3J0NFFjOFNzWHRuUUQ5bUY?oc=5\" target=\"_blank\">Six Numbers that Tell the Story of Boston College Hockey\u2019s Season Ending Loss</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Sports Illustrated</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "B.C. hockey icon\u2019s story garners honours on both sides of border - Vancouver Island Free Daily",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYVNncWdRc2w2YWEtZUVXb1pUZHQtanNMY09kNm1QMDZNVDVzV3ZnNUZDeFZpVERMMHBvaDhtZjZvTlNFQTRITmxtdURNSk5qc2FMNUg0VzJkUU9rWVRaY0RYYkJrbkZabWhfTjNMbmhJazlsazFpQTB2dXkzMTNLVi1PMmtlQWJKUHNsX1ZPZDhwTjhSSlI1QzZDUFAwa2dHWXBMMmVQUUtESGpKN0JVbw?oc=5",
-      "published": "Thu, 04 Jun 2026 07:00:00 GMT",
-      "ts": 1780556400,
+      "title": "Boston College Hockey Lands 2025 NHL Draft Top Prospect James Hagens - FloHockey",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbUpNa1Z5c19nY1RfMTZ6NENnZXYxQXRRMm4tM21EekxCZVg0aUlZUm9WenViWTBZc3AxNXZKMWZJakRPMGhkVmlaNE9qaXNBaXNPbkttNUFXaWEzZ3NqZFBPUklWZzl3aG05OU5kZEZLQzZyTC1tLThqbnRya1hqZDFhX3B0SHFaaWF0YjJOckl5MzRmTG4wd0ZpSlFMWXpfN3RxeGF0NlR5bXJISkppXw?oc=5",
+      "published": "Thu, 21 Sep 2023 07:00:00 GMT",
+      "ts": 1695279600,
       "author": "",
-      "feed_title": "Vancouver Island Free Daily",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNYVNncWdRc2w2YWEtZUVXb1pUZHQtanNMY09kNm1QMDZNVDVzV3ZnNUZDeFZpVERMMHBvaDhtZjZvTlNFQTRITmxtdURNSk5qc2FMNUg0VzJkUU9rWVRaY0RYYkJrbkZabWhfTjNMbmhJazlsazFpQTB2dXkzMTNLVi1PMmtlQWJKUHNsX1ZPZDhwTjhSSlI1QzZDUFAwa2dHWXBMMmVQUUtESGpKN0JVbw?oc=5\" target=\"_blank\">B.C. hockey icon\u2019s story garners honours on both sides of border</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Vancouver Island Free Daily</font>",
+      "feed_title": "FloHockey",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNbUpNa1Z5c19nY1RfMTZ6NENnZXYxQXRRMm4tM21EekxCZVg0aUlZUm9WenViWTBZc3AxNXZKMWZJakRPMGhkVmlaNE9qaXNBaXNPbkttNUFXaWEzZ3NqZFBPUklWZzl3aG05OU5kZEZLQzZyTC1tLThqbnRya1hqZDFhX3B0SHFaaWF0YjJOckl5MzRmTG4wd0ZpSlFMWXpfN3RxeGF0NlR5bXJISkppXw?oc=5\" target=\"_blank\">Boston College Hockey Lands 2025 NHL Draft Top Prospect James Hagens</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">FloHockey</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Former Canadiens Blueliner Inducted To BC Hockey Hall Of Fame - Yahoo Sports",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPbkRmNVRTRURRNkNvcFAtZTQxTVg3VFQ3ellNTWtiTlE0ZHV1TlA5YmtXX0hOMEVScFU3RGNzbVpkZEoyX2hhWURhR2dmQ3RXSzRhTnk1RUxOdDczZ01CdlBwRUZRNXVjZHpfYlFwUklWYm9idUwzU3E2QVFORGFCaWZuR2RRc3o4Y1ZBazRweTk?oc=5",
-      "published": "Mon, 13 Jul 2026 07:00:00 GMT",
-      "ts": 1783926000,
+      "title": "James Hagens scores go-ahead goal to help BC hockey survive Bentley - NCAA.com",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRV9pZFVfZ2Foczl5Wmx2SFQtb0wwZzJFeTZxX1ozNFNtNnRENXlHT3lqbm5VNkdSS0xXeUlid21QVFl0NTlPdHQwdTl4OWN5ZF9FLVZjS0Rmblhwa2Jqa25qSmRUUU5vbmxMcDRDbHRtc0d2MnN4U2hiSlVtd1ctODY1Y1RfcktwMzJFaU44ZURPNzZhMllGUG9xcE9sUE9aTDY0dEdhT2NrVzFSclExajB2YTI0Qms?oc=5",
+      "published": "Fri, 28 Mar 2025 07:00:00 GMT",
+      "ts": 1743145200,
       "author": "",
-      "feed_title": "Yahoo Sports",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMikAFBVV95cUxPbkRmNVRTRURRNkNvcFAtZTQxTVg3VFQ3ellNTWtiTlE0ZHV1TlA5YmtXX0hOMEVScFU3RGNzbVpkZEoyX2hhWURhR2dmQ3RXSzRhTnk1RUxOdDczZ01CdlBwRUZRNXVjZHpfYlFwUklWYm9idUwzU3E2QVFORGFCaWZuR2RRc3o4Y1ZBazRweTk?oc=5\" target=\"_blank\">Former Canadiens Blueliner Inducted To BC Hockey Hall Of Fame</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo Sports</font>",
+      "feed_title": "NCAA.com",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxPRV9pZFVfZ2Foczl5Wmx2SFQtb0wwZzJFeTZxX1ozNFNtNnRENXlHT3lqbm5VNkdSS0xXeUlid21QVFl0NTlPdHQwdTl4OWN5ZF9FLVZjS0Rmblhwa2Jqa25qSmRUUU5vbmxMcDRDbHRtc0d2MnN4U2hiSlVtd1ctODY1Y1RfcktwMzJFaU44ZURPNzZhMllGUG9xcE9sUE9aTDY0dEdhT2NrVzFSclExajB2YTI0Qms?oc=5\" target=\"_blank\">James Hagens scores go-ahead goal to help BC hockey survive Bentley</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NCAA.com</font>",
       "source": "Google News \u00b7 BC Hockey"
     },
     {
-      "title": "Two Indicted for Assaulting Former Men\u2019s Hockey Defenseman Kevin Lohan - bcheights.com",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxONmtodzcxWUNSOExtWU43MmZ2V1FRdjBsajBhcW1PdmFiaERkWkUzb2pTNzVPSTZXTGFWanR6UXctRFN3aWpKckprVV9COFdubHBzcnEtS0tfR0hjOUJNNEh5b29PRWt6N3hXSDNtNkc1UVk4eG9sSnl0ODJXdGFVZGNpMmFoQU90TW9LR096ck10YTdiVG5ydVduR1RoSk1aZUlN?oc=5",
-      "published": "Sat, 14 Mar 2026 11:38:10 GMT",
-      "ts": 1773488290,
+      "title": "Boston College hockey has Gaudreaus, Voce close to hearts - ESPN",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQlJ6aEpaZmJtT29UWVR0eHBEZGRZaklQeFhkbVlGQXRCaXU0ME5WZXRabm1CV0xKMFBOOGU4T0ptVktfUUs5XzNIR3dZdlJwOUhBa19MNFFJQWQ3SlBtWTdKWHk4LUFCWFZhRk94TGRBUHhIdmpya3hmMkRUaGh4dVpZTzhMc05mcEhzRFhXYXgyOEplaUFoQU43UFRERTZ1U21TVFV3Vmg?oc=5",
+      "published": "Wed, 26 Mar 2025 07:00:00 GMT",
+      "ts": 1742972400,
       "author": "",
-      "feed_title": "bcheights.com",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiowFBVV95cUxONmtodzcxWUNSOExtWU43MmZ2V1FRdjBsajBhcW1PdmFiaERkWkUzb2pTNzVPSTZXTGFWanR6UXctRFN3aWpKckprVV9COFdubHBzcnEtS0tfR0hjOUJNNEh5b29PRWt6N3hXSDNtNkc1UVk4eG9sSnl0ODJXdGFVZGNpMmFoQU90TW9LR096ck10YTdiVG5ydVduR1RoSk1aZUlN?oc=5\" target=\"_blank\">Two Indicted for Assaulting Former Men\u2019s Hockey Defenseman Kevin Lohan</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">bcheights.com</font>",
+      "feed_title": "ESPN",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQlJ6aEpaZmJtT29UWVR0eHBEZGRZaklQeFhkbVlGQXRCaXU0ME5WZXRabm1CV0xKMFBOOGU4T0ptVktfUUs5XzNIR3dZdlJwOUhBa19MNFFJQWQ3SlBtWTdKWHk4LUFCWFZhRk94TGRBUHhIdmpya3hmMkRUaGh4dVpZTzhMc05mcEhzRFhXYXgyOEplaUFoQU43UFRERTZ1U21TVFV3Vmg?oc=5\" target=\"_blank\">Boston College hockey has Gaudreaus, Voce close to hearts</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ESPN</font>",
+      "source": "Google News \u00b7 BC Hockey"
+    },
+    {
+      "title": "Boston College hockey honors Gaudreau brothers, Tony Voce - CBS News",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPdGVfQ1J5djloQmRsczd1MVlmVVNJMUZhejM3bm1uaWx5MG9VMERpTENvZVB0ZklHOWJUR1MyUHZndEtlVVdrb0VlcFI1WkhvZjFiU3BCVjlXb1IzRU1EODlHSDlpVGh6VEQwdXMzeWJVeGpmX0RMb1hialpycUVEcnp3MmhwOUpGU2F0RzQwc9IBlAFBVV95cUxPT0hPMTlpeGc3ZENyTGZtSmtjWlBxTWg2aVJiMXZmUWN4dkdfdm5zcDcyTTd6UE04VkN1bWZGTTdkRncyRnpSR24xamRKcjJPbW9jX0xDMTA1cm84RTlHS0pmV1R1ck55dFJVOXR5amxLSHdkOGdWb3lWR1pqbThUa1BtXzBiVkdWY0V3NFBXSU9KMFI0?oc=5",
+      "published": "Fri, 18 Oct 2024 07:00:00 GMT",
+      "ts": 1729234800,
+      "author": "",
+      "feed_title": "CBS News",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxPdGVfQ1J5djloQmRsczd1MVlmVVNJMUZhejM3bm1uaWx5MG9VMERpTENvZVB0ZklHOWJUR1MyUHZndEtlVVdrb0VlcFI1WkhvZjFiU3BCVjlXb1IzRU1EODlHSDlpVGh6VEQwdXMzeWJVeGpmX0RMb1hialpycUVEcnp3MmhwOUpGU2F0RzQwc9IBlAFBVV95cUxPT0hPMTlpeGc3ZENyTGZtSmtjWlBxTWg2aVJiMXZmUWN4dkdfdm5zcDcyTTd6UE04VkN1bWZGTTdkRncyRnpSR24xamRKcjJPbW9jX0xDMTA1cm84RTlHS0pmV1R1ck55dFJVOXR5amxLSHdkOGdWb3lWR1pqbThUa1BtXzBiVkdWY0V3NFBXSU9KMFI0?oc=5\" target=\"_blank\">Boston College hockey honors Gaudreau brothers, Tony Voce</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CBS News</font>",
       "source": "Google News \u00b7 BC Hockey"
     }
   ],
@@ -5067,6 +5074,16 @@
       "source": "Google News \u00b7 Hockey East"
     },
     {
+      "title": "Huskies Set for Hockey East Championship Matchup vs. Merrimack - University of Connecticut Athletics",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYlFJZ0JpLWNPd1FqaWhNaHNDa1M4NndvY0ZBT1Bia242SEMyajFveWpzQ3lSNm9NMkVlZlAwdnVhVXhYbmlydTFfNllGTHlZTHBkVzh6MEtFOTVuZEJ5LUJ2eUQtRENRYzU4VU1WY1J6V1pQa3kwbUoxRklsVWUxT0VSUGY1aWdFZ2hzQlh6SGdvSTk3dlBPdlhCS2xsdll5aEx0cWlXeDU2cHVlRTJPQ1VrdEdDZERG?oc=5",
+      "published": "Sat, 21 Mar 2026 07:00:00 GMT",
+      "ts": 1774076400,
+      "author": "",
+      "feed_title": "University of Connecticut Athletics",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYlFJZ0JpLWNPd1FqaWhNaHNDa1M4NndvY0ZBT1Bia242SEMyajFveWpzQ3lSNm9NMkVlZlAwdnVhVXhYbmlydTFfNllGTHlZTHBkVzh6MEtFOTVuZEJ5LUJ2eUQtRENRYzU4VU1WY1J6V1pQa3kwbUoxRklsVWUxT0VSUGY1aWdFZ2hzQlh6SGdvSTk3dlBPdlhCS2xsdll5aEx0cWlXeDU2cHVlRTJPQ1VrdEdDZERG?oc=5\" target=\"_blank\">Huskies Set for Hockey East Championship Matchup vs. Merrimack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Connecticut Athletics</font>",
+      "source": "Google News \u00b7 Hockey East"
+    },
+    {
       "title": "Women's Hockey Places 18 Student-Athletes on Hockey East All-Academic Team - University of New Hampshire Athletics",
       "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQc2hXdE9ibUVKakZ3UlRVYnM2MXZ3WVloZm84U2xyTlVuNTRDRDhucVlBOXI3M2UxVU1pakRuREduX1YyVU5nZVlRUWNIZ3RQb1M3V2hWUGNSNFhWNkRkVnoxQmNramhBZy1SQ2dCcS05MjZoaU43NFAzTnE2NG5hak9RdV9yV1ljT3RBeDZEUDk0bmdONi0wb3FqNWNNcnVuVjJ0c2RENUR4aE1GOXNXbzBHR3ZkcGgxVk9qbkFwYVZRelpMcVFqMA?oc=5",
       "published": "Mon, 06 Jul 2026 07:00:00 GMT",
@@ -5135,19 +5152,39 @@
       "feed_title": "University of Maine Athletics",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxObTZIdXhuZXNJNHlIQkFzcFozcnBZLVBJWDM0eVR4MHJpc1l5STlSc3U2ODNfZWM2VXBpcnBIcGVzSUl2XzA1b2RpQnNXN3YxZEVHbE5GU2FHZEQtR25qSkFuTmdnclV4WENfOXZhQkZXM0lrNk9FMjlGX3lBeWYtdGZsT0cxYXBOUFUyWHVacnFvXzNCV2ZwNFp6Mkk5bzhrSzB0ZFhKeDcxS3RuZHUwdDFNWXI?oc=5\" target=\"_blank\">Preview: Maine set for Hockey East series with Northeastern - University of Maine Athletics</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">University of Maine Athletics</font>",
       "source": "Google News \u00b7 Hockey East"
-    },
-    {
-      "title": "Women\u2019s Hockey Announces 2026-27 Schedule - Providence College Athletics",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5",
-      "published": "Mon, 10 Aug 2026 07:00:00 GMT",
-      "ts": 1786345200,
-      "author": "",
-      "feed_title": "Providence College Athletics",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxOREt5d1RxdFRXaW1qRXo3eU10eXY5SkFjUW0wS1IzMDk5Z1hZTnJRcTFYbTRza0dPLXB5NVVyX0pYSWc2V1FUUW1QdEkweVlnRUN6dlFpUFE2NWZBejBwbkN3eElqd2ZwOVJOWEdWZnRGRHd4akE0emZNWXVEZ1hHZ3FBT0FfV2VFSGNCbU1sUWZ0elkxbnE0?oc=5\" target=\"_blank\">Women\u2019s Hockey Announces 2026-27 Schedule</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Providence College Athletics</font>",
-      "source": "Google News \u00b7 Hockey East"
     }
   ],
   "news_national": [
+    {
+      "title": "COMIC: 7 lifestyle habits that may boost your chances of getting pregnant",
+      "link": "https://www.npr.org/2026/08/26/nx-s1-5843276/lifestyle-habits-that-boost-fertility-pregnancy",
+      "published": "Wed, 26 Aug 2026 05:02:00 -0400",
+      "ts": 1787734920,
+      "author": "Andee Tagle",
+      "feed_title": "",
+      "summary": "<img alt=\"undefined\" src=\"https://feeds.npr.org/1001/undefined\" /><p>This illustrated guide has evidence-backed advice on how to support fertility for both men and women, including which foods to eat and which activities to avoid.</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5843276\" />",
+      "source": "NPR"
+    },
+    {
+      "title": "Soaring summer power bills spark protests -- and even disconnections",
+      "link": "https://www.npr.org/2026/08/26/nx-s1-5943289/electric-bills-summer-heat-oklahoma-power",
+      "published": "Wed, 26 Aug 2026 05:01:00 -0400",
+      "ts": 1787734860,
+      "author": "Scott Horsley",
+      "feed_title": "",
+      "summary": "<img alt=\"Raelynn McMurchy, left, with her husband Tucker and daughter Ella, launched an online petition over high power bills. Her last bill topped $1,370, including a $598 deposit following previous late payments.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/805x622+0+0/resize/805x622!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F19%2Fe5%2F4bc072954cdfaefbc3e143a9e14a%2Fraelyn.jpg\" /><p>The price of electricity is soaring in the summer heat, when fans and air conditioners are working nonstop. In Tulsa, Oklahoma, people are having their power cut when they can't pay their bills.   </p><p>(Image credit: Raelynn McMurchy)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5943289\" />",
+      "source": "NPR"
+    },
+    {
+      "title": "Hollywood's summer box office is glowing, but the numbers come with startling caveats",
+      "link": "https://www.npr.org/2026/08/26/nx-s1-5923629/movie-summer-box-office",
+      "published": "Wed, 26 Aug 2026 05:00:00 -0400",
+      "ts": 1787734800,
+      "author": "Bob Mondello",
+      "feed_title": "",
+      "summary": "<img alt=\"Clockwise from top left: &lt;em&gt;Toy Story 5&lt;/em&gt;, &lt;em&gt;Spider-Man: Brand New Day, The Odyssey &lt;/em&gt;and &lt;em&gt;Backrooms&lt;/em&gt;.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2400x1350+0+0/resize/2400x1350!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fc9%2F57%2Fe178d5ae4527a73908862978ba44%2F4-images-horizontal.png\" /><p>Theaters have had something for everyone this summer, and fans are paying top dollar for premium formats like IMAX. There are also fewer moviegoers, fewer movies, and fewer screens than there were pre-COVID.</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5923629\" />",
+      "source": "NPR"
+    },
     {
       "title": "Hospital nursery fire kills 14 newborns in Pakistan's capital, officials order immediate inquiry",
       "link": "https://www.npr.org/2026/08/26/nx-s1-5944808/hospital-nursery-fire-kills-14-newborns-pakistan",
@@ -5216,36 +5253,6 @@
       "author": "Jewly Hight",
       "feed_title": "",
       "summary": "<img alt=\"In her songs, stage banter and interviews, Dolly Parton always presented herself as a humble, yet audacious mountain dreamer made good.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/2746x2060+0+320/resize/2746x2060!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fc4%2F0e%2Fdec8d1404c1bafe540f226de23a4%2Fgettyimages-86103215.jpg\" /><p>The artist was a star performer in country music and went on to become one of the genre's most recognizable and universally adored ambassadors to broader popular culture.</p><p>(Image credit: Richard E. Aaron/Redferns)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-3650175\" />",
-      "source": "NPR"
-    },
-    {
-      "title": "DHS acknowledges the noncitizen numbers it touted on voter rolls were inflated",
-      "link": "https://www.npr.org/2026/08/25/nx-s1-5940807/noncitizen-voters-trump-nevada-call",
-      "published": "Tue, 25 Aug 2026 14:15:23 -0400",
-      "ts": 1787681723,
-      "author": "Jude Joffe-Block",
-      "feed_title": "",
-      "summary": "<img alt=\"A voter casts a ballot at a vote center set up in a tent in Las Vegas on June 9.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5809x3873+0+0/resize/5809x3873!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F74%2F65%2F3da8ad3a4ba5ae42f372bf37a189%2Fap26160575103570.jpg\" /><p>The Trump administration claimed to have found 250,000 noncitizens on the voter rolls in four states. But the agency's communications with states since then indicate that data was preliminary.</p><p>(Image credit: Jae C. Hong)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5940807\" />",
-      "source": "NPR"
-    },
-    {
-      "title": "Canada hits back at the U.S. with tariffs as the countries' trade fight escalates",
-      "link": "https://www.npr.org/2026/08/25/nx-s1-5944240/canada-us-tariffs",
-      "published": "Tue, 25 Aug 2026 11:20:18 -0400",
-      "ts": 1787671218,
-      "author": "Alex Leff",
-      "feed_title": "",
-      "summary": "<img alt=\"Tractor trailers cross the Peace Bridge at the Canada-United States border in Fort Erie, Ontario, Canada, on Aug. 20.\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/8192x5464+0+0/resize/8192x5464!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fdb%2Ff0%2Ff7db928c4a758bb35800e85b7300%2Fgettyimages-2290660201.jpg\" /><p>The measures come after President Trump imposed 50% tariffs on many Canadian goods and threatened more after trade talks broke down on Friday.</p><p>(Image credit: Cole Burston)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=nx-s1-5944240\" />",
-      "source": "NPR"
-    },
-    {
-      "title": "'Forget about going back': 9 years on, Rohingya crisis enters dangerous phase",
-      "link": "https://www.npr.org/2026/08/25/g-s1-140007/forget-about-going-back-9-years-on-rohingya-crisis-enters-dangerous-phase",
-      "published": "Tue, 25 Aug 2026 10:59:12 -0400",
-      "ts": 1787669952,
-      "author": "Lorcan Lovett",
-      "feed_title": "",
-      "summary": "<img alt=\"View of Rohingya refugee camps in Cox\" src=\"https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4724x3150+0+0/resize/4724x3150!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F58%2Fcc%2F974394ce4f7fb718d4f804a3a274%2F0h1a0631.JPG\" /><p>The world largely moved on from the Rohingya crisis. But the exodus has not stopped, aid is shrinking and a generation of refugees is growing up with little prospect of going home.<br /></p><p>(Image credit: Valeria Mongelli)</p><img src=\"https://media.npr.org/include/images/tracking/npr-rss-pixel.png?story=g-s1-140007\" />",
       "source": "NPR"
     },
     {
@@ -5349,7 +5356,7 @@
       "source": "NY Times"
     },
     {
-      "title": "The life of an iconic country singer",
+      "title": "Watch: The life of an iconic country singer",
       "link": "https://www.bbc.co.uk/news/videos/c7831ld8e73o?at_medium=RSS&at_campaign=rss",
       "published": "Tue, 25 Aug 2026 18:27:22 GMT",
       "ts": 1787682442,
@@ -5361,8 +5368,8 @@
     {
       "title": "Household energy bills to hit three-year high as Ofgem announces 4% rise from October",
       "link": "https://www.bbc.co.uk/news/articles/cqjkl1xvgw5o?at_medium=RSS&at_campaign=rss",
-      "published": "Wed, 26 Aug 2026 07:48:50 GMT",
-      "ts": 1787730530,
+      "published": "Wed, 26 Aug 2026 09:31:51 GMT",
+      "ts": 1787736711,
       "author": "",
       "feed_title": "",
       "summary": "A household using a typical amount of gas and electricity will pay \u00a360 a year more, regulator Ofgem says.",
@@ -5379,13 +5386,13 @@
       "source": "BBC"
     },
     {
-      "title": "Yellow warnings in force as rain and thunderstorms hit parts of UK",
+      "title": "Yellow warnings remain in force as rain and thunderstorms hit parts of UK",
       "link": "https://www.bbc.co.uk/weather/articles/c62krylw57xo?at_medium=RSS&at_campaign=rss",
-      "published": "Tue, 25 Aug 2026 23:11:15 GMT",
-      "ts": 1787699475,
+      "published": "Wed, 26 Aug 2026 09:28:03 GMT",
+      "ts": 1787736483,
       "author": "",
       "feed_title": "",
-      "summary": "Torrential downpours will affect parts of England and Wales, delivering some of the wettest weather in several weeks",
+      "summary": "Yellow warnings updated as torrential downpours affect parts of England and Wales, delivering some of the wettest weather in several weeks.",
       "source": "BBC"
     },
     {
@@ -5419,16 +5426,6 @@
       "source": "BBC"
     },
     {
-      "title": "As Ukraine hits Russia's refineries, Russia targets Ukraine's petrol pumps",
-      "link": "https://www.bbc.co.uk/news/articles/c5y6x777gk4o?at_medium=RSS&at_campaign=rss",
-      "published": "Tue, 25 Aug 2026 23:50:53 GMT",
-      "ts": 1787701853,
-      "author": "",
-      "feed_title": "",
-      "summary": "Fuel companies are urging customers not to linger at the pumps after a wave of deadly attacks.",
-      "source": "BBC"
-    },
-    {
       "title": "Libyan who was cleared after Lockerbie bombing trial dies aged 70",
       "link": "https://www.bbc.co.uk/news/articles/cy0zgx6wlz3o?at_medium=RSS&at_campaign=rss",
       "published": "Wed, 26 Aug 2026 08:01:56 GMT",
@@ -5436,6 +5433,16 @@
       "author": "",
       "feed_title": "",
       "summary": "A Facebook post by Libyan Airlines announced the death of Al Amin Khalifah Fhimah and expressed the company's condolences to his family.",
+      "source": "BBC"
+    },
+    {
+      "title": "Major Scottish gangland figure Steven Daniel arrested in organised crime raid",
+      "link": "https://www.bbc.co.uk/news/articles/c17jl59zg2ko?at_medium=RSS&at_campaign=rss",
+      "published": "Wed, 26 Aug 2026 07:00:53 GMT",
+      "ts": 1787727653,
+      "author": "",
+      "feed_title": "",
+      "summary": "Steven 'Bonzo' Daniel was arrested on Wednesday at his home in the north of Glasgow.",
       "source": "BBC"
     },
     {
@@ -5617,16 +5624,6 @@
       "feed_title": "",
       "summary": "Sean Grayson shot Massey in July 2024 after she called 911 to report a prowler. He had been diagnosed with colon cancer, but his cause of death hasn't been released.",
       "source": "Washington Post"
-    },
-    {
-      "title": "Some Texas conservatives are breaking ranks and pledging to vote Democratic",
-      "link": "https://www.washingtonpost.com/nation/2026/08/24/some-texas-conservatives-are-planning-vote-democrat/",
-      "published": "Mon, 24 Aug 2026 09:00:00 +0000",
-      "ts": 1787562000,
-      "author": "Molly Hennessy-Fiske",
-      "feed_title": "",
-      "summary": "Republicans who are angry at Gov. Greg Abbott\u2019s refusal to block data centers are giving his Democratic challenger hope for an upset.",
-      "source": "Washington Post"
     }
   ],
   "news_logan": [
@@ -5673,8 +5670,8 @@
     {
       "title": "Man, 40, indicted in stolen boat crash near Logan that killed 24-year-old Mass. woman - WCVB",
       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMVNpUkhLSDdkVTg3VHRjaGQ4WENjZjVaSzQzeGxKbTNva3pqRUpaZ0Y2OGpqampQbjlLNFZ1d2l3Qm11NW1tV24tUDRqRlFLaWhBZEZkendkS3lySWFuRXBVWVgybmdXbzd3LXV1UkkzRUZvMU1wVU50cUJjMWZyQm9wVUp1a2plS2U2R1FGczZNaTVfZ0JfZ0Fia3dNSWsyQTNKRndBOE83UHdZ?oc=5",
-      "published": "Tue, 25 Aug 2026 21:25:31 GMT",
-      "ts": 1787693131,
+      "published": "Tue, 25 Aug 2026 21:42:00 GMT",
+      "ts": 1787694120,
       "author": "",
       "feed_title": "WCVB",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMirAFBVV95cUxQMVNpUkhLSDdkVTg3VHRjaGQ4WENjZjVaSzQzeGxKbTNva3pqRUpaZ0Y2OGpqampQbjlLNFZ1d2l3Qm11NW1tV24tUDRqRlFLaWhBZEZkendkS3lySWFuRXBVWVgybmdXbzd3LXV1UkkzRUZvMU1wVU50cUJjMWZyQm9wVUp1a2plS2U2R1FGczZNaTVfZ0JfZ0Fia3dNSWsyQTNKRndBOE83UHdZ?oc=5\" target=\"_blank\">Man, 40, indicted in stolen boat crash near Logan that killed 24-year-old Mass. woman</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WCVB</font>",
@@ -5721,6 +5718,16 @@
       "source": "Google News"
     },
     {
+      "title": "Logan's first-ever JetBlue lounge to open this week. Here's a look - Wicked Local",
+      "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQSWYtQ2VCWGJPTDJHYXh0bmlVWUtjUDNxMGVyVE44cklOZkVZa3NBWU92M0dyR1hidk5VamhrdmR0Q0VKY2JURGFaYXVHd3k2N2hkdlNaQk45VGQyZFJjbC1uVjhIOUg1Vl9ybkFsem5pc1NJaFBCVmxWX0FVOFlYMWltRHV0MzFUUXB1NUFfMTlrMDJ6ZVdudlNCUUp4OHVRMWV0VHJwbVlPWDZ1NDhLTUppRFFvdUx1UzRDbkZhdk9DS3R3emZNMkZEM2gyMjJPTkxyQWZHR242clRpZ3BNOGhlLXN1bWJLdmV3REN0N2p4NEVpQjVTU1ZR?oc=5",
+      "published": "Wed, 26 Aug 2026 09:12:00 GMT",
+      "ts": 1787735520,
+      "author": "",
+      "feed_title": "Wicked Local",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi-gFBVV95cUxQSWYtQ2VCWGJPTDJHYXh0bmlVWUtjUDNxMGVyVE44cklOZkVZa3NBWU92M0dyR1hidk5VamhrdmR0Q0VKY2JURGFaYXVHd3k2N2hkdlNaQk45VGQyZFJjbC1uVjhIOUg1Vl9ybkFsem5pc1NJaFBCVmxWX0FVOFlYMWltRHV0MzFUUXB1NUFfMTlrMDJ6ZVdudlNCUUp4OHVRMWV0VHJwbVlPWDZ1NDhLTUppRFFvdUx1UzRDbkZhdk9DS3R3emZNMkZEM2gyMjJPTkxyQWZHR242clRpZ3BNOGhlLXN1bWJLdmV3REN0N2p4NEVpQjVTU1ZR?oc=5\" target=\"_blank\">Logan's first-ever JetBlue lounge to open this week. Here's a look</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Wicked Local</font>",
+      "source": "Google News"
+    },
+    {
       "title": "JetBlue opening new lounge at Boston Logan - NBC Boston",
       "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSmwxc3NlYVVBc2xkMGpUZ1g5eVg5OFRJVXJVNmF0QkIwb1l3dndSZUZxNmNoNjBPSktwSEQ3anA3MU9IQ1Z6X1FBY20tR1JiNDgxY2hfdnA0cWFrMjRNaUN6SDBhYmxzMUFvQ3A5QkJpSEY3cFJUT1pTYUFpR1A5MFBxSDhrQTBVMW9MVTloZnNrcTJiRHBTZ1BLdWJqNFRkaHNV0gGrAUFVX3lxTE5DWlVSMW5aMzlyTUNzRDFfMGg4Y2xoVVp6bk1qVmk1RWg2eGpzdHhuR1RlSktPTnd4SWkxNV9zVEF2aWdDaWRUZmNuMkFJdGhKSmRuajJ1YXMzSlFoTVpFeVJBV19kT3daVkxpVEhGNkFSTVF5VVYxTW12RVRveVVPc01JUkpab1FLWWpXcjU0aDJqNFpyZTllOWVwWngwQTFTQ3A4ZG9SN2NIQQ?oc=5",
       "published": "Tue, 25 Aug 2026 15:28:22 GMT",
@@ -5741,13 +5748,13 @@
       "source": "Google News"
     },
     {
-      "title": "JetBlue opens new Boston BlueHouse lounge - The Points Guy",
-      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE4zR2ZMR3hkZzNIWlhNaFAzbThGc0p3eTFNdlRxRG15OUNWODRrZEVUYkNJcEdsekpLczVGZmNBczN3a1pPRVp5NkNNcldVVnhuQl8yTEpEeTlOVTBkbU5BemEtVnlJS0VKdlRBRVk3Yw?oc=5",
-      "published": "Tue, 25 Aug 2026 02:04:40 GMT",
-      "ts": 1787623480,
+      "title": "New remote airport terminal opens to help facilitate TSA security screenings - ABC News - Breaking News, Latest News and Videos",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQbl9nTjNaLXM2bnJ0eEVwdnRUcHMzNV85cS14VlA0RTFCRVd2Mi1fbzRLZHVuYWdYOVdBQUV6NzA4c1labnB0dURZclJZQXhRYnNHbkRWbmZ1QzdQMlhlekQ1VFNBMldwSWt6LVFTNlJtWDNIeThJT1g4ckZXU2hXbG5OQ3NGTmlVeXFnUGdhcFVQdjNCUUZncmxqR0sycVpIVmxRVNIBqgFBVV95cUxOdXVfMl85Yjd0TDJxMmZ4dUZ3czZ2TnBMZVRwR0pIdVg1eGZKeUVZUHluMUFDNXF2M1haY21sTE5xdmxhTFFoZS1Yd0ZDUEpoVHlfRzJ1U3RwLW1hYWVxN3dSLUNuSGJhVVBMX3EzY0E1a1hIUGtXc1FEbjRLdTlpOC1oR0hnNnlzaWFLaUVqWi00Ukt1dHByOWwyZ3gxcWV3cHR2Smx6cVhTdw?oc=5",
+      "published": "Tue, 25 Aug 2026 23:32:11 GMT",
+      "ts": 1787700731,
       "author": "",
-      "feed_title": "The Points Guy",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMib0FVX3lxTE4zR2ZMR3hkZzNIWlhNaFAzbThGc0p3eTFNdlRxRG15OUNWODRrZEVUYkNJcEdsekpLczVGZmNBczN3a1pPRVp5NkNNcldVVnhuQl8yTEpEeTlOVTBkbU5BemEtVnlJS0VKdlRBRVk3Yw?oc=5\" target=\"_blank\">JetBlue opens new Boston BlueHouse lounge</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Points Guy</font>",
+      "feed_title": "ABC News - Breaking News, Latest News and Videos",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxQbl9nTjNaLXM2bnJ0eEVwdnRUcHMzNV85cS14VlA0RTFCRVd2Mi1fbzRLZHVuYWdYOVdBQUV6NzA4c1labnB0dURZclJZQXhRYnNHbkRWbmZ1QzdQMlhlekQ1VFNBMldwSWt6LVFTNlJtWDNIeThJT1g4ckZXU2hXbG5OQ3NGTmlVeXFnUGdhcFVQdjNCUUZncmxqR0sycVpIVmxRVNIBqgFBVV95cUxOdXVfMl85Yjd0TDJxMmZ4dUZ3czZ2TnBMZVRwR0pIdVg1eGZKeUVZUHluMUFDNXF2M1haY21sTE5xdmxhTFFoZS1Yd0ZDUEpoVHlfRzJ1U3RwLW1hYWVxN3dSLUNuSGJhVVBMX3EzY0E1a1hIUGtXc1FEbjRLdTlpOC1oR0hnNnlzaWFLaUVqWi00Ukt1dHByOWwyZ3gxcWV3cHR2Smx6cVhTdw?oc=5\" target=\"_blank\">New remote airport terminal opens to help facilitate TSA security screenings</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ABC News - Breaking News, Latest News and Videos</font>",
       "source": "Google News"
     },
     {
@@ -5769,20 +5776,20 @@
       "feed_title": "NBC Boston",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxQOWpzR0V3V3pXNUFHeUJsMVVncDcxOWhKYXVaMXFFaWxEeUFlQXdtRmgwRmRYVTN0YnlBVXFQNWc2NlpKTnlOYzJFV1NidXJ5NHY0SmlTYTV0Q2ZWX2RvU3RkdzduY3NJemcxRmNIWFg5Y2RmckNwaGg1X0RaYWpoMWRTQVE5QnZSTFJRX0EzZ1k1LUhMWE1zenBXT2tuR0hwRG1kOW5wYnF4NkdXSGRlbEt3SkVrZTExcUMzZTMwNErSAcgBQVVfeXFMTVU5WHNkS0FabDNrZ0k1bjFwbzZNX2l6VkUzd2NrTlhCSVVCOTdzaHNEOW5oV0pRdHFRb1lfdnhzQ2s3NkNnak5GR3UzMk5tcUUxZ0NBVk0yeWlyNEUtTmxxZk1uaGt6UTdNWXhObHg4SDAzNFdUWlBIUURUQXNyQUUzek4ySWdmdUtEYWNTX2p1bGZvbVZsV3JvR095eTZwQ0VKOFJfX2tqNlh0eVJLbXo3RU0zd2tvTnFhdG0zZkxvUlVpc3FqOE0?oc=5\" target=\"_blank\">Upcoming runway safety work at Logan Airport could cause delays, Massport says</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NBC Boston</font>",
       "source": "Google News"
-    },
-    {
-      "title": "JetBlue to Open BlueHouse Lounge at Boston Logan Airport - IndianEagle",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxONHhHd0huWjh2UGh5X0xMdlp0clFrQ2hiZzVyZkVUWU1RZHBHcXZGUlg4OXBHY25vX2tORjVxTGFtOXN5ZE45VkZxUWJnX3FIekZua1FCTDBCelplbHVDRE9GZFIzTnZHSjh2TnNWNjAzbFlscUN1eFpYM2RpUzU0M2Y0d2sxY3JkdUx2VFV6NA?oc=5",
-      "published": "Tue, 25 Aug 2026 06:58:04 GMT",
-      "ts": 1787641084,
-      "author": "",
-      "feed_title": "IndianEagle",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMijwFBVV95cUxONHhHd0huWjh2UGh5X0xMdlp0clFrQ2hiZzVyZkVUWU1RZHBHcXZGUlg4OXBHY25vX2tORjVxTGFtOXN5ZE45VkZxUWJnX3FIekZua1FCTDBCelplbHVDRE9GZFIzTnZHSjh2TnNWNjAzbFlscUN1eFpYM2RpUzU0M2Y0d2sxY3JkdUx2VFV6NA?oc=5\" target=\"_blank\">JetBlue to Open BlueHouse Lounge at Boston Logan Airport</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">IndianEagle</font>",
-      "source": "Google News"
     }
   ],
   "news_substack": [],
   "news_ma_transit": [
+    {
+      "title": "MassDOT releases a revised timeline for repair of Division Street bridge in Great Barrington - The Berkshire Eagle",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNZUU3RlRfQ09uVXotNjViTVphWEtES2RHV042cDZBbExfZUtUdzRQYk9kZlFLMWRkOXdqYS1LQWkxWFBRNEtEVU5YOV80TWI5d2JjbFZ6cC1OYVZFUE03dEp3UEFJMXYzRWxGeERLb05fNk8xYjM5NUtkUl9qMnhfN2tVTlNvU2UyeUJwc1Q1YzljWTYwS284elQ5UmlQUWZuRmlQNDJfOHpFRDRlbzVKeVJFMGpPMFlUMnNZLW0tOFBpU1NacEVUYmtlWW44NmRxT1Nvd29aWGxmVDdhaU5pcVFuM3ZXcTg?oc=5",
+      "published": "Wed, 26 Aug 2026 09:00:00 GMT",
+      "ts": 1787734800,
+      "author": "",
+      "feed_title": "The Berkshire Eagle",
+      "summary": "<a href=\"https://news.google.com/rss/articles/CBMi5wFBVV95cUxNZUU3RlRfQ09uVXotNjViTVphWEtES2RHV042cDZBbExfZUtUdzRQYk9kZlFLMWRkOXdqYS1LQWkxWFBRNEtEVU5YOV80TWI5d2JjbFZ6cC1OYVZFUE03dEp3UEFJMXYzRWxGeERLb05fNk8xYjM5NUtkUl9qMnhfN2tVTlNvU2UyeUJwc1Q1YzljWTYwS284elQ5UmlQUWZuRmlQNDJfOHpFRDRlbzVKeVJFMGpPMFlUMnNZLW0tOFBpU1NacEVUYmtlWW44NmRxT1Nvd29aWGxmVDdhaU5pcVFuM3ZXcTg?oc=5\" target=\"_blank\">MassDOT releases a revised timeline for repair of Division Street bridge in Great Barrington</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Berkshire Eagle</font>",
+      "source": "MassDOT"
+    },
     {
       "title": "Plain Street bridge hearing details for Taunton residents - Taunton Daily Gazette",
       "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPd2Z1eUtEUEMxb1Q3WDlnbUxaaTBYN1hncFZoVU5JSGREUGFNeFk4RE1YWVVNdzY4WGNxYWZPSGF1eWNLdHhtMlRPSVNYTllzTlBUbndKV2YzN2lVYXpnYVNoRWlpN2F5bnl4XzVzckRCYzUwV3I4WUhZeWtiT19URmJPV2dVeGxlVE9EZXlmcndQdWZCSXBkdnlWVjJsSzFOaFAwWXFaX1JkZ0QxcXhQVTg1RVRfaDA1NVlwLUhGQmFDckNCalZNZVQ0TzZCZw?oc=5",
@@ -5972,16 +5979,6 @@
       "feed_title": "Enterprise News",
       "summary": "<a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxQVHpjQ1MtUloySktmRjN5bUh4UTgwUDM3RTBRVzVEVndtWjgtUW5wV2s5ZFRkTWJmUEh0bXoyOFJneTlWeDRLbTNEd0hwV2Q1ZG50S2NRYXpOUGZSbm5Lam9kY2U0SUJkUXVfVzdvd1NoQTBOckxtaUxkR1EwaG44cHNSaTNFT0x4MHNnM0VjaFlfN045YWc4aTE0VW5BLVlCaU44c21pWFVQUDM4N05qQnlPZTBZOGpQbmpRQVVJVTRmai1kS2Z0NFktWQ?oc=5\" target=\"_blank\">Route 25 bridge work to begin in Wareham</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Enterprise News</font>",
       "source": "MassDOT"
-    },
-    {
-      "title": "MassDOT announces I-90/I-495 lane closure, additional overnight ramp work - Hopkinton Independent",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOLVEtZEpHc1pIbmNVT2k0ZU4ySW04NjlKcTlfMmN3clhVZzRpQWVUN0tsdDZqYmxzQnpDZDFmSE54Q2RCOHVHVHBGRWVCSEswMXBuOFJiZ2YzYndRc25ESmVJTWFRUzNNR09qdHNHS0E0bUtGaktWTzdWWVdTTVNHOU1yaGNKVmxzYWNieFBwQm1hcmFyUkxfZEVDWjNCQlp3T3VCNEptY0Q?oc=5",
-      "published": "Fri, 14 Aug 2026 22:40:57 GMT",
-      "ts": 1786747257,
-      "author": "",
-      "feed_title": "Hopkinton Independent",
-      "summary": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOLVEtZEpHc1pIbmNVT2k0ZU4ySW04NjlKcTlfMmN3clhVZzRpQWVUN0tsdDZqYmxzQnpDZDFmSE54Q2RCOHVHVHBGRWVCSEswMXBuOFJiZ2YzYndRc25ESmVJTWFRUzNNR09qdHNHS0E0bUtGaktWTzdWWVdTTVNHOU1yaGNKVmxzYWNieFBwQm1hcmFyUkxfZEVDWjNCQlp3T3VCNEptY0Q?oc=5\" target=\"_blank\">MassDOT announces I-90/I-495 lane closure, additional overnight ramp work</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Hopkinton Independent</font>",
-      "source": "MassDOT"
     }
   ],
   "news_espn": [],
@@ -5998,7 +5995,7 @@
       "date": "2026-08-26",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "Revere Journal",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6006,7 +6003,7 @@
       "date": "2026-08-26",
       "time": null,
       "all_day": true,
-      "summary": "Revere Journal",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6206,7 +6203,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Convene alumni committee",
+      "summary": "Do laundry",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6214,7 +6211,7 @@
       "date": "2026-09-01",
       "time": null,
       "all_day": true,
-      "summary": "Do laundry",
+      "summary": "Convene alumni committee",
       "location": null,
       "calendar": "Todoist"
     },
@@ -6566,7 +6563,7 @@
       "date": "2026-09-09",
       "time": "6:30 PM",
       "all_day": false,
-      "summary": "Affordable Housing Trust Fund (MONTHLY)",
+      "summary": "Canceled: Affordable Housing Trust Fund Board (monthly)",
       "location": "City Hall Council Chambers",
       "calendar": "Joseph"
     },
@@ -6574,7 +6571,7 @@
       "date": "2026-09-09",
       "time": "6:30 PM",
       "all_day": false,
-      "summary": "Canceled: Affordable Housing Trust Fund Board (monthly)",
+      "summary": "Affordable Housing Trust Fund (MONTHLY)",
       "location": "City Hall Council Chambers",
       "calendar": "Joseph"
     },
@@ -6784,7 +6781,7 @@
     },
     {
       "date": "2026-08-15",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 Black's Tire 250 presented by BTS Rewards",
       "time": "12:00 PM",
       "result": null,
@@ -6794,7 +6791,7 @@
     },
     {
       "date": "2026-08-15",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 Black's Tire 250 presented by BTS Rewards",
       "time": "12:00 PM",
       "result": null,
@@ -8074,7 +8071,7 @@
     },
     {
       "date": "2026-10-16",
-      "team": "nascar_cup",
+      "team": "nascar_tck",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Phoenix",
       "time": "7:30 PM",
       "result": null,
@@ -8084,7 +8081,7 @@
     },
     {
       "date": "2026-10-16",
-      "team": "nascar_tck",
+      "team": "nascar_cup",
       "title": "\ud83c\udfc1 NASCAR CRAFTSMAN Truck Series Race at Phoenix",
       "time": "7:30 PM",
       "result": null,
