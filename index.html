@@ -1,298 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REVERE MONITOR · NEWS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revere Monitor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root {
-  /* ── Slate-Linen theme (matches index.html) ── */
-  --bg:   #eef0f4;
-  --bg2:  #f7f8fa;
-  --bg3:  #e3e6ec;
-  --bg4:  #d6dae4;
-  --border:  #c8cdd8;
-  --border2: #adb4c4;
-  --text:    #1a1d24;
-  --text-dim:#3a4055;
-  --text-mute:#7a84a0;
-  --accent:  #2d5be3;
-  --accent-dim: rgba(45,91,227,.10);
-  --orange:  #e06c2a;
-  --gold:    #c8960a;
-  --red:     #c73535;
-  --green:   #1f8a4c;
-  --blue:    #2d5be3;
-  --maroon:  #8b1a1a;
-  --serif:   'DM Serif Display', Georgia, serif;
-  --sans:    'DM Sans', system-ui, sans-serif;
-  --mono:    'DM Mono', 'Courier New', monospace;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.5;display:flex;flex-direction:column;}
-
-/* ── HEADER ── */
-#header{background:#111827;border-bottom:3px solid var(--accent);padding:0 16px;height:60px;display:flex;align-items:center;gap:0;flex-shrink:0;box-shadow:0 2px 16px rgba(0,0,0,.18);}
-#wordmark{font-family:var(--serif);font-size:20px;font-weight:400;letter-spacing:2px;color:#f0f2f7;font-style:italic;}
-#wordmark strong{font-style:normal;color:#7eb3ff;font-family:var(--mono);font-size:12px;letter-spacing:4px;text-transform:uppercase;vertical-align:middle;margin-left:8px;}
-.hd{width:1px;height:26px;background:#2a3045;margin:0 14px;}
-#hs{flex:1;}
-a.backlink{font-family:var(--mono);font-size:11px;color:#8a96b8;text-decoration:none;border:1px solid #2a3045;border-radius:4px;padding:4px 10px;background:#252d42;letter-spacing:.5px;}
-a.backlink:hover{color:#7eb3ff;border-color:var(--accent);}
-#upd-hdr{font-size:11px;color:#5a6480;font-family:var(--mono);margin-left:14px;}
-
-/* ── SEARCH ── */
-#searchwrap{padding:8px 16px 0;flex-shrink:0;}
-#searchbox{width:100%;max-width:420px;background:var(--bg2);border:1px solid var(--border2);border-radius:6px;color:var(--text);font-family:var(--sans);font-size:13px;padding:8px 12px;outline:none;}
-#searchbox:focus{border-color:var(--accent);}
-
-/* ── TABS ── */
-#tabs{display:flex;gap:4px;padding:10px 16px;overflow-x:auto;scrollbar-width:none;flex-shrink:0;flex-wrap:wrap;}
-#tabs::-webkit-scrollbar{display:none;}
-.tab{font-size:11px;padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-mute);white-space:nowrap;font-family:var(--mono);font-weight:400;letter-spacing:.3px;transition:all .15s;display:inline-flex;align-items:center;gap:6px;}
-.tab.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:500;}
-.tab:not(.active):hover{background:var(--bg4);color:var(--text);}
-.tab .cnt{font-size:9px;opacity:.7;background:rgba(0,0,0,.12);border-radius:8px;padding:0 5px;}
-.tab.active .cnt{background:rgba(255,255,255,.22);}
-
-/* ── FEED ── */
-#feedwrap{flex:1;overflow-y:auto;padding:0 16px 40px;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
-#feed{max-width:820px;margin:0 auto;display:flex;flex-direction:column;}
-.daygroup{margin-top:18px;}
-.dayhdr{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-mute);padding:6px 0;border-bottom:1px solid var(--border2);position:sticky;top:0;background:var(--bg);z-index:5;}
-
-/* news item (matches .ni in index.html, with a source pill added) */
-a.ni{display:flex;flex-direction:column;gap:3px;padding:11px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
-a.ni:last-child{border-bottom:none;}
-a.ni:hover{background:var(--bg3);margin:0 -14px;padding-left:14px;padding-right:14px;}
-.ni-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.ni-src{font-size:9px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);}
-.ni-pill{font-size:8px;font-weight:600;padding:2px 7px;border-radius:10px;letter-spacing:.8px;text-transform:uppercase;font-family:var(--mono);color:#fff;flex-shrink:0;}
-.ni-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.4;}
-a.ni:hover .ni-title{color:var(--accent);}
-.ni-date{font-size:10px;color:var(--text-mute);font-family:var(--mono);}
-.ni-snippet{font-size:11px;color:var(--text-dim);line-height:1.4;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.empty{color:var(--text-mute);font-size:13px;padding:40px;text-align:center;}
-#loadmore{margin:20px auto;display:block;padding:8px 20px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;color:var(--text-dim);font-family:var(--mono);font-size:12px;cursor:pointer;}
-#loadmore:hover{border-color:var(--accent);color:var(--accent);}
+:root{--ink:#18202d;--muted:#6d7583;--line:#d8dde5;--paper:#f4f5f7;--card:#fff;--nav:#111827;--blue:#315fe5;--red:#a82727;--green:#167a4a;--gold:#b58300;--orange:#cb651e;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace}
+*{box-sizing:border-box}html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}body{min-height:100vh}a{color:inherit}.shell{max-width:1240px;margin:auto;padding:0 22px 60px}
+header{background:var(--nav);color:white;position:sticky;top:0;z-index:30;border-bottom:3px solid var(--blue)}.head{height:66px;max-width:1284px;margin:auto;padding:0 22px;display:flex;align-items:center;gap:20px}.brand{font:italic 22px var(--serif);letter-spacing:1.5px;white-space:nowrap}.brand small{font:500 10px var(--mono);letter-spacing:2px;color:#83a9ff;margin-left:9px;text-transform:uppercase}.stamp{font:11px var(--mono);color:#8994aa;margin-left:auto;white-space:nowrap}
+nav{background:#1b2434;border-top:1px solid #273248}.navin{max-width:1284px;margin:auto;padding:0 22px;display:flex;overflow-x:auto}.navbtn{appearance:none;border:0;background:transparent;color:#8994aa;padding:11px 14px;font:500 11px var(--mono);letter-spacing:.5px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent}.navbtn.active{color:#fff;border-bottom-color:#83a9ff}.navbtn:hover{color:#fff}
+#status{display:flex;gap:8px;overflow-x:auto;padding:14px 0 7px;scrollbar-width:none}.chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 12px;white-space:nowrap;font-size:12px;box-shadow:0 1px 2px #00000008}.chip strong{font-weight:700}.chip .lbl{font:500 9px var(--mono);letter-spacing:1.1px;color:var(--muted);text-transform:uppercase}.chip.alert{border-color:#e7b2a9;background:#fff8f6}.chip.good{border-color:#b9dfcc}.chip.warn{border-color:#ead698}
+.page{display:none}.page.active{display:block}.pagehead{padding:30px 0 16px;border-bottom:1px solid var(--line);margin-bottom:14px}.eyebrow{font:500 10px var(--mono);letter-spacing:2px;text-transform:uppercase;color:var(--blue)}h1{font:400 38px/1.05 var(--serif);margin:5px 0 6px} .deck{color:var(--muted);max-width:720px;font-size:14px}
+.homeintro{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:28px 0 15px}.homeintro h1{margin:0}.updated{font:10px var(--mono);color:var(--muted)}
+.lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.lane{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0;box-shadow:0 2px 8px #00000008}.lanehead{padding:13px 15px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.lanehead h2{font:600 12px var(--mono);letter-spacing:1.5px;text-transform:uppercase;margin:0}.openlane{border:0;background:transparent;color:var(--blue);font:500 10px var(--mono);cursor:pointer}.lead{display:block;padding:16px;text-decoration:none;border-bottom:1px solid var(--line)}.lead-src,.src{font:500 9px var(--mono);letter-spacing:1px;text-transform:uppercase;color:var(--blue)}.lead-title{font:400 23px/1.13 var(--serif);margin:6px 0 8px}.meta{font:10px var(--mono);color:var(--muted)}.story{display:block;text-decoration:none;padding:11px 15px;border-bottom:1px solid #eceef2}.story:last-child{border:0}.story:hover,.lead:hover{background:#f8f9fb}.story-title{font-size:13px;font-weight:600;line-height:1.32;margin-top:3px}.storyline{display:flex;gap:8px;align-items:center}.storyline .meta{margin-left:auto;white-space:nowrap}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:3px 0 15px;scrollbar-width:none}.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font:500 10px var(--mono);color:var(--muted);cursor:pointer;white-space:nowrap}.tab.active{background:var(--blue);border-color:var(--blue);color:#fff}.stream{background:#fff;border:1px solid var(--line);border-radius:9px;overflow:hidden;max-width:900px}.feedrow{display:block;padding:13px 16px;border-bottom:1px solid #e7e9ee;text-decoration:none}.feedrow:last-child{border-bottom:0}.feedrow:hover{background:#f8f9fb}.feedtop{display:flex;gap:8px;align-items:center}.feedtitle{font-size:15px;font-weight:600;line-height:1.35;margin:4px 0}.snippet{font-size:12px;color:var(--muted);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.badge{font:500 9px var(--mono);padding:2px 6px;border-radius:4px;background:#edf1ff;color:var(--blue)}
+.redditrow{display:block;padding:14px 16px;border-bottom:1px solid #e7e9ee;text-decoration:none}.redditrow:last-child{border-bottom:0}.redditstats{font:10px var(--mono);color:var(--muted);margin-top:5px}.reddittitle{font-size:14px;font-weight:600;line-height:1.35;margin-top:4px}.rsub{font:500 9px var(--mono);color:var(--orange);text-transform:uppercase;letter-spacing:1px}
+.utilitygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.util{background:#fff;border:1px solid var(--line);border-radius:9px;padding:17px}.util h3{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:1.5px;margin:0 0 11px}.big{font:400 33px var(--serif)}.kv{border-top:1px solid #eceef2;padding:8px 0;font-size:12px}.kv:first-of-type{border-top:0}.health{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.healthitem{border:1px solid var(--line);background:white;border-radius:7px;padding:10px}.healthname{font:500 9px var(--mono);color:var(--muted);word-break:break-word}.healthy{color:var(--green)}.stale{color:var(--gold)}.failed,.empty{color:var(--red)}
+.emptymsg{padding:30px;text-align:center;color:var(--muted);font-size:13px}.footer{color:var(--muted);font:10px var(--mono);padding-top:25px}
+@media(max-width:900px){.lanes{grid-template-columns:1fr}.utilitygrid{grid-template-columns:1fr}.health{grid-template-columns:repeat(2,1fr)}.stamp{display:none}.homeintro{align-items:start;flex-direction:column}h1{font-size:32px}}
 </style>
 </head>
 <body>
-
-<div id="header">
-  <span id="wordmark">Revere Monitor<strong>News v2</strong></span>
-  <div class="hd"></div>
-  <a class="backlink" href="index.html">← Dashboard</a>
-  <span id="hs"></span>
-  <span id="upd-hdr">loading…</span>
-</div>
-
-<div id="searchwrap">
-  <input id="searchbox" type="search" placeholder="Filter stories by keyword…" autocomplete="off">
-</div>
-
-<div id="tabs"><!-- tabs injected --></div>
-
-<div id="feedwrap">
-  <div id="feed"><div class="empty">Loading news…</div></div>
-</div>
-
+<header><div class="head"><div class="brand">Revere Monitor<small>vNext</small></div><div class="stamp" id="stamp">loading…</div></div><nav><div class="navin">
+<button class="navbtn active" data-page="home">Home</button><button class="navbtn" data-page="ma">Massachusetts</button><button class="navbtn" data-page="national">National + World</button><button class="navbtn" data-page="sports">Sports</button><button class="navbtn" data-page="reddit">Reddit</button><button class="navbtn" data-page="utilities">Utilities</button><button class="navbtn" data-page="sources">Sources</button>
+</div></nav></header>
+<div class="shell"><div id="status"></div>
+<section id="home" class="page active"><div class="homeintro"><div><div class="eyebrow">Your information front page</div><h1>What matters now.</h1></div><div class="updated" id="updated"></div></div><div class="lanes" id="lanes"></div></section>
+<section id="ma" class="page"><div class="pagehead"><div class="eyebrow">Massachusetts</div><h1>Local first.</h1><div class="deck">Revere, Boston, nearby communities, transportation and housing without making each source fight for its own box.</div></div><div class="tabs" data-group="ma"></div><div class="stream" id="ma-stream"></div></section>
+<section id="national" class="page"><div class="pagehead"><div class="eyebrow">National + World</div><h1>The wider picture.</h1><div class="deck">Major US and global reporting, selected reading and discussion, with chronology always available.</div></div><div class="tabs" data-group="national"></div><div class="stream" id="national-stream"></div></section>
+<section id="sports" class="page"><div class="pagehead"><div class="eyebrow">Sports</div><h1>Your teams before the firehose.</h1><div class="deck">Boston College and college hockey lead; Boston and national sports remain close at hand.</div></div><div class="tabs" data-group="sports"></div><div class="stream" id="sports-stream"></div></section>
+<section id="reddit" class="page"><div class="pagehead"><div class="eyebrow">Reddit overview</div><h1>Reddit, without Reddit's homepage.</h1><div class="deck">A bounded, deterministic view of communities you explicitly care about. No recommendations or infinite scroll.</div></div><div class="tabs" data-group="reddit"></div><div class="stream" id="reddit-stream"></div></section>
+<section id="utilities" class="page"><div class="pagehead"><div class="eyebrow">Utilities</div><h1>Useful when you need them.</h1><div class="deck">Weather, transit, Logan, coast and road conditions are available without occupying half the homepage.</div></div><div class="utilitygrid" id="utilitygrid"></div></section>
+<section id="sources" class="page"><div class="pagehead"><div class="eyebrow">Source health</div><h1>Know what is stale.</h1><div class="deck">A failed fetch should be visible here—not discovered because an entire part of the Monitor mysteriously disappeared.</div></div><div class="health" id="health"></div></section>
+<div class="footer">REVERE MONITOR · resilient local-first information terminal</div></div>
 <script>
-// ══════════════════════════════════════════════════════════════════
-//  SOURCE / TOPIC MAP
-//  Each entry maps a data.json key -> a tab. Multiple keys can share a
-//  tab. `topic` groups sources into topic tabs; `label`+`color` drive
-//  the per-item source pill. Order here = order feeds merge in.
-// ══════════════════════════════════════════════════════════════════
-const FEEDS = [
-  // key                    label            color       topic
-  ['news_revere',           'Revere',        '#2d5be3',  'Local'],
-  ['news_communities',      'Communities',   '#0891b2',  'Local'],
-  ['news_boston',           'Boston',        '#c73535',  'Metro'],
-  ['news_universalhub',     'Universal Hub', '#d44a1a',  'Metro'],
-  ['news_ma_transit',       'MA Transit',    '#1f8a4c',  'Transit & Housing'],
-  ['news_logan',            'Logan Airport', '#7a84a0',  'Transit & Housing'],
-  ['news_national',         'National',      '#3a4055',  'National'],
-  ['news_ktn',              'Breaking',      '#c8960a',  'National'],
-  ['news_substack',         'Substack',      '#9333ea',  'National'],
-  ['news_sports',           'My Sports',     '#e06c2a',  'Sports'],
-  ['news_espn',             'ESPN',          '#c73535',  'Sports'],
-  ['news_bc',               'Boston College','#8b1a1a',  'Sports'],
-  ['news_bc_hockey',        'BC Hockey',     '#8b1a1a',  'Sports'],
-  ['news_college_hockey',   'College Hockey','#6b3fa0',  'Sports'],
-  ['news_hockey_east',      'Hockey East',   '#6b3fa0',  'Sports'],
-];
-
-// Topic tab order (left → right after "All")
-const TOPIC_ORDER = ['Local','Metro','Transit & Housing','National','Sports'];
-
-// ── helpers (ported from index.html for visual parity) ──────────────
-function stripHtml(h){if(!h)return'';return h.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();}
-function itemTs(it){return it.ts ? it.ts : (it.published ? Date.parse(it.published)/1000 : 0);}
-function fmtDateTime(ts,pub){
-  const d=ts?new Date(ts*1000):(pub?new Date(pub):null);
-  if(!d||isNaN(d))return'';
-  try{return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+', '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}catch{return'';}
-}
-function dayLabel(ts){
-  if(!ts) return 'Undated';
-  const d=new Date(ts*1000); const now=new Date();
-  const strip=x=>new Date(x.getFullYear(),x.getMonth(),x.getDate());
-  const diff=Math.round((strip(now)-strip(d))/86400000);
-  if(diff===0)return 'Today';
-  if(diff===1)return 'Yesterday';
-  if(diff<7)return d.toLocaleDateString('en-US',{weekday:'long'});
-  return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-}
-
-// ── state ───────────────────────────────────────────────────────────
-let ALL = [];             // flattened, deduped, sorted items
-let activeTab = 'all';    // 'all' | topic name | feed label
-let query = '';
-let shown = 0;
-const PAGE = 60;
-
-// ── build the unified item list ─────────────────────────────────────
-function ingest(data){
-  const seen = new Set();
-  const out = [];
-  for(const [key,label,color,topic] of FEEDS){
-    const arr = data[key] || [];
-    for(const it of arr){
-      const link = it.link || '';
-      const dedupeKey = link || (label+'|'+(it.title||''));
-      if(seen.has(dedupeKey)) continue;
-      seen.add(dedupeKey);
-      out.push({
-        title: it.title || '(untitled)',
-        link,
-        ts: itemTs(it),
-        published: it.published || '',
-        // keep the item's own source string if present (e.g. community name,
-        // "Google News · X"), else fall back to the feed label
-        srcText: it.source || label,
-        feedLabel: label,
-        color,
-        topic,
-        snippet: stripHtml(it.summary || it.description || it.content || ''),
-      });
-    }
-  }
-  out.sort((a,b)=>b.ts-a.ts);
-  return out;
-}
-
-// ── tabs ────────────────────────────────────────────────────────────
-function buildTabs(){
-  const wrap=document.getElementById('tabs');
-  const tabs=[];
-  tabs.push({id:'all',label:'All',count:ALL.length});
-  // topic tabs
-  for(const t of TOPIC_ORDER){
-    const n=ALL.filter(x=>x.topic===t).length;
-    if(n) tabs.push({id:'topic:'+t,label:t,count:n});
-  }
-  // a divider look isn't needed; append per-source tabs after topics
-  const bySource=new Map();
-  for(const f of FEEDS){
-    const n=ALL.filter(x=>x.feedLabel===f[1]).length;
-    if(n) bySource.set(f[1],{id:'src:'+f[1],label:f[1],count:n,color:f[2]});
-  }
-  for(const v of bySource.values()) tabs.push(v);
-
-  wrap.innerHTML='';
-  for(const t of tabs){
-    const el=document.createElement('button');
-    el.className='tab'+((activeTab===t.id)?' active':'');
-    el.dataset.id=t.id;
-    let dot = t.color ? `<span style="width:7px;height:7px;border-radius:50%;background:${t.color};display:inline-block;"></span>` : '';
-    el.innerHTML = dot + `<span>${t.label}</span><span class="cnt">${t.count}</span>`;
-    el.onclick=()=>{activeTab=t.id; shown=0; buildTabs(); renderFeed();};
-    wrap.appendChild(el);
-  }
-}
-
-// ── filter for current tab + query ──────────────────────────────────
-function currentItems(){
-  let items=ALL;
-  if(activeTab.startsWith('topic:')){
-    const t=activeTab.slice(6); items=items.filter(x=>x.topic===t);
-  }else if(activeTab.startsWith('src:')){
-    const s=activeTab.slice(4); items=items.filter(x=>x.feedLabel===s);
-  }
-  if(query){
-    const q=query.toLowerCase();
-    items=items.filter(x=>(x.title+' '+x.snippet+' '+x.srcText).toLowerCase().includes(q));
-  }
-  return items;
-}
-
-// ── render ──────────────────────────────────────────────────────────
-function itemEl(it){
-  const a=document.createElement('a');
-  a.className='ni';
-  a.href=it.link||'#'; a.target='_blank'; a.rel='noopener noreferrer';
-  const pill=`<span class="ni-pill" style="background:${it.color}">${it.feedLabel}</span>`;
-  // if the item's own source differs from the feed label, show it too
-  const srcExtra = (it.srcText && it.srcText!==it.feedLabel) ? `<span class="ni-src">${it.srcText}</span>` : '';
-  let inner=`<div class="ni-top">${pill}${srcExtra}</div>`;
-  inner+=`<div class="ni-title">${it.title}</div>`;
-  if(it.snippet && it.snippet.length>30) inner+=`<div class="ni-snippet">${it.snippet.slice(0,200)}</div>`;
-  if(it.ts||it.published) inner+=`<div class="ni-date">${fmtDateTime(it.ts,it.published)}</div>`;
-  a.innerHTML=inner;
-  return a;
-}
-
-function renderFeed(){
-  const feed=document.getElementById('feed');
-  const items=currentItems();
-  if(!items.length){feed.innerHTML='<div class="empty">No stories match.</div>';return;}
-  if(shown===0) shown=Math.min(PAGE,items.length); else shown=Math.min(shown,items.length);
-  const slice=items.slice(0,shown);
-
-  feed.innerHTML='';
-  let lastDay=null, group=null;
-  for(const it of slice){
-    const dl=dayLabel(it.ts);
-    if(dl!==lastDay){
-      group=document.createElement('div'); group.className='daygroup';
-      const h=document.createElement('div'); h.className='dayhdr'; h.textContent=dl;
-      group.appendChild(h); feed.appendChild(group); lastDay=dl;
-    }
-    group.appendChild(itemEl(it));
-  }
-  if(shown<items.length){
-    const btn=document.createElement('button'); btn.id='loadmore';
-    btn.textContent=`Load more (${items.length-shown} older)`;
-    btn.onclick=()=>{shown+=PAGE; renderFeed(); };
-    feed.appendChild(btn);
-  }
-}
-
-// ── search box ──────────────────────────────────────────────────────
-document.getElementById('searchbox').addEventListener('input',e=>{
-  query=e.target.value.trim(); shown=0; renderFeed();
-});
-
-// ── boot ────────────────────────────────────────────────────────────
-(async function init(){
-  try{
-    const r=await fetch('data.json?_='+Date.now());
-    const data=await r.json();
-    ALL=ingest(data);
-    document.getElementById('upd-hdr').textContent=
-      data.updated_local ? ('Updated '+data.updated_local) : (ALL.length+' stories');
-    buildTabs();
-    renderFeed();
-  }catch(e){
-    document.getElementById('feed').innerHTML=
-      '<div class="empty">Could not load data.json — make sure this page sits in the same folder as your dashboard.<br><small>'+e+'</small></div>';
-    document.getElementById('upd-hdr').textContent='load failed';
-  }
-})();
+const groups={
+ ma:{tabs:[['top','Top'],['revere','Revere'],['metro','Boston / Metro'],['communities','Communities'],['transit','Transit & Housing'],['reddit','Reddit']],active:'top'},
+ national:{tabs:[['top','Top'],['us','US'],['world','World'],['reading','Reading'],['reddit','Reddit']],active:'top'},
+ sports:{tabs:[['top','Top'],['bc','Boston College'],['hockey','College Hockey'],['national','National'],['reddit','Reddit'],['schedule','Schedule']],active:'top'},
+ reddit:{tabs:[['all','Overview'],['massachusetts','Massachusetts'],['sports','Sports'],['national','National'],['active','Most Discussed']],active:'all'}
+};
+let D={};
+const feedMap={
+ revere:['news_revere'],metro:['news_boston','news_universalhub'],communities:['news_communities'],transit:['news_ma_transit','news_logan'],
+ national:['news_national','news_ktn','news_substack'],reading:['news_substack'],sportsAll:['news_sports','news_espn','news_bc','news_college_hockey','news_bc_hockey','news_hockey_east'],bc:['news_bc','news_bc_hockey'],hockey:['news_college_hockey','news_hockey_east','news_bc_hockey'],sportsNational:['news_sports','news_espn']
+};
+function arr(...keys){return keys.flatMap(k=>Array.isArray(D[k])?D[k]:[])}
+function ts(x){return Number(x.ts||0)||(x.published?Date.parse(x.published)/1000:0)}
+function age(x){const t=ts(x);if(!t)return'';const d=Math.max(0,Date.now()/1000-t);if(d<3600)return Math.max(1,Math.floor(d/60))+'m';if(d<86400)return Math.floor(d/3600)+'h';return Math.floor(d/86400)+'d'}
+function clean(s=''){return String(s).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()}
+function uniq(xs){const seen=new Set();return xs.filter(x=>{const k=x.link||String(x.title||'').toLowerCase();if(!k||seen.has(k))return false;seen.add(k);return true})}
+const pri={'Revere.org':7,'Revere Journal':7,'Universal Hub':7,'AP':6,'BBC':5,'NPR':5,'NY Times':5,'Washington Post':4,'College Hockey News':6,'CHN':6,'USCHO':5,'The Heights':6,'BC Interruption':5,'BC Hockey':6,'BC Athletics':5};
+function score(x,kind=''){let s=Math.max(0,72-(Date.now()/1000-ts(x))/3600);const src=x.source||x.feed_title||'';for(const [k,v] of Object.entries(pri))if(src.includes(k))s+=v;if(kind==='ma'&&/revere/i.test((x.title||'')+' '+src))s+=8;if(kind==='sports'&&/boston college|bc hockey|eagles/i.test((x.title||'')+' '+src))s+=7;return s}
+function ranked(xs,kind){return uniq(xs).sort((a,b)=>score(b,kind)-score(a,kind))}
+function chrono(xs){return uniq(xs).sort((a,b)=>ts(b)-ts(a))}
+function source(x){return x.source||x.feed_title||x.author||'Source'}
+function storyHTML(x,lead=false){const title=clean(x.title||'(untitled)'),src=clean(source(x)),a=age(x),href=x.link||'#';if(lead)return `<a class="lead" href="${href}" target="_blank" rel="noopener"><div class="lead-src">${src}</div><div class="lead-title">${title}</div><div class="meta">${a}</div></a>`;return `<a class="story" href="${href}" target="_blank" rel="noopener"><div class="storyline"><span class="src">${src}</span><span class="meta">${a}</span></div><div class="story-title">${title}</div></a>`}
+function feedHTML(xs){if(!xs.length)return'<div class="emptymsg">Nothing available in this view right now.</div>';return xs.slice(0,80).map(x=>`<a class="feedrow" href="${x.link||'#'}" target="_blank" rel="noopener"><div class="feedtop"><span class="src">${clean(source(x))}</span><span class="meta">${age(x)}</span></div><div class="feedtitle">${clean(x.title||'(untitled)')}</div>${clean(x.summary||x.description||'')?`<div class="snippet">${clean(x.summary||x.description)}</div>`:''}</a>`).join('')}
+function redditItems(category='all'){const R=D.reddit||{};let xs=category==='all'?(R.all||[]):((R.categories||{})[category]||[]);return [...xs]}
+function redditHTML(xs){if(!xs.length)return'<div class="emptymsg">Reddit data has not been normalized yet. It will populate after the vNext fetch workflow runs.</div>';return xs.slice(0,70).map(x=>`<a class="redditrow" href="${x.link}" target="_blank" rel="noopener"><div class="rsub">r/${x.subreddit}</div><div class="reddittitle">${clean(x.title)}</div><div class="redditstats">${x.score||0} points · ${x.comments||0} comments · ${age(x)}</div></a>`).join('')}
+function home(){const ma=ranked(arr(...feedMap.revere,...feedMap.metro,...feedMap.transit),'ma'),nat=ranked(arr(...feedMap.national),'national'),sp=ranked(arr(...feedMap.sportsAll),'sports');const defs=[['Massachusetts','ma',ma],['National + World','national',nat],['Sports','sports',sp]];document.getElementById('lanes').innerHTML=defs.map(([label,page,xs])=>`<article class="lane"><div class="lanehead"><h2>${label}</h2><button class="openlane" onclick="go('${page}')">View all →</button></div>${xs.length?storyHTML(xs[0],true)+xs.slice(1,6).map(x=>storyHTML(x)).join(''):'<div class="emptymsg">No current stories.</div>'}</article>`).join('')}
+function status(){const w=D.weather_current||{}, mbta=Array.isArray(D.mbta_alerts)?D.mbta_alerts:[],logan=D.logan||{},beach=D.beach_conditions||{},tides=Array.isArray(D.tides)?D.tides:[];const blue=mbta.filter(a=>(a.routes||[]).some(r=>String(r).toLowerCase().includes('blue')));let next=tides.find(t=>{const n=Date.parse(String(t.t).replace(' ','T'));return n>Date.now()})||tides[0];const ttxt=next?`${next.type==='H'?'High':'Low'} ${next.t?new Date(String(next.t).replace(' ','T')).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):''}`:'No tide data';document.getElementById('status').innerHTML=`<div class="chip"><span class="lbl">Weather</span><strong>${w.temp??'—'}°</strong><span>${clean(w.shortForecast||'')}</span></div><div class="chip ${blue.length?'alert':'good'}"><span class="lbl">Blue Line</span><strong>${blue.length?blue.length+' alert'+(blue.length>1?'s':''):'Normal'}</strong></div><div class="chip ${logan.delay?'alert':'good'}"><span class="lbl">Logan</span><strong>${logan.delay?'Delays':'Normal'}</strong></div><div class="chip ${beach.flag==='red'?'alert':beach.flag==='yellow'?'warn':'good'}"><span class="lbl">Beach</span><strong>${beach.flag_label||'—'}</strong></div><div class="chip"><span class="lbl">Tide</span><strong>${ttxt}</strong></div>`}
+function renderTabs(group){const el=document.querySelector(`.tabs[data-group="${group}"]`),g=groups[group];el.innerHTML=g.tabs.map(([id,label])=>`<button class="tab ${g.active===id?'active':''}" data-id="${id}">${label}</button>`).join('');el.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{g.active=b.dataset.id;renderTabs(group);renderGroup(group)})}
+function renderGroup(g){let xs=[];if(g==='ma'){const a=groups.ma.active;if(a==='top')xs=ranked(arr(...feedMap.revere,...feedMap.metro,...feedMap.communities,...feedMap.transit),'ma');if(a==='revere')xs=chrono(arr(...feedMap.revere));if(a==='metro')xs=chrono(arr(...feedMap.metro));if(a==='communities')xs=chrono(arr(...feedMap.communities));if(a==='transit')xs=chrono(arr(...feedMap.transit));document.getElementById('ma-stream').innerHTML=a==='reddit'?redditHTML(redditItems('massachusetts')):feedHTML(xs)}
+if(g==='national'){const a=groups.national.active;if(a==='top'||a==='us'||a==='world')xs=a==='top'?ranked(arr(...feedMap.national),'national'):chrono(arr(...feedMap.national));if(a==='reading')xs=chrono(arr(...feedMap.reading));document.getElementById('national-stream').innerHTML=a==='reddit'?redditHTML(redditItems('national')):feedHTML(xs)}
+if(g==='sports'){const a=groups.sports.active;if(a==='top')xs=ranked(arr(...feedMap.sportsAll),'sports');if(a==='bc')xs=chrono(arr(...feedMap.bc));if(a==='hockey')xs=chrono(arr(...feedMap.hockey));if(a==='national')xs=chrono(arr(...feedMap.sportsNational));if(a==='schedule'){document.getElementById('sports-stream').innerHTML=scheduleHTML();return}document.getElementById('sports-stream').innerHTML=a==='reddit'?redditHTML(redditItems('sports')):feedHTML(xs)}
+if(g==='reddit'){const a=groups.reddit.active;xs=a==='active'?redditItems('all').sort((x,y)=>(y.comments||0)-(x.comments||0)):redditItems(a);document.getElementById('reddit-stream').innerHTML=redditHTML(xs)}}
+function scheduleHTML(){const xs=Array.isArray(D.sports_schedule)?D.sports_schedule:[];if(!xs.length)return'<div class="emptymsg">No schedule data available.</div>';return xs.slice(0,50).map(x=>`<div class="feedrow"><div class="src">${clean(x.sport||x.team||x.calendar||'Sports')}</div><div class="feedtitle">${clean(x.summary||x.title||'Event')}</div><div class="meta">${clean(x.date||'')} ${clean(x.time||'')}</div></div>`).join('')}
+function utilities(){const w=D.weather_current||{},days=D.weather_daily||[],mbta=D.mbta_alerts||[],logan=D.logan||{},b=D.beach_conditions||{},roads=D.road_events||[];document.getElementById('utilitygrid').innerHTML=`<div class="util"><h3>Weather</h3><div class="big">${w.temp??'—'}°</div><div class="kv">${clean(w.shortForecast||'')}</div><div class="kv">Humidity ${w.humidity??'—'}% · Precip ${w.precip??'—'}%</div>${days.slice(0,4).map(x=>`<div class="kv"><strong>${clean(x.name||'')}</strong> · ${x.high??'—'}° / ${x.low??'—'}° · ${clean(x.shortForecast||'')}</div>`).join('')}</div><div class="util"><h3>MBTA alerts</h3>${mbta.length?mbta.slice(0,12).map(x=>`<div class="kv"><strong>${clean((x.routes||[]).join(', ')||x.effect||'Alert')}</strong><br>${clean(x.header||'')}</div>`).join(''):'<div class="kv">No current rapid-transit alerts.</div>'}</div><div class="util"><h3>Logan</h3><div class="big">${logan.delay?'Delays':'Normal'}</div>${(logan.faa_delays||[]).map(x=>`<div class="kv">${clean(x.type||'Delay')} · ${clean(x.reason||'')} ${clean(x.avg||'')}</div>`).join('')||'<div class="kv">No FAA delay program reported.</div>'}</div><div class="util"><h3>Revere Beach / Coast</h3><div class="big">${b.flag_label||'—'}</div><div class="kv">Water ${b.water_temp_f??'—'}°F · Waves ${b.wvht_ft??'—'} ft</div><div class="kv">Wind ${b.wspd_mph??'—'} mph ${b.wdir_label||''}</div></div><div class="util"><h3>Roads</h3>${roads.length?roads.slice(0,10).map(x=>`<div class="kv"><strong>${clean(x.road||x.title||'Road event')}</strong><br>${clean(x.location||x.lanes||'')}</div>`).join(''):'<div class="kv">No road-event data.</div>'}</div>`}
+function health(){const H=D.source_health||{},els=[];for(const [k,v] of Object.entries(H)){if(k==='reddit'){for(const [s,r] of Object.entries(v||{}))els.push([`Reddit · r/${s}`,r])}else els.push([k,v])}document.getElementById('health').innerHTML=els.length?els.map(([k,v])=>`<div class="healthitem"><div class="healthname">${k}</div><div class="${v.status||''}"><strong>${v.status||'unknown'}</strong> · ${v.count??0}</div></div>`).join(''):'<div class="emptymsg">Source-health metadata will appear after the vNext workflow runs.</div>'}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.navbtn').forEach(x=>x.classList.toggle('active',x.dataset.page===id));if(id==='utilities')utilities();if(id==='sources')health();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>go(b.dataset.page));
+async function boot(){try{const r=await fetch('data.json?'+Date.now(),{cache:'no-store'});D=await r.json();document.getElementById('stamp').textContent=new Date().toLocaleString([], {weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});document.getElementById('updated').textContent='Data updated '+(D.updated_local||D.updated||'recently');status();home();Object.keys(groups).forEach(g=>{renderTabs(g);renderGroup(g)});}catch(e){document.getElementById('lanes').innerHTML='<div class="emptymsg">The Monitor could not load data.json.</div>';console.error(e)}}boot();
 </script>
-</body>
-</html>
+</body></html>
