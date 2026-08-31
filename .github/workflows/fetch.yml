@@ -16,7 +16,11 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install requests feedparser beautifulsoup4 icalendar
+      - name: Preserve previous payload
+        run: cp data.json data.previous.json 2>/dev/null || true
       - run: python fetch.py
+      - name: Normalize vNext data
+        run: python augment_vnext.py
       - name: Commit updated data
         run: |
           git config user.name "Revere Monitor Bot"
